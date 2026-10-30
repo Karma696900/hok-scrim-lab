@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "Birden çok eşyayı sınıflandır",
   "Source": "Kaynak",
   "Source (https address)": "Kaynak (https adresi)",
+  "Source code": "Kaynak kodu",
   "Source link (optional)": "Kaynak bağlantısı (isteğe bağlı)",
   "Space of {name}": "{name} kullanıcısının alanı",
   "Spectating the ready check.": "Hazır olma kontrolünü izliyorsunuz.",

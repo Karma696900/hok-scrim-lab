@@ -2524,3 +2524,4 @@
 2690|Seçim sırası bilinmiyor
 2689|Seçim sırası biliniyor
 2691|Kaynağıyla karşılaştırıldı: kahramanlar, banlar, koridorlar ve kazananlar tutarlı. Seçim sırası bilinmiyor.
+2692|Kaynak kodu

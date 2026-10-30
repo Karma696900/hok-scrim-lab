@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "여러 아이템 분류",
   "Source": "출처",
   "Source (https address)": "출처(https 주소)",
+  "Source code": "소스 코드",
   "Source link (optional)": "출처 링크 (선택)",
   "Space of {name}": "{name}의 공간",
   "Spectating the ready check.": "준비 확인을 관전 중입니다.",

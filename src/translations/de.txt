@@ -2524,3 +2524,4 @@
 2690|Pick-Reihenfolge unbekannt
 2689|Die Reihenfolge der Picks ist bekannt
 2691|Mit der Quelle abgeglichen: Helden, Bans, Lanes und Sieger passen zusammen. Die Reihenfolge der Picks ist nicht bekannt.
+2692|Quellcode

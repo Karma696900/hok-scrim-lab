@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "批量分类装备",
   "Source": "来源",
   "Source (https address)": "来源（https 地址）",
+  "Source code": "源代码",
   "Source link (optional)": "来源链接（可选）",
   "Space of {name}": "{name} 的空间",
   "Spectating the ready check.": "正在观看准备确认。",

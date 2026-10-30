@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "Phân loại nhiều trang bị",
   "Source": "Nguồn",
   "Source (https address)": "Nguồn (địa chỉ https)",
+  "Source code": "Mã nguồn",
   "Source link (optional)": "Liên kết nguồn (không bắt buộc)",
   "Space of {name}": "Không gian của {name}",
   "Spectating the ready check.": "Đang theo dõi bước kiểm tra sẵn sàng.",

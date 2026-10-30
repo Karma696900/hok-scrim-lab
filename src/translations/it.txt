@@ -2524,3 +2524,4 @@
 2690|Ordine dei pick sconosciuto
 2689|L'ordine dei pick è noto
 2691|Controllata con la sua fonte: eroi, ban, corsie e vincitori sono coerenti. L'ordine dei pick non è noto.
+2692|Codice sorgente

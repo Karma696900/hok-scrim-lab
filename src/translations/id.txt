@@ -2524,3 +2524,4 @@
 2690|Urutan pick tidak diketahui
 2689|Urutan pick diketahui
 2691|Dicek dengan sumbernya: hero, ban, lane, dan pemenang saling cocok. Urutan pick tidak diketahui.
+2692|Kode sumber

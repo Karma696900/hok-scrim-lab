@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "Разобрать несколько предметов",
   "Source": "Источник",
   "Source (https address)": "Источник (адрес https)",
+  "Source code": "Исходный код",
   "Source link (optional)": "Ссылка на источник (необязательно)",
   "Space of {name}": "Пространство {name}",
   "Spectating the ready check.": "Вы наблюдаете за проверкой готовности.",

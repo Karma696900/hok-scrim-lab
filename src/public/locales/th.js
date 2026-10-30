@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "จัดหมวดไอเทมหลายชิ้น",
   "Source": "แหล่งที่มา",
   "Source (https address)": "แหล่งที่มา (ที่อยู่ https)",
+  "Source code": "ซอร์สโค้ด",
   "Source link (optional)": "ลิงก์แหล่งที่มา (ไม่บังคับ)",
   "Space of {name}": "พื้นที่ของ {name}",
   "Spectating the ready check.": "กำลังดูการตรวจความพร้อม",

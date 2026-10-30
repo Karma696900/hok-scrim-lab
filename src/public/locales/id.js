@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "Kelompokkan beberapa item",
   "Source": "Sumber",
   "Source (https address)": "Sumber (alamat https)",
+  "Source code": "Kode sumber",
   "Source link (optional)": "Tautan sumber (opsional)",
   "Space of {name}": "Ruang milik {name}",
   "Spectating the ready check.": "Menonton cek kesiapan.",

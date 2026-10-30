@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "複数のアイテムを分類",
   "Source": "出典",
   "Source (https address)": "出典（https のアドレス）",
+  "Source code": "ソースコード",
   "Source link (optional)": "出典リンク（任意）",
   "Space of {name}": "{name}のスペース",
   "Spectating the ready check.": "準備確認を観戦中です。",

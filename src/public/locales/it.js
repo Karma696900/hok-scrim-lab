@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "Classifica più oggetti",
   "Source": "Fonte",
   "Source (https address)": "Fonte (indirizzo https)",
+  "Source code": "Codice sorgente",
   "Source link (optional)": "Link della fonte (facoltativo)",
   "Space of {name}": "Spazio di {name}",
   "Spectating the ready check.": "Stai guardando il controllo di prontezza.",

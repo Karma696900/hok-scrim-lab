@@ -2524,3 +2524,4 @@
 2690|Orden de los picks desconocido
 2689|Se conoce el orden de los picks
 2691|Comprobada con su fuente: héroes, baneos, líneas y ganadores son coherentes. No se conoce el orden de los picks.
+2692|Código fuente

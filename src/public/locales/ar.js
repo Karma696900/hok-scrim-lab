@@ -1693,6 +1693,7 @@ export default {
   "Sort several items": "تصنيف عدة عتاد",
   "Source": "المصدر",
   "Source (https address)": "المصدر (عنوان https)",
+  "Source code": "الشيفرة المصدرية",
   "Source link (optional)": "رابط المصدر (اختياري)",
   "Space of {name}": "مساحة {name}",
   "Spectating the ready check.": "تشاهد التحقق من الجاهزية.",

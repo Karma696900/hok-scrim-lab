@@ -2524,3 +2524,4 @@
 2690|Ordre des picks inconnu
 2689|L'ordre des picks est connu
 2691|Vérifiée avec sa source : héros, bans, lanes et vainqueurs sont cohérents. L'ordre des picks n'est pas connu.
+2692|Code source
