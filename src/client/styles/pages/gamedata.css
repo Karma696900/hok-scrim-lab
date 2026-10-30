@@ -163,6 +163,8 @@
 }
 .gd-filters__body {
   display: grid;
+  /* never wider than the column: the search field gives way */
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
 }
 .gd-filters .field--search {

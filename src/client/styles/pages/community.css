@@ -175,6 +175,8 @@
   position: sticky;
   top: calc(var(--topbar) + 16px);
   display: grid;
+  /* never wider than the column: the search field gives way */
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
   max-height: calc(100vh - var(--topbar) - 32px);
   padding: 18px;
@@ -186,6 +188,7 @@
 }
 .cm-filters__body {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 20px;
 }
 .cm-filters__toggle {
