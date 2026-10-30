@@ -135,7 +135,24 @@ Il charge la sauvegarde dans un MySQL jetable, affiche le nombre de tables, de c
 
 ## 8. Entretien
 
-- **Mettre à jour le site** : `git pull && $C up -d --build`.
+- **Mettre à jour le site** : c'est automatique (voir ci-dessous). À la main, si besoin : `git pull && $C up -d --build`.
 - **Regarder ce qui se passe** : `$C ps`, `$C logs -f hok-scrim-lab`, `https://ton-domaine.fr/api/health`.
 - **Le système** se met à jour seul. Pour vérifier : `sudo unattended-upgrade --dry-run`, et `sudo fail2ban-client status sshd` pour voir les tentatives SSH bloquées.
 - **Les imports automatiques des diffusions** tournent sur ton PC et écrivent dans ta base locale : la base du serveur n'est pas ouverte sur Internet. Pour l'instant, la copie vers le serveur se fait à la main (étape 5 dans l'autre sens) ; je peux l'automatiser plus tard.
+
+## 9. Mises à jour automatiques
+
+À chaque `git push` sur la branche `main` de GitHub :
+
+1. **GitHub vérifie le code** (`.github/workflows/ci.yml`) : lint, puis tous les tests unitaires avec une base MySQL jetable. Résultat dans l'onglet **Actions** du dépôt, en 15 minutes environ.
+2. **Le serveur se met à jour seul** (`deploy/auto-update.sh`, toutes les 2 minutes) : s'il voit un commit plus récent sur GitHub **dont les tests sont passés**, il le prend, reconstruit le site et vérifie qu'il répond. Le site est coupé une dizaine de secondes.
+
+GitHub n'a aucune clé du serveur : c'est le serveur qui lit le dépôt public. Si les tests échouent, rien n'est installé ; si la construction échoue, le code revient à la version d'avant (le site n'a pas cessé de tourner) et le serveur réessaie 30 minutes plus tard.
+
+Mise en place, une seule fois, sur le serveur :
+
+```bash
+deploy/install-auto-update.sh
+```
+
+Ce qui s'est passé : `tail -20 ~/auto-update.log` (une ligne par mise à jour : « installing », puis « done » ou « FAILED »).
