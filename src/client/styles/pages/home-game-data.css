@@ -1,0 +1,257 @@
+/* the game data: three tiles, each a collage of the real pictures of the catalogue */
+.data-band {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.data-tile {
+  display: grid;
+  align-content: start;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  transition: border-color 160ms;
+}
+.data-tile:hover {
+  border-color: var(--brand);
+}
+.data-tile__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  color: var(--brand);
+}
+.data-tile__head b {
+  color: var(--ink);
+  font: 700 22px/1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.data-tile__count {
+  margin-inline-start: auto;
+  color: var(--brand-ink);
+  font: 700 32px/1 var(--font-display);
+}
+/* five columns by two rows, edge to edge: the cell follows the tile, the picture follows the cell */
+.data-tile__icons {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2px;
+}
+.data-tile__icons img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  background: var(--panel-soft);
+  object-fit: cover;
+}
+
+/* for someone who has no account / has not played yet */
+.join {
+  display: grid;
+  gap: 16px;
+}
+.join h2 {
+  font-size: 20px;
+}
+.join p {
+  color: var(--muted);
+  line-height: 1.55;
+}
+.join__list,
+.start__steps {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.join__list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.join__list .i,
+.start__steps .i {
+  color: var(--brand);
+}
+.start__steps {
+  gap: 18px;
+  margin-bottom: 20px;
+}
+.start__steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+.start__steps b {
+  display: block;
+  font: 700 19px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.start__steps small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+@media (max-width: 1239px) {
+  .hero-rail {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .rail-card__name {
+    font-size: 18px;
+  }
+}
+@media (max-width: 1100px) {
+  .home-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-cards > :last-child {
+    grid-column: 1 / -1;
+  }
+  .home-figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-figures .home-figure:nth-of-type(2) {
+    border-inline-end: 0;
+  }
+  .home-figures .home-figure:nth-of-type(-n + 2) {
+    border-bottom: 1px solid var(--line-soft);
+  }
+}
+@media (max-width: 700px) {
+  .home-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .hero-rail {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .rail-card__name {
+    font-size: 15px;
+  }
+}
+@media (max-width: 560px) {
+  .home-figure b {
+    font-size: 36px;
+  }
+  .home-figures .home-figure {
+    padding: 16px;
+  }
+}
+@media (max-width: 359px) {
+  .hero-rail {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .data-band {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .data-tile__icons {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+  }
+  /* no arrows on a narrow screen: the circles are taps, a swipe turns the banner */
+  .hello__arrow {
+    display: none;
+  }
+  /* The slides sit on top of each other in one cell, so that the banner is as tall as the tallest one: the words wrap
+     on as many lines as the screen and the language need, and stay clear of the credit and the arrows under them. */
+  .hello {
+    display: grid;
+    height: auto;
+    min-height: 330px;
+  }
+  .hello__slide {
+    position: relative;
+    inset: auto;
+    grid-area: 1 / 1;
+    padding: 24px 20px 100px;
+  }
+  .hello__credit {
+    top: auto;
+    bottom: 14px;
+    inset-inline-end: auto;
+    inset-inline-start: 20px;
+    gap: 10px;
+    max-width: calc(100% - 128px);
+    padding: 8px;
+    padding-inline-end: 16px;
+  }
+  .hello__credit img {
+    width: 48px;
+    height: 48px;
+  }
+  .hello__credit b {
+    font-size: 20px;
+  }
+  .hello__credit small {
+    font-size: 12px;
+  }
+  .dots {
+    inset-inline: auto 15px;
+    bottom: 22px;
+  }
+  .dots button.on::before {
+    width: 28px;
+  }
+  .checkin {
+    display: none;
+  }
+  .hello__title,
+  .hello__title.display {
+    font-size: 28px;
+  }
+}
+@media (max-width: 560px) {
+  .data-tile__icons {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+/* wide: the rows read like a scoreboard, the first team ending where the score starts and the second one beginning
+   after it, instead of two names pushed to the far ends of a row 1400 px long */
+@media (min-width: 1101px) {
+  .home-list .match {
+    grid-template-columns: 150px minmax(0, 1fr) 84px minmax(0, 1fr) 110px 20px;
+  }
+  .home-list .match > * {
+    grid-row: 1;
+  }
+  .home-list .match > .i:last-child {
+    grid-column: 6;
+  }
+  .home-list .match__vs {
+    display: none;
+  }
+  .home-list .match__date {
+    grid-column: 1;
+  }
+  .home-list .match__date + .match__team {
+    grid-column: 2;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+    text-align: end;
+  }
+  .home-list .match__score {
+    grid-column: 3;
+    font-size: 20px;
+  }
+  .home-list .match__score + .pill,
+  .home-list .match > .pill {
+    grid-column: 5;
+  }
+  .home-list .match__team ~ .match__team {
+    grid-column: 4;
+  }
+}

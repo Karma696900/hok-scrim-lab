@@ -1,0 +1,112 @@
+{
+  "always": [
+    "shell/background.css",
+    "components/sizes.css",
+    "components/tabs.css",
+    "components/lane-tabs.css",
+    "components/combo.css",
+    "components/goals.css",
+    "components/vod.css",
+    "components/cards.css",
+    "components/media.css",
+    "components/data.css",
+    "components/art.css",
+    "components/overlays.css",
+    "components/pickers.css",
+    "components/motion.css",
+    "components/skeleton.css",
+    "components/shared.css",
+    "components/responsive.css",
+    "shell/palette.css"
+  ],
+  "views": {
+    "home": ["pages/home.css", "pages/home-game-data.css"],
+    "heroes": ["pages/heroes.css", "pages/heroes-rows.css"],
+    "hero": [
+      "pages/hero-stats.css",
+      "pages/hero-sections.css",
+      "components/build.css",
+      "pages/hero-sheet.css",
+      "pages/hero-sheet-scrims.css",
+      "pages/hero-sheet-small-screens.css",
+      "pages/hero-builds.css"
+    ],
+    "tier-lists": [
+      "components/tier-board.css",
+      "pages/tier-lists.css",
+      "pages/tier-lists-picked-hero.css"
+    ],
+    "scrims": ["pages/scrims.css", "pages/scrims-new-series.css"],
+    "scrims-room": [
+      "pages/scrims.css",
+      "pages/scrims-new-series.css",
+      "pages/series.css",
+      "pages/series-games.css",
+      "pages/draft.css",
+      "pages/draft-middle.css",
+      "pages/draft-log.css"
+    ],
+    "history": ["pages/scrims.css", "pages/scrims-new-series.css", "pages/history.css"],
+    "build-lab": [
+      "components/build.css",
+      "pages/build-lab.css",
+      "pages/build-lab-saving.css",
+      "pages/build-lab-small-screens.css"
+    ],
+    "teams": ["pages/community.css", "pages/teams.css"],
+    "find": ["pages/community.css", "pages/find.css"],
+    "login": ["pages/auth.css", "pages/auth-authenticator.css"],
+    "register": ["pages/auth.css", "pages/auth-authenticator.css"],
+    "training": [
+      "pages/community.css",
+      "pages/training.css",
+      "pages/training-heroes.css",
+      "pages/training-notebook.css",
+      "pages/training-map.css",
+      "pages/reflex.css",
+      "pages/reflex-bar.css",
+      "pages/reflex-last-hit.css"
+    ],
+    "welcome": [
+      "pages/settings.css",
+      "pages/settings-interface.css",
+      "pages/settings-small-screens.css",
+      "pages/welcome.css"
+    ],
+    "settings": [
+      "pages/settings.css",
+      "pages/settings-interface.css",
+      "pages/settings-small-screens.css"
+    ],
+    "space": ["pages/community.css", "pages/space.css"],
+    "space-shared": ["pages/community.css", "pages/space.css"],
+    "agenda": ["pages/community.css", "pages/agenda.css"],
+    "inbox": ["pages/community.css", "pages/inbox.css"],
+    "discord": ["pages/community.css", "pages/discord.css"],
+    "reports": ["pages/community.css", "pages/admin.css"],
+    "tournaments": [
+      "components/workspace.css",
+      "components/workspace-side-panel.css",
+      "pages/tournaments.css",
+      "pages/tournaments-picker.css"
+    ],
+    "guides": [
+      "components/build.css",
+      "components/workspace.css",
+      "components/workspace-side-panel.css",
+      "pages/build-lab.css",
+      "pages/build-lab-saving.css",
+      "pages/build-lab-small-screens.css",
+      "pages/guides.css"
+    ],
+    "items": ["pages/gamedata.css"],
+    "arcana": ["pages/gamedata.css"],
+    "spells": ["pages/gamedata.css"],
+    "popular": ["pages/popular.css", "pages/popular-empty-period.css"],
+    "terms": ["pages/legal.css"],
+    "privacy": ["pages/legal.css"],
+    "cookies": ["pages/legal.css"],
+    "legal": ["pages/legal.css"],
+    "contact": ["pages/legal.css"]
+  }
+}

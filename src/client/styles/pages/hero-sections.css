@@ -1,0 +1,502 @@
+/* The other tabs of the hero sheet: the skills, the combos, the patch history and the artwork, and the
+   coloured words of a description. */
+.tone {
+  font-weight: 600;
+  --tone-light: color-mix(in srgb, var(--tone, #98a0ae) 55%, #ffffff);
+  color: var(--tone-light);
+}
+[data-theme="light"] .tone {
+  --tone-light: color-mix(in srgb, var(--tone, #4d5f7c) 50%, #000000);
+}
+/* in a place that keeps the dark look in the light theme (the scenes over a picture) the words stay light */
+[data-theme="light"] .keep-dark .tone {
+  --tone-light: color-mix(in srgb, var(--tone, #98a0ae) 55%, #ffffff);
+}
+.stag {
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 11px;
+  border: 1px solid color-mix(in srgb, var(--tc, var(--muted)) 60%, transparent);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--tc, var(--muted)) 14%, transparent);
+  color: var(--ink);
+  font: 600 13px/1 var(--font-body);
+}
+
+/* ---------- the skills tab: the pictures in a row, then the one that is open ---------- */
+.skillbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
+.skill-tab {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  padding: 18px 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  color: var(--muted);
+  text-align: center;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    color 160ms;
+}
+.skill-tab .sk__frame {
+  display: block;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel-soft);
+  transition:
+    border-color 160ms,
+    transform 220ms var(--ease);
+}
+.skill-tab .sk__frame img,
+.skill-tab .sk__blank {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.skill-tab .sk__blank {
+  display: block;
+  background: var(--panel-raised);
+}
+.skill-tab small {
+  color: var(--brand-ink);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.skill-tab b {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--ink);
+  font: 700 17px/1.15 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.skill-tab:hover {
+  border-color: var(--brand);
+}
+.skill-tab:hover .sk__frame {
+  transform: scale(1.05);
+}
+.skill-tab.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 14%, var(--panel));
+}
+.skill-tab.on .sk__frame {
+  border-color: var(--brand);
+}
+.hs-skdetail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  margin-top: 20px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+}
+.hs-skdetail__text {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+.hs-skdetail__media {
+  position: sticky;
+  top: calc(var(--topbar) + 84px);
+  min-width: 0;
+}
+.skdetail__head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.skdetail__head > .skill-icon {
+  width: 72px;
+  height: 72px;
+  flex: none;
+  border: 2px solid var(--brand);
+  border-radius: 16px;
+  object-fit: cover;
+}
+.skdetail__head h3 {
+  font: 700 36px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.skdetail__head .pill {
+  margin-inline-start: auto;
+}
+.skdetail .tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.skmeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 36px;
+  margin: 0;
+  padding-block: 14px;
+  border-block: 1px solid var(--line-soft);
+}
+.skmeta dt {
+  color: var(--muted);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.skmeta dd {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0 0;
+  font: 700 36px/1 var(--font-display);
+  letter-spacing: 0.02em;
+}
+.skmeta .i {
+  width: 22px;
+  height: 22px;
+  color: var(--brand-ink);
+}
+.skmeta .mana {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+.skdesc {
+  max-width: 68ch;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+.skill-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: #05080f;
+  object-fit: cover;
+}
+.skill-numbers {
+  display: grid;
+  gap: 14px;
+}
+
+/* the hero's pictures of its skills, big, where a block has nothing else to show */
+.hs-bigskills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 18px;
+}
+.hs-bigskills li {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.hs-bigskills .combo-pic {
+  --combo-size: 96px;
+  border-width: 2px;
+}
+.hs-bigskills__icon {
+  width: 96px;
+  height: 96px;
+  border: 2px solid var(--brand);
+  border-radius: 18px;
+  object-fit: cover;
+}
+.hs-bigskills b {
+  font: 700 17px/1.1 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.hs-bigskills small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- the combos: the name on one side, the skills in order on the other ---------- */
+.combo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr));
+  gap: 16px;
+}
+.combo-list > li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.combo-row {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px 20px;
+  padding: 22px 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+}
+.combo-row .combo-steps {
+  grid-column: 1 / -1;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+.combo-row__num {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--brand);
+  border-radius: 50%;
+  color: var(--brand-ink);
+  font: 700 24px/1 var(--font-display);
+}
+.combo-row h3 {
+  font: 700 24px/1.15 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.combo-row__text p {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+.combo-row .combo-steps {
+  --combo-size: 68px;
+}
+.combo-more {
+  margin-top: 14px;
+}
+.combo-more summary {
+  width: fit-content;
+  margin-bottom: 14px;
+  padding: 6px 2px;
+  color: var(--brand-ink);
+  font: 600 15px/1.2 var(--font-body);
+  cursor: pointer;
+}
+.combo-links {
+  margin-top: 20px;
+}
+
+/* ---------- the patch history: a line down the page, one entry per season ---------- */
+.patch-list {
+  position: relative;
+  display: grid;
+  gap: 16px;
+  padding-inline-start: 28px;
+}
+.patch-list::before {
+  content: "";
+  position: absolute;
+  inset-block: 8px;
+  inset-inline-start: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--brand), transparent);
+}
+.patch-entry {
+  position: relative;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+}
+.patch-entry::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 24px;
+  inset-inline-start: -28px;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--canvas);
+  border-radius: 50%;
+  background: var(--brand);
+}
+.patch-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 8px;
+}
+.patch-head strong {
+  font: 700 28px/1 var(--font-display);
+  letter-spacing: 0.04em;
+}
+.patch-summary {
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 600;
+}
+.patch-change {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 0 2px;
+  margin-top: 12px;
+  border-top: 1px solid var(--line-soft);
+}
+.patch-icon {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  object-fit: cover;
+}
+.patch-change strong {
+  font: 700 17px/1.2 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.patch-text {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font: 400 15px/1.6 var(--font-body);
+  white-space: pre-line;
+}
+.patch-list--one {
+  padding-inline-start: 0;
+}
+.patch-list--one::before,
+.patch-list--one .patch-entry::before {
+  display: none;
+}
+.patch-list--one .patch-entry {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+.patch-list--one .patch-text {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* ---------- the artwork: every picture at its own shape ---------- */
+/* rows of pictures that all have the same height and fill the width: a tall picture is narrow, a scene is
+   wide, and what is left of a row is shared out, so no tile is left alone with a hole next to it */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.gallery-item {
+  display: block;
+  flex: 1 1 280px;
+  height: 320px;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+}
+.gallery-item--tall {
+  flex: 1 1 200px;
+}
+.gallery-item--wide {
+  flex: 2 1 520px;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 500ms var(--ease);
+  color: transparent;
+}
+.gallery-item--wide img {
+  object-fit: cover;
+}
+.gallery-item:hover {
+  border-color: var(--brand);
+}
+.gallery-item:hover img {
+  transform: scale(1.04);
+}
+
+/* the coloured tag of a skill in the table of its numbers */
+.skill-tag {
+  border: 1px solid var(--tone, var(--line));
+  font-size: 12px;
+  font-weight: 700;
+  --tone-light: color-mix(in srgb, var(--tone, #98a0ae) 55%, #ffffff);
+  color: var(--tone-light);
+  border-radius: var(--r-sm);
+  padding: 3px 9px;
+}
+
+@media (max-width: 1000px) {
+  .hs-skdetail {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 18px;
+  }
+  .hs-skdetail__media {
+    position: static;
+    order: -1;
+  }
+}
+@media (max-width: 720px) {
+  .skillbar {
+    grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+    gap: 10px;
+  }
+  .skill-tab {
+    padding: 12px 6px;
+  }
+  .skill-tab .sk__frame {
+    width: 72px;
+    height: 72px;
+  }
+  .skill-tab b {
+    font-size: 15px;
+  }
+  .skdetail__head h3 {
+    font-size: 28px;
+  }
+  .skmeta dd {
+    font-size: 30px;
+  }
+  .combo-row {
+    padding: 14px;
+    gap: 14px;
+  }
+  .combo-row .combo-steps {
+    --combo-size: 52px;
+  }
+  .patch-head strong {
+    font-size: 24px;
+  }
+  .gallery-grid {
+    gap: 10px;
+  }
+  .gallery-item {
+    flex-basis: 150px;
+    height: 220px;
+  }
+  .gallery-item--wide {
+    flex-basis: 100%;
+    height: 200px;
+  }
+}

@@ -1,0 +1,296 @@
+/* A player's page: the stage with the avatar, the main heroes as tall portraits next to "About", the teams and the
+   team-mates, the goals and the last series of the person, and the tools of the staff. Everything is pl-*, apart from
+   the hook of the browser tests (.profile-head). */
+
+.pl-stage .cm-stage__who {
+  align-items: flex-end;
+  gap: 28px;
+}
+.pl-avatar {
+  display: grid;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px var(--panel-soft),
+    0 0 0 6px var(--brand),
+    0 0 48px color-mix(in srgb, var(--brand) 45%, transparent);
+}
+.pl-tag {
+  display: inline-block;
+  margin-inline-end: 14px;
+  color: var(--brand-ink);
+  font: 700 20px/1 var(--font-display);
+  letter-spacing: 0.1em;
+}
+.pl-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  vertical-align: middle;
+}
+.pl-chips .tagchip {
+  background: color-mix(in srgb, var(--panel-soft) 70%, transparent);
+}
+.pl-chips .tagchip--hi {
+  background: color-mix(in srgb, var(--brand-strong) 70%, transparent);
+}
+
+/* ---------- body: rows share width, each block stretches to fill its row ---------- */
+.pl-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+.pl-row > .card {
+  min-width: 0;
+}
+.pl-heroes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.pl-heroes__grid--small {
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  margin-top: 14px;
+  gap: 10px;
+}
+.pl-hero {
+  position: relative;
+  display: block;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  color: var(--ink);
+  overflow: hidden;
+  text-decoration: none;
+  transition:
+    transform 200ms var(--ease),
+    border-color 200ms;
+}
+.pl-hero:hover,
+.pl-hero:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--brand);
+}
+/* the portrait of the card (and what stands in for it): not the lane logos, which are pictures too */
+.pl-hero__img,
+.pl-hero__fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 14%;
+  transition: transform 500ms var(--ease);
+}
+.pl-hero:hover .pl-hero__img {
+  transform: scale(1.05);
+}
+.pl-hero__lanes {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline: 8px;
+}
+/* a hero with more lanes than the card is wide: they go on a second row instead of leaving the card */
+.pl-hero__lanes .lanes {
+  flex-wrap: wrap;
+}
+.pl-hero__name {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  display: grid;
+  gap: 2px;
+  padding: 36px 12px 12px;
+  background: linear-gradient(
+    0deg,
+    color-mix(in srgb, var(--panel-soft) 94%, transparent),
+    transparent
+  );
+}
+.pl-hero__name b {
+  overflow: hidden;
+  font: 700 20px/1.05 var(--font-display);
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pl-heroes__grid--small .pl-hero__name b {
+  font-size: 15px;
+}
+.pl-hero__name small {
+  color: var(--muted);
+  font-size: 13px;
+}
+.pl-about p {
+  line-height: 1.6;
+}
+.pl-facts {
+  display: grid;
+  margin: 14px 0 0;
+}
+.pl-facts div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line-soft);
+}
+.pl-facts dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+.pl-facts dd {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: end;
+}
+.pl-teams {
+  display: grid;
+  gap: 10px;
+}
+.pl-team {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(
+      100% 160% at 0% 0%,
+      color-mix(in srgb, hsl(var(--hue) 75% 52%) 10%, transparent),
+      transparent 62%
+    ),
+    var(--tint-1);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 160ms,
+    transform 160ms var(--ease);
+}
+.pl-team:hover,
+.pl-team:focus-visible {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+.pl-team .row__body b {
+  font: 700 22px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.pl-team .row__body b small {
+  margin-inline-start: 8px;
+  color: var(--muted);
+  font: 600 13px/1 var(--font-body);
+  letter-spacing: 0.08em;
+}
+.pl-team .row__body > small {
+  white-space: normal;
+}
+.pl-mates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+  gap: 10px;
+}
+.pl-mate {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px 6px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 160ms;
+}
+.pl-mate:hover,
+.pl-mate:focus-visible {
+  border-color: var(--brand);
+}
+.pl-mate b {
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pl-mate small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ---------- the form of the profile ---------- */
+.pl-form {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.pl-form .card__head {
+  margin-bottom: 0;
+}
+.pl-form__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.pl-form__col {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  min-width: 0;
+}
+.pl-form__pair,
+.pl-form__heroes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.pl-form__heroes {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 4px;
+}
+#profile-form-slot:not([hidden]) {
+  margin-bottom: 0;
+}
+#labels-form .btn {
+  margin-top: 14px;
+}
+
+@media (max-width: 900px) {
+  .pl-avatar .pt {
+    --s: 88px;
+  }
+  .pl-stage .cm-stage__who {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .pl-form__cols {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .pl-heroes__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pl-form__heroes,
+  .pl-form__pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.pl-team .row__body b small {
+  display: inline;
+  margin-top: 0;
+}

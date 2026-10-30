@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="__LANG__" dir="__DIR__" data-theme="__THEME__"__FIRST_DRAW__>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="__THEME_COLOR__">
+    <link rel="icon" href="/logo.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <meta name="description" content="__DESCRIPTION__">
+    <meta name="robots" content="__ROBOTS__">
+    <link rel="canonical" href="__CANONICAL__">
+    <meta property="og:site_name" content="__SITE_NAME__">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="__OG_LOCALE__">
+    <meta property="og:title" content="__TITLE__">
+    <meta property="og:description" content="__DESCRIPTION__">
+    <meta property="og:url" content="__CANONICAL__">
+    <meta property="og:image" content="__OG_IMAGE__">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>__TITLE__</title>
+    <link rel="preload" href="/fonts/barlow-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/barlow-latin-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/fonts/barlow-condensed-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+    <style>__CRITICAL_CSS__</style>
+    __BOOT__
+  </head>
+  <body>
+    <a class="skip-link" href="#view">{{t:Skip to content}}</a>
+    <div class="app">
+      <header class="topbar">
+        <a class="logo" href="/"><img src="/logo.svg" alt="" width="38" height="46"><b>HOK Global<br>{{t:Scrim Lab}}</b></a>
+        <div class="side" id="sidebar">
+          <nav class="nav-list" id="main-nav" aria-label="{{t:Main navigation}}">
+            <a class="nav-link nav-home active" data-view="home" href="/">{{i:home i--duo}}<span>{{t:Overview}}</span></a>
+            <div class="nav-group" data-group="play">
+              <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-play">{{i:swords i--duo}}<span>{{t:Play}}</span>{{i:chevron i--sm}}</button>
+              <div class="nav-panel" id="nav-play">
+                <a class="nav-link" data-module="scrims" data-view="scrims" href="/scrims">{{i:swords i--duo}}<span>{{t:Scrims & Drafts}}</span></a>
+                <a class="nav-link" data-module="scrims" data-view="live" href="/live">{{i:bolt i--duo}}<span>{{t:Live draft}}</span><em class="count count--red" id="badge-live" hidden></em></a>
+                <a class="nav-link" data-view="find" href="/find">{{i:search i--duo}}<span>{{t:Find a scrim}}</span><em class="count" id="badge-find" hidden></em></a>
+                <a class="nav-link" data-view="tournaments" href="/tournaments" id="nav-tournaments" hidden>{{i:medal i--duo}}<span>{{t:Tournaments}}</span></a>
+                <a class="nav-link" data-module="scrims" data-view="history" href="/history">{{i:clock i--duo}}<span>{{t:History}}</span></a>
+              </div>
+            </div>
+            <div class="nav-group" data-group="heroes">
+              <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-heroes">{{i:book i--duo}}<span>{{t:Heroes}}</span>{{i:chevron i--sm}}</button>
+              <div class="nav-panel" id="nav-heroes">
+                <a class="nav-link" data-module="heroes" data-view="heroes" href="/heroes">{{i:book i--duo}}<span>{{t:Heroes & Builds}}</span></a>
+                <a class="nav-link" data-module="heroes" data-view="build-lab" href="/build-lab">{{i:layers i--duo}}<span>{{t:Build lab}}</span></a>
+                <a class="nav-link" data-module="tier-lists" data-view="tier-lists" href="/tier-lists">{{i:trophy i--duo}}<span>{{t:Tier Lists}}</span></a>
+                <a class="nav-link" data-module="heroes" data-view="popular" href="/popular">{{i:trend i--duo}}<span>{{t:Popular}}</span></a>
+                <a class="nav-link" data-view="guides" href="/guides" id="nav-guides" hidden>{{i:star i--duo}}<span>{{t:Hero guides}}</span></a>
+                <a class="nav-link" data-view="ratings" href="/ratings" id="nav-ratings" hidden>{{i:crown i--duo}}<span>{{t:Ratings}}</span></a>
+              </div>
+            </div>
+            <div class="nav-group" data-group="data">
+              <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-data">{{i:gem i--duo}}<span>{{t:Game data}}</span>{{i:chevron i--sm}}</button>
+              <div class="nav-panel" id="nav-data">
+                <a class="nav-link" data-module="heroes" data-view="items" href="/items">{{i:gem i--duo}}<span>{{t:Items}}</span></a>
+                <a class="nav-link" data-module="heroes" data-view="arcana" href="/arcana">{{i:star i--duo}}<span>{{t:Arcana}}</span></a>
+                <a class="nav-link" data-module="heroes" data-view="spells" href="/spells">{{i:bolt i--duo}}<span>{{t:Spells}}</span></a>
+              </div>
+            </div>
+            <div class="nav-group" data-group="team">
+              <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-team">{{i:shieldcheck i--duo}}<span>{{t:My team}}</span>{{i:chevron i--sm}}</button>
+              <div class="nav-panel" id="nav-team">
+                <a class="nav-link" data-view="teams" href="/teams">{{i:shieldcheck i--duo}}<span>{{t:Teams}}</span></a>
+                <a class="nav-link" data-view="agenda" href="/agenda" id="nav-agenda" hidden>{{i:calendar i--duo}}<span>{{t:Agenda}}</span><em class="count" id="badge-agenda" hidden></em></a>
+                <a class="nav-link" data-view="inbox" href="/inbox" id="nav-inbox" hidden>{{i:mail i--duo}}<span>{{t:Inbox}}</span><em class="count" id="badge-inbox" hidden></em></a>
+                <a class="nav-link" data-module="training" data-signed-in data-view="training" href="/training" id="nav-training" hidden>{{i:target i--duo}}<span>{{t:Training}}</span></a>
+                <a class="nav-link" data-view="reports" href="/reports" id="nav-reports" hidden>{{i:flag i--duo}}<span>{{t:Reports}}</span></a>
+              </div>
+            </div>
+            <div class="nav-group nav-group--end" data-group="me">
+              <button type="button" class="nav-group__btn" aria-expanded="false" aria-controls="nav-me">{{i:user i--duo}}<span>{{t:Me}}</span>{{i:chevron i--sm}}</button>
+              <div class="nav-panel" id="nav-me">
+                <a class="nav-link" data-view="player" id="nav-player" hidden>{{i:user i--duo}}<span>{{t:Player profile}}</span></a>
+                <a class="nav-link" data-view="space" href="/space" id="nav-space" hidden>{{i:layers i--duo}}<span>{{t:My space}}</span></a>
+                <a class="nav-link" data-view="settings" href="/settings">{{i:settings i--duo}}<span>{{t:Settings}}</span></a>
+                <a class="nav-link" data-view="catalog" href="/catalog" id="nav-catalog" hidden>{{i:layers i--duo}}<span>{{t:Catalog}}</span></a>
+                <div class="mode">
+                  <div class="mode__row">
+                    <span>{{i:sun i--sm}}<span id="theme-label">{{t:Light mode}}</span></span>
+                    <button type="button" class="switch" id="theme-switch" aria-labelledby="theme-label"></button>
+                  </div>
+                  <div class="seg" role="group" aria-label="{{t:Text direction}}"><button type="button" data-direction="ltr" aria-pressed="true">LTR</button><button type="button" data-direction="rtl" aria-pressed="false">RTL</button></div>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+        <form class="field topbar-search" id="topbar-search" role="search">{{i:search}}<input id="topbar-search-input" type="search" placeholder="{{t:Search a hero, an item, an arcana, a team…}}" aria-label="{{t:Search a hero, an item, an arcana, a team…}}" autocomplete="off"><kbd class="kbd">Ctrl K</kbd></form>
+        <div class="topbar__end">
+          <button type="button" class="btn btn--ghost lang" id="language-button" aria-haspopup="menu" aria-expanded="false" aria-label="{{t:Language}}">{{i:globe}}<span>__LANGUAGE_NAME__</span>{{i:chevron i--sm}}</button>
+          <button type="button" class="btn btn--ghost btn--icon theme-btn" id="theme-toggle" aria-label="{{t:Switch to the light theme}}">{{i:sun}}</button>
+          <a class="btn btn--ghost btn--icon bell" id="topbar-notifications" href="/inbox" hidden aria-label="{{t:Notifications}}">{{i:bell}}<em class="count" id="badge-bell" hidden></em></a>
+          <div id="account-control" class="account-control"></div>
+        </div>
+      </header>
+      <div class="side-scrim" id="sidebar-backdrop" hidden></div>
+      <main id="view" class="host app-view" tabindex="-1"></main>
+      <footer class="sitefoot">
+        <nav class="sitefoot__links" aria-label="{{t:Legal}}">
+          <a href="/terms">{{t:Terms of use}}</a>
+          <a href="/privacy">{{t:Privacy policy}}</a>
+          <a href="/cookies">{{t:Cookies}}</a>
+          <a href="/legal">{{t:Legal notice}}</a>
+          <a href="/contact">{{t:Contact}}</a>
+        </nav>
+        <p class="sitefoot__note">{{t:HOK Global Scrim Lab is a fan project, not affiliated with Tencent / TiMi Studio Group. Honor of Kings and its artwork belong to them.}}</p>
+      </footer>
+    </div>
+    <nav class="tabbar" aria-label="{{t:Mobile navigation}}">
+      <a class="tab" data-view="home" href="/">{{i:home}}<span>{{t:Overview}}</span></a>
+      <a class="tab" data-module="scrims" data-view="scrims" href="/scrims">{{i:swords}}<span>{{t:Scrims}}</span></a>
+      <a class="tab live" data-module="scrims" data-view="live" href="/live">{{i:bolt}}<span>{{t:Live}}</span></a>
+      <a class="tab" data-module="heroes" data-view="heroes" href="/heroes">{{i:book}}<span>{{t:Heroes}}</span></a>
+      <button type="button" class="tab" id="menu-toggle" aria-expanded="false" aria-controls="sidebar">{{i:grid}}<span>{{t:Menu}}</span></button>
+    </nav>
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+    <dialog id="export-dialog" class="dialog" aria-labelledby="export-title">
+      <form id="export-form" autocomplete="off">
+        <div class="dialog__head"><div><h2 id="export-title">{{t:Export}}</h2><p>{{t:Styled report · re-importable}}</p></div></div>
+        <fieldset class="export-formats"><legend class="label">{{t:Format}}</legend>
+          <div class="export-options">
+            <label class="choice-tile"><input type="radio" name="format" value="pdf" checked><span><b>PDF</b><small>{{t:All games, any length}}</small></span></label>
+            <label class="choice-tile" data-png-option><input type="radio" name="format" value="png"><span><b>PNG</b><small>{{t:Image to share, up to 15 games}}</small></span></label>
+          </div>
+        </fieldset>
+        <label class="label" for="export-filename">{{t:File name}}<span class="field"><input id="export-filename" name="filename" maxlength="80" placeholder="{{t:File name}}"></span></label>
+        <label class="label" for="export-comment">{{t:Comment}} <small>{{t:(printed in the file)}}</small><span class="field field--area"><textarea id="export-comment" name="comment" rows="4" maxlength="500" placeholder="{{t:Round recap, what to work on, who played…}}"></textarea></span><small id="export-count">0 / 500</small></label>
+        <p class="muted export-hint">{{t:The file contains the series data: import it back from Scrims → Import series. Do not re-save or print it, or the data is lost.}}</p>
+        <p id="export-error" class="form-error" role="alert"></p>
+        <div class="dialog__foot"><button type="button" class="btn btn--ghost" data-export-cancel>{{t:Cancel}}</button><button type="submit" class="btn btn--primary">{{t:Download}}</button></div>
+      </form>
+    </dialog>
+    <div id="handoff" class="scrim" hidden>
+      <section class="dialog" role="dialog" aria-modal="true" aria-labelledby="handoff-title">
+        <div class="dialog__head"><div><h2 id="handoff-title">{{t:Pass the device}}</h2><p>{{t:Local two-player draft}}</p></div></div>
+        <p id="handoff-copy">{{t:The next side is ready.}}</p>
+        <div class="dialog__foot"><button id="handoff-continue" class="btn btn--primary" type="button">{{t:Continue draft}}</button></div>
+      </section>
+    </div>
+  </body>
+</html>

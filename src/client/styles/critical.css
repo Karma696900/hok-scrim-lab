@@ -1,0 +1,14 @@
+/* Inlined in the HTML (first paint): the tokens, the reset, the controls the shell uses and the shell itself.
+   Everything else is main.css, loaded without blocking the first paint. */
+@import "./base/fallback-fonts.css";
+@import "./base/fonts.css";
+@import "./base/tokens.css";
+@import "./base/languages.css";
+@import "./base/reset.css";
+@import "./base/accessibility.css";
+@import "./components/icons.css";
+@import "./components/buttons.css";
+@import "./components/forms.css";
+@import "./shell/shell.css";
+@import "./shell/responsive.css";
+@import "./shell/avatar.css";

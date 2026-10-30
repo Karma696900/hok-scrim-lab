@@ -1,0 +1,133 @@
+/* Design tokens: surfaces, text, brand, the two sides, states, tiers, depth, type, radii, motion; the light theme and the dark surfaces that stay dark. */
+@property --p {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --edge-start {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --edge-end {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+:root {
+  color-scheme: dark;
+  /* surfaces: the deep navy of the reference boards, measured from the pictures */
+  --canvas: #0a111a;
+  --panel: #0e1825;
+  --panel-raised: #15233a;
+  --panel-soft: #080e17;
+  --line: #243350;
+  --line-soft: #1a2740;
+  --ink: #e9eef8;
+  --muted: #93a2ba;
+  --faint: #7d8ca6;
+  --tint-1: color-mix(in srgb, var(--ink) 4%, transparent);
+  --tint-2: color-mix(in srgb, var(--ink) 8%, transparent);
+  --tint-3: color-mix(in srgb, var(--ink) 14%, transparent);
+  --chrome: rgba(8, 14, 23, 0.9);
+  --scrim: rgba(4, 8, 14, 0.7);
+  /* brand */
+  --brand: #5b9bff;
+  --brand-strong: #2f6fe8;
+  --brand-soft: #b9d4ff;
+  --brand-ink: #9cc2ff;
+  --cyan: #19d3f3;
+  --gild-line: rgba(91, 155, 255, 0.32);
+  /* the fill of a primary action, and the text on it */
+  --on-brand: #ffffff;
+  --gild: linear-gradient(180deg, #336eea 0%, #2a62d6 100%);
+  --glow: 0 8px 28px rgba(91, 155, 255, 0.3);
+  /* the two sides (reserved) */
+  --team-blue: #2f6fe8;
+  --team-blue-text: #8ab6ff;
+  --team-red: #cf3340;
+  --team-red-text: #ff8a95;
+  /* states */
+  --success: #34d399;
+  --warn: #f5b83d;
+  --danger: #ff8a95;
+  --discord: #5865f2;
+  /* tiers */
+  --tier-ss: #e879f9;
+  --tier-s: #f0555a;
+  --tier-a: #f79b4a;
+  --tier-b: #f5cf4a;
+  --tier-c: #5fd27f;
+  --tier-d: #5aa8ee;
+  /* depth */
+  --card-bg: linear-gradient(160deg, #101b2c 0%, #0d1623 65%);
+  --card-blue: linear-gradient(155deg, #16397a 0%, #0f2550 55%, #0a1730 100%);
+  --edge: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --shadow-pop: 0 18px 50px rgba(0, 0, 0, 0.55);
+  --font-display:
+    "Barlow Condensed", "Barlow Condensed Fallback", "Arial Narrow", system-ui, sans-serif;
+  --font-body: "Barlow", "Barlow Fallback", "Segoe UI", system-ui, sans-serif;
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 10px;
+  --topbar: 72px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* what a control animates when it is hovered, pressed or turned on: never its size or its place in the layout
+     (a bare `transition: 160ms` is every property, the ones that move the layout included) */
+  --fx: background-color, border-color, color, box-shadow, opacity, transform;
+}
+
+/* The light theme only moves the neutral tokens; the brand, side and tier colours stay. */
+[data-theme="light"] {
+  color-scheme: light;
+  --canvas: #edf1f8;
+  --panel: #ffffff;
+  --panel-raised: #f2f6fd;
+  --panel-soft: #f6f8fd;
+  --line: #cdd8ea;
+  --line-soft: #dde5f2;
+  --ink: #0e1a30;
+  --muted: #4d5f7c;
+  --faint: #5c6c86;
+  --chrome: rgba(255, 255, 255, 0.9);
+  --scrim: rgba(14, 26, 48, 0.45);
+  --brand: #1f55c8;
+  --gild-line: rgba(31, 85, 200, 0.3);
+  --on-brand: #ffffff;
+  --gild: linear-gradient(180deg, #1f55c8 0%, #1f55c8 100%);
+  --brand-ink: #1a47a8;
+  --success: #0a6b49;
+  --warn: #946200;
+  --danger: #a3202f;
+  --team-blue-text: #1f55c8;
+  --team-red-text: #b42334;
+  --card-bg: linear-gradient(160deg, #ffffff 0%, #f6f9fe 70%);
+  --card-blue: linear-gradient(155deg, #e4eeff 0%, #cfe0ff 60%, #bcd3ff 100%);
+  --edge: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  --shadow-pop: 0 18px 50px rgba(30, 50, 90, 0.22);
+}
+/* Surfaces that stay dark in both themes (artwork, maps, the draft board) re-assert the dark tokens. */
+.keep-dark {
+  color-scheme: dark;
+  --tint-1: rgba(233, 238, 248, 0.04);
+  --tint-2: rgba(233, 238, 248, 0.08);
+  --tint-3: rgba(233, 238, 248, 0.14);
+  --panel-raised: #15233a;
+  --card-bg: linear-gradient(160deg, #101b2c 0%, #0d1623 65%);
+  --card-blue: linear-gradient(155deg, #16397a 0%, #0f2550 55%, #0a1730 100%);
+  --ink: #e9eef8;
+  --muted: #93a2ba;
+  --faint: #7d8ca6;
+  --panel: #0e1825;
+  --panel-soft: #080e17;
+  --line: #243350;
+  --line-soft: #1a2740;
+  --brand-ink: #9cc2ff;
+  --success: #34d399;
+  --warn: #f5b83d;
+  --danger: #ff8a95;
+  --team-blue-text: #8ab6ff;
+  --team-red-text: #ff8a95;
+  color: var(--ink);
+}

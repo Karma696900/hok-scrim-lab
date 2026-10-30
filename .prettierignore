@@ -1,0 +1,25 @@
+node_modules
+dist
+src/public/locales
+src/public/fonts
+.data
+docs/samples
+# third-party tools installed into the project (not ours to reformat) and the saved pages the data was read from
+.claude
+.agents
+skills-lock.json
+/items.html
+/arcana.html
+/spells.html
+*.min.js
+package-lock.json
+# Server template: the server fills its __PLACEHOLDERS__ and {{t:…}} keys and hashes its inline blocks for the CSP; tests compare it byte for byte
+src/client/index.html
+scripts/vod-drafts/data
+# not ours, or prose whose tables Prettier would rewrap
+.impeccable
+scripts/vod-drafts
+.superpowers
+docs
+*.md
+**/snapshots/

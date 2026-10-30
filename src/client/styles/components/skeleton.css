@@ -1,0 +1,62 @@
+/* The shape of the placeholders drawn by core/skeleton.js while a page waits for its data. The shimmer
+   itself (.skeleton) and the reduced-motion rule are in motion.css. Heights are fixed here so that the
+   page does not jump when the real content replaces them. */
+.skeletons {
+  display: grid;
+  grid-column: 1 / -1; /* whole row when it stands in a grid (the team list) */
+  gap: 14px;
+  padding-block: 10px;
+}
+.skeletons__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--panel);
+}
+.skeletons__lines {
+  display: grid;
+  flex: 1;
+  gap: 8px;
+}
+.skeletons__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  gap: 16px;
+}
+.skeletons__card {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  background: var(--panel);
+}
+.skeletons__head {
+  display: grid;
+  gap: 10px;
+  padding-block: 6px 4px;
+}
+.skeleton--line {
+  height: 12px;
+  width: 100%;
+}
+.skeleton--short {
+  width: 55%;
+}
+.skeleton--title {
+  height: 26px;
+  width: min(320px, 70%);
+}
+.skeleton--icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-sm);
+}
+.skeleton--art {
+  height: 96px;
+  border-radius: var(--r-md);
+}

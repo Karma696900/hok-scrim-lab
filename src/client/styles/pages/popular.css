@@ -1,0 +1,456 @@
+/* The popularity pages: a stage (cover of the hero that leads, the figures of the period, the best of the page
+   in big portraits), the controls of the period, then the drafts of each side or the heroes of each lane. */
+
+/* ---------- the stage ---------- */
+.page-head.pp-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: space-between;
+  justify-content: stretch;
+  align-items: center;
+  gap: 24px 32px;
+  min-height: 0;
+  margin-bottom: 16px;
+  padding: 30px 34px 26px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(
+      120% 90% at 85% 0%,
+      color-mix(in srgb, var(--brand) 22%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(135deg, #14233f 0%, #0a111a 100%);
+  color: #fff;
+  overflow: hidden;
+}
+.pp-stage__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.pp-stage__art.is-on {
+  opacity: 1;
+}
+.pp-stage__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 20%;
+}
+.pp-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      #0a111a 0%,
+      rgba(10, 17, 26, 0.9) 30%,
+      rgba(10, 17, 26, 0.42) 66%,
+      rgba(10, 17, 26, 0.14) 100%
+    ),
+    linear-gradient(0deg, rgba(10, 17, 26, 0.88), transparent 58%);
+}
+[dir="rtl"] .pp-stage::after {
+  transform: scaleX(-1);
+}
+.page-head.pp-stage h1 {
+  font-size: clamp(40px, 5.2vw, 64px);
+}
+.page-head.pp-stage p {
+  max-width: 56ch;
+  color: #d3dcee;
+  font-size: 16px;
+}
+.pop-figures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 40px;
+  margin-top: 18px;
+}
+.pop-figures div {
+  display: grid;
+  gap: 2px;
+}
+.pop-figures b {
+  font: 700 80px/0.9 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.pop-figures span {
+  color: var(--brand-ink);
+  font: 700 15px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* the best of the page, in big portraits */
+.pop-podium {
+  display: flex;
+  align-items: flex-end;
+  gap: 14px;
+}
+.pop-podium li {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  width: 132px;
+}
+.pop-podium li:first-child {
+  width: 164px;
+}
+.pop-podium__face {
+  display: block;
+  aspect-ratio: 1;
+  border: 2px solid var(--gild-line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--panel-soft);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.5);
+}
+.pop-podium__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+}
+.pop-podium li b {
+  margin-top: 6px;
+  overflow: hidden;
+  font: 700 18px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pop-podium li small {
+  color: #b9c6dc;
+  font-size: 13px;
+}
+.pop-podium__rank {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-start: 8px;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--r-sm);
+  background: var(--brand-strong);
+  color: #fff;
+  font: 700 18px/1 var(--font-display);
+}
+.pop-podium--drafts {
+  display: grid;
+  gap: 12px;
+}
+.pop-podium--drafts li,
+.pop-podium--drafts li:first-child {
+  width: auto;
+}
+.pop-podium__draft {
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: rgba(8, 14, 23, 0.7);
+}
+.pop-podium__draft > span {
+  font: 700 15px/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pop-podium__draft--blue > span {
+  color: var(--team-blue-text);
+}
+.pop-podium__draft--red > span {
+  color: var(--team-red-text);
+}
+.pop-podium__draft div {
+  display: flex;
+  gap: 6px;
+}
+.pop-podium__draft .pt {
+  border-radius: var(--r-sm);
+}
+
+/* the two tabs, as big as buttons */
+.pp-tabs {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.pp-tabs a {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: rgba(8, 14, 23, 0.7);
+  color: #fff;
+  font: 700 28px/1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    transform 160ms var(--ease);
+}
+.pp-tabs a:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+.pp-tabs a .i {
+  width: 28px;
+  height: 28px;
+  color: var(--brand-ink);
+}
+.pp-tabs a.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 30%, rgba(8, 14, 23, 0.85));
+}
+.pp-tabs a.on .i {
+  color: #fff;
+}
+
+/* ---------- the period and the filters ---------- */
+.pop-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 28px;
+  margin-bottom: 16px;
+  padding: 16px 20px;
+}
+.pop-controls__row,
+.pop-custom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 14px;
+}
+.pop-controls__row .seg button {
+  height: 34px;
+  padding-inline: 14px;
+  font-size: 13px;
+}
+.pop-note {
+  flex: 1 1 100%;
+  font-size: 13px;
+}
+.pop-controls .form-error {
+  flex: 1 1 100%;
+}
+
+/* ---------- the drafts of a side ---------- */
+.pop-sides {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 16px;
+}
+.pop-sides .pop-side {
+  display: flex;
+  flex-direction: column;
+}
+.pop-sides .pop-list {
+  flex: 1;
+  grid-auto-rows: 1fr;
+}
+.pop-side--blue .card__head h2 {
+  color: var(--team-blue-text);
+}
+.pop-side--red .card__head h2 {
+  color: var(--team-red-text);
+}
+.pop-lanes {
+  margin-bottom: 16px;
+}
+.pop-list {
+  display: grid;
+  gap: 12px;
+}
+.pop-row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) 170px;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.pop-rank {
+  color: var(--brand-ink);
+  font: 700 36px/1 var(--font-display);
+  text-align: center;
+}
+.pop-main {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+/* the five heroes of a draft are always one row: five equal columns, each portrait as wide as its column (up to 64 px) */
+.pop-heroes {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 64px));
+  gap: 8px;
+}
+.pop-heroes .pt {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: var(--r-md);
+}
+.pop-vs {
+  display: grid;
+  gap: 6px;
+}
+/* drafts that look alike: the variants under the main version, the swapped heroes ringed */
+.pop-variants {
+  border-top: 1px dashed var(--line-soft);
+  padding-top: 8px;
+}
+.pop-variants summary {
+  cursor: pointer;
+  color: var(--brand-ink);
+  font: 600 13px/1.2 var(--font-body);
+}
+.pop-variants ol {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pop-variant {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 6px 12px;
+}
+.pop-variant__heroes {
+  display: flex;
+  gap: 4px;
+}
+.pop-variant__hero .pt {
+  border-radius: var(--r-sm);
+}
+.pop-variant__hero.is-swap .pt {
+  outline: 2px solid var(--brand-ink);
+  outline-offset: 1px;
+}
+.pop-variant__swaps {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-column: 1 / -1;
+  gap: 4px 12px;
+  min-width: 0;
+}
+.pop-variant__swaps:empty {
+  display: none;
+}
+.pop-swap {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.pop-swap em {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: normal;
+}
+.pop-variant small {
+  color: var(--muted);
+  justify-self: end;
+  white-space: nowrap;
+}
+.pop-vs__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+.pop-vs__label {
+  min-width: 96px;
+  font: 600 13px/1.2 var(--font-body);
+}
+.pop-vs__label--won {
+  color: var(--success);
+}
+.pop-met {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+}
+.pop-met .pt {
+  border-radius: var(--r-sm);
+}
+.pop-met em {
+  color: var(--muted);
+  font: 700 12px/1 var(--font-display);
+  font-style: normal;
+}
+.pop-stats {
+  display: grid;
+  justify-items: stretch;
+  gap: 6px;
+  text-align: end;
+}
+.pop-rate {
+  font: 700 44px/0.9 var(--font-display);
+}
+.pop-plays i {
+  --c: var(--muted);
+}
+.pop-stats small {
+  color: var(--muted);
+  font-size: 13px;
+}
+.pop-stats .pill {
+  justify-self: end;
+}
+.pop-none {
+  padding: 12px 4px;
+}
+
+/* ---------- the heroes of a lane: a row each, with a big portrait ---------- */
+.pop-row--hero {
+  grid-template-columns: 40px minmax(230px, 0.8fr) minmax(190px, 0.6fr) minmax(0, 1.4fr);
+  gap: 20px;
+}
+.pop-hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.pop-hero__art {
+  flex: none;
+  width: 112px;
+  height: 112px;
+  border: 2px solid var(--gild-line);
+  border-radius: var(--r-md);
+  object-fit: cover;
+  object-position: 50% 18%;
+}
+.pop-hero b {
+  font: 700 26px/1.05 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.pop-row--hero:hover .pop-hero b {
+  color: var(--brand-ink);
+}

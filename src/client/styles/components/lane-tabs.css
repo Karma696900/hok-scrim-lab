@@ -1,0 +1,55 @@
+/* A bar of lanes to choose from: the logo, the name and a count on each (tier lists, the hero pool of
+   the live draft). The page that uses it sets its space and how it folds on a small screen. */
+.lane-tabs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.lane-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 64px;
+  padding: 0 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  color: var(--ink);
+  font: 600 15px/1 var(--font-body);
+  box-shadow: var(--edge);
+  transition:
+    transform 200ms var(--ease),
+    border-color 200ms,
+    box-shadow 200ms;
+}
+.lane-tab img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.lane-tab small {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--tint-2);
+  color: var(--muted);
+  font: 600 12px/1.3 var(--font-body);
+}
+.lane-tab:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+.lane-tab.active {
+  border-color: var(--brand);
+  background: rgba(47, 111, 232, 0.22);
+  box-shadow:
+    0 0 0 3px rgba(91, 155, 255, 0.2),
+    var(--glow);
+}
+/* The lane logos are white: in the light theme each one sits on a dark chip, like the other lane logos. */
+[data-theme="light"] .lane-tab img {
+  padding: 4px;
+  border-radius: 8px;
+  background: #2a3d63;
+}

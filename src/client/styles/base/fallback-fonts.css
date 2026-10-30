@@ -1,0 +1,26 @@
+/* Metric-matched fallbacks: until a web font arrives (or when it cannot), text takes the same room, so nothing moves
+   when it swaps in. The numbers are measured, not guessed (Chromium, the real woff2 files against Arial, which
+   Liberation Sans matches on Linux):
+   - size-adjust: the width of the real face over the width of Arial, on the texts the site really sets (mixed case
+     for Barlow, capitals for Barlow Condensed, which the site writes in capitals almost everywhere);
+   - ascent and descent: Barlow and Barlow Condensed rise 100 % and fall 20 % of the font size, and the overrides are
+     divided by size-adjust (the box is scaled with the glyphs): line boxes and baselines come out identical.
+   Measure again when a font or a weight changes (scripts/build/fonts-from-fontsource.mjs says which files are used). */
+@font-face {
+  font-family: "Barlow Fallback";
+  src: local("Arial"), local("Liberation Sans"), local("Helvetica");
+  font-weight: 400 600;
+  size-adjust: 95.4%;
+  ascent-override: 104.8%;
+  descent-override: 21%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Barlow Condensed Fallback";
+  src: local("Arial"), local("Liberation Sans"), local("Helvetica");
+  font-weight: 600 700;
+  size-adjust: 69.4%;
+  ascent-override: 144.1%;
+  descent-override: 28.8%;
+  line-gap-override: 0%;
+}

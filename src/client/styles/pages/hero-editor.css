@@ -1,0 +1,54 @@
+/* The hero data editor (administrators, opened from the hero sheet): the tags, the base stats and
+   the numbers of each spell. */
+.editor-section {
+  margin-bottom: 22px;
+}
+.editor-section h3 {
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+.editor-section > .muted {
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.spell-card,
+.part-card {
+  margin: 0;
+  padding: 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+}
+/* a dialog clears the border and the padding of the fieldsets in it (overlays.css): the card takes them back */
+.dialog .spell-card {
+  margin-bottom: 14px;
+  padding: 14px;
+  border: 1px solid var(--line-soft);
+}
+.spell-card > * + *,
+.part-card > * + * {
+  margin-top: 12px;
+}
+.spell-card > legend + * {
+  margin-top: 0;
+}
+.spell-card legend {
+  padding: 0 6px;
+  font: 600 15px var(--font-display);
+}
+.part-card {
+  background: var(--tint-1);
+}
+.hero-editor .form-error {
+  margin-top: 12px;
+}
+
+/* the buttons stay at the foot of the dialog while a long form scrolls under them */
+.hero-editor-dialog .dialog__foot {
+  position: sticky;
+  bottom: -24px;
+  z-index: 2;
+  margin: 0 -24px -24px;
+  padding: 14px 24px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--panel);
+}

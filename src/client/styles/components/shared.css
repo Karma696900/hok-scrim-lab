@@ -1,0 +1,558 @@
+/* Pieces several pages share: match rows, event cards, team rows, quick tiles, article cards, hero cards, chat bubbles, steppers. */
+/* ---------- a match row: date, both teams, score, status ---------- */
+.match {
+  display: grid;
+  grid-template-columns: 128px minmax(0, 1fr) 36px minmax(0, 1fr) 64px 96px 20px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: var(--tint-1);
+  text-align: start;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    transform 160ms var(--ease);
+}
+button.match:hover,
+a.match:hover {
+  border-color: rgba(91, 155, 255, 0.5);
+  background: rgba(91, 155, 255, 0.07);
+  transform: translateY(-1px);
+}
+.match__date b {
+  display: block;
+  font: 500 13px/1.3 var(--font-body);
+}
+.match__date small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.match__team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  font: 600 13px/1.2 var(--font-body);
+}
+.match__team span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.match__vs {
+  color: var(--faint);
+  font: 600 12px/1 var(--font-body);
+  text-align: center;
+}
+.match__score {
+  font: 700 15px/1 var(--font-display);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+.match__score .w {
+  color: var(--success);
+}
+.match__score .l {
+  color: var(--danger);
+}
+.match > .i:last-child {
+  color: var(--faint);
+}
+
+/* ---------- an event card: two emblems, a title, when, format ---------- */
+.event {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: var(--tint-1);
+  text-align: start;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    transform 160ms var(--ease);
+}
+button.event:hover,
+a.event:hover {
+  border-color: rgba(91, 155, 255, 0.5);
+  background: rgba(91, 155, 255, 0.07);
+  transform: translateY(-1px);
+}
+.event .stack .emblem {
+  --s: 46px;
+}
+.event b {
+  display: block;
+  font: 600 13px/1.3 var(--font-body);
+}
+.event small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.event .pill {
+  margin-top: 6px;
+  height: 20px;
+  font-size: 12px;
+}
+.event > .i:last-child {
+  margin-inline-start: auto;
+  color: var(--faint);
+}
+
+/* ---------- a team row ---------- */
+.teamrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: var(--tint-1);
+  text-align: start;
+  transition-property: var(--fx);
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease);
+}
+button.teamrow:hover,
+a.teamrow:hover {
+  border-color: rgba(91, 155, 255, 0.5);
+  transform: translateY(-1px);
+}
+.teamrow .emblem {
+  --s: 46px;
+}
+.teamrow b {
+  display: block;
+  font: 600 14px/1.25 var(--font-body);
+}
+.teamrow small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.teamrow small em {
+  color: var(--brand-ink);
+  font-style: normal;
+}
+.teamrow > .i:last-child {
+  margin-inline-start: auto;
+  color: var(--faint);
+}
+
+/* ---------- quick access tiles ---------- */
+.quick {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--tint-1);
+  text-align: start;
+  transition-property: var(--fx);
+  transition-duration: 200ms;
+  transition-timing-function: var(--ease);
+}
+.quick:hover {
+  border-color: rgba(91, 155, 255, 0.55);
+  background: rgba(91, 155, 255, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+}
+.quick .ico {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid rgba(91, 155, 255, 0.4);
+  border-radius: 50%;
+  background: rgba(47, 111, 232, 0.2);
+  color: var(--brand-ink);
+  transition-property: var(--fx);
+  transition-duration: 200ms;
+}
+.quick:hover .ico {
+  background: var(--brand-strong);
+  color: #fff;
+  box-shadow: var(--glow);
+}
+.quick b {
+  display: block;
+  font: 600 14px/1.25 var(--font-body);
+}
+.quick small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.quick > .i:last-child {
+  margin-inline-start: auto;
+  color: var(--faint);
+}
+
+/* ---------- an article / story card ---------- */
+.article {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--tint-1);
+  text-align: start;
+  transition-property: var(--fx);
+  transition-duration: 200ms;
+  transition-timing-function: var(--ease);
+}
+.article:hover {
+  border-color: rgba(91, 155, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.article b {
+  display: block;
+  margin-top: 6px;
+  font: 600 14px/1.3 var(--font-display);
+}
+.article p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.article .meta {
+  display: block;
+  margin-top: 8px;
+  color: var(--faint);
+  font-size: 12px;
+}
+
+/* ---------- a hero card (index, pickers) ---------- */
+.hcard {
+  position: relative;
+  display: block;
+  padding: 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--panel);
+  overflow: hidden;
+  text-align: start;
+  transition-property: var(--fx);
+  transition-duration: 220ms;
+  transition-timing-function: var(--ease);
+}
+.hcard:hover {
+  border-color: var(--brand);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(47, 111, 232, 0.28);
+}
+/* ---------- chat bubbles ---------- */
+.bubble {
+  display: flex;
+  gap: 10px;
+  max-width: 82%;
+}
+.bubble--me {
+  flex-direction: row-reverse;
+  margin-inline-start: auto;
+}
+.bubble > div {
+  min-width: 0; /* a long word wraps inside the bubble instead of being cut by it */
+}
+.bubble__text {
+  overflow-wrap: anywhere;
+  padding: 10px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px 14px 14px 4px;
+  background: var(--panel-raised);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.bubble--me .bubble__text {
+  border-color: transparent;
+  border-radius: 14px 14px 4px 14px;
+  background: linear-gradient(180deg, #3270eb, var(--brand-strong));
+  color: #fff;
+}
+.bubble small {
+  display: block;
+  margin-top: 4px;
+  color: var(--faint);
+  font-size: 12px;
+}
+.bubble--me small {
+  text-align: end;
+}
+.bubble.rise {
+  animation-duration: 360ms;
+}
+
+/* ---------- a stepper (onboarding, forms) ---------- */
+.steps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.steps i,
+.steps li {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--tint-3);
+  transition-property: var(--fx);
+  transition-duration: 300ms;
+}
+.steps i.on,
+.steps li.on {
+  background: linear-gradient(90deg, var(--brand-strong), var(--cyan));
+}
+
+/* ---------- small helpers ---------- */
+
+.empty {
+  display: grid;
+  gap: 8px;
+  justify-items: center;
+  padding: 28px 16px;
+  color: var(--muted);
+  text-align: center;
+}
+.empty .i {
+  width: 32px;
+  height: 32px;
+  color: var(--faint);
+}
+@media (max-width: 1100px) {
+  .match {
+    grid-template-columns: 96px minmax(0, 1fr) 28px minmax(0, 1fr) 56px;
+  }
+  .match .pill,
+  .match > .i:last-child {
+    display: none;
+  }
+}
+@media (max-width: 720px) {
+  .page-head .hstack,
+  .card__head .hstack,
+  .days .hstack {
+    flex-wrap: wrap;
+  }
+  .table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .match {
+    grid-template-columns: minmax(0, 1fr) 22px minmax(0, 1fr) 46px;
+    gap: 8px;
+  }
+  .match__team {
+    gap: 8px;
+  }
+  .match__team .emblem {
+    --s: 30px !important;
+  }
+  .match__team span:last-child {
+    white-space: normal;
+    font-size: 12px;
+    line-height: 1.15;
+  }
+  .match__date {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+}
+
+/* ---------- a grid of heroes to pick from (dialogs) ---------- */
+.pick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 10px;
+  max-height: 52vh;
+  padding: 4px;
+  overflow-y: auto;
+}
+
+/* ---------- form chips (W / L), Discord server boxes ---------- */
+.form {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  font: 700 12px/1 var(--font-display);
+  font-style: normal;
+}
+
+.serverbox2 {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2f6fe8, #173a7a);
+  color: #fff;
+}
+.serverbox2 b {
+  display: block;
+  font: 600 16px/1.2 var(--font-display);
+}
+.serverbox2 small {
+  color: #e4eeff;
+}
+.dlogo2 {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(160deg, #6f7bff, var(--discord));
+}
+
+.match .pill {
+  justify-self: start;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- strips that scroll sideways: the side that has more fades out ---------- */
+
+/* A row of tabs or buttons that is wider than its box is cut at the edge with nothing to say that it goes on. Its own
+   scroll drives the fade (no script): at the start only the end fades, in the middle both, at the end only the start.
+   Where scroll-driven animations do not exist the strips stay as they were. */
+@keyframes edge-fade {
+  0% {
+    --edge-start: 0px;
+    --edge-end: 28px;
+  }
+  5%,
+  95% {
+    --edge-start: 28px;
+    --edge-end: 28px;
+  }
+  100% {
+    --edge-start: 28px;
+    --edge-end: 0px;
+  }
+}
+@supports (animation-timeline: scroll()) {
+  [dir="rtl"] {
+    --edge-to: left;
+  }
+  .tabs,
+  .game-nav,
+  .tl-shelf,
+  .table-scroll {
+    mask-image: linear-gradient(
+      to var(--edge-to, right),
+      transparent,
+      #000 var(--edge-start),
+      #000 calc(100% - var(--edge-end)),
+      transparent
+    );
+    animation: edge-fade linear both;
+    animation-timeline: scroll(self inline);
+  }
+  @media (max-width: 1100px) {
+    .hl-scene__more {
+      mask-image: linear-gradient(
+        to var(--edge-to, right),
+        transparent,
+        #000 var(--edge-start),
+        #000 calc(100% - var(--edge-end)),
+        transparent
+      );
+      animation: edge-fade linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+  @media (max-width: 960px) {
+    .ws-rail,
+    .st-rail ul {
+      mask-image: linear-gradient(
+        to var(--edge-to, right),
+        transparent,
+        #000 var(--edge-start),
+        #000 calc(100% - var(--edge-end)),
+        transparent
+      );
+      animation: edge-fade linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+  @media (max-width: 720px) {
+    .tl-stage .lane-tabs,
+    .tl-tools,
+    .table {
+      mask-image: linear-gradient(
+        to var(--edge-to, right),
+        transparent,
+        #000 var(--edge-start),
+        #000 calc(100% - var(--edge-end)),
+        transparent
+      );
+      animation: edge-fade linear both;
+      animation-timeline: scroll(self inline);
+    }
+  }
+}
+
+/* an empty list is one line with its action, never a block */
+.empty-line,
+.empty-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px dashed var(--line);
+  border-radius: var(--r-md);
+  color: var(--muted);
+}
+.empty-line span,
+.empty-row span {
+  flex: 1;
+}
+.empty-row b {
+  color: var(--ink);
+}
+a.empty-line:hover {
+  border-color: var(--brand);
+  color: var(--ink);
+}
+
+/* a place the visitor cannot use: one card with the reason and the way in, under the title */
+.gate {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 720px;
+  padding: 28px 30px;
+}
+.gate > .i {
+  flex: none;
+  color: var(--brand-ink);
+}
+.gate b {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.gate .hstack:only-child {
+  margin: 0;
+}

@@ -1,0 +1,118 @@
+/* The reports of the administrators: a table of the reports and, beside it, the conversation of the one that is
+   selected. Everything is rp-*, apart from the hooks of the browser tests (.report-card). */
+
+.rp-layout {
+  margin-bottom: 8px;
+}
+.rp-list .table-scroll {
+  padding: 6px 12px 12px;
+}
+.rp-table {
+  font-size: 14px;
+}
+/* a long reason wraps inside its cell instead of making the table, and the page, wider */
+.rp-table td,
+.rp-table th {
+  overflow-wrap: anywhere;
+}
+.rp-table .pill {
+  height: auto;
+  min-height: 24px;
+  padding-block: 4px;
+  white-space: normal;
+}
+.rp-table th {
+  padding-top: 12px;
+}
+.rp-row {
+  cursor: pointer;
+}
+.rp-row.on > td {
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+}
+.rp-pick {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: start;
+}
+.rp-teams {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.rp-team {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.rp-team b {
+  font: 600 14px/1.2 var(--font-body);
+}
+.rp-teams i {
+  color: var(--faint);
+  font-style: normal;
+}
+.rp-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  align-content: start;
+  min-width: 0;
+}
+.rp-detail > * {
+  min-width: 0;
+}
+/* the reason a team gave is a sentence, not a label: it wraps */
+.rp-detail .pill {
+  height: auto;
+  min-height: 24px;
+  padding-block: 4px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.rp-detail .card__head {
+  margin-bottom: 0;
+}
+.rp-detail__who {
+  display: grid;
+  gap: 8px;
+}
+.thread-view {
+  display: grid;
+  gap: 10px;
+  max-height: 46vh;
+  padding: 4px;
+  overflow-y: auto;
+}
+
+@media (max-width: 720px) {
+  .rp-table,
+  .rp-table tbody,
+  .rp-table tr,
+  .rp-table td {
+    display: block;
+    white-space: normal;
+  }
+  .rp-table thead {
+    display: none;
+  }
+  .rp-table tr {
+    margin-bottom: 8px;
+    border: 1px solid var(--line-soft);
+    border-radius: var(--r-md);
+  }
+  .rp-table td.r {
+    text-align: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .rp-table td.r::before {
+    content: attr(data-label) ": ";
+    color: var(--muted);
+  }
+}

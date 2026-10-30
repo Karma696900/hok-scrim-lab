@@ -1,0 +1,2526 @@
+0001|Draft corretto
+0002|La richiesta non è riuscita ({status}).
+0003|Esci
+0004|Accedi
+0005|Crea account
+0007|Ruolo non indicato
+0008|Global
+0009|non disponibile
+0010|sconosciuto
+0011|Uso dell'ultima cache del roster convalidata · Sincronizzazione della fonte: {date}
+0012|Nessun roster di eroi Global convalidato è ancora in cache. Sincronizza i dati ufficiali di Camp per caricare il pool del draft.
+0013|{name} — Guida all'eroe di Honor of Kings Global | {site}
+0014|Pagina non trovata | {site}
+0015|Pagina non trovata
+0016|Questa pagina non esiste o è stata spostata.
+0017|Torna alla panoramica
+0018|Sfoglia gli eroi
+0019|Operazioni scrim
+0021|Nuova serie
+0024|Serie attive
+0025|Partite registrate
+0026|Tier list
+0032|Crea serie
+0041|Cronologia
+0042|Ancora nessun risultato
+0043|Le partite concluse verranno registrate qui.
+0044|Serie in parità
+0045|Conclusa
+0046|Partita {number} in corso
+0047|Pronta per la partita successiva
+0048|{teamA} vs {teamB}
+0049|BO{bestOf}
+0050|Esporta {teamA} vs {teamB} in PDF o PNG
+0051|Esporta in PDF o PNG
+0053|Dati non disponibili
+0054|Strumenti di amministrazione
+0055|Admin
+0059|Sincronizza le schede eroe da Camp
+0060|Recupero {done} / {total}…
+0061|{stored} schede eroe salvate su {total}
+0062|{count} non riuscite all'ultima esecuzione
+0064|Elimina
+0065|Indice degli eroi
+0069|Cerca eroi
+0070|Classe
+0071|Tutti
+0072|Nessuna corrispondenza
+0073|Roster non disponibile
+0074|Modifica i filtri attivi.
+0075|Sincronizza il roster Global ufficiale per popolare questa vista.
+0076|Recupero delle schede eroe da Camp in background…
+0080|Pick
+0081|Ban
+0083|Percentuale di vittoria
+0085|Percentuale di ban
+0086|Nessuna partita registrata.
+0087|Eroe
+0088|Partite
+0089|V-S
+0091|Ancora nessuna partita registrata nei tuoi scrim. I risultati compaiono qui quando salvi delle partite.
+0092|Campione insufficiente ({picked}/{minGames} partite con pick)
+0096|Sinergie (compagni)
+0097|Scontri diretti (avversari)
+0098|Le percentuali compaiono a partire da {minGames} partite. Vengono usati solo i tuoi scrim registrati.
+0099|Da potenziare per prima
+0100|Anteprima di {name}
+0101|Nessun video di anteprima pubblicato per questa abilità.
+0103|Camp non elenca abilità per questo eroe.
+0104|Abilità
+0105|Camp non elenca modifiche di bilanciamento per questo eroe.
+0106|Per questo eroe sono disponibili solo i riepiloghi; Camp non ha fornito i valori prima/dopo.
+0107|Attuale
+0108|Generale
+0109|Regione
+0111|Altezza
+0112|Energia
+0113|Corsia di Camp
+0114|Uscito su Global
+0115|Video del profilo dell'eroe
+0116|Nessuna illustrazione ufficiale pubblicata per questo eroe.
+0117|Illustrazioni
+0118|Corsia da aggiungere
+0119|Aggiungi corsia (manuale)
+0121|Scheda eroe non ancora recuperata. Un amministratore può avviare la sincronizzazione con Camp dalla pagina Eroi.
+0122|{name} · nome ufficiale di Camp
+0127|manuale
+0128|Profilo
+0129|Camp · Global
+0130|Cronologia delle patch
+0131|{count, plural, one {# modifica} other {# modifiche}}
+0132|Statistiche competitive
+0134|I tuoi scrim
+0135|Le tue partite
+0138|Abbinamenti
+0140|Scheda eroe da HOK Camp Global ({language}) · recuperata il {date}. Illustrazioni e video appartengono a Tencent / TiMi Studio Group.
+0145|Formato della serie
+0146|Al meglio delle {count}
+0147|Personalizzato
+0148|Numero massimo di partite
+0149|Regola eroi della serie
+0150|Global Ban & Pick
+0151|Free For All
+0152|Ogni squadra può scegliere un eroe una sola volta in questa serie.
+0153|Gli eroi possono essere scelti di nuovo liberamente nelle partite successive.
+0154|{rule} Scegliere una forma di Flowborn blocca tutte e cinque le forme per quella squadra.
+0155|Controllo del draft
+0156|Singolo
+0157|Due giocatori · locale
+0158|Online · invita un giocatore
+0159|Serve l'accesso per creare una stanza online.
+0160|I giocatori si passano lo stesso dispositivo dopo ogni turno.
+0161|Il draft viene condiviso in tempo reale con un avversario invitato.
+0162|Controlli entrambi i lati di questo draft locale.
+0163|Scrim
+0165|Importa serie
+0167|Pronto per il primo draft
+0175|Esporta PDF / PNG
+0176|Link di invito online
+0177|Copia il link di invito
+0178|Stanza online
+0179|Entrambi i giocatori sono connessi. Il draft resta sincronizzato tra i browser.
+0180|Invia questo invito monouso al tuo avversario. Deve accedere con un altro account.
+0181|Blu
+0182|Rosso
+0183|Punteggio della serie
+0184|Squadra A
+0185|Chi arriva prima a {winsRequired} · BO{bestOf}
+0186|Squadra B
+0187|Partita {gameNumber}
+0188|Ha vinto {winner} · {duration}
+0189|Blu: {blueTeam}
+0190|Controllo di prontezza
+0191|Draft in corso
+0192|Partite di questa serie
+0193|Partita successiva
+0194|Il lato blu si alterna automaticamente. Puoi cambiarlo per questa partita.
+0195|Lato blu
+0196|Prepara la partita {number}
+0197|Solo il creatore di questa serie online avvia la partita successiva.
+0198|Serie conclusa
+0199|Inizia un'altra serie
+0200|Nessun pick registrato
+0201|Utilizzo degli eroi nella serie
+0202|Solo pick
+0203|Partite concluse
+0204|Copia il link di visualizzazione
+0205|Copia il link di modifica
+0209|Durata
+0210|Modifica la durata della partita {gameNumber}
+0214|Modifica ban &amp; pick
+0215|Tutti i ruoli
+0216|Tier list {number}
+0217|{name}, corsia {lane}
+0218|Corsia della tier list
+0219|Nome della tier list
+0220|{role} · sola lettura
+0221|Esporta JSON
+0222|Importa JSON
+0223|Rinomina il tier {label}
+0224|Sposta il tier su
+0225|Sposta il tier giù
+0226|Rimuovi il tier
+0227|×
+0228|Trascina qui gli eroi
+0229|Non classificati
+0230|Tutti gli eroi sono classificati
+0231|Aggiungi tier +
+0235|Ancora nessuna tier list {laneName}
+0236|Una lista «Tutti i ruoli» classifica tutti gli eroi Global.
+0237|Una lista per corsia contiene solo gli eroi di quella corsia (un solo Flowborn).
+0240|Crea, condividi ed esporta classifiche per corsia. I nuovi eroi Global entrano automaticamente in «Non classificati».
+0241|Nuova tier list {laneName} +
+0242|Massimo 100 serie per esportazione. Restringi l'intervallo di date o i filtri.
+0243|Esporta le tue serie (PDF)
+0244|Esporta questa serie
+0245|Nome del file
+0246|Generazione…
+0247|Esportazione non riuscita ({status}).
+0248|{format} pronto · {file}
+0249|Scarica
+0250|Questo file è troppo grande (massimo 12 MB).
+0251|Importazione non riuscita ({status}).
+0252|{count, plural, one {# serie importata} other {# serie importate}}
+0253|Pagine
+0254|← Precedente
+0255|Pagina {current} di {pages} · {total} in totale
+0256|Successiva →
+0257|Campione insufficiente ({picked}/{minGames})
+0258|Nome della squadra
+0259|Qualsiasi stato
+0260|Attiva
+0261|Parità
+0262|Qualsiasi regola eroi
+0263|Da
+0264|A
+0265|Applica
+0266|Reimposta
+0267|Cronologia e statistiche
+0268|Tutti i numeri qui sotto provengono dai tuoi scrim conclusi.
+0269|Esporta PDF
+0270|Campione insufficiente ({gamesCount}/{minGames})
+0271|Serie giocate
+0272|Partite giocate
+0273|Partita media
+0274|Tempo di gioco totale
+0275|Partita più breve
+0276|Partita più lunga
+0277|Vittorie lato blu – lato rosso
+0278|Percentuale di vittoria del lato blu
+0279|Serie salvate
+0280|Nessuna cronologia di scrim
+0281|Nessun risultato per questi filtri
+0282|I risultati compaiono qui dopo aver registrato una partita.
+0283|Modifica o reimposta i filtri.
+0284|Statistiche di draft degli eroi
+0285|Cerca eroe
+0286|Ordina gli eroi
+0287|Più coinvolti
+0288|Più scelti
+0289|Più bannati
+0290|Migliore percentuale di vittoria
+0291|Pick
+0292|Ban
+0293|Le percentuali di vittoria compaiono a partire da {minGames} partite con pick.
+0294|Nessun campione di eroi
+0295|Le statistiche di draft compaiono dopo il salvataggio di partite concluse.
+0296|Sincronizzazione…
+0297|Roster sincronizzato · {count} eroi
+0298|Sincronizzazione non riuscita; cache mantenuta. {message}
+0299|Sincronizza roster
+0300|Tier list senza titolo
+0301|Tier
+0302|Durata della partita aggiornata
+0303|Usa MM:SS, ad esempio 24:37
+0304|Stanza online creata · condividi il link di invito
+0305|Serie creata e salvata
+0306|Inserisci la durata della partita come MM:SS
+0307|Risultato della partita registrato
+0311|Draft avviato
+0312|Passa a {team}
+0313|{team} è il prossimo a fare un ban.
+0314|{team} è il prossimo a fare un pick.
+0315|Link di invito copiato
+0316|Eliminare questa tier list?
+0317|Link copiato · monouso · può modificare · scade tra 7 giorni
+0318|Link copiato · monouso · sola lettura · scade tra 7 giorni
+0319|Partita {number} · {teamA} vs {teamB}
+0320|Il Global Ban & Pick continua a valere: una squadra non può usare un eroe (né un secondo Flowborn) già scelto in un'altra partita della serie.
+0321|Eliminare questa serie e le sue partite?
+0323|Questo non è un JSON di tier list valido.
+0324|Tier list importata
+0325|È già tuo
+0326|Condiviso con te come editor
+0327|Condiviso con te come lettore
+0328|Il server non è riuscito a caricare i suoi dati. {message}
+0329|Almeno 12 caratteri. Più è lunga, meglio è: una frase breve funziona bene.
+0330|Account creato
+0331|Accesso effettuato
+0332|Password errata
+0333|Accesso bloccato (account bloccato)
+0334|Autenticazione a due fattori attivata
+0335|Codice dell'autenticatore errato
+0336|Inserimento del codice bloccato
+0337|Codice errato durante la configurazione
+0338|Codice di recupero usato
+0339|Codice di recupero errato
+0340|Nuovi codici di recupero generati
+0341|Password modificata
+0342|Codice errato in un'azione sensibile
+0343|Disconnesso
+0344|Disconnesso ovunque
+0346|oppure
+0347|Continua con Google
+0348|L'accesso con Google richiede anche il codice del tuo autenticatore.
+0349|Usa la tua e-mail e la password, poi conferma con il tuo autenticatore.
+0350|E-mail
+0351|Password
+0352|Continua
+0353|Non hai ancora un account?
+0354|Creane uno
+0355|Crea un account
+0356|L'autenticazione a due fattori è obbligatoria: la configurerai subito dopo.
+0358|Serve per accedere. Non inviamo mai e-mail.
+0359|Ripeti la password
+0360|Già registrato?
+0361|Le registrazioni sono chiuse
+0362|Questo server non accetta nuovi account.
+0363|Inserisci il tuo codice
+0364|Usa uno dei codici di recupero che hai salvato. Ognuno funziona una sola volta.
+0365|Apri la tua app di autenticazione e digita il codice a 6 cifre.
+0366|Codice di recupero
+0367|Verifica
+0368|Usa invece il mio autenticatore
+0369|Ho perso il dispositivo: usa un codice di recupero
+0370|Ricomincia
+0371|Salva i tuoi codici di recupero
+0372|Se perdi il telefono, questi codici sono l'unico modo per rientrare. Ognuno funziona una sola volta. Vengono mostrati solo adesso.
+0373|Codici di recupero
+0374|Copia
+0375|Scarica .txt
+0376|Ho conservato questi codici in un luogo sicuro (gestore di password, carta).
+0377|Configura l'autenticazione a due fattori
+0378|Caricamento…
+0379|Scansiona il QR code con un'app di autenticazione (Google Authenticator, Aegis, 1Password, Authy…), poi digita il codice mostrato.
+0380|QR code per aggiungere {account} alla tua app di autenticazione
+0381|Non riesci a scansionare? Inserisci questa chiave manualmente:
+0382|Account: {account} · basato sul tempo, 6 cifre
+0383|Attiva e accedi
+0384|Sicurezza dell'account
+0385|Account
+0386|Sicurezza
+0387|Google
+0388|e-mail e password
+0389|{name} · {email} · accede con {method}
+0390|Attiva
+0391|Autenticazione a due fattori
+0392|Codici di recupero rimasti
+0393|{count, plural, one {Resta solo # codice di recupero: generane di nuovi qui sotto.} other {Restano solo # codici di recupero: generane di nuovi qui sotto.}}
+0394|Nuovi codici di recupero
+0395|Mostrati solo adesso. I vecchi non funzionano più.
+0396|Cambia password
+0397|Password attuale
+0398|Nuova password
+0399|Codice dell'autenticatore
+0400|Genera un nuovo set (i vecchi smettono di funzionare).
+0401|Genera nuovi codici
+0402|Sessioni
+0403|Esci da ogni browser e dispositivo, compreso questo.
+0404|Esci ovunque
+0405|Attività recente
+0406|Quando
+0407|Cosa
+0408|Dettaglio
+0409|Ancora niente.
+0410|Qualcosa è andato storto
+0411|Torna all'accesso
+0412|Le due password sono diverse.
+0413|Conferma di aver salvato i codici.
+0414|Password modificata. Le altre sessioni sono state chiuse.
+0415|Codici di recupero copiati
+0416|Codici di recupero di HOK Global Scrim Lab
+0417|Ogni codice funziona una sola volta.
+0418|Ban blu
+0419|Pick blu
+0420|Ban rossi
+0421|Pick rossi
+0422|Ban {number} {side}
+0423|Pick {number} {side}
+0424|Vuoto
+0425|Rimuovi {name}
+0426|Correggi un draft
+0427|Scegli uno slot, poi l'eroe che deve esserci. Statistiche, esportazioni e cronologia usano il draft corretto.
+0428|Eroe per: {slot}
+0429|(già in questo draft)
+0430|Nessun eroe corrisponde.
+0431|Annulla le modifiche
+0432|Annulla
+0433|Salva le correzioni
+0434|Pronto
+0435|Usato in questa partita
+0436|Usato nella serie
+0437|In attesa
+0438|Lato rosso
+0439|Cerca nel pool di eroi
+0440|Filtra per corsia
+0441|Filtra per tipo di eroe
+0442|Tutti i tipi
+0443|Blu pronto
+0444|Rosso pronto
+0445|Blu non pronto
+0446|Rosso non pronto
+0447|Entrambi i lati iniziano insieme su questo dispositivo.
+0448|Avvia il draft
+0449|Sono pronto — inizia come {viewerTeamName}
+0450|In attesa del tuo avversario…
+0451|Stai guardando il controllo di prontezza.
+0452|Il timer del draft parte quando entrambe le squadre sono pronte.
+0453|In attesa di {actingTeam}
+0454|libero
+0455|Si può scegliere qualsiasi eroe, a prescindere dal ruolo · allo scadere del tempo l'auto-pick sceglie un eroe {lane}
+0456|Seleziona un eroe da bannare · se il tempo scade il ban viene saltato (potrai modificarlo dopo)
+0457|Termina l'attesa
+0458|Draft bloccato.
+0459|Risultato della partita
+0461|Avvia / riprendi il timer della partita
+0462|Pausa
+0463|Termina il timer della partita
+0465|Vincitore
+0467|Durata della partita · MM:SS
+0468|Salva il risultato della partita
+0469|Solo il creatore di questa serie online registra il risultato.
+0470|Mancano cinque secondi.
+0471|Tempo scaduto. Il ban viene saltato.
+0472|Tempo scaduto. Un eroe viene scelto automaticamente.
+0474|Tabellone finale
+0475|Draft pronto
+0476|Attesa finale
+0477|Draft concluso
+0478|ban
+0479|pick
+0480|Ha vinto {winner}
+0481|Registrata
+0482|Turno di {team}
+0483|Briefing della partita successiva
+0484|Inserimento del risultato
+0485|Pool di eroi · {action} · {team}
+0486|{count} disponibili
+0487|{team} ha bannato {hero}.
+0488|{team} ha saltato il ban.
+0489|{team} ha scelto {hero}.
+0490|{team} non ha scelto nessun eroe.
+0491|(tempo scaduto)
+0492|Clash
+0493|Giungla
+0494|Mid
+0495|Farm
+0496|Supporto
+0497|Corsia Clash
+0498|Corsia Mid
+0499|Corsia Farm
+0500|Roamer
+0501|Proprietario
+0502|Editor
+0503|Lettore
+0504|{site} — Draft, scrim e tier list di Honor of Kings Global
+0505|Simulatore di draft gratuito per Honor of Kings Global: ban e pick competitivi, serie di scrim, tier list per corsia e guide agli eroi con abilità e cronologia delle patch.
+0506|Eroi di Honor of Kings Global — abilità, corsie e cronologia delle patch | {site}
+0507|Tutti gli eroi di Honor of Kings Global con corsia, classe, abilità, video, illustrazioni e modifiche di bilanciamento dai dati ufficiali di Camp.
+0508|Creatore di tier list di Honor of Kings Global | {site}
+0509|Crea e condividi tier list di Honor of Kings Global per tutti i ruoli o per una sola corsia, con il trascinamento.
+0510|Scrim — fai il draft e registra le serie | {site}
+0511|Gioca serie di scrim di Honor of Kings Global con l'ordine competitivo di ban e pick.
+0512|Serie | {site}
+0513|Una serie di scrim.
+0514|Cronologia e statistiche | {site}
+0515|I tuoi scrim registrati e le statistiche.
+0516|Accedi | {site}
+0517|Accedi al tuo account.
+0518|Codice di verifica | {site}
+0519|Inserisci il codice della tua app di autenticazione.
+0520|Configura l'autenticazione a due fattori | {site}
+0521|Proteggi il tuo account con un'app di autenticazione.
+0522|Crea un account | {site}
+0523|Crea un account protetto dall'autenticazione a due fattori.
+0524|Sicurezza dell'account | {site}
+0525|Password, autenticatore e codici di recupero.
+0526|Questa pagina non esiste.
+0527|Endpoint API sconosciuto.
+0528|Hai raggiunto il limite di {limit} serie. Eliminane alcune prima.
+0529|Hai raggiunto il limite di {limit} tier list. Eliminane alcune prima.
+0530|Serie non trovata.
+0531|Invito online non trovato.
+0532|Usa un altro account Google per accettare questo invito.
+0533|Questo invito è già stato usato.
+0534|Tier list non trovata.
+0535|Puoi solo visualizzare questa tier list.
+0536|Questa tier list è cambiata da quando l'hai aperta. Ricarica e riprova.
+0537|Non trovato.
+0538|Una serie online può essere condivisa solo in sola lettura.
+0539|Questo invito non è valido.
+0540|Questo invito non è valido o è scaduto.
+0541|Il CSV ha un campo tra virgolette non chiuso.
+0542|Il CSV è vuoto.
+0543|Il CSV richiede una colonna «{required}» (intestazione: heroId,picks,bans,wins).
+0544|La riga {value} del CSV ha più celle dell'intestazione.
+0545|Si possono importare solo dati di Honor of Kings Global (né Cina né Arena of Valor).
+0546|Scegli il lato Blu o Rosso per iniziare.
+0547|Questo eroe non è disponibile nel roster ufficiale.
+0548|Il draft non accetta azioni.
+0549|Entrambi i lati devono avviare il draft prima di agire.
+0550|Questo eroe non è disponibile nel draft corrente.
+0551|Questa squadra ha già scelto questo eroe in una partita precedente.
+0552|I {kind} del lato {side} devono essere un elenco di al massimo 5 eroi.
+0553|Eroe sconosciuto: {value}.
+0554|Un eroe può comparire una sola volta in un draft.
+0555|I nomi delle squadre sono limitati a {TEAM_NAME_MAX_LENGTH} caratteri.
+0556|I nomi delle squadre non possono contenere caratteri di controllo, < o >.
+0557|Le due squadre devono avere nomi diversi.
+0558|Il best-of deve essere un numero intero tra 1 e 99.
+0559|Scegli una modalità di gioco supportata.
+0560|Scegli una modalità di controllo del draft supportata.
+0561|Questa serie non può avviare un'altra partita.
+0562|Il lato blu deve essere assegnato a una delle squadre della serie.
+0563|Nessuna partita in corso.
+0564|Il vincitore deve essere una delle squadre della serie.
+0565|La durata della partita deve essere un numero di secondi valido.
+0566|Termina la fase di attesa del draft prima di registrare un risultato.
+0567|Questa partita non esiste.
+0568|Avvia il draft prima di far partire il timer della partita.
+0569|Avvia il draft prima di mettere in pausa il timer della partita.
+0570|Avvia il draft prima di terminare il timer della partita.
+0571|Il draft è ancora in corso: terminalo prima di modificarne ban e pick.
+0572|{teamName} ha già scelto questo eroe in un'altra partita della serie (Global Ban & Pick).
+0573|{teamName} può usare Flowborn una sola volta in una serie Global Ban & Pick.
+0574|Scegli una corsia valida o Tutti i ruoli.
+0575|Richiesta non valida.
+0576|Metodo non consentito.
+0577|Il corpo della richiesta è troppo grande.
+0578|L'URL è troppo lungo.
+0579|Tipo di contenuto non supportato.
+0580|Le intestazioni della richiesta sono troppo grandi.
+0581|Serie {number}: {message}
+0582|Il corpo della richiesta non è un JSON valido.
+0583|L'URL non è valido.
+0584|Errore interno del server.
+0585|Accedi per usare i draft online.
+0586|Accedi per continuare.
+0587|Questa azione è riservata agli amministratori.
+0588|Troppe richieste. Rallenta e riprova tra poco.
+0589|Le richieste tra siti diversi non sono consentite.
+0590|Le richieste da origini diverse non sono consentite.
+0591|Solo il creatore può farlo.
+0592|Puoi solo visualizzare questa serie.
+0593|Solo il creatore di questa serie online può farlo.
+0594|Non partecipi a questa serie online.
+0595|Solo il giocatore del lato corrente può inviare questa azione.
+0596|La sincronizzazione dei dettagli degli eroi non è disponibile su questo server.
+0597|Importazione non trovata.
+0598|Eroe non trovato.
+0600|Questo eroe ha già quella corsia.
+0601|Corsia non trovata.
+0604|L'esportazione non è disponibile su questo server.
+0605|Scegli un PDF o PNG generato da HOK Global Scrim Lab.
+0606|Ancora niente da esportare.
+0607|Accedi o crea prima una serie: non c'è ancora nulla da esportare.
+0608|minGames deve essere un numero intero tra 1 e 1000.
+0609|Questa serie è cambiata da quando l'hai caricata. Ricarica e riprova.
+0610|{key}.{side} contiene un ID eroe non valido.
+0611|blueTeam deve essere una stringa.
+0612|heroId è obbligatorio.
+0613|Operazione del timer sconosciuta.
+0614|Invito non trovato.
+0615|Membro non trovato.
+0616|Solo il creatore può eliminare questa tier list.
+0617|Esiste già un account con questa e-mail.
+0618|Usa almeno {min} caratteri.
+0619|Usa al massimo {max} caratteri.
+0620|Questa password è troppo comune.
+0621|La password non deve contenere il nome della tua e-mail.
+0622|La password non deve contenere il tuo nome.
+0623|Usa una maggiore varietà di caratteri.
+0624|E-mail o password non valide.
+0625|Questo codice non è valido.
+0626|L'accesso è scaduto. Ricomincia.
+0627|Troppi codici errati. Accedi di nuovo.
+0628|La password attuale non è corretta.
+0629|Inserisci un nome visualizzato da 1 a 60 caratteri.
+0630|Il nome visualizzato non può contenere caratteri di controllo, < o >.
+0631|Inserisci un indirizzo e-mail valido.
+0632|La creazione di account è chiusa su questo server.
+0633|Scegli una password.
+0634|Questo indirizzo è riservato. Accedi con Google o contatta il proprietario del server.
+0635|Scansiona prima il codice.
+0636|Questo account accede con Google e non ha una password.
+0637|Scegli una nuova password.
+0638|Scegli una password che non hai appena usato.
+0639|I dettagli degli eroi sono stati sincronizzati di recente. Riprova tra {seconds} s.
+0640|L'esportazione ha richiesto troppo tempo ed è stata annullata.
+0641|Hai già un'esportazione in corso. Attendi che finisca.
+0642|La coda di esportazione è piena. Riprova tra poco.
+0643|Un PNG mostra fino a {limit} partite. Esporta invece questa serie in PDF.
+0644|Scrim ospite
+0645|La sincronizzazione del roster è stata eseguita di recente. Riprova tra {seconds} s.
+0646|Questo file non contiene dati di serie HOK (o è danneggiato).
+0647|Questo file non contiene dati di serie leggibili.
+0648|Questo file non è stato generato da HOK Global Scrim Lab, o da una versione incompatibile.
+0649|Un file può ripristinare da 1 a {MAX_SERIES} serie.
+0650|Impossibile leggere questo PDF.
+0651|Questo PDF non contiene dati di serie HOK. Si possono importare solo PDF generati da questo sito (non risalvarli né stamparli).
+0652|Questa non è un'immagine PNG.
+0653|Questo PNG è troncato.
+0654|Questo PNG non ha un marcatore di fine.
+0655|Questo PNG non contiene dati di serie HOK. Si possono importare solo PNG generati da questo sito (app di messaggistica ed editor rimuovono i dati).
+0656|Importa un PDF o PNG generato da HOK Global Scrim Lab.
+0657|Stato: {value}
+0658|Regola eroi: {value}
+0659|Controllo del draft: {value}
+0660|La squadra contiene «{value}»
+0661|Dal {value}
+0662|Al {value}
+0663|Nessun filtro (tutte le tue serie)
+0664|Partita {number}
+0665|aggiornato il {date}
+0666|HOK Global Scrim Lab · Esportazione serie
+0667|Esportazione serie
+0668|HOK Global Scrim Lab · Honor of Kings Global
+0669|generato il {date}
+0670|Nota
+0671|Serie
+0672|Tempo di gioco totale (mm:ss)
+0673|Edizione di Honor of Kings
+0674|Filtri:
+0675|Formato
+0676|Regola eroi
+0677|Stato
+0678|Punteggio
+0679|Aggiornato
+0680|Nessuna serie corrisponde a questi filtri.
+0681|Statistiche e draft provengono dagli scrim registrati dal proprietario. Non sono inclusi dati classificati o competitivi. Questo file può essere reimportato in HOK Global Scrim Lab (Scrim → Importa). I ritratti degli eroi appartengono ai rispettivi proprietari (Tencent / TiMi Studio Group) e sono mostrati da una cache locale.
+0682|Pagina {current} / {total}
+0683|{label} deve essere un oggetto JSON.
+0684|{label} deve essere una stringa.
+0685|{label} deve avere tra {min} e {max} caratteri.
+0686|{label} contiene caratteri di controllo.
+0687|{label} deve essere un numero intero tra {min} e {max}.
+0688|{label} deve essere un elenco di al massimo {max} elementi.
+0689|{label} contiene un ID eroe non valido.
+0690|{label} contiene un ID eroe sconosciuto: {item}.
+0691|{label} non valido.
+0692|page deve essere un numero intero positivo.
+0693|pageSize deve essere compreso tra 1 e {maxSize}.
+0694|draftMode deve essere una stringa.
+0695|teamA deve essere una stringa.
+0696|teamB deve essere una stringa.
+0697|Usa l'endpoint online per creare una serie online.
+0698|{label} usa l'eroe {heroId} più di una volta.
+0699|{label} ha un'assegnazione di pick non valida.
+0700|{label} ha azioni fuori ordine.
+0701|{label} ha un'azione su un eroe che non è nel draft.
+0702|Il file importato ha un campo inatteso: {value}.
+0703|{label} ha un campo inatteso: {value}.
+0704|{label} deve avere le due squadre della serie su lati opposti.
+0705|{label}.winner deve essere una delle squadre della serie.
+0706|role deve essere viewer o editor.
+0707|{label} deve essere un URL valido.
+0708|{label} deve essere un URL https.
+0709|Imposta meta.confirmGlobalOnly su true: si possono importare solo dati di Honor of Kings Global.
+0710|meta.license deve essere uno tra: {value}.
+0711|meta.updatedAt deve essere una data (AAAA-MM-GG).
+0712|meta.totalGames deve essere almeno 1.
+0713|csv deve essere un testo di al massimo 300 KB.
+0714|heroes[{index}].heroId è obbligatorio (l'ID eroe di Camp Global).
+0715|heroes[{index}].heroId {heroId} non è un ID eroe Global noto.
+0716|heroes[{index}] ha più vittorie che pick.
+0717|heroes deve contenere almeno una riga.
+0718|heroes contiene due volte lo stesso heroId.
+0719|lane deve essere una delle cinque corsie di Honor of Kings.
+0720|{label} deve essere un singolo valore.
+0721|{label} è troppo lungo o non valido.
+0722|{label} deve essere una data come 2026-09-30.
+0723|{key} deve essere uno tra: {value}.
+0724|from non deve essere successivo a to.
+0725|format deve essere pdf o png.
+0726|format deve essere pdf.
+0727|comment deve essere testo.
+0728|Il commento è limitato a 500 caratteri.
+0729|Il nome del file deve essere un testo di al massimo 120 caratteri.
+0730|Vai al contenuto
+0732|Navigazione principale
+0733|Panoramica
+0734|Eroi
+0735|Tier list
+0737|Sincronizza il roster degli eroi
+0738|Lingua
+0740|Menu
+0741|Report con stile · reimportabile
+0742|Esporta
+0743|Tutte le partite, di qualsiasi durata
+0744|Immagine da condividere, fino a 15 partite
+0745|Commento
+0746|(stampato nel file)
+0747|Riepilogo del turno, su cosa lavorare, chi ha giocato…
+0748|Il file contiene i dati della serie: reimportalo da Scrim → Importa serie. Non risalvarlo né stamparlo, altrimenti i dati vanno persi.
+0749|Draft locale a due giocatori
+0750|Passa il dispositivo
+0751|Il lato successivo è pronto.
+0752|Continua il draft
+0753|Passiva
+0754|Ultimate
+0755|Abilità {index}
+0756|Questa scheda eroe è in fase di recupero nella tua lingua. Fino ad allora viene mostrata la versione inglese.
+0757|Tank
+0758|Combattente
+0759|Mago
+0760|Assassino
+0761|Tiratore
+0763|Supporto
+0764|Usa come sfondo della pagina
+0765|Sfondo casuale
+0766|Questo video è ora lo sfondo della pagina
+0767|Lo sfondo è di nuovo casuale
+0768|Video di sfondo: disattivato
+0769|Video di sfondo: attivo
+0771|Build
+0772|Selezionate
+0773|Tornei
+0774|Build salvata
+0775|Build eliminata
+0776|Pseudonimo
+0777|Mostrato agli altri giocatori. Ricevi anche un tag unico che non cambia mai.
+0778|Scegli il tuo pseudonimo
+0779|Il tuo nome Google non viene usato. Scegli il pseudonimo che vedranno gli altri giocatori e una password: poi arriva l'autenticatore.
+0780|Sempre
+0781|Quest'anno
+0782|Ultimi 12 mesi
+0783|Ultimi 6 mesi
+0784|Ultimi 3 mesi
+0785|Da una data
+0786|{wins} vittorie, {losses} sconfitte
+0787|{wins}-{losses}
+0788|Primo giorno incluso
+0789|Periodo
+0790|Partite inserite dal {first} al {last}.
+0791|Nessuna partita di torneo in questo periodo.
+0792|Nessun torneo è stato ancora inserito.
+0886|Campione ridotto: {picks, plural, one {# partita} other {# partite}} con questo eroe. Leggi le percentuali con cautela.
+0794|{wins}/{picks}
+0795|Mai scelto in questo periodo.
+0887|{picks, plural, one {# pick} other {# pick}} su {total, plural, one {# partita} other {# partite}}
+0797|Tasso di pick
+0798|Presenza (scelto o bannato)
+0799|Percentuale di vittorie sul lato blu
+0800|Percentuale di vittorie sul lato rosso
+0801|Questo eroe non ha partite vinte in questo periodo.
+0805|Mai scelto nei tuoi scrim.
+0807|Build {variant}
+0808|Fonte
+0810|Arcani
+0811|Nessuna build è stata ancora inserita per questo eroe.
+0812|Modifica questa build
+0814|Nome (facoltativo)
+0817|Fonte (indirizzo https)
+0818|Nota (facoltativa)
+0819|Salva
+0820|Copia il tag
+0821|Foto del profilo
+0822|Carica una foto
+0823|Usa la mia foto Google
+0824|Rimuovi la foto
+0825|PNG, JPEG, WebP o GIF, massimo 4 MB. Viene ritagliata in quadrato.
+0826|Salva pseudonimo
+0827|Chiudi
+0828|Tag copiato
+0829|Scegli un'immagine PNG, JPEG, WebP o GIF.
+0830|Questa immagine è troppo grande (massimo 4 MB).
+0831|Profilo aggiornato
+0832|Tornei | {site}
+0833|Inserisci le serie di torneo realmente giocate.
+0834|Scegli il tuo pseudonimo | {site}
+0835|Scegli il pseudonimo e la password del tuo account.
+0836|Spazio vuoto
+0837|Cerca un eroe
+0838|Scrivi un eroe, Invio per sceglierlo
+0839|Vince {team}
+0840|Blu: {team}
+0841|Durata (facoltativa)
+0842|Rimuovi la partita
+0843|Ban (facoltativi)
+0844|Modifica la serie
+0845|Evento
+0846|Fase
+0847|Finale, Gruppo A…
+0848|Data di gioco
+0849|Patch (facoltativa)
+0850|Al meglio di
+0852|Aggiungi una partita
+0853|Salva la serie
+0854|Salva e inserisci la serie successiva
+0855|Ctrl+Invio salva.
+0856|patch {patch}
+0857|Modifica
+0859|{count, plural, one {# serie} other {# serie}}
+0860|Filtra per evento, fase o squadra
+0861|Nessuna serie corrisponde.
+0862|Nessuna serie inserita finora.
+0863|Precedente
+0864|Successivo
+0865|{series, plural, one {# serie} other {# serie}} · {games, plural, one {# partita} other {# partite}}
+0866|Serie realmente giocate. Le statistiche degli eroi e gli abbinamenti vengono da qui.
+0867|Scegli il vincitore di ogni partita.
+0868|Serie salvata
+0869|Eliminare questa serie e le sue partite? Le statistiche degli eroi cambiano di conseguenza.
+0870|Serie eliminata
+0871|Questa pagina è riservata agli amministratori.
+0872|Accedi con un account amministratore per inserire tornei.
+0873|{label} deve essere 1 o 2.
+0874|{label} è obbligatorio.
+0875|{label} richiede esattamente {max} eroi.
+0876|{label}.durationSeconds deve essere un numero intero tra {min} e {max}.
+0877|Una serie realmente giocata non può essere nel futuro.
+0878|Una serie richiede almeno una partita.
+0879|Una serie al meglio di {bestOf} non può avere {count} partite.
+0880|Build non trovata.
+0881|Il tuo profilo è già completo.
+0882|Questo account non ha una foto Google.
+0883|Scelta dell'avatar sconosciuta.
+0884|Scegli prima un'immagine.
+0885|Questo file non è un'immagine utilizzabile.
+0889|Statistiche dell'eroe
+0890|Inserite a mano
+0891|Nessun risultato.
+0892|Il catalogo per ora è vuoto.
+0893|Uno in meno
+0894|Uno in più
+0895|Ancora nessuno.
+0896|Carica: {name}
+0897|Laboratorio build
+0898|Prova una build: scegli un eroe, un livello, oggetti e arcani. Non serve un account; il link condivide la tua build.
+0899|La tua build
+0900|Nessun eroe (solo oggetti)
+0901|Livello {level}
+0902|Livello
+0903|Questo eroe non ha ancora tag.
+0904|Copia il link di questa build
+0905|Ricomincia
+0909|Aggiungi
+0910|Cerca
+0911|Statistiche
+0912|Le statistiche base di questo eroe non sono ancora state inserite: viene mostrato solo ciò che danno oggetti e arcani.
+0913|Passive e attive sono descritte su ogni pezzo; si sommano solo le statistiche.
+0914|Dettagli
+0915|Rimuovi dalla build
+0916|Link copiato
+0917|Una build ha al massimo {max} oggetti in questo gruppo.
+0918|Un oggetto di questa build non è nel catalogo.
+0919|{name} non va in questo gruppo di slot.
+0920|{name} è usato due volte: un oggetto può stare una sola volta in una build.
+0921|Una build ha un solo paio di stivali.
+0922|Un arcano di questa build non è nel catalogo.
+0923|{name} non è un arcano {color}.
+0924|La quantità di {name} deve essere un numero intero da 1 a {max}.
+0925|{name} compare due volte: dagli una sola quantità.
+0926|Una build ha al massimo {max} arcani dello stesso colore.
+0927|Verde
+0928|Stivali
+0929|Oggetto
+0930|Oggetto di utilità
+0931|Oggetto di fine partita
+0932|Oggetti
+0933|Utilità
+0934|Fine partita
+0935|ricarica {seconds} s
+0936|{price} oro
+0937|arcano
+0938|Ancora nessuna statistica da mostrare.
+0939|Statistica
+0940|Totale
+0941|Percentuale (%)
+0942|Numero fisso
+0943|Tag
+0944|Valore
+0945|Rimuovi questa statistica
+0946|Aggiungi una statistica
+0947|Inserisci prima le statistiche del gioco (scheda Statistiche).
+0948|Ancora nessun tag (scheda Tag).
+0949|Immagine
+0950|Scegli un'immagine
+0951|Rimuovi
+0953|Tipo
+0954|Nome
+0955|Ricarica (s)
+0956|Rimuovi questo effetto
+0957|Cosa fa
+0958|Aggiungi una passiva o un'attiva
+0959|Mostrato come
+0960|Posizione negli elenchi
+0961|Colore
+0962|Cosa significa (facoltativo)
+0963|Va in
+0964|Prezzo (facoltativo)
+0965|Descrizione (facoltativa)
+0966|Statistiche che dà
+0967|Passive e attive
+0969|Nuovo
+0970|Catalogo
+0971|Le statistiche, i tag, gli oggetti e gli arcani del gioco, scritti a mano. Le build si fanno con questi.
+0972|Filtra
+0973|Ancora niente qui.
+0974|Seleziona una voce o aggiungine una nuova
+0976|Salvato
+0977|Eliminare questa voce?
+0978|Eliminato
+0979|Accedi con un account amministratore per inserire il catalogo.
+0980|Danni
+0981|Cura
+0982|Scudo
+0983|Controllo
+0984|Potenziamento
+0985|Indebolimento
+0986|Movimento
+0987|Altro
+0988|Abilità
+0989|Ricarica per livello (s), separata da virgole
+0990|Costo per livello, separato da virgole
+0991|Con cosa si paga il costo
+0992|Mana
+0993|Raggio
+0994|Tempo di lancio (s)
+0995|Effetto
+0996|Valori per livello, separati da virgole
+0997|Dettagli (facoltativi)
+0998|Aggiungi uno scaling
+0999|Note (facoltative)
+1000|Aggiungi un effetto
+1001|Rimuovi questa abilità
+1002|Dati dell'eroe: {name}
+1003|Statistiche base
+1004|Valore al livello 1 e di quanto cresce a ogni livello.
+1005|Livello 1
+1006|per livello
+1007|Crescita per livello
+1008|Abilità
+1009|Aggiungi un'abilità
+1010|{label}: scrivi numeri separati da virgole.
+1011|Ricarica
+1012|Costo
+1013|Dati dell'eroe salvati
+1014|Modifica i dati dell'eroe
+1015|Le statistiche base e i tag di questo eroe non sono ancora stati inseriti.
+1016|+{percent}% {stat}
+1017|Apri il laboratorio build
+1018|Provala nel laboratorio build
+1019|Laboratorio build: prova le build di Honor of Kings Global | {site}
+1043|Prova una build per qualsiasi eroe di Honor of Kings Global: oggetti, arcani e le statistiche totali che dà. Non serve un account.
+1021|Catalogo | {site}
+1022|Le statistiche, i tag, gli oggetti e gli arcani del gioco.
+1044|Esiste già una statistica con questo nome.
+1024|Questa statistica è usata da {count} oggetti, arcani o eroi: rimuovila prima da questi.
+1045|Esiste già un tag con questo nome.
+1046|Esiste già un oggetto con questo nome.
+1025|Questo è usato da {count} build consigliate: rimuovilo prima da queste.
+1047|Esiste già un arcano con questo nome.
+1026|{label} deve essere un numero tra {min} e {max}.
+1027|{label} contiene due volte la stessa voce.
+1028|{label} contiene una voce che non esiste.
+1029|{label} richiede tra {min} e {max} statistiche.
+1030|{label} contiene una statistica che non esiste.
+1031|{label} contiene due volte la stessa statistica.
+1032|{label} deve essere uno tra: {options}.
+1033|Un tag non può essere in conflitto con se stesso.
+1034|L'immagine non esiste (inviala di nuovo).
+1035|{label} deve essere una chiave breve in minuscolo.
+1036|{label} contiene due volte la stessa abilità.
+1037|Una build richiede almeno un oggetto o un arcano.
+1038|Statistica non trovata.
+1039|Tag non trovato.
+1040|Oggetto non trovato.
+1041|Arcano non trovato.
+1042|Questa immagine è troppo grande (massimo 3 MB).
+1048|Rimuovi il segno di oggetto core
+1049|Segna come oggetto core
+1050|Una build ha al massimo {max} oggetti core.
+1051|Gli oggetti core devono essere tra gli oggetti principali della build.
+1052|(oggetto core)
+1053|Oggetti core
+1054|Una build consigliata segna 2 o 3 oggetti core.
+1055|Gioca
+1058|Riproduci il video del profilo
+1059|Corsia
+1060|{shown} di {total} mostrati
+1061|Competitivo
+1062|Sezioni della scheda dell'eroe
+1065|Casual
+1066|Amatoriale
+1067|Semiprofessionale
+1068|Professionale
+1069|Manager
+1070|Coach
+1071|Capitano
+1072|Analista
+1073|Giocatore
+1074|Riserva
+1075|Tag della squadra
+1076|Da 2 a 5 lettere o cifre
+1077|Fuso orario
+1078|Lingue
+1079|Fino a 5
+1080|Descrizione
+1081|Salva la squadra
+1082|Crea una squadra
+1083|{count, plural, one {# membro} other {# membri}}
+1084|Nessuna squadra trovata
+1085|Sii il primo a crearne una.
+1086|Squadre
+1087|Registra la tua squadra e gestisci la sua rosa.
+1088|Community
+1089|Inviti per te
+1091|Accetta
+1092|Rifiuta
+1093|Le tue squadre
+1094|Cerca squadre
+1097|Squadra non trovata
+1098|Ruolo
+1099|Lascia la squadra
+1101|Modifica la squadra
+1102|Elimina la squadra
+1103|Informazioni
+1104|Ancora nessuna descrizione.
+1105|Rosa
+1107|Azioni
+1108|Invita un giocatore
+1109|Tag del giocatore
+1110|Il tag è sul suo profilo. Deve accettare prima di entrare.
+1111|Invita
+1112|Inviti in sospeso
+1113|Nessuno aspetta una risposta.
+1114|Benvenuto nella squadra
+1115|Invito rifiutato
+1116|Lasciare questa squadra?
+1117|Rimuovere questo membro?
+1118|Eliminare questa squadra e la sua rosa? Non si può annullare.
+1119|Squadra eliminata
+1120|Squadra salvata
+1121|Squadra creata
+1122|Invito inviato
+1123|{label} non è uno dei valori consentiti.
+1125|Il tag della squadra ha da 2 a 5 lettere o cifre.
+1126|Il fuso orario è del tipo UTC o UTC+2.
+1127|Le lingue sono al massimo 5 codici diversi.
+1128|Un tag giocatore ha 6 lettere o cifre, come sul suo profilo.
+1129|Accedi per usare le squadre.
+1130|Squadra non trovata.
+1131|Solo il proprietario e i manager possono farlo.
+1132|Solo il proprietario può eliminare la squadra.
+1133|Nessun giocatore ha questo tag.
+1134|Solo il proprietario può nominare un manager.
+1135|Questo ruolo non è uno dei valori consentiti.
+1136|Solo il proprietario può modificare un manager.
+1137|Il proprietario non può andarsene: elimina la squadra.
+1138|Questo tag di squadra è già in uso.
+1139|Questo nome di squadra è già in uso.
+1140|Puoi essere in al massimo {max} squadre.
+1142|Questo giocatore è già nella squadra.
+1143|Questo giocatore ha già un invito in sospeso.
+1144|Squadre | {site}
+1145|Squadre di Honor of Kings Global: rose, ruoli dello staff e inviti.
+1146|Squadra | {site}
+1147|Una squadra e la sua rosa.
+1148|Limite di membri
+1149|Da 7 a 20, inviti in sospeso inclusi
+1150|Logo
+1151|Rimuovi il logo
+1152|{count} di {max} membri
+1153|Logo rimosso
+1154|Logo salvato
+1155|Il limite di membri è un numero intero da {min} a {max}.
+1156|La squadra ha già {count} membri e inviti in sospeso: il limite non può essere più basso.
+1157|Questa squadra è al completo ({max} membri e inviti in sospeso).
+1158|Disponibile
+1159|Scrim
+1160|Partita di torneo
+1161|Allenamento
+1162|Revisione VOD
+1163|Riunione
+1164|Agenda
+1165|Aggiungi un evento
+1166|Gli orari sono mostrati nel tuo fuso orario ({zone}).
+1167|Niente in programma nei prossimi 60 giorni.
+1168|Disponibilità pubblica
+1169|Titolo
+1170|Inizio
+1171|Fine
+1172|Una nota è visibile solo alla squadra.
+1173|Salva l'evento
+1174|Eliminare questo evento?
+1175|Scegli un inizio e una fine.
+1176|{label} non è una data e un'ora valide.
+1177|La fine deve essere dopo l'inizio.
+1178|Un evento dura al massimo 24 ore.
+1179|La finestra è al massimo di un anno.
+1180|Solo lo staff e il capitano possono modificare l'agenda.
+1181|Evento non trovato.
+1182|L'agenda di una squadra contiene al massimo {max} eventi: elimina prima quelli vecchi.
+1183|Lobby esterna
+1184|Non disponibile
+1185|In attesa
+1186|Controproposta
+1187|Accettata
+1188|Rifiutata
+1189|Annullata
+1190|Accedi per usare le funzioni della community.
+1191|Chiedi uno scrim a {team}
+1192|La tua squadra
+1193|Messaggio
+1194|Invia la richiesta
+1195|Solo lo staff e il capitano di una squadra possono chiedere uno scrim: crea o unisciti prima a una squadra.
+1196|Chiedi uno scrim
+1197|Vedi la squadra
+1198|Chiudi l'annuncio
+1200|{count} aperti
+1201|Nessun annuncio corrisponde
+1202|Modifica i filtri o pubblica un tuo annuncio.
+1203|Pubblica «Cerco scrim»
+1204|Trova uno scrim
+1205|Cerca annunci aperti e squadre adatti al tuo livello, fuso orario e formato.
+1206|Data
+1207|Fascia
+1208|Qualsiasi durata
+1209|Almeno {hours} h
+1210|Qualsiasi
+1212|Elenco delle squadre
+1213|Richiedi
+1214|Vedi tutte le squadre
+1215|Solo lo staff e il capitano di una squadra possono pubblicare un annuncio: crea o unisciti prima a una squadra.
+1216|Disponibile da
+1217|Fino a
+1218|Pubblica
+1219|Tocca a te
+1220|{team} ha accettato la richiesta
+1221|{team} ha rifiutato la richiesta
+1222|{team} ha annullato la richiesta
+1223|{team} propone {when}
+1224|Inviata a {team}
+1225|Ricevuta da {team}
+1226|Proponi un altro orario
+1227|Invia
+1228|Annulla la richiesta
+1229|In attesa di {team}
+1230|Scrivi un messaggio…
+1231|Segnala
+1232|Blocca questa squadra
+1233|{team} propone un altro orario: {when}
+1234|{team} ti chiede uno scrim: {when}
+1235|{team} ha accettato la richiesta di scrim
+1236|{team} ha rifiutato la richiesta di scrim
+1237|{team} ha annullato la richiesta di scrim
+1238|Nuovo messaggio da {team}
+1239|{by} ti invita a unirti a {team} come {role}
+1240|{title} ({team}) inizia alle {when}
+1241|Nuova notifica
+1242|Posta in arrivo e notifiche
+1244|Richieste
+1245|Notifiche
+1246|Nessuna richiesta
+1247|Le richieste che invii o ricevi compaiono qui.
+1248|Seleziona una richiesta
+1249|Puoi inviare {max} richieste al giorno per squadra. Sii rispettoso: puoi segnalare o bloccare una squadra da qualsiasi conversazione.
+1250|Segna tutto come letto
+1251|Niente in programma in questo periodo.
+1253|La tua risposta
+1254|Ci sono
+1255|Forse
+1256|Non posso
+1257|{going} ci sono · {maybe} forse · {no} non possono
+1258|Crea la serie da questo evento
+1259|Prossimi 60 giorni
+1260|Mese
+1261|Elenco
+1262|Nuovo evento
+1263|L'agenda delle tue squadre, nel tuo fuso orario ({zone}).
+1264|Unisciti a una squadra o creane una per avere un'agenda.
+1265|Mese precedente
+1266|Mese successivo
+1267|Ancora nessuna squadra
+1268|La tua agenda mostra gli eventi delle tue squadre.
+1269|Giocatore non trovato
+1270|Discord collegato
+1271|Squadra
+1272|Invita nella squadra
+1273|Modifica il mio profilo
+1274|Eroi principali
+1275|Nessun eroe principale scelto.
+1276|Non ancora in una squadra.
+1277|Eroe principale {number}
+1278|Fino a 3
+1279|Salva il mio profilo
+1280|Discord e primi passi
+1281|Collega il tuo Discord
+1282|Crea o unisciti a una squadra
+1283|Imposta la tua disponibilità
+1284|Trova il tuo primo scrim
+1285|Il tuo account Discord è collegato.
+1286|Questo account Discord è già collegato a un altro account.
+1287|Impossibile collegare Discord. Riprova.
+1288|Collega il tuo Discord per ricevere richieste di scrim, promemoria e risultati come messaggi diretti.
+1289|Per iniziare
+1290|fatto
+1291|Vai
+1292|Discord non è configurato su questo server: il proprietario del sito deve fornire un'applicazione Discord. Le tue notifiche restano sul sito (posta in arrivo).
+1293|collegato
+1294|Collegato il {date}
+1295|Scollega
+1296|Notifiche con messaggio diretto
+1297|I messaggi diretti non sono attivi su questo server (nessun bot): vedi comunque tutto nella posta in arrivo.
+1298|Richieste di scrim e messaggi
+1300|Risposte e inviti di squadra
+1301|Collega il tuo account Discord per ricevere le notifiche come messaggi diretti. Chiediamo solo il tuo nome e avatar Discord: non viene letto nulla dei tuoi server o messaggi.
+1302|Collega il mio Discord
+1303|Cosa ricevi
+1304|Nuova richiesta di scrim
+1305|Nova Gaming ti chiede uno scrim BO3 (Global Ban & Pick) ven. alle 20:00 UTC.
+1306|Rispondi sul sito, nella tua posta in arrivo.
+1307|Annuncio chiuso
+1308|Perché segnali questa conversazione?
+1309|Grazie: gli amministratori la esamineranno.
+1310|Bloccare questa squadra? Non potrà inviarti richieste e tu non potrai inviargliene.
+1311|Squadra bloccata
+1312|Scollegare il tuo account Discord?
+1313|Richiesta inviata
+1314|Annuncio pubblicato
+1315|Profilo salvato
+1316|Trova uno scrim | {site}
+1317|Annunci di scrim aperti delle squadre Honor of Kings Global: filtra per livello, formato e regola degli eroi.
+1318|Posta in arrivo | {site}
+1319|Richieste di scrim e notifiche.
+1320|Agenda | {site}
+1321|L'agenda delle tue squadre.
+1322|Discord | {site}
+1323|Collega il tuo account Discord.
+1324|Giocatore | {site}
+1325|Un giocatore della community.
+1326|Ripeti
+1327|Non si ripete
+1328|Ogni settimana, altre {count} volte
+1329|Solo lo staff e il capitano possono farlo.
+1330|Una squadra può avere al massimo {max} annunci aperti.
+1331|Annuncio non trovato.
+1332|Questa squadra non accetta richieste da te.
+1333|Questo annuncio non è più aperto.
+1334|Puoi inviare {max} richieste al giorno per squadra.
+1335|Una richiesta per questo orario è già in attesa di risposta.
+1336|Richiesta non trovata.
+1337|Questa richiesta è stata annullata.
+1338|Questa conversazione è piena.
+1339|Questa richiesta è già conclusa.
+1340|Solo la squadra che ha proposto l'orario può annullare.
+1341|Tocca all'altra squadra rispondere.
+1342|Una squadra non può bloccare se stessa.
+1343|Solo i membri della squadra possono rispondere.
+1344|Il formato è BO1, BO3, BO5 o BO7.
+1345|Questa fascia è troppo lunga.
+1346|Questo orario è già passato.
+1347|Una squadra non può chiedere uno scrim a se stessa.
+1348|La risposta è going, maybe o no.
+1349|Gli eroi principali sono al massimo 3 diversi.
+1350|{label} deve essere vero o falso.
+1351|Una ripetizione settimanale è un numero intero di settimane da 0 a 12.
+1352|Elenco non valido.
+1353|Solo i membri della squadra possono esportare la sua agenda.
+1354|Giocatore non trovato.
+1355|Collega prima il tuo account Discord.
+1356|Posta in arrivo
+1357|Profilo giocatore
+1358|Discord
+1359|Verificato
+1360|Moderatore
+1361|Organizzatore
+1362|Collaboratore
+1363|Etichette
+1364|Salva le etichette
+1365|Etichette salvate
+1366|Le etichette sono un elenco di etichette note e diverse.
+1367|Settimana
+1368|Segnalazioni
+1369|Nessun messaggio di testo in questa conversazione.
+1370|Segnalato da {name}
+1371|Archivia la segnalazione
+1372|Conversazioni segnalate dalla community.
+1373|Nessuna segnalazione
+1374|Le conversazioni segnalate compaiono qui.
+1375|Segnalazioni | {site}
+1376|Segnalazione non trovata.
+1377|Promemoria dell'agenda (6 h, 4 h e 2 h prima)
+1378|Il bot è stato aggiunto al tuo server. Ora scegli un canale.
+1379|Impossibile aggiungere il bot al tuo server. Riprova.
+1380|Il bot Discord non è configurato su questo server: il proprietario del sito deve fornire un'applicazione Discord.
+1381|Aggiungi il bot al tuo server Discord: pubblica i promemoria (6 h, 4 h e 2 h prima), gli scrim confermati e un riepilogo settimanale nel canale che scegli.
+1382|Aggiungi il bot al mio server
+1383|connesso
+1384|Il bot non vede più questo server: aggiungilo di nuovo.
+1385|Canale per le notifiche
+1386|Cambia canale
+1387|Usa questo canale
+1388|Disconnetti
+1389|Disconnettere questo server Discord?
+1390|Canale salvato: è stato pubblicato un messaggio di conferma.
+1391|Scegli un canale Discord.
+1392|Aggiungi prima il bot a un server Discord.
+1393|Questo canale non esiste sul tuo server.
+1394|Nessun draft in corso. Crea una serie per avviarne uno.
+1395|Draft live | {site}
+1396|Apri il draft in corso: pick e ban di entrambi i lati, in diretta.
+1397|Draft live
+1398|Classico
+1399|Solo pick, ed entrambi i lati possono scegliere lo stesso eroe. Online vedi solo i tuoi pick fino alla fine del draft.
+1400|Pick nascosto
+1401|{team} ha scelto un eroe.
+1402|{label} contiene ban in un draft senza ban.
+1405|Questo draft non ha ban.
+1406|Allenamento | {site}
+1407|I tuoi eroi, il tuo quaderno di combo e meccaniche, e situazioni da studiare sulla mappa.
+1408|Obiettivo personale
+1409|Meccanica
+1410|Combo
+1411|Da fare
+1412|In allenamento
+1413|Padroneggiato
+1414|Accampamento
+1415|Obiettivo
+1416|Torre
+1417|Cespuglio
+1418|Neutrale
+1419|Allenamento
+1420|Il tuo allenamento
+1421|Accedi per scegliere i tuoi eroi e tenere il tuo quaderno.
+1422|Quaderno
+1423|Situazioni
+1424|Sezioni dell'allenamento
+1425|Nessun eroe scelto
+1426|Spunta nell'elenco gli eroi che alleni: compaiono qui per un accesso rapido.
+1427|Impossibile caricare la scheda di questo eroe.
+1428|Scheda completa dell'eroe
+1429|Note su questo eroe
+1430|Ricarica {seconds} s
+1431|Costo {cost}
+1432|Le abilità di questo eroe non sono ancora state recuperate.
+1433|Gli eroi che alleni, con tutto il necessario per padroneggiarli.
+1435|{count} eroi su {max}
+1436|Scegli i tuoi eroi
+1437|Tutte le lane
+1439|Combo: scegli le abilità in ordine
+1440|Suggerimento (facoltativo)
+1441|Suggerimento per il passo {number}
+1442|Su
+1443|Giù
+1444|Rimuovi il passo {number}
+1445|Ancora nessun passo: scegli un'abilità qui sopra.
+1446|Tipo
+1447|Nessun eroe
+1449|Nuova nota
+1450|Tutti gli eroi
+1451|Il tuo quaderno è ancora vuoto
+1452|Annota cosa vuoi allenare: una meccanica, una combo, un obiettivo per il prossimo scrim.
+1453|Eliminare questa nota?
+1454|(morto)
+1455|Mappa
+1456|Morto
+1457|Situazioni preparate dagli amministratori: posizionati sulla mappa e decidi cosa fare.
+1458|Nuova situazione
+1459|{count} segnaposto
+1460|Bozza
+1461|Ancora nessuna situazione
+1462|Gli amministratori non hanno ancora preparato situazioni. Torna presto.
+1463|Carica prima una mappa.
+1464|Eliminare questa mappa?
+1465|Mappe
+1466|Amministratori
+1467|Carica la mappa del gioco (PNG, JPEG o WebP, massimo 12 MB). I segnaposto vengono messi sopra: nulla viene disegnato per te.
+1468|Ancora nessuna mappa.
+1469|Carica la mappa
+1470|Situazione non trovata
+1471|Torna alle situazioni
+1472|Studia la posizione, poi scrivi cosa faresti.
+1473|Bozza: solo gli amministratori la vedono.
+1475|La situazione
+1477|Cosa faresti, e perché?
+1478|Salva la mia risposta
+1479|Accedi per scrivere la tua risposta.
+1480|Risposta salvata.
+1481|Scegli un eroe
+1482|Modifica la situazione
+1483|Scegli uno strumento, poi clicca sulla mappa. Trascina un segnaposto per spostarlo; le frecce della tastiera spostano il segnaposto selezionato.
+1484|Strumento
+1485|Nome sulla mappa
+1486|Appartiene a
+1487|Segnaposto
+1488|Ancora nessun segnaposto.
+1489|Segna come vivo
+1490|Segna come morto
+1491|Rimuovi il segnaposto
+1492|Pubblicata
+1493|Eliminare questa situazione?
+1494|Scegli prima un eroe.
+1495|Questo eroe è già da quel lato.
+1496|Un lato ha al massimo 5 eroi.
+1497|{label} deve avere al massimo {max} caratteri.
+1498|Scegli al massimo {max} eroi.
+1499|Eroe sconosciuto.
+1500|Un eroe può essere scelto una sola volta.
+1501|Una combo appartiene a un eroe.
+1502|Solo una combo ha dei passi.
+1503|Una combo ha al massimo {max} passi.
+1504|Un passo richiede un'abilità.
+1505|Una combo richiede almeno un passo.
+1506|{label} deve essere un numero tra 0 e 1.
+1507|Scegli una delle mappe caricate.
+1508|Una situazione ha al massimo {max} segnaposto.
+1509|Ogni segnaposto ha bisogno di un proprio identificatore breve.
+1510|Un eroe può stare sulla mappa una sola volta per lato.
+1511|Un lato ha al massimo {max} eroi.
+1512|Accedi per usare l'area di allenamento.
+1513|Nota non trovata.
+1514|Mappa non trovata.
+1515|Situazione non trovata.
+1516|Scegli un'immagine PNG, JPEG o WebP.
+1517|Questa immagine è troppo grande (massimo 12 MB).
+1518|Il tuo quaderno è pieno ({max} note). Eliminane prima qualcuna.
+1519|Questa mappa è usata da {count} situazione/i. Eliminale o spostale prima.
+1520|Benvenuto
+1521|Le tue parti
+1522|Scrim e draft
+1523|Gestisci serie di scrim con il draft di ban e pick, segui il draft dal vivo e consulta storico e statistiche.
+1524|Crea una serie
+1525|Crea tier list per ogni lane con il trascinamento e condividile.
+1526|Apri le tier list
+1527|Eroi e build
+1528|Ogni eroe Global con abilità, storico delle patch e illustrazioni, e un laboratorio di build per provare oggetti e arcani.
+1529|Sfoglia gli eroi
+1530|Scegli gli eroi che alleni, tieni un quaderno di combo e meccaniche e studia situazioni sulla mappa.
+1531|Crea o unisciti a un team, con rosa, ruoli e inviti.
+1532|Annunci dei team che cercano uno scrim e richieste con controproposte.
+1533|L'agenda dei tuoi team con promemoria e chi partecipa.
+1534|Richieste di scrim e notifiche in un unico posto.
+1535|La tua pagina pubblica: eroi principali, lingue, team.
+1536|Collega il tuo account per ricevere promemoria e rispondere alle richieste da Discord.
+1537|Benvenuto in HOK Global Scrim Lab
+1538|Un luogo per la community competitiva di Honor of Kings Global: gioca scrim con il draft ufficiale, trova avversari, pianifica e allenati.
+1539|Solo dati di gioco Global. Nessun dato ranked. Niente è inventato.
+1540|Ci vuole un minuto: scegli cosa vuoi vedere e puoi cambiare in qualsiasi momento.
+1541|Cosa vuoi vedere?
+1542|Scegli le parti che ti servono. Le altre sono nascoste dal menu (le loro pagine si aprono comunque da un link).
+1543|Sempre attiva: team, richieste di scrim, agenda, posta in arrivo, pagine dei giocatori e Discord.
+1544|La community
+1545|Questa parte è per tutti ed è sempre nel tuo menu.
+1546|Crea un account per usare la community: è gratuito.
+1547|Sei pronto
+1548|Ecco da dove iniziare. Il tuo menu ora mostra solo ciò che hai scelto e la community.
+1549|Passi
+1550|Indietro
+1551|Salta, tieni tutto
+1552|Benvenuto | {site}
+1553|Scegli le parti del sito che vuoi vedere.
+1554|modules deve essere un elenco.
+1555|Parte del sito sconosciuta.
+1556|Accedi per conservare le tue scelte.
+1558|Impostazioni | {site}
+1559|Le tue parti del sito, valori predefiniti e interfaccia.
+1560|Impostazioni
+1561|Le tue scelte sono conservate nel tuo account.
+1562|Le tue scelte sono conservate in questo browser. Accedi per averle ovunque.
+1563|Il tuo account
+1564|Parti del sito
+1565|Attiva una parte che prima non volevi, o nascondine una che non usi. Le parti nascoste si aprono comunque dal loro indirizzo.
+1566|Rivedi le pagine di benvenuto
+1567|Il modulo di una nuova serie parte con queste scelte.
+1568|Interfaccia
+1569|Pagina iniziale
+1570|Riduci le animazioni
+1571|La pagina iniziale si apre quando arrivi sul sito. Le animazioni ridotte valgono anche quando il tuo dispositivo lo richiede.
+1572|Scegli quali messaggi ricevi su Discord, e collega il tuo account, nella pagina Discord.
+1573|Apri le impostazioni di Discord
+1574|Apri la posta in arrivo
+1575|Accedi per ricevere notifiche.
+1576|La tua pagina giocatore
+1577|Salva le impostazioni
+1578|Impostazioni salvate.
+1579|{label} non è una scelta supportata.
+1580|settings deve essere un oggetto.
+1581|reduceMotion deve essere true o false.
+1582|Hai modifiche non salvate.
+1583|Annulla le modifiche
+1584|Un eroe mantiene almeno una lane.
+1585|Rimuovi la lane {lane}
+1586|Lane aggiornate
+1587|Free For All
+1588|Tutte le regole
+1589|Ancora nessuna lane
+1590|{hero}: {lane}
+1591|Lane giocata
+1592|Nessuna lane
+1593|Trascina una lane su un eroe, oppure clicca una lane e poi un eroe.
+1594|Regola del draft
+1595|{label} deve indicare una lane (o nessuna) per ciascuno dei cinque pick.
+1596|{label} contiene una lane che non esiste.
+1597|{label} dà la stessa lane a due eroi dello stesso lato.
+1598|Regola non valida.
+1599|Un eroe mantiene almeno una lane: aggiungine un'altra prima di rimuovere questa.
+1600|Questo eroe non ha quella lane.
+1601|Passa al tema scuro
+1602|Passa al tema chiaro
+1603|Modalità scura
+1604|Modalità chiara
+1607|Nessun risultato per «{query}»
+1608|{count} non lette
+1609|Tutto letto
+1610|Ancora nessuna notifica.
+1611|Scrim Lab
+1612|Scrim e draft
+1613|Eroi e build
+1614|Più di un gioco, una community.
+1615|Direzione del testo
+1616|Navigazione mobile
+1617|Live
+1619|La tua risposta: {answer}
+1620|Non hai ancora risposto.
+1621|Chi viene
+1622|{going} su {total} vengono
+1623|Niente in programma
+1624|Crea una serie per iniziare un draft o trova una squadra contro cui giocare.
+1625|Prossimo: {title} con {team}, {when}.
+1626|Apri la stanza del draft
+1627|Vedi l'agenda
+1628|Apri il draft
+1629|Draft, scrim, allenamento.
+1630|Prepara i tuoi scrim, migliora il tuo gioco, esplora gli eroi e costruisci la tua squadra su HOK Global Scrim Lab.
+1631|Account gratuito
+1632|Conserva le tue serie, gioca online.
+1633|Crea un account per salvare i tuoi scrim, giocare online contro un avversario invitato, condividere le tier list e unirti a una squadra.
+1634|In evidenza
+1635|Gli eventi delle tue squadre compaiono qui.
+1636|Accedi per vedere l'agenda delle tue squadre.
+1641|Prossimi eventi
+1642|Vedi tutto
+1643|Migliora la tua meccanica, ripassa i combo e allenati su situazioni di gioco.
+1644|Apri
+1645|Le mie squadre
+1646|Crea una squadra o accetta un invito per vederla qui.
+1647|Statistiche rapide
+1648|Solo dati Global
+1649|Nessun dato ranked né ladder. Le tue statistiche restano nascoste finché non ci sono abbastanza partite.
+1650|I miei scrim
+1651|In arrivo
+1652|Passati
+1653|Buongiorno, {name}.
+1654|Buon pomeriggio, {name}.
+1655|Buonasera, {name}.
+1656|Eroe del giorno
+1657|Apri la scheda
+1659|Ordina
+1660|Vista
+1661|Griglia
+1662|ULTIMI 5 SECONDI
+1663|TEMPO SCADUTO
+1664|{seconds} s
+1665|Prossimo pick
+1666|Rivelato alla fine del draft
+1667|Pick {number} di 5
+1668|Pick nascosti
+1670|In corso
+1671|Concluse
+1672|Prepara una serie, fai il draft dal vivo e conserva lo storico di ogni partita.
+1673|Entra nella stanza
+1674|Squadra, modalità…
+1675|Questo eroe è già nel tuo allenamento.
+1676|Aggiunto al tuo allenamento.
+1677|Corsia superiore
+1678|Corsia centrale
+1679|Corsia inferiore
+1680|Build consigliate
+1684|Aggiungi all'allenamento
+1685|Al livello {level}
+1686|Ruoli del roster
+1692|Copia il link del team
+1688|Proprietario e capitani
+1689|Giocatori e riserve
+1690|Staff (manager, coach, analista)
+1687|Non fai ancora parte di nessun team.
+1691|Clicca su un logo per impostare la corsia di un giocatore.
+1693|I tuoi annunci
+1694|Le tue richieste
+1697|Fascia oraria
+1695|Risposte firmate
+1696|Su Discord una richiesta arriva con i pulsanti Accetta e Rifiuta. Ogni clic è firmato da Discord e verificato qui, e solo lo staff del team può rispondere.
+1698|Cerca…
+1703|Oggi
+1701|Settimana precedente
+1702|Settimana successiva
+1700|Niente in programma quel giorno.
+1699|Da rispondere
+1705|Leggi
+1706|Tema
+1707|Scuro
+1708|Chiaro
+1709|Da sinistra a destra
+1710|Da destra a sinistra
+1711|Sezioni
+1712|Passo {number} di {count}
+1713|Il laboratorio di scrim di Honor of Kings Global.
+1714|Draft in diretta con l'ordine competitivo ufficiale
+1715|Tier list per corsia, condivisibili con un link
+1716|Promemoria e risposte firmate direttamente su Discord
+1717|Codice a 6 cifre
+1718|Giocatore connesso
+1719|In attesa di un giocatore
+1720|Vittoria
+1721|Rivedi il draft
+1722|Durata media
+1723|Riepilogo
+1724|Eroi più scelti
+1725|{count, plural, one {# partita} other {# partite}}
+1728|Faccia a faccia per lane
+1727|Tutte le lane sono indicate.
+1726|{count, plural, one {# lane da indicare} other {# lane da indicare}} · blu {blue}, rosso {red}
+1729|Nessun ban
+1752|Almeno un oggetto o un arcano
+1730|Build
+1749|Build salvato: {name}
+1734|Build da mostrare
+1758|Build scritti
+1764|Modifiche non salvate
+1732|Copia il link di questa build
+1763|Elimina la build {variant}
+1771|Eliminare la build {variant} di questo eroe?
+1733|Elimina questa build
+1750|Eliminare questa build?
+1774|Modifica le build
+1767|Guide degli eroi
+1775|Guide degli eroi | {site}
+1757|Eroi da mostrare
+1756|Eroi con almeno una build
+1744|Salvate solo in questo browser, senza account. Cancellare i dati del browser le elimina: copia il link di una build per conservarla altrove.
+1770|Lasciare questa build? Le modifiche non sono salvate.
+1731|Carica
+1751|Segna {min} o {max} oggetti core (ora {count})
+1736|Le mie build
+1739|Nome di questa build
+1738|Nome di questa build (facoltativo)
+1743|Nessuna build salvata. Salvane una per ritrovarla qui, la prossima volta, per qualsiasi eroe.
+1759|Senza nome
+1760|Non ancora salvato
+1737|Su questo dispositivo
+1765|Scegli un eroe dalla lista per scrivere le sue build.
+1745|Pubblica come build consigliata
+1741|Salva come nuova build
+1762|Salva la build {variant}
+1742|Salva questa build
+1766|Vedi la pagina dell'eroe
+1773|Accedi per scrivere le guide degli eroi.
+1761|Link della fonte (facoltativo)
+1753|La fonte è un link che inizia con https://
+1777|Questa azione è riservata ad amministratori e collaboratori.
+1748|Questo browser non ha voluto salvare la build (finestra privata o memoria piena).
+1769|Questa build arriva dal laboratorio build. Controllala, poi salvala.
+1735|Questo eroe
+1772|Questa pagina è per chi scrive le guide degli eroi. Un amministratore può darti l'etichetta Collaboratore.
+1740|Aggiorna «{name}»
+1755|Con una build
+1754|Senza build
+1776|Scrivi le build consigliate e le combo mostrate nella pagina di ogni eroe.
+1768|Scrivi le build consigliate e le combo mostrate nella pagina di ogni eroe. Ogni build è verificata con il catalogo del gioco.
+1746|Puoi salvare {max} build per eroe: eliminane prima una.
+1747|Puoi salvare {max} build in tutto: eliminane prima una.
+1778|Scegli il primo e l'ultimo giorno del periodo.
+1779|Il periodo deve coprire almeno {months} mesi.
+1781|Ha vinto contro
+1784|Campione ridotto
+1785|Nessuna riga raggiunge {count} partite in questo periodo: abbassa il minimo.
+1786|Niente da classificare in questo periodo.
+1787|{count, plural, one {# draft} other {# draft}}
+1788|Entrambi i lati
+1789|Lato
+1790|I pick senza corsia indicata sono esclusi: {count}.
+1809|{months, plural, one {# mese} other {# mesi}}
+1792|Dalla prima partita
+1793|Partite minime
+1794|Ordina per
+1795|Più giocati
+1796|Solo partite di torneo, mai scrim. La prima è del {date}.
+1797|Solo partite di torneo, mai scrim.
+1798|Draft popolari
+1799|Eroi popolari
+1800|I draft da cinque eroi che vincono di più e sono più giocati nei tornei, per ogni lato.
+1801|Gli eroi che vincono di più e sono più giocati nei tornei, per ogni corsia.
+1802|Nessuna partita di torneo in questo periodo.
+1803|Amplia il periodo o chiedi a un amministratore di inserire le partite giocate.
+1804|Popolare
+1805|Draft
+1806|Draft ed eroi popolari nei tornei | {site}
+1807|I draft e gli eroi che vincono di più e sono più giocati nei tornei di Honor of Kings Global, per ogni lato e ogni corsia.
+1808|minGames deve essere un numero intero tra 1 e 50.
+1810|Valutazione in {lane}: {tier}
+1812|Sposta {name} in
+1813|Trascina un eroe in un tier, oppure clicca su di lui e scegli il tier.
+1814|Mai salvato
+1815|Salva le valutazioni
+1816|Valutazioni ufficiali
+1817|Valuta gli eroi di ogni corsia da SS a D. La valutazione compare accanto a ogni corsia nella pagina dell'eroe; le liste sono solo per gli editor.
+1818|Valutazioni salvate
+1819|Lasciare questa corsia? Le modifiche non sono salvate.
+1820|Questa pagina è per chi scrive le valutazioni degli eroi. Un amministratore può darti l'etichetta Collaboratore.
+1821|Accedi per scrivere le valutazioni degli eroi.
+1822|Valutazioni ufficiali | {site}
+1823|Valuta gli eroi di ogni corsia, da SS a D.
+1824|Queste valutazioni sono cambiate da quando le hai aperte. Ricarica e riprova.
+1825|I tier devono essere un oggetto JSON.
+1826|Invia gli eroi di ogni tier, da SS a D.
+1827|I tier sono SS, S, A, B, C e D, ciascuno una volta.
+1828|Gli eroi di un tier devono essere una lista di ID di eroe.
+1829|Un eroe può stare in un solo tier, tramite il suo ID.
+1830|Valutazioni
+1831|Il combo ha un nome
+1832|Almeno un passaggio (ora {count})
+1833|Modifica il combo
+1834|Nuovo combo
+1835|{count} di {max} passaggi
+1836|Salva il combo
+1837|Ancora nessun combo
+1838|Scrivi il primo combo di questo eroe: scegli le sue abilità nell'ordine in cui si usano.
+1839|Lasciare questo combo? Le modifiche non sono salvate.
+1840|Combo salvato
+1841|Eliminare il combo {name}?
+1842|Combo eliminato
+1843|Combo
+1844|Senza combo
+1845|Con combo
+1846|Eroi con almeno un combo
+1847|Combo scritti
+1848|Cosa scrivere
+1849|Esercitarsi con questi combo
+1850|Modifica i combo
+1851|Altri combo ({count})
+1852|Per questo eroe non è stato ancora scritto nessun combo.
+1853|Forme acquisite: {name}
+1854|Normale
+1855|Annullamento dell'animazione
+1856|Invia ogni combo dell'eroe una sola volta, nell'ordine voluto.
+1857|Ogni forma di un combo è acquisita o no: true o false.
+1858|Indica quale forma del combo è acquisita.
+1859|Combo non trovato.
+1860|Un eroe ha al massimo {max} combo.
+1861|Tempo di reazione
+1862|Memoria di sequenza
+1863|Test dello scimpanzé
+1864|Allenamento di mira
+1865|Tracciamento visivo
+1866|Amico o nemico
+1867|Last hit
+1868|Tasti delle abilità
+1869|Tocca il riquadro appena diventa verde.
+1870|Ripeti l'ordine in cui si illuminano i riquadri.
+1871|Ricorda dove erano i numeri e toccali in ordine.
+1872|Colpisci trenta bersagli il più in fretta possibile.
+1873|Segui le palline illuminate mentre si muovono.
+1874|Colpisci i nemici, lascia stare gli alleati.
+1875|Colpisci quando la barra della vita scende sotto la tacca.
+1876|Premi i tasti delle abilità nell'ordine mostrato.
+1877|Tempo medio
+1878|Livello raggiunto
+1879|Numeri completati
+1880|Tempo medio per bersaglio
+1881|Palline seguite
+1882|Tempo medio, con penalità
+1883|Errore medio
+1884|Tempo medio per sequenza
+1885|Meno è meglio
+1886|Più è meglio
+1887|{count, plural, one {# tentativo} other {# tentativi}}
+1888|{count, plural, one {# minuto} other {# minuti}}
+1889|{count, plural, one {# giorno} other {# giorni}}
+1890|Ogni giorno
+1891|Ogni settimana
+1892|Qualsiasi esercizio
+1893|Una squadra ha al massimo {max} obiettivi di allenamento.
+1894|Conteggio in
+1895|Tentativi
+1896|Minuti
+1897|Quantità
+1898|Esercizio
+1899|Aggiungi l'obiettivo
+1900|Nessuno deve ancora allenarsi: gli obiettivi sono per i giocatori, le riserve e i capitani.
+1901|Ancora nessun obiettivo. Chiedi ai giocatori un numero di tentativi o di minuti ogni giorno o ogni settimana.
+1902|Lo staff non ha ancora fissato alcun obiettivo.
+1903|Obiettivi di allenamento
+1904|A ogni giocatore viene chiesto un numero di tentativi, o di minuti, degli esercizi di riflessi ogni giorno o ogni settimana. Un giorno, e una settimana dal lunedì, seguono l'orologio della squadra.
+1905|Progressi dei giocatori
+1906|I tuoi progressi
+1907|Allenamento dei riflessi
+1908|Niente da seguire finché non c'è un obiettivo.
+1909|Salva l'obiettivo
+1910|Obiettivo salvato
+1911|Obiettivo rimosso
+1912|Bersaglio
+1913|Bersaglio {done} di {total}
+1914|Numero {number}
+1915|Tocca da 1 a {count} in ordine
+1916|Completato: da 1 a {count}
+1917|Errore {strikes} di {max}
+1918|Unità {done} di {total}
+1919|Nemico
+1920|Alleato
+1921|Abilità da premere, in ordine
+1922|Abilità {number}
+1923|Sequenza {done} di {total}
+1924|Colpisci
+1925|Minion {done} di {total}
+1926|Troppo tardi: il minion è sparito
+1927|Perfetto!
+1928|{ms} ms in anticipo
+1929|{ms} ms in ritardo
+1930|Aspetta il verde…
+1931|Round {round} di {rounds}
+1932|Clicca ora!
+1933|Troppo presto!
+1934|Aspetta il verde. Questo round viene ripetuto.
+1935|Riquadro {number}
+1936|Livello {level}: osserva
+1937|Livello {level}: tocca a te
+1938|Riquadro sbagliato
+1939|Livello {level} completato
+1940|Pallina {number}
+1941|Ricorda le palline illuminate ({count})
+1942|Seguile con lo sguardo
+1943|Tocca le palline che hai seguito ({count})
+1944|Le hai trovate tutte!
+1945|Non proprio. Vite rimaste: {lives}
+1946|Il riquadro diventa verde dopo un'attesa casuale. Toccalo appena succede. Un tocco prima del verde non conta: il round si ripete. Cinque round.
+1947|I riquadri si illuminano uno dopo l'altro. Ripeti l'ordine. Ogni livello aggiunge un riquadro e un riquadro sbagliato termina il tentativo.
+1948|Dei numeri sono sparsi sulla griglia. Toccali in ordine a partire da 1: appena tocchi l'1, gli altri vengono nascosti. Tre errori terminano il tentativo.
+1949|Compare un bersaglio: colpiscilo e il successivo compare altrove. Trenta bersagli. Un clic accanto al bersaglio gli aggiunge 150 ms.
+1950|Alcune palline si illuminano, poi tutte diventano uguali e si muovono. Quando si fermano, tocca quelle che erano illuminate. Ogni livello aggiunge una pallina; tre vite.
+1951|Compaiono unità per un secondo. Colpisci le rosse (nemici) e lascia stare le blu (alleati). Trenta unità.
+1952|La barra della vita di un minion scende e ha una tacca. Colpisci esattamente quando la barra scende sotto la tacca, né prima né dopo. Dieci minion.
+1953|Compaiono quattro abilità. Premile in ordine con i tasti da 1 a 4, o al tocco. Quindici sequenze. Un tasto sbagliato aggiunge 300 ms.
+1954|La media dei tuoi cinque round, in millisecondi.
+1955|La sequenza più lunga ripetuta senza errori.
+1956|Il maggior numero di numeri completati su una griglia.
+1957|Il tempo medio per colpire un bersaglio, in millisecondi.
+1958|Il maggior numero di palline seguite senza errori.
+1959|Il tempo medio per colpire un nemico, in millisecondi (uno mancato conta come l'intero secondo), più 250 ms per ogni alleato colpito.
+1960|Quanto sono stati sfasati in media i tuoi colpi, in millisecondi.
+1961|Il tempo medio per una sequenza, in millisecondi.
+1962|Fissati dalle tue squadre
+1963|Non ancora giocato
+1964|Migliore
+1965|Brevi esercizi per riflessi, memoria e mira. Girano nel tuo browser e non inviano nulla mentre giochi.
+1966|Questa settimana
+1967|Serie
+1968|Non hai ancora giocato a questo.
+1969|I tuoi ultimi punteggi
+1970|Tutti gli esercizi
+1971|Interrompi
+1972|Salvataggio…
+1973|Salvato.
+1974|Nuovo record!
+1975|Riprova a salvare
+1976|Riprova
+1977|Riflessi
+1978|Esercizio sconosciuto.
+1979|{label} deve essere uno di questi valori: {allowed}.
+1980|Lo scarto del fuso orario deve essere un numero di minuti tra -840 e 840.
+1981|È molto allenamento per un giorno: torna più tardi.
+1982|Solo i membri della squadra possono vedere il suo allenamento.
+1983|Solo il proprietario, i manager e gli allenatori possono fissare l'allenamento della squadra.
+1984|Obiettivo non trovato.
+1985|Rimuovere questo obiettivo?
+1986|Come si gioca
+1987|Come si calcola il punteggio
+1988|Tieni questa build nel mio spazio
+1989|Per ritrovare una build su qualsiasi dispositivo, e condividerla, tienila nel tuo spazio.
+1990|Accedi per tenere le build nel tuo spazio, su qualsiasi dispositivo.
+1991|Tenuta nel tuo spazio
+1992|Scheda di allenamento
+1993|Tutti i ruoli
+1994|{count, plural, one {# eroe} other {# eroi}}
+1995|In questa lista non è ancora stato classificato nessun eroe.
+1996|Ancora nessuna tier list
+1997|Crea una tier list e verrà tenuta qui.
+1998|Apri nel laboratorio build
+1999|Rimuovi questa build dal mio spazio
+2000|Ancora nessuna build tenuta
+2001|Salva una build nel laboratorio build, poi tienila nel tuo spazio.
+2002|Qui non è tenuto nulla.
+2003|Eroi su cui si lavora
+2004|Nessun eroe scelto.
+2005|Niente nel quaderno.
+2006|Combo acquisiti
+2007|Ancora nessun combo acquisito.
+2008|Ancora nessun esercizio giocato.
+2009|Apri l'allenamento
+2010|Il mio spazio
+2011|Accedi per tenere le tue build, le tue tier list e la tua scheda di allenamento, e condividerle con un link.
+2012|Non scade
+2013|Scade il {date}
+2014|{count, plural, one {Aperto # volta} other {Aperto # volte}}
+2015|Mai aperto
+2016|Link del {date}
+2017|Rimuovi il link
+2018|Condividi il mio spazio
+2019|{count} link su {max}
+2020|Chi ha un link vede ciò che condivide, in sola lettura e senza account. Un link è l'unico modo per condividere il tuo spazio: niente viene elencato da nessuna parte.
+2021|Il link condivide
+2022|Nome del link (facoltativo)
+2023|Per il mio allenatore
+2024|Il link dura
+2025|Finché non lo rimuovo
+2026|Crea il link
+2027|Il tuo nuovo link
+2028|Viene mostrato una sola volta: copialo ora. Chiunque lo abbia vede ciò che condivide.
+2029|Indirizzo del link
+2030|Copia il link
+2031|I tuoi link
+2032|Ancora nessun link: nessuno può vedere il tuo spazio.
+2033|Ciò che tieni sul sito: le tue tier list, le tue build e la tua scheda di allenamento. Condividi tutto, o solo ciò che scegli, con un link.
+2034|Rimuovere questo link? Chi lo ha non vedrà più il tuo spazio.
+2035|Link rimosso
+2036|Rimuovere questa build dal tuo spazio?
+2037|Build rimossa
+2038|Questo spazio non è disponibile
+2039|Torna al sito
+2040|Questo indirizzo non contiene alcun link. Chiedi il link completo alla persona.
+2041|Spazio condiviso
+2042|Spazio di {name}
+2043|Condiviso con te tramite un link. Lo vedi com'è adesso e qui non si può modificare nulla.
+2044|Non è condiviso nulla.
+2045|Il mio spazio | {site}
+2046|Ciò che tieni sul sito e i link che lo condividono.
+2047|Spazio condiviso | {site}
+2048|Uno spazio che qualcuno ha condiviso con te.
+2049|Scegli un eroe del roster, o nessuno.
+2050|Scegli cosa condivide il link.
+2051|Un link dura 7, 30 o 90 giorni, oppure finché non lo rimuovi.
+2052|Questo link non è valido.
+2053|Accedi per usare il tuo spazio.
+2054|Link non trovato.
+2055|Questo link non esiste o è scaduto.
+2056|Puoi tenere al massimo {max} build nel tuo spazio.
+2057|Puoi tenere al massimo {max} build per eroe.
+2058|Puoi dare al massimo {max} link. Rimuovine prima uno.
+2059|Riscaldamento
+2060|Meccaniche
+2061|Concentrazione e memoria
+2062|Tutto
+2063|Reazione, mira e tasti delle abilità: sveglia le mani prima di uno scrim.
+2064|Tasti delle abilità, last hit, amico o nemico e mira: la precisione delle mani.
+2065|Memoria di sequenza, test dello scimpanzé e tracciamento visivo: tieni le informazioni in testa.
+2066|Gli otto esercizi, uno dopo l'altro.
+2067|Giocato oggi
+2068|Routine
+2069|Gioca più esercizi di fila, uno dopo l'altro, e guarda alla fine com'è andata.
+2070|Scegli una routine
+2071|{count, plural, one {# esercizio} other {# esercizi}}
+2072|Inizia la routine
+2073|La tua routine
+2074|Spunta gli esercizi che vuoi: si giocano nell'ordine della lista.
+2075|Spunta almeno due esercizi.
+2076|Routine completata
+2077|I tuoi risultati, esercizio per esercizio.
+2078|I tuoi risultati
+2079|Record
+2080|In questa routine non è stato giocato nulla.
+2081|Rifai
+2082|Routine
+2083|Salta questo esercizio
+2084|Interrompi la routine
+2085|Guarda com'è andata
+2086|Avanti: {name}
+2087|Classifica
+2088|Mostra la classifica ai giocatori
+2089|Il miglior punteggio di ogni giocatore a cui è chiesto di allenarsi, nell'esercizio scelto. Un pareggio condivide il posto.
+2090|Nessuno ha giocato a questo esercizio questa settimana.
+2091|Nessuno ha ancora giocato a questo esercizio.
+2092|I giocatori possono vedere la classifica
+2093|La classifica è solo per lo staff
+2094|La classifica è mostrata ai giocatori oppure no: true o false.
+2095|Lo staff non ha aperto la classifica ai giocatori.
+2096|Entrambe le forme
+2097|{count, plural, one {# combo} other {# combo}}
+2098|Ancora nessun obiettivo su un eroe. Chiedi ai giocatori di acquisire i combo di un eroe.
+2099|Lo staff non ha ancora chiesto nulla sugli eroi.
+2100|Una squadra ha al massimo {max} obiettivi sugli eroi.
+2101|Nessun eroe ha ancora un combo: gli editor li scrivono nelle guide degli eroi.
+2102|Acquisito in
+2103|Chiedi questo eroe
+2104|Eroi da padroneggiare
+2105|A ogni giocatore è chiesto di acquisire i combo di questi eroi, nella forma scelta. I combo sono quelli scritti dagli editor per l'eroe.
+2106|Esercitati
+2107|Combo da controllare oggi
+2108|Hai acquisito questi combo tempo fa: li padroneggi ancora?
+2109|Ancora a punto
+2110|Arrugginito
+2111|Dopo questi, altri {count}.
+2112|Niente da controllare oggi.
+2113|Combo da imparare
+2114|Combo degli eroi su cui lavori e di quelli che chiedono le tue squadre, che non hai ancora acquisito.
+2115|Lo rivedrai tra {days}.
+2116|Indica se padroneggi ancora questo combo: true o false.
+2117|Questo combo non è nel tuo piano di ripasso.
+2118|Questo eroe non ha ancora combo.
+2119|La squadra lo chiede già.
+2120|Guarda da {time}
+2121|Guarda il video
+2122|Riga {line}: scrivi un tempo come 12:30, poi cosa guardare.
+2123|Riga {line}: al massimo {max} caratteri.
+2124|Una revisione video ha al massimo {max} momenti.
+2125|Link del video
+2126|Momenti da rivedere
+2128|Un momento per riga: il tempo (12:30 o 1:02:03), poi cosa guardare.
+2129|Cosa allenare: obiettivi, meccaniche, combo e revisioni video. Solo tu puoi vederlo.
+2130|Revisione video
+2131|Da guardare
+2132|In revisione
+2133|Rivisto
+2134|Un momento richiede un tempo tra 0:00 e {max}.
+2135|Una revisione video appartiene a un eroe.
+2136|Il link del video deve essere un indirizzo completo https://.
+2137|Solo una revisione video ha un link e dei momenti.
+2138|12:30 rotazione in ritardo
+2139|{subject} non è {value}
+2140|{subject} è almeno {value}
+2141|{subject} è al massimo {value}
+2142|{subject} è maggiore di {value}
+2143|{subject} è minore di {value}
+2144|{subject} è {value}
+2145|non ({conditions})
+2146|{stat} non è {options}
+2147|{stat} è {options}
+2148|Non ha il tag {tag}
+2149|Ha il tag {tag}
+2150|La classe non è {role}
+2151|La classe è {role}
+2152|Non gioca in {lane}
+2153|Gioca in {lane}
+2154|L'eroe non è {heroes}
+2155|L'eroe è {heroes}
+2156|Quando: {conditions}
+2157|Temporaneo, {seconds} s
+2158|Temporaneo
+2160|Non si applica a questo eroe.
+2161|Non verificabile: i dati di questo eroe sono incompleti.
+2162|{count, plural, one {# valore non si applica a questo eroe} other {# valori non si applicano a questo eroe}}
+2163|{count, plural, one {# valore non può essere verificato: i dati dell'eroe sono incompleti} other {# valori non possono essere verificati: i dati dell'eroe sono incompleti}}
+2164|{count, plural, one {# valore dipende dall'eroe: scegline uno per contarlo} other {# valori dipendono dall'eroe: scegline uno per contarli}}
+2165|{count, plural, one {# valore temporaneo, fuori dal totale} other {# valori temporanei, fuori dal totale}}
+2159|Un valore che dipende dall'eroe conta solo se si applica all'eroe scelto. Un valore temporaneo è mostrato a parte e non è nel totale.
+2166|Statistica dell'eroe
+2167|Tag dell'eroe
+2168|Classe dell'eroe
+2169|Corsia dell'eroe
+2170|L'eroe
+2171|Livello dell'eroe
+2172|Gruppo di condizioni
+2173|Valgono tutte
+2174|Ne vale almeno una
+2175|Quante condizioni devono valere
+2176|è
+2177|non è
+2178|Deve esserlo, o non esserlo
+2179|Confronto
+2180|Tag
+2182|Tipo di condizione
+2181|Rimuovi questa condizione
+2183|Non
+2184|Aggiungi una condizione
+2185|Aggiungi un gruppo
+2186|Vale per tutti gli eroi.
+2187|Solo per alcuni eroi
+2188|Si applica quando
+2189|{count, plural, one {# condizione} other {# condizioni}}
+2190|Numero intero
+2191|Scelta (un elenco di opzioni)
+2192|Scelta: {options}
+2193|Opzione
+2194|Temporaneo e condizioni
+2195|Dura (s)
+2196|Quando o come (facoltativo)
+2197|Nome dell'opzione
+2198|Rimuovi questa opzione
+2199|Aggiungi un'opzione
+2200|Opzioni della scelta (ciò che un eroe o un oggetto può assumere)
+2201|Una condizione non è completa: compilala o rimuovila.
+2202|{label} fa riferimento a qualcosa che non esiste.
+2203|{label} deve elencare le opzioni della statistica.
+2204|{label} elenca due volte la stessa opzione.
+2205|{label} deve elencare da 1 a {max} eroi.
+2206|{label} elenca due volte lo stesso eroe.
+2207|Le condizioni possono annidarsi per al massimo {max} livelli.
+2208|Un gruppo di condizioni non può essere vuoto.
+2209|Ci sono al massimo {max} condizioni in tutto.
+2210|Un insieme di condizioni contiene al massimo {max} condizioni.
+2211|{label} deve essere un insieme di condizioni.
+2212|{label} deve essere un numero intero.
+2213|Solo un valore temporaneo ha una durata.
+2214|{label} elenca due volte la stessa statistica con le stesse condizioni.
+2215|Una scelta richiede da {min} a {max} opzioni.
+2216|Questa statistica è usata da {count} oggetti, arcani o eroi: non può passare da numero a scelta (o viceversa) finché la usano.
+2217|L'opzione «{name}» è usata da {count} oggetti, arcani o eroi: rimuovila prima da loro.
+2218|{count} valori di questa statistica non sono numeri interi: modificali prima.
+2219|Questo tag è citato nelle condizioni di {count} oggetti o arcani: rimuovilo prima da loro.
+2220|Traduzioni
+2221|Non riuscita
+2222|A mano
+2223|Automatica
+2224|Descrizione del tag
+2225|Nome dell'effetto
+2226|Nota su un bonus
+2227|Nota su un'abilità
+2228|Dettaglio di un'abilità
+2229|Nota su una build
+2230|Nota su un combo
+2231|Suggerimento
+2232|Situazione
+2233|Segnaposto
+2234|I numeri non sono gli stessi del testo.
+2235|La traduzione è molto più lunga del testo.
+2236|La traduzione è vuota.
+2237|Il servizio non ha restituito alcun testo.
+2238|Il servizio non ha risposto per questo testo.
+2239|La traduzione automatica è disattivata
+2241|Il servizio di traduzione ha rifiutato la chiave
+2242|Non viene inviato nulla finché la chiave non viene cambiata sul server e non si richiede un nuovo giro.
+2243|In pausa
+2244|Il traduttore attende e riproverà da solo.
+2245|Ultimo problema: {message}
+2246|Disattivata
+2248|Traduzioni fatte
+2250|traduzioni fatte
+2251|in attesa
+2252|non riuscite
+2253|scritte a mano
+2254|Inviato oggi: {used} caratteri su {limit}.
+2255|Traduzione in corso…
+2256|Traduci ora
+2257|Cerca nuovi testi
+2258|Riprova quelle non riuscite
+2259|Scritto in questa lingua
+2260|Scritto in {language}
+2261|Traduzione in {language}
+2262|Torna all'automatica
+2263|Il testo resta com'è stato scritto in tutte le lingue
+2264|Mantieni così com'è
+2265|Testi in {language}
+2266|Mostra
+2267|Nessun testo corrisponde.
+2268|Ancora niente da tradurre: scrivi una statistica, un oggetto o un tag e comparirà qui.
+2269|La traduzione è iniziata
+2270|I testi non riusciti verranno ritentati
+2271|Traduzione salvata
+2272|Tornato alla traduzione automatica
+2273|Questo testo resta com'è stato scritto in tutte le lingue
+2274|Testo non trovato.
+2275|{label} deve essere una lingua del sito.
+2276|La traduzione deve essere un testo.
+2277|Testi
+2278|Fisico
+2279|Magico
+2280|Difesa
+2281|Giungla
+2282|Roaming
+2283|Categoria
+2284|PNG, JPEG, WebP o GIF, massimo 3 MB. Viene mantenuta fino a 256 px; la trasparenza è mantenuta.
+2285|Nessuna categoria per ora
+2286|Statistiche che dà (fino a 4, per un arcano)
+2287|Tutte le categorie
+2288|Classifica più oggetti
+2289|{count, plural, one {# oggetto selezionato} other {# oggetti selezionati}}
+2290|Seleziona tutti quelli mostrati
+2291|Annulla la selezione
+2292|Categoria degli oggetti selezionati
+2293|Slot degli oggetti selezionati
+2294|{count, plural, one {# oggetto aggiornato} other {# oggetti aggiornati}}
+2295|Fine della classificazione
+2296|Classifica in blocco
+2301|Spunta gli oggetti nell'elenco, poi scegli la loro categoria o il loro slot.
+2298|{label} deve elencare da 1 a {max} oggetti.
+2299|{label} contiene lo stesso oggetto due volte.
+2300|Indica cosa cambiare: lo slot, la categoria o entrambi.
+2302|Caratteri usati dall'account in questo periodo: {used} (senza limite).
+2303|Caratteri usati dall'account in questo periodo: {used} su {limit}.
+2304|Si ferma al {percent}% della quota, per lasciarne un po' agli altri usi della chiave.
+2305|Quota usata
+2306|Traduci in {language}
+2307|Una lingua viene tradotta non appena qualcuno la chiede: un visitatore che legge il sito in quella lingua, oppure tu con i pulsanti più.
+2308|Traduci in tutte le lingue
+2309|Ogni testo viene mostrato com'è stato scritto e puoi tradurlo a mano qui sotto. Perché venga tradotto da solo, aggiungi la tua chiave DeepL al server come DEEPL_API_KEY (vedi il README) e riavvialo.
+2310|Quota raggiunta
+2311|Non viene inviato nulla finché la quota non viene rinnovata o aumentata.
+2312|Ciò che scrive lo staff viene conservato così com'è e tradotto nelle lingue in cui il sito viene letto. Un visitatore lo legge nella sua lingua; finché non esiste una traduzione, lo legge com'è stato scritto.
+2313|Nessuno ha ancora chiesto questa lingua.
+2314|Questa lingua verrà tradotta.
+2315|Tutte le lingue verranno tradotte.
+2320|Corsie
+2316|Suggerisci le corsie
+2321|Suggerisci le corsie di tutte le serie
+2319|Non si può proporre altro con certezza.
+2324|Non si può proporre altro con certezza: trascina tu le corsie.
+2318|Vengono proposte solo le corsie rese certe da quelle degli eroi; quelle che hai inserito restano e potrai cambiarle in seguito nell'editor.
+2317|{series, plural, one {# serie può} other {# serie possono}} ricevere corsie proposte ({count, plural, one {# corsia} other {# corsie}} in tutto).
+2322|Corsie salvate su {count, plural, one {# serie} other {# serie}}
+2323|{count, plural, one {# corsia proposta} other {# corsie proposte}}: cambiale trascinando.
+2325|Sbloccato al livello {level}
+2326|Tutti gli oggetti del gioco, per slot e per categoria del negozio.
+2327|Gli arcani del gioco, rossi, blu e verdi, e ciò che dà ciascuno.
+2328|Gli incantesimi che un giocatore porta in partita: cosa fanno e quando tornano.
+2329|Colore
+2330|Scegli un pezzo per vederne i dettagli.
+2331|Non ancora inserito.
+2332|Dati di gioco
+2333|Una build ha al massimo {max} incantesimi.
+2334|Un incantesimo di questa build non è nel catalogo.
+2335|{name} è usato due volte: un incantesimo può stare una sola volta in una build.
+2336|Oggetti di Honor of Kings Global — statistiche, prezzi e categorie | {site}
+2337|Tutti gli oggetti di Honor of Kings Global con immagine, prezzo, statistiche, passive e attive, per slot e per categoria del negozio.
+2338|Arcani di Honor of Kings Global — rossi, blu e verdi | {site}
+2339|Tutti gli arcani di Honor of Kings Global, rossi, blu e verdi, con le statistiche che dà ciascuno.
+2340|Incantesimi di Honor of Kings Global — cosa fanno e ricarica | {site}
+2341|Gli incantesimi che un giocatore porta in una partita di Honor of Kings Global: cosa fa ciascuno, quanto tempo prima di tornare e da quale livello.
+2342|Incantesimo non trovato.
+2343|Esiste già un incantesimo con questo nome.
+2344|Sbloccato al livello
+2345|La mia squadra
+2346|Io
+2350|Vedi i {count} eroi
+2347|Conserva le tue serie
+2348|Pianifica gli scrim con la squadra
+2349|Condividi le tier list
+2351|Per iniziare
+2352|Scegli una modalità e inizia
+2353|Da solo, su un dispositivo condiviso o online contro un avversario invitato.
+2354|Fai il draft col timer
+2355|Ban e pick seguono l'ordine reale, con un timer a ogni turno.
+2356|Rivedi e condividi
+2357|Ogni partita viene conservata: esportala, condividi un link o crea tier list.
+2358|Attacco base
+2359|Cronologia del draft
+2360|Timer partita
+2362|Filtri
+2368|Avvio rapido
+2369|Preparare
+2370|Scegli la regola degli eroi, il formato e le due squadre.
+2371|Banna e scegli con un timer di 30 secondi, da solo, su un dispositivo o online.
+2372|Analizzare
+2373|Registra il risultato, poi esporta o condividi la serie.
+2374|Come si svolge una serie
+2375|La squadra A gioca dal lato blu nella partita 1; poi i lati si alternano.
+2401|Questa chiave non può leggere questo: serve l'ambito {scope}.
+2398|L'API è di sola lettura: usa GET.
+2403|Puoi avere {max} chiavi API attive: revocane una prima.
+2396|Scegli almeno una cosa che la chiave può leggere.
+2397|Scegli la durata della chiave: {choices} giorni (0 = mai).
+2402|Chiave API non trovata.
+2404|Solo il proprietario, un manager o un coach della squadra può condividere una serie con essa.
+2405|Solo il creatore della serie, o un responsabile della squadra, può farlo.
+2406|Questa serie non è su questa squadra.
+2407|Una serie può essere su al massimo {max} squadre.
+2361|Altri eroi
+2363|Filtri attivi
+2364|Reimposta i filtri
+2365|Torna su
+2366|Rimuovi il filtro {name}
+2379|Presentazione dell'eroe
+2380|Altri eroi in {lane}
+2381|Come sono calcolati i numeri
+2382|Ogni partita proviene da una serie di torneo inserita a mano dallo staff.
+2383|Il tasso di pick e il tasso di ban contano le partite del periodo in cui l'eroe è stato scelto o bannato.
+2384|Un campione piccolo viene segnalato, mai nascosto: leggilo con cautela.
+2367|Nessuna partita è stata inserita con questa regola in questo periodo.
+2408|Ordine del draft
+2409|Scena competitiva
+2410|Le tue tier list
+2411|30 giorni
+2412|90 giorni
+2413|1 anno
+2414|Non scade mai
+2415|Revocata il {date}
+2416|Scaduta il {date}
+2417|Scade il {date}
+2418|Copia ora la tua chiave: viene mostrata una sola volta.
+2419|Usala così
+2420|L'ho salvata
+2421|Nessuna chiave ancora. Creane una qui sopra.
+2422|Ultimo uso il {date}
+2423|Mai usata
+2424|Creata il {date}
+2425|Revoca
+2426|Nome della chiave
+2427|Il mio bot di statistiche
+2428|Cosa può leggere la chiave
+2429|Quanto dura
+2430|Crea la chiave
+2431|{live} chiavi su {max} in uso
+2432|Le tue chiavi
+2433|Una chiave legge ciò che puoi leggere tu: i tuoi scrim, le serie che le tue squadre hanno condiviso con te, le tue tier list e i dati del gioco. Non scrive mai e non ha mai diritti di amministratore.
+2434|Dai prima un nome alla chiave.
+2435|Copiato.
+2436|Revocare la chiave «{name}»? I programmi che la usano smettono subito di funzionare.
+2437|Chiave revocata.
+2438|Chiavi API
+2439|Leggi i tuoi dati e quelli del gioco dai tuoi programmi. Una chiave legge soltanto, non scrive mai.
+2385|Prezzo
+2386|Ordina per
+2387|{count, plural, one {# risultato} other {# risultati}}
+2388|Cancella i filtri
+2389|Nella stessa categoria
+2390|Partite di torneo
+2391|Conta ogni partita inserita dallo staff, mai uno scrim.
+2392|Lati e corsie
+2393|I draft sono classificati per lato, gli eroi per corsia.
+2394|Almeno tre mesi
+2395|Un periodo più breve dice troppo poco, quindi viene rifiutato.
+2376|{count} classificati
+2377|Condividi
+2378|Le frecce passano da un eroe all'altro, Invio ne sceglie uno, da 1 a 9 lo mandano in quel tier e 0 lo rimanda tra i Non classificati.
+2440|Condividi con una squadra
+2446|I membri di una squadra che guidi possono aprire questa serie e leggerla, ma non modificarla.
+2444|Condivisa con
+2445|Non ancora condivisa con nessuna squadra.
+2443|Scegli una squadra
+2442|Nessuna squadra da aggiungere: per condividere una serie devi essere proprietario, manager o coach della squadra.
+2447|Serie condivisa con {team}
+2448|Serie rimossa da {team}
+2441|Rimuovi la serie da {team}
+2449|Tag degli eroi
+2450|Senza categoria
+2451|Senza statistiche
+2452|Senza prezzo
+2453|Senza descrizione
+2454|Senza ricarica
+2455|Senza livello di sblocco
+2456|Non ancora usato
+2457|Senza tag
+2458|Oggetti da classificare
+2459|Oggetti senza statistiche
+2460|Testi da tradurre
+2461|Niente da correggere qui.
+2462|Richiede attenzione
+2502|Ancora da scrivere
+2503|Copertura per corsia
+2504|Note
+2505|Ancora nessuna nota
+2506|Ancora nessun link alla fonte
+2507|Versione {number}
+2508|Eroi valutati
+2509|Versione
+2537|Eventi
+2538|Per evento
+2539|Mostra tutte le serie
+2540|Inserimento rapido
+2541|Descrivi la serie
+2542|L'evento, la data, le due squadre e la regola del draft.
+2543|Scegli gli eroi
+2544|Fai clic su uno spazio, scrivi il nome di un eroe e premi Invio: viene riempito lo spazio libero successivo.
+2545|Assegna a ogni eroe la sua corsia
+2465|Tutte le squadre
+2510|Come funziona una squadra
+2511|Registra
+2512|Nome, tag, livello e regione: la squadra ha una pagina tutta sua.
+2513|Invita i giocatori con il loro tag. Nessuno entra senza rispondere.
+2514|Pianifica scrim nell’agenda, condividi serie, allena la rosa.
+2478|Cercano uno scrim
+2515|{won} vinte · {lost} perse
+2516|Nessuna serie condivisa con la squadra per ora.
+2517|Membri
+2474|Annunci aperti
+2518|Creane una, o aspetta l’invito di un capitano.
+2519|Mostra altre squadre
+2520|Serie condivisa con la squadra
+2521|Serie rimossa dalla squadra
+2522|Corsie coperte
+2523|Eventi in programma
+2524|Fasce aperte
+2525|Posto libero
+2526|Fondata
+2527|Vinte
+2528|Perse
+2529|Rimuovi dalla squadra
+2530|Chi crea una serie la mette sulla squadra perché i membri possano leggerla.
+2531|Condividi una serie
+2532|Nessun’altra serie da condividere.
+2533|Crea una serie, poi mettila sulla squadra.
+2534|Zona pericolosa
+2535|Giocatori
+2536|Tutti gli obiettivi raggiunti
+2463|Come funziona l’agenda
+2464|Prossimi 7 giorni
+2466|Calendario
+2467|Non collegato
+2468|Ricevi richieste, promemoria e risultati come messaggi diretti.
+2469|Una squadra ha una rosa, un’agenda e il proprio server Discord.
+2470|Fai sapere alle altre squadre quando sei libero di giocare.
+2471|Chiedi uno scrim a una squadra, o rispondi a una richiesta.
+2472|Server delle squadre
+2473|Solo il proprietario e i manager di una squadra possono collegarne il server.
+2475|Regioni
+2476|Come funziona uno scrim
+2477|Inviti
+2479|Richieste di scrim, risposte e inviti, in un unico posto.
+2480|Non lette
+2481|Eroi per {lane}
+2482|Compagni di squadra
+2483|Conversazione
+2484|Messaggi
+2485|Motivo
+2486|Segnalante
+2487|Come funzionano le segnalazioni
+2488|Un giocatore segnala una conversazione dalla posta in arrivo, con un motivo.
+2489|La conversazione compare qui, con chi l’ha segnalata e quando.
+2490|Decidere
+2491|Archivia la segnalazione una volta gestita.
+2492|Pubblica o scegli
+2493|Pubblica la tua fascia libera, o chiedi a una squadra che ne ha già pubblicata una.
+2494|Accordarsi
+2495|L’altra squadra accetta, o propone un altro orario, nella tua posta in arrivo.
+2496|Lo scrim finisce nell’agenda; la serie è a un clic.
+2497|Unisciti a una squadra
+2498|Pianifica
+2499|Scrim, allenamenti, revisioni VOD e partite, nel tuo fuso orario.
+2500|Rispondi
+2501|Di’ se ci sei con un clic; Discord ricorda ai giocatori 6 h, 4 h e 2 h prima.
+2546|Scrivi prima le statistiche del gioco: oggetti e arcani si scrivono con esse.
+2547|Poi gli oggetti, gli arcani e le abilità, ciascuno con la sua immagine, le sue statistiche e i suoi effetti.
+2548|Assegna la categoria a ogni oggetto in pochi clic, poi guarda il risultato nel laboratorio build.
+2549|Dove vanno i numeri
+2550|Indietro
+2551|Troppo corta
+2552|Debole
+2553|Discreta
+2554|Buona
+2555|Forte
+2556|Autenticatore
+2557|Mostra la password
+2558|Nascondi la password
+2559|L'autenticazione a due fattori è disattivata su questo account.
+2560|Accedi di nuovo per configurarla
+2561|Disponibile quando l'autenticazione a due fattori è attiva.
+2562|Ultimo accesso
+2563|Sola lettura
+2564|Da verificare
+2565|Aggiungi ai miei eroi
+2566|Nessuna nota corrisponde a questi filtri.
+2567|Esercizi
+2568|Ultimo
+2569|Classifica del team
+2570|Unisciti a una squadra per vederne la classifica.
+2571|Studia la mappa
+2572|Chi è dove, chi è morto, cosa fanno gli accampamenti e gli obiettivi.
+2573|Mettiti nella situazione: cosa fai dopo, e perché?
+2574|Scrivi la tua risposta
+2575|Viene salvata nel tuo account e puoi modificarla in qualsiasi momento.
+2576|Obiettivi
+2577|Scegli i tuoi eroi
+2578|Scegli fino a {max} eroi: ognuno ha una scheda con i suoi obiettivi e le sue combo.
+2579|Impara le loro combo
+2580|Padroneggia ogni combo nelle sue due forme: così com'è e con l'animazione annullata.
+2581|Ricontrollali
+2582|Le combo tornano dopo qualche giorno: di' se le padroneggi ancora.
+2583|I tuoi eroi, il tuo quaderno, le combo acquisite e i tuoi punteggi di riflessi.
+2595|Inviami un messaggio di prova
+2593|Verifica che funzioni
+2594|Il bot ti invia un messaggio.
+2587|Messaggio di prova inviato: controlla i tuoi messaggi privati su Discord.
+2588|Discord non permette al bot di scriverti. Un bot può scrivere solo a chi condivide un server con lui (aggiungilo al server della tua squadra dalla scheda Discord della squadra) e consente i messaggi privati dei membri del server.
+2589|Discord ha rifiutato il token del bot: il proprietario del sito deve controllarlo.
+2590|Discord chiede di rallentare. Riprova tra un minuto.
+2591|Impossibile raggiungere Discord. Riprova tra un minuto.
+2592|Discord ha rifiutato il messaggio. Riprova più tardi.
+2584|Nessun oggetto è ancora assegnato a questo slot.
+2585|Un amministratore sceglie lo slot di ogni oggetto nel Catalogo.
+2586|Apri il Catalogo
+2601|Affidabilità
+2597|Letta dal video
+2599|Elenco eroi
+2596|Letta dal video e verificata da una persona.
+2598|Letta dal video dallo strumento: alcuni punti sono ancora da verificare.
+2600|Presa da una pagina di risultati: eroi, ban e corsie, ma non l'ordine dei pick.
+2603|Filtra per affidabilità
+2602|{count, plural, one {# punto da verificare} other {# punti da verificare}}
+2604|Affidabilità non valida.
+2607|Questo eroe non è stato giocato in questo periodo.
+2609|Percentuale di vittorie affidabile (certezza del 95 %): {rate}
+2610|Versione principale
+2611|al posto di
+2612|{count, plural, one {# variante} other {# varianti}}
+2613|Ordinato in base alla percentuale di vittorie più bassa che le partite permettono di credere: una vittoria in una sola partita non supera un eroe che si è dimostrato in molte.
+2614|L'ultima partita decisiva di una serie Global Ban & Pick, giocata con le regole di draft classiche: gli eroi delle partite precedenti possono essere scelti di nuovo.
+2615|Ultimate Battle
+2616|{label}.ultimateBattle deve essere vero o falso.
+2617|L'Ultimate Battle è l'ultima partita decisiva di una serie Global Ban & Pick.
+2622|Avversari più frequenti nelle partite vinte
+2624|Vince meglio con
+2625|Vince meglio contro
+2626|Nessun eroe è stato incontrato in {count} partite: niente da classificare.
+2627|Ordinati per percentuale di vittoria affidabile nelle partite giocate insieme; un eroe ne richiede almeno {count}.
+2628|Perde di più con
+2629|Perde di più contro
+2630|Cerca un eroe, un oggetto, un arcano, una squadra…
+2631|termini di utilizzo
+2632|informativa sulla privacy
+2633|Creando un account accetti i {terms} e l’{privacy}.
+2634|Termini di utilizzo
+2635|Informativa sulla privacy
+2636|Contatti
+2637|con accesso
+2638|Segna come non gestito
+2639|Segna come gestito
+2640|Messaggi della pagina contatti
+2641|Nessun messaggio per ora.
+2642|Cookie
+2643|Note legali
+2644|Informazioni legali
+2645|Oggetto
+2646|Usiamo il tuo nome e il tuo indirizzo e-mail solo per risponderti e conserviamo il messaggio al massimo 12 mesi. Vedi l’{privacy}.
+2647|Invia il messaggio
+2648|Il tuo messaggio è stato inviato. Grazie, risponderemo all’indirizzo che hai indicato.
+2649|Compila tutti i campi: un indirizzo e-mail valido e un messaggio di almeno 10 caratteri.
+2650|Non è stato possibile inviare il messaggio.
+2651|Scrivi alle persone che gestiscono il sito. Leggiamo ogni messaggio.
+2652|I testi legali sono scritti in francese e in inglese. Questo è il testo inglese, che fa fede.
+2653|Puoi anche scrivere a {email}.
+2654|Ultimo aggiornamento: {date}
+2655|Termini di utilizzo | {site}
+2656|Le regole per usare HOK Global Scrim Lab.
+2657|Informativa sulla privacy | {site}
+2658|Quali dati personali conserva HOK Global Scrim Lab, perché, per quanto tempo e come esercitare i tuoi diritti ai sensi del GDPR.
+2659|Cookie e archiviazione locale | {site}
+2660|I cookie e l’archiviazione locale usati da HOK Global Scrim Lab e a cosa serve ciascuno.
+2661|Note legali | {site}
+2662|Chi pubblica HOK Global Scrim Lab e chi lo ospita.
+2663|Contatti | {site}
+2664|Scrivi alle persone dietro HOK Global Scrim Lab.
+2665|Il messaggio deve contenere da 10 a 4000 caratteri.
+2666|Questo messaggio non esiste.
+2667|HOK Global Scrim Lab è un progetto di fan, non affiliato a Tencent / TiMi Studio Group. Honor of Kings e le sue illustrazioni appartengono a loro.
+2668|I tuoi dati sono stati scaricati.
+2669|Spunta la casella per confermare.
+2670|I tuoi dati
+2671|Scarica una copia di tutto ciò che il sito conserva su di te. Password, segreti dell’autenticatore e codici di recupero non sono inclusi.
+2672|Scarica i miei dati
+2673|Elimina definitivamente il tuo account: serie, tier list, note e risultati vengono cancellati. I team che hai creato passano a un altro membro, oppure vengono eliminati se non c’è nessun altro. Non si può annullare.
+2674|Capisco che il mio account verrà eliminato definitivamente.
+2675|Elimina il mio account
+2678|Altri nomi
+2679|Gli altri nomi di questo eroe nelle dirette e su Liquipedia. L'importazione automatica li legge per trovare l'eroe in un titolo o in una tabella.
+2680|Nessun altro nome per ora.
+2681|Nome da aggiungere
+2682|Aggiungi il nome
+2677|Rimuovi il nome {name}
+2676|Nomi aggiornati
+2683|È già il nome di questo eroe.
+2684|È il nome di un altro eroe.
+2685|Questo eroe ha già quel nome.
+2686|Un altro eroe ha già quel nome.
+2687|Questo eroe non ha quel nome.
+2688|Un alias richiede almeno due lettere o cifre.
+2690|Ordine dei pick sconosciuto
+2689|L'ordine dei pick è noto
+2691|Controllata con la sua fonte: eroi, ban, corsie e vincitori sono coerenti. L'ordine dei pick non è noto.

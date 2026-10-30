@@ -1,0 +1,97 @@
+/* Sizes for portraits, avatars and emblems (--s) and lane logos (--ls): classes, because the page may not carry style attributes. */
+.s-20 {
+  --s: 20px;
+}
+.s-24 {
+  --s: 24px;
+}
+.s-28 {
+  --s: 28px;
+}
+.s-30 {
+  --s: 30px;
+}
+.s-32 {
+  --s: 32px;
+}
+.s-34 {
+  --s: 34px;
+}
+.s-36 {
+  --s: 36px;
+}
+.s-40 {
+  --s: 40px;
+}
+.s-44 {
+  --s: 44px;
+}
+.s-46 {
+  --s: 46px;
+}
+.s-48 {
+  --s: 48px;
+}
+.s-52 {
+  --s: 52px;
+}
+.s-56 {
+  --s: 56px;
+}
+.s-64 {
+  --s: 64px;
+}
+.s-60 {
+  --s: 60px;
+}
+.s-84 {
+  --s: 84px;
+}
+.s-72 {
+  --s: 72px;
+}
+.s-80 {
+  --s: 80px;
+}
+.s-96 {
+  --s: 96px;
+}
+.s-132 {
+  --s: 132px;
+}
+.s-104 {
+  --s: 104px;
+}
+.s-120 {
+  --s: 120px;
+}
+.ls-14 {
+  --ls: 14px;
+}
+.ls-16 {
+  --ls: 16px;
+}
+.ls-18 {
+  --ls: 18px;
+}
+.ls-20 {
+  --ls: 20px;
+}
+.ls-22 {
+  --ls: 22px;
+}
+.ls-24 {
+  --ls: 24px;
+}
+.ls-26 {
+  --ls: 26px;
+}
+.ls-28 {
+  --ls: 28px;
+}
+.ls-32 {
+  --ls: 32px;
+}
+.ls-34 {
+  --ls: 34px;
+}

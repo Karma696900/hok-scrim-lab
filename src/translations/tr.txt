@@ -1,0 +1,2526 @@
+0001|Draft düzeltildi
+0002|İstek başarısız oldu ({status}).
+0003|Çıkış yap
+0004|Giriş yap
+0005|Hesap oluştur
+0007|Rol belirtilmemiş
+0008|Global
+0009|kullanılamıyor
+0010|bilinmiyor
+0011|Doğrulanmış son kadro önbelleği kullanılıyor · Kaynak senkronizasyonu: {date}
+0012|Önbellekte henüz doğrulanmış bir Global kahraman kadrosu yok. Draft havuzunu yüklemek için resmi Camp verilerini senkronize edin.
+0013|{name} — Honor of Kings Global kahraman rehberi | {site}
+0014|Sayfa bulunamadı | {site}
+0015|Sayfa bulunamadı
+0016|Bu sayfa mevcut değil veya taşınmış.
+0017|Genel bakışa dön
+0018|Kahramanlara göz at
+0019|Scrim işlemleri
+0021|Yeni seri
+0024|Aktif seriler
+0025|Kaydedilen maçlar
+0026|Tier listeleri
+0032|Seri oluştur
+0041|Geçmiş
+0042|Henüz sonuç yok
+0043|Tamamlanan maçlar burada kaydedilecek.
+0044|Seri berabere
+0045|Tamamlandı
+0046|{number}. maç devam ediyor
+0047|Sonraki maça hazır
+0048|{teamA} vs {teamB}
+0049|BO{bestOf}
+0050|{teamA} vs {teamB} serisini PDF veya PNG olarak dışa aktar
+0051|PDF veya PNG olarak dışa aktar
+0053|Veri yok
+0054|Yönetici araçları
+0055|Yönetici
+0059|Kahraman kartlarını Camp'ten senkronize et
+0060|Alınıyor {done} / {total}…
+0061|{total} kahraman kartından {stored} tanesi kayıtlı
+0062|Son çalıştırmada {count} başarısız
+0064|Sil
+0065|Kahraman dizini
+0069|Kahraman ara
+0070|Sınıf
+0071|Tümü
+0072|Eşleşme yok
+0073|Kadro kullanılamıyor
+0074|Etkin filtreleri ayarlayın.
+0075|Bu görünümü doldurmak için resmi Global kadroyu senkronize edin.
+0076|Kahraman kartları arka planda Camp'ten alınıyor…
+0080|Pick'ler
+0081|Ban'lar
+0083|Galibiyet oranı
+0085|Ban oranı
+0086|Kayıtlı maç yok.
+0087|Kahraman
+0088|Maçlar
+0089|G-M
+0091|Scrim'lerinizde henüz kayıtlı maç yok. Maçları kaydettiğinizde sonuçlar burada görünür.
+0092|Yetersiz örneklem ({picked}/{minGames} pick'lenen maç)
+0096|Sinerjiler (takım arkadaşları)
+0097|Eşleşmeler (rakipler)
+0098|Yüzdeler {minGames} maçtan itibaren görünür. Yalnızca kendi kayıtlı scrim'leriniz kullanılır.
+0099|İlk yükseltilecek
+0100|{name} önizlemesi
+0101|Bu yetenek için yayımlanmış önizleme videosu yok.
+0103|Camp bu kahraman için yetenek listelemiyor.
+0104|Yetenekler
+0105|Camp bu kahraman için denge değişikliği listelemiyor.
+0106|Bu kahraman için yalnızca özetler mevcut; Camp önce/sonra değerlerini döndürmedi.
+0107|Güncel
+0108|Genel
+0109|Bölge
+0111|Boy
+0112|Enerji
+0113|Camp koridoru
+0114|Global'de çıkış tarihi
+0115|Kahraman profil videosu
+0116|Bu kahraman için yayımlanmış resmi çizim yok.
+0117|Çizimler
+0118|Eklenecek koridor
+0119|Koridor ekle (elle)
+0121|Kahraman kartı henüz alınmadı. Bir yönetici Camp senkronizasyonunu Kahramanlar sayfasından başlatabilir.
+0122|{name} · resmî Camp adı
+0127|elle
+0128|Profil
+0129|Camp · Global
+0130|Yama geçmişi
+0131|{count, plural, one {# değişiklik} other {# değişiklik}}
+0132|Rekabetçi istatistikler
+0134|Scrim'leriniz
+0135|Maçlarınız
+0138|Eşleşmeler
+0140|HOK Camp Global ({language}) kahraman kartı · {date} tarihinde alındı. Çizimler ve videolar Tencent / TiMi Studio Group'a aittir.
+0145|Seri formatı
+0146|{count} maçın en iyisi
+0147|Özel
+0148|Azami maç sayısı
+0149|Serinin kahraman kuralı
+0150|Global Ban & Pick
+0151|Free For All
+0152|Bu seride her takım bir kahramanı yalnızca bir kez seçebilir.
+0153|Kahramanlar sonraki maçlarda yeniden serbestçe seçilebilir.
+0154|{rule} Bir Flowborn formunu seçmek, o takım için beş formun tamamını kilitler.
+0155|Draft kontrolü
+0156|Tek kişilik
+0157|İki oyuncu · yerel
+0158|Çevrimiçi · oyuncu davet et
+0159|Çevrimiçi oda oluşturmak için giriş yapmanız gerekir.
+0160|Oyuncular her taraf sırasından sonra aynı cihazı birbirine verir.
+0161|Draft, davet edilen rakiple canlı olarak paylaşılır.
+0162|Bu yerel draft'ın her iki tarafını da siz yönetirsiniz.
+0163|Scrim'ler
+0165|Seri içe aktar
+0167|İlk draft'a hazır
+0175|PDF / PNG dışa aktar
+0176|Çevrimiçi davet bağlantısı
+0177|Davet bağlantısını kopyala
+0178|Çevrimiçi oda
+0179|Her iki oyuncu da bağlı. Draft tarayıcılar arasında senkron kalır.
+0180|Bu tek kullanımlık daveti rakibinize gönderin. Farklı bir hesapla giriş yapması gerekir.
+0181|Mavi
+0182|Kırmızı
+0183|Seri skoru
+0184|Takım A
+0185|İlk {winsRequired} · BO{bestOf}
+0186|Takım B
+0187|{gameNumber}. maç
+0188|{winner} kazandı · {duration}
+0189|Mavi: {blueTeam}
+0190|Hazır olma kontrolü
+0191|Draft sürüyor
+0192|Bu serinin maçları
+0193|Sonraki maç
+0194|Mavi taraf otomatik olarak değişir. Bu maç için değiştirebilirsiniz.
+0195|Mavi taraf
+0196|{number}. maçı hazırla
+0197|Sonraki maçı yalnızca bu çevrimiçi serinin oluşturucusu başlatır.
+0198|Seri tamamlandı
+0199|Başka bir seri başlat
+0200|Kayıtlı pick yok
+0201|Serideki kahraman kullanımı
+0202|Yalnızca pick'ler
+0203|Tamamlanan maçlar
+0204|Görüntüleme bağlantısını kopyala
+0205|Düzenleme bağlantısını kopyala
+0209|Süre
+0210|{gameNumber}. maçın süresini düzenle
+0214|Ban ve pick'leri düzenle
+0215|Tüm roller
+0216|Tier listesi {number}
+0217|{name}, {lane} koridoru
+0218|Tier listesinin koridoru
+0219|Tier listesi adı
+0220|{role} · salt okunur
+0221|JSON dışa aktar
+0222|JSON içe aktar
+0223|{label} tier'ını yeniden adlandır
+0224|Tier'ı yukarı taşı
+0225|Tier'ı aşağı taşı
+0226|Tier'ı kaldır
+0227|×
+0228|Kahramanları buraya bırakın
+0229|Sıralanmamış
+0230|Tüm kahramanlar sıralandı
+0231|Tier ekle +
+0235|Henüz {laneName} tier listesi yok
+0236|"Tüm roller" listesi tüm Global kahramanları sıralar.
+0237|Koridor listesi yalnızca o koridorun kahramanlarını içerir (tek Flowborn).
+0240|Koridor bazında sıralamalar oluşturun, paylaşın ve dışa aktarın. Yeni Global kahramanlar otomatik olarak "Sıralanmamış"a girer.
+0241|Yeni {laneName} tier listesi +
+0242|Dışa aktarma başına en fazla 100 seri. Tarih aralığını veya filtreleri daraltın.
+0243|Serilerinizi dışa aktarın (PDF)
+0244|Bu seriyi dışa aktar
+0245|Dosya adı
+0246|Oluşturuluyor…
+0247|Dışa aktarma başarısız oldu ({status}).
+0248|{format} hazır · {file}
+0249|İndir
+0250|Bu dosya çok büyük (en fazla 12 MB).
+0251|İçe aktarma başarısız oldu ({status}).
+0252|{count, plural, one {# seri içe aktarıldı} other {# seri içe aktarıldı}}
+0253|Sayfalar
+0254|← Önceki
+0255|Sayfa {current} / {pages} · toplam {total}
+0256|Sonraki →
+0257|Yetersiz örneklem ({picked}/{minGames})
+0258|Takım adı
+0259|Herhangi bir durum
+0260|Aktif
+0261|Berabere
+0262|Herhangi bir kahraman kuralı
+0263|Başlangıç
+0264|Bitiş
+0265|Uygula
+0266|Sıfırla
+0267|Geçmiş ve istatistikler
+0268|Aşağıdaki tüm sayılar tamamlanan scrim'lerinizden gelir.
+0269|PDF dışa aktar
+0270|Yetersiz örneklem ({gamesCount}/{minGames})
+0271|Oynanan seriler
+0272|Oynanan maçlar
+0273|Ortalama maç
+0274|Toplam oyun süresi
+0275|En kısa maç
+0276|En uzun maç
+0277|Mavi taraf – kırmızı taraf galibiyetleri
+0278|Mavi taraf galibiyet oranı
+0279|Kayıtlı seriler
+0280|Scrim geçmişi yok
+0281|Bu filtrelerle eşleşen bir şey yok
+0282|Bir maç kaydettikten sonra sonuçlar burada görünür.
+0283|Filtreleri ayarlayın veya sıfırlayın.
+0284|Kahraman draft istatistikleri
+0285|Kahraman ara
+0286|Kahramanları sırala
+0287|En çok yer alan
+0288|En çok seçilen
+0289|En çok ban'lanan
+0290|En iyi galibiyet oranı
+0291|Pick
+0292|Ban
+0293|Galibiyet oranları {minGames} pick'lenen maçtan itibaren görünür.
+0294|Kahraman örneklemi yok
+0295|Tamamlanan maçlar kaydedildikten sonra draft istatistikleri görünür.
+0296|Senkronize ediliyor…
+0297|Kadro senkronize edildi · {count} kahraman
+0298|Senkronizasyon başarısız; önbellek korundu. {message}
+0299|Kadroyu senkronize et
+0300|Adsız tier listesi
+0301|Tier
+0302|Maç süresi güncellendi
+0303|AA:SS biçimini kullanın, örneğin 24:37
+0304|Çevrimiçi oda oluşturuldu · davet bağlantısını paylaşın
+0305|Seri oluşturuldu ve kaydedildi
+0306|Maç süresini AA:SS olarak girin
+0307|Maç sonucu kaydedildi
+0311|Draft başladı
+0312|{team} takımına geçin
+0313|Sırada {team} takımının ban'ı var.
+0314|Sırada {team} takımının pick'i var.
+0315|Davet bağlantısı kopyalandı
+0316|Bu tier listesi silinsin mi?
+0317|Bağlantı kopyalandı · tek kullanımlık · düzenleyebilir · 7 gün içinde sona erer
+0318|Bağlantı kopyalandı · tek kullanımlık · salt okunur · 7 gün içinde sona erer
+0319|{number}. maç · {teamA} vs {teamB}
+0320|Global Ban & Pick hâlâ geçerli: bir takım, serinin başka bir maçında zaten seçtiği bir kahramanı (veya ikinci bir Flowborn'u) kullanamaz.
+0321|Bu seri ve maçları silinsin mi?
+0323|Bu geçerli bir tier listesi JSON'u değil.
+0324|Tier listesi içe aktarıldı
+0325|Bu zaten sizin
+0326|Sizinle düzenleyici olarak paylaşıldı
+0327|Sizinle görüntüleyici olarak paylaşıldı
+0328|Sunucu verilerini yükleyemedi. {message}
+0329|En az 12 karakter. Ne kadar uzunsa o kadar iyi: kısa bir cümle işe yarar.
+0330|Hesap oluşturuldu
+0331|Giriş yapıldı
+0332|Yanlış şifre
+0333|Giriş engellendi (hesap kilitli)
+0334|İki aşamalı doğrulama açıldı
+0335|Yanlış kimlik doğrulayıcı kodu
+0336|Kod girişi engellendi
+0337|Kurulum sırasında yanlış kod
+0338|Kurtarma kodu kullanıldı
+0339|Yanlış kurtarma kodu
+0340|Yeni kurtarma kodları oluşturuldu
+0341|Şifre değiştirildi
+0342|Hassas bir işlemde yanlış kod
+0343|Çıkış yapıldı
+0344|Her yerden çıkış yapıldı
+0346|veya
+0347|Google ile devam et
+0348|Google ile giriş yaparken de kimlik doğrulayıcı kodunuz istenir.
+0349|E-postanızı ve şifrenizi kullanın, ardından kimlik doğrulayıcınızla onaylayın.
+0350|E-posta
+0351|Şifre
+0352|Devam
+0353|Henüz hesabınız yok mu?
+0354|Bir tane oluşturun
+0355|Hesap oluştur
+0356|İki aşamalı doğrulama zorunludur: hemen ardından kuracaksınız.
+0358|Giriş yapmak için kullanılır. Asla e-posta göndermeyiz.
+0359|Şifreyi tekrar girin
+0360|Zaten kayıtlı mısınız?
+0361|Kayıt kapalı
+0362|Bu sunucu yeni hesap kabul etmiyor.
+0363|Kodunuzu girin
+0364|Kaydettiğiniz kurtarma kodlarından birini kullanın. Her biri yalnızca bir kez çalışır.
+0365|Kimlik doğrulayıcı uygulamanızı açın ve 6 haneli kodu yazın.
+0366|Kurtarma kodu
+0367|Doğrula
+0368|Bunun yerine kimlik doğrulayıcımı kullan
+0369|Cihazımı kaybettim: kurtarma kodu kullan
+0370|Baştan başla
+0371|Kurtarma kodlarınızı kaydedin
+0372|Telefonunuzu kaybederseniz bu kodlar geri dönmenin tek yoludur. Her biri yalnızca bir kez çalışır. Yalnızca şimdi gösterilirler.
+0373|Kurtarma kodları
+0374|Kopyala
+0375|.txt indir
+0376|Bu kodları güvenli bir yere kaydettim (şifre yöneticisi, kâğıt).
+0377|İki aşamalı doğrulamayı kur
+0378|Yükleniyor…
+0379|QR kodunu bir kimlik doğrulayıcı uygulamayla (Google Authenticator, Aegis, 1Password, Authy…) tarayın, ardından gösterdiği kodu yazın.
+0380|{account} hesabını kimlik doğrulayıcı uygulamanıza eklemek için QR kodu
+0381|Tarayamıyor musunuz? Bu anahtarı elle girin:
+0382|Hesap: {account} · zaman tabanlı, 6 hane
+0383|Aç ve giriş yap
+0384|Hesap güvenliği
+0385|Hesap
+0386|Güvenlik
+0387|Google
+0388|e-posta ve şifre
+0389|{name} · {email} · giriş yöntemi: {method}
+0390|Açık
+0391|İki aşamalı doğrulama
+0392|Kalan kurtarma kodları
+0393|{count, plural, one {Yalnızca # kurtarma kodu kaldı: aşağıdan yenilerini oluşturun.} other {Yalnızca # kurtarma kodu kaldı: aşağıdan yenilerini oluşturun.}}
+0394|Yeni kurtarma kodları
+0395|Yalnızca şimdi gösterilir. Eskileri artık çalışmaz.
+0396|Şifreyi değiştir
+0397|Mevcut şifre
+0398|Yeni şifre
+0399|Kimlik doğrulayıcı kodu
+0400|Yeni bir set oluşturun (eskileri çalışmaz hale gelir).
+0401|Yeni kodlar oluştur
+0402|Oturumlar
+0403|Bu cihaz dahil tüm tarayıcı ve cihazlardan çıkış yapın.
+0404|Her yerden çıkış yap
+0405|Son etkinlik
+0406|Ne zaman
+0407|Ne
+0408|Ayrıntı
+0409|Henüz bir şey yok.
+0410|Bir şeyler ters gitti
+0411|Girişe dön
+0412|İki şifre birbirinden farklı.
+0413|Kodları kaydettiğinizi onaylayın.
+0414|Şifre değiştirildi. Diğer oturumlar kapatıldı.
+0415|Kurtarma kodları kopyalandı
+0416|HOK Global Scrim Lab kurtarma kodları
+0417|Her kod yalnızca bir kez çalışır.
+0418|Mavi ban'lar
+0419|Mavi pick'ler
+0420|Kırmızı ban'lar
+0421|Kırmızı pick'ler
+0422|{side} ban {number}
+0423|{side} pick {number}
+0424|Boş
+0425|{name} öğesini kaldır
+0426|Bir draft'ı düzelt
+0427|Bir yuva seçin, ardından orada olması gereken kahramanı seçin. İstatistikler, dışa aktarmalar ve geçmiş düzeltilmiş draft'ı kullanır.
+0428|Şunun için kahraman: {slot}
+0429|(bu draft'ta zaten var)
+0430|Eşleşen kahraman yok.
+0431|Değişiklikleri geri al
+0432|İptal
+0433|Düzeltmeleri kaydet
+0434|Hazır
+0435|Bu maçta kullanıldı
+0436|Seride kullanıldı
+0437|Bekliyor
+0438|Kırmızı taraf
+0439|Kahraman havuzunda ara
+0440|Koridora göre filtrele
+0441|Kahraman türüne göre filtrele
+0442|Tüm türler
+0443|Mavi hazır
+0444|Kırmızı hazır
+0445|Mavi hazır değil
+0446|Kırmızı hazır değil
+0447|İki taraf da bu cihazda birlikte başlar.
+0448|Draft'ı başlat
+0449|Hazırım — {viewerTeamName} olarak başla
+0450|Rakibiniz bekleniyor…
+0451|Hazır olma kontrolünü izliyorsunuz.
+0452|Draft saati, iki takım da hazır olunca başlar.
+0453|{actingTeam} bekleniyor
+0454|serbest
+0455|Rolü ne olursa olsun herhangi bir kahraman seçilebilir · süre dolarsa oto-pick bir {lane} kahramanı seçer
+0456|Ban'lanacak bir kahraman seçin · süre dolarsa ban atlanır (sonra düzenleyebilirsiniz)
+0457|Beklemeyi bitir
+0458|Draft kilitlendi.
+0459|Maç sonucu
+0461|Maç sayacını başlat / sürdür
+0462|Duraklat
+0463|Maç sayacını bitir
+0465|Kazanan
+0467|Maç süresi · AA:SS
+0468|Maç sonucunu kaydet
+0469|Sonucu yalnızca bu çevrimiçi serinin oluşturucusu kaydeder.
+0470|Beş saniye kaldı.
+0471|Süre doldu. Ban atlandı.
+0472|Süre doldu. Bir kahraman otomatik seçildi.
+0474|Son tahta
+0475|Draft hazır
+0476|Son bekleme
+0477|Draft tamamlandı
+0478|ban
+0479|pick
+0480|{winner} kazandı
+0481|Kaydedildi
+0482|Sıra {team} takımında
+0483|Sonraki maç bilgilendirmesi
+0484|Sonuç girişi
+0485|Kahraman havuzu · {action} · {team}
+0486|{count} uygun
+0487|{team}, {hero} kahramanını ban'ladı.
+0488|{team} ban'ı atladı.
+0489|{team}, {hero} kahramanını seçti.
+0490|{team} kahraman seçmedi.
+0491|(süre doldu)
+0492|Clash
+0493|Orman
+0494|Orta
+0495|Farm
+0496|Destek
+0497|Clash koridoru
+0498|Orta koridor
+0499|Farm koridoru
+0500|Roamer
+0501|Sahip
+0502|Düzenleyici
+0503|Görüntüleyici
+0504|{site} — Honor of Kings Global draft, scrim ve tier listeleri
+0505|Ücretsiz Honor of Kings Global draft simülatörü: rekabetçi ban ve pick, scrim serileri, koridora göre tier listeleri ve yetenekler ile yama geçmişi içeren kahraman rehberleri.
+0506|Honor of Kings Global kahramanları — yetenekler, koridorlar ve yama geçmişi | {site}
+0507|Resmî Camp verilerinden koridor, sınıf, yetenekler, videolar, çizimler ve denge değişiklikleriyle tüm Honor of Kings Global kahramanları.
+0508|Honor of Kings Global tier listesi oluşturucu | {site}
+0509|Tüm roller veya tek bir koridor için sürükle-bırak ile Honor of Kings Global tier listeleri oluşturun ve paylaşın.
+0510|Scrim'ler — draft yapın ve serileri kaydedin | {site}
+0511|Honor of Kings Global scrim serilerini rekabetçi ban ve pick sırasıyla oynayın.
+0512|Seri | {site}
+0513|Bir scrim serisi.
+0514|Geçmiş ve istatistikler | {site}
+0515|Kayıtlı scrim'leriniz ve istatistikleriniz.
+0516|Giriş yap | {site}
+0517|Hesabınıza giriş yapın.
+0518|Doğrulama kodu | {site}
+0519|Kimlik doğrulayıcı uygulamanızdaki kodu girin.
+0520|İki aşamalı doğrulamayı kur | {site}
+0521|Hesabınızı bir kimlik doğrulayıcı uygulamayla koruyun.
+0522|Hesap oluştur | {site}
+0523|İki aşamalı doğrulamayla korunan bir hesap oluşturun.
+0524|Hesap güvenliği | {site}
+0525|Şifre, kimlik doğrulayıcı ve kurtarma kodları.
+0526|Bu sayfa mevcut değil.
+0527|Bilinmeyen API uç noktası.
+0528|{limit} seri sınırına ulaştınız. Önce bazılarını silin.
+0529|{limit} tier listesi sınırına ulaştınız. Önce bazılarını silin.
+0530|Seri bulunamadı.
+0531|Çevrimiçi davet bulunamadı.
+0532|Bu davete katılmak için farklı bir Google hesabı kullanın.
+0533|Bu davet zaten kullanıldı.
+0534|Tier listesi bulunamadı.
+0535|Bu tier listesini yalnızca görüntüleyebilirsiniz.
+0536|Bu tier listesi siz açtıktan sonra değişti. Yenileyip tekrar deneyin.
+0537|Bulunamadı.
+0538|Çevrimiçi seriler yalnızca salt okunur olarak paylaşılabilir.
+0539|Bu davet geçerli değil.
+0540|Bu davet geçerli değil veya süresi dolmuş.
+0541|CSV'de kapatılmamış tırnaklı bir alan var.
+0542|CSV boş.
+0543|CSV'de bir "{required}" sütunu olmalı (başlık: heroId,picks,bans,wins).
+0544|CSV'nin {value}. satırı başlıktan daha fazla hücre içeriyor.
+0545|Yalnızca Honor of Kings Global verileri içe aktarılabilir (Çin / Arena of Valor olmaz).
+0546|Başlamak için Mavi veya Kırmızı tarafı seçin.
+0547|Bu kahraman resmî kadroda mevcut değil.
+0548|Draft işlem kabul etmiyor.
+0549|İşlem yapmadan önce her iki taraf da draft'ı başlatmalı.
+0550|Bu kahraman mevcut draft'ta kullanılamıyor.
+0551|Bu takım bu kahramanı önceki bir maçta zaten seçti.
+0552|{side} tarafının {kind} değerleri en fazla 5 kahramanlık bir liste olmalı.
+0553|Bilinmeyen kahraman: {value}.
+0554|Bir kahraman bir draft'ta yalnızca bir kez yer alabilir.
+0555|Takım adları {TEAM_NAME_MAX_LENGTH} karakterle sınırlıdır.
+0556|Takım adları denetim karakterleri, < veya > içeremez.
+0557|İki takımın adları farklı olmalı.
+0558|En iyi-of sayısı 1 ile 99 arasında bir tam sayı olmalı.
+0559|Desteklenen bir oyun modu seçin.
+0560|Desteklenen bir draft kontrol modu seçin.
+0561|Bu seri başka bir maç başlatamaz.
+0562|Mavi taraf, serinin takımlarından birine atanmalı.
+0563|Devam eden bir maç yok.
+0564|Kazanan, serinin takımlarından biri olmalı.
+0565|Maç süresi geçerli bir saniye değeri olmalı.
+0566|Sonuç kaydetmeden önce draft bekleme aşamasını bitirin.
+0567|Bu maç mevcut değil.
+0568|Maç sayacını başlatmadan önce draft'ı başlatın.
+0569|Maç sayacını duraklatmadan önce draft'ı başlatın.
+0570|Maç sayacını bitirmeden önce draft'ı başlatın.
+0571|Draft hâlâ sürüyor: ban ve pick'lerini düzenlemeden önce bitirin.
+0572|{teamName} bu kahramanı serinin başka bir maçında zaten seçti (Global Ban & Pick).
+0573|{teamName}, Global Ban & Pick serisinde Flowborn'u yalnızca bir kez kullanabilir.
+0574|Geçerli bir koridor veya Tüm roller seçin.
+0575|Hatalı istek.
+0576|Yönteme izin verilmiyor.
+0577|İstek gövdesi çok büyük.
+0578|URL çok uzun.
+0579|Desteklenmeyen ortam türü.
+0580|İstek başlıkları çok büyük.
+0581|Seri {number}: {message}
+0582|İstek gövdesi geçerli bir JSON değil.
+0583|URL geçerli değil.
+0584|Dahili sunucu hatası.
+0585|Çevrimiçi draft'ları kullanmak için giriş yapın.
+0586|Devam etmek için giriş yapın.
+0587|Bu işlem yöneticilere ayrılmıştır.
+0588|Çok fazla istek. Yavaşlayın ve kısa süre sonra tekrar deneyin.
+0589|Siteler arası isteklere izin verilmiyor.
+0590|Kökenler arası isteklere izin verilmiyor.
+0591|Bunu yalnızca oluşturan kişi yapabilir.
+0592|Bu seriyi yalnızca görüntüleyebilirsiniz.
+0593|Bunu yalnızca bu çevrimiçi serinin oluşturucusu yapabilir.
+0594|Bu çevrimiçi serinin katılımcısı değilsiniz.
+0595|Bu işlemi yalnızca mevcut tarafın oyuncusu gönderebilir.
+0596|Kahraman ayrıntıları senkronizasyonu bu sunucuda kullanılamıyor.
+0597|İçe aktarma bulunamadı.
+0598|Kahraman bulunamadı.
+0600|Bu kahramanın zaten o koridoru var.
+0601|Koridor bulunamadı.
+0604|Dışa aktarma bu sunucuda kullanılamıyor.
+0605|HOK Global Scrim Lab tarafından oluşturulmuş bir PDF veya PNG seçin.
+0606|Henüz dışa aktarılacak bir şey yok.
+0607|Önce giriş yapın veya bir seri oluşturun: henüz dışa aktarılacak bir şey yok.
+0608|minGames, 1 ile 1000 arasında bir tam sayı olmalı.
+0609|Bu seri siz yükledikten sonra değişti. Yenileyip tekrar deneyin.
+0610|{key}.{side} geçersiz bir kahraman kimliği içeriyor.
+0611|blueTeam bir metin olmalı.
+0612|heroId gerekli.
+0613|Bilinmeyen sayaç işlemi.
+0614|Davet bulunamadı.
+0615|Üye bulunamadı.
+0616|Bu tier listesini yalnızca oluşturan kişi silebilir.
+0617|Bu e-postayla zaten bir hesap var.
+0618|En az {min} karakter kullanın.
+0619|En fazla {max} karakter kullanın.
+0620|Bu şifre çok yaygın.
+0621|Şifre, e-postanızın kullanıcı adı kısmını içermemeli.
+0622|Şifre adınızı içermemeli.
+0623|Daha çeşitli karakterler kullanın.
+0624|Geçersiz e-posta veya şifre.
+0625|Bu kod geçerli değil.
+0626|Girişinizin süresi doldu. Baştan başlayın.
+0627|Çok fazla yanlış kod. Tekrar giriş yapın.
+0628|Mevcut şifre doğru değil.
+0629|1 ile 60 karakter arasında bir görünen ad girin.
+0630|Görünen ad denetim karakterleri, < veya > içeremez.
+0631|Geçerli bir e-posta adresi girin.
+0632|Bu sunucuda hesap oluşturma kapalı.
+0633|Bir şifre seçin.
+0634|Bu adres ayrılmış. Google ile giriş yapın veya sunucu sahibine danışın.
+0635|Önce kodu tarayın.
+0636|Bu hesap Google ile giriş yapar ve şifresi yoktur.
+0637|Yeni bir şifre seçin.
+0638|Az önce kullanmadığınız bir şifre seçin.
+0639|Kahraman ayrıntıları kısa süre önce senkronize edildi. {seconds} sn sonra tekrar deneyin.
+0640|Dışa aktarma çok uzun sürdü ve iptal edildi.
+0641|Zaten devam eden bir dışa aktarmanız var. Bitmesini bekleyin.
+0642|Dışa aktarma kuyruğu dolu. Kısa süre sonra tekrar deneyin.
+0643|Bir PNG en fazla {limit} maç gösterir. Bu seriyi bunun yerine PDF olarak dışa aktarın.
+0644|Misafir scrim'leri
+0645|Kadro senkronizasyonu kısa süre önce çalıştırıldı. {seconds} sn sonra tekrar deneyin.
+0646|Bu dosya HOK seri verisi içermiyor (veya bozuk).
+0647|Bu dosya okunabilir seri verisi içermiyor.
+0648|Bu dosya HOK Global Scrim Lab tarafından veya uyumsuz bir sürümle oluşturulmamış.
+0649|Bir dosya 1 ile {MAX_SERIES} arasında seri geri yükleyebilir.
+0650|Bu PDF okunamıyor.
+0651|Bu PDF HOK seri verisi içermiyor. Yalnızca bu site tarafından oluşturulan PDF'ler içe aktarılabilir (yeniden kaydetmeyin veya yazdırmayın).
+0652|Bu bir PNG görüntüsü değil.
+0653|Bu PNG kesilmiş.
+0654|Bu PNG'de bitiş işaretçisi yok.
+0655|Bu PNG HOK seri verisi içermiyor. Yalnızca bu site tarafından oluşturulan PNG'ler içe aktarılabilir (mesajlaşma uygulamaları ve düzenleyiciler veriyi siler).
+0656|HOK Global Scrim Lab tarafından oluşturulmuş bir PDF veya PNG içe aktarın.
+0657|Durum: {value}
+0658|Kahraman kuralı: {value}
+0659|Draft kontrolü: {value}
+0660|Takım adı "{value}" içeriyor
+0661|Başlangıç: {value}
+0662|Bitiş: {value}
+0663|Filtre yok (tüm serileriniz)
+0664|{number}. maç
+0665|{date} tarihinde güncellendi
+0666|HOK Global Scrim Lab · Seri dışa aktarımı
+0667|Seri dışa aktarımı
+0668|HOK Global Scrim Lab · Honor of Kings Global
+0669|{date} tarihinde oluşturuldu
+0670|Not
+0671|Seriler
+0672|Toplam oyun süresi (dd:ss)
+0673|Honor of Kings sürümü
+0674|Filtreler:
+0675|Biçim
+0676|Kahraman kuralı
+0677|Durum
+0678|Skor
+0679|Güncellendi
+0680|Bu filtrelerle eşleşen seri yok.
+0681|İstatistikler ve draft'lar sahibin kendi kaydettiği scrim'lerden gelir. Dereceli veya rekabetçi veri dahil değildir. Bu dosya HOK Global Scrim Lab'a geri aktarılabilir (Scrim'ler → İçe aktar). Kahraman portreleri ilgili sahiplerine (Tencent / TiMi Studio Group) aittir ve yerel bir önbellekten gösterilir.
+0682|Sayfa {current} / {total}
+0683|{label} bir JSON nesnesi olmalı.
+0684|{label} bir metin olmalı.
+0685|{label} {min} ile {max} karakter arasında olmalı.
+0686|{label} denetim karakterleri içeriyor.
+0687|{label} {min} ile {max} arasında bir tam sayı olmalı.
+0688|{label} en fazla {max} öğelik bir liste olmalı.
+0689|{label} geçersiz bir kahraman kimliği içeriyor.
+0690|{label} bilinmeyen bir kahraman kimliği içeriyor: {item}.
+0691|Geçersiz {label}.
+0692|page pozitif bir tam sayı olmalı.
+0693|pageSize 1 ile {maxSize} arasında olmalı.
+0694|draftMode bir metin olmalı.
+0695|teamA bir metin olmalı.
+0696|teamB bir metin olmalı.
+0697|Çevrimiçi seri oluşturmak için çevrimiçi uç noktayı kullanın.
+0698|{label}, {heroId} kahramanını birden fazla kez kullanıyor.
+0699|{label} geçersiz bir pick ataması içeriyor.
+0700|{label} sırası bozuk işlemler içeriyor.
+0701|{label}, draft'ta olmayan bir kahraman üzerinde işlem içeriyor.
+0702|İçe aktarılan dosyada beklenmeyen bir alan var: {value}.
+0703|{label} beklenmeyen bir alan içeriyor: {value}.
+0704|{label} içinde serinin iki takımı karşıt taraflarda olmalı.
+0705|{label}.winner serinin takımlarından biri olmalı.
+0706|role viewer veya editor olmalı.
+0707|{label} geçerli bir URL olmalı.
+0708|{label} bir https URL'si olmalı.
+0709|meta.confirmGlobalOnly değerini true yapın: yalnızca Honor of Kings Global verileri içe aktarılabilir.
+0710|meta.license şunlardan biri olmalı: {value}.
+0711|meta.updatedAt bir tarih olmalı (YYYY-AA-GG).
+0712|meta.totalGames en az 1 olmalı.
+0713|csv en fazla 300 KB'lık bir metin olmalı.
+0714|heroes[{index}].heroId gerekli (Camp Global kahraman kimliği).
+0715|heroes[{index}].heroId {heroId} bilinen bir Global kahraman kimliği değil.
+0716|heroes[{index}] pick sayısından fazla galibiyete sahip.
+0717|heroes en az bir satır içermeli.
+0718|heroes aynı heroId'yi iki kez içeriyor.
+0719|lane, Honor of Kings'in beş koridorundan biri olmalı.
+0720|{label} tek bir değer olmalı.
+0721|{label} çok uzun veya geçersiz.
+0722|{label} 2026-09-30 gibi bir tarih olmalı.
+0723|{key} şunlardan biri olmalı: {value}.
+0724|from, to değerinden sonra olmamalı.
+0725|format pdf veya png olmalı.
+0726|format pdf olmalı.
+0727|comment metin olmalı.
+0728|Yorum 500 karakterle sınırlıdır.
+0729|Dosya adı en fazla 120 karakterlik bir metin olmalı.
+0730|İçeriğe geç
+0732|Ana gezinme
+0733|Genel bakış
+0734|Kahramanlar
+0735|Tier listeleri
+0737|Kahraman kadrosunu senkronize et
+0738|Dil
+0740|Menü
+0741|Biçimlendirilmiş rapor · yeniden içe aktarılabilir
+0742|Dışa aktar
+0743|Tüm maçlar, her uzunlukta
+0744|Paylaşılacak görsel, en fazla 15 maç
+0745|Yorum
+0746|(dosyada yazdırılır)
+0747|Tur özeti, üzerinde çalışılacaklar, kimlerin oynadığı…
+0748|Dosya seri verilerini içerir: Scrim'ler → Seri içe aktar yoluyla geri aktarın. Yeniden kaydetmeyin veya yazdırmayın, aksi halde veriler kaybolur.
+0749|Yerel iki oyunculu draft
+0750|Cihazı devredin
+0751|Sıradaki taraf hazır.
+0752|Draft'a devam et
+0753|Pasif
+0754|Ultimate
+0755|Yetenek {index}
+0756|Bu kahraman kartı dilinizde alınıyor. Gelene kadar İngilizce sürüm gösterilir.
+0757|Tank
+0758|Dövüşçü
+0759|Büyücü
+0760|Suikastçı
+0761|Nişancı
+0763|Destek
+0764|Sayfa arka planı olarak kullan
+0765|Rastgele arka plan
+0766|Bu video artık sayfa arka planı
+0767|Arka plan yeniden rastgele
+0768|Arka plan videosu: kapalı
+0769|Arka plan videosu: açık
+0771|Buildler
+0772|Seçilmiş
+0773|Turnuvalar
+0774|Build kaydedildi
+0775|Build silindi
+0776|Takma ad
+0777|Diğer oyunculara gösterilir. Ayrıca hiç değişmeyen benzersiz bir etiket alırsın.
+0778|Takma adını seç
+0779|Google adın kullanılmaz. Diğer oyuncuların göreceği takma adı ve bir parola seç: sonra doğrulayıcı gelir.
+0780|Tüm zamanlar
+0781|Bu yıl
+0782|Son 12 ay
+0783|Son 6 ay
+0784|Son 3 ay
+0785|Bir tarihten itibaren
+0786|{wins} galibiyet, {losses} mağlubiyet
+0787|{wins}-{losses}
+0788|Dahil edilecek ilk gün
+0789|Dönem
+0790|{first} ile {last} arasında girilen oyunlar.
+0791|Bu dönemde turnuva oyunu yok.
+0792|Henüz hiç turnuva girilmedi.
+0886|Küçük örnek: bu kahramanla {picks, plural, one {# oyun} other {# oyun}}. Yüzdeleri dikkatle oku.
+0794|{wins}/{picks}
+0795|Bu dönemde hiç seçilmedi.
+0887|{total, plural, one {# oyunda} other {# oyunda}} {picks, plural, one {# pick} other {# pick}}
+0797|Pick oranı
+0798|Varlık (seçildi veya banlandı)
+0799|Mavi tarafta galibiyet oranı
+0800|Kırmızı tarafta galibiyet oranı
+0801|Bu kahramanın bu dönemde kazanılmış oyunu yok.
+0805|Scrimlerinde hiç seçilmedi.
+0807|Build {variant}
+0808|Kaynak
+0810|Arkanlar
+0811|Bu kahraman için henüz build girilmedi.
+0812|Bu buildi düzenle
+0814|Ad (isteğe bağlı)
+0817|Kaynak (https adresi)
+0818|Not (isteğe bağlı)
+0819|Kaydet
+0820|Etiketi kopyala
+0821|Profil fotoğrafı
+0822|Fotoğraf yükle
+0823|Google fotoğrafımı kullan
+0824|Fotoğrafı kaldır
+0825|PNG, JPEG, WebP veya GIF, en çok 4 MB. Kare olarak kırpılır.
+0826|Takma adı kaydet
+0827|Kapat
+0828|Etiket kopyalandı
+0829|PNG, JPEG, WebP veya GIF bir resim seç.
+0830|Bu resim çok büyük (en çok 4 MB).
+0831|Profil güncellendi
+0832|Turnuvalar | {site}
+0833|Gerçekten oynanmış turnuva serilerini gir.
+0834|Takma adını seç | {site}
+0835|Hesabının takma adını ve parolasını seç.
+0836|Boş yuva
+0837|Kahraman ara
+0838|Bir kahraman yaz, seçmek için Enter
+0839|{team} kazandı
+0840|Mavi: {team}
+0841|Süre (isteğe bağlı)
+0842|Oyunu kaldır
+0843|Banlar (isteğe bağlı)
+0844|Seriyi düzenle
+0845|Etkinlik
+0846|Aşama
+0847|Final, A Grubu…
+0848|Oynanma tarihi
+0849|Yama (isteğe bağlı)
+0850|En iyi
+0852|Oyun ekle
+0853|Seriyi kaydet
+0854|Kaydet ve sonraki seriyi gir
+0855|Ctrl+Enter kaydeder.
+0856|yama {patch}
+0857|Düzenle
+0859|{count, plural, one {# seri} other {# seri}}
+0860|Etkinlik, aşama veya takıma göre filtrele
+0861|Eşleşen seri yok.
+0862|Henüz seri girilmedi.
+0863|Önceki
+0864|Sonraki
+0865|{series, plural, one {# seri} other {# seri}} · {games, plural, one {# oyun} other {# oyun}}
+0866|Gerçekten oynanmış seriler. Kahraman istatistikleri ve eşleşmeler buradan gelir.
+0867|Her oyunun kazananını seç.
+0868|Seri kaydedildi
+0869|Bu seri ve oyunları silinsin mi? Kahraman istatistikleri buna göre değişir.
+0870|Seri silindi
+0871|Bu sayfa yöneticilere özeldir.
+0872|Turnuva girmek için yönetici hesabıyla giriş yap.
+0873|{label} 1 veya 2 olmalı.
+0874|{label} gerekli.
+0875|{label} tam olarak {max} kahraman ister.
+0876|{label}.durationSeconds, {min} ile {max} arasında bir tam sayı olmalı.
+0877|Gerçekten oynanmış bir seri gelecekte olamaz.
+0878|Bir seride en az bir oyun olmalı.
+0879|En iyi {bestOf} bir seride {count} oyun olamaz.
+0880|Build bulunamadı.
+0881|Profilin zaten tamamlanmış.
+0882|Bu hesapta Google fotoğrafı yok.
+0883|Bilinmeyen avatar seçimi.
+0884|Önce bir resim seç.
+0885|Bu dosya kullanılabilir bir resim değil.
+0889|Kahraman istatistikleri
+0890|Elle girilmiş
+0891|Eşleşme yok.
+0892|Katalog şimdilik boş.
+0893|Bir eksik
+0894|Bir fazla
+0895|Henüz yok.
+0896|Yükle: {name}
+0897|Build laboratuvarı
+0898|Bir build dene: kahraman, seviye, eşya ve arkana seç. Hesap gerekmez; bağlantı buildini paylaşır.
+0899|Buildin
+0900|Kahraman yok (sadece eşyalar)
+0901|Seviye {level}
+0902|Seviye
+0903|Bu kahramanın henüz etiketi yok.
+0904|Bu buildin bağlantısını kopyala
+0905|Baştan başla
+0909|Ekle
+0910|Ara
+0911|İstatistikler
+0912|Bu kahramanın temel istatistikleri henüz girilmedi: yalnızca eşyaların ve arkanaların verdikleri gösterilir.
+0913|Pasifler ve aktifler her parçada açıklanır; yalnızca istatistikler toplanır.
+0914|Ayrıntılar
+0915|Buildden çıkar
+0916|Bağlantı kopyalandı
+0917|Bir buildde bu grupta en fazla {max} eşya olabilir.
+0918|Bu buildin bir eşyası katalogda yok.
+0919|{name} bu yuva grubuna girmez.
+0920|{name} iki kez kullanılmış: bir eşya buildde yalnızca bir kez olabilir.
+0921|Bir buildde yalnızca bir çift çizme olur.
+0922|Bu buildin bir arkanası katalogda yok.
+0923|{name} bir {color} arkana değil.
+0924|{name} miktarı 1 ile {max} arasında bir tam sayı olmalı.
+0925|{name} iki kez geçiyor: ona tek bir miktar ver.
+0926|Bir buildde aynı renkten en fazla {max} arkana olabilir.
+0927|Yeşil
+0928|Çizmeler
+0929|Eşya
+0930|Yardımcı eşya
+0931|Oyun sonu eşyası
+0932|Eşyalar
+0933|Yardımcı
+0934|Oyun sonu
+0935|bekleme {seconds} sn
+0936|{price} altın
+0937|arkana
+0938|Gösterilecek istatistik henüz yok.
+0939|İstatistik
+0940|Toplam
+0941|Yüzde (%)
+0942|Düz sayı
+0943|Etiketler
+0944|Değer
+0945|Bu istatistiği kaldır
+0946|İstatistik ekle
+0947|Önce oyunun istatistiklerini gir (İstatistikler sekmesi).
+0948|Henüz etiket yok (Etiketler sekmesi).
+0949|Resim
+0950|Resim seç
+0951|Kaldır
+0953|Tür
+0954|Ad
+0955|Bekleme (sn)
+0956|Bu etkiyi kaldır
+0957|Ne yapar
+0958|Pasif veya aktif ekle
+0959|Gösterim
+0960|Listelerdeki konum
+0961|Renk
+0962|Ne anlama gelir (isteğe bağlı)
+0963|Yeri
+0964|Fiyat (isteğe bağlı)
+0965|Açıklama (isteğe bağlı)
+0966|Verdiği istatistikler
+0967|Pasifler ve aktifler
+0969|Yeni
+0970|Katalog
+0971|Oyunun istatistikleri, etiketleri, eşyaları ve arkanaları, elle girilmiş. Buildler bunlardan yapılır.
+0972|Filtre
+0973|Burada henüz bir şey yok.
+0974|Bir kayıt seç veya yeni ekle
+0976|Kaydedildi
+0977|Bu kayıt silinsin mi?
+0978|Silindi
+0979|Kataloğu girmek için yönetici hesabıyla giriş yap.
+0980|Hasar
+0981|İyileştirme
+0982|Kalkan
+0983|Kontrol
+0984|Güçlendirme
+0985|Zayıflatma
+0986|Hareket
+0987|Diğer
+0988|Yetenek
+0989|Seviyeye göre bekleme (sn), virgülle ayrılmış
+0990|Seviyeye göre maliyet, virgülle ayrılmış
+0991|Maliyetin ödendiği kaynak
+0992|Mana
+0993|Menzil
+0994|Kullanım süresi (sn)
+0995|Etki
+0996|Seviyeye göre değerler, virgülle ayrılmış
+0997|Ayrıntılar (isteğe bağlı)
+0998|Ölçekleme ekle
+0999|Notlar (isteğe bağlı)
+1000|Etki ekle
+1001|Bu yeteneği kaldır
+1002|Kahraman verileri: {name}
+1003|Temel istatistikler
+1004|1. seviyedeki değer ve her seviyede ne kadar arttığı.
+1005|Seviye 1
+1006|seviye başına
+1007|Seviye başına artış
+1008|Yetenekler
+1009|Yetenek ekle
+1010|{label}: sayıları virgülle ayırarak yaz.
+1011|Bekleme
+1012|Maliyet
+1013|Kahraman verileri kaydedildi
+1014|Kahraman verilerini düzenle
+1015|Bu kahramanın temel istatistikleri ve etiketleri henüz girilmedi.
+1016|+{percent}% {stat}
+1017|Build laboratuvarını aç
+1018|Build laboratuvarında dene
+1019|Build laboratuvarı: Honor of Kings Global buildlerini dene | {site}
+1043|Honor of Kings Global'deki herhangi bir kahraman için bir build dene: eşyalar, arkanalar ve verdiği toplam istatistikler. Hesap gerekmez.
+1021|Katalog | {site}
+1022|Oyunun istatistikleri, etiketleri, eşyaları ve arkanaları.
+1044|Bu adla bir istatistik zaten var.
+1024|Bu istatistik {count} eşya, arkana veya kahramanda kullanılıyor: önce oralardan kaldır.
+1045|Bu adla bir etiket zaten var.
+1046|Bu adla bir eşya zaten var.
+1025|Bu, {count} önerilen buildde kullanılıyor: önce oralardan kaldır.
+1047|Bu adla bir arkana zaten var.
+1026|{label} {min} ile {max} arasında bir sayı olmalı.
+1027|{label} aynı kaydı iki kez içeriyor.
+1028|{label} var olmayan bir kayıt içeriyor.
+1029|{label} {min} ile {max} arasında istatistik gerektirir.
+1030|{label} var olmayan bir istatistik içeriyor.
+1031|{label} aynı istatistiği iki kez içeriyor.
+1032|{label} şunlardan biri olmalı: {options}.
+1033|Bir etiket kendisiyle çakışamaz.
+1034|Resim yok (yeniden gönder).
+1035|{label} küçük harflerle kısa bir anahtar olmalı.
+1036|{label} aynı yeteneği iki kez içeriyor.
+1037|Bir build en az bir eşya veya arkana gerektirir.
+1038|İstatistik bulunamadı.
+1039|Etiket bulunamadı.
+1040|Eşya bulunamadı.
+1041|Arkana bulunamadı.
+1042|Bu resim çok büyük (en çok 3 MB).
+1048|Çekirdek eşya işaretini kaldır
+1049|Çekirdek eşya olarak işaretle
+1050|Bir buildde en fazla {max} çekirdek eşya olabilir.
+1051|Çekirdek eşyalar buildin ana eşyaları arasında olmalı.
+1052|(çekirdek eşya)
+1053|Çekirdek eşyalar
+1054|Önerilen bir build 2 veya 3 çekirdek eşya işaretler.
+1055|Oyna
+1058|Profil videosunu oynat
+1059|Koridor
+1060|{total} içinden {shown} gösteriliyor
+1061|Rekabetçi
+1062|Kahraman sayfası bölümleri
+1065|Rahat
+1066|Amatör
+1067|Yarı profesyonel
+1068|Profesyonel
+1069|Menajer
+1070|Koç
+1071|Kaptan
+1072|Analist
+1073|Oyuncu
+1074|Yedek
+1075|Takım etiketi
+1076|2 ila 5 harf veya rakam
+1077|Saat dilimi
+1078|Diller
+1079|En fazla 5
+1080|Açıklama
+1081|Takımı kaydet
+1082|Takım oluştur
+1083|{count, plural, one {# üye} other {# üye}}
+1084|Takım bulunamadı
+1085|İlk oluşturan siz olun.
+1086|Takımlar
+1087|Takımını kaydet ve kadrosunu yönet.
+1088|Topluluk
+1089|Size gelen davetler
+1091|Kabul et
+1092|Reddet
+1093|Takımlarınız
+1094|Takım ara
+1097|Takım bulunamadı
+1098|Rol
+1099|Takımdan ayrıl
+1101|Takımı düzenle
+1102|Takımı sil
+1103|Hakkında
+1104|Henüz açıklama yok.
+1105|Kadro
+1107|İşlemler
+1108|Oyuncu davet et
+1109|Oyuncu etiketi
+1110|Etiket profilinde yazar. Katılmadan önce kabul etmesi gerekir.
+1111|Davet et
+1112|Bekleyen davetler
+1113|Yanıt bekleyen kimse yok.
+1114|Takıma hoş geldin
+1115|Davet reddedildi
+1116|Bu takımdan ayrılmak istiyor musunuz?
+1117|Bu üye çıkarılsın mı?
+1118|Bu takım ve kadrosu silinsin mi? Geri alınamaz.
+1119|Takım silindi
+1120|Takım kaydedildi
+1121|Takım oluşturuldu
+1122|Davet gönderildi
+1123|{label} izin verilen değerlerden biri değil.
+1125|Takım etiketi 2 ila 5 harf veya rakamdır.
+1126|Saat dilimi UTC veya UTC+2 gibi olmalıdır.
+1127|Diller en fazla 5 farklı dil kodudur.
+1128|Oyuncu etiketi, profilinde görüldüğü gibi 6 harf veya rakamdır.
+1129|Takımları kullanmak için giriş yapın.
+1130|Takım bulunamadı.
+1131|Bunu yalnızca sahip ve menajerler yapabilir.
+1132|Takımı yalnızca sahip silebilir.
+1133|Bu etikete sahip oyuncu yok.
+1134|Menajeri yalnızca sahip atayabilir.
+1135|Bu rol izin verilen değerlerden biri değil.
+1136|Menajeri yalnızca sahip değiştirebilir.
+1137|Sahip ayrılamaz: bunun yerine takımı silin.
+1138|Bu takım etiketi zaten alınmış.
+1139|Bu takım adı zaten alınmış.
+1140|En fazla {max} takımda olabilirsiniz.
+1142|Bu oyuncu zaten takımda.
+1143|Bu oyuncunun zaten bekleyen bir daveti var.
+1144|Takımlar | {site}
+1145|Honor of Kings Global takımları: kadrolar, ekip rolleri ve davetler.
+1146|Takım | {site}
+1147|Bir takım ve kadrosu.
+1148|Üye sınırı
+1149|7 ile 20 arası, bekleyen davetler dahil
+1150|Logo
+1151|Logoyu kaldır
+1152|{count} / {max} üye
+1153|Logo kaldırıldı
+1154|Logo kaydedildi
+1155|Üye sınırı {min} ile {max} arasında bir tam sayıdır.
+1156|Takımda zaten {count} üye ve bekleyen davet var: sınır bundan düşük olamaz.
+1157|Bu takım dolu ({max} üye ve bekleyen davet).
+1158|Müsait
+1159|Scrim
+1160|Turnuva maçı
+1161|Antrenman
+1162|VOD incelemesi
+1163|Toplantı
+1164|Ajanda
+1165|Etkinlik ekle
+1166|Saatler saat diliminizde gösterilir ({zone}).
+1167|Önümüzdeki 60 günde planlanmış bir şey yok.
+1168|Herkese açık müsaitlik
+1169|Başlık
+1170|Başlangıç
+1171|Bitiş
+1172|Not yalnızca takıma görünür.
+1173|Etkinliği kaydet
+1174|Bu etkinlik silinsin mi?
+1175|Bir başlangıç ve bir bitiş seçin.
+1176|{label} geçerli bir tarih ve saat değil.
+1177|Bitiş, başlangıçtan sonra olmalıdır.
+1178|Bir etkinlik en fazla 24 saat sürer.
+1179|Aralık en fazla bir yıldır.
+1180|Ajandayı yalnızca ekip ve kaptan değiştirebilir.
+1181|Etkinlik bulunamadı.
+1182|Bir takım ajandası en fazla {max} etkinlik alır: önce eskileri silin.
+1183|Harici lobi
+1184|Müsait değil
+1185|Beklemede
+1186|Karşı teklif
+1187|Kabul edildi
+1188|Reddedildi
+1189|İptal edildi
+1190|Topluluk özelliklerini kullanmak için giriş yapın.
+1191|{team} takımından scrim iste
+1192|Takımınız
+1193|Mesaj
+1194|İsteği gönder
+1195|Scrim isteğini yalnızca bir takımın ekibi ve kaptanı yapabilir: önce bir takım oluşturun veya katılın.
+1196|Scrim iste
+1197|Takımı gör
+1198|İlanı kapat
+1200|{count} açık
+1201|Eşleşen ilan yok
+1202|Filtreleri değiştirin veya kendi ilanınızı yayınlayın.
+1203|“Scrim arıyoruz” yayınla
+1204|Scrim bul
+1205|Seviyenize, saat diliminize ve formatınıza uyan açık ilanları ve takımları arayın.
+1206|Tarih
+1207|Zaman aralığı
+1208|Herhangi bir süre
+1209|En az {hours} sa
+1210|Herhangi
+1212|Takım dizini
+1213|İste
+1214|Tüm takımlara göz at
+1215|İlanı yalnızca bir takımın ekibi ve kaptanı yayınlayabilir: önce bir takım oluşturun veya katılın.
+1216|Şu saatten itibaren müsait
+1217|Şu saate kadar
+1218|Yayınla
+1219|Sıra sizde
+1220|{team} isteği kabul etti
+1221|{team} isteği reddetti
+1222|{team} isteği iptal etti
+1223|{team} {when} öneriyor
+1224|{team} takımına gönderildi
+1225|{team} takımından alındı
+1226|Başka bir zaman öner
+1227|Gönder
+1228|İsteği iptal et
+1229|{team} bekleniyor
+1230|Bir mesaj yazın…
+1231|Bildir
+1232|Bu takımı engelle
+1233|{team} başka bir zaman öneriyor: {when}
+1234|{team} sizden scrim istiyor: {when}
+1235|{team} scrim isteğini kabul etti
+1236|{team} scrim isteğini reddetti
+1237|{team} scrim isteğini iptal etti
+1238|{team} takımından yeni mesaj
+1239|{by} sizi {team} takımına {role} olarak davet ediyor
+1240|{title} ({team}) {when} saatinde başlıyor
+1241|Yeni bildirim
+1242|Gelen kutusu ve bildirimler
+1244|İstekler
+1245|Bildirimler
+1246|Henüz istek yok
+1247|Gönderdiğiniz veya aldığınız istekler burada görünür.
+1248|Bir istek seçin
+1249|Takım başına günde {max} istek gönderebilirsiniz. Saygılı olun: herhangi bir konuşmadan bir takımı bildirebilir veya engelleyebilirsiniz.
+1250|Tümünü okundu say
+1251|Bu dönemde planlanmış bir şey yok.
+1253|Yanıtınız
+1254|Geliyorum
+1255|Belki
+1256|Gelemem
+1257|{going} geliyor · {maybe} belki · {no} gelemiyor
+1258|Bu etkinlikten seri oluştur
+1259|Önümüzdeki 60 gün
+1260|Ay
+1261|Liste
+1262|Yeni etkinlik
+1263|Takımlarınızın ajandası, saat diliminizde ({zone}).
+1264|Ajanda için bir takıma katılın veya oluşturun.
+1265|Önceki ay
+1266|Sonraki ay
+1267|Henüz takım yok
+1268|Ajandanız takımlarınızın etkinliklerini gösterir.
+1269|Oyuncu bulunamadı
+1270|Discord bağlı
+1271|Takım
+1272|Takıma davet et
+1273|Profilimi düzenle
+1274|Ana kahramanlar
+1275|Ana kahraman seçilmedi.
+1276|Henüz bir takımda değil.
+1277|Ana kahraman {number}
+1278|En fazla 3
+1279|Profilimi kaydet
+1280|Discord ve başlangıç
+1281|Discord’unuzu bağlayın
+1282|Bir takım oluşturun veya katılın
+1283|Müsaitliğinizi belirleyin
+1284|İlk scrim’inizi bulun
+1285|Discord hesabınız bağlandı.
+1286|Bu Discord hesabı zaten başka bir hesaba bağlı.
+1287|Discord bağlanamadı. Tekrar deneyin.
+1288|Scrim isteklerini, hatırlatmaları ve sonuçları özel mesaj olarak almak için Discord’unuzu bağlayın.
+1289|Başlarken
+1290|tamam
+1291|Yap
+1292|Bu sunucuda Discord ayarlı değil: site sahibi bir Discord uygulaması sağlamalı. Bildirimleriniz sitede kalır (Gelen kutusu).
+1293|bağlı
+1294|{date} tarihinde bağlandı
+1295|Bağlantıyı kes
+1296|Özel mesajla bildirimler
+1297|Bu sunucuda özel mesajlar etkin değil (bot yok): her şeyi yine Gelen kutusunda görürsünüz.
+1298|Scrim istekleri ve mesajlar
+1300|Yanıtlar ve takım davetleri
+1301|Bildirimleri özel mesaj olarak almak için Discord hesabınızı bağlayın. Yalnızca Discord adınızı ve avatarınızı isteriz: sunucularınızdan veya mesajlarınızdan hiçbir şey okunmaz.
+1302|Discord’umu bağla
+1303|Aldıklarınız
+1304|Yeni scrim isteği
+1305|Nova Gaming sizden Cuma 20:00 UTC için BO3 scrim (Global Ban & Pick) istiyor.
+1306|Siteden, Gelen kutunuzdan yanıtlarsınız.
+1307|İlan kapatıldı
+1308|Bu konuşmayı neden bildiriyorsunuz?
+1309|Teşekkürler: yöneticiler bakacak.
+1310|Bu takım engellensin mi? Size istek gönderemez ve siz de ona gönderemezsiniz.
+1311|Takım engellendi
+1312|Discord hesabınızın bağlantısı kesilsin mi?
+1313|İstek gönderildi
+1314|İlan yayınlandı
+1315|Profil kaydedildi
+1316|Scrim bul | {site}
+1317|Honor of Kings Global takımlarının açık scrim ilanları: seviyeye, formata ve kahraman kuralına göre filtreleyin.
+1318|Gelen kutusu | {site}
+1319|Scrim istekleri ve bildirimler.
+1320|Ajanda | {site}
+1321|Takımlarınızın ajandası.
+1322|Discord | {site}
+1323|Discord hesabınızı bağlayın.
+1324|Oyuncu | {site}
+1325|Topluluktan bir oyuncu.
+1326|Tekrarla
+1327|Tekrarlanmaz
+1328|Her hafta, {count} kez daha
+1329|Bunu yalnızca ekip ve kaptan yapabilir.
+1330|Bir takımın en fazla {max} açık ilanı olabilir.
+1331|İlan bulunamadı.
+1332|Bu takım sizden istek kabul etmiyor.
+1333|Bu ilan artık açık değil.
+1334|Takım başına günde {max} istek gönderebilirsiniz.
+1335|Bu saat için bir istek zaten yanıt bekliyor.
+1336|İstek bulunamadı.
+1337|Bu istek iptal edildi.
+1338|Bu konuşma dolu.
+1339|Bu istek zaten sonuçlandı.
+1340|Yalnızca zamanı öneren takım iptal edebilir.
+1341|Yanıt sırası diğer takımda.
+1342|Bir takım kendini engelleyemez.
+1343|Yalnızca takım üyeleri yanıt verebilir.
+1344|Format BO1, BO3, BO5 veya BO7’dir.
+1345|Bu zaman aralığı çok uzun.
+1346|Bu zaman zaten geçti.
+1347|Bir takım kendisinden scrim isteyemez.
+1348|Yanıt going, maybe veya no’dur.
+1349|Ana kahramanlar en fazla 3 farklı kahramandır.
+1350|{label} doğru veya yanlış olmalıdır.
+1351|Haftalık tekrar, 0 ile 12 arasında tam sayıda haftadır.
+1352|Geçersiz liste.
+1353|Ajandayı yalnızca takım üyeleri dışa aktarabilir.
+1354|Oyuncu bulunamadı.
+1355|Önce Discord hesabınızı bağlayın.
+1356|Gelen kutusu
+1357|Oyuncu profili
+1358|Discord
+1359|Doğrulanmış
+1360|Moderatör
+1361|Organizatör
+1362|Katkıda bulunan
+1363|Etiketler
+1364|Etiketleri kaydet
+1365|Etiketler kaydedildi
+1366|Etiketler, bilinen ve birbirinden farklı etiketlerin listesidir.
+1367|Hafta
+1368|Bildirimler
+1369|Bu konuşmada metin mesajı yok.
+1370|{name} tarafından bildirildi
+1371|Bildirimi kapat
+1372|Topluluk tarafından bildirilen konuşmalar.
+1373|Bildirim yok
+1374|Bildirilen konuşmalar burada görünür.
+1375|Bildirimler | {site}
+1376|Bildirim bulunamadı.
+1377|Ajanda hatırlatmaları (6 sa, 4 sa ve 2 sa önce)
+1378|Bot sunucunuza eklendi. Şimdi bir kanal seçin.
+1379|Bot sunucunuza eklenemedi. Tekrar deneyin.
+1380|Discord botu bu sunucuda ayarlı değil: site sahibi bir Discord uygulaması sağlamalı.
+1381|Botu Discord sunucunuza ekleyin: hatırlatmaları (6 sa, 4 sa ve 2 sa önce), onaylanan scrim'leri ve haftalık özeti seçtiğiniz kanalda paylaşır.
+1382|Botu sunucuma ekle
+1383|bağlı
+1384|Bot artık bu sunucuyu göremiyor: yeniden ekleyin.
+1385|Bildirimler için kanal
+1386|Kanalı değiştir
+1387|Bu kanalı kullan
+1388|Bağlantıyı kes
+1389|Bu Discord sunucusunun bağlantısı kesilsin mi?
+1390|Kanal kaydedildi: onay için bir mesaj gönderildi.
+1391|Bir Discord kanalı seçin.
+1392|Önce botu bir Discord sunucusuna ekleyin.
+1393|Bu kanal sunucunuzda yok.
+1394|Devam eden draft yok. Başlatmak için bir seri oluştur.
+1395|Canlı draft | {site}
+1396|Devam eden drafti aç: iki tarafın pick ve banları, canlı.
+1397|Canlı draft
+1398|Klasik
+1399|Yalnızca pick, ve iki taraf da aynı kahramanı seçebilir. Çevrimiçi modda draft bitene kadar yalnızca kendi pickleri görürsün.
+1400|Gizli pick
+1401|{team} bir kahraman seçti.
+1402|{label} banı olmayan bir draftta ban içeriyor.
+1405|Bu draftta ban yok.
+1406|Antrenman | {site}
+1407|Kahramanların, kombo ve mekanik defterin ve haritada incelenecek durumlar.
+1408|Hedef
+1409|Mekanik
+1410|Kombo
+1411|Yapılacak
+1412|Çalışılıyor
+1413|Ustalaşıldı
+1414|Kamp
+1415|Hedef nokta
+1416|Kule
+1417|Çalı
+1418|Tarafsız
+1419|Antrenman
+1420|Antrenmanın
+1421|Kahramanlarını seçmek ve defterini tutmak için giriş yap.
+1422|Defter
+1423|Durumlar
+1424|Antrenman bölümleri
+1425|Henüz kahraman seçilmedi
+1426|Listede çalıştığın kahramanları işaretle: hızlı erişim için burada görünürler.
+1427|Bu kahramanın sayfası yüklenemedi.
+1428|Kahramanın tam sayfası
+1429|Bu kahraman hakkında notlar
+1430|Bekleme süresi {seconds} sn
+1431|Maliyet {cost}
+1432|Bu kahramanın yetenekleri henüz alınmadı.
+1433|Çalıştığın kahramanlar ve onlarda ustalaşmak için gereken her şey.
+1435|{max} kahramandan {count}
+1436|Kahramanlarını seç
+1437|Tüm hatlar
+1439|Kombo: yetenekleri sırayla seç
+1440|İpucu (isteğe bağlı)
+1441|{number}. adım için ipucu
+1442|Yukarı
+1443|Aşağı
+1444|{number}. adımı kaldır
+1445|Henüz adım yok: yukarıdan bir yetenek seç.
+1446|Tür
+1447|Kahraman yok
+1449|Yeni not
+1450|Tüm kahramanlar
+1451|Defterin henüz boş
+1452|Çalışmak istediğini yaz: bir mekanik, bir kombo, bir sonraki scrim için bir hedef.
+1453|Bu not silinsin mi?
+1454|(ölü)
+1455|Harita
+1456|Ölü
+1457|Yöneticilerin hazırladığı durumlar: haritada yerini al ve ne yapacağına karar ver.
+1458|Yeni durum
+1459|{count} işaret
+1460|Taslak
+1461|Henüz durum yok
+1462|Yöneticiler henüz bir durum hazırlamadı. Yakında tekrar gel.
+1463|Önce bir harita yükle.
+1464|Bu harita silinsin mi?
+1465|Haritalar
+1466|Yöneticiler
+1467|Oyunun haritasını yükle (PNG, JPEG veya WebP, en fazla 12 MB). İşaretler üzerine konur: senin için hiçbir şey çizilmez.
+1468|Henüz harita yok.
+1469|Haritayı yükle
+1470|Durum bulunamadı
+1471|Durumlara dön
+1472|Pozisyonu incele, sonra ne yapacağını yaz.
+1473|Taslak: yalnızca yöneticiler görür.
+1475|Durum
+1477|Ne yapardın ve neden?
+1478|Cevabımı kaydet
+1479|Cevabını yazmak için giriş yap.
+1480|Cevap kaydedildi.
+1481|Bir kahraman seç
+1482|Durumu düzenle
+1483|Bir araç seç, sonra haritaya tıkla. Bir işareti taşımak için sürükle; ok tuşları seçili işareti oynatır.
+1484|Araç
+1485|Haritadaki ad
+1486|Ait olduğu taraf
+1487|İşaretler
+1488|Henüz işaret yok.
+1489|Canlı olarak işaretle
+1490|Ölü olarak işaretle
+1491|İşareti kaldır
+1492|Yayınlandı
+1493|Bu durum silinsin mi?
+1494|Önce bir kahraman seç.
+1495|Bu kahraman zaten o tarafta.
+1496|Bir tarafta en fazla 5 kahraman olabilir.
+1497|{label} en fazla {max} karakter olmalı.
+1498|En fazla {max} kahraman seç.
+1499|Bilinmeyen kahraman.
+1500|Bir kahraman yalnızca bir kez seçilebilir.
+1501|Bir kombo bir kahramana aittir.
+1502|Yalnızca kombonun adımları vardır.
+1503|Bir komboda en fazla {max} adım olur.
+1504|Bir adım için yetenek gerekir.
+1505|Bir kombo için en az bir adım gerekir.
+1506|{label} 0 ile 1 arasında bir sayı olmalı.
+1507|Yüklenen haritalardan birini seç.
+1508|Bir durumda en fazla {max} işaret olur.
+1509|Her işaretin kendi kısa kimliği olmalı.
+1510|Bir kahraman haritada her tarafta yalnızca bir kez olabilir.
+1511|Bir tarafta en fazla {max} kahraman olabilir.
+1512|Antrenman alanını kullanmak için giriş yap.
+1513|Not bulunamadı.
+1514|Harita bulunamadı.
+1515|Durum bulunamadı.
+1516|PNG, JPEG veya WebP bir resim seç.
+1517|Bu resim çok büyük (en fazla 12 MB).
+1518|Defterin dolu ({max} not). Önce bazılarını sil.
+1519|Bu haritayı {count} durum kullanıyor. Önce onları sil veya taşı.
+1520|Hoş geldin
+1521|Bölümlerin
+1522|Scrim ve draftlar
+1523|Ban ve pick draftıyla scrim serileri yürüt, canlı drafti izle, geçmişine ve istatistiklerine bak.
+1524|Seri oluştur
+1525|Her hat için sürükle-bırak ile tier listeleri oluştur ve paylaş.
+1526|Tier listelerini aç
+1527|Kahramanlar ve buildler
+1528|Yetenekleri, yama geçmişi ve çizimleriyle her Global kahraman ve eşya ile arkanaları denemek için bir build laboratuvarı.
+1529|Kahramanlara göz at
+1530|Çalıştığın kahramanları seç, kombo ve mekanik defteri tut, haritadaki durumları incele.
+1531|Kadro, roller ve davetlerle bir takım kur veya takıma katıl.
+1532|Scrim arayan takımların ilanları ve karşı tekliflerle gelen istekler.
+1533|Takımlarının hatırlatmalı ajandası ve kimlerin geleceği.
+1534|Scrim istekleri ve bildirimler tek yerde.
+1535|Herkese açık sayfan: ana kahramanlar, diller, takımlar.
+1536|Hatırlatma almak ve istekleri Discord'dan yanıtlamak için hesabını bağla.
+1537|HOK Global Scrim Lab'e hoş geldin
+1538|Honor of Kings Global rekabetçi topluluğu için bir yer: resmi draftla scrim oyna, rakip bul, planla ve antrenman yap.
+1539|Yalnızca Global oyun verileri. Dereceli veri yok. Hiçbir şey uydurulmaz.
+1540|Bir dakika sürer: görmek istediğini seçersin ve istediğin zaman değiştirebilirsin.
+1541|Ne görmek istiyorsun?
+1542|İhtiyacın olan bölümleri seç. Diğerleri menüden gizlenir (sayfaları bir bağlantıyla yine açılır).
+1543|Her zaman açık: takımlar, scrim istekleri, ajanda, gelen kutusu, oyuncu sayfaları ve Discord.
+1544|Topluluk
+1545|Bu bölüm herkes için ve her zaman menünde.
+1546|Topluluğu kullanmak için hesap oluştur: ücretsiz.
+1547|Hazırsın
+1548|İşte nereden başlayacağın. Menün artık yalnızca seçtiklerini ve topluluğu gösteriyor.
+1549|Adımlar
+1550|Geri
+1551|Atla, hepsini tut
+1552|Hoş geldin | {site}
+1553|Sitenin görmek istediğin bölümlerini seç.
+1554|modules bir liste olmalı.
+1555|Bilinmeyen site bölümü.
+1556|Seçimlerini saklamak için giriş yap.
+1558|Ayarlar | {site}
+1559|Sitenin bölümleri, varsayılan değerler ve arayüz.
+1560|Ayarlar
+1561|Seçimlerin hesabında saklanır.
+1562|Seçimlerin bu tarayıcıda saklanır. Her yerde kullanmak için giriş yap.
+1563|Hesabın
+1564|Sitenin bölümleri
+1565|Daha önce istemediğin bir bölümü aç ya da kullanmadığını gizle. Gizli bölümler adresinden yine açılır.
+1566|Karşılama sayfalarına yeniden bak
+1567|Yeni seri formu bu seçimlerle başlar.
+1568|Arayüz
+1569|Başlangıç sayfası
+1570|Animasyonları azalt
+1571|Başlangıç sayfası siteye geldiğinde açılır. Azaltılmış animasyonlar cihazın istediğinde de geçerlidir.
+1572|Discord'da hangi mesajları alacağını seç ve hesabını Discord sayfasında bağla.
+1573|Discord ayarlarını aç
+1574|Gelen kutusunu aç
+1575|Bildirim almak için giriş yap.
+1576|Oyuncu sayfan
+1577|Ayarları kaydet
+1578|Ayarlar kaydedildi.
+1579|{label} desteklenen bir seçim değil.
+1580|settings bir nesne olmalı.
+1581|reduceMotion true veya false olmalı.
+1582|Kaydedilmemiş değişiklikler var.
+1583|Değişiklikleri at
+1584|Bir kahraman en az bir hat tutar.
+1585|{lane} hattını kaldır
+1586|Hatlar güncellendi
+1587|Free For All
+1588|Tüm kurallar
+1589|Henüz hat yok
+1590|{hero}: {lane}
+1591|Oynanan hat
+1592|Hat yok
+1593|Bir hattı bir kahramanın üzerine sürükle ya da önce bir hatta, sonra bir kahramana tıkla.
+1594|Draft kuralı
+1595|{label} beş pickin her biri için bir hat (veya hiçbiri) vermeli.
+1596|{label} var olmayan bir hat içeriyor.
+1597|{label} bir taraftaki iki kahramana aynı hattı veriyor.
+1598|Geçersiz kural.
+1599|Bir kahraman en az bir hat tutar: bunu kaldırmadan önce başka bir hat ekle.
+1600|Bu kahramanın o hattı yok.
+1601|Koyu temaya geç
+1602|Açık temaya geç
+1603|Karanlık mod
+1604|Aydınlık mod
+1607|“{query}” için sonuç yok
+1608|{count} okunmamış
+1609|Hepsi okundu
+1610|Henüz bildirim yok.
+1611|Scrim Lab
+1612|Scrim'ler ve draftlar
+1613|Kahramanlar ve buildler
+1614|Bir oyundan fazlası, bir topluluk.
+1615|Metin yönü
+1616|Mobil gezinme
+1617|Canlı
+1619|Yanıtınız: {answer}
+1620|Henüz yanıt vermediniz.
+1621|Kimler geliyor
+1622|{total} kişiden {going} geliyor
+1623|Planlanmış bir şey yok
+1624|Bir draft başlatmak için seri oluşturun ya da karşılaşacak bir takım bulun.
+1625|Sıradaki: {team} ile {title}, {when}.
+1626|Draft odasını aç
+1627|Ajandayı gör
+1628|Drafti aç
+1629|Draft, scrim, antrenman.
+1630|HOK Global Scrim Lab'de scrimlerini hazırla, oyununu geliştir, kahramanları keşfet ve takımını kur.
+1631|Ücretsiz hesap
+1632|Serilerini sakla, çevrimiçi oyna.
+1633|Scrimlerini kaydetmek, davet ettiğin rakiple çevrimiçi oynamak, tier listelerini paylaşmak ve bir takıma katılmak için hesap oluştur.
+1634|Öne çıkanlar
+1635|Takımlarınızın etkinlikleri burada görünür.
+1636|Takımlarınızın ajandasını görmek için giriş yapın.
+1641|Sonraki etkinlikler
+1642|Tümünü gör
+1643|Mekaniklerini geliştir, kombolarını gözden geçir ve oyun durumlarını çalış.
+1644|Aç
+1645|Takımlarım
+1646|Burada görmek için bir takım oluştur ya da bir daveti kabul et.
+1647|Hızlı istatistikler
+1648|Yalnızca Global verileri
+1649|Dereceli ve ladder verisi yok. Kişisel istatistikleriniz yeterli oyun olana kadar gizli kalır.
+1650|Scrimlerim
+1651|Yaklaşanlar
+1652|Geçmiş
+1653|Günaydın, {name}.
+1654|İyi günler, {name}.
+1655|İyi akşamlar, {name}.
+1656|Günün kahramanı
+1657|Kartı aç
+1659|Sırala
+1660|Görünüm
+1661|Izgara
+1662|SON 5 SANİYE
+1663|SÜRE DOLDU
+1664|{seconds} sn
+1665|Sıradaki pick
+1666|Draft sonunda açıklanır
+1667|5 pick'ten {number}.
+1668|Gizli pick'ler
+1670|Devam eden
+1671|Bitenler
+1672|Bir seri hazırla, canlı draft yap ve her oyunun geçmişini sakla.
+1673|Odaya gir
+1674|Takım, mod…
+1675|Bu kahraman zaten antrenmanında.
+1676|Antrenmanına eklendi.
+1677|Üst koridor
+1678|Orta koridor
+1679|Alt koridor
+1680|Önerilen buildler
+1684|Antrenmana ekle
+1685|{level}. seviyede
+1686|Kadro rolleri
+1692|Takım bağlantısını kopyala
+1688|Sahip ve kaptanlar
+1689|Oyuncular ve yedekler
+1690|Ekip (menajer, koç, analist)
+1687|Henüz hiçbir takımda değilsin.
+1691|Bir oyuncunun koridorunu belirlemek için logoya tıkla.
+1693|İlanların
+1694|İsteklerin
+1697|Zaman aralığı
+1695|İmzalı yanıtlar
+1696|Discord'da bir istek Kabul et ve Reddet düğmeleriyle gelir. Her tıklama Discord tarafından imzalanır ve burada doğrulanır; yalnızca takımın ekibi yanıt verebilir.
+1698|Ara…
+1703|Bugün
+1701|Önceki hafta
+1702|Sonraki hafta
+1700|O gün için planlanmış bir şey yok.
+1699|Yanıt bekliyor
+1705|Oku
+1706|Tema
+1707|Koyu
+1708|Açık
+1709|Soldan sağa
+1710|Sağdan sola
+1711|Bölümler
+1712|Adım {number} / {count}
+1713|Honor of Kings Global için scrim laboratuvarı.
+1714|Resmi rekabetçi sıralamayla canlı draft
+1715|Koridora göre tier listeleri, tek bağlantıyla paylaşılır
+1716|Hatırlatmalar ve imzalı yanıtlar doğrudan Discord'da
+1717|6 haneli kod
+1718|Oyuncu bağlandı
+1719|Oyuncu bekleniyor
+1720|Zafer
+1721|Draftı yeniden incele
+1722|Ortalama süre
+1723|Özet
+1724|En çok seçilen kahramanlar
+1725|{count, plural, one {# oyun} other {# oyun}}
+1728|Hatlara göre karşılaşma
+1727|Tüm hatlar girildi.
+1726|{count, plural, one {# hat girilecek} other {# hat girilecek}} · mavi {blue}, kırmızı {red}
+1729|Ban yok
+1752|En az bir eşya veya arkana
+1730|Build
+1749|Build kaydedildi: {name}
+1734|Gösterilecek buildler
+1758|Yazılan buildler
+1764|Değişiklikler henüz kaydedilmedi
+1732|Bu buildin bağlantısını kopyala
+1763|Build {variant} sil
+1771|Bu kahramanın build {variant} silinsin mi?
+1733|Bu buildi sil
+1750|Bu build silinsin mi?
+1774|Buildleri düzenle
+1767|Kahraman rehberleri
+1775|Kahraman rehberleri | {site}
+1757|Gösterilecek kahramanlar
+1756|En az bir buildi olan kahramanlar
+1744|Yalnızca bu tarayıcıda saklanır, hesap gerekmez. Tarayıcı verilerini silmek bunları kaldırır: başka bir yerde saklamak için bir buildin bağlantısını kopyala.
+1770|Bu buildden çıkılsın mı? Yaptığın değişiklikler kaydedilmedi.
+1731|Yükle
+1751|{min} veya {max} çekirdek eşya işaretle (şu an {count})
+1736|Buildlerim
+1739|Bu buildin adı
+1738|Bu buildin adı (isteğe bağlı)
+1743|Henüz kaydedilmiş build yok. Birini kaydet, bir sonraki sefer her kahraman için burada bul.
+1759|Adsız
+1760|Henüz kaydedilmedi
+1737|Bu cihazda
+1765|Buildlerini yazmak için listeden bir kahraman seç.
+1745|Önerilen build olarak yayınla
+1741|Yeni build olarak kaydet
+1762|Build {variant} kaydet
+1742|Bu buildi kaydet
+1766|Kahraman sayfasını gör
+1773|Kahraman rehberlerini yazmak için giriş yap.
+1761|Kaynak bağlantısı (isteğe bağlı)
+1753|Kaynak, https:// ile başlayan bir bağlantıdır
+1777|Bu işlem yöneticiler ve katkıda bulunanlar içindir.
+1748|Bu tarayıcı buildi saklamadı (gizli pencere veya dolu depolama).
+1769|Bu build, build laboratuvarından geldi. Kontrol et, sonra kaydet.
+1735|Bu kahraman
+1772|Bu sayfa, kahraman rehberlerini yazanlar içindir. Bir yönetici sana Katkıda bulunan etiketini verebilir.
+1740|“{name}” güncelle
+1755|Buildi olan
+1754|Buildi olmayan
+1776|Her kahramanın sayfasında gösterilen önerilen buildleri ve komboları yaz.
+1768|Her kahramanın sayfasında gösterilen önerilen buildleri ve komboları yaz. Her build oyun kataloğuna göre denetlenir.
+1746|Bir kahraman için {max} build saklayabilirsin: önce birini sil.
+1747|Toplamda {max} build saklayabilirsin: önce birini sil.
+1778|Dönemin ilk ve son gününü seç.
+1779|Dönem en az {months} ay olmalı.
+1781|Karşı kazandı
+1784|Küçük örneklem
+1785|Bu dönemde hiçbir satır {count} oyuna ulaşmıyor: alt sınırı düşür.
+1786|Bu dönemde sıralanacak bir şey yok.
+1787|{count, plural, one {# draft} other {# draft}}
+1788|İki taraf
+1789|Taraf
+1790|Koridoru girilmemiş seçimler dışarıda bırakıldı: {count}.
+1809|{months, plural, one {# ay} other {# ay}}
+1792|İlk oyundan beri
+1793|En az oyun
+1794|Sırala
+1795|En çok oynanan
+1796|Yalnızca turnuva oyunları, asla scrim değil. İlki {date} tarihli.
+1797|Yalnızca turnuva oyunları, asla scrim değil.
+1798|Popüler draftlar
+1799|Popüler kahramanlar
+1800|Turnuvalarda en çok kazanan ve en çok oynanan beş kahramanlı draftlar, her taraf için.
+1801|Turnuvalarda en çok kazanan ve en çok oynanan kahramanlar, her koridor için.
+1802|Bu dönemde turnuva oyunu yok.
+1803|Dönemi genişlet veya bir yöneticiden oynanan oyunları girmesini iste.
+1804|Popüler
+1805|Draftlar
+1806|Turnuvalarda popüler draftlar ve kahramanlar | {site}
+1807|Honor of Kings Global turnuvalarında en çok kazanan ve en çok oynanan draftlar ve kahramanlar, her taraf ve her koridor için.
+1808|minGames 1 ile 50 arasında bir tam sayı olmalı.
+1810|{lane} derecesi: {tier}
+1812|{name} şuraya taşı
+1813|Bir kahramanı bir tier'a sürükle ya da tıkla ve tier'ı seç.
+1814|Hiç kaydedilmedi
+1815|Dereceleri kaydet
+1816|Resmî dereceler
+1817|Her koridorun kahramanlarını SS'den D'ye derecelendir. Derece, kahraman sayfasında her koridorun yanında görünür; listeler yalnızca editörler içindir.
+1818|Dereceler kaydedildi
+1819|Bu koridordan çıkılsın mı? Yaptığın değişiklikler kaydedilmedi.
+1820|Bu sayfa, kahraman derecelerini yazanlar içindir. Bir yönetici sana Katkıda bulunan etiketini verebilir.
+1821|Kahraman derecelerini yazmak için giriş yap.
+1822|Resmî dereceler | {site}
+1823|Her koridorun kahramanlarını SS'den D'ye derecelendir.
+1824|Bu dereceler sen açtıktan sonra değişti. Yeniden yükle ve tekrar dene.
+1825|Tier'lar bir JSON nesnesi olmalı.
+1826|Her tier'ın kahramanlarını SS'den D'ye gönder.
+1827|Tier'lar SS, S, A, B, C ve D'dir, her biri bir kez.
+1828|Bir tier'ın kahramanları, kahraman kimliklerinin listesi olmalı.
+1829|Bir kahraman yalnızca tek bir tier'da olabilir, kimliğiyle.
+1830|Dereceler
+1831|Kombonun bir adı var
+1832|En az bir adım (şu an {count})
+1833|Komboyu düzenle
+1834|Yeni kombo
+1835|{count} / {max} adım
+1836|Komboyu kaydet
+1837|Henüz kombo yok
+1838|Bu kahramanın ilk kombosunu yaz: yeteneklerini kullanım sırasına göre seç.
+1839|Bu kombodan çıkılsın mı? Yaptığın değişiklikler kaydedilmedi.
+1840|Kombo kaydedildi
+1841|{name} kombosu silinsin mi?
+1842|Kombo silindi
+1843|Kombolar
+1844|Kombosuz
+1845|Komboyla
+1846|En az bir komboya sahip kahramanlar
+1847|Yazılan kombolar
+1848|Ne yazılacak
+1849|Bu kombolarla antrenman yap
+1850|Komboları düzenle
+1851|Diğer kombolar ({count})
+1852|Bu kahraman için henüz kombo yazılmadı.
+1853|Öğrenilen biçimler: {name}
+1854|Normal
+1855|Animasyon iptali
+1856|Kahramanın her kombosunu bir kez, istenen sırayla gönder.
+1857|Bir kombonun her biçimi ya öğrenilmiştir ya da öğrenilmemiştir: true veya false.
+1858|Kombonun hangi biçiminin öğrenildiğini belirt.
+1859|Kombo bulunamadı.
+1860|Bir kahramanın en fazla {max} kombosu olabilir.
+1861|Reaksiyon süresi
+1862|Dizi hafızası
+1863|Şempanze testi
+1864|Nişan antrenmanı
+1865|Görsel takip
+1866|Dost mu düşman mı
+1867|Son vuruş
+1868|Yetenek tuşları
+1869|Yeşile döndüğü anda panele dokun.
+1870|Panellerin yanma sırasını tekrarla.
+1871|Sayıların nerede olduğunu hatırla ve sırayla dokun.
+1872|Otuz hedefe olabildiğince hızlı vur.
+1873|Hareket ederken ışıklı topları takip et.
+1874|Düşmanlara vur, müttefiklerine dokunma.
+1875|Can çubuğu çentiğin altına inince vur.
+1876|Yetenek tuşlarına gösterilen sırayla bas.
+1877|Ortalama süre
+1878|Ulaşılan seviye
+1879|Tamamlanan sayılar
+1880|Hedef başına ortalama süre
+1881|Takip edilen toplar
+1882|Ortalama süre, cezalar dahil
+1883|Ortalama hata
+1884|İstem başına ortalama süre
+1885|Düşük olan daha iyi
+1886|Yüksek olan daha iyi
+1887|{count, plural, one {# deneme} other {# deneme}}
+1888|{count, plural, one {# dakika} other {# dakika}}
+1889|{count, plural, one {# gün} other {# gün}}
+1890|Her gün
+1891|Her hafta
+1892|Herhangi bir egzersiz
+1893|Bir takımın en fazla {max} antrenman hedefi olabilir.
+1894|Sayım birimi
+1895|Denemeler
+1896|Dakika
+1897|Miktar
+1898|Egzersiz
+1899|Hedefi ekle
+1900|Henüz kimseden antrenman istenmiyor: hedefler oyuncular, yedekler ve kaptanlar içindir.
+1901|Henüz hedef yok. Oyunculardan her gün ya da her hafta belirli sayıda deneme veya dakika iste.
+1902|Menajerlik ekibi henüz bir hedef belirlemedi.
+1903|Antrenman hedefleri
+1904|Her oyuncudan her gün ya da her hafta refleks egzersizlerinin belirli sayıda denemesi veya dakikası istenir. Bir gün ve Pazartesi'den başlayan bir hafta, takımın saatine göre işler.
+1905|Oyuncuların ilerlemesi
+1906|İlerlemen
+1907|Refleks antrenmanı
+1908|Bir hedef belirlenene kadar izlenecek bir şey yok.
+1909|Hedefi kaydet
+1910|Hedef kaydedildi
+1911|Hedef kaldırıldı
+1912|Hedef
+1913|Hedef {done} / {total}
+1914|Sayı {number}
+1915|1'den {count}'e sırayla dokun
+1916|Tamamlandı: 1'den {count}'e
+1917|Hata {strikes} / {max}
+1918|Birim {done} / {total}
+1919|Düşman
+1920|Müttefik
+1921|Sırayla basılacak yetenekler
+1922|Yetenek {number}
+1923|İstem {done} / {total}
+1924|Vur
+1925|Minyon {done} / {total}
+1926|Çok geç: minyon gitti
+1927|Tam zamanında!
+1928|{ms} ms erken
+1929|{ms} ms geç
+1930|Yeşili bekle…
+1931|Tur {round} / {rounds}
+1932|Şimdi tıkla!
+1933|Çok erken!
+1934|Yeşili bekle. Bu tur yeniden oynanır.
+1935|Panel {number}
+1936|Seviye {level}: izle
+1937|Seviye {level}: sıra sende
+1938|Yanlış panel
+1939|Seviye {level} tamam
+1940|Top {number}
+1941|Işıklı topları aklında tut ({count})
+1942|Gözlerinle takip et
+1943|Takip ettiğin toplara dokun ({count})
+1944|Hepsini buldun!
+1945|Pek değil. Kalan can: {lives}
+1946|Panel rastgele bir bekleyişten sonra yeşile döner. Döner dönmez dokun. Yeşilden önceki dokunuş sayılmaz: tur yeniden oynanır. Beş tur.
+1947|Paneller birbiri ardına yanar. Sırayı tekrarla. Her seviye bir panel ekler ve tek bir yanlış panel denemeyi bitirir.
+1948|Sayılar tahtaya dağılmıştır. 1'den başlayarak sırayla dokun: 1'e dokunur dokunmaz diğerleri gizlenir. Üç hata denemeyi bitirir.
+1949|Bir hedef belirir: vur, bir sonraki başka yerde belirir. Otuz hedef. Hedefin yanına yapılan tıklama o hedefe 150 ms ekler.
+1950|Bazı toplar yanar, sonra hepsi aynı görünür ve hareket eder. Durduklarında yanmış olanlara dokun. Her seviye bir top ekler; üç can.
+1951|Birimler bir saniyeliğine belirir. Kırmızılara (düşman) vur, mavilere (müttefik) dokunma. Otuz birim.
+1952|Bir minyonun can çubuğu azalır ve üzerinde bir çentik vardır. Çubuk çentiğin altına indiği anda tam olarak vur, ne önce ne sonra. On minyon.
+1953|Dört yetenek belirir. 1'den 4'e kadar tuşlarla ya da dokunarak sırayla bas. On beş istem. Yanlış tuş 300 ms ekler.
+1954|Beş turunun ortalaması, milisaniye cinsinden.
+1955|Hatasız tekrarladığın en uzun dizi.
+1956|Tek bir tahtada tamamladığın en çok sayı.
+1957|Bir hedefe vurma ortalama süresi, milisaniye cinsinden.
+1958|Hatasız takip ettiğin en çok top.
+1959|Bir düşmana vurma ortalama süresi, milisaniye cinsinden (kaçırılan bir düşman tüm saniye sayılır), artı vurduğun her müttefik için 250 ms.
+1960|Vuruşlarının ortalama ne kadar kaydığı, milisaniye cinsinden.
+1961|Bir istem için ortalama süre, milisaniye cinsinden.
+1962|Takımlarının belirlediği
+1963|Henüz oynanmadı
+1964|En iyi
+1965|Reflekslerin, hafızan ve nişan alman için kısa egzersizler. Tarayıcında çalışır ve sen oynarken hiçbir şey göndermez.
+1966|Bu hafta
+1967|Seri
+1968|Bu egzersizi henüz oynamadın.
+1969|Son skorların
+1970|Tüm egzersizler
+1971|Durdur
+1972|Kaydediliyor…
+1973|Kaydedildi.
+1974|Yeni rekor!
+1975|Tekrar kaydetmeyi dene
+1976|Tekrar dene
+1977|Refleks
+1978|Bilinmeyen egzersiz.
+1979|{label} şunlardan biri olmalıdır: {allowed}.
+1980|Saat dilimi farkı -840 ile 840 arasında bir dakika sayısı olmalıdır.
+1981|Bir gün için çok fazla antrenman: daha sonra tekrar gel.
+1982|Takımın antrenmanını yalnızca üyeleri görebilir.
+1983|Takımın antrenmanını yalnızca sahibi, menajerleri ve koçları belirleyebilir.
+1984|Hedef bulunamadı.
+1985|Bu hedef kaldırılsın mı?
+1986|Nasıl oynanır
+1987|Puan nasıl hesaplanır
+1988|Bu buildi alanımda sakla
+1989|Bir buildi her cihazda bulmak ve paylaşmak için alanında sakla.
+1990|Buildleri her cihazda alanında saklamak için giriş yap.
+1991|Alanında saklandı
+1992|Antrenman föyü
+1993|Tüm roller
+1994|{count, plural, one {# kahraman} other {# kahraman}}
+1995|Bu listede henüz sıralanmış kahraman yok.
+1996|Henüz tier listesi yok
+1997|Bir tier listesi oluştur, burada saklanır.
+1998|Build laboratuvarında aç
+1999|Bu buildi alanımdan kaldır
+2000|Henüz saklanan build yok
+2001|Build laboratuvarında bir build kaydet, sonra alanında sakla.
+2002|Burada saklanan bir şey yok.
+2003|Üzerinde çalışılan kahramanlar
+2004|Seçilmiş kahraman yok.
+2005|Defterde bir şey yok.
+2006|Öğrenilen kombolar
+2007|Henüz öğrenilen kombo yok.
+2008|Henüz oynanan egzersiz yok.
+2009|Antrenmanı aç
+2010|Alanım
+2011|Buildlerini, tier listelerini ve antrenman föyünü saklamak ve bir bağlantıyla paylaşmak için giriş yap.
+2012|Sona ermez
+2013|{date} tarihinde sona erer
+2014|{count, plural, one {# kez açıldı} other {# kez açıldı}}
+2015|Hiç açılmadı
+2016|{date} tarihli bağlantı
+2017|Bağlantıyı kaldır
+2018|Alanımı paylaş
+2019|{count} / {max} bağlantı
+2020|Bağlantıya sahip olan, paylaştığı içeriği yalnızca okuma olarak ve hesapsız görür. Bağlantı, alanını paylaşmanın tek yoludur: hiçbir yerde listelenmez.
+2021|Bağlantı şunları paylaşır
+2022|Bağlantının adı (isteğe bağlı)
+2023|Koçum için
+2024|Bağlantı süresi
+2025|Ben kaldırana kadar
+2026|Bağlantıyı oluştur
+2027|Yeni bağlantın
+2028|Yalnızca bir kez gösterilir: şimdi kopyala. Ona sahip olan herkes paylaştığı içeriği görür.
+2029|Bağlantı adresi
+2030|Bağlantıyı kopyala
+2031|Bağlantıların
+2032|Henüz bağlantı yok: kimse alanını göremez.
+2033|Sitede sakladıkların: tier listelerin, buildlerin ve antrenman föyün. Hepsini ya da yalnızca seçtiklerini tek bir bağlantıyla paylaş.
+2034|Bu bağlantı kaldırılsın mı? Ona sahip olanlar alanını artık göremeyecek.
+2035|Bağlantı kaldırıldı
+2036|Bu build alanından kaldırılsın mı?
+2037|Build kaldırıldı
+2038|Bu alan kullanılamıyor
+2039|Siteye dön
+2040|Bu adreste bağlantı yok. Kişiden bağlantının tamamını iste.
+2041|Paylaşılan alan
+2042|{name} kullanıcısının alanı
+2043|Sizinle bir bağlantı aracılığıyla paylaşıldı. Şu anki halini görüyorsun ve burada hiçbir şey değiştirilemez.
+2044|Hiçbir şey paylaşılmıyor.
+2045|Alanım | {site}
+2046|Sitede sakladıkların ve onları paylaşan bağlantılar.
+2047|Paylaşılan alan | {site}
+2048|Biri tarafından seninle paylaşılan bir alan.
+2049|Kadrodan bir kahraman seç ya da hiçbirini.
+2050|Bağlantının neyi paylaşacağını seç.
+2051|Bir bağlantı 7, 30 veya 90 gün geçerlidir ya da sen kaldırana kadar.
+2052|Bu bağlantı geçerli değil.
+2053|Alanını kullanmak için giriş yap.
+2054|Bağlantı bulunamadı.
+2055|Bu bağlantı yok ya da süresi dolmuş.
+2056|Alanında en fazla {max} build saklayabilirsin.
+2057|Bir kahraman için en fazla {max} build saklayabilirsin.
+2058|En fazla {max} bağlantı verebilirsin. Önce birini kaldır.
+2059|Isınma
+2060|Mekanikler
+2061|Odak ve hafıza
+2062|Hepsi
+2063|Reaksiyon, nişan ve yetenek tuşları: scrim öncesi ellerini uyandır.
+2064|Yetenek tuşları, son vuruş, dost mu düşman mı ve nişan: ellerin hassasiyeti.
+2065|Dizi hafızası, şempanze testi ve görsel takip: bilgiyi kafanda tut.
+2066|Sekiz egzersiz, birbiri ardına.
+2067|Bugün oynandı
+2068|Rutinler
+2069|Birkaç egzersizi art arda oyna ve sonunda nasıl yaptığını gör.
+2070|Bir rutin seç
+2071|{count, plural, one {# egzersiz} other {# egzersiz}}
+2072|Rutini başlat
+2073|Kendi rutinin
+2074|İstediğin egzersizleri işaretle, listenin sırasıyla oynanırlar.
+2075|En az iki egzersiz işaretle.
+2076|Rutin tamamlandı
+2077|Sonuçların, egzersiz egzersiz.
+2078|Sonuçların
+2079|Rekor
+2080|Bu rutinde hiçbir şey oynanmadı.
+2081|Yeniden yap
+2082|Rutin
+2083|Bu egzersizi atla
+2084|Rutini durdur
+2085|Sonucu gör
+2086|Sıradaki: {name}
+2087|Sıralama
+2088|Sıralamayı oyunculara göster
+2089|Antrenman istenen her oyuncunun seçtiğin egzersizdeki en iyi skoru. Beraberlikte yer paylaşılır.
+2090|Bu hafta kimse bu egzersizi oynamadı.
+2091|Bu egzersizi henüz kimse oynamadı.
+2092|Oyuncular sıralamayı görebilir
+2093|Sıralama yalnızca ekip yönetimine açık
+2094|Sıralama oyunculara ya gösterilir ya gösterilmez: true veya false.
+2095|Ekip yönetimi sıralamayı oyunculara açmadı.
+2096|İki biçim de
+2097|{count, plural, one {# kombo} other {# kombo}}
+2098|Henüz bir kahramanla ilgili hedef yok. Oyunculardan bir kahramanın kombolarını öğrenmelerini iste.
+2099|Ekip yönetimi henüz kahramanlarla ilgili bir şey istemedi.
+2100|Bir takımın kahramanlarla ilgili en fazla {max} hedefi olabilir.
+2101|Henüz hiçbir kahramanın komboları yok: editörler bunları kahraman rehberlerinde yazar.
+2102|Öğrenilme biçimi
+2103|Bu kahramanı iste
+2104|Ustalaşılacak kahramanlar
+2105|Her oyuncudan bu kahramanların komboları seçilen biçimde öğrenmesi istenir. Kombolar, editörlerin kahraman için yazdıklarıdır.
+2106|Antrenman yap
+2107|Bugün kontrol edilecek kombolar
+2108|Bu komboları bir süre önce öğrendin: hâlâ hakim misin?
+2109|Hâlâ iyi
+2110|Paslandı
+2111|Bunlardan sonra {count} tane daha var.
+2112|Bugün kontrol edilecek bir şey yok.
+2113|Öğrenilecek kombolar
+2114|Üzerinde çalıştığın ve takımlarının istediği kahramanların henüz öğrenmediğin komboları.
+2115|Bunu {days} sonra yeniden göreceksin.
+2116|Bu komboya hâlâ hakim olup olmadığını belirt: true veya false.
+2117|Bu kombo tekrar programında değil.
+2118|Bu kahramanın henüz kombosu yok.
+2119|Takım bunu zaten istiyor.
+2120|{time} anından izle
+2121|Videoyu izle
+2122|{line}. satır: 12:30 gibi bir süre yaz, ardından neye bakılacağını.
+2123|{line}. satır: en fazla {max} karakter.
+2124|Bir video incelemesinde en fazla {max} an olabilir.
+2125|Videonun bağlantısı
+2126|Tekrar bakılacak anlar
+2128|Her satıra bir an: süre (12:30 veya 1:02:03), ardından neye bakılacağı.
+2129|Neyi çalışacağın: hedefler, mekanikler, kombolar ve video incelemeleri. Yalnızca sen görebilirsin.
+2130|Video incelemesi
+2131|İzlenecek
+2132|İnceleniyor
+2133|İncelendi
+2134|Bir an için 0:00 ile {max} arasında bir süre gerekir.
+2135|Bir video incelemesi bir kahramana aittir.
+2136|Videonun bağlantısı tam bir https:// adresi olmalıdır.
+2137|Yalnızca bir video incelemesinin bağlantısı ve anları vardır.
+2138|12:30 geç rotasyon
+2139|{subject}, {value} değil
+2140|{subject}, en az {value}
+2141|{subject}, en fazla {value}
+2142|{subject}, {value} değerinden büyük
+2143|{subject}, {value} değerinden küçük
+2144|{subject}, {value}
+2145|değil ({conditions})
+2146|{stat}, {options} değil
+2147|{stat}, {options}
+2148|{tag} etiketine sahip değil
+2149|{tag} etiketine sahip
+2150|Sınıf {role} değil
+2151|Sınıf {role}
+2152|{lane} koridorunda oynamaz
+2153|{lane} koridorunda oynar
+2154|Kahraman {heroes} değil
+2155|Kahraman {heroes}
+2156|Koşul: {conditions}
+2157|Geçici, {seconds} sn
+2158|Geçici
+2160|Bu kahraman için geçerli değil.
+2161|Kontrol edilemiyor: bu kahramanın verileri eksik.
+2162|{count, plural, one {# değer bu kahraman için geçerli değil} other {# değer bu kahraman için geçerli değil}}
+2163|{count, plural, one {# değer kontrol edilemiyor: kahramanın verileri eksik} other {# değer kontrol edilemiyor: kahramanın verileri eksik}}
+2164|{count, plural, one {# değer kahramana bağlı: saymak için bir kahraman seç} other {# değer kahramana bağlı: saymak için bir kahraman seç}}
+2165|{count, plural, one {# geçici değer, toplama dahil değil} other {# geçici değer, toplama dahil değil}}
+2159|Kahramana bağlı bir değer yalnızca seçtiğin kahraman için geçerliyse sayılır. Geçici bir değer ayrı gösterilir ve toplama dahil edilmez.
+2166|Kahramanın istatistiği
+2167|Kahramanın etiketi
+2168|Kahramanın sınıfı
+2169|Kahramanın koridoru
+2170|Kahraman
+2171|Kahramanın seviyesi
+2172|Koşul grubu
+2173|Hepsi sağlanır
+2174|En az biri sağlanır
+2175|Kaç koşulun sağlanması gerekir
+2176|eşittir
+2177|eşit değildir
+2178|Öyle olmalı mı, olmamalı mı
+2179|Karşılaştırma
+2180|Etiket
+2182|Koşul türü
+2181|Bu koşulu kaldır
+2183|Değil
+2184|Koşul ekle
+2185|Grup ekle
+2186|Her kahraman için geçerli.
+2187|Yalnızca bazı kahramanlar için
+2188|Şu durumda geçerli
+2189|{count, plural, one {# koşul} other {# koşul}}
+2190|Tam sayı
+2191|Seçim (bir seçenek listesi)
+2192|Seçim: {options}
+2193|Seçenek
+2194|Geçici ve koşullar
+2195|Süre (sn)
+2196|Ne zaman veya nasıl (isteğe bağlı)
+2197|Seçeneğin adı
+2198|Bu seçeneği kaldır
+2199|Seçenek ekle
+2200|Seçimin seçenekleri (bir kahramanın veya eşyanın alabileceği değerler)
+2201|Bir koşul tamamlanmamış: doldur ya da kaldır.
+2202|{label}, var olmayan bir şeye başvuruyor.
+2203|{label}, istatistiğin seçeneklerini listelemeli.
+2204|{label} aynı seçeneği iki kez listeliyor.
+2205|{label}, 1 ile {max} arasında kahraman listelemeli.
+2206|{label} aynı kahramanı iki kez listeliyor.
+2207|Koşullar en fazla {max} düzey iç içe olabilir.
+2208|Bir koşul grubu boş olamaz.
+2209|Toplamda en fazla {max} koşul olabilir.
+2210|Bir koşul kümesi en fazla {max} koşul içerir.
+2211|{label} bir koşul kümesi olmalı.
+2212|{label} bir tam sayı olmalı.
+2213|Yalnızca geçici bir değerin süresi olur.
+2214|{label} aynı istatistiği aynı koşullarla iki kez listeliyor.
+2215|Bir seçim için {min} ile {max} arasında seçenek gerekir.
+2216|Bu istatistiği {count} eşya, arkan veya kahraman kullanıyor: onlar kullandığı sürece sayıdan seçime (veya tersine) dönüştürülemez.
+2217|“{name}” seçeneğini {count} eşya, arkan veya kahraman kullanıyor: önce onlardan kaldır.
+2218|Bu istatistiğin {count} değeri tam sayı değil: önce onları değiştir.
+2219|Bu etiket {count} eşya veya arkanın koşullarında geçiyor: önce onlardan kaldır.
+2220|Çeviriler
+2221|Başarısız
+2222|Elle
+2223|Otomatik
+2224|Etiket açıklaması
+2225|Etki adı
+2226|Bir bonus hakkında not
+2227|Yetenek notu
+2228|Yetenek ayrıntısı
+2229|Build notu
+2230|Kombo notu
+2231|İpucu
+2232|Durum
+2233|İşaret
+2234|Sayılar metindekilerle aynı değil.
+2235|Çeviri metinden çok daha uzun.
+2236|Çeviri boş.
+2237|Servis hiçbir metin vermedi.
+2238|Servis bu metin için yanıt vermedi.
+2239|Otomatik çeviri kapalı
+2241|Çeviri hizmeti anahtarı reddetti
+2242|Anahtar sunucuda değiştirilip yeni bir tur istenene kadar hiçbir şey gönderilmez.
+2243|Duraklatıldı
+2244|Çevirmen bekliyor ve kendiliğinden tekrar deneyecek.
+2245|Son sorun: {message}
+2246|Kapalı
+2248|Tamamlanan çeviriler
+2250|çeviri tamamlandı
+2251|bekliyor
+2252|başarısız
+2253|elle yazıldı
+2254|Bugün gönderilen: {limit} karakterin {used} kadarı.
+2255|Çevriliyor…
+2256|Şimdi çevir
+2257|Yeni metinleri ara
+2258|Başarısız olanları yeniden dene
+2259|Bu dilde yazılmış
+2260|{language} dilinde yazılmış
+2261|{language} diline çeviri
+2262|Otomatiğe dön
+2263|Metin tüm dillerde yazıldığı gibi kalır
+2264|Olduğu gibi bırak
+2265|{language} dilindeki metinler
+2266|Göster
+2267|Eşleşen metin yok.
+2268|Henüz çevrilecek bir şey yok: bir istatistik, eşya veya etiket yaz, burada görünür.
+2269|Çeviri başladı
+2270|Başarısız metinler yeniden denenecek
+2271|Çeviri kaydedildi
+2272|Otomatik çeviriye dönüldü
+2273|Bu metin tüm dillerde yazıldığı gibi kalır
+2274|Metin bulunamadı.
+2275|{label} sitenin dillerinden biri olmalı.
+2276|Çeviri bir metin olmalı.
+2277|Metinler
+2278|Fiziksel
+2279|Büyü
+2280|Savunma
+2281|Orman
+2282|Roaming
+2283|Kategori
+2284|PNG, JPEG, WebP veya GIF, en çok 3 MB. 256 piksele kadar korunur; saydamlık korunur.
+2285|Henüz kategori yok
+2286|Verdiği istatistikler (en çok 4, tek bir arkana için)
+2287|Tüm kategoriler
+2288|Birden çok eşyayı sınıflandır
+2289|{count, plural, one {# eşya seçildi} other {# eşya seçildi}}
+2290|Gösterilenlerin tümünü seç
+2291|Seçimi temizle
+2292|Seçili eşyaların kategorisi
+2293|Seçili eşyaların yuvası
+2294|{count, plural, one {# eşya güncellendi} other {# eşya güncellendi}}
+2295|Sınıflandırmayı bitir
+2296|Toplu sınıflandır
+2301|Listeden eşyaları işaretle, sonra kategorilerini veya yuvalarını seç.
+2298|{label} 1 ile {max} arasında eşya içermeli.
+2299|{label} aynı eşyayı iki kez içeriyor.
+2300|Neyin değişeceğini belirt: yuva, kategori ya da ikisi.
+2302|Bu dönemde hesapta kullanılan karakter: {used} (sınır yok).
+2303|Bu dönemde hesapta kullanılan karakter: {limit} içinden {used}.
+2304|Anahtarın diğer kullanımlarına pay kalsın diye kotanın %{percent} kadarında durur.
+2305|Kullanılan kota
+2306|{language} diline çevir
+2307|Bir dil, biri istediği anda çevrilir: siteyi o dilde okuyan bir ziyaretçi ya da artı düğmeleriyle sen.
+2308|Tüm dillere çevir
+2309|Her metin yazıldığı gibi gösterilir ve aşağıdan elle çevirebilirsin. Kendiliğinden çevrilmesi için DeepL anahtarını sunucuya DEEPL_API_KEY adıyla ekle (README'ye bak), sonra yeniden başlat.
+2310|Kota doldu
+2311|Kota yenilenene veya artırılana kadar hiçbir şey gönderilmez.
+2312|Ekibin yazdıkları olduğu gibi saklanır ve sitenin okunduğu dillere çevrilir. Ziyaretçi bunu kendi dilinde okur; çeviri yoksa yazıldığı gibi okur.
+2313|Bu dili henüz kimse istemedi.
+2314|Bu dil çevrilecek.
+2315|Tüm diller çevrilecek.
+2320|Koridorlar
+2316|Koridorları öner
+2321|Tüm serilerin koridorlarını öner
+2319|Kesin olarak başka bir şey önerilemez.
+2324|Kesin olarak başka bir şey önerilemez: koridorları kendin sürükle.
+2318|Yalnızca kahramanların koridorlarından kesin çıkan koridorlar önerilir; girdiklerin korunur ve sonra düzenleyicide istediğini değiştirebilirsin.
+2317|{series, plural, other {# seri}} için koridor önerilebilir (toplam {count, plural, other {# koridor}}).
+2322|Koridorlar {count, plural, other {# seride}} kaydedildi
+2323|{count, plural, other {# koridor önerildi}}: sürükleyerek değiştir.
+2325|{level}. seviyede açılır
+2326|Oyundaki tüm eşyalar, yuvaya ve mağaza kategorisine göre.
+2327|Oyunun kırmızı, mavi ve yeşil arkanaları ve her birinin sağladıkları.
+2328|Bir oyuncunun maça götürdüğü büyüler: ne yaptıkları ve ne zaman geri geldikleri.
+2329|Renk
+2330|Ayrıntıları görmek için bir parça seçin.
+2331|Henüz girilmedi.
+2332|Oyun verileri
+2333|Bir buildde en fazla {max} büyü olabilir.
+2334|Bu builddeki bir büyü katalogda yok.
+2335|{name} iki kez kullanılmış: bir büyü bir buildde yalnızca bir kez olabilir.
+2336|Honor of Kings Global eşyaları — istatistikler, fiyatlar ve kategoriler | {site}
+2337|Honor of Kings Global'deki tüm eşyalar: resim, fiyat, istatistik, pasif ve aktif yetenekler; yuvaya ve mağaza kategorisine göre.
+2338|Honor of Kings Global arkanaları — kırmızı, mavi ve yeşil | {site}
+2339|Honor of Kings Global'in tüm arkanaları: kırmızı, mavi ve yeşil, her birinin sağladığı istatistiklerle.
+2340|Honor of Kings Global büyüleri — ne yaptıkları ve bekleme süreleri | {site}
+2341|Bir oyuncunun Honor of Kings Global maçına götürdüğü büyüler: her birinin ne yaptığı, ne kadar sonra geri geldiği ve hangi seviyeden itibaren alınabildiği.
+2342|Büyü bulunamadı.
+2343|Bu adda bir büyü zaten var.
+2344|Açıldığı seviye
+2345|Takımım
+2346|Ben
+2350|{count} kahramanın tümü
+2347|Serilerini sakla
+2348|Takımınla scrim planla
+2349|Tier listlerini paylaş
+2351|Başlarken
+2352|Bir mod seç ve başla
+2353|Tek başına, ortak bir cihazda veya davet ettiğin rakibe karşı çevrimiçi.
+2354|Zamanla draft yap
+2355|Ban ve pick'ler gerçek sırayı izler, her turda bir zamanlayıcı vardır.
+2356|İncele ve paylaş
+2357|Her maç saklanır: dışa aktar, bağlantı paylaş veya tier list oluştur.
+2358|Temel saldırı
+2359|Draft kaydı
+2360|Maç sayacı
+2362|Filtreler
+2368|Hızlı başlangıç
+2369|Hazırla
+2370|Kahraman kuralını, formatı ve iki takımı seçin.
+2371|30 saniyelik süreyle ban ve pick yapın: tek başınıza, tek cihazda ya da çevrimiçi.
+2372|İncele
+2373|Sonucu kaydedin, ardından seriyi dışa aktarın veya paylaşın.
+2374|Bir seri nasıl ilerler
+2375|A takımı 1. maçta mavi tarafta oynar; ardından taraflar dönüşümlü değişir.
+2401|Bu anahtar bunu okuyamaz: {scope} kapsamına ihtiyacı var.
+2398|API yalnızca okur: GET kullan.
+2403|En fazla {max} etkin API anahtarın olabilir: önce birini iptal et.
+2396|Anahtarın okuyabileceği en az bir şey seç.
+2397|Anahtarın ömrünü seç: {choices} gün (0 = süresiz).
+2402|API anahtarı bulunamadı.
+2404|Bir seriyi takımla yalnızca takımın sahibi, yöneticisi veya koçu paylaşabilir.
+2405|Bunu yalnızca serinin oluşturucusu veya takımın bir yetkilisi yapabilir.
+2406|Bu seri bu takımda değil.
+2407|Bir seri en fazla {max} takımda olabilir.
+2361|Diğer kahramanlar
+2363|Etkin filtreler
+2364|Filtreleri sıfırla
+2365|Başa dön
+2366|{name} filtresini kaldır
+2379|Kahraman tanıtımı
+2380|Diğer kahramanlar: {lane}
+2381|Rakamlar nasıl hesaplanır
+2382|Her maç, ekibin elle girdiği bir turnuva serisinden gelir.
+2383|Pick oranı ve ban oranı, kahramanın seçildiği veya banlandığı dönem maçlarını sayar.
+2384|Küçük örneklem işaretlenir, asla gizlenmez: dikkatle okuyun.
+2367|Bu dönemde bu kural altında hiç maç girilmedi.
+2408|Draft sırası
+2409|Rekabetçi sahne
+2410|Tier listlerin
+2411|30 gün
+2412|90 gün
+2413|1 yıl
+2414|Süresiz
+2415|{date} tarihinde iptal edildi
+2416|{date} tarihinde sona erdi
+2417|{date} tarihinde sona erer
+2418|Anahtarını şimdi kopyala: yalnızca bir kez gösterilir.
+2419|Şöyle kullan
+2420|Kaydettim
+2421|Henüz anahtar yok. Yukarıda bir tane oluştur.
+2422|Son kullanım: {date}
+2423|Hiç kullanılmadı
+2424|{date} tarihinde oluşturuldu
+2425|İptal et
+2426|Anahtarın adı
+2427|İstatistik botum
+2428|Anahtarın okuyabilecekleri
+2429|Ne kadar süre geçerli
+2430|Anahtarı oluştur
+2431|{max} anahtardan {live} tanesi kullanımda
+2432|Anahtarların
+2433|Bir anahtar senin okuyabildiklerini okur: scrim'lerin, takımlarının seninle paylaştığı seriler, tier listlerin ve oyun verileri. Asla yazmaz ve yönetici hakkı taşımaz.
+2434|Önce anahtara bir ad ver.
+2435|Kopyalandı.
+2436|“{name}” anahtarı iptal edilsin mi? Onu kullanan programlar hemen çalışmayı bırakır.
+2437|Anahtar iptal edildi.
+2438|API anahtarları
+2439|Kendi programlarından verilerini ve oyunun verilerini oku. Bir anahtar yalnızca okur, asla yazmaz.
+2385|Fiyat
+2386|Sırala
+2387|{count, plural, one {# sonuç} other {# sonuç}}
+2388|Filtreleri temizle
+2389|Aynı kategoride
+2390|Turnuva maçları
+2391|Ekibin girdiği her maç sayılır, scrim asla.
+2392|Taraflar ve koridorlar
+2393|Draftlar taraf başına, kahramanlar koridor başına sıralanır.
+2394|En az üç ay
+2395|Daha kısa bir dönem çok az şey söyler, bu yüzden reddedilir.
+2376|{count} sıralandı
+2377|Paylaş
+2378|Ok tuşları kahramanlar arasında gezer, Enter birini seçer, 1–9 onu o tier'a gönderir, 0 Sıralanmamış'a geri koyar.
+2440|Bir takımla paylaş
+2446|Yönettiğiniz bir takımın üyeleri bu seriyi açıp okuyabilir, ancak değiştiremez.
+2444|Paylaşılan takımlar
+2445|Henüz hiçbir takımla paylaşılmadı.
+2443|Bir takım seçin
+2442|Eklenecek takım yok: bir seriyi takımla paylaşmak için takımın sahibi, yöneticisi veya koçu olmalısınız.
+2447|Seri {team} ile paylaşıldı
+2448|Seri {team} takımından kaldırıldı
+2441|Seriyi {team} takımından kaldır
+2449|Kahraman etiketleri
+2450|Kategorisiz
+2451|İstatistiksiz
+2452|Fiyatsız
+2453|Açıklamasız
+2454|Beklemesiz
+2455|Açılma seviyesiz
+2456|Henüz kullanılmıyor
+2457|Etiketsiz
+2458|Sınıflandırılacak eşyalar
+2459|İstatistiksiz eşyalar
+2460|Çevrilecek metinler
+2461|Burada düzeltilecek bir şey yok.
+2462|Dikkat gerektirenler
+2502|Yazılması gerekenler
+2503|Koridora göre kapsam
+2504|Notlar
+2505|Henüz not yok
+2506|Henüz kaynak bağlantısı yok
+2507|Sürüm {number}
+2508|Puanlanan kahramanlar
+2509|Sürüm
+2537|Etkinlikler
+2538|Etkinliğe göre
+2539|Tüm serileri göster
+2540|Hızlı giriş
+2541|Seriyi tanımlayın
+2542|Etkinlik, tarih, iki takım ve draft kuralı.
+2543|Kahramanları seçin
+2544|Bir yuvaya tıklayın, kahraman adını yazın ve Enter'a basın: sıradaki boş yuva dolar.
+2545|Her kahramana koridorunu verin
+2465|Tüm takımlar
+2510|Takım nasıl çalışır
+2511|Kaydet
+2512|Ad, etiket, seviye ve bölge: takımın kendi sayfası olur.
+2513|Oyuncuları etiketiyle davet et. Yanıt vermeden kimse katılmaz.
+2514|Scrim’leri ajandada planla, serileri paylaş, kadroyu çalıştır.
+2478|Scrim arayanlar
+2515|{won} galibiyet · {lost} mağlubiyet
+2516|Takımla henüz paylaşılan seri yok.
+2517|Üyeler
+2474|Açık ilanlar
+2518|Bir tane oluştur ya da bir kaptanın davetini bekle.
+2519|Daha fazla takım göster
+2520|Seri takımla paylaşıldı
+2521|Seri takımdan kaldırıldı
+2522|Dolu koridorlar
+2523|Planlı etkinlikler
+2524|Açık zaman aralıkları
+2525|Boş yer
+2526|Kuruluş
+2527|Kazanılan
+2528|Kaybedilen
+2529|Takımdan kaldır
+2530|Bir serinin oluşturucusu, üyeler okuyabilsin diye onu takıma ekler.
+2531|Seri paylaş
+2532|Paylaşılacak başka seri yok.
+2533|Bir seri oluştur, sonra takıma ekle.
+2534|Tehlikeli bölge
+2535|Oyuncular
+2536|Tüm hedefler tamam
+2463|Ajanda nasıl çalışır
+2464|Önümüzdeki 7 gün
+2466|Takvim
+2467|Bağlı değil
+2468|İstekleri, hatırlatmaları ve sonuçları doğrudan mesajla al.
+2469|Bir takımın kadrosu, ajandası ve kendi Discord sunucusu vardır.
+2470|Diğer takımlara ne zaman oynayabileceğini söyle.
+2471|Bir takımdan scrim iste veya bir isteği yanıtla.
+2472|Takım sunucuları
+2473|Bir takımın sunucusunu yalnızca sahibi ve yöneticileri bağlayabilir.
+2475|Bölgeler
+2476|Scrim nasıl işler
+2477|Davetler
+2479|Scrim istekleri, yanıtlar ve davetler tek yerde.
+2480|Okunmamış
+2481|{lane} kahramanları
+2482|Takım arkadaşları
+2483|Konuşma
+2484|Mesajlar
+2485|Neden
+2486|Bildiren
+2487|Bildirimler nasıl işler
+2488|Bir oyuncu, gelen kutusundan bir konuşmayı bir nedenle bildirir.
+2489|Konuşma burada görünür; kimin ne zaman bildirdiğiyle birlikte.
+2490|Karar ver
+2491|İşlem bittiğinde bildirimi kapat.
+2492|Yayınla veya seç
+2493|Boş zamanını yayınla ya da zaten bir ilan vermiş bir takıma sor.
+2494|Anlaş
+2495|Diğer takım gelen kutunda kabul eder ya da başka bir saat önerir.
+2496|Scrim ajandaya düşer; seri bir tık uzakta.
+2497|Bir takıma katıl
+2498|Planla
+2499|Scrim’ler, antrenmanlar, VOD incelemeleri ve maçlar, kendi saat diliminde.
+2500|Yanıtla
+2501|Geliyor musun, tek tıkla söyle; Discord oyunculara 6, 4 ve 2 saat önce hatırlatır.
+2546|Önce oyunun istatistiklerini yazın: eşyalar ve arkanlar bunlarla yazılır.
+2547|Sonra eşyalar, arkanlar ve yetenekler: her birinin resmi, istatistikleri ve etkileri ile.
+2548|Her eşyaya birkaç tıklamayla kategorisini verin, sonra sonucu build laboratuvarında görün.
+2549|Rakamlar nerede kullanılır
+2550|Geri dön
+2551|Çok kısa
+2552|Zayıf
+2553|Orta
+2554|İyi
+2555|Güçlü
+2556|Doğrulayıcı
+2557|Şifreyi göster
+2558|Şifreyi gizle
+2559|Bu hesapta iki aşamalı doğrulama kapalı.
+2560|Kurmak için yeniden giriş yap
+2561|İki aşamalı doğrulama açıldığında kullanılabilir.
+2562|Son giriş
+2563|Salt okunur
+2564|Kontrol edilecek
+2565|Kahramanlarıma ekle
+2566|Bu filtrelere uyan not yok.
+2567|Egzersizler
+2568|Son
+2569|Takım sıralaması
+2570|Sıralamasını görmek için bir takıma katılın.
+2571|Haritayı inceleyin
+2572|Kim nerede, kim öldü, kamplar ve hedefler ne durumda.
+2573|Kendinizi bu durumun içine koyun: sırada ne yaparsınız ve neden?
+2574|Cevabınızı yazın
+2575|Hesabınıza kaydedilir ve istediğiniz zaman değiştirebilirsiniz.
+2576|Hedefler
+2577|Kahramanlarınızı seçin
+2578|En fazla {max} kahraman seçin: her birinin hedefleri ve kombolarıyla bir kartı olur.
+2579|Kombolarını öğrenin
+2580|Her komboyu iki biçimde edinin: olduğu gibi ve animasyon iptaliyle.
+2581|Yeniden kontrol edin
+2582|Kombolar birkaç gün sonra geri gelir: hâlâ ustası olup olmadığınızı söyleyin.
+2583|Kahramanlarınız, defteriniz, edindiğiniz kombolar ve refleks puanlarınız.
+2595|Bana bir test mesajı gönder
+2593|Çalıştığını kontrol et
+2594|Bot size bir mesaj gönderir.
+2587|Test mesajı gönderildi: Discord özel mesajlarına bak.
+2588|Discord botun size yazmasına izin vermiyor. Bir bot yalnızca kendisiyle aynı sunucuda bulunan (takımınızın Discord kartından botu takımınızın sunucusuna ekleyin) ve sunucu üyelerinden gelen özel mesajlara izin veren kişilere yazabilir.
+2589|Discord botun belirtecini reddetti: site sahibinin kontrol etmesi gerekiyor.
+2590|Discord yavaşlamamızı istiyor. Bir dakika sonra tekrar dene.
+2591|Discord'a ulaşılamadı. Bir dakika sonra tekrar dene.
+2592|Discord mesajı reddetti. Daha sonra tekrar dene.
+2584|Bu yuvaya henüz hiçbir eşya atanmadı.
+2585|Bir yönetici, Katalog'da her eşyanın yuvasını seçer.
+2586|Kataloğu aç
+2601|Güvenilirlik
+2597|Videodan okundu
+2599|Kahraman listesi
+2596|Videodan okundu ve bir kişi tarafından doğrulandı.
+2598|Araç tarafından videodan okundu: bazı noktalar hâlâ kontrol edilmeli.
+2600|Bir sonuç sayfasından alındı: kahramanlar, banlar ve koridorlar var, seçim sırası yok.
+2603|Güvenilirliğe göre filtrele
+2602|{count, plural, one {# kontrol noktası} other {# kontrol noktası}}
+2604|Geçersiz güvenilirlik.
+2607|Bu kahraman bu dönemde oynanmadı.
+2609|Güvenilir kazanma oranı (%95 kesinlik): {rate}
+2610|Ana sürüm
+2611|yerine
+2612|{count, plural, one {# varyant} other {# varyant}}
+2613|Oyunların inanılmasına izin verdiği en düşük kazanma oranına göre sıralanır: tek oyunda bir galibiyet, çok sayıda oyunda kendini kanıtlamış bir kahramanı geçemez.
+2614|Global Ban & Pick serisinin belirleyici son oyunu, klasik draft kurallarıyla oynanır: önceki oyunlardaki kahramanlar yeniden seçilebilir.
+2615|Ultimate Battle
+2616|{label}.ultimateBattle doğru veya yanlış olmalıdır.
+2617|Ultimate Battle, bir Global Ban & Pick serisinin belirleyici son oyunudur.
+2622|Kazanılan maçlarda en sık karşılaşılan rakipler
+2624|En iyi kazandığı müttefikler
+2625|En iyi kazandığı rakipler
+2626|Henüz hiçbir kahraman {count} oyunda karşılaşılmadı: sıralanacak bir şey yok.
+2627|Birlikte oynanan oyunlardaki güvenilir galibiyet oranına göre sıralanır; bir kahraman için en az {count} oyun gerekir.
+2628|En çok kaybettiği müttefikler
+2629|En çok kaybettiği rakipler
+2630|Kahraman, eşya, arkana veya takım ara…
+2631|kullanım koşullarını
+2632|gizlilik politikasını
+2633|Hesap oluşturarak {terms} ve {privacy} kabul etmiş olursunuz.
+2634|Kullanım koşulları
+2635|Gizlilik politikası
+2636|İletişim
+2637|oturum açmış
+2638|İşlenmedi olarak işaretle
+2639|İşlendi olarak işaretle
+2640|İletişim sayfasından gelen mesajlar
+2641|Henüz mesaj yok.
+2642|Çerezler
+2643|Yasal bildirim
+2644|Yasal bilgiler
+2645|Konu
+2646|Adınızı ve e-posta adresinizi yalnızca size yanıt vermek için kullanır, mesajı en fazla 12 ay saklarız. Bkz. {privacy}.
+2647|Mesajı gönder
+2648|Mesajınız gönderildi. Teşekkürler, verdiğiniz adrese yanıt vereceğiz.
+2649|Tüm alanları doldurun: geçerli bir e-posta adresi ve en az 10 karakterlik bir mesaj.
+2650|Mesajınız gönderilemedi.
+2651|Siteyi yapan kişilere yazın. Her mesajı okuyoruz.
+2652|Hukuki metinler Fransızca ve İngilizce yazılmıştır. Bu, esas alınan İngilizce metindir.
+2653|Ayrıca {email} adresine yazabilirsiniz.
+2654|Son güncelleme: {date}
+2655|Kullanım koşulları | {site}
+2656|HOK Global Scrim Lab kullanım kuralları.
+2657|Gizlilik politikası | {site}
+2658|HOK Global Scrim Lab hangi kişisel verileri neden ve ne kadar süre saklar, GDPR kapsamındaki haklarınızı nasıl kullanırsınız.
+2659|Çerezler ve yerel depolama | {site}
+2660|HOK Global Scrim Lab'ın kullandığı çerezler ve yerel depolama ile her birinin amacı.
+2661|Yasal bildirim | {site}
+2662|HOK Global Scrim Lab'ı kimin yayımladığı ve barındırdığı.
+2663|İletişim | {site}
+2664|HOK Global Scrim Lab'ın arkasındaki kişilere yazın.
+2665|Mesaj 10 ile 4000 karakter arasında olmalıdır.
+2666|Bu mesaj yok.
+2667|HOK Global Scrim Lab bir hayran projesidir ve Tencent / TiMi Studio Group ile bağlantılı değildir. Honor of Kings ve görselleri onlara aittir.
+2668|Verileriniz indirildi.
+2669|Onaylamak için kutuyu işaretleyin.
+2670|Verileriniz
+2671|Sitenin sizinle ilgili sakladığı her şeyin bir kopyasını indirin. Parolalar, kimlik doğrulayıcı sırları ve kurtarma kodları dahil değildir.
+2672|Verilerimi indir
+2673|Hesabınızı kalıcı olarak silin: serileriniz, tier listeleriniz, notlarınız ve sonuçlarınız silinir. Oluşturduğunuz takımlar başka bir üyeye geçer, kimse yoksa silinir. Bu işlem geri alınamaz.
+2674|Hesabımın kalıcı olarak silineceğini anlıyorum.
+2675|Hesabımı sil
+2678|Diğer adlar
+2679|Bu kahramanın yayınlarda ve Liquipedia'da kullanılan diğer adları. Otomatik içe aktarma, kahramanı bir başlıkta veya tabloda bulmak için bunları okur.
+2680|Henüz başka ad yok.
+2681|Eklenecek ad
+2682|Adı ekle
+2677|{name} adını kaldır
+2676|Adlar güncellendi
+2683|Bu zaten bu kahramanın adı.
+2684|Bu başka bir kahramanın adı.
+2685|Bu kahramanda bu ad zaten var.
+2686|Başka bir kahramanda bu ad zaten var.
+2687|Bu kahramanın böyle bir adı yok.
+2688|Bir takma ad en az iki harf veya rakam içermelidir.
+2690|Seçim sırası bilinmiyor
+2689|Seçim sırası biliniyor
+2691|Kaynağıyla karşılaştırıldı: kahramanlar, banlar, koridorlar ve kazananlar tutarlı. Seçim sırası bilinmiyor.

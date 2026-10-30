@@ -1,0 +1,45 @@
+# PRODUCTION overrides. No insecure defaults: every secret must come from the environment/.env,
+# otherwise `docker compose` stops with the message below. The app itself also refuses to start
+# with default or short secrets (NODE_ENV=production).
+#
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+services:
+  mysql:
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD (long random value) in .env}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD (long random value) in .env}
+    ports: !reset [] # MySQL is not published to the host in production
+
+  hok-scrim-lab:
+    # Docker publishes ports past the host firewall (ufw does not see them): in production the site answers on the
+    # machine itself only, and the proxy that ends TLS (docker-compose.caddy.yml) is the one door from outside.
+    ports: !override ["127.0.0.1:3000:3000"]
+    environment:
+      NODE_ENV: production
+      COOKIE_SECURE: "true"
+      DB_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD (long random value) in .env}
+      GOOGLE_REDIRECT_URI: ${GOOGLE_REDIRECT_URI:?Set GOOGLE_REDIRECT_URI to the public https callback}
+      APP_ORIGIN: ${APP_ORIGIN:?Set APP_ORIGIN to the public https origin, e.g. https://scrims.example.com}
+      TRUST_PROXY: ${TRUST_PROXY:-1}
+      MFA_ENCRYPTION_KEY: ${MFA_ENCRYPTION_KEY:?Set MFA_ENCRYPTION_KEY (32 random bytes, base64) in .env}
+    read_only: true # the image never writes to its own filesystem
+    tmpfs:
+      - /tmp:size=512m,mode=1777 # Chromium profile, PDF work files, portrait cache
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 512
+    mem_limit: 2g
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "fetch('http://127.0.0.1:3000/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+        ]
+      interval: 30s
+      timeout: 4s
+      retries: 3
+      start_period: 20s

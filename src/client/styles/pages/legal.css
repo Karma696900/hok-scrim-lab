@@ -1,0 +1,149 @@
+/* The legal pages and the contact form (client/features/legal/legal-page.js): a title, the five pages as tabs, and a text
+   in one readable column. Classes legal-*. */
+.legal {
+  display: grid;
+  gap: 20px;
+  max-width: 780px;
+  margin-inline: auto;
+}
+.legal .page-head {
+  margin-bottom: 0;
+}
+.legal-lead {
+  margin-top: 14px;
+  max-width: 60ch;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.legal-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.legal-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: var(--r-md);
+  color: var(--muted);
+  font: 600 14px/1 var(--font-body);
+  transition:
+    background 160ms,
+    color 160ms;
+}
+.legal-nav a:hover {
+  background: var(--tint-2);
+  color: var(--ink);
+}
+.legal-nav a.on {
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  color: var(--brand-ink);
+}
+.legal-doc {
+  padding: 32px 36px;
+  line-height: 1.65;
+}
+.legal-doc h2 {
+  margin: 30px 0 10px;
+  font: 700 20px/1.2 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.legal-doc > :first-child,
+.legal-doc > .legal-ref + h2 {
+  margin-top: 0;
+}
+.legal-doc p,
+.legal-doc li {
+  color: var(--muted);
+}
+.legal-doc p + p {
+  margin-top: 10px;
+}
+.legal-doc ul {
+  display: grid;
+  gap: 8px;
+  padding-inline-start: 20px;
+  list-style: disc;
+}
+.legal-doc li::marker {
+  color: var(--brand-ink);
+}
+.legal-doc b,
+.legal-doc a {
+  color: var(--ink);
+}
+.legal-doc a {
+  text-decoration: underline;
+  text-decoration-color: var(--brand);
+  text-underline-offset: 3px;
+}
+.legal-ref {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+  font-size: 14px;
+}
+.legal-date {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+}
+/* a fact the owner has not written yet: impossible to miss, and never a blank */
+.legal-todo {
+  padding: 1px 6px;
+  border: 1px dashed var(--warn);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--warn);
+  font: 700 12px/1.4 var(--font-body);
+  letter-spacing: 0.06em;
+}
+/* the contact form */
+.legal-form {
+  display: grid;
+  gap: 18px;
+}
+.legal-form__note {
+  max-width: none;
+  font-size: 13px;
+}
+/* the trap for programs that fill every field: out of sight, out of the Tab order, and out of the way of a screen reader */
+.legal-trap {
+  position: absolute;
+  inset-inline-start: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.legal-sent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid var(--brand);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  color: var(--ink);
+}
+.legal-sent[hidden] {
+  display: none;
+}
+.legal-direct {
+  margin-top: 26px;
+  font-size: 14px;
+}
+@media (max-width: 900px) {
+  .legal-doc {
+    padding: 22px 18px;
+  }
+}

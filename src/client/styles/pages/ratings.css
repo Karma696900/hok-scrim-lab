@@ -1,0 +1,299 @@
+/* The official ratings (editors): the lane tabs on the stage, the six tiers on the left, and on the right the state
+   of the lane (version, spread of the heroes, buttons, what was moved) above the heroes that wait. The board itself
+   (the six tiers, the portraits) is components/tier-board.css, the same as the tier lists. */
+
+/* the lanes, on the stage (they stay dark in both themes) */
+.rt-stage .lane-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+.rt-stage .lane-tab {
+  flex: none;
+  height: 40px;
+  padding: 0 14px;
+  gap: 8px;
+  border-color: rgba(156, 194, 255, 0.4);
+  border-radius: var(--r-sm);
+  background: rgba(8, 14, 23, 0.66);
+  box-shadow: none;
+  color: #fff;
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.rt-stage .lane-tab img {
+  width: 22px;
+  height: 22px;
+}
+.rt-stage .lane-tab small {
+  background: rgba(233, 238, 248, 0.16);
+  color: #dbe4f5;
+}
+.rt-stage .lane-tab:hover {
+  transform: none;
+  border-color: #9cc2ff;
+}
+[data-theme="light"] .rt-stage .lane-tab img {
+  padding: 0;
+  background: none;
+}
+.rt-stage .lane-tab.active {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 32%, rgba(8, 14, 23, 0.8));
+  box-shadow: none;
+}
+
+/* the board: the tiers, then the column of the lane */
+.rt-board {
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 10px 16px;
+  align-items: start;
+}
+.rt-board > .tier-row {
+  grid-column: 1;
+}
+.rt-side {
+  position: sticky;
+  top: calc(var(--topbar) + 16px);
+  display: grid;
+  grid-column: 2;
+  grid-row: 1 / span 6;
+  gap: 12px;
+  min-width: 0;
+}
+.rt-info {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.rt-info__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rt-info__head h2 {
+  font: 700 26px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.rt-version {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+}
+#rt-state {
+  flex: none;
+  max-width: 40%;
+  font-size: 13px;
+  text-align: end;
+}
+.rt-spread {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rt-spread li {
+  --tc: var(--line);
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 10px;
+}
+.rt-spread li[data-tier="SS"] {
+  --tc: var(--tier-ss);
+}
+.rt-spread li[data-tier="S"] {
+  --tc: var(--tier-s);
+}
+.rt-spread li[data-tier="A"] {
+  --tc: var(--tier-a);
+}
+.rt-spread li[data-tier="B"] {
+  --tc: var(--tier-b);
+}
+.rt-spread li[data-tier="C"] {
+  --tc: var(--tier-c);
+}
+.rt-spread li[data-tier="D"] {
+  --tc: var(--tier-d);
+}
+.rt-spread b {
+  display: grid;
+  place-items: center;
+  height: 24px;
+  border-radius: var(--r-sm);
+  background: var(--tc);
+  color: #10141c;
+  font: 700 16px/1 var(--font-display);
+}
+.rt-spread .bar {
+  --c: var(--tc);
+  height: 8px;
+}
+.rt-spread span {
+  color: var(--muted);
+  font: 600 13px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+.rt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rt-actions .btn--primary {
+  flex: 1 1 100%;
+}
+.rt-hint {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.rt-log {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rt-log li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 0;
+  border-top: 1px solid var(--line-soft);
+  font-size: 14px;
+}
+.rt-log__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.rt-log .i {
+  color: var(--faint);
+}
+.rt-log__to {
+  padding: 3px 8px;
+  border-radius: var(--r-sm);
+  background: var(--tint-2);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+/* where to send the hero that was picked */
+.rt-move {
+  position: sticky;
+  top: calc(var(--topbar) + 8px);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--brand);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 14%, var(--panel));
+  box-shadow: var(--shadow-pop);
+}
+.rt-move b {
+  flex: 1 1 100%;
+  font: 700 16px/1.2 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* the heroes that wait: a box to find one, and a place with its own scroll */
+.rt-side .tier-row {
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+}
+.rt-side .tier-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px 12px;
+  padding: 10px 12px;
+}
+.rt-side .tier-label > span:first-child {
+  font: 700 18px/1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.rt-search {
+  flex: 1 1 150px;
+  width: auto;
+  height: 36px;
+  min-width: 0;
+}
+#rt-reserve {
+  /* from the top: a box that scrolls and centres its lines would push the first ones above itself, out of reach */
+  align-content: flex-start;
+  max-height: 340px;
+  min-height: 116px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+@media (max-width: 1100px) {
+  .rt-board {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rt-board > .tier-row,
+  .rt-side {
+    grid-column: 1;
+  }
+  .rt-side {
+    position: static;
+    grid-row: auto;
+    order: -1;
+  }
+}
+@media (max-width: 720px) {
+  .rt-stage .lane-tabs {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .rt-stage .lane-tab {
+    height: 44px;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+  /* on a phone the tiers to send the hero to are docked above the bottom bar */
+  .rt-move {
+    position: fixed;
+    inset-inline: 10px;
+    bottom: 76px;
+    top: auto;
+  }
+}
+
+/* the narrowest phones: five lane tabs side by side have about 60 px each, so the icon and its count get smaller */
+@media (max-width: 400px) {
+  .rt-stage .lane-tab {
+    gap: 4px;
+    padding: 0 4px;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .rt-stage .lane-tab img {
+    width: 20px;
+    height: 20px;
+  }
+  .rt-stage .lane-tab small {
+    padding: 1px 5px;
+    font-size: 12px;
+  }
+}

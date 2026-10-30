@@ -1,0 +1,483 @@
+/* the cards of the heroes one works on: tall portraits, the goals and the combos to check on them */
+.trn-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 12px;
+}
+.trn-card {
+  --shade: rgb(6 11 20);
+  position: relative;
+}
+.trn-card :is(.focus-card, .trn-pickcard) {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  color: #fff;
+  text-align: start;
+  transition:
+    border-color 160ms,
+    transform 220ms var(--ease);
+}
+.trn-card :is(.focus-card, .trn-pickcard):hover {
+  border-color: var(--brand);
+  transform: translateY(-3px);
+}
+.trn-card.on .focus-card {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--brand) 32%, transparent),
+    var(--glow);
+}
+.trn-card__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 24%;
+  transition: transform 520ms var(--ease);
+}
+.trn-card :is(.focus-card, .trn-pickcard):hover .trn-card__img {
+  transform: scale(1.07);
+}
+.trn-card :is(.focus-card, .trn-pickcard)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    0deg,
+    color-mix(in srgb, var(--shade) 95%, transparent) 0%,
+    transparent 58%
+  );
+  pointer-events: none;
+}
+.trn-card__lanes {
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-start: 6px;
+  z-index: 2;
+}
+.trn-card__lanes .lanes {
+  flex-direction: column;
+  gap: 4px;
+}
+.trn-card__lanes .lane {
+  padding: 3px;
+  background: color-mix(in srgb, var(--shade) 78%, transparent);
+  box-shadow: none;
+}
+.trn-card__name {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 2;
+  display: grid;
+  gap: 2px;
+  padding: 10px;
+}
+.trn-card__name b {
+  display: -webkit-box;
+  overflow: hidden;
+  font: 700 18px/1.05 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.trn-card__name small {
+  color: color-mix(in srgb, #fff 74%, transparent);
+  font: 500 12px/1.2 var(--font-body);
+}
+.trn-card__badges {
+  position: absolute;
+  inset-inline: 8px;
+  bottom: 62px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.trn-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid var(--gild-line);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--shade) 80%, transparent);
+  color: #fff;
+  font: 700 12px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.trn-badge.is-done {
+  border-color: color-mix(in srgb, var(--success) 60%, transparent);
+  color: var(--success);
+}
+.trn-badge.is-due {
+  border-color: color-mix(in srgb, var(--warn) 60%, transparent);
+  color: var(--warn);
+}
+.trn-cards--picks {
+  grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+}
+.trn-pickcard {
+  cursor: pointer;
+}
+.trn-pickcard__add {
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-end: 6px;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--brand-strong);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: transform 160ms var(--ease);
+}
+.trn-pickcard:hover .trn-pickcard__add {
+  transform: scale(1.12);
+}
+.trn-card__remove {
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-end: 6px;
+  z-index: 3;
+  border-color: transparent;
+  background: color-mix(in srgb, var(--shade) 78%, transparent);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 160ms;
+}
+.trn-card:hover .trn-card__remove,
+.trn-card:focus-within .trn-card__remove {
+  opacity: 1;
+}
+@media (hover: none) {
+  .trn-card__remove {
+    opacity: 1;
+  }
+}
+
+/* the workspace of the open hero */
+.trn-hero {
+  padding: 0;
+  overflow: hidden;
+}
+.trn-hero__head {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 14px 20px;
+  align-items: center;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--line-soft);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--brand) 12%, transparent),
+    transparent 70%
+  );
+}
+.trn-hero__face {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border: 2px solid var(--gild-line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--panel-soft);
+}
+.trn-hero__face img,
+.trn-hero__face .image-fallback {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.trn-hero__id {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.trn-hero__id h2 {
+  font: 700 36px/1 var(--font-display);
+  letter-spacing: 0.03em;
+  overflow-wrap: anywhere;
+}
+.trn-hero__links {
+  grid-column: 1 / -1;
+  justify-content: flex-start;
+}
+.trn-meters {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 24px;
+  padding: 14px 22px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.trn-meter {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.trn-meter .bar {
+  width: 100%;
+}
+.trn-hero__body {
+  padding: 4px 22px 22px;
+}
+.trn-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 10px;
+}
+.skill-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.skill-row__body {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.skill-row__body b {
+  font: 600 15px/1.25 var(--font-body);
+}
+.skill-row__body small {
+  color: var(--brand-ink);
+  font-size: 12px;
+}
+.skill-row p {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.skill-pic {
+  display: block;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--brand);
+  border-radius: 50%;
+  background: var(--panel);
+  object-fit: cover;
+}
+.skill-row .skill-pic {
+  width: 52px;
+  height: 52px;
+}
+.skill-pic--basic {
+  display: grid;
+  place-items: center;
+  color: var(--brand-ink);
+  background: var(--panel-raised);
+}
+.skill-pic--basic .i {
+  width: 56%;
+  height: 56%;
+}
+
+/* the combos of a hero, validated in two forms */
+.combo-train-list {
+  display: grid;
+  gap: 10px;
+}
+.combo-train {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "text forms"
+    "steps steps";
+  gap: 10px 16px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.combo-train__text {
+  grid-area: text;
+}
+.combo-train .combo-steps {
+  grid-area: steps;
+}
+.combo-train__text b {
+  font: 600 15px/1.25 var(--font-body);
+}
+.combo-train__text p {
+  margin-top: 4px;
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+.combo-forms {
+  grid-area: forms;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.combo-form {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font: 600 13px/1 var(--font-body);
+  transition-property: var(--fx);
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease);
+}
+.combo-form .i {
+  display: none;
+}
+.combo-form:hover {
+  border-color: var(--brand);
+  color: var(--ink);
+}
+.combo-form.on {
+  border-color: var(--success);
+  background: color-mix(in srgb, var(--success) 16%, transparent);
+  color: var(--ink);
+}
+.combo-form.on .i {
+  display: block;
+  color: var(--success);
+}
+
+/* ---------- the notebook ---------- */
+.trn-notes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: 20px;
+  align-items: start;
+}
+.trn-notes__list {
+  min-width: 0;
+}
+.trn-notes__side {
+  position: sticky;
+  top: calc(var(--topbar) + 16px);
+  max-height: calc(100vh - var(--topbar) - 32px);
+  overflow-y: auto;
+}
+.trn-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 12px;
+  margin-bottom: 14px;
+}
+.trn-bar .seg {
+  flex-wrap: wrap;
+}
+.trn-bar .seg button {
+  flex: none;
+  white-space: nowrap;
+}
+.trn-bar .field {
+  width: 220px;
+  max-width: 100%;
+}
+.note-list {
+  gap: 12px;
+}
+.trn-note {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  gap: 14px 18px;
+  align-items: start;
+  margin: 0;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+  transition:
+    border-color 160ms,
+    box-shadow 160ms;
+}
+.trn-note:hover {
+  border-color: var(--gild-line);
+}
+.trn-note.is-editing {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand) 25%, transparent);
+}
+.trn-note__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.trn-note__icon .i {
+  width: 24px;
+  height: 24px;
+}
+.trn-note__main {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.trn-note__main > b {
+  font: 700 18px/1.2 var(--font-display);
+  letter-spacing: 0.02em;
+  overflow-wrap: anywhere;
+}
+.trn-note__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.note-body {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+.trn-note .vod {
+  margin-top: 0;
+}
+.trn-note__side {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+.trn-note__side .field {
+  width: 156px;
+  height: 36px;
+  padding: 0 8px;
+  font-size: 13px;
+}
+.trn-note[data-st="mastered"] .trn-note__side .field {
+  border-color: color-mix(in srgb, var(--success) 55%, var(--line));
+}
+.trn-note[data-st="practicing"] .trn-note__side .field {
+  border-color: var(--gild-line);
+}

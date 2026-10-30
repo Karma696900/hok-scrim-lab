@@ -1,0 +1,452 @@
+/* The competitive statistics of a hero: big figures, rings, thin bars, pairings, the table of the
+   numbers of a spell, the period picker. */
+.window-picker {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-bottom: 18px;
+}
+.window-picker label {
+  color: var(--muted);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.window-picker .field {
+  min-width: 190px;
+}
+.window-picker .muted {
+  font-size: 14px;
+}
+
+/* a block of numbers: all rules, one rule, the heroes that go with this one */
+.tournament-global h3,
+.tournament-rule-card h3,
+.pair-column h3 {
+  margin-bottom: 14px;
+  font: 700 18px/1.1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tournament-rule-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+.tournament-rule-card {
+  flex: 1 1 100%;
+  padding: 20px 22px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+/* a rule nobody played in this period: one short line, after the rules that have numbers */
+.tournament-rule-card.is-quiet {
+  display: flex;
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  order: 2;
+  padding: 10px 16px;
+}
+.tournament-rule-card.is-quiet h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.tournament-rule-card.is-quiet p {
+  font-size: 14px;
+}
+.stat-visuals {
+  display: grid;
+  grid-template-columns: minmax(150px, auto) minmax(0, 1fr);
+  gap: 26px 34px;
+  align-items: center;
+}
+.stat-ring {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+.stat-ring p {
+  max-width: 150px;
+  font-size: 13px;
+  text-align: center;
+}
+.stat-main {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+}
+.stat-figures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 18px;
+}
+.stat-bars {
+  display: grid;
+  gap: 12px;
+}
+.figure {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+}
+.figure__value {
+  font: 700 48px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+.figure__label {
+  color: var(--muted);
+  font: 700 13px/1.2 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.figure .meter-track {
+  margin-top: 6px;
+}
+.figure__detail {
+  color: var(--faint);
+  font-size: 12px;
+}
+.insufficient {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.donut {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 0;
+}
+.donut svg {
+  display: block;
+}
+.donut-loss {
+  stroke: var(--team-red);
+  opacity: 0.55;
+}
+.donut-win {
+  stroke: var(--success);
+}
+.donut figcaption {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+.donut figcaption strong {
+  font: 700 30px/1 var(--font-display);
+}
+.donut figcaption span {
+  color: var(--muted);
+  font-size: 13px;
+}
+.meter-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.meter-head strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+.meter-head small {
+  color: var(--muted);
+  font-weight: 500;
+}
+.meter-track {
+  display: block;
+  width: 100%;
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.meter-back {
+  fill: var(--line-soft);
+}
+.meter-fill {
+  fill: var(--brand);
+}
+.meter-warn .meter-fill {
+  fill: var(--warn);
+}
+.meter-violet .meter-fill {
+  fill: var(--brand-soft);
+}
+.meter-blue .meter-fill {
+  fill: var(--team-blue);
+}
+.meter-red .meter-fill {
+  fill: var(--team-red);
+}
+
+/* the heroes that go with this one: big round pictures with their count */
+.pairings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+/* the blocks of the pairings tab: all rules and the rule that was played, side by side */
+.pairings-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.pairings-grid > .tournament-global,
+.pairings-grid > .tournament-rule-stats {
+  flex: 1 1 320px;
+  margin-top: 0;
+}
+.pairings-grid > .tournament-rule-stats--quiet {
+  flex-basis: 100%;
+}
+/* the rules that were played sit in the same row as "All rules": each card is one more column, not a stack beside it */
+.pairings-grid > .tournament-rule-stats:not(.tournament-rule-stats--quiet) {
+  display: contents;
+}
+.pairings-grid > .tournament-rule-stats:not(.tournament-rule-stats--quiet) > .tournament-rule-card {
+  flex: 1 1 320px;
+}
+.pairings-grid > .tournament-rule-stats:empty {
+  display: none;
+}
+.pairings-grid > .pairings-note {
+  flex-basis: 100%;
+  margin: 0;
+}
+.pairings-grid .pairings {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+.pairings-grid .tournament-global {
+  padding: 20px 22px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.pairings-grid .tournament-global > .tournament-rule-card {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+/* three heroes in one line in every card, even a narrow phone: they shrink instead of wrapping onto a second line */
+.pairings-grid .pairing-avatars {
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+.pairings-grid .pairing-hero {
+  flex: 0 1 96px;
+}
+.pairing-hero {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  width: 96px;
+  max-width: 100%;
+  min-width: 0;
+}
+.pairing-hero small {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hs-mod--pairings .pairings {
+  flex: 1;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: space-evenly;
+  gap: 22px;
+}
+.hs-mod--pairings .pairing-avatars {
+  flex-wrap: nowrap;
+  gap: 14px 18px;
+}
+/* three heroes side by side in a card of a narrow phone: they shrink instead of leaving the card */
+.hs-mod--pairings .pairing-avatars > * {
+  flex: 0 1 96px;
+  min-width: 0;
+}
+.pairing-row h3 {
+  margin: 0 0 12px;
+  color: var(--muted);
+  font: 600 14px/1.3 var(--font-body);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.pairing-avatars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+.hero-avatar {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  padding: 0;
+  overflow: visible;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel);
+  cursor: pointer;
+  transition: border-color 160ms;
+}
+span.hero-avatar {
+  cursor: default;
+}
+.hero-avatar img,
+.hero-avatar .image-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.hero-avatar:hover,
+.hero-avatar:focus-visible {
+  border-color: var(--brand);
+}
+.hero-avatar-40 {
+  width: 40px;
+  height: 40px;
+}
+.hero-avatar-48 {
+  width: 48px;
+  height: 48px;
+}
+.hero-avatar-64 {
+  width: 64px;
+  height: 64px;
+}
+.hero-avatar-72 {
+  width: 72px;
+  height: 72px;
+}
+.hero-avatar-84 {
+  width: 84px;
+  height: 84px;
+}
+.pair-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin-top: 18px;
+}
+.pair-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pair-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.pair-meter {
+  flex: 1;
+  min-width: 0;
+}
+/* the base stats of the hero: one line per stat, the value at the level of the slider in bold */
+.hs-stats {
+  width: 100%;
+  font-size: 15px;
+}
+.hs-stats th {
+  padding: 0 12px 10px;
+  color: var(--muted);
+  font: 700 13px/1.2 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hs-stats thead th:first-child {
+  padding-inline-start: 0;
+}
+.hs-stats tbody th {
+  padding: 11px 12px 11px 0;
+  border-top: 1px solid var(--line-soft);
+  color: var(--ink);
+  font: 600 15px/1.3 var(--font-body);
+  letter-spacing: 0;
+  text-align: start;
+  text-transform: none;
+}
+.hs-stats td {
+  padding: 11px 12px;
+  border-top: 1px solid var(--line-soft);
+  font-variant-numeric: tabular-nums;
+}
+.hs-stats td:last-child {
+  padding-inline-end: 0;
+}
+.hs-stats td b {
+  font: 700 20px/1 var(--font-display);
+  letter-spacing: 0.02em;
+}
+.hs-stats th.level-now {
+  color: var(--brand-ink);
+}
+.lvl {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+  color: var(--muted);
+}
+.lvl b {
+  min-width: 78px;
+  color: var(--ink);
+  font: 700 16px/1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.hero-edit {
+  margin-top: 16px;
+}
+.skill-table th {
+  width: 40%;
+}
+.skill-table th,
+.skill-table td {
+  padding: 10px 12px;
+  border-top: 1px solid var(--line-soft);
+  text-align: start;
+}
+.skill-table th {
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .stat-visuals,
+  .pairings {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .stat-ring {
+    justify-items: start;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+  }
+  .stat-ring p {
+    text-align: start;
+  }
+  .figure__value {
+    font-size: 40px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .meter-fill {
+    animation: fade 500ms var(--ease) both;
+  }
+}

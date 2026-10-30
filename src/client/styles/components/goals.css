@@ -1,0 +1,105 @@
+/* What a team asks of its players, as a line with a bar (the reflex page, the page of a team). */
+.goal-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(90px, 1fr) auto auto;
+  align-items: center;
+  gap: 8px 14px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--tint-1);
+}
+.goal-row.is-done {
+  border-color: color-mix(in srgb, var(--success) 55%, transparent);
+}
+.goal-row__what {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+  min-width: 0;
+}
+.goal-row__bar {
+  min-width: 0;
+}
+.goal-row.is-done .goal-row__bar i {
+  --c: var(--success);
+}
+.goal-row__count {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 56px;
+  justify-content: flex-end;
+  font: 600 13px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.goal-row.is-done .goal-row__count {
+  color: var(--success);
+}
+@media (max-width: 720px) {
+  .goal-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .goal-row__what,
+  .goal-row > a {
+    grid-column: 1 / -1;
+  }
+  .goal-row > a {
+    justify-self: start;
+  }
+}
+
+/* The goals of a team: the form, the list and the table of what each player has done. */
+.goal-list {
+  margin: 12px 0;
+  padding: 0;
+  list-style: none;
+}
+.goal-list .goal-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.goal-form {
+  margin-top: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+.goal-table .goal-head {
+  white-space: nowrap;
+}
+.goal-table .goal-head small {
+  display: block;
+  margin-top: 2px;
+  color: var(--muted);
+  font-weight: 400;
+}
+.goal-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.goal-cell.is-done {
+  color: var(--success);
+  font-weight: 700;
+}
+
+/* The ranking of a team: the controls, and the table with the person who looks at it marked. */
+.rank-controls {
+  margin: 4px 0 12px;
+}
+.rank-controls .field {
+  min-width: 200px;
+}
+.rank-table .rank-place {
+  width: 48px;
+  font: 700 16px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.rank-table tr.is-me th,
+.rank-table tr.is-me td {
+  background: rgba(47, 111, 232, 0.14);
+}
+.rank-table .hstack small {
+  color: var(--faint);
+}

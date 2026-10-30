@@ -1,0 +1,179 @@
+/* the bar of the hero that was picked: the tiers it can go to, in their colours */
+.tier-move {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 100%;
+  margin-block-end: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  padding: 10px 14px;
+  border: 1px solid var(--brand);
+  border-radius: var(--r-md);
+  background: var(--panel-raised);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+}
+.tier-move__who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font: 700 15px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tier-move__face {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+.tier-move__targets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-inline-start: auto;
+}
+.tier-move__to {
+  min-width: 44px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--tint-3);
+  color: var(--ink);
+  font: 700 17px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  transition: transform 160ms var(--ease);
+}
+.tier-move__to:hover {
+  transform: translateY(-2px);
+}
+.tier-move__to[data-tier] {
+  border-color: transparent;
+  color: #10141c;
+}
+.tier-move__to[data-tier="SS"] {
+  background: var(--tier-ss);
+}
+.tier-move__to[data-tier="S"] {
+  background: var(--tier-s);
+}
+.tier-move__to[data-tier="A"] {
+  background: var(--tier-a);
+}
+.tier-move__to[data-tier="B"] {
+  background: var(--tier-b);
+}
+.tier-move__to[data-tier="C"] {
+  background: var(--tier-c);
+}
+.tier-move__to[data-tier="D"] {
+  background: var(--tier-d);
+}
+.tier-move__to.is-reserve {
+  font-size: 14px;
+}
+
+/* ---------- a lane without a list: the line that says so, then what the list will be ---------- */
+.tl-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 14px;
+  padding: 14px 18px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 9%, var(--panel));
+}
+.tl-empty p {
+  display: grid;
+  gap: 2px;
+}
+.tl-empty p b {
+  font: 700 20px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.tl-empty p span {
+  color: var(--muted);
+  font-size: 14px;
+}
+/* ---------- smaller screens ---------- */
+@media (max-width: 1100px) {
+  .tl-tools {
+    margin-inline-start: 0;
+  }
+}
+@media (max-width: 900px) {
+  .page-head.tl-stage {
+    min-height: 0;
+  }
+  /* the dock is no longer docked (the tab bar is there): the bar of the hero that was picked floats above it */
+  .tier-move {
+    position: fixed;
+    inset-inline: 10px;
+    inset-block-end: calc(76px + env(safe-area-inset-bottom));
+    margin-block-end: 0;
+    z-index: 70;
+  }
+  .tier-reserve .tier-drop {
+    max-height: 340px;
+  }
+}
+@media (max-width: 720px) {
+  .page-head.tl-stage {
+    gap: 18px;
+    padding: 20px 16px 16px;
+  }
+  .tl-stage__actions,
+  .tl-stage__actions .btn {
+    width: 100%;
+  }
+  .tl-stage .lane-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tl-card {
+    flex-basis: 260px;
+  }
+  .tl-name input {
+    font-size: 22px;
+  }
+  /* the buttons of the list make one row that scrolls sideways (the page keeps its height for the board) */
+  .tl-tools {
+    flex-wrap: nowrap;
+    width: 100%;
+    padding-block-end: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tl-tools > *,
+  .tl-tools__group > * {
+    flex: none;
+  }
+  .tier-controls {
+    inset-block: 0 auto;
+    flex-direction: row;
+    padding: 4px 6px;
+    border-inline-start: 0;
+  }
+  .tl-board .tier-drop {
+    padding-block-start: 38px;
+    padding-inline-end: 10px;
+  }
+  .tier-reserve__lanes {
+    margin-inline-start: 0;
+  }
+  .tier-reserve__head .field {
+    width: 100%;
+  }
+  .tier-move__targets {
+    margin-inline-start: 0;
+  }
+}

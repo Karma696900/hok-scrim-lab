@@ -1,0 +1,15 @@
+/* The default avatar: the mark on a blue disc. */
+/* ---------- the default avatar: the mark on a blue disc, as on the reference boards ---------- */
+/* The size is a class (s-40, s-132…): this default must not outweigh it. */
+:where(.pt.avatar) {
+  --s: 36px;
+}
+.pt.avatar {
+  background: radial-gradient(circle at 30% 25%, #2f6fe8, #173a7a 72%);
+  box-shadow: 0 0 0 1.5px rgba(138, 182, 255, 0.55);
+}
+.pt.avatar img {
+  padding: 17%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(25, 211, 243, 0.45));
+}

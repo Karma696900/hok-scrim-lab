@@ -1,0 +1,55 @@
+/* ---- Languages: the font stack follows the script; tracking and capitals only where the script has them ---- */
+:root:lang(ru) {
+  --font-display: "Segoe UI", "Roboto", "Arial", sans-serif;
+}
+:root:lang(ar) {
+  --font-body:
+    system-ui, "Segoe UI", "Noto Sans Arabic", "Noto Kufi Arabic", Tahoma, Arial, sans-serif;
+  --font-display: var(--font-body);
+}
+:root:lang(th) {
+  --font-body: "Leelawadee UI", "Noto Sans Thai", "Sarabun", Tahoma, system-ui, sans-serif;
+  --font-display: var(--font-body);
+}
+:root:lang(ja) {
+  --font-body: "Yu Gothic UI", "Hiragino Sans", "Noto Sans JP", "Meiryo UI", system-ui, sans-serif;
+  --font-display: var(--font-body);
+}
+:root:lang(ko) {
+  --font-body: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  --font-display: var(--font-body);
+}
+:root:lang(zh) {
+  --font-body:
+    "Microsoft YaHei UI", "PingFang SC", "Noto Sans SC", "Source Han Sans SC", system-ui, sans-serif;
+  --font-display: var(--font-body);
+}
+/* Cursive and unspaced scripts: letter-spacing would break the joins; capitals do not exist. */
+:root:lang(ar) *,
+:root:lang(th) *,
+:root:lang(ja) *,
+:root:lang(ko) *,
+:root:lang(zh) * {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+:root:lang(ja) h1,
+:root:lang(ko) h1,
+:root:lang(zh) h1,
+:root:lang(ar) h1,
+:root:lang(th) h1 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+:root:lang(ja) h2,
+:root:lang(ko) h2,
+:root:lang(zh) h2,
+:root:lang(ar) h2,
+:root:lang(th) h2 {
+  font-weight: 700;
+  line-height: 1.25;
+}
+:root:lang(th) body,
+:root:lang(ar) body {
+  line-height: 1.6;
+}

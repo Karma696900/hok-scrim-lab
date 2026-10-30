@@ -1,0 +1,2526 @@
+0001|Draft diperbaiki
+0002|Permintaan gagal ({status}).
+0003|Keluar
+0004|Masuk
+0005|Buat akun
+0007|Peran tidak tercantum
+0008|Global
+0009|tidak tersedia
+0010|tidak diketahui
+0011|Menggunakan cache roster tervalidasi terakhir · Sinkronisasi sumber: {date}
+0012|Belum ada roster hero Global tervalidasi di cache. Sinkronkan data resmi Camp untuk memuat pool draft.
+0013|{name} — Panduan hero Honor of Kings Global | {site}
+0014|Halaman tidak ditemukan | {site}
+0015|Halaman tidak ditemukan
+0016|Halaman ini tidak ada atau telah dipindahkan.
+0017|Kembali ke ringkasan
+0018|Jelajahi hero
+0019|Operasi scrim
+0021|Seri baru
+0024|Seri aktif
+0025|Pertandingan tercatat
+0026|Tier list
+0032|Buat seri
+0041|Riwayat
+0042|Belum ada hasil
+0043|Pertandingan yang selesai akan dicatat di sini.
+0044|Seri imbang
+0045|Selesai
+0046|Pertandingan {number} sedang berlangsung
+0047|Siap untuk pertandingan berikutnya
+0048|{teamA} vs {teamB}
+0049|BO{bestOf}
+0050|Ekspor {teamA} vs {teamB} sebagai PDF atau PNG
+0051|Ekspor sebagai PDF atau PNG
+0053|Data tidak tersedia
+0054|Alat admin
+0055|Admin
+0059|Sinkronkan lembar hero dari Camp
+0060|Mengambil {done} / {total}…
+0061|{stored} dari {total} lembar hero tersimpan
+0062|{count} gagal pada proses terakhir
+0064|Hapus
+0065|Indeks hero
+0069|Cari hero
+0070|Kelas
+0071|Semua
+0072|Tidak ada yang cocok
+0073|Roster tidak tersedia
+0074|Sesuaikan filter yang aktif.
+0075|Sinkronkan roster Global resmi untuk mengisi tampilan ini.
+0076|Mengambil lembar hero dari Camp di latar belakang…
+0080|Pick
+0081|Ban
+0083|Rasio menang
+0085|Rasio ban
+0086|Tidak ada pertandingan tercatat.
+0087|Hero
+0088|Pertandingan
+0089|M-K
+0091|Belum ada pertandingan tercatat di scrim Anda. Hasil muncul di sini setelah Anda menyimpan pertandingan.
+0092|Sampel tidak cukup ({picked}/{minGames} pertandingan dipilih)
+0096|Sinergi (rekan satu tim)
+0097|Lawan tanding (musuh)
+0098|Persentase muncul mulai dari {minGames} pertandingan. Hanya scrim tercatat milik Anda sendiri yang digunakan.
+0099|Naikkan level lebih dulu
+0100|Pratinjau {name}
+0101|Tidak ada video pratinjau yang dipublikasikan untuk skill ini.
+0103|Camp tidak mencantumkan skill untuk hero ini.
+0104|Skill
+0105|Camp tidak mencantumkan perubahan keseimbangan untuk hero ini.
+0106|Hanya ringkasan yang tersedia untuk hero ini; Camp tidak memberikan angka sebelum/sesudah.
+0107|Saat ini
+0108|Umum
+0109|Wilayah
+0111|Tinggi
+0112|Energi
+0113|Lane Camp
+0114|Dirilis di Global
+0115|Video profil hero
+0116|Tidak ada ilustrasi resmi yang dipublikasikan untuk hero ini.
+0117|Ilustrasi
+0118|Lane yang ditambahkan
+0119|Tambah lane (manual)
+0121|Lembar hero belum diambil. Administrator dapat memulai sinkronisasi Camp dari halaman Hero.
+0122|{name} · nama resmi Camp
+0127|manual
+0128|Profil
+0129|Camp · Global
+0130|Riwayat patch
+0131|{count, plural, other {# perubahan}}
+0132|Statistik kompetitif
+0134|Scrim Anda
+0135|Pertandingan Anda
+0138|Pasangan
+0140|Lembar hero dari HOK Camp Global ({language}) · diambil pada {date}. Ilustrasi dan video milik Tencent / TiMi Studio Group.
+0145|Format seri
+0146|Terbaik dari {count}
+0147|Kustom
+0148|Maksimum pertandingan
+0149|Aturan hero seri
+0150|Global Ban & Pick
+0151|Free For All
+0152|Setiap tim hanya bisa memilih satu hero sekali dalam seri ini.
+0153|Hero bisa dipilih lagi dengan bebas di pertandingan berikutnya.
+0154|{rule} Memilih satu bentuk Flowborn mengunci kelima bentuk untuk tim itu.
+0155|Kontrol draft
+0156|Solo
+0157|Dua pemain · lokal
+0158|Online · undang pemain
+0159|Anda harus masuk untuk membuat ruang online.
+0160|Pemain bergantian menggunakan perangkat yang sama setelah giliran tiap sisi.
+0161|Draft dibagikan langsung dengan lawan yang diundang.
+0162|Anda mengendalikan kedua sisi draft lokal ini.
+0163|Scrim
+0165|Impor seri
+0167|Siap untuk draft pertama
+0175|Ekspor PDF / PNG
+0176|Tautan undangan online
+0177|Salin tautan undangan
+0178|Ruang online
+0179|Kedua pemain terhubung. Draft tetap tersinkron antar peramban.
+0180|Kirim undangan sekali pakai ini ke lawan Anda. Ia harus masuk dengan akun lain.
+0181|Biru
+0182|Merah
+0183|Skor seri
+0184|Tim A
+0185|Pertama mencapai {winsRequired} · BO{bestOf}
+0186|Tim B
+0187|Pertandingan {gameNumber}
+0188|{winner} menang · {duration}
+0189|Biru: {blueTeam}
+0190|Cek kesiapan
+0191|Draft berlangsung
+0192|Pertandingan seri ini
+0193|Pertandingan berikutnya
+0194|Sisi biru bergantian otomatis. Anda dapat mengubahnya untuk pertandingan ini.
+0195|Sisi biru
+0196|Siapkan pertandingan {number}
+0197|Hanya pembuat seri online ini yang memulai pertandingan berikutnya.
+0198|Seri selesai
+0199|Mulai seri lain
+0200|Tidak ada pick tercatat
+0201|Penggunaan hero dalam seri
+0202|Hanya pick
+0203|Pertandingan selesai
+0204|Salin tautan lihat
+0205|Salin tautan edit
+0209|Durasi
+0210|Edit durasi pertandingan {gameNumber}
+0214|Edit ban &amp; pick
+0215|Semua peran
+0216|Tier list {number}
+0217|{name}, lane {lane}
+0218|Lane tier list
+0219|Nama tier list
+0220|{role} · hanya lihat
+0221|Ekspor JSON
+0222|Impor JSON
+0223|Ganti nama tier {label}
+0224|Naikkan tier
+0225|Turunkan tier
+0226|Hapus tier
+0227|×
+0228|Letakkan hero di sini
+0229|Belum diperingkat
+0230|Semua hero sudah diperingkat
+0231|Tambah tier +
+0235|Belum ada tier list {laneName}
+0236|Daftar "Semua peran" memeringkat semua hero Global.
+0237|Daftar lane hanya berisi hero lane tersebut (satu Flowborn).
+0240|Buat, bagikan, dan ekspor peringkat per lane. Hero Global baru otomatis masuk ke "Belum diperingkat".
+0241|Tier list {laneName} baru +
+0242|Maksimum 100 seri per ekspor. Persempit rentang tanggal atau filter.
+0243|Ekspor seri Anda (PDF)
+0244|Ekspor seri ini
+0245|Nama file
+0246|Membuat…
+0247|Ekspor gagal ({status}).
+0248|{format} siap · {file}
+0249|Unduh
+0250|File ini terlalu besar (maksimum 12 MB).
+0251|Impor gagal ({status}).
+0252|{count, plural, other {# seri diimpor}}
+0253|Halaman
+0254|← Sebelumnya
+0255|Halaman {current} dari {pages} · total {total}
+0256|Berikutnya →
+0257|Sampel tidak cukup ({picked}/{minGames})
+0258|Nama tim
+0259|Status apa saja
+0260|Aktif
+0261|Imbang
+0262|Aturan hero apa saja
+0263|Dari
+0264|Sampai
+0265|Terapkan
+0266|Atur ulang
+0267|Riwayat & statistik
+0268|Semua angka di bawah berasal dari scrim Anda yang sudah selesai.
+0269|Ekspor PDF
+0270|Sampel tidak cukup ({gamesCount}/{minGames})
+0271|Seri dimainkan
+0272|Pertandingan dimainkan
+0273|Rata-rata pertandingan
+0274|Total waktu bermain
+0275|Pertandingan tersingkat
+0276|Pertandingan terlama
+0277|Kemenangan sisi biru – sisi merah
+0278|Rasio menang sisi biru
+0279|Seri tersimpan
+0280|Tidak ada riwayat scrim
+0281|Tidak ada yang cocok dengan filter ini
+0282|Hasil muncul di sini setelah Anda mencatat pertandingan.
+0283|Sesuaikan atau atur ulang filter.
+0284|Statistik draft hero
+0285|Cari hero
+0286|Urutkan hero
+0287|Paling terlibat
+0288|Paling sering dipilih
+0289|Paling sering di-ban
+0290|Rasio menang terbaik
+0291|Pick
+0292|Ban
+0293|Rasio menang muncul mulai dari {minGames} pertandingan dipilih.
+0294|Tidak ada sampel hero
+0295|Statistik draft muncul setelah pertandingan selesai disimpan.
+0296|Menyinkronkan…
+0297|Roster tersinkron · {count} hero
+0298|Sinkronisasi gagal; cache dipertahankan. {message}
+0299|Sinkronkan roster
+0300|Tier list tanpa judul
+0301|Tier
+0302|Durasi pertandingan diperbarui
+0303|Gunakan MM:SS, misalnya 24:37
+0304|Ruang online dibuat · bagikan tautan undangan
+0305|Seri dibuat dan disimpan
+0306|Masukkan durasi pertandingan sebagai MM:SS
+0307|Hasil pertandingan dicatat
+0311|Draft dimulai
+0312|Serahkan ke {team}
+0313|Berikutnya giliran {team} untuk ban.
+0314|Berikutnya giliran {team} untuk pick.
+0315|Tautan undangan disalin
+0316|Hapus tier list ini?
+0317|Tautan disalin · sekali pakai · bisa mengedit · kedaluwarsa dalam 7 hari
+0318|Tautan disalin · sekali pakai · hanya lihat · kedaluwarsa dalam 7 hari
+0319|Pertandingan {number} · {teamA} vs {teamB}
+0320|Global Ban & Pick tetap berlaku: tim tidak boleh memakai hero (atau Flowborn kedua) yang sudah dipilih di pertandingan lain dalam seri.
+0321|Hapus seri ini beserta pertandingannya?
+0323|Ini bukan JSON tier list yang valid.
+0324|Tier list diimpor
+0325|Ini sudah milik Anda
+0326|Dibagikan kepada Anda sebagai editor
+0327|Dibagikan kepada Anda sebagai pelihat
+0328|Server tidak dapat memuat datanya. {message}
+0329|Minimal 12 karakter. Makin panjang makin baik: kalimat pendek sudah cukup.
+0330|Akun dibuat
+0331|Berhasil masuk
+0332|Kata sandi salah
+0333|Masuk diblokir (akun terkunci)
+0334|Autentikasi dua faktor diaktifkan
+0335|Kode autentikator salah
+0336|Pemasukan kode diblokir
+0337|Kode salah saat penyiapan
+0338|Kode pemulihan digunakan
+0339|Kode pemulihan salah
+0340|Kode pemulihan baru dibuat
+0341|Kata sandi diubah
+0342|Kode salah pada tindakan sensitif
+0343|Keluar
+0344|Keluar di mana saja
+0346|atau
+0347|Lanjutkan dengan Google
+0348|Masuk dengan Google juga meminta kode autentikator Anda.
+0349|Gunakan email dan kata sandi Anda, lalu konfirmasi dengan autentikator.
+0350|Email
+0351|Kata sandi
+0352|Lanjutkan
+0353|Belum punya akun?
+0354|Buat satu
+0355|Buat akun
+0356|Autentikasi dua faktor wajib: Anda akan menyiapkannya tepat setelah ini.
+0358|Digunakan untuk masuk. Kami tidak pernah mengirim email.
+0359|Ulangi kata sandi
+0360|Sudah terdaftar?
+0361|Pendaftaran ditutup
+0362|Server ini tidak menerima akun baru.
+0363|Masukkan kode Anda
+0364|Gunakan salah satu kode pemulihan yang Anda simpan. Masing-masing hanya berlaku sekali.
+0365|Buka aplikasi autentikator Anda dan ketik kode 6 digit.
+0366|Kode pemulihan
+0367|Verifikasi
+0368|Gunakan autentikator saya saja
+0369|Saya kehilangan perangkat: gunakan kode pemulihan
+0370|Mulai lagi
+0371|Simpan kode pemulihan Anda
+0372|Jika Anda kehilangan ponsel, kode ini satu-satunya cara untuk masuk kembali. Masing-masing hanya berlaku sekali. Kode hanya ditampilkan sekarang.
+0373|Kode pemulihan
+0374|Salin
+0375|Unduh .txt
+0376|Saya sudah menyimpan kode ini di tempat aman (pengelola kata sandi, kertas).
+0377|Siapkan autentikasi dua faktor
+0378|Memuat…
+0379|Pindai kode QR dengan aplikasi autentikator (Google Authenticator, Aegis, 1Password, Authy…), lalu ketik kode yang ditampilkan.
+0380|Kode QR untuk menambahkan {account} ke aplikasi autentikator Anda
+0381|Tidak bisa memindai? Masukkan kunci ini secara manual:
+0382|Akun: {account} · berbasis waktu, 6 digit
+0383|Aktifkan dan masuk
+0384|Keamanan akun
+0385|Akun
+0386|Keamanan
+0387|Google
+0388|email dan kata sandi
+0389|{name} · {email} · masuk dengan {method}
+0390|Aktif
+0391|Autentikasi dua faktor
+0392|Sisa kode pemulihan
+0393|{count, plural, other {Hanya tersisa # kode pemulihan: buat yang baru di bawah.}}
+0394|Kode pemulihan baru
+0395|Hanya ditampilkan sekarang. Kode lama tidak berlaku lagi.
+0396|Ubah kata sandi
+0397|Kata sandi saat ini
+0398|Kata sandi baru
+0399|Kode autentikator
+0400|Buat set baru (yang lama berhenti berlaku).
+0401|Buat kode baru
+0402|Sesi
+0403|Keluar dari semua peramban dan perangkat, termasuk yang ini.
+0404|Keluar di mana saja
+0405|Aktivitas terbaru
+0406|Kapan
+0407|Apa
+0408|Detail
+0409|Belum ada.
+0410|Terjadi kesalahan
+0411|Kembali ke halaman masuk
+0412|Kedua kata sandi berbeda.
+0413|Konfirmasikan bahwa Anda sudah menyimpan kode.
+0414|Kata sandi diubah. Sesi lain ditutup.
+0415|Kode pemulihan disalin
+0416|Kode pemulihan HOK Global Scrim Lab
+0417|Setiap kode hanya berlaku sekali.
+0418|Ban biru
+0419|Pick biru
+0420|Ban merah
+0421|Pick merah
+0422|{side} ban {number}
+0423|{side} pick {number}
+0424|Kosong
+0425|Hapus {name}
+0426|Perbaiki draft
+0427|Pilih slot, lalu hero yang seharusnya ada di sana. Statistik, ekspor, dan riwayat memakai draft yang sudah diperbaiki.
+0428|Hero untuk: {slot}
+0429|(sudah ada di draft ini)
+0430|Tidak ada hero yang cocok.
+0431|Urungkan perubahan
+0432|Batal
+0433|Simpan perbaikan
+0434|Siap
+0435|Dipakai di pertandingan ini
+0436|Dipakai di seri
+0437|Menunggu
+0438|Sisi merah
+0439|Cari di pool hero
+0440|Filter menurut lane
+0441|Filter menurut tipe hero
+0442|Semua tipe
+0443|Biru siap
+0444|Merah siap
+0445|Biru belum siap
+0446|Merah belum siap
+0447|Kedua sisi memulai bersama di perangkat ini.
+0448|Mulai draft
+0449|Saya siap — mulai sebagai {viewerTeamName}
+0450|Menunggu lawan Anda…
+0451|Menonton cek kesiapan.
+0452|Jam draft dimulai saat kedua tim siap.
+0453|Menunggu {actingTeam}
+0454|bebas
+0455|Hero apa pun bisa dipilih, apa pun perannya · saat waktu habis, auto-pick mengambil hero {lane}
+0456|Pilih hero untuk di-ban · jika waktu habis, ban dilewati (bisa diedit nanti)
+0457|Akhiri penantian
+0458|Draft dikunci.
+0459|Hasil pertandingan
+0461|Mulai / lanjutkan timer pertandingan
+0462|Jeda
+0463|Akhiri timer pertandingan
+0465|Pemenang
+0467|Durasi pertandingan · MM:SS
+0468|Simpan hasil pertandingan
+0469|Hanya pembuat seri online ini yang mencatat hasil.
+0470|Tinggal lima detik.
+0471|Waktu habis. Ban dilewati.
+0472|Waktu habis. Hero dipilih otomatis.
+0474|Papan akhir
+0475|Draft siap
+0476|Penantian akhir
+0477|Draft selesai
+0478|ban
+0479|pick
+0480|{winner} menang
+0481|Tercatat
+0482|Giliran {team}
+0483|Briefing pertandingan berikutnya
+0484|Input hasil
+0485|Pool hero · {action} · {team}
+0486|{count} tersedia
+0487|{team} mem-ban {hero}.
+0488|{team} melewati ban.
+0489|{team} memilih {hero}.
+0490|{team} tidak memilih hero.
+0491|(waktu habis)
+0492|Clash
+0493|Jungle
+0494|Mid
+0495|Farm
+0496|Support
+0497|Lane Clash
+0498|Lane Mid
+0499|Lane Farm
+0500|Roamer
+0501|Pemilik
+0502|Editor
+0503|Pelihat
+0504|{site} — Draft, scrim, dan tier list Honor of Kings Global
+0505|Simulator draft Honor of Kings Global gratis: ban dan pick kompetitif, seri scrim, tier list per lane, dan panduan hero dengan skill serta riwayat patch.
+0506|Hero Honor of Kings Global — skill, lane, dan riwayat patch | {site}
+0507|Semua hero Honor of Kings Global dengan lane, kelas, skill, video, ilustrasi, dan perubahan keseimbangan dari data resmi Camp.
+0508|Pembuat tier list Honor of Kings Global | {site}
+0509|Buat dan bagikan tier list Honor of Kings Global untuk semua peran atau satu lane dengan seret dan lepas.
+0510|Scrim — draft dan catat seri | {site}
+0511|Mainkan seri scrim Honor of Kings Global dengan urutan ban dan pick kompetitif.
+0512|Seri | {site}
+0513|Sebuah seri scrim.
+0514|Riwayat dan statistik | {site}
+0515|Scrim dan statistik tercatat milik Anda.
+0516|Masuk | {site}
+0517|Masuk ke akun Anda.
+0518|Kode verifikasi | {site}
+0519|Masukkan kode dari aplikasi autentikator Anda.
+0520|Siapkan autentikasi dua faktor | {site}
+0521|Lindungi akun Anda dengan aplikasi autentikator.
+0522|Buat akun | {site}
+0523|Buat akun yang dilindungi autentikasi dua faktor.
+0524|Keamanan akun | {site}
+0525|Kata sandi, autentikator, dan kode pemulihan.
+0526|Halaman ini tidak ada.
+0527|Endpoint API tidak dikenal.
+0528|Anda mencapai batas {limit} seri. Hapus beberapa terlebih dahulu.
+0529|Anda mencapai batas {limit} tier list. Hapus beberapa terlebih dahulu.
+0530|Seri tidak ditemukan.
+0531|Undangan online tidak ditemukan.
+0532|Gunakan akun Google lain untuk bergabung dengan undangan ini.
+0533|Undangan ini sudah digunakan.
+0534|Tier list tidak ditemukan.
+0535|Anda hanya dapat melihat tier list ini.
+0536|Tier list ini berubah sejak Anda membukanya. Muat ulang dan coba lagi.
+0537|Tidak ditemukan.
+0538|Seri online hanya dapat dibagikan sebagai hanya-lihat.
+0539|Undangan ini tidak valid.
+0540|Undangan ini tidak valid atau sudah kedaluwarsa.
+0541|CSV memiliki kolom berkutip yang belum ditutup.
+0542|CSV kosong.
+0543|CSV memerlukan kolom "{required}" (header: heroId,picks,bans,wins).
+0544|Baris {value} CSV memiliki lebih banyak sel daripada header.
+0545|Hanya data Honor of Kings Global yang dapat diimpor (bukan China / Arena of Valor).
+0546|Pilih sisi Biru atau Merah untuk memulai.
+0547|Hero ini tidak tersedia di roster resmi.
+0548|Draft tidak menerima tindakan.
+0549|Kedua sisi harus memulai draft sebelum bertindak.
+0550|Hero ini tidak tersedia di draft saat ini.
+0551|Tim ini sudah memilih hero ini di pertandingan sebelumnya.
+0552|{kind} sisi {side} harus berupa daftar maksimal 5 hero.
+0553|Hero tidak dikenal: {value}.
+0554|Satu hero hanya boleh muncul sekali dalam draft.
+0555|Nama tim dibatasi {TEAM_NAME_MAX_LENGTH} karakter.
+0556|Nama tim tidak boleh berisi karakter kontrol, < atau >.
+0557|Kedua tim harus memiliki nama yang berbeda.
+0558|Best-of harus berupa bilangan bulat antara 1 dan 99.
+0559|Pilih mode permainan yang didukung.
+0560|Pilih mode kontrol draft yang didukung.
+0561|Seri ini tidak dapat memulai pertandingan lain.
+0562|Sisi biru harus ditetapkan ke salah satu tim seri.
+0563|Tidak ada pertandingan yang sedang berlangsung.
+0564|Pemenang harus salah satu tim seri.
+0565|Durasi pertandingan harus berupa detik yang valid.
+0566|Selesaikan fase tunggu draft sebelum mencatat hasil.
+0567|Pertandingan ini tidak ada.
+0568|Mulai draft sebelum memulai timer pertandingan.
+0569|Mulai draft sebelum menjeda timer pertandingan.
+0570|Mulai draft sebelum mengakhiri timer pertandingan.
+0571|Draft masih berlangsung: selesaikan sebelum mengedit ban dan pick-nya.
+0572|{teamName} sudah memilih hero ini di pertandingan lain dalam seri (Global Ban & Pick).
+0573|{teamName} hanya dapat memakai Flowborn sekali dalam seri Global Ban & Pick.
+0574|Pilih lane yang valid atau Semua peran.
+0575|Permintaan tidak valid.
+0576|Metode tidak diizinkan.
+0577|Isi permintaan terlalu besar.
+0578|URL terlalu panjang.
+0579|Tipe media tidak didukung.
+0580|Header permintaan terlalu besar.
+0581|Seri {number}: {message}
+0582|Isi permintaan bukan JSON yang valid.
+0583|URL tidak valid.
+0584|Kesalahan server internal.
+0585|Masuk untuk menggunakan draft online.
+0586|Masuk untuk melanjutkan.
+0587|Tindakan ini hanya untuk administrator.
+0588|Terlalu banyak permintaan. Pelankan dan coba lagi sebentar lagi.
+0589|Permintaan lintas situs tidak diizinkan.
+0590|Permintaan lintas asal tidak diizinkan.
+0591|Hanya pembuatnya yang dapat melakukan ini.
+0592|Anda hanya dapat melihat seri ini.
+0593|Hanya pembuat seri online ini yang dapat melakukan ini.
+0594|Anda bukan peserta seri online ini.
+0595|Hanya pemain di sisi saat ini yang dapat mengirim tindakan ini.
+0596|Sinkronisasi detail hero tidak tersedia di server ini.
+0597|Impor tidak ditemukan.
+0598|Hero tidak ditemukan.
+0600|Hero ini sudah memiliki lane itu.
+0601|Lane tidak ditemukan.
+0604|Ekspor tidak tersedia di server ini.
+0605|Pilih PDF atau PNG yang dibuat oleh HOK Global Scrim Lab.
+0606|Belum ada yang bisa diekspor.
+0607|Masuk atau buat seri terlebih dahulu: belum ada yang bisa diekspor.
+0608|minGames harus berupa bilangan bulat antara 1 dan 1000.
+0609|Seri ini berubah sejak Anda memuatnya. Muat ulang dan coba lagi.
+0610|{key}.{side} berisi ID hero yang tidak valid.
+0611|blueTeam harus berupa string.
+0612|heroId wajib diisi.
+0613|Operasi timer tidak dikenal.
+0614|Undangan tidak ditemukan.
+0615|Anggota tidak ditemukan.
+0616|Hanya pembuatnya yang dapat menghapus tier list ini.
+0617|Akun dengan email ini sudah ada.
+0618|Gunakan minimal {min} karakter.
+0619|Gunakan maksimal {max} karakter.
+0620|Kata sandi ini terlalu umum.
+0621|Kata sandi tidak boleh memuat nama email Anda.
+0622|Kata sandi tidak boleh memuat nama Anda.
+0623|Gunakan karakter yang lebih bervariasi.
+0624|Email atau kata sandi tidak valid.
+0625|Kode ini tidak valid.
+0626|Sesi masuk Anda kedaluwarsa. Mulai lagi.
+0627|Terlalu banyak kode salah. Masuk lagi.
+0628|Kata sandi saat ini tidak benar.
+0629|Masukkan nama tampilan 1 sampai 60 karakter.
+0630|Nama tampilan tidak boleh berisi karakter kontrol, < atau >.
+0631|Masukkan alamat email yang valid.
+0632|Pembuatan akun ditutup di server ini.
+0633|Pilih kata sandi.
+0634|Alamat ini dicadangkan. Masuk dengan Google atau hubungi pemilik server.
+0635|Pindai kodenya terlebih dahulu.
+0636|Akun ini masuk dengan Google dan tidak memiliki kata sandi.
+0637|Pilih kata sandi baru.
+0638|Pilih kata sandi yang belum Anda gunakan barusan.
+0639|Detail hero baru saja disinkronkan. Coba lagi dalam {seconds} dtk.
+0640|Ekspor memakan waktu terlalu lama dan dibatalkan.
+0641|Anda sudah memiliki ekspor yang sedang berjalan. Tunggu hingga selesai.
+0642|Antrean ekspor penuh. Coba lagi sebentar lagi.
+0643|PNG menampilkan hingga {limit} pertandingan. Ekspor seri ini sebagai PDF.
+0644|Scrim tamu
+0645|Sinkronisasi roster baru saja dijalankan. Coba lagi dalam {seconds} dtk.
+0646|File ini tidak berisi data seri HOK (atau rusak).
+0647|File ini tidak berisi data seri yang dapat dibaca.
+0648|File ini tidak dibuat oleh HOK Global Scrim Lab, atau oleh versi yang tidak kompatibel.
+0649|Satu file dapat memulihkan 1 sampai {MAX_SERIES} seri.
+0650|PDF ini tidak dapat dibaca.
+0651|PDF ini tidak berisi data seri HOK. Hanya PDF yang dibuat oleh situs ini yang dapat diimpor (jangan simpan ulang atau cetak).
+0652|Ini bukan gambar PNG.
+0653|PNG ini terpotong.
+0654|PNG ini tidak memiliki penanda akhir.
+0655|PNG ini tidak berisi data seri HOK. Hanya PNG yang dibuat oleh situs ini yang dapat diimpor (aplikasi pesan dan editor menghapus datanya).
+0656|Impor PDF atau PNG yang dibuat oleh HOK Global Scrim Lab.
+0657|Status: {value}
+0658|Aturan hero: {value}
+0659|Kontrol draft: {value}
+0660|Tim mengandung "{value}"
+0661|Dari {value}
+0662|Sampai {value}
+0663|Tanpa filter (semua seri Anda)
+0664|Pertandingan {number}
+0665|diperbarui {date}
+0666|HOK Global Scrim Lab · Ekspor seri
+0667|Ekspor seri
+0668|HOK Global Scrim Lab · Honor of Kings Global
+0669|dibuat {date}
+0670|Catatan
+0671|Seri
+0672|Total waktu bermain (mm:dd)
+0673|Edisi Honor of Kings
+0674|Filter:
+0675|Format
+0676|Aturan hero
+0677|Status
+0678|Skor
+0679|Diperbarui
+0680|Tidak ada seri yang cocok dengan filter ini.
+0681|Statistik dan draft berasal dari scrim yang dicatat pemiliknya sendiri. Tidak ada data ranked atau kompetitif yang disertakan. File ini dapat diimpor kembali ke HOK Global Scrim Lab (Scrim → Impor). Potret hero milik pemiliknya masing-masing (Tencent / TiMi Studio Group) dan ditampilkan dari cache lokal.
+0682|Halaman {current} / {total}
+0683|{label} harus berupa objek JSON.
+0684|{label} harus berupa string.
+0685|{label} harus antara {min} dan {max} karakter.
+0686|{label} berisi karakter kontrol.
+0687|{label} harus berupa bilangan bulat antara {min} dan {max}.
+0688|{label} harus berupa daftar maksimal {max} item.
+0689|{label} berisi ID hero yang tidak valid.
+0690|{label} berisi ID hero yang tidak dikenal: {item}.
+0691|{label} tidak valid.
+0692|page harus berupa bilangan bulat positif.
+0693|pageSize harus antara 1 dan {maxSize}.
+0694|draftMode harus berupa string.
+0695|teamA harus berupa string.
+0696|teamB harus berupa string.
+0697|Gunakan endpoint online untuk membuat seri online.
+0698|{label} memakai hero {heroId} lebih dari sekali.
+0699|{label} memiliki penetapan pick yang tidak valid.
+0700|{label} memiliki tindakan yang tidak berurutan.
+0701|{label} memiliki tindakan pada hero yang tidak ada di draft.
+0702|File yang diimpor memiliki kolom tak terduga: {value}.
+0703|{label} memiliki kolom tak terduga: {value}.
+0704|{label} harus menempatkan kedua tim seri di sisi yang berlawanan.
+0705|{label}.winner harus salah satu tim seri.
+0706|role harus viewer atau editor.
+0707|{label} harus berupa URL yang valid.
+0708|{label} harus berupa URL https.
+0709|Setel meta.confirmGlobalOnly ke true: hanya data Honor of Kings Global yang dapat diimpor.
+0710|meta.license harus salah satu dari: {value}.
+0711|meta.updatedAt harus berupa tanggal (YYYY-MM-DD).
+0712|meta.totalGames minimal 1.
+0713|csv harus berupa teks maksimal 300 KB.
+0714|heroes[{index}].heroId wajib diisi (ID hero Camp Global).
+0715|heroes[{index}].heroId {heroId} bukan ID hero Global yang dikenal.
+0716|heroes[{index}] memiliki lebih banyak kemenangan daripada pick.
+0717|heroes harus berisi minimal satu baris.
+0718|heroes berisi heroId yang sama dua kali.
+0719|lane harus salah satu dari lima lane Honor of Kings.
+0720|{label} harus berupa satu nilai.
+0721|{label} terlalu panjang atau tidak valid.
+0722|{label} harus berupa tanggal seperti 2026-09-30.
+0723|{key} harus salah satu dari: {value}.
+0724|from tidak boleh setelah to.
+0725|format harus pdf atau png.
+0726|format harus pdf.
+0727|comment harus berupa teks.
+0728|Komentar dibatasi 500 karakter.
+0729|Nama file harus berupa teks maksimal 120 karakter.
+0730|Lewati ke konten
+0732|Navigasi utama
+0733|Ringkasan
+0734|Hero
+0735|Tier list
+0737|Sinkronkan roster hero
+0738|Bahasa
+0740|Menu
+0741|Laporan bergaya · dapat diimpor ulang
+0742|Ekspor
+0743|Semua pertandingan, berapa pun panjangnya
+0744|Gambar untuk dibagikan, hingga 15 pertandingan
+0745|Komentar
+0746|(dicetak di file)
+0747|Ringkasan ronde, yang perlu dilatih, siapa yang bermain…
+0748|File ini berisi data seri: impor kembali dari Scrim → Impor seri. Jangan simpan ulang atau cetak, atau datanya hilang.
+0749|Draft lokal dua pemain
+0750|Serahkan perangkat
+0751|Sisi berikutnya sudah siap.
+0752|Lanjutkan draft
+0753|Pasif
+0754|Ultimate
+0755|Skill {index}
+0756|Lembar hero ini sedang diambil dalam bahasa Anda. Versi bahasa Inggris ditampilkan sampai tiba.
+0757|Tank
+0758|Fighter
+0759|Mage
+0760|Assassin
+0761|Marksman
+0763|Support
+0764|Gunakan sebagai latar halaman
+0765|Latar acak
+0766|Video ini sekarang menjadi latar halaman
+0767|Latar kembali acak
+0768|Video latar: mati
+0769|Video latar: aktif
+0771|Build
+0772|Pilihan
+0773|Turnamen
+0774|Build disimpan
+0775|Build dihapus
+0776|Nama panggilan
+0777|Ditampilkan kepada pemain lain. Anda juga mendapat tag unik yang tidak pernah berubah.
+0778|Pilih nama panggilan Anda
+0779|Nama Google Anda tidak dipakai. Pilih nama panggilan yang akan dilihat pemain lain, dan kata sandi: pengautentikasi menyusul.
+0780|Semua waktu
+0781|Tahun ini
+0782|12 bulan terakhir
+0783|6 bulan terakhir
+0784|3 bulan terakhir
+0785|Sejak tanggal tertentu
+0786|{wins} kemenangan, {losses} kekalahan
+0787|{wins}-{losses}
+0788|Hari pertama yang disertakan
+0789|Periode
+0790|Game yang dimasukkan dari {first} sampai {last}.
+0791|Tidak ada game turnamen pada periode ini.
+0792|Belum ada turnamen yang dimasukkan.
+0886|Sampel kecil: {picks, plural, other {# game}} dengan hero ini. Baca persentase dengan hati-hati.
+0794|{wins}/{picks}
+0795|Tidak pernah dipilih pada periode ini.
+0887|{picks, plural, other {# pick}} dari {total, plural, other {# game}}
+0797|Tingkat pick
+0798|Kehadiran (dipilih atau diban)
+0799|Rasio menang di sisi biru
+0800|Rasio menang di sisi merah
+0801|Hero ini tidak punya game yang dimenangkan pada periode ini.
+0805|Tidak pernah dipilih di scrim Anda.
+0807|Build {variant}
+0808|Sumber
+0810|Arcana
+0811|Belum ada build yang dimasukkan untuk hero ini.
+0812|Ubah build ini
+0814|Nama (opsional)
+0817|Sumber (alamat https)
+0818|Catatan (opsional)
+0819|Simpan
+0820|Salin tag
+0821|Foto profil
+0822|Unggah foto
+0823|Pakai foto Google saya
+0824|Hapus foto
+0825|PNG, JPEG, WebP, atau GIF, maksimal 4 MB. Foto dipotong menjadi persegi.
+0826|Simpan nama panggilan
+0827|Tutup
+0828|Tag disalin
+0829|Pilih gambar PNG, JPEG, WebP, atau GIF.
+0830|Gambar ini terlalu besar (maksimal 4 MB).
+0831|Profil diperbarui
+0832|Turnamen | {site}
+0833|Masukkan seri turnamen yang benar-benar dimainkan.
+0834|Pilih nama panggilan Anda | {site}
+0835|Pilih nama panggilan dan kata sandi akun Anda.
+0836|Slot kosong
+0837|Cari hero
+0838|Ketik hero, Enter untuk memilih
+0839|{team} menang
+0840|Biru: {team}
+0841|Durasi (opsional)
+0842|Hapus game
+0843|Ban (opsional)
+0844|Ubah seri
+0845|Acara
+0846|Tahap
+0847|Final, Grup A…
+0848|Tanggal dimainkan
+0849|Patch (opsional)
+0850|Best of
+0852|Tambah game
+0853|Simpan seri
+0854|Simpan dan masukkan seri berikutnya
+0855|Ctrl+Enter menyimpan.
+0856|patch {patch}
+0857|Ubah
+0859|{count, plural, other {# seri}}
+0860|Saring menurut acara, tahap, atau tim
+0861|Tidak ada seri yang cocok.
+0862|Belum ada seri yang dimasukkan.
+0863|Sebelumnya
+0864|Berikutnya
+0865|{series, plural, other {# seri}} · {games, plural, other {# game}}
+0866|Seri yang benar-benar dimainkan. Statistik hero dan pasangan berasal dari sini.
+0867|Pilih pemenang setiap game.
+0868|Seri disimpan
+0869|Hapus seri ini beserta game-nya? Statistik hero berubah sesuai.
+0870|Seri dihapus
+0871|Halaman ini khusus administrator.
+0872|Masuk dengan akun administrator untuk memasukkan turnamen.
+0873|{label} harus 1 atau 2.
+0874|{label} wajib diisi.
+0875|{label} membutuhkan tepat {max} hero.
+0876|{label}.durationSeconds harus bilangan bulat antara {min} dan {max}.
+0877|Seri yang benar-benar dimainkan tidak boleh berada di masa depan.
+0878|Sebuah seri membutuhkan setidaknya satu game.
+0879|Seri best-of-{bestOf} tidak boleh memiliki {count} game.
+0880|Build tidak ditemukan.
+0881|Profil Anda sudah lengkap.
+0882|Akun ini tidak punya foto Google.
+0883|Pilihan avatar tidak dikenal.
+0884|Pilih gambar terlebih dahulu.
+0885|Berkas ini bukan gambar yang dapat digunakan.
+0889|Statistik hero
+0890|Diisi manual
+0891|Tidak ada yang cocok.
+0892|Katalog masih kosong.
+0893|Kurangi satu
+0894|Tambah satu
+0895|Belum ada.
+0896|Muat: {name}
+0897|Lab build
+0898|Coba sebuah build: pilih hero, level, item, dan arcana. Tidak perlu akun; tautan membagikan build Anda.
+0899|Build Anda
+0900|Tanpa hero (hanya item)
+0901|Level {level}
+0902|Level
+0903|Hero ini belum punya tag.
+0904|Salin tautan build ini
+0905|Mulai ulang
+0909|Tambah
+0910|Cari
+0911|Statistik
+0912|Statistik dasar hero ini belum dimasukkan: hanya yang diberikan item dan arcana yang ditampilkan.
+0913|Pasif dan aktif dijelaskan pada tiap bagian; hanya statistik yang dijumlahkan.
+0914|Detail
+0915|Hapus dari build
+0916|Tautan disalin
+0917|Sebuah build memiliki paling banyak {max} item di grup ini.
+0918|Sebuah item di build ini tidak ada di katalog.
+0919|{name} tidak cocok untuk grup slot ini.
+0920|{name} dipakai dua kali: satu item hanya bisa ada sekali dalam build.
+0921|Sebuah build hanya punya satu pasang sepatu.
+0922|Sebuah arcana di build ini tidak ada di katalog.
+0923|{name} bukan arcana {color}.
+0924|Jumlah {name} harus bilangan bulat dari 1 sampai {max}.
+0925|{name} muncul dua kali: beri satu jumlah saja.
+0926|Sebuah build memiliki paling banyak {max} arcana dalam satu warna.
+0927|Hijau
+0928|Sepatu
+0929|Item
+0930|Item utilitas
+0931|Item akhir permainan
+0932|Item
+0933|Utilitas
+0934|Akhir permainan
+0935|cooldown {seconds} dtk
+0936|{price} emas
+0937|arcana
+0938|Belum ada statistik untuk ditampilkan.
+0939|Statistik
+0940|Total
+0941|Persen (%)
+0942|Angka biasa
+0943|Tag
+0944|Nilai
+0945|Hapus statistik ini
+0946|Tambah statistik
+0947|Masukkan dulu statistik permainan (tab Statistik).
+0948|Belum ada tag (tab Tag).
+0949|Gambar
+0950|Pilih gambar
+0951|Hapus
+0953|Jenis
+0954|Nama
+0955|Cooldown (dtk)
+0956|Hapus efek ini
+0957|Fungsinya
+0958|Tambah pasif atau aktif
+0959|Ditampilkan sebagai
+0960|Posisi dalam daftar
+0961|Warna
+0962|Artinya (opsional)
+0963|Masuk ke
+0964|Harga (opsional)
+0965|Deskripsi (opsional)
+0966|Statistik yang diberikan
+0967|Pasif dan aktif
+0969|Baru
+0970|Katalog
+0971|Statistik, tag, item, dan arcana permainan, ditulis manual. Build dibuat dari semua ini.
+0972|Saring
+0973|Belum ada apa pun di sini.
+0974|Pilih entri atau tambah yang baru
+0976|Tersimpan
+0977|Hapus entri ini?
+0978|Dihapus
+0979|Masuk dengan akun administrator untuk mengisi katalog.
+0980|Damage
+0981|Penyembuhan
+0982|Perisai
+0983|Kontrol
+0984|Buff
+0985|Debuff
+0986|Gerakan
+0987|Lainnya
+0988|Skill
+0989|Cooldown per level (dtk), dipisah koma
+0990|Biaya per level, dipisah koma
+0991|Biaya dibayar dengan apa
+0992|Mana
+0993|Jangkauan
+0994|Waktu cast (dtk)
+0995|Efek
+0996|Nilai per level, dipisah koma
+0997|Detail (opsional)
+0998|Tambah scaling
+0999|Catatan (opsional)
+1000|Tambah efek
+1001|Hapus skill ini
+1002|Data hero: {name}
+1003|Statistik dasar
+1004|Nilai di level 1, dan seberapa besar bertambah di tiap level.
+1005|Level 1
+1006|per level
+1007|Pertumbuhan per level
+1008|Skill
+1009|Tambah skill
+1010|{label}: tulis angka yang dipisah koma.
+1011|Cooldown
+1012|Biaya
+1013|Data hero tersimpan
+1014|Ubah data hero
+1015|Statistik dasar dan tag hero ini belum dimasukkan.
+1016|+{percent}% {stat}
+1017|Buka lab build
+1018|Coba di lab build
+1019|Lab build: coba build Honor of Kings Global | {site}
+1043|Coba build untuk hero Honor of Kings Global mana pun: item, arcana, dan total statistik yang diberikannya. Tidak perlu akun.
+1021|Katalog | {site}
+1022|Statistik, tag, item, dan arcana permainan.
+1044|Statistik dengan nama ini sudah ada.
+1024|Statistik ini dipakai oleh {count} item, arcana, atau hero: hapus dulu dari sana.
+1045|Tag dengan nama ini sudah ada.
+1046|Item dengan nama ini sudah ada.
+1025|Ini dipakai oleh {count} build rekomendasi: hapus dulu dari sana.
+1047|Arcana dengan nama ini sudah ada.
+1026|{label} harus berupa angka antara {min} dan {max}.
+1027|{label} memuat entri yang sama dua kali.
+1028|{label} memuat entri yang tidak ada.
+1029|{label} membutuhkan antara {min} dan {max} statistik.
+1030|{label} memuat statistik yang tidak ada.
+1031|{label} memuat statistik yang sama dua kali.
+1032|{label} harus salah satu dari: {options}.
+1033|Sebuah tag tidak bisa berbenturan dengan dirinya sendiri.
+1034|Gambar tidak ada (kirim lagi).
+1035|{label} harus berupa kunci pendek huruf kecil.
+1036|{label} memuat skill yang sama dua kali.
+1037|Sebuah build membutuhkan setidaknya satu item atau arcana.
+1038|Statistik tidak ditemukan.
+1039|Tag tidak ditemukan.
+1040|Item tidak ditemukan.
+1041|Arcana tidak ditemukan.
+1042|Gambar ini terlalu besar (maksimal 3 MB).
+1048|Hapus tanda item inti
+1049|Tandai sebagai item inti
+1050|Sebuah build memiliki paling banyak {max} item inti.
+1051|Item inti harus termasuk item utama build.
+1052|(item inti)
+1053|Item inti
+1054|Build rekomendasi menandai 2 atau 3 item inti.
+1055|Main
+1058|Putar video profil
+1059|Lane
+1060|{shown} dari {total} ditampilkan
+1061|Kompetitif
+1062|Bagian lembar hero
+1065|Santai
+1066|Amatir
+1067|Semi-pro
+1068|Pro
+1069|Manajer
+1070|Pelatih
+1071|Kapten
+1072|Analis
+1073|Pemain
+1074|Cadangan
+1075|Tag tim
+1076|2 sampai 5 huruf atau angka
+1077|Zona waktu
+1078|Bahasa
+1079|Maksimal 5
+1080|Deskripsi
+1081|Simpan tim
+1082|Buat tim
+1083|{count, plural, other {# anggota}}
+1084|Tim tidak ditemukan
+1085|Jadilah yang pertama membuatnya.
+1086|Tim
+1087|Daftarkan timmu dan kelola susunan pemainnya.
+1088|Komunitas
+1089|Undangan untukmu
+1091|Terima
+1092|Tolak
+1093|Timmu
+1094|Cari tim
+1097|Tim tidak ditemukan
+1098|Peran
+1099|Keluar dari tim
+1101|Ubah tim
+1102|Hapus tim
+1103|Tentang
+1104|Belum ada deskripsi.
+1105|Susunan pemain
+1107|Tindakan
+1108|Undang pemain
+1109|Tag pemain
+1110|Tag ada di profilnya. Dia harus menerima sebelum bergabung.
+1111|Undang
+1112|Undangan tertunda
+1113|Tidak ada yang menunggu jawaban.
+1114|Selamat datang di tim
+1115|Undangan ditolak
+1116|Keluar dari tim ini?
+1117|Keluarkan anggota ini?
+1118|Hapus tim ini beserta susunannya? Tindakan ini tidak dapat dibatalkan.
+1119|Tim dihapus
+1120|Tim disimpan
+1121|Tim dibuat
+1122|Undangan terkirim
+1123|{label} bukan salah satu nilai yang diizinkan.
+1125|Tag tim terdiri dari 2 sampai 5 huruf atau angka.
+1126|Zona waktu berbentuk UTC atau UTC+2.
+1127|Bahasa maksimal 5 kode yang berbeda.
+1128|Tag pemain terdiri dari 6 huruf atau angka, seperti di profilnya.
+1129|Masuk untuk menggunakan tim.
+1130|Tim tidak ditemukan.
+1131|Hanya pemilik dan manajer yang bisa melakukan ini.
+1132|Hanya pemilik yang bisa menghapus tim.
+1133|Tidak ada pemain dengan tag ini.
+1134|Hanya pemilik yang bisa menunjuk manajer.
+1135|Peran ini bukan salah satu nilai yang diizinkan.
+1136|Hanya pemilik yang bisa mengubah manajer.
+1137|Pemilik tidak bisa keluar: hapus saja timnya.
+1138|Tag tim ini sudah dipakai.
+1139|Nama tim ini sudah dipakai.
+1140|Kamu bisa berada di maksimal {max} tim.
+1142|Pemain ini sudah ada di tim.
+1143|Pemain ini sudah punya undangan tertunda.
+1144|Tim | {site}
+1145|Tim Honor of Kings Global: susunan pemain, peran staf, dan undangan.
+1146|Tim | {site}
+1147|Sebuah tim dan susunan pemainnya.
+1148|Batas anggota
+1149|Dari 7 sampai 20, termasuk undangan tertunda
+1150|Logo
+1151|Hapus logo
+1152|{count} dari {max} anggota
+1153|Logo dihapus
+1154|Logo disimpan
+1155|Batas anggota adalah bilangan bulat dari {min} sampai {max}.
+1156|Tim sudah memiliki {count} anggota dan undangan tertunda: batas tidak boleh lebih rendah.
+1157|Tim ini penuh ({max} anggota dan undangan tertunda).
+1158|Tersedia
+1159|Scrim
+1160|Pertandingan turnamen
+1161|Latihan
+1162|Tinjauan VOD
+1163|Rapat
+1164|Agenda
+1165|Tambah acara
+1166|Jam ditampilkan dalam zona waktumu ({zone}).
+1167|Tidak ada rencana dalam 60 hari ke depan.
+1168|Ketersediaan publik
+1169|Judul
+1170|Mulai
+1171|Selesai
+1172|Catatan hanya terlihat oleh tim.
+1173|Simpan acara
+1174|Hapus acara ini?
+1175|Pilih waktu mulai dan selesai.
+1176|{label} bukan tanggal dan jam yang valid.
+1177|Waktu selesai harus setelah waktu mulai.
+1178|Sebuah acara berlangsung maksimal 24 jam.
+1179|Rentang waktu maksimal satu tahun.
+1180|Hanya staf dan kapten yang bisa mengubah agenda.
+1181|Acara tidak ditemukan.
+1182|Agenda tim memuat maksimal {max} acara: hapus acara lama dulu.
+1183|Lobi eksternal
+1184|Tidak tersedia
+1185|Menunggu
+1186|Usulan balasan
+1187|Diterima
+1188|Ditolak
+1189|Dibatalkan
+1190|Masuk untuk memakai fitur komunitas.
+1191|Minta scrim ke {team}
+1192|Timmu
+1193|Pesan
+1194|Kirim permintaan
+1195|Hanya staf dan kapten tim yang bisa meminta scrim: buat atau bergabunglah dengan tim dulu.
+1196|Minta scrim
+1197|Lihat tim
+1198|Tutup pengumuman
+1200|{count} terbuka
+1201|Tidak ada pengumuman yang cocok
+1202|Ubah filter atau buat pengumumanmu sendiri.
+1203|Terbitkan “Mencari scrim”
+1204|Cari scrim
+1205|Cari pengumuman terbuka dan tim yang cocok dengan level, zona waktu, dan formatmu.
+1206|Tanggal
+1207|Rentang
+1208|Durasi apa pun
+1209|Minimal {hours} jam
+1210|Apa saja
+1212|Direktori tim
+1213|Minta
+1214|Lihat semua tim
+1215|Hanya staf dan kapten tim yang bisa menerbitkan pengumuman: buat atau bergabunglah dengan tim dulu.
+1216|Tersedia mulai
+1217|Sampai
+1218|Terbitkan
+1219|Giliranmu
+1220|{team} menerima permintaan
+1221|{team} menolak permintaan
+1222|{team} membatalkan permintaan
+1223|{team} mengusulkan {when}
+1224|Dikirim ke {team}
+1225|Diterima dari {team}
+1226|Usulkan waktu lain
+1227|Kirim
+1228|Batalkan permintaan
+1229|Menunggu {team}
+1230|Tulis pesan…
+1231|Laporkan
+1232|Blokir tim ini
+1233|{team} mengusulkan waktu lain: {when}
+1234|{team} meminta scrim darimu: {when}
+1235|{team} menerima permintaan scrim
+1236|{team} menolak permintaan scrim
+1237|{team} membatalkan permintaan scrim
+1238|Pesan baru dari {team}
+1239|{by} mengundangmu bergabung dengan {team} sebagai {role}
+1240|{title} ({team}) dimulai pukul {when}
+1241|Notifikasi baru
+1242|Kotak masuk & notifikasi
+1244|Permintaan
+1245|Notifikasi
+1246|Belum ada permintaan
+1247|Permintaan yang kamu kirim atau terima muncul di sini.
+1248|Pilih permintaan
+1249|Kamu bisa mengirim {max} permintaan per hari per tim. Tetap sopan: kamu bisa melaporkan atau memblokir tim dari percakapan mana pun.
+1250|Tandai semua sudah dibaca
+1251|Tidak ada rencana pada periode ini.
+1253|Jawabanmu
+1254|Ikut
+1255|Mungkin
+1256|Tidak bisa
+1257|{going} ikut · {maybe} mungkin · {no} tidak bisa
+1258|Buat seri dari acara ini
+1259|60 hari ke depan
+1260|Bulan
+1261|Daftar
+1262|Acara baru
+1263|Agenda timmu, dalam zona waktumu ({zone}).
+1264|Bergabunglah dengan tim atau buat tim untuk mendapatkan agenda.
+1265|Bulan sebelumnya
+1266|Bulan berikutnya
+1267|Belum ada tim
+1268|Agendamu menampilkan acara tim-timmu.
+1269|Pemain tidak ditemukan
+1270|Discord terhubung
+1271|Tim
+1272|Undang ke tim
+1273|Ubah profilku
+1274|Hero utama
+1275|Belum ada hero utama dipilih.
+1276|Belum ada di tim.
+1277|Hero utama {number}
+1278|Maksimal 3
+1279|Simpan profilku
+1280|Discord & panduan awal
+1281|Hubungkan Discord-mu
+1282|Buat atau bergabung dengan tim
+1283|Atur ketersediaanmu
+1284|Temukan scrim pertamamu
+1285|Akun Discord-mu sudah terhubung.
+1286|Akun Discord ini sudah terhubung ke akun lain.
+1287|Discord tidak bisa dihubungkan. Coba lagi.
+1288|Hubungkan Discord untuk menerima permintaan scrim, pengingat, dan hasil sebagai pesan langsung.
+1289|Memulai
+1290|selesai
+1291|Lakukan
+1292|Discord belum diatur di server ini: pemilik situs harus menyediakan aplikasi Discord. Notifikasimu tetap ada di situs (Kotak masuk).
+1293|terhubung
+1294|Terhubung pada {date}
+1295|Putuskan
+1296|Notifikasi lewat pesan langsung
+1297|Pesan langsung tidak diaktifkan di server ini (tanpa bot): kamu tetap melihat semuanya di Kotak masuk.
+1298|Permintaan scrim dan pesan
+1300|Jawaban dan undangan tim
+1301|Hubungkan akun Discord untuk menerima notifikasi sebagai pesan langsung. Kami hanya meminta nama dan avatar Discord-mu: tidak ada yang dibaca dari server atau pesanmu.
+1302|Hubungkan Discord-ku
+1303|Yang kamu terima
+1304|Permintaan scrim baru
+1305|Nova Gaming meminta scrim BO3 (Global Ban & Pick) pada Jum, 20:00 UTC.
+1306|Kamu menjawab di situs, di Kotak masuk.
+1307|Pengumuman ditutup
+1308|Mengapa kamu melaporkan percakapan ini?
+1309|Terima kasih: administrator akan memeriksanya.
+1310|Blokir tim ini? Tim itu tidak bisa mengirim permintaan kepadamu, dan kamu tidak bisa mengirim kepadanya.
+1311|Tim diblokir
+1312|Putuskan akun Discord-mu?
+1313|Permintaan terkirim
+1314|Pengumuman diterbitkan
+1315|Profil disimpan
+1316|Cari scrim | {site}
+1317|Pengumuman scrim terbuka dari tim Honor of Kings Global: filter berdasarkan level, format, dan aturan hero.
+1318|Kotak masuk | {site}
+1319|Permintaan scrim dan notifikasi.
+1320|Agenda | {site}
+1321|Agenda tim-timmu.
+1322|Discord | {site}
+1323|Hubungkan akun Discord-mu.
+1324|Pemain | {site}
+1325|Pemain komunitas.
+1326|Ulangi
+1327|Tidak berulang
+1328|Setiap minggu, {count} kali lagi
+1329|Hanya staf dan kapten yang bisa melakukan ini.
+1330|Sebuah tim punya maksimal {max} pengumuman terbuka.
+1331|Pengumuman tidak ditemukan.
+1332|Tim ini tidak menerima permintaan darimu.
+1333|Pengumuman ini sudah tidak terbuka.
+1334|Kamu bisa mengirim {max} permintaan per hari per tim.
+1335|Permintaan untuk waktu ini sudah menunggu jawaban.
+1336|Permintaan tidak ditemukan.
+1337|Permintaan ini dibatalkan.
+1338|Percakapan ini penuh.
+1339|Permintaan ini sudah selesai.
+1340|Hanya tim yang mengusulkan waktu yang bisa membatalkan.
+1341|Sekarang giliran tim lain menjawab.
+1342|Tim tidak bisa memblokir dirinya sendiri.
+1343|Hanya anggota tim yang bisa menjawab.
+1344|Formatnya BO1, BO3, BO5, atau BO7.
+1345|Rentang ini terlalu panjang.
+1346|Waktu ini sudah lewat.
+1347|Tim tidak bisa meminta scrim ke dirinya sendiri.
+1348|Jawabannya going, maybe, atau no.
+1349|Hero utama maksimal 3 hero berbeda.
+1350|{label} harus benar atau salah.
+1351|Pengulangan mingguan adalah bilangan bulat minggu dari 0 sampai 12.
+1352|Daftar tidak valid.
+1353|Hanya anggota tim yang bisa mengekspor agendanya.
+1354|Pemain tidak ditemukan.
+1355|Hubungkan akun Discord-mu dulu.
+1356|Kotak masuk
+1357|Profil pemain
+1358|Discord
+1359|Terverifikasi
+1360|Moderator
+1361|Penyelenggara
+1362|Kontributor
+1363|Label
+1364|Simpan label
+1365|Label disimpan
+1366|Label adalah daftar label yang dikenal dan berbeda.
+1367|Minggu
+1368|Laporan
+1369|Tidak ada pesan teks dalam percakapan ini.
+1370|Dilaporkan oleh {name}
+1371|Tutup laporan
+1372|Percakapan yang dilaporkan oleh komunitas.
+1373|Tidak ada laporan
+1374|Percakapan yang dilaporkan muncul di sini.
+1375|Laporan | {site}
+1376|Laporan tidak ditemukan.
+1377|Pengingat agenda (6 jam, 4 jam, dan 2 jam sebelumnya)
+1378|Bot sudah ditambahkan ke servermu. Sekarang pilih saluran.
+1379|Bot tidak bisa ditambahkan ke servermu. Coba lagi.
+1380|Bot Discord belum diatur di server ini: pemilik situs harus menyediakan aplikasi Discord.
+1381|Tambahkan bot ke server Discord-mu: bot memposting pengingat (6 jam, 4 jam, dan 2 jam sebelumnya), scrim yang dikonfirmasi, dan ringkasan mingguan di saluran yang kamu pilih.
+1382|Tambahkan bot ke serverku
+1383|terhubung
+1384|Bot tidak lagi melihat server ini: tambahkan lagi.
+1385|Saluran untuk notifikasi
+1386|Ganti saluran
+1387|Gunakan saluran ini
+1388|Putuskan
+1389|Putuskan server Discord ini?
+1390|Saluran disimpan: sebuah pesan konfirmasi diposting.
+1391|Pilih saluran Discord.
+1392|Tambahkan bot ke server Discord dulu.
+1393|Saluran ini tidak ada di servermu.
+1394|Tidak ada draft yang berjalan. Buat seri untuk memulainya.
+1395|Draft langsung | {site}
+1396|Buka draft yang berjalan: pick dan ban kedua sisi, secara langsung.
+1397|Draft langsung
+1398|Klasik
+1399|Hanya pick, dan kedua sisi boleh memilih hero yang sama. Online, kamu hanya melihat pick milikmu sampai draft selesai.
+1400|Pick tersembunyi
+1401|{team} memilih satu hero.
+1402|{label} berisi ban di draft tanpa ban.
+1405|Draft ini tidak memiliki ban.
+1406|Latihan | {site}
+1407|Hero kamu, buku catatan kombo dan mekanik, serta situasi untuk dipelajari di peta.
+1408|Target
+1409|Mekanik
+1410|Kombo
+1411|Belum dikerjakan
+1412|Sedang dilatih
+1413|Sudah dikuasai
+1414|Camp
+1415|Objektif
+1416|Menara
+1417|Semak
+1418|Netral
+1419|Latihan
+1420|Latihanmu
+1421|Masuk untuk memilih hero dan menyimpan buku catatanmu.
+1422|Buku catatan
+1423|Situasi
+1424|Bagian latihan
+1425|Belum ada hero dipilih
+1426|Centang hero yang kamu latih di daftar: mereka muncul di sini untuk akses cepat.
+1427|Halaman hero ini tidak dapat dimuat.
+1428|Halaman lengkap hero
+1429|Catatan tentang hero ini
+1430|Cooldown {seconds} d
+1431|Biaya {cost}
+1432|Skill hero ini belum diambil.
+1433|Hero yang kamu latih, lengkap dengan semua yang dibutuhkan untuk menguasainya.
+1435|{count} dari {max} hero
+1436|Pilih hero kamu
+1437|Semua lane
+1439|Kombo: pilih skill secara berurutan
+1440|Petunjuk (opsional)
+1441|Petunjuk untuk langkah {number}
+1442|Naik
+1443|Turun
+1444|Hapus langkah {number}
+1445|Belum ada langkah: pilih skill di atas.
+1446|Jenis
+1447|Tanpa hero
+1449|Catatan baru
+1450|Semua hero
+1451|Buku catatanmu masih kosong
+1452|Tulis apa yang ingin kamu latih: mekanik, kombo, atau target untuk scrim berikutnya.
+1453|Hapus catatan ini?
+1454|(mati)
+1455|Peta
+1456|Mati
+1457|Situasi yang disiapkan administrator: tempatkan dirimu di peta dan putuskan apa yang harus dilakukan.
+1458|Situasi baru
+1459|{count} penanda
+1460|Draf
+1461|Belum ada situasi
+1462|Administrator belum menyiapkan situasi apa pun. Kembali lagi nanti.
+1463|Unggah peta dulu.
+1464|Hapus peta ini?
+1465|Peta
+1466|Administrator
+1467|Unggah peta permainan (PNG, JPEG, atau WebP, maksimal 12 MB). Penanda ditempatkan di atasnya: tidak ada yang digambar untukmu.
+1468|Belum ada peta.
+1469|Unggah peta
+1470|Situasi tidak ditemukan
+1471|Kembali ke situasi
+1472|Pelajari posisinya, lalu tulis apa yang akan kamu lakukan.
+1473|Draf: hanya administrator yang melihatnya.
+1475|Situasi
+1477|Apa yang akan kamu lakukan, dan mengapa?
+1478|Simpan jawabanku
+1479|Masuk untuk menulis jawabanmu.
+1480|Jawaban disimpan.
+1481|Pilih hero
+1482|Ubah situasi
+1483|Pilih alat, lalu klik peta. Seret penanda untuk memindahkannya; tombol panah menggeser penanda yang dipilih.
+1484|Alat
+1485|Nama di peta
+1486|Milik
+1487|Penanda
+1488|Belum ada penanda.
+1489|Tandai hidup
+1490|Tandai mati
+1491|Hapus penanda
+1492|Dipublikasikan
+1493|Hapus situasi ini?
+1494|Pilih hero dulu.
+1495|Hero ini sudah ada di sisi itu.
+1496|Satu sisi maksimal 5 hero.
+1497|{label} maksimal {max} karakter.
+1498|Pilih maksimal {max} hero.
+1499|Hero tidak dikenal.
+1500|Hero hanya bisa dipilih satu kali.
+1501|Kombo dimiliki oleh satu hero.
+1502|Hanya kombo yang punya langkah.
+1503|Kombo maksimal {max} langkah.
+1504|Satu langkah membutuhkan skill.
+1505|Kombo membutuhkan minimal satu langkah.
+1506|{label} harus berupa angka antara 0 dan 1.
+1507|Pilih salah satu peta yang diunggah.
+1508|Satu situasi maksimal {max} penanda.
+1509|Setiap penanda membutuhkan id pendeknya sendiri.
+1510|Satu hero hanya bisa ada di peta satu kali per sisi.
+1511|Satu sisi maksimal {max} hero.
+1512|Masuk untuk menggunakan area latihan.
+1513|Catatan tidak ditemukan.
+1514|Peta tidak ditemukan.
+1515|Situasi tidak ditemukan.
+1516|Pilih gambar PNG, JPEG, atau WebP.
+1517|Gambar ini terlalu besar (maksimal 12 MB).
+1518|Buku catatanmu penuh ({max} catatan). Hapus beberapa dulu.
+1519|Peta ini dipakai oleh {count} situasi. Hapus atau pindahkan dulu.
+1520|Selamat datang
+1521|Bagianmu
+1522|Scrim dan draft
+1523|Jalankan seri scrim dengan draft ban dan pick, ikuti draft langsung, dan lihat riwayat serta statistikmu.
+1524|Buat seri
+1525|Buat tier list untuk setiap lane dengan seret dan lepas, lalu bagikan.
+1526|Buka tier list
+1527|Hero dan build
+1528|Setiap hero Global dengan skill, riwayat patch, dan ilustrasi, plus lab build untuk mencoba item dan arcana.
+1529|Jelajahi hero
+1530|Pilih hero yang kamu latih, simpan buku catatan kombo dan mekanik, dan pelajari situasi di peta.
+1531|Buat atau gabung tim, lengkap dengan roster, peran, dan undangan.
+1532|Pengumuman tim yang mencari scrim, dan permintaan dengan tawaran balik.
+1533|Agenda timmu dengan pengingat, dan siapa yang datang.
+1534|Permintaan scrim dan notifikasi di satu tempat.
+1535|Halaman publikmu: hero utama, bahasa, tim.
+1536|Hubungkan akunmu untuk menerima pengingat dan menjawab permintaan dari Discord.
+1537|Selamat datang di HOK Global Scrim Lab
+1538|Tempat untuk komunitas kompetitif Honor of Kings Global: main scrim dengan draft resmi, cari lawan, atur jadwal, dan berlatih.
+1539|Hanya data game Global. Tanpa data ranked. Tidak ada yang dikarang.
+1540|Hanya semenit: kamu memilih apa yang ingin dilihat, dan bisa mengubahnya kapan saja.
+1541|Apa yang ingin kamu lihat?
+1542|Pilih bagian yang kamu butuhkan. Sisanya disembunyikan dari menu (halamannya tetap bisa dibuka lewat tautan).
+1543|Selalu aktif: tim, permintaan scrim, agenda, kotak masuk, halaman pemain, dan Discord.
+1544|Komunitas
+1545|Bagian ini untuk semua orang dan selalu ada di menumu.
+1546|Buat akun untuk memakai komunitas: gratis.
+1547|Kamu siap
+1548|Mulai dari sini. Menumu kini hanya menampilkan pilihanmu dan komunitas.
+1549|Langkah
+1550|Kembali
+1551|Lewati, pertahankan semua
+1552|Selamat datang | {site}
+1553|Pilih bagian situs yang ingin kamu lihat.
+1554|modules harus berupa daftar.
+1555|Bagian situs tidak dikenal.
+1556|Masuk untuk menyimpan pilihanmu.
+1558|Pengaturan | {site}
+1559|Bagian situs, nilai bawaan, dan tampilanmu.
+1560|Pengaturan
+1561|Pilihanmu disimpan di akunmu.
+1562|Pilihanmu disimpan di browser ini. Masuk untuk menyimpannya di mana saja.
+1563|Akunmu
+1564|Bagian situs
+1565|Aktifkan bagian yang sebelumnya tidak kamu inginkan, atau sembunyikan yang tidak kamu pakai. Bagian tersembunyi tetap bisa dibuka lewat alamatnya.
+1566|Lihat lagi halaman sambutan
+1567|Formulir seri baru dimulai dengan pilihan ini.
+1568|Tampilan
+1569|Halaman awal
+1570|Kurangi animasi
+1571|Halaman awal terbuka saat kamu datang ke situs. Animasi yang dikurangi juga berlaku saat perangkatmu memintanya.
+1572|Pilih pesan yang kamu terima di Discord, dan hubungkan akunmu, di halaman Discord.
+1573|Buka pengaturan Discord
+1574|Buka kotak masuk
+1575|Masuk untuk mendapatkan notifikasi.
+1576|Halaman pemainmu
+1577|Simpan pengaturan
+1578|Pengaturan disimpan.
+1579|{label} bukan pilihan yang didukung.
+1580|settings harus berupa objek.
+1581|reduceMotion harus true atau false.
+1582|Ada perubahan yang belum disimpan.
+1583|Buang perubahan
+1584|Seorang hero mempertahankan setidaknya satu lane.
+1585|Hapus lane {lane}
+1586|Lane diperbarui
+1587|Free For All
+1588|Semua aturan
+1589|Belum ada lane
+1590|{hero}: {lane}
+1591|Lane yang dimainkan
+1592|Tanpa lane
+1593|Seret lane ke hero, atau klik lane lalu klik hero.
+1594|Aturan draft
+1595|{label} harus memberi lane (atau tidak ada) untuk setiap dari lima pick.
+1596|{label} berisi lane yang tidak ada.
+1597|{label} memberi lane yang sama ke dua hero dalam satu sisi.
+1598|Aturan tidak valid.
+1599|Seorang hero mempertahankan setidaknya satu lane: tambahkan yang lain sebelum menghapus ini.
+1600|Hero ini tidak memiliki lane itu.
+1601|Beralih ke tema gelap
+1602|Beralih ke tema terang
+1603|Mode gelap
+1604|Mode terang
+1607|Tidak ada hasil untuk “{query}”
+1608|{count} belum dibaca
+1609|Semua sudah dibaca
+1610|Belum ada notifikasi.
+1611|Scrim Lab
+1612|Scrim & draft
+1613|Hero & build
+1614|Lebih dari sekadar game, sebuah komunitas.
+1615|Arah teks
+1616|Navigasi seluler
+1617|Langsung
+1619|Jawabanmu: {answer}
+1620|Kamu belum menjawab.
+1621|Siapa yang ikut
+1622|{going} dari {total} ikut
+1623|Belum ada rencana
+1624|Buat seri untuk memulai draft, atau cari tim untuk dilawan.
+1625|Berikutnya: {title} bersama {team}, {when}.
+1626|Buka ruang draft
+1627|Lihat agenda
+1628|Buka draft
+1629|Draft, scrim, latihan.
+1630|Siapkan scrim, tingkatkan permainanmu, jelajahi hero, dan bangun timmu di HOK Global Scrim Lab.
+1631|Akun gratis
+1632|Simpan seri-mu, main online.
+1633|Buat akun untuk menyimpan scrim, bermain online dengan lawan yang diundang, membagikan tier list, dan bergabung dengan tim.
+1634|Sorotan
+1635|Acara timmu muncul di sini.
+1636|Masuk untuk melihat agenda timmu.
+1641|Acara berikutnya
+1642|Lihat semua
+1643|Tingkatkan mekanikmu, ulas kombomu, dan latih situasi permainan.
+1644|Buka
+1645|Tim saya
+1646|Buat tim atau terima undangan untuk melihatnya di sini.
+1647|Statistik cepat
+1648|Hanya data Global
+1649|Tanpa data ranked dan ladder. Statistik pribadimu disembunyikan sampai ada cukup game.
+1650|Scrim saya
+1651|Mendatang
+1652|Lalu
+1653|Selamat pagi, {name}.
+1654|Selamat siang, {name}.
+1655|Selamat malam, {name}.
+1656|Hero hari ini
+1657|Buka profil
+1659|Urutkan
+1660|Tampilan
+1661|Kisi
+1662|5 DETIK TERAKHIR
+1663|WAKTU HABIS
+1664|{seconds} dtk
+1665|Pick berikutnya
+1666|Diungkap di akhir draft
+1667|Pick {number} dari 5
+1668|Pick tersembunyi
+1670|Berlangsung
+1671|Selesai
+1672|Siapkan seri, lakukan draft langsung, dan simpan riwayat setiap game.
+1673|Masuk ke ruangan
+1674|Tim, mode…
+1675|Hero ini sudah ada di latihanmu.
+1676|Ditambahkan ke latihanmu.
+1677|Lane atas
+1678|Lane tengah
+1679|Lane bawah
+1680|Build yang direkomendasikan
+1684|Tambahkan ke latihan
+1685|Di level {level}
+1686|Peran di roster
+1692|Salin tautan tim
+1688|Pemilik dan kapten
+1689|Pemain dan cadangan
+1690|Staf (manajer, pelatih, analis)
+1687|Kamu belum bergabung dengan tim mana pun.
+1691|Klik logo untuk menentukan lane pemain.
+1693|Pengumumanmu
+1694|Permintaanmu
+1697|Slot waktu
+1695|Jawaban bertanda tangan
+1696|Di Discord, permintaan datang dengan tombol Terima dan Tolak. Setiap klik ditandatangani Discord dan diperiksa di sini, dan hanya staf tim yang dapat menjawab.
+1698|Cari…
+1703|Hari ini
+1701|Minggu sebelumnya
+1702|Minggu berikutnya
+1700|Tidak ada rencana pada hari itu.
+1699|Perlu dijawab
+1705|Baca
+1706|Tema
+1707|Gelap
+1708|Terang
+1709|Kiri ke kanan
+1710|Kanan ke kiri
+1711|Bagian
+1712|Langkah {number} dari {count}
+1713|Lab scrim untuk Honor of Kings Global.
+1714|Draft langsung dengan urutan kompetitif resmi
+1715|Tier list per lane, bisa dibagikan lewat satu tautan
+1716|Pengingat dan jawaban bertanda tangan langsung di Discord
+1717|Kode 6 digit
+1718|Pemain terhubung
+1719|Menunggu pemain
+1720|Kemenangan
+1721|Tinjau draft
+1722|Durasi rata-rata
+1723|Ringkasan
+1724|Hero paling sering dipilih
+1725|{count, plural, other {# gim}}
+1728|Adu langsung per lane
+1727|Semua lane sudah diisi.
+1726|{count, plural, other {# lane perlu diisi}} · biru {blue}, merah {red}
+1729|Tanpa ban
+1752|Minimal satu item atau arcana
+1730|Build
+1749|Build disimpan: {name}
+1734|Build yang ditampilkan
+1758|Build yang ditulis
+1764|Perubahan belum disimpan
+1732|Salin tautan build ini
+1763|Hapus build {variant}
+1771|Hapus build {variant} hero ini?
+1733|Hapus build ini
+1750|Hapus build ini?
+1774|Edit build
+1767|Panduan hero
+1775|Panduan hero | {site}
+1757|Hero yang ditampilkan
+1756|Hero dengan minimal satu build
+1744|Hanya disimpan di browser ini, tanpa akun. Menghapus data browser akan menghapusnya: salin tautan build untuk menyimpannya di tempat lain.
+1770|Tinggalkan build ini? Perubahanmu belum disimpan.
+1731|Muat
+1751|Tandai {min} atau {max} item inti (sekarang {count})
+1736|Build saya
+1739|Nama build ini
+1738|Nama build ini (opsional)
+1743|Belum ada build tersimpan. Simpan satu agar bisa ditemukan di sini lain kali, untuk hero mana pun.
+1759|Tanpa nama
+1760|Belum disimpan
+1737|Di perangkat ini
+1765|Pilih hero dari daftar untuk menulis build-nya.
+1745|Terbitkan sebagai build rekomendasi
+1741|Simpan sebagai build baru
+1762|Simpan build {variant}
+1742|Simpan build ini
+1766|Lihat halaman hero
+1773|Masuk untuk menulis panduan hero.
+1761|Tautan sumber (opsional)
+1753|Sumber adalah tautan yang diawali https://
+1777|Tindakan ini hanya untuk administrator dan kontributor.
+1748|Browser ini tidak mau menyimpan build (jendela pribadi atau penyimpanan penuh).
+1769|Build ini berasal dari lab build. Periksa lalu simpan.
+1735|Hero ini
+1772|Halaman ini untuk orang yang menulis panduan hero. Administrator dapat memberimu label Kontributor.
+1740|Perbarui “{name}”
+1755|Dengan build
+1754|Tanpa build
+1776|Tulis build rekomendasi dan kombo yang tampil di halaman setiap hero.
+1768|Tulis build rekomendasi dan kombo yang tampil di halaman setiap hero. Setiap build diperiksa terhadap katalog game.
+1746|Kamu bisa menyimpan {max} build untuk satu hero: hapus satu dulu.
+1747|Kamu bisa menyimpan {max} build secara total: hapus satu dulu.
+1778|Pilih hari pertama dan terakhir periode.
+1779|Periode harus mencakup setidaknya {months} bulan.
+1781|Menang melawan
+1784|Sampel kecil
+1785|Tidak ada baris yang mencapai {count} game pada periode ini: turunkan minimumnya.
+1786|Tidak ada yang bisa diperingkat pada periode ini.
+1787|{count, plural, other {# draft}}
+1788|Kedua sisi
+1789|Sisi
+1790|Pick tanpa lane yang diisi tidak dihitung: {count}.
+1809|{months, plural, other {# bulan}}
+1792|Sejak game pertama
+1793|Minimal game
+1794|Urutkan berdasarkan
+1795|Paling sering dimainkan
+1796|Hanya game turnamen, bukan scrim. Yang pertama tanggal {date}.
+1797|Hanya game turnamen, bukan scrim.
+1798|Draft populer
+1799|Hero populer
+1800|Draft lima hero yang paling sering menang dan paling sering dimainkan di turnamen, untuk setiap sisi.
+1801|Hero yang paling sering menang dan paling sering dimainkan di turnamen, untuk setiap lane.
+1802|Tidak ada game turnamen pada periode ini.
+1803|Perluas periode, atau minta administrator memasukkan game yang telah dimainkan.
+1804|Populer
+1805|Draft
+1806|Draft dan hero populer di turnamen | {site}
+1807|Draft dan hero yang paling sering menang dan paling sering dimainkan di turnamen Honor of Kings Global, untuk setiap sisi dan lane.
+1808|minGames harus berupa bilangan bulat antara 1 dan 50.
+1810|Peringkat di {lane}: {tier}
+1812|Pindahkan {name} ke
+1813|Seret hero ke sebuah tier, atau klik lalu pilih tier-nya.
+1814|Belum pernah disimpan
+1815|Simpan peringkat
+1816|Peringkat resmi
+1817|Beri peringkat hero tiap lane dari SS sampai D. Peringkat tampil di samping setiap lane pada halaman hero; daftarnya sendiri hanya untuk editor.
+1818|Peringkat disimpan
+1819|Tinggalkan lane ini? Perubahanmu belum disimpan.
+1820|Halaman ini untuk orang yang menulis peringkat hero. Administrator dapat memberimu label Kontributor.
+1821|Masuk untuk menulis peringkat hero.
+1822|Peringkat resmi | {site}
+1823|Beri peringkat hero tiap lane, dari SS sampai D.
+1824|Peringkat ini berubah sejak kamu membukanya. Muat ulang lalu coba lagi.
+1825|Tier harus berupa objek JSON.
+1826|Kirim hero tiap tier, dari SS sampai D.
+1827|Tier-nya adalah SS, S, A, B, C, dan D, masing-masing sekali.
+1828|Hero dalam satu tier harus berupa daftar ID hero.
+1829|Satu hero hanya bisa berada di satu tier, lewat ID-nya.
+1830|Peringkat
+1831|Kombo punya nama
+1832|Minimal satu langkah (sekarang {count})
+1833|Edit kombo
+1834|Kombo baru
+1835|{count} dari {max} langkah
+1836|Simpan kombo
+1837|Belum ada kombo
+1838|Tulis kombo pertama hero ini: pilih skill-nya sesuai urutan pemakaiannya.
+1839|Tinggalkan kombo ini? Perubahanmu belum disimpan.
+1840|Kombo disimpan
+1841|Hapus kombo {name}?
+1842|Kombo dihapus
+1843|Kombo
+1844|Tanpa kombo
+1845|Dengan kombo
+1846|Hero dengan minimal satu kombo
+1847|Kombo yang ditulis
+1848|Apa yang ditulis
+1849|Latih kombo ini
+1850|Edit kombo
+1851|Kombo lainnya ({count})
+1852|Belum ada kombo yang ditulis untuk hero ini.
+1853|Bentuk yang dikuasai: {name}
+1854|Normal
+1855|Pembatalan animasi
+1856|Kirim setiap kombo hero satu kali, dalam urutan yang diinginkan.
+1857|Setiap bentuk kombo dikuasai atau tidak: true atau false.
+1858|Sebutkan bentuk kombo mana yang dikuasai.
+1859|Kombo tidak ditemukan.
+1860|Satu hero memiliki paling banyak {max} kombo.
+1861|Waktu reaksi
+1862|Memori urutan
+1863|Tes simpanse
+1864|Latihan bidik
+1865|Pelacakan visual
+1866|Kawan atau lawan
+1867|Last hit
+1868|Tombol skill
+1869|Ketuk panel begitu berubah hijau.
+1870|Ulangi urutan panel yang menyala.
+1871|Ingat posisi angka dan sentuh sesuai urutan.
+1872|Tembak tiga puluh target secepat mungkin.
+1873|Ikuti bola yang menyala saat bergerak.
+1874|Serang musuh, jangan sentuh sekutu.
+1875|Serang saat bar nyawa turun di bawah tanda.
+1876|Tekan tombol skill sesuai urutan yang ditampilkan.
+1877|Waktu rata-rata
+1878|Level yang dicapai
+1879|Angka yang diselesaikan
+1880|Waktu rata-rata per target
+1881|Bola yang diikuti
+1882|Waktu rata-rata, termasuk penalti
+1883|Rata-rata selisih
+1884|Waktu rata-rata per perintah
+1885|Makin rendah makin baik
+1886|Makin tinggi makin baik
+1887|{count, plural, other {# percobaan}}
+1888|{count, plural, other {# menit}}
+1889|{count, plural, other {# hari}}
+1890|Setiap hari
+1891|Setiap minggu
+1892|Latihan apa saja
+1893|Satu tim memiliki paling banyak {max} target latihan.
+1894|Dihitung dalam
+1895|Percobaan
+1896|Menit
+1897|Jumlah
+1898|Latihan
+1899|Tambah target
+1900|Belum ada yang diminta berlatih: target berlaku untuk pemain, cadangan, dan kapten.
+1901|Belum ada target. Minta pemain melakukan sejumlah percobaan atau menit setiap hari atau setiap minggu.
+1902|Staf belum menetapkan target apa pun.
+1903|Target latihan
+1904|Setiap pemain diminta menyelesaikan sejumlah percobaan, atau menit, latihan refleks setiap hari atau setiap minggu. Satu hari, dan satu minggu mulai Senin, mengikuti jam tim.
+1905|Kemajuan pemain
+1906|Kemajuanmu
+1907|Latihan refleks
+1908|Belum ada yang dipantau sampai target ditetapkan.
+1909|Simpan target
+1910|Target disimpan
+1911|Target dihapus
+1912|Target
+1913|Target {done} dari {total}
+1914|Angka {number}
+1915|Sentuh 1 sampai {count} secara berurutan
+1916|Selesai: 1 sampai {count}
+1917|Kesalahan {strikes} dari {max}
+1918|Unit {done} dari {total}
+1919|Musuh
+1920|Sekutu
+1921|Skill yang harus ditekan, berurutan
+1922|Skill {number}
+1923|Perintah {done} dari {total}
+1924|Serang
+1925|Minion {done} dari {total}
+1926|Terlambat: minion sudah mati
+1927|Tepat sasaran!
+1928|{ms} ms terlalu cepat
+1929|{ms} ms terlalu lambat
+1930|Tunggu hijau…
+1931|Ronde {round} dari {rounds}
+1932|Klik sekarang!
+1933|Terlalu cepat!
+1934|Tunggu hijau. Ronde ini diulang.
+1935|Panel {number}
+1936|Level {level}: perhatikan
+1937|Level {level}: giliranmu
+1938|Panel salah
+1939|Level {level} selesai
+1940|Bola {number}
+1941|Ingat bola yang menyala ({count})
+1942|Ikuti dengan mata
+1943|Sentuh bola yang kamu ikuti ({count})
+1944|Semua ketemu!
+1945|Belum tepat. Nyawa tersisa: {lives}
+1946|Panel berubah hijau setelah jeda acak. Ketuk begitu itu terjadi. Ketukan sebelum hijau tidak dihitung: ronde diulang. Lima ronde.
+1947|Panel menyala satu per satu. Ulangi urutannya. Setiap level menambah satu panel, dan satu panel yang salah mengakhiri percobaan.
+1948|Angka tersebar di papan. Sentuh berurutan mulai dari 1: begitu 1 disentuh, angka lain disembunyikan. Tiga kesalahan mengakhiri percobaan.
+1949|Sebuah target muncul: tembak, lalu target berikutnya muncul di tempat lain. Tiga puluh target. Klik di sebelah target menambah 150 ms pada target itu.
+1950|Beberapa bola menyala, lalu semuanya tampak sama dan bergerak. Saat berhenti, sentuh bola yang tadi menyala. Setiap level menambah satu bola; tiga nyawa.
+1951|Unit muncul selama satu detik. Serang yang merah (musuh) dan biarkan yang biru (sekutu). Tiga puluh unit.
+1952|Bar nyawa minion menurun dan ada tanda di atasnya. Serang tepat saat bar turun di bawah tanda, tidak sebelum dan tidak sesudahnya. Sepuluh minion.
+1953|Empat skill muncul. Tekan sesuai urutan dengan tombol 1 sampai 4, atau lewat sentuhan. Lima belas perintah. Tombol yang salah menambah 300 ms.
+1954|Rata-rata lima rondemu, dalam milidetik.
+1955|Urutan terpanjang yang kamu ulangi tanpa salah.
+1956|Angka terbanyak yang kamu selesaikan di satu papan.
+1957|Waktu rata-rata menembak satu target, dalam milidetik.
+1958|Bola terbanyak yang kamu ikuti tanpa salah.
+1959|Waktu rata-rata menyerang musuh, dalam milidetik (musuh yang terlewat dihitung satu detik penuh), ditambah 250 ms untuk setiap sekutu yang terkena.
+1960|Seberapa meleset seranganmu rata-rata, dalam milidetik.
+1961|Waktu rata-rata untuk satu perintah, dalam milidetik.
+1962|Ditetapkan oleh timmu
+1963|Belum dimainkan
+1964|Terbaik
+1965|Latihan singkat untuk refleks, memori, dan bidikanmu. Berjalan di browsermu dan tidak mengirim apa pun saat kamu bermain.
+1966|Minggu ini
+1967|Rentetan
+1968|Kamu belum memainkan yang ini.
+1969|Skor terbarumu
+1970|Semua latihan
+1971|Berhenti
+1972|Menyimpan…
+1973|Tersimpan.
+1974|Rekor baru!
+1975|Coba simpan lagi
+1976|Coba lagi
+1977|Refleks
+1978|Latihan tidak dikenal.
+1979|{label} harus salah satu dari: {allowed}.
+1980|Selisih zona waktu harus berupa jumlah menit antara -840 dan 840.
+1981|Itu banyak sekali latihan untuk satu hari: kembali lagi nanti.
+1982|Hanya anggota tim yang dapat melihat latihannya.
+1983|Hanya pemilik, manajer, dan pelatih yang dapat menetapkan latihan tim.
+1984|Target tidak ditemukan.
+1985|Hapus target ini?
+1986|Cara bermain
+1987|Cara penilaian
+1988|Simpan build ini di ruang saya
+1989|Untuk menemukan build di perangkat mana pun, dan membagikannya, simpan di ruangmu.
+1990|Masuk untuk menyimpan build di ruangmu, di perangkat mana pun.
+1991|Tersimpan di ruangmu
+1992|Lembar latihan
+1993|Semua peran
+1994|{count, plural, other {# hero}}
+1995|Belum ada hero yang diberi peringkat di daftar ini.
+1996|Belum ada tier list
+1997|Buat tier list dan tersimpan di sini.
+1998|Buka di lab build
+1999|Hapus build ini dari ruang saya
+2000|Belum ada build yang disimpan
+2001|Simpan build di lab build, lalu simpan di ruangmu.
+2002|Tidak ada yang disimpan di sini.
+2003|Hero yang dilatih
+2004|Belum ada hero yang dipilih.
+2005|Tidak ada apa pun di buku catatan.
+2006|Kombo yang dikuasai
+2007|Belum ada kombo yang dikuasai.
+2008|Belum ada latihan yang dimainkan.
+2009|Buka latihan
+2010|Ruang saya
+2011|Masuk untuk menyimpan build, tier list, dan lembar latihanmu, lalu bagikan lewat tautan.
+2012|Tidak berakhir
+2013|Berakhir pada {date}
+2014|{count, plural, other {Dibuka # kali}}
+2015|Belum pernah dibuka
+2016|Tautan {date}
+2017|Hapus tautan
+2018|Bagikan ruang saya
+2019|{count} dari {max} tautan
+2020|Siapa pun yang punya tautan dapat melihat yang dibagikannya, hanya-baca dan tanpa akun. Tautan adalah satu-satunya cara ruangmu dibagikan: tidak ada yang ditampilkan di daftar mana pun.
+2021|Tautan membagikan
+2022|Nama tautan (opsional)
+2023|Untuk pelatih saya
+2024|Tautan berlaku
+2025|Sampai saya menghapusnya
+2026|Buat tautan
+2027|Tautan barumu
+2028|Hanya ditampilkan sekali: salin sekarang. Siapa pun yang memilikinya dapat melihat yang dibagikan.
+2029|Alamat tautan
+2030|Salin tautan
+2031|Tautanmu
+2032|Belum ada tautan: tidak ada yang bisa melihat ruangmu.
+2033|Yang kamu simpan di situs: tier list, build, dan lembar latihanmu. Bagikan semuanya, atau hanya yang kamu pilih, dengan satu tautan.
+2034|Hapus tautan ini? Orang yang memilikinya tidak akan bisa melihat ruangmu lagi.
+2035|Tautan dihapus
+2036|Hapus build ini dari ruangmu?
+2037|Build dihapus
+2038|Ruang ini tidak tersedia
+2039|Kembali ke situs
+2040|Alamat ini tidak memuat tautan. Minta tautan lengkapnya dari orangnya.
+2041|Ruang bersama
+2042|Ruang milik {name}
+2043|Dibagikan kepadamu lewat tautan. Kamu melihatnya seperti sekarang, dan tidak ada yang bisa diubah di sini.
+2044|Tidak ada yang dibagikan.
+2045|Ruang saya | {site}
+2046|Yang kamu simpan di situs, dan tautan yang membagikannya.
+2047|Ruang bersama | {site}
+2048|Ruang yang dibagikan seseorang kepadamu.
+2049|Pilih hero dari daftar, atau tidak sama sekali.
+2050|Pilih apa yang dibagikan tautan.
+2051|Tautan berlaku 7, 30, atau 90 hari, atau sampai kamu menghapusnya.
+2052|Tautan ini tidak valid.
+2053|Masuk untuk menggunakan ruangmu.
+2054|Tautan tidak ditemukan.
+2055|Tautan ini tidak ada atau sudah berakhir.
+2056|Kamu dapat menyimpan paling banyak {max} build di ruangmu.
+2057|Kamu dapat menyimpan paling banyak {max} build untuk satu hero.
+2058|Kamu dapat membuat paling banyak {max} tautan. Hapus satu dulu.
+2059|Pemanasan
+2060|Mekanik
+2061|Fokus dan memori
+2062|Semuanya
+2063|Reaksi, bidikan, dan tombol skill: bangunkan tanganmu sebelum scrim.
+2064|Tombol skill, last hit, kawan atau lawan, dan bidikan: ketepatan tangan.
+2065|Memori urutan, tes simpanse, dan pelacakan visual: simpan informasi di kepalamu.
+2066|Kedelapan latihan, satu demi satu.
+2067|Dimainkan hari ini
+2068|Rutinitas
+2069|Mainkan beberapa latihan berurutan, satu demi satu, dan lihat hasilnya di akhir.
+2070|Pilih rutinitas
+2071|{count, plural, other {# latihan}}
+2072|Mulai rutinitas
+2073|Rutinitasmu sendiri
+2074|Centang latihan yang kamu mau, dimainkan sesuai urutan daftar.
+2075|Centang minimal dua latihan.
+2076|Rutinitas selesai
+2077|Hasilmu, latihan demi latihan.
+2078|Hasilmu
+2079|Rekor
+2080|Tidak ada yang dimainkan dalam rutinitas ini.
+2081|Ulangi lagi
+2082|Rutinitas
+2083|Lewati latihan ini
+2084|Hentikan rutinitas
+2085|Lihat hasilmu
+2086|Berikutnya: {name}
+2087|Peringkat
+2088|Tampilkan peringkat ke pemain
+2089|Skor terbaik setiap pemain yang diminta berlatih, pada latihan yang kamu pilih. Skor sama berbagi peringkat.
+2090|Belum ada yang memainkan latihan ini minggu ini.
+2091|Belum ada yang memainkan latihan ini.
+2092|Pemain dapat melihat peringkat
+2093|Peringkat hanya untuk staf
+2094|Peringkat ditampilkan ke pemain atau tidak: true atau false.
+2095|Staf belum membuka peringkat untuk pemain.
+2096|Kedua bentuk
+2097|{count, plural, other {# kombo}}
+2098|Belum ada target soal hero. Minta pemain menguasai kombo seorang hero.
+2099|Staf belum meminta apa pun soal hero.
+2100|Satu tim memiliki paling banyak {max} target soal hero.
+2101|Belum ada hero yang punya kombo: editor menulisnya di panduan hero.
+2102|Dikuasai dalam bentuk
+2103|Minta hero ini
+2104|Hero yang harus dikuasai
+2105|Setiap pemain diminta menguasai kombo hero-hero ini dalam bentuk yang dipilih. Kombonya adalah yang ditulis editor untuk hero tersebut.
+2106|Latih
+2107|Kombo yang dicek hari ini
+2108|Kamu menguasai kombo ini beberapa waktu lalu: apakah masih lancar?
+2109|Masih lancar
+2110|Berkarat
+2111|Masih ada {count} lagi setelah ini.
+2112|Tidak ada yang perlu dicek hari ini.
+2113|Kombo yang perlu dipelajari
+2114|Kombo hero yang kamu latih dan yang diminta timmu, yang belum kamu kuasai.
+2115|Kamu akan melihatnya lagi dalam {days}.
+2116|Sebutkan apakah kamu masih menguasai kombo ini: true atau false.
+2117|Kombo ini tidak ada di jadwal ulasanmu.
+2118|Hero ini belum punya kombo.
+2119|Tim sudah memintanya.
+2120|Tonton dari {time}
+2121|Tonton videonya
+2122|Baris {line}: tulis waktu seperti 12:30, lalu apa yang perlu dilihat.
+2123|Baris {line}: paling banyak {max} karakter.
+2124|Satu ulasan video memiliki paling banyak {max} momen.
+2125|Tautan video
+2126|Momen yang perlu ditonton ulang
+2128|Satu momen per baris: waktu (12:30 atau 1:02:03), lalu apa yang perlu dilihat.
+2129|Yang perlu dilatih: target, mekanik, kombo, dan ulasan video. Hanya kamu yang bisa melihatnya.
+2130|Ulasan video
+2131|Perlu ditonton
+2132|Sedang diulas
+2133|Sudah diulas
+2134|Sebuah momen memerlukan waktu antara 0:00 dan {max}.
+2135|Ulasan video milik seorang hero.
+2136|Tautan video harus berupa alamat https:// lengkap.
+2137|Hanya ulasan video yang memiliki tautan dan momen.
+2138|12:30 rotasi terlambat
+2139|{subject} bukan {value}
+2140|{subject} minimal {value}
+2141|{subject} maksimal {value}
+2142|{subject} lebih dari {value}
+2143|{subject} kurang dari {value}
+2144|{subject} adalah {value}
+2145|bukan ({conditions})
+2146|{stat} bukan {options}
+2147|{stat} adalah {options}
+2148|Tidak punya tag {tag}
+2149|Punya tag {tag}
+2150|Kelas bukan {role}
+2151|Kelas adalah {role}
+2152|Tidak bermain di {lane}
+2153|Bermain di {lane}
+2154|Hero bukan {heroes}
+2155|Hero adalah {heroes}
+2156|Saat: {conditions}
+2157|Sementara, {seconds} dtk
+2158|Sementara
+2160|Tidak berlaku untuk hero ini.
+2161|Tidak dapat diperiksa: data hero ini belum lengkap.
+2162|{count, plural, other {# nilai tidak berlaku untuk hero ini}}
+2163|{count, plural, other {# nilai tidak dapat diperiksa: data hero belum lengkap}}
+2164|{count, plural, other {# nilai bergantung pada hero: pilih satu hero agar dihitung}}
+2165|{count, plural, other {# nilai sementara, tidak termasuk dalam total}}
+2159|Nilai yang bergantung pada hero hanya dihitung jika berlaku untuk hero yang kamu pilih. Nilai sementara ditampilkan terpisah dan tidak termasuk dalam total.
+2166|Statistik hero
+2167|Tag hero
+2168|Kelas hero
+2169|Lane hero
+2170|Hero
+2171|Level hero
+2172|Grup kondisi
+2173|Semuanya terpenuhi
+2174|Setidaknya satu terpenuhi
+2175|Berapa banyak kondisi yang harus terpenuhi
+2176|adalah
+2177|bukan
+2178|Harus begitu, atau tidak begitu
+2179|Perbandingan
+2180|Tag
+2182|Jenis kondisi
+2181|Hapus kondisi ini
+2183|Bukan
+2184|Tambah kondisi
+2185|Tambah grup
+2186|Berlaku untuk semua hero.
+2187|Hanya untuk sebagian hero
+2188|Berlaku saat
+2189|{count, plural, other {# kondisi}}
+2190|Bilangan bulat
+2191|Pilihan (daftar opsi)
+2192|Pilihan: {options}
+2193|Opsi
+2194|Sementara dan kondisi
+2195|Durasi (dtk)
+2196|Kapan atau bagaimana (opsional)
+2197|Nama opsi
+2198|Hapus opsi ini
+2199|Tambah opsi
+2200|Opsi pilihan (yang bisa diambil hero atau item)
+2201|Ada kondisi yang belum selesai: lengkapi atau hapus.
+2202|{label} merujuk ke sesuatu yang tidak ada.
+2203|{label} harus menyebutkan opsi dari statistik.
+2204|{label} menyebutkan opsi yang sama dua kali.
+2205|{label} harus menyebutkan 1 sampai {max} hero.
+2206|{label} menyebutkan hero yang sama dua kali.
+2207|Kondisi dapat bersarang paling banyak {max} tingkat.
+2208|Grup kondisi tidak boleh kosong.
+2209|Totalnya paling banyak {max} kondisi.
+2210|Satu set kondisi berisi paling banyak {max} kondisi.
+2211|{label} harus berupa set kondisi.
+2212|{label} harus berupa bilangan bulat.
+2213|Hanya nilai sementara yang punya durasi.
+2214|{label} menyebutkan statistik yang sama dua kali dengan kondisi yang sama.
+2215|Pilihan membutuhkan {min} sampai {max} opsi.
+2216|Statistik ini dipakai oleh {count} item, arcana, atau hero: tidak dapat diubah dari angka menjadi pilihan (atau sebaliknya) selama masih dipakai.
+2217|Opsi “{name}” dipakai oleh {count} item, arcana, atau hero: hapus dulu dari mereka.
+2218|{count} nilai statistik ini bukan bilangan bulat: ubah dulu.
+2219|Tag ini disebut dalam kondisi {count} item atau arcana: hapus dulu dari mereka.
+2220|Terjemahan
+2221|Gagal
+2222|Manual
+2223|Otomatis
+2224|Deskripsi tag
+2225|Nama efek
+2226|Catatan tentang bonus
+2227|Catatan skill
+2228|Detail skill
+2229|Catatan build
+2230|Catatan kombo
+2231|Petunjuk
+2232|Situasi
+2233|Penanda
+2234|Angkanya tidak sama dengan yang ada di teks.
+2235|Terjemahannya jauh lebih panjang dari teksnya.
+2236|Terjemahannya kosong.
+2237|Layanan tidak memberikan teks.
+2238|Layanan tidak menjawab untuk teks ini.
+2239|Terjemahan otomatis mati
+2241|Layanan terjemahan menolak kunci
+2242|Tidak ada yang dikirim sampai kunci diganti di server dan satu putaran diminta.
+2243|Dijeda
+2244|Penerjemah menunggu dan akan mencoba lagi dengan sendirinya.
+2245|Masalah terakhir: {message}
+2246|Mati
+2248|Terjemahan selesai
+2250|terjemahan selesai
+2251|menunggu
+2252|gagal
+2253|ditulis manual
+2254|Terkirim hari ini: {used} dari {limit} karakter.
+2255|Sedang menerjemahkan…
+2256|Terjemahkan sekarang
+2257|Cari teks baru
+2258|Coba lagi yang gagal
+2259|Ditulis dalam bahasa ini
+2260|Ditulis dalam {language}
+2261|Terjemahan ke {language}
+2262|Kembali ke otomatis
+2263|Teks tetap seperti yang diketik di semua bahasa
+2264|Biarkan apa adanya
+2265|Teks dalam {language}
+2266|Tampilkan
+2267|Tidak ada teks yang cocok.
+2268|Belum ada yang diterjemahkan: tulis statistik, item, atau tag dan akan muncul di sini.
+2269|Terjemahan telah dimulai
+2270|Teks yang gagal akan dicoba lagi
+2271|Terjemahan disimpan
+2272|Kembali ke terjemahan otomatis
+2273|Teks ini tetap seperti yang diketik di semua bahasa
+2274|Teks tidak ditemukan.
+2275|{label} harus salah satu bahasa situs.
+2276|Terjemahan harus berupa teks.
+2277|Teks
+2278|Fisik
+2279|Sihir
+2280|Pertahanan
+2281|Jungle
+2282|Roaming
+2283|Kategori
+2284|PNG, JPEG, WebP, atau GIF, maksimal 3 MB. Gambar dipertahankan hingga 256 px; transparansi dipertahankan.
+2285|Belum ada kategori
+2286|Statistik yang diberikan (hingga 4, untuk satu arcana)
+2287|Semua kategori
+2288|Kelompokkan beberapa item
+2289|{count, plural, other {# item dipilih}}
+2290|Pilih semua yang tampil
+2291|Hapus pilihan
+2292|Kategori item yang dipilih
+2293|Slot item yang dipilih
+2294|{count, plural, other {# item diperbarui}}
+2295|Selesai mengelompokkan
+2296|Kelompokkan sekaligus
+2301|Centang item di daftar, lalu pilih kategori atau slotnya.
+2298|{label} harus berisi 1 sampai {max} item.
+2299|{label} memuat item yang sama dua kali.
+2300|Sebutkan apa yang diubah: slot, kategori, atau keduanya.
+2302|Karakter yang terpakai di akun periode ini: {used} (tanpa batas).
+2303|Karakter yang terpakai di akun periode ini: {used} dari {limit}.
+2304|Berhenti di {percent}% kuota, agar ada sisa untuk penggunaan kunci yang lain.
+2305|Kuota terpakai
+2306|Terjemahkan ke {language}
+2307|Sebuah bahasa diterjemahkan begitu ada yang memintanya: pengunjung yang membaca situs dalam bahasa itu, atau kamu lewat tombol plus.
+2308|Terjemahkan ke semua bahasa
+2309|Setiap teks ditampilkan seperti saat diketik, dan kamu bisa menerjemahkannya secara manual di bawah. Agar diterjemahkan otomatis, tambahkan kunci DeepL ke server sebagai DEEPL_API_KEY (lihat README), lalu mulai ulang.
+2310|Kuota tercapai
+2311|Tidak ada yang dikirim sampai kuota diperbarui atau dinaikkan.
+2312|Yang ditulis staf disimpan apa adanya dan diterjemahkan ke bahasa tempat situs dibaca. Pengunjung membacanya dalam bahasanya; selama terjemahan belum ada, mereka membacanya seperti yang diketik.
+2313|Belum ada yang meminta bahasa ini.
+2314|Bahasa ini akan diterjemahkan.
+2315|Semua bahasa akan diterjemahkan.
+2320|Lane
+2316|Sarankan lane
+2321|Sarankan lane untuk semua seri
+2319|Tidak ada lagi yang bisa disarankan dengan pasti.
+2324|Tidak ada lagi yang bisa disarankan dengan pasti: geser lane sendiri.
+2318|Hanya lane yang pasti dari lane para hero yang disarankan; yang sudah kamu isi tetap dipertahankan, dan setelahnya kamu bisa mengubah yang mana pun di editor.
+2317|{series, plural, other {# seri}} dapat diberi saran lane (total {count, plural, other {# lane}}).
+2322|Lane disimpan pada {count, plural, other {# seri}}
+2323|{count, plural, other {# lane disarankan}}: ubah dengan menyeret.
+2325|Terbuka di level {level}
+2326|Semua item dalam game, menurut slot dan kategori toko.
+2327|Arcana dalam game, merah, biru, dan hijau, serta apa yang diberikan masing-masing.
+2328|Spell yang dibawa pemain ke dalam pertandingan: apa fungsinya dan kapan siap lagi.
+2329|Warna
+2330|Pilih satu bagian untuk melihat detailnya.
+2331|Belum diisi.
+2332|Data game
+2333|Sebuah build memiliki paling banyak {max} spell.
+2334|Salah satu spell build ini tidak ada di katalog.
+2335|{name} dipakai dua kali: sebuah spell hanya bisa ada sekali dalam build.
+2336|Item Honor of Kings Global — statistik, harga, dan kategori | {site}
+2337|Semua item Honor of Kings Global lengkap dengan gambar, harga, statistik, pasif dan aktif, menurut slot dan kategori toko.
+2338|Arcana Honor of Kings Global — merah, biru, dan hijau | {site}
+2339|Semua arcana Honor of Kings Global, merah, biru, dan hijau, beserta statistik yang diberikan masing-masing.
+2340|Spell Honor of Kings Global — fungsi dan cooldown | {site}
+2341|Spell yang dibawa pemain ke pertandingan Honor of Kings Global: fungsi tiap spell, berapa lama sebelum siap lagi, dan mulai level berapa.
+2342|Spell tidak ditemukan.
+2343|Spell dengan nama ini sudah ada.
+2344|Terbuka di level
+2345|Tim saya
+2346|Saya
+2350|Lihat {count} hero
+2347|Simpan seri kamu
+2348|Rencanakan scrim bersama tim
+2349|Bagikan tier list
+2351|Mulai
+2352|Pilih mode lalu mulai
+2353|Sendiri, di satu perangkat bersama, atau online melawan lawan yang diundang.
+2354|Draft dengan timer
+2355|Ban dan pick mengikuti urutan asli, dengan timer di setiap giliran.
+2356|Tinjau dan bagikan
+2357|Setiap game tersimpan: ekspor, bagikan tautan, atau buat tier list darinya.
+2358|Serangan dasar
+2359|Catatan draft
+2360|Timer pertandingan
+2362|Filter
+2368|Mulai cepat
+2369|Siapkan
+2370|Pilih aturan hero, format, dan kedua tim.
+2371|Ban dan pick dengan waktu 30 detik, sendiri, di satu perangkat, atau online.
+2372|Tinjau
+2373|Catat hasilnya, lalu ekspor atau bagikan seri.
+2374|Alur sebuah seri
+2375|Tim A bermain di sisi biru pada pertandingan 1; setelah itu sisi bergantian.
+2401|Kunci ini tidak bisa membaca ini: butuh cakupan {scope}.
+2398|API hanya untuk membaca: gunakan GET.
+2403|Kamu bisa punya {max} kunci API aktif: cabut satu dulu.
+2396|Pilih setidaknya satu hal yang bisa dibaca kunci.
+2397|Pilih masa berlaku kunci: {choices} hari (0 = tanpa batas).
+2402|Kunci API tidak ditemukan.
+2404|Hanya pemilik, manajer, atau pelatih tim yang dapat membagikan seri ke tim.
+2405|Hanya pembuat seri, atau pengurus tim, yang dapat melakukan ini.
+2406|Seri ini tidak ada di tim ini.
+2407|Sebuah seri bisa ada di paling banyak {max} tim.
+2361|Hero lainnya
+2363|Filter aktif
+2364|Atur ulang filter
+2365|Kembali ke atas
+2366|Hapus filter {name}
+2379|Perkenalan hero
+2380|Hero lain di {lane}
+2381|Cara angka dihitung
+2382|Setiap pertandingan berasal dari seri turnamen yang dimasukkan staf secara manual.
+2383|Tingkat pick dan tingkat ban menghitung pertandingan pada periode saat hero dipilih atau di-ban.
+2384|Sampel kecil ditandai, tidak pernah disembunyikan: bacalah dengan hati-hati.
+2367|Tidak ada pertandingan yang dimasukkan dengan aturan ini pada periode ini.
+2408|Urutan draft
+2409|Skena kompetitif
+2410|Tier list kamu
+2411|30 hari
+2412|90 hari
+2413|1 tahun
+2414|Tidak pernah kedaluwarsa
+2415|Dicabut pada {date}
+2416|Kedaluwarsa pada {date}
+2417|Kedaluwarsa pada {date}
+2418|Salin kunci kamu sekarang: hanya ditampilkan satu kali.
+2419|Gunakan seperti ini
+2420|Sudah saya simpan
+2421|Belum ada kunci. Buat satu di atas.
+2422|Terakhir dipakai {date}
+2423|Belum pernah dipakai
+2424|Dibuat {date}
+2425|Cabut
+2426|Nama kunci
+2427|Bot statistik saya
+2428|Yang bisa dibaca kunci
+2429|Masa berlaku
+2430|Buat kunci
+2431|{live} dari {max} kunci dipakai
+2432|Kunci kamu
+2433|Kunci membaca apa yang bisa kamu baca: scrim kamu, seri yang dibagikan timmu, tier list kamu, dan data game. Kunci tidak pernah menulis dan tidak pernah punya hak administrator.
+2434|Beri nama kunci dulu.
+2435|Tersalin.
+2436|Cabut kunci “{name}”? Program yang memakainya langsung berhenti bekerja.
+2437|Kunci dicabut.
+2438|Kunci API
+2439|Baca datamu dan data game dari programmu sendiri. Kunci hanya membaca, tidak pernah menulis.
+2385|Harga
+2386|Urutkan berdasarkan
+2387|{count, plural, other {# hasil}}
+2388|Hapus filter
+2389|Dalam kategori yang sama
+2390|Gim turnamen
+2391|Setiap gim yang dimasukkan staf dihitung, scrim tidak pernah.
+2392|Sisi dan lane
+2393|Draft diperingkat per sisi, hero per lane.
+2394|Minimal tiga bulan
+2395|Periode yang lebih pendek terlalu sedikit artinya, jadi ditolak.
+2376|{count} diperingkat
+2377|Bagikan
+2378|Tombol panah berpindah antar hero, Enter memilih satu, 1 sampai 9 mengirimnya ke tier itu, 0 mengembalikan ke Belum diperingkat.
+2440|Bagikan ke tim
+2446|Anggota tim yang Anda pimpin dapat membuka dan membaca seri ini, tetapi tidak dapat mengubahnya.
+2444|Dibagikan ke
+2445|Belum dibagikan ke tim mana pun.
+2443|Pilih tim
+2442|Tidak ada tim untuk ditambahkan: untuk membagikan seri ke sebuah tim, Anda harus menjadi pemilik, manajer, atau pelatihnya.
+2447|Seri dibagikan ke {team}
+2448|Seri dihapus dari {team}
+2441|Hapus seri dari {team}
+2449|Tag hero
+2450|Tanpa kategori
+2451|Tanpa statistik
+2452|Tanpa harga
+2453|Tanpa deskripsi
+2454|Tanpa cooldown
+2455|Tanpa level buka
+2456|Belum dipakai
+2457|Tanpa tag
+2458|Item yang perlu dikelompokkan
+2459|Item tanpa statistik
+2460|Teks yang perlu diterjemahkan
+2461|Tidak ada yang perlu diperbaiki di sini.
+2462|Perlu perhatian
+2502|Belum ditulis
+2503|Cakupan per lane
+2504|Catatan
+2505|Belum ada catatan
+2506|Belum ada tautan sumber
+2507|Versi {number}
+2508|Hero yang dinilai
+2509|Versi
+2537|Acara
+2538|Per acara
+2539|Tampilkan semua seri
+2540|Input cepat
+2541|Jelaskan serinya
+2542|Acara, tanggal, dua tim, dan aturan draft.
+2543|Pilih hero
+2544|Klik sebuah slot, ketik nama hero, lalu tekan Enter: slot kosong berikutnya terisi.
+2545|Tentukan lane tiap hero
+2465|Semua tim
+2510|Cara kerja sebuah tim
+2511|Daftarkan
+2512|Nama, tag, level, dan wilayah: tim mendapat halamannya sendiri.
+2513|Undang pemain lewat tag mereka. Tidak ada yang masuk tanpa menjawab.
+2514|Jadwalkan scrim di agenda, bagikan seri, latih susunan pemain.
+2478|Mencari scrim
+2515|{won} menang · {lost} kalah
+2516|Belum ada seri yang dibagikan ke tim.
+2517|Anggota
+2474|Pengumuman terbuka
+2518|Buat satu, atau tunggu undangan dari kapten.
+2519|Tampilkan tim lainnya
+2520|Seri dibagikan ke tim
+2521|Seri dihapus dari tim
+2522|Lane terisi
+2523|Acara terjadwal
+2524|Jendela terbuka
+2525|Slot kosong
+2526|Didirikan
+2527|Menang
+2528|Kalah
+2529|Hapus dari tim
+2530|Pembuat seri menaruhnya di tim agar anggota dapat membacanya.
+2531|Bagikan seri
+2532|Tidak ada seri lain untuk dibagikan.
+2533|Buat seri, lalu taruh di tim.
+2534|Zona bahaya
+2535|Pemain
+2536|Semua target tercapai
+2463|Cara kerja agenda
+2464|7 hari ke depan
+2466|Kalender
+2467|Belum terhubung
+2468|Terima permintaan, pengingat, dan hasil lewat pesan langsung.
+2469|Sebuah tim punya roster, agenda, dan server Discord sendiri.
+2470|Beri tahu tim lain kapan kamu bisa bermain.
+2471|Minta scrim ke sebuah tim, atau jawab sebuah permintaan.
+2472|Server tim
+2473|Hanya pemilik dan manajer tim yang dapat menghubungkan servernya.
+2475|Wilayah
+2476|Cara kerja scrim
+2477|Undangan
+2479|Permintaan scrim, jawaban, dan undangan, di satu tempat.
+2480|Belum dibaca
+2481|Hero {lane}
+2482|Rekan satu tim
+2483|Percakapan
+2484|Pesan
+2485|Alasan
+2486|Pelapor
+2487|Cara kerja laporan
+2488|Seorang pemain melaporkan percakapan dari kotak masuk, beserta alasannya.
+2489|Percakapan muncul di sini, lengkap dengan siapa yang melapor dan kapan.
+2490|Putuskan
+2491|Tutup laporan setelah ditangani.
+2492|Pasang atau pilih
+2493|Pasang slot kosongmu, atau minta ke tim yang sudah memasangnya.
+2494|Sepakati
+2495|Tim lawan menerima atau mengusulkan waktu lain, di kotak masukmu.
+2496|Scrim masuk ke agenda; serinya hanya satu klik.
+2497|Bergabung ke tim
+2498|Rencanakan
+2499|Scrim, latihan, review VOD, dan pertandingan, dalam zona waktumu.
+2500|Jawab
+2501|Katakan hadir atau tidak dengan satu klik; Discord mengingatkan pemain 6 jam, 4 jam, dan 2 jam sebelumnya.
+2546|Tulis dulu statistik game: item dan arcana ditulis dengan statistik itu.
+2547|Lalu item, arcana, dan skill, masing-masing dengan gambar, statistik, dan efeknya.
+2548|Beri tiap item kategorinya dengan beberapa klik, lalu lihat hasilnya di lab build.
+2549|Ke mana angka-angkanya pergi
+2550|Kembali
+2551|Terlalu pendek
+2552|Lemah
+2553|Cukup
+2554|Baik
+2555|Kuat
+2556|Autentikator
+2557|Tampilkan kata sandi
+2558|Sembunyikan kata sandi
+2559|Autentikasi dua faktor tidak aktif di akun ini.
+2560|Masuk lagi untuk menyiapkannya
+2561|Tersedia setelah autentikasi dua faktor aktif.
+2562|Masuk terakhir
+2563|Hanya baca
+2564|Perlu dicek
+2565|Tambahkan ke hero saya
+2566|Tidak ada catatan yang cocok dengan filter ini.
+2567|Latihan
+2568|Terbaru
+2569|Peringkat tim
+2570|Bergabunglah dengan tim untuk melihat peringkatnya.
+2571|Pelajari peta
+2572|Siapa di mana, siapa yang mati, apa yang terjadi di camp dan objektif.
+2573|Posisikan diri Anda: apa yang akan Anda lakukan selanjutnya, dan mengapa?
+2574|Tulis jawaban Anda
+2575|Tersimpan di akun Anda dan dapat diubah kapan saja.
+2576|Target
+2577|Pilih hero Anda
+2578|Pilih hingga {max} hero: tiap hero punya kartu berisi target dan kombonya.
+2579|Pelajari kombonya
+2580|Kuasai setiap kombo dalam dua bentuk: apa adanya, dan dengan animasi dibatalkan.
+2581|Periksa lagi
+2582|Kombo akan muncul lagi setelah beberapa hari: katakan apakah Anda masih menguasainya.
+2583|Hero Anda, buku catatan, kombo yang sudah dikuasai, dan skor refleks Anda.
+2595|Kirimi saya pesan uji
+2593|Pastikan berfungsi
+2594|Bot mengirimi Anda satu pesan.
+2587|Pesan uji terkirim: periksa pesan langsung Discord Anda.
+2588|Discord tidak mengizinkan bot menulis kepada Anda. Bot hanya dapat menulis kepada orang yang berbagi server dengannya (tambahkan ke server tim Anda dari kartu Discord tim) dan yang mengizinkan pesan langsung dari anggota server.
+2589|Discord menolak token bot: pemilik situs harus memeriksanya.
+2590|Discord meminta untuk melambat. Coba lagi dalam semenit.
+2591|Discord tidak dapat dijangkau. Coba lagi dalam semenit.
+2592|Discord menolak pesan itu. Coba lagi nanti.
+2584|Belum ada item untuk slot ini.
+2585|Administrator memilih slot setiap item di Katalog.
+2586|Buka Katalog
+2601|Keandalan
+2597|Dari video
+2599|Daftar hero
+2596|Dibaca dari video dan diperiksa oleh seseorang.
+2598|Dibaca dari video oleh alat: masih ada poin yang perlu diperiksa.
+2600|Diambil dari halaman hasil: hero, ban, dan lane, tetapi bukan urutan pick.
+2603|Saring menurut keandalan
+2602|{count, plural, other {# poin untuk diperiksa}}
+2604|Keandalan tidak valid.
+2607|Hero ini tidak dimainkan pada periode ini.
+2609|Tingkat kemenangan yang andal (kepastian 95 %): {rate}
+2610|Versi utama
+2611|menggantikan
+2612|{count, plural, other {# varian}}
+2613|Diurutkan menurut tingkat kemenangan terendah yang masih dapat dipercaya dari pertandingan: satu kemenangan dari satu pertandingan tidak mengalahkan hero yang terbukti dalam banyak pertandingan.
+2614|Pertandingan terakhir penentu dalam seri Global Ban & Pick, dimainkan dengan aturan draft klasik: hero dari pertandingan sebelumnya boleh dipilih lagi.
+2615|Ultimate Battle
+2616|{label}.ultimateBattle harus bernilai benar atau salah.
+2617|Ultimate Battle adalah pertandingan terakhir penentu dalam seri Global Ban & Pick.
+2622|Lawan tersering di pertandingan yang dimenangkan
+2624|Paling sering menang bersama
+2625|Paling sering menang melawan
+2626|Belum ada hero yang bertemu dalam {count} game: belum ada yang bisa diurutkan.
+2627|Diurutkan menurut win rate yang bisa dipercaya dari game yang dimainkan bersama; sebuah hero butuh minimal {count} game.
+2628|Paling sering kalah bersama
+2629|Paling sering kalah melawan
+2630|Cari hero, item, arcana, tim…
+2631|ketentuan penggunaan
+2632|kebijakan privasi
+2633|Dengan membuat akun, Anda menyetujui {terms} dan {privacy}.
+2634|Ketentuan penggunaan
+2635|Kebijakan privasi
+2636|Kontak
+2637|sudah masuk
+2638|Tandai belum ditangani
+2639|Tandai sudah ditangani
+2640|Pesan dari halaman kontak
+2641|Belum ada pesan.
+2642|Cookie
+2643|Pemberitahuan hukum
+2644|Informasi hukum
+2645|Subjek
+2646|Kami memakai nama dan alamat email Anda hanya untuk membalas, dan menyimpan pesan paling lama 12 bulan. Lihat {privacy}.
+2647|Kirim pesan
+2648|Pesan Anda terkirim. Terima kasih, kami akan membalas ke alamat yang Anda berikan.
+2649|Isi semua kolom: alamat email yang valid dan pesan minimal 10 karakter.
+2650|Pesan Anda tidak dapat dikirim.
+2651|Tulis kepada orang-orang di balik situs ini. Kami membaca setiap pesan.
+2652|Teks hukum ditulis dalam bahasa Prancis dan Inggris. Ini adalah teks bahasa Inggris, yang menjadi acuan.
+2653|Anda juga dapat menulis ke {email}.
+2654|Terakhir diperbarui: {date}
+2655|Ketentuan penggunaan | {site}
+2656|Aturan penggunaan HOK Global Scrim Lab.
+2657|Kebijakan privasi | {site}
+2658|Data pribadi apa yang disimpan HOK Global Scrim Lab, mengapa, berapa lama, dan cara menggunakan hak Anda berdasarkan GDPR.
+2659|Cookie dan penyimpanan lokal | {site}
+2660|Cookie dan penyimpanan lokal yang dipakai HOK Global Scrim Lab, dan kegunaan masing-masing.
+2661|Pemberitahuan hukum | {site}
+2662|Siapa yang menerbitkan dan menghosting HOK Global Scrim Lab.
+2663|Kontak | {site}
+2664|Tulis kepada orang-orang di balik HOK Global Scrim Lab.
+2665|Pesan harus terdiri dari 10 sampai 4000 karakter.
+2666|Pesan ini tidak ada.
+2667|HOK Global Scrim Lab adalah proyek penggemar dan tidak berafiliasi dengan Tencent / TiMi Studio Group. Honor of Kings dan ilustrasinya milik mereka.
+2668|Data Anda telah diunduh.
+2669|Centang kotak untuk mengonfirmasi.
+2670|Data Anda
+2671|Unduh salinan semua yang disimpan situs tentang Anda. Kata sandi, rahasia autentikator, dan kode pemulihan tidak disertakan.
+2672|Unduh data saya
+2673|Hapus akun Anda secara permanen: seri, tier list, catatan, dan hasil Anda akan dihapus. Tim yang Anda buat berpindah ke anggota lain, atau dihapus jika tidak ada orang lain. Tindakan ini tidak dapat dibatalkan.
+2674|Saya mengerti bahwa akun saya akan dihapus secara permanen.
+2675|Hapus akun saya
+2678|Nama lain
+2679|Nama lain hero ini di siaran dan di Liquipedia. Impor otomatis membacanya untuk menemukan hero di judul atau tabel.
+2680|Belum ada nama lain.
+2681|Nama yang ditambahkan
+2682|Tambah nama
+2677|Hapus nama {name}
+2676|Nama diperbarui
+2683|Itu sudah menjadi nama hero ini.
+2684|Itu adalah nama hero lain.
+2685|Hero ini sudah memiliki nama itu.
+2686|Hero lain sudah memiliki nama itu.
+2687|Hero ini tidak memiliki nama itu.
+2688|Alias memerlukan setidaknya dua huruf atau angka.
+2690|Urutan pick tidak diketahui
+2689|Urutan pick diketahui
+2691|Dicek dengan sumbernya: hero, ban, lane, dan pemenang saling cocok. Urutan pick tidak diketahui.

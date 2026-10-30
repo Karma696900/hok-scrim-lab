@@ -1,0 +1,455 @@
+/* The settings page: a stage with the figures that matter, a rail of sections that follows the page, one card
+   per section (the parts of the site, the new series, the interface, the notifications, the account, the API
+   keys) and a bar that asks for the save. Every class here is st-* (the page), mod* (the tile of a part,
+   shared with the welcome pages) or ak-* (the API keys). */
+
+/* ---------- the stage ---------- */
+.page-head.st-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px 40px;
+  min-height: 0;
+  margin-bottom: 20px;
+  padding: 34px 40px 30px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(
+      110% 120% at 88% 0%,
+      color-mix(in srgb, var(--brand) 26%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-strong) 24%, var(--panel-soft)),
+      var(--panel-soft)
+    );
+  color: var(--ink);
+  overflow: hidden;
+}
+.st-stage__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.st-stage__art.is-on {
+  opacity: 1;
+}
+.st-stage__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 22%;
+}
+.st-stage__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--panel-soft) 96%, transparent) 0%,
+      color-mix(in srgb, var(--panel-soft) 84%, transparent) 34%,
+      color-mix(in srgb, var(--panel-soft) 38%, transparent) 70%,
+      color-mix(in srgb, var(--panel-soft) 12%, transparent) 100%
+    ),
+    linear-gradient(0deg, color-mix(in srgb, var(--panel-soft) 86%, transparent), transparent 58%);
+}
+[dir="rtl"] .st-stage__veil {
+  transform: scaleX(-1);
+}
+.st-stage__main {
+  display: grid;
+  align-content: end;
+  min-width: 0;
+}
+.page-head.st-stage h1 {
+  font-size: clamp(40px, 5.4vw, 64px);
+  line-height: 0.98;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.page-head.st-stage p {
+  max-width: 52ch;
+  margin-top: 14px;
+  color: var(--ink);
+  opacity: 0.88;
+  font-size: 16px;
+}
+.st-stage .crumb {
+  color: var(--brand-ink);
+}
+.st-figures {
+  display: flex;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--panel-soft) 82%, transparent);
+  backdrop-filter: blur(6px);
+}
+.st-figures li {
+  display: grid;
+  gap: 8px;
+  min-width: 112px;
+  padding: 18px 24px 16px;
+}
+.st-figures li + li {
+  border-inline-start: 1px solid var(--line);
+}
+.st-figures b {
+  font: 700 clamp(40px, 4vw, 56px) / 0.9 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.st-figures b small {
+  margin-inline-start: 2px;
+  color: var(--muted);
+  font-size: 0.42em;
+  font-weight: 600;
+}
+.st-figures span {
+  color: var(--brand-ink);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- the layout: the rail, the cards ---------- */
+.st-layout {
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.st-rail {
+  position: sticky;
+  top: calc(var(--topbar) + 16px);
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.st-rail ul {
+  display: grid;
+  gap: 2px;
+}
+.st-rail ul a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  white-space: nowrap;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  color: var(--muted);
+  font: 600 14px/1 var(--font-body);
+  transition:
+    background 160ms,
+    color 160ms,
+    border-color 160ms;
+}
+.st-rail ul a:hover {
+  background: var(--tint-2);
+  color: var(--ink);
+}
+.st-rail ul a.on {
+  border-color: var(--gild-line);
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  color: var(--ink);
+}
+.st-rail ul a.on .i {
+  color: var(--brand-ink);
+}
+.st-rail__me {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.st-rail__me b {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 700 17px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.st-rail__me small {
+  color: var(--muted);
+  font-size: 13px;
+}
+.st-rail__cta {
+  display: grid;
+  gap: 8px;
+}
+.st-main {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  align-content: start;
+}
+.st-card {
+  scroll-margin-top: calc(var(--topbar) + 16px);
+  min-width: 0;
+  padding: 26px 28px 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.st-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+.st-card__ico,
+.st-link__ico,
+.ak-key__ico {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.st-card__head h2 {
+  overflow-wrap: anywhere;
+  font: 700 28px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.st-card__head p {
+  max-width: 72ch;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.st-note {
+  max-width: 80ch;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- a part of the site: a tile that is also a switch ---------- */
+.st-mods {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+.st-mods .mod {
+  grid-column: span 2;
+}
+.st-mods .mod:nth-child(n + 4) {
+  grid-column: span 3;
+}
+.mod {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 8px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  text-align: start;
+  cursor: pointer;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    transform 160ms var(--ease);
+}
+.mod:hover {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+.mod.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 12%, var(--panel-soft));
+}
+.mod.locked {
+  cursor: default;
+}
+.mod.locked:hover {
+  transform: none;
+}
+.mod input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.mod.locked input {
+  cursor: default;
+}
+.mod:has(input:focus-visible) {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.mod__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.mod .ico {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  color: var(--brand-ink);
+}
+.mod b {
+  overflow-wrap: anywhere;
+  font: 700 21px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.mod small {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.mod__menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+.mod__menu span {
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font: 600 12px/1.4 var(--font-body);
+}
+.mod.on .mod__menu span {
+  border-color: var(--gild-line);
+  color: var(--ink);
+}
+
+/* ---------- the new series: choices as tiles ---------- */
+.st-groups {
+  display: grid;
+  gap: 26px;
+}
+.st-group {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.st-group legend {
+  padding: 0;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.st-choices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.st-choices--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.st-choice {
+  position: relative;
+  display: flex;
+  min-width: 0;
+}
+.st-choice input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.st-choice__box {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  transition:
+    border-color 160ms,
+    background 160ms;
+}
+.st-choice:hover .st-choice__box {
+  border-color: var(--brand);
+}
+.st-choice input:checked + .st-choice__box {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 12%, var(--panel-soft));
+}
+.st-choice input:focus-visible + .st-choice__box {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.st-choice b {
+  font: 700 20px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.st-choice small {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.st-choice__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 22px;
+  color: var(--brand-ink);
+}
+.st-choice__dot {
+  width: 20px;
+  height: 20px;
+  margin-inline-start: auto;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  transition:
+    border-color 160ms,
+    background 160ms;
+}
+.st-choice input:checked + .st-choice__box .st-choice__dot {
+  border-color: var(--brand);
+  background: radial-gradient(circle, var(--brand-strong) 0 4px, transparent 5px);
+}
+.st-choices--4 .st-choice__box {
+  justify-items: center;
+  padding-block: 20px;
+  text-align: center;
+}
+.st-choices--4 .st-choice b {
+  font-size: 26px;
+}

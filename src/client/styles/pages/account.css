@@ -1,0 +1,363 @@
+/* The security of the account: a stage with the three things to know, then what protects the account on one
+   side (authenticator, password, recovery codes) and what happened on the other (sessions, the log). The
+   form pieces (fields, the strength of a password, the codes) are in auth.css. Classes ac-*. */
+.page-head.ac-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px 40px;
+  min-height: 0;
+  margin-bottom: 20px;
+  padding: 34px 40px 30px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(
+      110% 120% at 88% 0%,
+      color-mix(in srgb, var(--brand) 26%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-strong) 24%, var(--panel-soft)),
+      var(--panel-soft)
+    );
+  color: var(--ink);
+  overflow: hidden;
+}
+.ac-stage__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.ac-stage__art.is-on {
+  opacity: 1;
+}
+.ac-stage__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 22%;
+}
+.ac-stage__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--panel-soft) 96%, transparent) 0%,
+      color-mix(in srgb, var(--panel-soft) 84%, transparent) 34%,
+      color-mix(in srgb, var(--panel-soft) 38%, transparent) 70%,
+      color-mix(in srgb, var(--panel-soft) 12%, transparent) 100%
+    ),
+    linear-gradient(0deg, color-mix(in srgb, var(--panel-soft) 86%, transparent), transparent 58%);
+}
+[dir="rtl"] .ac-stage__veil {
+  transform: scaleX(-1);
+}
+.ac-stage__main {
+  display: grid;
+  align-content: end;
+  min-width: 0;
+}
+.page-head.ac-stage h1 {
+  font-size: clamp(40px, 5.4vw, 64px);
+  line-height: 0.98;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.page-head.ac-stage p {
+  max-width: 56ch;
+  margin-top: 14px;
+  color: var(--ink);
+  opacity: 0.88;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.ac-stage .crumb {
+  color: var(--brand-ink);
+}
+.ac-figures {
+  display: flex;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--panel-soft) 82%, transparent);
+  backdrop-filter: blur(6px);
+}
+.ac-figures li {
+  display: grid;
+  gap: 8px;
+  min-width: 124px;
+  padding: 18px 24px 16px;
+}
+.ac-figures li + li {
+  border-inline-start: 1px solid var(--line);
+}
+.ac-figures b {
+  font: 700 clamp(40px, 4vw, 56px) / 0.9 var(--font-display);
+  font-variant-numeric: tabular-nums;
+  text-transform: uppercase;
+}
+.ac-figures span {
+  color: var(--brand-ink);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- the blocks ---------- */
+/* the two columns end at the same level: the last block of each one takes what is left */
+.ac-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+.ac-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+.ac-col > :last-child {
+  flex: 1;
+}
+.ac-wide {
+  margin-top: 16px;
+}
+.ac-block {
+  min-width: 0;
+  padding: 24px 26px 26px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.ac-block > :last-child {
+  margin-bottom: 0;
+}
+.ac-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.ac-head h2 {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font: 700 26px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.ac-ico {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.ac-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.ac-text {
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.ac-text b {
+  color: var(--ink);
+}
+.ac-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.ac-left {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  margin-bottom: 14px;
+}
+.ac-left b {
+  font: 700 64px/0.9 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.ac-left > span:not(.ac-ticks) {
+  color: var(--brand-ink);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ac-ticks {
+  display: flex;
+  flex-basis: 100%;
+  gap: 5px;
+}
+.ac-ticks i {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--tint-3);
+}
+.ac-ticks i.on {
+  background: var(--brand-strong);
+}
+.ac-fresh {
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 8%, var(--panel-soft));
+}
+.ac-fresh .ac-text {
+  margin-bottom: 0;
+}
+.ac-me {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+}
+.ac-me div {
+  flex: 1;
+  min-width: 0;
+}
+.ac-me b {
+  display: block;
+  font: 700 19px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.ac-me small {
+  color: var(--muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.ac-danger {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+.ac-block .auth-form .btn {
+  justify-self: start;
+}
+.auth-table td {
+  vertical-align: top;
+}
+.ac-what {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.ac-what i {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--faint);
+}
+.ac-what--ok i {
+  background: var(--success);
+}
+.ac-what--bad i {
+  background: var(--danger);
+}
+
+@media (max-width: 1000px) {
+  .ac-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .page-head.ac-stage {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding: 24px 20px 20px;
+  }
+  .ac-figures {
+    flex-wrap: wrap;
+  }
+  .ac-figures li {
+    flex: 1 1 96px;
+    min-width: 0;
+    padding: 14px 16px 12px;
+  }
+}
+@media (max-width: 560px) {
+  /* the log reads as a list on a phone: when, what, detail, one under the other */
+  .ac-block .auth-table {
+    display: block;
+    white-space: normal;
+  }
+  .auth-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .auth-table tbody {
+    display: grid;
+  }
+  .auth-table tr {
+    display: grid;
+    gap: 3px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .auth-table tr:first-child {
+    border-top: 0;
+  }
+  .auth-table td {
+    display: block;
+    padding: 0;
+    border: 0;
+    overflow-wrap: anywhere;
+  }
+  .auth-table td:first-child {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .ac-figures b {
+    font-size: 32px;
+  }
+  .ac-figures span {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+  }
+  .ac-figures li {
+    gap: 6px;
+    padding: 12px 10px;
+  }
+  .ac-block {
+    padding: 20px 16px 22px;
+  }
+  .ac-head h2 {
+    font-size: 22px;
+  }
+}
+.ac-danger--stack .auth-form {
+  margin-top: 14px;
+}

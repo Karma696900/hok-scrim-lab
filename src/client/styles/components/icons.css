@@ -1,0 +1,36 @@
+/* Icons: 24 x 24 stroke icons drawn by shared/icons.js. */
+/* ---------- icons (the sprite is injected by kit.js) ---------- */
+.i {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.i--sm {
+  width: 16px;
+  height: 16px;
+}
+.i--lg {
+  width: 24px;
+  height: 24px;
+}
+.i--xl {
+  width: 32px;
+  height: 32px;
+}
+.i--duo {
+  fill: color-mix(in srgb, currentColor 20%, transparent);
+}
+.i--fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+/* Icons that point somewhere turn around in a right-to-left page. */
+[dir="rtl"] .i--dir {
+  transform: scaleX(-1);
+}

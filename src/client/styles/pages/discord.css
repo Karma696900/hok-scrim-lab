@@ -1,0 +1,181 @@
+/* Discord & onboarding: the four first steps as tiles, the Discord account and its switches, what the bot sends, the
+   Discord servers of the teams. Everything is dc-*, apart from the hooks of the browser tests (.step-row). */
+
+.dc-layout {
+  margin-bottom: 8px;
+}
+.dc-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+}
+.dc-step {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    "icon body check"
+    "action action action";
+  align-items: start;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.dc-step.done {
+  border-color: color-mix(in srgb, var(--success) 45%, transparent);
+}
+.dc-step__icon {
+  grid-area: icon;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.dc-step.done .dc-step__icon {
+  border-color: color-mix(in srgb, var(--success) 45%, transparent);
+  background: color-mix(in srgb, var(--success) 12%, transparent);
+  color: var(--success);
+}
+.dc-step .row__body {
+  grid-area: body;
+}
+.dc-step .row__body b {
+  font: 700 20px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: normal;
+}
+.dc-step .row__body small {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.dc-step .check {
+  grid-area: check;
+}
+.step-row .check:not(.on) {
+  color: var(--muted);
+  font: 600 12px/1 var(--font-body);
+}
+.dc-step > .pill,
+.dc-step > .btn {
+  grid-area: action;
+  justify-self: start;
+}
+.discord-progress {
+  margin-top: 4px;
+}
+.discord-actions {
+  margin-top: 14px;
+}
+
+/* ---------- the account and the three kinds of message ---------- */
+.dc-linked {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.dc-prefs {
+  display: grid;
+  gap: 8px;
+}
+.dc-pref {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.dc-pref > .i {
+  flex: none;
+  color: var(--brand-ink);
+}
+.dc-pref .row__body b {
+  white-space: normal;
+  font-size: 14px;
+}
+.switch[disabled] {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ---------- what the bot sends, as Discord shows it ---------- */
+/* "Check that it works": one message to the person's own Discord, and the answer under it */
+.dc-test {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.dc-test .row__body {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+.dc-test .row__body small {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: normal;
+}
+.dc-test .row__body small.is-bad {
+  color: var(--warn);
+}
+.dc-previews {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.bot-preview {
+  display: flex;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.bot-preview > span:last-child {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.bot-preview p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.bot-preview small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.dc-server small.muted {
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .dc-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.dc-step > .pill {
+  color: color-mix(in srgb, var(--success) 70%, var(--ink));
+}

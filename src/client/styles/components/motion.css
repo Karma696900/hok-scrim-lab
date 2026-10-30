@@ -1,0 +1,172 @@
+/* Animation, skeletons and reduced motion. */
+/* ---------- animation ---------- */
+.rise {
+  animation: rise 640ms var(--ease) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+/* The light that crosses a placeholder is a layer that slides (transform), not a background that moves: a moving
+   background is painted again on the main thread at every frame, once for each placeholder on the page. */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--panel-raised);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--tint-3), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 1.6s linear infinite;
+}
+[dir="rtl"] .skeleton::after {
+  animation-direction: reverse;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.8);
+  }
+}
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+@keyframes barIn {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes donutIn {
+  from {
+    stroke-dasharray: 0 100;
+  }
+}
+@keyframes draw {
+  from {
+    stroke-dashoffset: 400;
+  }
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+}
+@keyframes popUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.97);
+  }
+}
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+@keyframes toastOut {
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* A page the server has already drawn does not come in with an animation on its first load: its text is
+   on the screen at the first paint (an entrance that starts after the first paint is read as a late
+   largest paint). The server puts .ssr-first on <html> and the client takes it off once the page has
+   settled, later than the longest of these animations, so none of them starts again. */
+.ssr-first #view *,
+.ssr-first #view .skeleton::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}
+
+/* The delay of the nth block of a page that comes in with .rise (the page may not carry style attributes). */
+.d-1 {
+  --i: 1;
+}
+.d-2 {
+  --i: 2;
+}
+.d-3 {
+  --i: 3;
+}
+.d-4 {
+  --i: 4;
+}
+.d-5 {
+  --i: 5;
+}
+.d-6 {
+  --i: 6;
+}
+.d-7 {
+  --i: 7;
+}
+.d-8 {
+  --i: 8;
+}
+
+/* A page that has just been drawn comes in block after block (the router adds .is-entering to the view). */
+.app-view.is-entering > * {
+  animation: rise 360ms var(--ease) both;
+}
+.app-view.is-entering > :nth-child(2) {
+  animation-delay: 50ms;
+}
+.app-view.is-entering > :nth-child(3) {
+  animation-delay: 100ms;
+}
+.app-view.is-entering > :nth-child(4) {
+  animation-delay: 150ms;
+}
+.app-view.is-entering > :nth-child(5) {
+  animation-delay: 200ms;
+}
+.app-view.is-entering > :nth-child(n + 6) {
+  animation-delay: 250ms;
+}
+.app-view.is-entering .hero-card {
+  animation: rise 340ms var(--ease) both;
+  animation-delay: calc(var(--n, 0) * 14ms + 120ms);
+}
+/* only the first screenful of cards comes in: a pool of a hundred and twenty cards is not a hundred and twenty layers
+   that fade and slide at the same moment (the rest is below the fold, or scrolled to) */
+.app-view.is-entering .hero-card:nth-child(n + 25) {
+  animation: none;
+}
+
+/* While a reflex exercise runs (core/quiet.js) what moves forever holds still, where it is. A page that
+   is still coming in keeps coming in: only the animations that never end are paused. */
+.is-quiet .skeleton::after {
+  animation-play-state: paused;
+}

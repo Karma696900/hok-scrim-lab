@@ -1,0 +1,511 @@
+/* The draft room. It stays dark in both themes (the board carries .keep-dark). Three columns that fill the screen under the
+   band of the series: the Blue side on the left, the Red side on the right, and in the middle the clock in big digits over
+   the pool of heroes. A side is its team, five bans in a row, then five tall cards whose art is the cover of the hero.
+   The Red side is the Blue one turned around with the direction of the grid, never with a transform. */
+.draft-area {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--panel-soft);
+  color: var(--ink);
+}
+
+/* the keyboard ring is the bright blue of the dark surfaces, in both themes (the room stays dark) */
+.dr-area :focus-visible {
+  outline-color: var(--brand-ink);
+}
+
+/* ---------- the room ---------- */
+.dr-room {
+  position: relative;
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: minmax(260px, 1fr) minmax(0, 3fr) minmax(260px, 1fr);
+  gap: 14px;
+  min-height: max(640px, calc(100dvh - var(--topbar) - var(--above-room, 128px)));
+  padding: 14px var(--host-px, 16px) 18px;
+  background: var(--panel-soft);
+  isolation: isolate;
+}
+/* the colour of each side glows behind its column */
+.dr-glow-side {
+  position: absolute;
+  inset-block: 0;
+  z-index: -1;
+  width: 46%;
+  pointer-events: none;
+}
+.dr-glow-side.blue {
+  inset-inline-start: 0;
+  background: radial-gradient(
+    ellipse at 0% 30%,
+    color-mix(in srgb, var(--team-blue) 22%, transparent),
+    transparent 70%
+  );
+}
+.dr-glow-side.red {
+  inset-inline-end: 0;
+  background: radial-gradient(
+    ellipse at 100% 30%,
+    color-mix(in srgb, var(--team-red) 22%, transparent),
+    transparent 70%
+  );
+}
+[dir="rtl"] .dr-glow-side.blue {
+  background: radial-gradient(
+    ellipse at 100% 30%,
+    color-mix(in srgb, var(--team-blue) 22%, transparent),
+    transparent 70%
+  );
+}
+[dir="rtl"] .dr-glow-side.red {
+  background: radial-gradient(
+    ellipse at 0% 30%,
+    color-mix(in srgb, var(--team-red) 22%, transparent),
+    transparent 70%
+  );
+}
+
+/* ---------- a side ---------- */
+.dr-side {
+  --k: var(--team-blue);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  min-height: 0;
+}
+.dr-side.red {
+  --k: var(--team-red);
+}
+.dr-side__head {
+  min-height: 62px; /* the height it has once the emblem of the team is in (44 px + padding + border): the empty room is drawn first */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 1px solid color-mix(in srgb, var(--k) 50%, var(--line));
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--k) 16%, var(--panel));
+  transition: border-color 200ms var(--ease);
+}
+.dr-side.red .dr-side__head {
+  flex-direction: row-reverse;
+  text-align: end;
+}
+.dr-side.is-turn .dr-side__head {
+  border-color: var(--brand-ink);
+  box-shadow: 0 0 0 1px var(--brand-ink);
+}
+.dr-side__head .emblem {
+  --s: 44px;
+}
+.dr-side__head > div {
+  min-width: 0;
+}
+.dr-side__head h2 {
+  display: -webkit-box;
+  overflow: hidden;
+  font: 700 clamp(19px, 1.6vw, 24px) / 1.05 var(--font-display);
+  letter-spacing: 0.03em;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.team-side-label {
+  display: block;
+  margin-top: 4px;
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.team-side-label.blue {
+  color: var(--team-blue-text);
+}
+.team-side-label.red {
+  color: var(--team-red-text);
+}
+
+/* the five bans */
+.ban-group {
+  padding: 8px 10px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--k) 7%, var(--panel));
+}
+.team-slot-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.team-slot-label h3 {
+  color: var(--ink);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.1em;
+}
+.ban-slot-row {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+/* Red's first ban sits at its outer edge, like Blue's: the row runs the other way round, in both reading directions */
+.dr-side.red .ban-slot-row {
+  direction: rtl;
+}
+.dr-side.red .ban-slot-row > * {
+  direction: ltr;
+}
+[dir="rtl"] .dr-side.red .ban-slot-row {
+  direction: ltr;
+}
+[dir="rtl"] .dr-side.red .ban-slot-row > * {
+  direction: rtl;
+}
+/* a slot that waits for its hero wears the class .empty of the shared components: none of their padding, gap or centred text */
+.hero-slot {
+  gap: 0;
+  padding: 0;
+  text-align: start;
+}
+.hero-slot.ban {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 1px dashed color-mix(in srgb, var(--k) 55%, var(--line));
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--k) 10%, var(--panel-soft));
+  color: color-mix(in srgb, var(--k) 45%, var(--muted));
+  overflow: hidden;
+}
+.ban-number {
+  position: absolute;
+  inset-block-end: 2px;
+  inset-inline-start: 4px;
+  font: 700 12px/1 var(--font-display);
+  opacity: 0.8;
+}
+.hero-slot.ban > .i {
+  width: 24px;
+  height: 24px;
+  opacity: 0.55;
+}
+.hero-slot.ban.filled {
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--k) 70%, var(--line));
+}
+.hero-slot.ban.filled > .i,
+.hero-slot.ban.filled .ban-number {
+  display: none;
+}
+.hero-slot .slot-art {
+  position: absolute;
+  inset: 0;
+}
+.hero-slot .slot-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+.hero-slot.ban .slot-art img {
+  filter: grayscale(1) brightness(0.62);
+}
+.hero-slot.ban.filled::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 46%, var(--team-red) 47% 53%, transparent 54%);
+}
+.hero-slot.ban.next {
+  border-style: solid;
+  border-color: var(--brand-ink);
+  background: color-mix(in srgb, var(--brand) 18%, var(--panel-soft));
+  box-shadow: 0 0 0 2px var(--brand-ink);
+  color: var(--brand-ink);
+}
+.hero-slot.ban.next > .i {
+  opacity: 1;
+}
+.picks-only .ban-group {
+  display: none;
+}
+
+/* the five picks: tall cards, the cover of the hero fills the card */
+.team-picks {
+  flex: 1 1 0;
+  min-height: 0;
+}
+.team-picks .team-slot-group {
+  height: 100%;
+}
+.pick-slot-row {
+  display: grid;
+  grid-template-rows: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  height: 100%;
+}
+.hero-slot.pick {
+  position: relative;
+  display: block;
+  min-height: 0;
+  border: 1px solid color-mix(in srgb, var(--k) 48%, var(--line));
+  border-radius: var(--r-md);
+  background:
+    repeating-linear-gradient(
+      118deg,
+      color-mix(in srgb, var(--k) 12%, transparent) 0 10px,
+      transparent 10px 24px
+    ),
+    linear-gradient(90deg, color-mix(in srgb, var(--k) 30%, var(--panel)), var(--panel) 85%);
+  overflow: hidden;
+  isolation: isolate;
+}
+.dr-side.red .hero-slot.pick {
+  background:
+    repeating-linear-gradient(
+      62deg,
+      color-mix(in srgb, var(--k) 12%, transparent) 0 10px,
+      transparent 10px 24px
+    ),
+    linear-gradient(270deg, color-mix(in srgb, var(--k) 30%, var(--panel)), var(--panel) 85%);
+}
+/* a lane that has not been taken yet: its logo, large and faint, behind the card */
+.hero-slot.pick.empty::after {
+  content: "";
+  position: absolute;
+  inset-block: 10%;
+  inset-inline-end: 8%;
+  width: 40%;
+  background: center / contain no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+}
+.hero-slot.pick.empty[data-rank-role="Clash Lane"]::after {
+  background-image: url("/icons/lane-clash-lane.png");
+}
+.hero-slot.pick.empty[data-rank-role="Jungle"]::after {
+  background-image: url("/icons/lane-jungle.png");
+}
+.hero-slot.pick.empty[data-rank-role="Mid Lane"]::after {
+  background-image: url("/icons/lane-mid-lane.png");
+}
+.hero-slot.pick.empty[data-rank-role="Farm Lane"]::after {
+  background-image: url("/icons/lane-farm-lane.png");
+}
+.hero-slot.pick.empty[data-rank-role="Roamer"]::after {
+  background-image: url("/icons/lane-roamer.png");
+}
+.dr-side.red .hero-slot.pick.empty::after {
+  inset-inline-end: auto;
+  inset-inline-start: 8%;
+}
+/* the portrait of the hero, square, at the outer edge until its cover arrives */
+/* behind the words of the card: the art is shown whole, no veil over it (the name carries its own shadow, see .slot-words) */
+.hero-slot.pick .slot-art {
+  z-index: -2;
+}
+.hero-slot.pick .slot-art img {
+  inset-inline-start: 0;
+  inset-inline-end: auto;
+  width: auto;
+  aspect-ratio: 1;
+}
+.dr-side.red .hero-slot.pick .slot-art img {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+.hero-slot.pick .slot-art img.pk-cover {
+  inset: 0;
+  width: 100%;
+  aspect-ratio: auto;
+  object-position: 62% 24%;
+  animation: fade 400ms ease both;
+}
+.hero-slot.pick.has-cover .slot-art img:not(.pk-cover) {
+  display: none;
+}
+.slot-rank {
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-start: 12px;
+  color: color-mix(in srgb, var(--ink) 26%, transparent);
+  font: 700 clamp(40px, 4.2vw, 60px) / 1 var(--font-display);
+}
+.dr-side.red .slot-rank {
+  inset-inline-start: auto;
+  inset-inline-end: 12px;
+}
+.hero-slot.filled .slot-rank {
+  color: var(--ink);
+  font-size: 18px;
+  inset-block-start: 6px;
+  inset-inline-start: 10px;
+  text-shadow: 0 1px 6px color-mix(in srgb, var(--panel-soft) 80%, transparent);
+}
+/* The logos of the five picks stand on one line: each has a column of the same size, empty or taken. */
+.pick-role {
+  position: absolute;
+  inset-block-start: 6px;
+  inset-inline-end: 8px;
+  display: grid;
+  width: 52px;
+  height: 60px;
+  align-content: center;
+  justify-items: center;
+  gap: 3px;
+  color: var(--ink);
+  font-size: 12px;
+}
+.dr-side.red .pick-role {
+  inset-inline-end: auto;
+  inset-inline-start: 8px;
+}
+.pick-lane-label {
+  display: block;
+  max-width: 100%;
+  min-height: 14px;
+  overflow: hidden;
+  font: 700 12px/14px var(--font-display);
+  letter-spacing: 0.06em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pick-role .lanes {
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  padding: 4px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--panel-soft) 70%, transparent);
+}
+.pick-role .lane {
+  background: none;
+  box-shadow: none;
+}
+.hero-slot.pick.empty .pick-role .lane {
+  --ls: 30px;
+}
+.slot-words {
+  position: absolute;
+  inset-block-end: 8px;
+  inset-inline: 14px;
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.dr-side.red .slot-words {
+  text-align: end;
+}
+.hero-slot.filled .slot-words {
+  text-shadow:
+    0 1px 2px rgb(0 0 0 / 0.9),
+    0 0 12px rgb(0 0 0 / 0.65);
+}
+.hero-slot .slot-words b {
+  overflow: hidden;
+  font: 700 clamp(18px, 1.5vw, 24px) / 1.05 var(--font-display);
+  letter-spacing: 0.03em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.hero-slot .slot-words small {
+  overflow: hidden;
+  color: var(--ink);
+  opacity: 0.78;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* over the art the second line is not dimmed (a dimmed line loses its shadow with it and fades into a light picture) */
+.hero-slot.filled .slot-words small {
+  opacity: 1;
+  font-weight: 600;
+}
+.hero-slot.pick.empty .slot-words b {
+  color: var(--muted);
+}
+/* until its cover is there the portrait is a square at the outer edge: the words stay clear of it */
+.hero-slot.pick {
+  container-type: size;
+}
+.hero-slot.pick.filled:not(.has-cover) .slot-words {
+  inset-inline-start: calc(100cqh + 12px);
+  inset-inline-end: 12px;
+}
+.dr-side.red .hero-slot.pick.filled:not(.has-cover) .slot-words {
+  inset-inline-start: 12px;
+  inset-inline-end: calc(100cqh + 12px);
+}
+.hero-slot.pick.filled:not(.has-cover) .slot-rank {
+  inset-inline-start: 10px;
+}
+/* a card that waits: the big number, then its words beside it (never over it) */
+.hero-slot.pick.empty .slot-words {
+  inset-block: 0;
+  inset-inline-start: 74px;
+  inset-inline-end: 66px;
+  align-content: center;
+}
+.dr-side.red .hero-slot.pick.empty .slot-words {
+  inset-inline-start: 66px;
+  inset-inline-end: 74px;
+}
+.hero-slot.pick.empty {
+  border-style: dashed;
+}
+.hero-slot.pick.next {
+  border-style: solid;
+  border-color: var(--brand-ink);
+  box-shadow: 0 0 0 2px var(--brand-ink);
+}
+/* the card that is next to be filled glows: the glow is a layer of its own that only fades in and out (a shadow that
+   grows is painted again at every frame, for as long as the draft lasts) */
+.hero-slot.next::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 3px color-mix(in srgb, var(--brand) 40%, transparent),
+    inset 0 0 22px color-mix(in srgb, var(--brand) 30%, transparent);
+  opacity: 0;
+  pointer-events: none;
+  animation: dr-pulse 1.6s ease-in-out infinite;
+}
+.hero-slot.pick.next .slot-words b {
+  color: var(--brand-ink);
+}
+.hero-slot.pick.concealed .slot-words small {
+  white-space: normal;
+  line-height: 1.3;
+}
+.hero-slot.pick.concealed .slot-art {
+  background: color-mix(in srgb, var(--k) 25%, var(--panel-soft));
+}
+.hero-slot.just-filled {
+  animation: dr-pop 520ms var(--ease);
+}
+/* the flash of a card that has just been filled: a white layer that fades (no filter on the picture) */
+.hero-slot.just-filled::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: rgb(255 255 255 / 0.45);
+  opacity: 0;
+  pointer-events: none;
+  animation: dr-flash 520ms ease-out;
+}

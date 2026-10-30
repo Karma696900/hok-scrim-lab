@@ -1,0 +1,481 @@
+/* Training, the reflex exercises: the list (what was done today, the routines, eight big tiles with their
+   best score, the ranking of the teams), the routines, the page of one exercise, and each exercise's own
+   board. They are played with the pointer, the keyboard or a finger and send nothing while they run.
+   A run has the whole screen (.is-running): a bar with the way out, the name and how far it is, then the stage
+   of the exercise. That screen is dark in both themes: what is drawn on it (pads, balls, targets) is made for that
+   ground. */
+.rx-page {
+  display: grid;
+  gap: 20px;
+}
+
+/* ---------- the list: what was done, the routines ---------- */
+.rx-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+.rx-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.rx-stats .stat {
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-color: var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.rx-stats .stat b {
+  font-size: 26px;
+  line-height: 1;
+}
+.rx-stats .stat small {
+  font-size: 13px;
+}
+.rx-banner {
+  display: grid;
+  gap: 16px;
+  align-content: space-between;
+}
+.rx-banner__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 20px;
+}
+.rx-banner h2 {
+  margin-bottom: 4px;
+}
+.rx-quick {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rx-quick__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--ink);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition:
+    border-color 160ms,
+    background 160ms;
+}
+.rx-quick__item:hover {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 12%, var(--panel-soft));
+}
+.rx-quick__item .i {
+  color: var(--brand-ink);
+}
+.rx-quick__item small {
+  display: inline-grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--tint-2);
+  color: var(--muted);
+  font: 700 12px/1 var(--font-body);
+}
+.rx-goals {
+  display: grid;
+  gap: 8px;
+}
+.rx-goals h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 2px;
+  font: 700 15px/1.2 var(--font-display);
+}
+.rx-goals h3:first-child {
+  margin-top: 0;
+}
+.rx-goals .goal-row a.btn {
+  justify-self: end;
+}
+
+/* ---------- the tiles of the exercises ---------- */
+.rx-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.rx-card,
+.rx-sample {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+  color: inherit;
+}
+.rx-card {
+  transition:
+    border-color 160ms,
+    transform 220ms var(--ease);
+}
+.rx-card:hover,
+.rx-card:focus-visible {
+  border-color: var(--brand);
+  transform: translateY(-3px);
+}
+.rx-card__art {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-bottom: 1px solid var(--line-soft);
+  background: radial-gradient(
+    120% 130% at 50% 0%,
+    color-mix(in srgb, var(--brand) 26%, var(--panel-raised)),
+    var(--panel-soft)
+  );
+  overflow: hidden;
+}
+.rx-art {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: transform 520ms var(--ease);
+}
+.rx-card:hover .rx-art {
+  transform: scale(1.06);
+}
+.rx-art .k1 {
+  fill: var(--brand-strong);
+}
+.rx-art .k2 {
+  fill: color-mix(in srgb, var(--brand) 26%, transparent);
+}
+.rx-art .k3 {
+  fill: none;
+  stroke: var(--brand);
+  stroke-width: 2;
+}
+.rx-art .k4 {
+  fill: var(--success);
+}
+.rx-art .kw {
+  fill: #fff;
+}
+.rx-art .kt {
+  fill: #fff;
+  font: 700 15px var(--font-display);
+}
+.rx-art .team-red {
+  fill: var(--team-red);
+}
+.rx-art .team-blue {
+  fill: var(--team-blue);
+}
+.rx-card__done {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--success) 24%, var(--panel-soft));
+  color: var(--success);
+}
+.rx-card__body {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  padding: 14px 16px 10px;
+}
+.rx-card__body b {
+  font: 700 22px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.rx-card__body p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.rx-card__best {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 16px 14px;
+  border-top: 1px solid var(--line-soft);
+  color: var(--muted);
+  font-size: 13px;
+}
+.rx-card__best b {
+  color: var(--ink);
+  font: 700 26px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.rx-ranking-slot {
+  min-width: 0;
+}
+.rx-rank__controls .field {
+  height: 38px;
+}
+.rx-rank__controls .field select {
+  min-width: 140px;
+}
+
+/* ---------- the routines ---------- */
+.rx-routines {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.rx-routine {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 14px;
+}
+.rx-routine__steps {
+  align-content: start;
+}
+.rx-routine .card__head {
+  margin-bottom: 0;
+}
+.rx-routine .btn {
+  justify-self: start;
+}
+.rx-routine__steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rx-routine__steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  background: var(--tint-1);
+  color: var(--muted);
+  font: 600 14px/1.2 var(--font-body);
+}
+.rx-routine__steps li .i {
+  color: var(--brand-ink);
+}
+.rx-routine__steps li.is-done {
+  color: var(--success);
+}
+.rx-routine__steps li.is-done .i {
+  color: var(--success);
+}
+.rx-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.rx-steps li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font: 600 13px/1.2 var(--font-body);
+}
+.rx-steps li.is-done {
+  color: var(--success);
+}
+.rx-steps li.is-now {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 18%, var(--panel-soft));
+  color: var(--ink);
+}
+
+/* ---------- the page of one exercise ---------- */
+.rx-board {
+  padding: 24px;
+  scroll-margin-top: calc(var(--topbar) + 12px);
+}
+.rx-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+.rx-intro__how {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.rx-intro__art,
+.rx-result__art {
+  display: block;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: radial-gradient(
+    120% 130% at 50% 0%,
+    color-mix(in srgb, var(--brand) 26%, var(--panel-raised)),
+    var(--panel-soft)
+  );
+  overflow: hidden;
+}
+.rx-how {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.rx-how h2 {
+  margin-bottom: 6px;
+  color: var(--ink);
+  font: 700 18px/1.2 var(--font-display);
+  letter-spacing: 0.05em;
+}
+.rx-how p + h2 {
+  margin-top: 18px;
+}
+.rx-how p b {
+  color: var(--ink);
+}
+.rx-yours {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 20px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 8%, var(--panel-soft));
+}
+.rx-yours__label {
+  color: var(--muted);
+  font: 600 13px/1.2 var(--font-body);
+}
+.rx-yours__best {
+  font: 700 72px/0.95 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.rx-yours__best small {
+  margin-inline-start: 6px;
+  color: var(--muted);
+  font: 600 18px/1 var(--font-body);
+}
+.rx-actions {
+  margin-top: 8px;
+}
+.rx-trend {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  width: min(100%, 360px);
+  height: 96px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.rx-trend li {
+  flex: 1 1 0;
+  min-width: 10px;
+  max-width: 36px;
+  height: calc(var(--p, 100) * 1%);
+  min-height: 10px;
+  border-radius: 4px 4px 0 0;
+  background: var(--tint-3);
+}
+.rx-trend li.is-best {
+  background: var(--success);
+}
+.rx-trend li.is-now {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.rx-trend-slot:empty {
+  display: none;
+}
+.rx-others {
+  display: grid;
+  gap: 4px;
+}
+.rx-others .trn-sec {
+  margin-bottom: 8px;
+}
+.rx-list--small {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 12px;
+}
+.rx-list--small .rx-card__body {
+  padding: 12px 12px 8px;
+}
+.rx-list--small .rx-card__body b {
+  font-size: 18px;
+}
+.rx-list--small .rx-card__body p {
+  display: none;
+}
+.rx-list--small .rx-card__best {
+  padding: 8px 12px 12px;
+}
+.rx-list--small .rx-card__best b {
+  font-size: 20px;
+}
+/* A run covers the page, the bars included. The scroll of the page stays where it was (the page does not move
+   under the player), and comes back with the result. */
+html:has(.is-running) {
+  overflow: hidden;
+}
+.is-running .rx-board {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: #060b13;
+  box-shadow: none;
+  animation: none;
+  transform: none;
+  opacity: 1;
+}
+.is-running #rx-area,
+.rx-play {
+  height: 100%;
+}
+.rx-play {
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+  background:
+    radial-gradient(
+      90% 70% at 50% 0%,
+      color-mix(in srgb, var(--brand-strong) 22%, transparent),
+      transparent 70%
+    ),
+    #060b13;
+  color: var(--ink);
+}

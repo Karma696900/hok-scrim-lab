@@ -1,0 +1,248 @@
+/* ---------- no game in the period: one line, then what the page counts and the heroes of each lane ---------- */
+.empty.pop-empty {
+  display: flex;
+  align-items: center;
+  justify-items: stretch;
+  gap: 12px;
+  padding: 14px 18px;
+  text-align: start;
+}
+.pop-empty .i {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+.pop-empty b {
+  color: var(--ink);
+}
+.pop-aside {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+.pop-steps {
+  display: grid;
+  grid-auto-rows: 1fr;
+  align-content: stretch;
+  gap: 0;
+  padding: 8px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  counter-reset: step;
+}
+.pop-steps li {
+  position: relative;
+  display: grid;
+  align-content: center;
+  gap: 4px;
+  padding: 18px 0 18px 64px;
+  border-block-end: 1px solid var(--line-soft);
+  counter-increment: step;
+}
+[dir="rtl"] .pop-steps li {
+  padding: 18px 64px 18px 0;
+}
+.pop-steps li:last-child {
+  border-block-end: 0;
+}
+.pop-steps li::before {
+  content: counter(step);
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  color: var(--brand-ink);
+  font: 700 48px/1 var(--font-display);
+  transform: translateY(-50%);
+}
+.pop-steps b {
+  font: 700 22px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.pop-steps span {
+  color: var(--muted);
+  font-size: 14px;
+}
+.pop-lanelist {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+}
+.pop-lanelist li {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+.pop-lane__name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 700 18px/1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.pop-lane__name small {
+  color: var(--muted);
+  font: 600 13px/1 var(--font-body);
+}
+[data-theme="light"] .pop-lane__name img {
+  padding: 3px;
+  border-radius: 6px;
+  background: #2a3d63;
+}
+.pop-lane__heroes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.pop-lane__heroes .pt {
+  border-radius: var(--r-sm);
+}
+
+/* ---------- smaller screens ---------- */
+@media (max-width: 1100px) {
+  .pop-sides,
+  .pop-aside {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pop-row--hero {
+    grid-template-columns: 40px minmax(0, 1fr) minmax(170px, 0.6fr);
+  }
+  .pop-row--hero .pop-vs {
+    grid-column: 2 / -1;
+  }
+  .page-head.pp-stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pop-podium {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 720px) {
+  .page-head.pp-stage {
+    min-height: 0;
+    gap: 18px;
+    padding: 20px 16px 16px;
+  }
+  .pop-figures b {
+    font-size: 56px;
+  }
+  .pp-tabs {
+    gap: 8px;
+  }
+  .pp-tabs a {
+    justify-content: center;
+    padding: 12px 8px;
+    font-size: 20px;
+  }
+  .pop-podium li,
+  .pop-podium li:first-child {
+    width: 96px;
+  }
+  /* the two drafts of the podium (blue side, red side) are as wide as the screen, and the five portraits share it */
+  .pop-podium--drafts li,
+  .pop-podium--drafts li:first-child {
+    width: auto;
+  }
+  .pop-podium__draft div {
+    gap: 4px;
+  }
+  .pop-podium__draft .pt {
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: 52px;
+  }
+  .pop-podium li b {
+    font-size: 15px;
+  }
+  .pop-controls {
+    padding: 14px;
+  }
+  /* the choices of the period fold onto two lines instead of leaving the card */
+  .pop-controls__row,
+  .pop-controls .seg {
+    max-width: 100%;
+  }
+  .pop-controls .seg {
+    flex-wrap: wrap;
+  }
+  .pop-controls__row .seg button {
+    flex: 1 1 auto;
+    height: 36px;
+    white-space: nowrap;
+  }
+  .pop-lanes {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .pop-lanes .lane-tab {
+    gap: 6px;
+    height: 52px;
+    min-width: 0;
+    padding: 0 8px;
+    font-size: 13px;
+  }
+  .pop-row {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+  }
+  .pop-rank {
+    font-size: 28px;
+  }
+  .pop-stats {
+    grid-column: 1 / -1;
+    justify-items: stretch;
+    text-align: start;
+  }
+  .pop-stats .pill {
+    justify-self: start;
+  }
+  .pop-heroes {
+    grid-template-columns: repeat(5, minmax(0, 52px));
+    gap: 6px;
+  }
+  .pop-row--hero {
+    grid-template-columns: 32px minmax(0, 1fr);
+  }
+  .pop-row--hero .pop-vs {
+    grid-column: 1 / -1;
+  }
+  .pop-hero__art {
+    width: 72px;
+    height: 72px;
+  }
+  .pop-hero b {
+    font-size: 22px;
+  }
+  .pop-lanelist li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
+/* on a wide screen the heroes of a lane go two by two: one row in the full width held its figures on the left and nothing on the right */
+@media (min-width: 1200px) {
+  .pop-list:has(> .pop-row--hero) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+  }
+  .pop-row--hero {
+    grid-template-columns: 34px minmax(230px, 1.3fr) minmax(120px, 0.8fr) auto;
+    gap: 14px;
+  }
+  .pop-row--hero .pop-hero__art {
+    width: 84px;
+    height: 84px;
+  }
+  .pop-row--hero .pop-hero b {
+    font-size: 22px;
+    overflow-wrap: break-word;
+  }
+}

@@ -1,0 +1,151 @@
+/* The page of an address that does not exist (client/app/not-found-page.js): a stage with the cover of a hero, the
+   big 404, the address that was asked for, a search and the ways back. The stage fills the height of the screen
+   on a desktop. Classes nf-*. */
+.lost {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  min-height: calc(100vh - var(--topbar) - 120px);
+}
+.page-head.nf-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: end;
+  gap: 24px 56px;
+  min-height: 380px;
+  margin: 0;
+  padding: 40px 48px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(
+      110% 120% at 88% 0%,
+      color-mix(in srgb, var(--brand) 26%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-strong) 24%, var(--panel-soft)),
+      var(--panel-soft)
+    );
+  color: var(--ink);
+  overflow: hidden;
+}
+.nf-stage__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.nf-stage__art.is-on {
+  opacity: 1;
+}
+.nf-stage__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 22%;
+}
+.nf-stage__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--panel-soft) 96%, transparent) 0%,
+      color-mix(in srgb, var(--panel-soft) 86%, transparent) 40%,
+      color-mix(in srgb, var(--panel-soft) 40%, transparent) 74%,
+      color-mix(in srgb, var(--panel-soft) 12%, transparent) 100%
+    ),
+    linear-gradient(0deg, color-mix(in srgb, var(--panel-soft) 86%, transparent), transparent 58%);
+}
+[dir="rtl"] .nf-stage__veil {
+  transform: scaleX(-1);
+}
+.nf-code {
+  align-self: center;
+  font: 700 clamp(120px, 17vw, 240px) / 0.8 var(--font-display);
+  letter-spacing: 0.02em;
+}
+.nf-stage__main {
+  display: grid;
+  gap: 0;
+  align-content: end;
+  min-width: 0;
+}
+.page-head.nf-stage h1 {
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 0.98;
+  overflow-wrap: anywhere;
+}
+.page-head.nf-stage p {
+  max-width: 56ch;
+  margin-top: 14px;
+  color: var(--ink);
+  opacity: 0.88;
+  font-size: 16px;
+}
+.page-head.nf-stage .nf-path {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  color: var(--muted);
+  opacity: 1;
+  font-size: 14px;
+}
+.nf-path code {
+  direction: ltr;
+  unicode-bidi: isolate;
+  padding: 3px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--panel-soft) 80%, transparent);
+  color: var(--ink);
+  font:
+    600 14px ui-monospace,
+    "Cascadia Code",
+    Consolas,
+    monospace;
+  overflow-wrap: anywhere;
+}
+.nf-search {
+  width: min(520px, 100%);
+  height: 52px;
+  margin-top: 22px;
+  background: color-mix(in srgb, var(--panel-soft) 80%, transparent);
+}
+.nf-search input {
+  font-size: 16px;
+  cursor: pointer;
+}
+.nf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.nf-stage .btn:not(.btn--primary) {
+  background: color-mix(in srgb, var(--panel-soft) 74%, transparent);
+}
+
+@media (max-width: 900px) {
+  .lost {
+    min-height: 0;
+  }
+  .page-head.nf-stage {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 8px;
+    padding: 24px 20px;
+  }
+  .nf-code {
+    font-size: 96px;
+  }
+  .nf-search .kbd {
+    display: none;
+  }
+}

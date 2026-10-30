@@ -1,0 +1,30 @@
+.env
+.env.*
+!.env.example
+node_modules/
+backups/
+*.log
+.data/
+dist/
+
+# screenshots of the design work (hundreds of MB); the briefs next to them are small and stay visible
+.impeccable/review/
+.impeccable/references/
+.impeccable/questions/
+hero-sheet-live/
+
+# database dumps and backup keys: never in a public repository
+*.sql
+*.sql.gz
+*.age
+*.key
+
+# local working folders of the owner's tools (agents, editor, notes, video work, test reports)
+.agents/
+.claude/
+.impeccable/
+.superpowers/
+.vscode/
+scripts/vod-drafts/
+skills-lock.json
+test-results/

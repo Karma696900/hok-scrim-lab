@@ -1,0 +1,168 @@
+/* Portraits, lane logos, team emblems, avatar stacks. */
+/* ---------- portraits, lane logos, emblems ---------- */
+.pt {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: var(--s, 40px);
+  height: var(--s, 40px);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--panel-soft);
+  box-shadow: 0 0 0 1.5px var(--tint-3);
+}
+.pt--sq {
+  border-radius: 10px;
+}
+
+.pt--ring {
+  box-shadow:
+    0 0 0 2px var(--canvas),
+    0 0 0 4px var(--brand);
+}
+.pt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--ease);
+}
+.pt:hover img {
+  transform: scale(1.12);
+}
+.pt .dot {
+  position: absolute;
+  inset-inline-end: 0;
+  bottom: 0;
+  width: 28%;
+  height: 28%;
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 0 2px var(--panel);
+}
+.pt .dot.off {
+  background: var(--faint);
+}
+.pt .dot.busy {
+  background: var(--warn);
+}
+.lane {
+  display: inline-grid;
+  place-items: center;
+  width: var(--ls, 22px);
+  height: var(--ls, 22px);
+  padding: 3px;
+  border-radius: 6px;
+  background: var(--tint-2);
+  box-shadow: inset 0 0 0 1px var(--tint-2);
+}
+.lane img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* the logo is part of its button or chip: it neither takes the pointer nor is dragged by itself */
+  pointer-events: none;
+}
+/* The lane badges are white: in the light theme they sit on a dark chip. */
+[data-theme="light"] .lane {
+  background: #2a3d63;
+  box-shadow: none;
+}
+.lanes {
+  display: inline-flex;
+  gap: 4px;
+}
+.emblem {
+  display: inline-grid;
+  place-items: center;
+  width: var(--s, 40px);
+  height: var(--s, 40px);
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid rgba(91, 155, 255, 0.32);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.12), transparent 60%), #151f33;
+}
+.emblem svg {
+  width: 62%;
+  height: 62%;
+}
+.stack {
+  display: inline-flex;
+}
+.stack > * + * {
+  margin-inline-start: -10px;
+}
+.stack .pt {
+  box-shadow:
+    0 0 0 2px var(--panel),
+    0 0 0 3px var(--tint-3);
+}
+.strip {
+  display: inline-flex;
+  gap: 6px;
+}
+.strip .pt {
+  --s: 34px;
+  border-radius: 8px;
+}
+
+/* The colour of an emblem: one of twelve hues, chosen from the name of the team (classes, because the page may not carry style attributes). */
+.emblem {
+  --hue: 212;
+  border-color: hsl(var(--hue) 80% 55% / 0.42);
+}
+.emblem path {
+  fill: hsl(var(--hue) 90% 66% / 0.22);
+  stroke: hsl(var(--hue) 90% 66%);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+.emblem img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.hue-0 {
+  --hue: 212;
+}
+.hue-1 {
+  --hue: 350;
+}
+.hue-2 {
+  --hue: 205;
+}
+.hue-3 {
+  --hue: 345;
+}
+.hue-4 {
+  --hue: 262;
+}
+.hue-5 {
+  --hue: 352;
+}
+.hue-6 {
+  --hue: 190;
+}
+.hue-7 {
+  --hue: 40;
+}
+.hue-8 {
+  --hue: 150;
+}
+.hue-9 {
+  --hue: 20;
+}
+.hue-10 {
+  --hue: 290;
+}
+.hue-11 {
+  --hue: 100;
+}
+
+/* What stands in for a picture that is missing (a hero or a piece without an image). */
+.image-fallback {
+  background: linear-gradient(135deg, var(--panel-raised), var(--panel-soft));
+}

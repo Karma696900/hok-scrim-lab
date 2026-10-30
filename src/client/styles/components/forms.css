@@ -1,0 +1,227 @@
+/* Form controls: fields, labels, segmented control, switch, check, range, keyboard key. */
+/* ---------- form controls ---------- */
+.field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 42px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+  transition: border-color 160ms;
+}
+.field:focus-within,
+.field:hover {
+  border-color: var(--brand);
+}
+.field input,
+.field select {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ink);
+}
+.field select option {
+  background: var(--panel);
+  color: var(--ink);
+}
+.field--search {
+  width: 240px;
+}
+.field--area {
+  height: auto;
+  align-items: flex-start;
+  padding: 10px 12px;
+}
+.field textarea {
+  flex: 1;
+  min-height: 84px;
+  border: 0;
+  outline: 0;
+  resize: vertical;
+  background: transparent;
+  color: var(--ink);
+}
+.label {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  font: 600 13px/1.2 var(--font-body);
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.label small {
+  font-weight: 400;
+  color: var(--faint);
+}
+.seg {
+  display: inline-flex;
+  padding: 3px;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel-soft);
+}
+.seg button {
+  height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  font: 600 12px/1 var(--font-body);
+  transition-property: var(--fx);
+  transition-duration: 160ms;
+}
+.seg button.on,
+.seg button[aria-pressed="true"] {
+  background: var(--brand-strong);
+  color: #fff;
+}
+.seg a {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 7px;
+  color: var(--muted);
+  font: 600 12px/1 var(--font-body);
+  text-decoration: none;
+  transition-property: var(--fx);
+  transition-duration: 160ms;
+}
+.seg a:hover {
+  color: var(--ink);
+}
+.seg a.on,
+.seg a[aria-current="page"] {
+  background: var(--brand-strong);
+  color: #fff;
+}
+.switch {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  flex: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-raised);
+  transition-property: var(--fx);
+  transition-duration: 200ms;
+}
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  inset-inline-start: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition-property: var(--fx);
+  transition-duration: 200ms;
+  transition-timing-function: var(--ease);
+}
+.switch.on {
+  background: var(--brand-strong);
+  border-color: var(--brand);
+}
+.switch.on::after {
+  background: #fff;
+  transform: translateX(18px);
+}
+[dir="rtl"] .switch.on::after {
+  transform: translateX(-18px);
+}
+.check {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-soft);
+  color: transparent;
+  transition-property: var(--fx);
+  transition-duration: 160ms;
+}
+.check .i {
+  width: 14px;
+  height: 14px;
+  stroke-width: 2.6;
+}
+.check.on {
+  border-color: var(--brand);
+  background: var(--brand-strong);
+  color: #fff;
+}
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--brand);
+}
+.kbd {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 6px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--muted);
+  font: 500 12px/1 var(--font-body);
+}
+
+/* The message a form shows when the server refuses it (nothing while it is empty). */
+.form-error {
+  color: var(--danger);
+  font-size: 13px;
+}
+.form-error:empty {
+  display: none;
+}
+
+/* A multiple choice as chips (languages, labels): a checkbox under a pill. */
+.chip-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.chip-check {
+  position: relative;
+}
+.chip-check input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.chip-check span {
+  display: inline-flex;
+  align-items: center;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  font: 500 12px/1 var(--font-body);
+  transition-property: var(--fx);
+  transition-duration: 160ms;
+}
+.chip-check input:hover + span {
+  border-color: var(--brand);
+}
+.chip-check input:checked + span {
+  border-color: var(--brand);
+  background: rgba(47, 111, 232, 0.2);
+  color: var(--brand-ink);
+}
+.chip-check input:focus-visible + span {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}

@@ -1,0 +1,2526 @@
+0001|Đã sửa draft
+0002|Yêu cầu thất bại ({status}).
+0003|Đăng xuất
+0004|Đăng nhập
+0005|Tạo tài khoản
+0007|Chưa có vai trò
+0008|Global
+0009|không khả dụng
+0010|không rõ
+0011|Đang dùng bộ nhớ đệm danh sách tướng đã xác thực gần nhất · Đồng bộ nguồn: {date}
+0012|Chưa có danh sách tướng Global đã xác thực trong bộ nhớ đệm. Hãy đồng bộ dữ liệu chính thức của Camp để tải kho draft.
+0013|{name} — Hướng dẫn tướng Honor of Kings Global | {site}
+0014|Không tìm thấy trang | {site}
+0015|Không tìm thấy trang
+0016|Trang này không tồn tại hoặc đã được chuyển.
+0017|Quay lại tổng quan
+0018|Xem các tướng
+0019|Quản lý scrim
+0021|Series mới
+0024|Series đang diễn ra
+0025|Trận đã ghi
+0026|Tier list
+0032|Tạo series
+0041|Lịch sử
+0042|Chưa có kết quả
+0043|Các trận đã kết thúc sẽ được ghi lại ở đây.
+0044|Series hòa
+0045|Hoàn tất
+0046|Trận {number} đang diễn ra
+0047|Sẵn sàng cho trận tiếp theo
+0048|{teamA} vs {teamB}
+0049|BO{bestOf}
+0050|Xuất {teamA} vs {teamB} sang PDF hoặc PNG
+0051|Xuất sang PDF hoặc PNG
+0053|Không có dữ liệu
+0054|Công cụ quản trị
+0055|Quản trị
+0059|Đồng bộ hồ sơ tướng từ Camp
+0060|Đang lấy {done} / {total}…
+0061|Đã lưu {stored} trên {total} hồ sơ tướng
+0062|{count} thất bại ở lần chạy trước
+0064|Xóa
+0065|Danh mục tướng
+0069|Tìm tướng
+0070|Lớp
+0071|Tất cả
+0072|Không có kết quả phù hợp
+0073|Danh sách tướng không khả dụng
+0074|Hãy điều chỉnh các bộ lọc đang bật.
+0075|Hãy đồng bộ danh sách tướng Global chính thức để hiển thị mục này.
+0076|Đang lấy hồ sơ tướng từ Camp ở chế độ nền…
+0080|Pick
+0081|Ban
+0083|Tỷ lệ thắng
+0085|Tỷ lệ ban
+0086|Chưa có trận nào được ghi.
+0087|Tướng
+0088|Số trận
+0089|T-B
+0091|Chưa có trận nào được ghi trong scrim của bạn. Kết quả sẽ hiện ở đây sau khi bạn lưu trận.
+0092|Mẫu chưa đủ ({picked}/{minGames} trận được pick)
+0096|Phối hợp (đồng đội)
+0097|Đối đầu (đối thủ)
+0098|Tỷ lệ phần trăm xuất hiện từ {minGames} trận. Chỉ dùng các scrim bạn đã ghi.
+0099|Nâng cấp đầu tiên
+0100|Xem trước {name}
+0101|Chưa có video xem trước nào được đăng cho kỹ năng này.
+0103|Camp không liệt kê kỹ năng nào cho tướng này.
+0104|Kỹ năng
+0105|Camp không liệt kê thay đổi cân bằng nào cho tướng này.
+0106|Chỉ có bản tóm tắt cho tướng này; Camp không trả về số liệu trước/sau.
+0107|Hiện tại
+0108|Chung
+0109|Khu vực
+0111|Chiều cao
+0112|Năng lượng
+0113|Đường của Camp
+0114|Ra mắt trên Global
+0115|Video hồ sơ tướng
+0116|Chưa có hình minh họa chính thức nào được đăng cho tướng này.
+0117|Hình minh họa
+0118|Đường cần thêm
+0119|Thêm đường (thủ công)
+0121|Chưa lấy hồ sơ tướng. Quản trị viên có thể bắt đầu đồng bộ Camp từ trang Tướng.
+0122|{name} · tên chính thức của Camp
+0127|thủ công
+0128|Hồ sơ
+0129|Camp · Global
+0130|Lịch sử bản vá
+0131|{count, plural, other {# thay đổi}}
+0132|Thống kê thi đấu
+0134|Scrim của bạn
+0135|Các trận của bạn
+0138|Cặp đôi
+0140|Hồ sơ tướng từ HOK Camp Global ({language}) · lấy ngày {date}. Hình minh họa và video thuộc về Tencent / TiMi Studio Group.
+0145|Thể thức series
+0146|Tốt nhất trong {count}
+0147|Tùy chỉnh
+0148|Số trận tối đa
+0149|Luật tướng của series
+0150|Global Ban & Pick
+0151|Free For All
+0152|Mỗi đội chỉ được chọn một tướng một lần trong series này.
+0153|Các tướng có thể được chọn lại tự do ở các trận sau.
+0154|{rule} Chọn một dạng Flowborn sẽ khóa cả năm dạng của đội đó.
+0155|Điều khiển draft
+0156|Một mình
+0157|Hai người chơi · cục bộ
+0158|Trực tuyến · mời một người chơi
+0159|Cần đăng nhập để tạo phòng trực tuyến.
+0160|Người chơi chuyền cùng một thiết bị sau lượt của mỗi phe.
+0161|Draft được chia sẻ trực tiếp với đối thủ được mời.
+0162|Bạn điều khiển cả hai phe của draft cục bộ này.
+0163|Scrim
+0165|Nhập series
+0167|Sẵn sàng cho draft đầu tiên
+0175|Xuất PDF / PNG
+0176|Liên kết mời trực tuyến
+0177|Sao chép liên kết mời
+0178|Phòng trực tuyến
+0179|Cả hai người chơi đã kết nối. Draft luôn đồng bộ giữa các trình duyệt.
+0180|Gửi lời mời dùng một lần này cho đối thủ. Họ phải đăng nhập bằng tài khoản khác.
+0181|Xanh
+0182|Đỏ
+0183|Tỷ số series
+0184|Đội A
+0185|Ai đạt {winsRequired} trước · BO{bestOf}
+0186|Đội B
+0187|Trận {gameNumber}
+0188|{winner} thắng · {duration}
+0189|Xanh: {blueTeam}
+0190|Kiểm tra sẵn sàng
+0191|Draft đang diễn ra
+0192|Các trận của series này
+0193|Trận tiếp theo
+0194|Phe xanh tự động đổi bên. Bạn có thể đổi lại cho trận này.
+0195|Phe xanh
+0196|Chuẩn bị trận {number}
+0197|Chỉ người tạo series trực tuyến này mới bắt đầu trận tiếp theo.
+0198|Series đã hoàn tất
+0199|Bắt đầu series khác
+0200|Chưa ghi pick nào
+0201|Mức sử dụng tướng trong series
+0202|Chỉ pick
+0203|Các trận đã hoàn tất
+0204|Sao chép liên kết xem
+0205|Sao chép liên kết chỉnh sửa
+0209|Thời lượng
+0210|Sửa thời lượng trận {gameNumber}
+0214|Sửa ban &amp; pick
+0215|Tất cả vai trò
+0216|Tier list {number}
+0217|{name}, đường {lane}
+0218|Đường của tier list
+0219|Tên tier list
+0220|{role} · chỉ xem
+0221|Xuất JSON
+0222|Nhập JSON
+0223|Đổi tên bậc {label}
+0224|Chuyển bậc lên
+0225|Chuyển bậc xuống
+0226|Xóa bậc
+0227|×
+0228|Thả tướng vào đây
+0229|Chưa xếp hạng
+0230|Tất cả tướng đã được xếp hạng
+0231|Thêm bậc +
+0235|Chưa có tier list {laneName}
+0236|Danh sách "Tất cả vai trò" xếp hạng mọi tướng Global.
+0237|Danh sách theo đường chỉ chứa các tướng của đường đó (một Flowborn).
+0240|Tạo, chia sẻ và xuất bảng xếp hạng theo từng đường. Tướng Global mới tự động vào "Chưa xếp hạng".
+0241|Tier list {laneName} mới +
+0242|Tối đa 100 series mỗi lần xuất. Hãy thu hẹp khoảng ngày hoặc bộ lọc.
+0243|Xuất các series của bạn (PDF)
+0244|Xuất series này
+0245|Tên tệp
+0246|Đang tạo…
+0247|Xuất thất bại ({status}).
+0248|{format} sẵn sàng · {file}
+0249|Tải xuống
+0250|Tệp này quá lớn (tối đa 12 MB).
+0251|Nhập thất bại ({status}).
+0252|{count, plural, other {Đã nhập # series}}
+0253|Trang
+0254|← Trước
+0255|Trang {current} / {pages} · tổng {total}
+0256|Sau →
+0257|Mẫu chưa đủ ({picked}/{minGames})
+0258|Tên đội
+0259|Mọi trạng thái
+0260|Đang diễn ra
+0261|Hòa
+0262|Mọi luật tướng
+0263|Từ
+0264|Đến
+0265|Áp dụng
+0266|Đặt lại
+0267|Lịch sử & thống kê
+0268|Mọi con số bên dưới đều lấy từ các scrim đã hoàn tất của bạn.
+0269|Xuất PDF
+0270|Mẫu chưa đủ ({gamesCount}/{minGames})
+0271|Số series đã chơi
+0272|Số trận đã chơi
+0273|Trận trung bình
+0274|Tổng thời gian chơi
+0275|Trận ngắn nhất
+0276|Trận dài nhất
+0277|Thắng phe xanh – phe đỏ
+0278|Tỷ lệ thắng phe xanh
+0279|Series đã lưu
+0280|Chưa có lịch sử scrim
+0281|Không có gì khớp với các bộ lọc này
+0282|Kết quả sẽ hiện ở đây sau khi bạn ghi một trận.
+0283|Hãy điều chỉnh hoặc đặt lại bộ lọc.
+0284|Thống kê draft của tướng
+0285|Tìm tướng
+0286|Sắp xếp tướng
+0287|Tham gia nhiều nhất
+0288|Được chọn nhiều nhất
+0289|Bị ban nhiều nhất
+0290|Tỷ lệ thắng tốt nhất
+0291|Pick
+0292|Ban
+0293|Tỷ lệ thắng xuất hiện từ {minGames} trận được pick.
+0294|Chưa có mẫu tướng
+0295|Thống kê draft xuất hiện sau khi lưu các trận đã hoàn tất.
+0296|Đang đồng bộ…
+0297|Đã đồng bộ danh sách tướng · {count} tướng
+0298|Đồng bộ thất bại; vẫn giữ bộ nhớ đệm. {message}
+0299|Đồng bộ danh sách tướng
+0300|Tier list chưa đặt tên
+0301|Bậc
+0302|Đã cập nhật thời lượng trận
+0303|Dùng định dạng MM:SS, ví dụ 24:37
+0304|Đã tạo phòng trực tuyến · hãy chia sẻ liên kết mời
+0305|Đã tạo và lưu series
+0306|Nhập thời lượng trận theo định dạng MM:SS
+0307|Đã ghi kết quả trận
+0311|Đã bắt đầu draft
+0312|Chuyển cho {team}
+0313|{team} là bên tiếp theo ban.
+0314|{team} là bên tiếp theo pick.
+0315|Đã sao chép liên kết mời
+0316|Xóa tier list này?
+0317|Đã sao chép liên kết · dùng một lần · có thể chỉnh sửa · hết hạn sau 7 ngày
+0318|Đã sao chép liên kết · dùng một lần · chỉ xem · hết hạn sau 7 ngày
+0319|Trận {number} · {teamA} vs {teamB}
+0320|Global Ban & Pick vẫn áp dụng: một đội không thể dùng tướng (hoặc Flowborn thứ hai) đã chọn ở trận khác trong series.
+0321|Xóa series này và các trận của nó?
+0323|Đây không phải JSON tier list hợp lệ.
+0324|Đã nhập tier list
+0325|Cái này đã là của bạn
+0326|Đã chia sẻ với bạn với vai trò người chỉnh sửa
+0327|Đã chia sẻ với bạn với vai trò người xem
+0328|Máy chủ không thể tải dữ liệu. {message}
+0329|Ít nhất 12 ký tự. Càng dài càng tốt: một câu ngắn là ổn.
+0330|Đã tạo tài khoản
+0331|Đã đăng nhập
+0332|Sai mật khẩu
+0333|Đăng nhập bị chặn (tài khoản bị khóa)
+0334|Đã bật xác thực hai yếu tố
+0335|Sai mã xác thực
+0336|Việc nhập mã bị chặn
+0337|Sai mã khi thiết lập
+0338|Đã dùng mã khôi phục
+0339|Sai mã khôi phục
+0340|Đã tạo mã khôi phục mới
+0341|Đã đổi mật khẩu
+0342|Sai mã ở thao tác nhạy cảm
+0343|Đã đăng xuất
+0344|Đã đăng xuất ở mọi nơi
+0346|hoặc
+0347|Tiếp tục với Google
+0348|Đăng nhập bằng Google cũng yêu cầu mã xác thực của bạn.
+0349|Dùng email và mật khẩu của bạn, rồi xác nhận bằng ứng dụng xác thực.
+0350|Email
+0351|Mật khẩu
+0352|Tiếp tục
+0353|Chưa có tài khoản?
+0354|Tạo tài khoản
+0355|Tạo tài khoản
+0356|Bắt buộc dùng xác thực hai yếu tố: bạn sẽ thiết lập ngay sau đây.
+0358|Dùng để đăng nhập. Chúng tôi không bao giờ gửi email.
+0359|Nhập lại mật khẩu
+0360|Đã đăng ký?
+0361|Đăng ký đã đóng
+0362|Máy chủ này không nhận tài khoản mới.
+0363|Nhập mã của bạn
+0364|Dùng một trong các mã khôi phục bạn đã lưu. Mỗi mã chỉ dùng được một lần.
+0365|Mở ứng dụng xác thực và nhập mã 6 chữ số.
+0366|Mã khôi phục
+0367|Xác minh
+0368|Dùng ứng dụng xác thực của tôi
+0369|Tôi mất thiết bị: dùng mã khôi phục
+0370|Bắt đầu lại
+0371|Hãy lưu mã khôi phục của bạn
+0372|Nếu mất điện thoại, các mã này là cách duy nhất để vào lại. Mỗi mã chỉ dùng được một lần. Chúng chỉ hiển thị bây giờ.
+0373|Mã khôi phục
+0374|Sao chép
+0375|Tải .txt
+0376|Tôi đã lưu các mã này ở nơi an toàn (trình quản lý mật khẩu, giấy).
+0377|Thiết lập xác thực hai yếu tố
+0378|Đang tải…
+0379|Quét mã QR bằng ứng dụng xác thực (Google Authenticator, Aegis, 1Password, Authy…), rồi nhập mã hiển thị.
+0380|Mã QR để thêm {account} vào ứng dụng xác thực của bạn
+0381|Không quét được? Nhập khóa này thủ công:
+0382|Tài khoản: {account} · theo thời gian, 6 chữ số
+0383|Bật và đăng nhập
+0384|Bảo mật tài khoản
+0385|Tài khoản
+0386|Bảo mật
+0387|Google
+0388|email và mật khẩu
+0389|{name} · {email} · đăng nhập bằng {method}
+0390|Bật
+0391|Xác thực hai yếu tố
+0392|Số mã khôi phục còn lại
+0393|{count, plural, other {Chỉ còn # mã khôi phục: hãy tạo mã mới bên dưới.}}
+0394|Mã khôi phục mới
+0395|Chỉ hiển thị bây giờ. Các mã cũ không còn dùng được.
+0396|Đổi mật khẩu
+0397|Mật khẩu hiện tại
+0398|Mật khẩu mới
+0399|Mã xác thực
+0400|Tạo bộ mới (bộ cũ sẽ ngừng hoạt động).
+0401|Tạo mã mới
+0402|Phiên đăng nhập
+0403|Đăng xuất khỏi mọi trình duyệt và thiết bị, kể cả thiết bị này.
+0404|Đăng xuất ở mọi nơi
+0405|Hoạt động gần đây
+0406|Khi nào
+0407|Việc gì
+0408|Chi tiết
+0409|Chưa có gì.
+0410|Đã xảy ra lỗi
+0411|Quay lại đăng nhập
+0412|Hai mật khẩu không giống nhau.
+0413|Hãy xác nhận bạn đã lưu các mã.
+0414|Đã đổi mật khẩu. Các phiên khác đã bị đóng.
+0415|Đã sao chép mã khôi phục
+0416|Mã khôi phục HOK Global Scrim Lab
+0417|Mỗi mã chỉ dùng được một lần.
+0418|Ban xanh
+0419|Pick xanh
+0420|Ban đỏ
+0421|Pick đỏ
+0422|{side} ban {number}
+0423|{side} pick {number}
+0424|Trống
+0425|Gỡ {name}
+0426|Sửa một draft
+0427|Chọn một ô, rồi chọn tướng cần có ở đó. Thống kê, bản xuất và lịch sử dùng draft đã sửa.
+0428|Tướng cho: {slot}
+0429|(đã có trong draft này)
+0430|Không có tướng nào khớp.
+0431|Hoàn tác thay đổi
+0432|Hủy
+0433|Lưu chỉnh sửa
+0434|Sẵn sàng
+0435|Đã dùng trong trận này
+0436|Đã dùng trong series
+0437|Đang chờ
+0438|Phe đỏ
+0439|Tìm trong kho tướng
+0440|Lọc theo đường
+0441|Lọc theo loại tướng
+0442|Tất cả loại
+0443|Xanh đã sẵn sàng
+0444|Đỏ đã sẵn sàng
+0445|Xanh chưa sẵn sàng
+0446|Đỏ chưa sẵn sàng
+0447|Cả hai phe bắt đầu cùng nhau trên thiết bị này.
+0448|Bắt đầu draft
+0449|Tôi sẵn sàng — bắt đầu với tư cách {viewerTeamName}
+0450|Đang chờ đối thủ của bạn…
+0451|Đang theo dõi bước kiểm tra sẵn sàng.
+0452|Đồng hồ draft bắt đầu khi cả hai đội đã sẵn sàng.
+0453|Đang chờ {actingTeam}
+0454|tự do
+0455|Có thể chọn bất kỳ tướng nào, bất kể vai trò · khi hết giờ, auto-pick sẽ chọn một tướng {lane}
+0456|Chọn một tướng để ban · nếu hết giờ, lượt ban sẽ bị bỏ qua (có thể sửa sau)
+0457|Kết thúc chờ
+0458|Đã chốt draft.
+0459|Kết quả trận
+0461|Bắt đầu / tiếp tục đồng hồ trận
+0462|Tạm dừng
+0463|Kết thúc đồng hồ trận
+0465|Người thắng
+0467|Thời lượng trận · MM:SS
+0468|Lưu kết quả trận
+0469|Chỉ người tạo series trực tuyến này mới ghi kết quả.
+0470|Còn năm giây.
+0471|Hết giờ. Lượt ban bị bỏ qua.
+0472|Hết giờ. Một tướng được chọn tự động.
+0474|Bảng cuối
+0475|Draft sẵn sàng
+0476|Chờ cuối
+0477|Draft hoàn tất
+0478|ban
+0479|pick
+0480|{winner} thắng
+0481|Đã ghi
+0482|Lượt của {team}
+0483|Thông tin trận tiếp theo
+0484|Nhập kết quả
+0485|Kho tướng · {action} · {team}
+0486|{count} khả dụng
+0487|{team} đã ban {hero}.
+0488|{team} đã bỏ qua lượt ban.
+0489|{team} đã chọn {hero}.
+0490|{team} không chọn tướng nào.
+0491|(hết giờ)
+0492|Clash
+0493|Rừng
+0494|Giữa
+0495|Farm
+0496|Hỗ trợ
+0497|Đường Clash
+0498|Đường giữa
+0499|Đường Farm
+0500|Roamer
+0501|Chủ sở hữu
+0502|Người chỉnh sửa
+0503|Người xem
+0504|{site} — Draft, scrim và tier list Honor of Kings Global
+0505|Trình mô phỏng draft Honor of Kings Global miễn phí: ban và pick thi đấu, series scrim, tier list theo đường và hướng dẫn tướng kèm kỹ năng và lịch sử bản vá.
+0506|Tướng Honor of Kings Global — kỹ năng, đường và lịch sử bản vá | {site}
+0507|Tất cả tướng Honor of Kings Global với đường, lớp, kỹ năng, video, hình minh họa và thay đổi cân bằng từ dữ liệu chính thức của Camp.
+0508|Trình tạo tier list Honor of Kings Global | {site}
+0509|Tạo và chia sẻ tier list Honor of Kings Global cho mọi vai trò hoặc một đường bằng kéo thả.
+0510|Scrim — draft và ghi series | {site}
+0511|Chơi các series scrim Honor of Kings Global với thứ tự ban và pick thi đấu.
+0512|Series | {site}
+0513|Một series scrim.
+0514|Lịch sử và thống kê | {site}
+0515|Các scrim đã ghi và thống kê của bạn.
+0516|Đăng nhập | {site}
+0517|Đăng nhập vào tài khoản của bạn.
+0518|Mã xác minh | {site}
+0519|Nhập mã từ ứng dụng xác thực của bạn.
+0520|Thiết lập xác thực hai yếu tố | {site}
+0521|Bảo vệ tài khoản của bạn bằng ứng dụng xác thực.
+0522|Tạo tài khoản | {site}
+0523|Tạo tài khoản được bảo vệ bằng xác thực hai yếu tố.
+0524|Bảo mật tài khoản | {site}
+0525|Mật khẩu, ứng dụng xác thực và mã khôi phục.
+0526|Trang này không tồn tại.
+0527|Điểm cuối API không xác định.
+0528|Bạn đã đạt giới hạn {limit} series. Hãy xóa bớt trước.
+0529|Bạn đã đạt giới hạn {limit} tier list. Hãy xóa bớt trước.
+0530|Không tìm thấy series.
+0531|Không tìm thấy lời mời trực tuyến.
+0532|Hãy dùng tài khoản Google khác để tham gia lời mời này.
+0533|Lời mời này đã được sử dụng.
+0534|Không tìm thấy tier list.
+0535|Bạn chỉ có thể xem tier list này.
+0536|Tier list này đã thay đổi kể từ khi bạn mở. Hãy tải lại và thử lại.
+0537|Không tìm thấy.
+0538|Series trực tuyến chỉ có thể được chia sẻ ở chế độ chỉ xem.
+0539|Lời mời này không hợp lệ.
+0540|Lời mời này không hợp lệ hoặc đã hết hạn.
+0541|CSV có một trường trong dấu ngoặc kép chưa được đóng.
+0542|CSV trống.
+0543|CSV cần một cột "{required}" (tiêu đề: heroId,picks,bans,wins).
+0544|Dòng {value} của CSV có nhiều ô hơn tiêu đề.
+0545|Chỉ có thể nhập dữ liệu Honor of Kings Global (không phải Trung Quốc / Arena of Valor).
+0546|Hãy chọn phe Xanh hoặc Đỏ để bắt đầu.
+0547|Tướng này không có trong danh sách tướng chính thức.
+0548|Draft không nhận thao tác.
+0549|Cả hai phe phải bắt đầu draft trước khi thao tác.
+0550|Tướng này không khả dụng trong draft hiện tại.
+0551|Đội này đã chọn tướng này ở một trận trước.
+0552|{kind} của phe {side} phải là danh sách tối đa 5 tướng.
+0553|Tướng không xác định: {value}.
+0554|Một tướng chỉ được xuất hiện một lần trong draft.
+0555|Tên đội giới hạn {TEAM_NAME_MAX_LENGTH} ký tự.
+0556|Tên đội không được chứa ký tự điều khiển, < hoặc >.
+0557|Hai đội phải có tên khác nhau.
+0558|Best-of phải là số nguyên từ 1 đến 99.
+0559|Hãy chọn chế độ chơi được hỗ trợ.
+0560|Hãy chọn chế độ điều khiển draft được hỗ trợ.
+0561|Series này không thể bắt đầu thêm trận.
+0562|Phe xanh phải được gán cho một trong các đội của series.
+0563|Không có trận nào đang diễn ra.
+0564|Người thắng phải là một trong các đội của series.
+0565|Thời lượng trận phải là số giây hợp lệ.
+0566|Hãy hoàn tất giai đoạn chờ của draft trước khi ghi kết quả.
+0567|Trận này không tồn tại.
+0568|Hãy bắt đầu draft trước khi chạy đồng hồ trận.
+0569|Hãy bắt đầu draft trước khi tạm dừng đồng hồ trận.
+0570|Hãy bắt đầu draft trước khi kết thúc đồng hồ trận.
+0571|Draft vẫn đang diễn ra: hãy hoàn tất trước khi sửa ban và pick.
+0572|{teamName} đã chọn tướng này ở trận khác trong series (Global Ban & Pick).
+0573|{teamName} chỉ có thể dùng Flowborn một lần trong series Global Ban & Pick.
+0574|Hãy chọn đường hợp lệ hoặc Tất cả vai trò.
+0575|Yêu cầu không hợp lệ.
+0576|Phương thức không được phép.
+0577|Nội dung yêu cầu quá lớn.
+0578|URL quá dài.
+0579|Loại phương tiện không được hỗ trợ.
+0580|Tiêu đề yêu cầu quá lớn.
+0581|Series {number}: {message}
+0582|Nội dung yêu cầu không phải JSON hợp lệ.
+0583|URL không hợp lệ.
+0584|Lỗi máy chủ nội bộ.
+0585|Hãy đăng nhập để dùng draft trực tuyến.
+0586|Hãy đăng nhập để tiếp tục.
+0587|Thao tác này chỉ dành cho quản trị viên.
+0588|Quá nhiều yêu cầu. Hãy chậm lại và thử lại sau ít phút.
+0589|Không cho phép yêu cầu giữa các trang web.
+0590|Không cho phép yêu cầu khác nguồn gốc.
+0591|Chỉ người tạo mới có thể làm việc này.
+0592|Bạn chỉ có thể xem series này.
+0593|Chỉ người tạo series trực tuyến này mới có thể làm việc này.
+0594|Bạn không tham gia series trực tuyến này.
+0595|Chỉ người chơi của phe hiện tại mới có thể gửi thao tác này.
+0596|Đồng bộ chi tiết tướng không khả dụng trên máy chủ này.
+0597|Không tìm thấy lần nhập.
+0598|Không tìm thấy tướng.
+0600|Tướng này đã có đường đó.
+0601|Không tìm thấy đường.
+0604|Máy chủ này không hỗ trợ xuất.
+0605|Hãy chọn PDF hoặc PNG do HOK Global Scrim Lab tạo ra.
+0606|Chưa có gì để xuất.
+0607|Hãy đăng nhập hoặc tạo series trước: chưa có gì để xuất.
+0608|minGames phải là số nguyên từ 1 đến 1000.
+0609|Series này đã thay đổi kể từ khi bạn tải. Hãy tải lại và thử lại.
+0610|{key}.{side} chứa ID tướng không hợp lệ.
+0611|blueTeam phải là chuỗi.
+0612|heroId là bắt buộc.
+0613|Thao tác đồng hồ không xác định.
+0614|Không tìm thấy lời mời.
+0615|Không tìm thấy thành viên.
+0616|Chỉ người tạo mới có thể xóa tier list này.
+0617|Đã có tài khoản dùng email này.
+0618|Dùng ít nhất {min} ký tự.
+0619|Dùng nhiều nhất {max} ký tự.
+0620|Mật khẩu này quá phổ biến.
+0621|Mật khẩu không được chứa phần tên trong email của bạn.
+0622|Mật khẩu không được chứa tên của bạn.
+0623|Hãy dùng nhiều loại ký tự đa dạng hơn.
+0624|Email hoặc mật khẩu không hợp lệ.
+0625|Mã này không hợp lệ.
+0626|Phiên đăng nhập của bạn đã hết hạn. Hãy bắt đầu lại.
+0627|Quá nhiều mã sai. Hãy đăng nhập lại.
+0628|Mật khẩu hiện tại không đúng.
+0629|Nhập tên hiển thị từ 1 đến 60 ký tự.
+0630|Tên hiển thị không được chứa ký tự điều khiển, < hoặc >.
+0631|Nhập địa chỉ email hợp lệ.
+0632|Máy chủ này đã đóng việc tạo tài khoản.
+0633|Hãy chọn một mật khẩu.
+0634|Địa chỉ này được dành riêng. Hãy đăng nhập bằng Google hoặc hỏi chủ máy chủ.
+0635|Hãy quét mã trước.
+0636|Tài khoản này đăng nhập bằng Google và không có mật khẩu.
+0637|Hãy chọn mật khẩu mới.
+0638|Hãy chọn mật khẩu mà bạn chưa vừa dùng.
+0639|Chi tiết tướng vừa được đồng bộ gần đây. Hãy thử lại sau {seconds} giây.
+0640|Việc xuất mất quá nhiều thời gian và đã bị hủy.
+0641|Bạn đã có một lần xuất đang chạy. Hãy chờ nó hoàn tất.
+0642|Hàng đợi xuất đã đầy. Hãy thử lại sau ít phút.
+0643|Một PNG hiển thị tối đa {limit} trận. Hãy xuất series này sang PDF.
+0644|Scrim của khách
+0645|Đồng bộ danh sách tướng vừa được chạy gần đây. Hãy thử lại sau {seconds} giây.
+0646|Tệp này không chứa dữ liệu series HOK (hoặc bị hỏng).
+0647|Tệp này không chứa dữ liệu series đọc được.
+0648|Tệp này không do HOK Global Scrim Lab tạo ra, hoặc do phiên bản không tương thích tạo ra.
+0649|Một tệp có thể khôi phục từ 1 đến {MAX_SERIES} series.
+0650|Không đọc được PDF này.
+0651|PDF này không chứa dữ liệu series HOK. Chỉ nhập được PDF do trang này tạo ra (đừng lưu lại hay in chúng).
+0652|Đây không phải ảnh PNG.
+0653|PNG này bị cắt cụt.
+0654|PNG này không có dấu kết thúc.
+0655|PNG này không chứa dữ liệu series HOK. Chỉ nhập được PNG do trang này tạo ra (ứng dụng nhắn tin và trình chỉnh sửa sẽ xóa dữ liệu).
+0656|Hãy nhập PDF hoặc PNG do HOK Global Scrim Lab tạo ra.
+0657|Trạng thái: {value}
+0658|Luật tướng: {value}
+0659|Điều khiển draft: {value}
+0660|Đội chứa "{value}"
+0661|Từ {value}
+0662|Đến {value}
+0663|Không có bộ lọc (tất cả series của bạn)
+0664|Trận {number}
+0665|cập nhật {date}
+0666|HOK Global Scrim Lab · Bản xuất series
+0667|Bản xuất series
+0668|HOK Global Scrim Lab · Honor of Kings Global
+0669|tạo ngày {date}
+0670|Ghi chú
+0671|Series
+0672|Tổng thời gian chơi (mm:ss)
+0673|Phiên bản Honor of Kings
+0674|Bộ lọc:
+0675|Định dạng
+0676|Luật tướng
+0677|Trạng thái
+0678|Tỷ số
+0679|Cập nhật
+0680|Không có series nào khớp với các bộ lọc này.
+0681|Thống kê và draft đến từ các scrim do chính chủ sở hữu ghi lại. Không bao gồm dữ liệu xếp hạng hay thi đấu. Tệp này có thể nhập lại vào HOK Global Scrim Lab (Scrim → Nhập). Chân dung tướng thuộc về chủ sở hữu tương ứng (Tencent / TiMi Studio Group) và được hiển thị từ bộ nhớ đệm cục bộ.
+0682|Trang {current} / {total}
+0683|{label} phải là một đối tượng JSON.
+0684|{label} phải là chuỗi.
+0685|{label} phải có từ {min} đến {max} ký tự.
+0686|{label} chứa ký tự điều khiển.
+0687|{label} phải là số nguyên từ {min} đến {max}.
+0688|{label} phải là danh sách tối đa {max} mục.
+0689|{label} chứa ID tướng không hợp lệ.
+0690|{label} chứa ID tướng không xác định: {item}.
+0691|{label} không hợp lệ.
+0692|page phải là số nguyên dương.
+0693|pageSize phải nằm trong khoảng từ 1 đến {maxSize}.
+0694|draftMode phải là chuỗi.
+0695|teamA phải là chuỗi.
+0696|teamB phải là chuỗi.
+0697|Hãy dùng điểm cuối trực tuyến để tạo series trực tuyến.
+0698|{label} dùng tướng {heroId} nhiều hơn một lần.
+0699|{label} có phân bổ pick không hợp lệ.
+0700|{label} có các thao tác sai thứ tự.
+0701|{label} có thao tác trên tướng không có trong draft.
+0702|Tệp đã nhập có trường không mong đợi: {value}.
+0703|{label} có trường không mong đợi: {value}.
+0704|{label} phải đặt hai đội của series ở hai phe đối nhau.
+0705|{label}.winner phải là một trong các đội của series.
+0706|role phải là viewer hoặc editor.
+0707|{label} phải là URL hợp lệ.
+0708|{label} phải là URL https.
+0709|Hãy đặt meta.confirmGlobalOnly thành true: chỉ có thể nhập dữ liệu Honor of Kings Global.
+0710|meta.license phải là một trong: {value}.
+0711|meta.updatedAt phải là ngày (YYYY-MM-DD).
+0712|meta.totalGames phải ít nhất là 1.
+0713|csv phải là văn bản tối đa 300 KB.
+0714|heroes[{index}].heroId là bắt buộc (ID tướng Camp Global).
+0715|heroes[{index}].heroId {heroId} không phải là ID tướng Global đã biết.
+0716|heroes[{index}] có nhiều trận thắng hơn số pick.
+0717|heroes phải chứa ít nhất một dòng.
+0718|heroes chứa cùng một heroId hai lần.
+0719|lane phải là một trong năm đường của Honor of Kings.
+0720|{label} phải là một giá trị duy nhất.
+0721|{label} quá dài hoặc không hợp lệ.
+0722|{label} phải là ngày như 2026-09-30.
+0723|{key} phải là một trong: {value}.
+0724|from không được sau to.
+0725|format phải là pdf hoặc png.
+0726|format phải là pdf.
+0727|comment phải là văn bản.
+0728|Bình luận giới hạn 500 ký tự.
+0729|Tên tệp phải là văn bản tối đa 120 ký tự.
+0730|Chuyển đến nội dung
+0732|Điều hướng chính
+0733|Tổng quan
+0734|Tướng
+0735|Tier list
+0737|Đồng bộ danh sách tướng
+0738|Ngôn ngữ
+0740|Menu
+0741|Báo cáo có định dạng · có thể nhập lại
+0742|Xuất
+0743|Mọi trận, độ dài bất kỳ
+0744|Ảnh để chia sẻ, tối đa 15 trận
+0745|Bình luận
+0746|(được in trong tệp)
+0747|Tóm tắt vòng đấu, điều cần luyện, ai đã chơi…
+0748|Tệp chứa dữ liệu series: hãy nhập lại từ Scrim → Nhập series. Đừng lưu lại hay in nó, nếu không dữ liệu sẽ mất.
+0749|Draft cục bộ hai người chơi
+0750|Chuyền thiết bị
+0751|Phe tiếp theo đã sẵn sàng.
+0752|Tiếp tục draft
+0753|Nội tại
+0754|Tuyệt kỹ
+0755|Kỹ năng {index}
+0756|Hồ sơ tướng này đang được lấy bằng ngôn ngữ của bạn. Bản tiếng Anh được hiển thị cho đến khi có.
+0757|Đỡ đòn
+0758|Đấu sĩ
+0759|Pháp sư
+0760|Sát thủ
+0761|Xạ thủ
+0763|Hỗ trợ
+0764|Dùng làm nền trang
+0765|Nền ngẫu nhiên
+0766|Video này hiện là nền của trang
+0767|Nền đã trở lại ngẫu nhiên
+0768|Video nền: tắt
+0769|Video nền: bật
+0771|Build
+0772|Tuyển chọn
+0773|Giải đấu
+0774|Đã lưu build
+0775|Đã xóa build
+0776|Biệt danh
+0777|Hiển thị cho người chơi khác. Bạn cũng nhận được một thẻ định danh duy nhất không bao giờ thay đổi.
+0778|Chọn biệt danh của bạn
+0779|Tên Google của bạn không được dùng. Hãy chọn biệt danh mà người chơi khác sẽ thấy và một mật khẩu: bước xác thực sẽ đến sau.
+0780|Mọi lúc
+0781|Năm nay
+0782|12 tháng qua
+0783|6 tháng qua
+0784|3 tháng qua
+0785|Từ một ngày
+0786|{wins} trận thắng, {losses} trận thua
+0787|{wins}-{losses}
+0788|Ngày đầu tiên được tính
+0789|Giai đoạn
+0790|Các trận đã nhập từ {first} đến {last}.
+0791|Không có trận giải đấu nào trong giai đoạn này.
+0792|Chưa có giải đấu nào được nhập.
+0886|Mẫu nhỏ: {picks, plural, other {# trận}} với tướng này. Hãy đọc các tỷ lệ phần trăm một cách thận trọng.
+0794|{wins}/{picks}
+0795|Chưa từng được chọn trong giai đoạn này.
+0887|{picks, plural, other {# lượt chọn}} trong {total, plural, other {# trận}}
+0797|Tỷ lệ chọn
+0798|Độ hiện diện (được chọn hoặc bị cấm)
+0799|Tỷ lệ thắng bên xanh
+0800|Tỷ lệ thắng bên đỏ
+0801|Tướng này không có trận thắng nào trong giai đoạn này.
+0805|Chưa từng được chọn trong các scrim của bạn.
+0807|Build {variant}
+0808|Nguồn
+0810|Ngọc
+0811|Chưa có build nào được nhập cho tướng này.
+0812|Sửa build này
+0814|Tên (không bắt buộc)
+0817|Nguồn (địa chỉ https)
+0818|Ghi chú (không bắt buộc)
+0819|Lưu
+0820|Sao chép thẻ
+0821|Ảnh hồ sơ
+0822|Tải ảnh lên
+0823|Dùng ảnh Google của tôi
+0824|Gỡ ảnh
+0825|PNG, JPEG, WebP hoặc GIF, tối đa 4 MB. Ảnh được cắt vuông.
+0826|Lưu biệt danh
+0827|Đóng
+0828|Đã sao chép thẻ
+0829|Hãy chọn ảnh PNG, JPEG, WebP hoặc GIF.
+0830|Ảnh này quá lớn (tối đa 4 MB).
+0831|Đã cập nhật hồ sơ
+0832|Giải đấu | {site}
+0833|Nhập các series giải đấu đã thực sự diễn ra.
+0834|Chọn biệt danh của bạn | {site}
+0835|Chọn biệt danh và mật khẩu cho tài khoản của bạn.
+0836|Ô trống
+0837|Tìm một tướng
+0838|Gõ tên tướng, Enter để chọn
+0839|{team} thắng
+0840|Xanh: {team}
+0841|Thời lượng (không bắt buộc)
+0842|Xóa trận
+0843|Cấm (không bắt buộc)
+0844|Sửa series
+0845|Sự kiện
+0846|Vòng
+0847|Chung kết, Bảng A…
+0848|Ngày thi đấu
+0849|Bản cập nhật (không bắt buộc)
+0850|Best of
+0852|Thêm một trận
+0853|Lưu series
+0854|Lưu và nhập series tiếp theo
+0855|Ctrl+Enter để lưu.
+0856|bản cập nhật {patch}
+0857|Sửa
+0859|{count, plural, other {# series}}
+0860|Lọc theo sự kiện, vòng hoặc đội
+0861|Không có series nào khớp.
+0862|Chưa nhập series nào.
+0863|Trước
+0864|Sau
+0865|{series, plural, other {# series}} · {games, plural, other {# trận}}
+0866|Các series đã thực sự diễn ra. Thống kê tướng và cặp tướng lấy từ đây.
+0867|Chọn đội thắng của mỗi trận.
+0868|Đã lưu series
+0869|Xóa series này và các trận của nó? Thống kê tướng sẽ thay đổi tương ứng.
+0870|Đã xóa series
+0871|Trang này chỉ dành cho quản trị viên.
+0872|Đăng nhập bằng tài khoản quản trị viên để nhập giải đấu.
+0873|{label} phải là 1 hoặc 2.
+0874|{label} là bắt buộc.
+0875|{label} cần đúng {max} tướng.
+0876|{label}.durationSeconds phải là số nguyên từ {min} đến {max}.
+0877|Một series đã thực sự diễn ra không thể ở tương lai.
+0878|Một series cần ít nhất một trận.
+0879|Series best-of-{bestOf} không thể có {count} trận.
+0880|Không tìm thấy build.
+0881|Hồ sơ của bạn đã đầy đủ.
+0882|Tài khoản này không có ảnh Google.
+0883|Lựa chọn ảnh đại diện không xác định.
+0884|Hãy chọn một ảnh trước.
+0885|Tệp này không phải là ảnh dùng được.
+0889|Chỉ số của tướng
+0890|Nhập thủ công
+0891|Không có kết quả.
+0892|Danh mục hiện còn trống.
+0893|Bớt một
+0894|Thêm một
+0895|Chưa có.
+0896|Tải: {name}
+0897|Phòng thí nghiệm build
+0898|Thử một build: chọn tướng, cấp độ, trang bị và ngọc. Không cần tài khoản; liên kết sẽ chia sẻ build của bạn.
+0899|Build của bạn
+0900|Không chọn tướng (chỉ trang bị)
+0901|Cấp {level}
+0902|Cấp độ
+0903|Tướng này chưa có thẻ nào.
+0904|Sao chép liên kết của build này
+0905|Làm lại từ đầu
+0909|Thêm
+0910|Tìm kiếm
+0911|Chỉ số
+0912|Chỉ số cơ bản của tướng này chưa được nhập: chỉ hiển thị những gì trang bị và ngọc mang lại.
+0913|Nội tại và kỹ năng chủ động được mô tả trên từng món; chỉ các chỉ số được cộng lại.
+0914|Chi tiết
+0915|Gỡ khỏi build
+0916|Đã sao chép liên kết
+0917|Một build có tối đa {max} trang bị trong nhóm này.
+0918|Một trang bị của build này không có trong danh mục.
+0919|{name} không thuộc nhóm ô này.
+0920|{name} bị dùng hai lần: một trang bị chỉ có thể xuất hiện một lần trong build.
+0921|Một build chỉ có một đôi giày.
+0922|Một ngọc của build này không có trong danh mục.
+0923|{name} không phải là ngọc {color}.
+0924|Số lượng của {name} phải là số nguyên từ 1 đến {max}.
+0925|{name} xuất hiện hai lần: chỉ đặt một số lượng.
+0926|Một build có tối đa {max} ngọc cùng một màu.
+0927|Lục
+0928|Giày
+0929|Trang bị
+0930|Trang bị hỗ trợ
+0931|Trang bị cuối game
+0932|Trang bị
+0933|Hỗ trợ
+0934|Cuối game
+0935|hồi chiêu {seconds} giây
+0936|{price} vàng
+0937|ngọc
+0938|Chưa có chỉ số để hiển thị.
+0939|Chỉ số
+0940|Tổng
+0941|Phần trăm (%)
+0942|Số thường
+0943|Thẻ
+0944|Giá trị
+0945|Gỡ chỉ số này
+0946|Thêm chỉ số
+0947|Hãy nhập các chỉ số của trò chơi trước (tab Chỉ số).
+0948|Chưa có thẻ nào (tab Thẻ).
+0949|Hình ảnh
+0950|Chọn hình ảnh
+0951|Gỡ bỏ
+0953|Loại
+0954|Tên
+0955|Hồi chiêu (giây)
+0956|Gỡ hiệu ứng này
+0957|Tác dụng
+0958|Thêm nội tại hoặc chủ động
+0959|Hiển thị dưới dạng
+0960|Vị trí trong danh sách
+0961|Màu
+0962|Ý nghĩa (không bắt buộc)
+0963|Thuộc nhóm
+0964|Giá (không bắt buộc)
+0965|Mô tả (không bắt buộc)
+0966|Chỉ số mang lại
+0967|Nội tại và chủ động
+0969|Mới
+0970|Danh mục
+0971|Chỉ số, thẻ, trang bị và ngọc của trò chơi, nhập thủ công. Build được tạo từ những thứ này.
+0972|Lọc
+0973|Chưa có gì ở đây.
+0974|Chọn một mục hoặc thêm mục mới
+0976|Đã lưu
+0977|Xóa mục này?
+0978|Đã xóa
+0979|Đăng nhập bằng tài khoản quản trị viên để nhập danh mục.
+0980|Sát thương
+0981|Hồi máu
+0982|Khiên
+0983|Khống chế
+0984|Tăng cường
+0985|Suy yếu
+0986|Di chuyển
+0987|Khác
+0988|Kỹ năng
+0989|Hồi chiêu theo cấp (giây), cách nhau bằng dấu phẩy
+0990|Chi phí theo cấp, cách nhau bằng dấu phẩy
+0991|Chi phí trả bằng gì
+0992|Năng lượng
+0993|Tầm đánh
+0994|Thời gian thi triển (giây)
+0995|Hiệu ứng
+0996|Giá trị theo cấp, cách nhau bằng dấu phẩy
+0997|Chi tiết (không bắt buộc)
+0998|Thêm hệ số cộng thêm
+0999|Ghi chú (không bắt buộc)
+1000|Thêm hiệu ứng
+1001|Gỡ kỹ năng này
+1002|Dữ liệu tướng: {name}
+1003|Chỉ số cơ bản
+1004|Giá trị ở cấp 1 và mức tăng mỗi cấp.
+1005|Cấp 1
+1006|mỗi cấp
+1007|Tăng trưởng mỗi cấp
+1008|Kỹ năng
+1009|Thêm kỹ năng
+1010|{label}: hãy viết các số cách nhau bằng dấu phẩy.
+1011|Hồi chiêu
+1012|Chi phí
+1013|Đã lưu dữ liệu tướng
+1014|Sửa dữ liệu tướng
+1015|Chỉ số cơ bản và thẻ của tướng này chưa được nhập.
+1016|+{percent}% {stat}
+1017|Mở phòng thí nghiệm build
+1018|Thử trong phòng thí nghiệm build
+1019|Phòng thí nghiệm build: thử build Honor of Kings Global | {site}
+1043|Thử build cho bất kỳ tướng Honor of Kings Global nào: trang bị, ngọc và tổng chỉ số mà build mang lại. Không cần tài khoản.
+1021|Danh mục | {site}
+1022|Chỉ số, thẻ, trang bị và ngọc của trò chơi.
+1044|Đã có một chỉ số với tên này.
+1024|Chỉ số này đang được {count} trang bị, ngọc hoặc tướng sử dụng: hãy gỡ nó khỏi những nơi đó trước.
+1045|Đã có một thẻ với tên này.
+1046|Đã có một trang bị với tên này.
+1025|Mục này đang được {count} build đề xuất sử dụng: hãy gỡ nó khỏi những build đó trước.
+1047|Đã có một ngọc với tên này.
+1026|{label} phải là số trong khoảng từ {min} đến {max}.
+1027|{label} chứa cùng một mục hai lần.
+1028|{label} chứa một mục không tồn tại.
+1029|{label} cần từ {min} đến {max} chỉ số.
+1030|{label} chứa một chỉ số không tồn tại.
+1031|{label} chứa cùng một chỉ số hai lần.
+1032|{label} phải là một trong: {options}.
+1033|Một thẻ không thể xung đột với chính nó.
+1034|Hình ảnh không tồn tại (hãy gửi lại).
+1035|{label} phải là một khóa ngắn viết thường.
+1036|{label} chứa cùng một kỹ năng hai lần.
+1037|Một build cần ít nhất một trang bị hoặc ngọc.
+1038|Không tìm thấy chỉ số.
+1039|Không tìm thấy thẻ.
+1040|Không tìm thấy trang bị.
+1041|Không tìm thấy ngọc.
+1042|Ảnh này quá lớn (tối đa 3 MB).
+1048|Bỏ dấu trang bị cốt lõi
+1049|Đánh dấu là trang bị cốt lõi
+1050|Một build có tối đa {max} trang bị cốt lõi.
+1051|Trang bị cốt lõi phải nằm trong các trang bị chính của build.
+1052|(trang bị cốt lõi)
+1053|Trang bị cốt lõi
+1054|Một build đề xuất đánh dấu 2 hoặc 3 trang bị cốt lõi.
+1055|Chơi
+1058|Phát video hồ sơ
+1059|Đường
+1060|Hiển thị {shown}/{total}
+1061|Thi đấu
+1062|Các mục của trang tướng
+1065|Thoải mái
+1066|Nghiệp dư
+1067|Bán chuyên
+1068|Chuyên nghiệp
+1069|Quản lý
+1070|Huấn luyện viên
+1071|Đội trưởng
+1072|Nhà phân tích
+1073|Tuyển thủ
+1074|Dự bị
+1075|Thẻ đội
+1076|2 đến 5 chữ cái hoặc chữ số
+1077|Múi giờ
+1078|Ngôn ngữ
+1079|Tối đa 5
+1080|Mô tả
+1081|Lưu đội
+1082|Tạo đội
+1083|{count, plural, other {# thành viên}}
+1084|Không tìm thấy đội nào
+1085|Hãy là người đầu tiên tạo đội.
+1086|Đội
+1087|Đăng ký đội của bạn và quản lý đội hình.
+1088|Cộng đồng
+1089|Lời mời dành cho bạn
+1091|Chấp nhận
+1092|Từ chối
+1093|Đội của bạn
+1094|Tìm đội
+1097|Không tìm thấy đội
+1098|Vai trò
+1099|Rời đội
+1101|Sửa đội
+1102|Xóa đội
+1103|Giới thiệu
+1104|Chưa có mô tả.
+1105|Đội hình
+1107|Thao tác
+1108|Mời người chơi
+1109|Thẻ người chơi
+1110|Thẻ nằm trong hồ sơ của họ. Họ phải chấp nhận trước khi tham gia.
+1111|Mời
+1112|Lời mời đang chờ
+1113|Không ai đang chờ phản hồi.
+1114|Chào mừng đến với đội
+1115|Đã từ chối lời mời
+1116|Rời khỏi đội này?
+1117|Xóa thành viên này?
+1118|Xóa đội này và đội hình của nó? Không thể hoàn tác.
+1119|Đã xóa đội
+1120|Đã lưu đội
+1121|Đã tạo đội
+1122|Đã gửi lời mời
+1123|{label} không phải một trong các giá trị được phép.
+1125|Thẻ đội gồm 2 đến 5 chữ cái hoặc chữ số.
+1126|Múi giờ có dạng UTC hoặc UTC+2.
+1127|Ngôn ngữ tối đa 5 mã khác nhau.
+1128|Thẻ người chơi gồm 6 chữ cái hoặc chữ số, như trong hồ sơ.
+1129|Đăng nhập để dùng đội.
+1130|Không tìm thấy đội.
+1131|Chỉ chủ đội và các quản lý mới làm được việc này.
+1132|Chỉ chủ đội mới xóa được đội.
+1133|Không có người chơi nào dùng thẻ này.
+1134|Chỉ chủ đội mới bổ nhiệm được quản lý.
+1135|Vai trò này không phải một trong các giá trị được phép.
+1136|Chỉ chủ đội mới đổi được quản lý.
+1137|Chủ đội không thể rời đi: hãy xóa đội.
+1138|Thẻ đội này đã được dùng.
+1139|Tên đội này đã được dùng.
+1140|Bạn chỉ có thể ở tối đa {max} đội.
+1142|Người chơi này đã ở trong đội.
+1143|Người chơi này đã có lời mời đang chờ.
+1144|Đội | {site}
+1145|Đội Honor of Kings Global: đội hình, vai trò ban huấn luyện và lời mời.
+1146|Đội | {site}
+1147|Một đội và đội hình của nó.
+1148|Giới hạn thành viên
+1149|Từ 7 đến 20, gồm cả lời mời đang chờ
+1150|Logo
+1151|Gỡ logo
+1152|{count}/{max} thành viên
+1153|Đã gỡ logo
+1154|Đã lưu logo
+1155|Giới hạn thành viên là số nguyên từ {min} đến {max}.
+1156|Đội đã có {count} thành viên và lời mời đang chờ: giới hạn không thể thấp hơn.
+1157|Đội này đã đầy ({max} thành viên và lời mời đang chờ).
+1158|Rảnh
+1159|Scrim
+1160|Trận đấu giải
+1161|Luyện tập
+1162|Xem lại VOD
+1163|Họp
+1164|Lịch
+1165|Thêm sự kiện
+1166|Giờ được hiển thị theo múi giờ của bạn ({zone}).
+1167|Không có gì được lên kế hoạch trong 60 ngày tới.
+1168|Lịch rảnh công khai
+1169|Tiêu đề
+1170|Bắt đầu
+1171|Kết thúc
+1172|Ghi chú chỉ đội mới thấy.
+1173|Lưu sự kiện
+1174|Xóa sự kiện này?
+1175|Hãy chọn thời điểm bắt đầu và kết thúc.
+1176|{label} không phải ngày giờ hợp lệ.
+1177|Thời điểm kết thúc phải sau thời điểm bắt đầu.
+1178|Một sự kiện kéo dài tối đa 24 giờ.
+1179|Khoảng thời gian tối đa một năm.
+1180|Chỉ ban huấn luyện và đội trưởng mới sửa được lịch.
+1181|Không tìm thấy sự kiện.
+1182|Lịch của một đội chứa tối đa {max} sự kiện: hãy xóa các sự kiện cũ trước.
+1183|Phòng ngoài
+1184|Không rảnh
+1185|Đang chờ
+1186|Đề xuất lại
+1187|Đã chấp nhận
+1188|Đã từ chối
+1189|Đã hủy
+1190|Đăng nhập để dùng các tính năng cộng đồng.
+1191|Yêu cầu scrim từ {team}
+1192|Đội của bạn
+1193|Tin nhắn
+1194|Gửi yêu cầu
+1195|Chỉ ban huấn luyện và đội trưởng của đội mới yêu cầu được scrim: hãy tạo hoặc tham gia một đội trước.
+1196|Yêu cầu scrim
+1197|Xem đội
+1198|Đóng thông báo
+1200|{count} đang mở
+1201|Không có thông báo nào phù hợp
+1202|Hãy chỉnh bộ lọc hoặc đăng thông báo của riêng bạn.
+1203|Đăng “Tìm scrim”
+1204|Tìm scrim
+1205|Tìm các thông báo đang mở và đội phù hợp với trình độ, múi giờ và thể thức của bạn.
+1206|Ngày
+1207|Khung giờ
+1208|Mọi thời lượng
+1209|Ít nhất {hours} giờ
+1210|Bất kỳ
+1212|Danh bạ đội
+1213|Yêu cầu
+1214|Xem tất cả đội
+1215|Chỉ ban huấn luyện và đội trưởng của đội mới đăng được thông báo: hãy tạo hoặc tham gia một đội trước.
+1216|Rảnh từ
+1217|Đến
+1218|Đăng
+1219|Đến lượt bạn
+1220|{team} đã chấp nhận yêu cầu
+1221|{team} đã từ chối yêu cầu
+1222|{team} đã hủy yêu cầu
+1223|{team} đề xuất {when}
+1224|Đã gửi tới {team}
+1225|Nhận từ {team}
+1226|Đề xuất giờ khác
+1227|Gửi
+1228|Hủy yêu cầu
+1229|Đang chờ {team}
+1230|Viết tin nhắn…
+1231|Báo cáo
+1232|Chặn đội này
+1233|{team} đề xuất giờ khác: {when}
+1234|{team} yêu cầu bạn một scrim: {when}
+1235|{team} đã chấp nhận yêu cầu scrim
+1236|{team} đã từ chối yêu cầu scrim
+1237|{team} đã hủy yêu cầu scrim
+1238|Tin nhắn mới từ {team}
+1239|{by} mời bạn tham gia {team} với vai trò {role}
+1240|{title} ({team}) bắt đầu lúc {when}
+1241|Thông báo mới
+1242|Hộp thư và thông báo
+1244|Yêu cầu
+1245|Thông báo
+1246|Chưa có yêu cầu
+1247|Các yêu cầu bạn gửi hoặc nhận sẽ hiện ở đây.
+1248|Chọn một yêu cầu
+1249|Bạn có thể gửi {max} yêu cầu mỗi ngày cho mỗi đội. Hãy lịch sự: bạn có thể báo cáo hoặc chặn một đội từ mọi cuộc trò chuyện.
+1250|Đánh dấu tất cả đã đọc
+1251|Không có kế hoạch nào trong giai đoạn này.
+1253|Câu trả lời của bạn
+1254|Sẽ đến
+1255|Có thể
+1256|Không đến được
+1257|{going} sẽ đến · {maybe} có thể · {no} không đến được
+1258|Tạo chuỗi trận từ sự kiện này
+1259|60 ngày tới
+1260|Tháng
+1261|Danh sách
+1262|Sự kiện mới
+1263|Lịch của các đội bạn, theo múi giờ của bạn ({zone}).
+1264|Hãy tham gia hoặc tạo một đội để có lịch.
+1265|Tháng trước
+1266|Tháng sau
+1267|Chưa có đội
+1268|Lịch của bạn hiển thị sự kiện của các đội bạn.
+1269|Không tìm thấy người chơi
+1270|Đã liên kết Discord
+1271|Đội
+1272|Mời vào đội
+1273|Sửa hồ sơ của tôi
+1274|Tướng chính
+1275|Chưa chọn tướng chính.
+1276|Chưa ở trong đội nào.
+1277|Tướng chính {number}
+1278|Tối đa 3
+1279|Lưu hồ sơ của tôi
+1280|Discord và bắt đầu
+1281|Liên kết Discord của bạn
+1282|Tạo hoặc tham gia một đội
+1283|Đặt lịch rảnh của bạn
+1284|Tìm scrim đầu tiên của bạn
+1285|Tài khoản Discord của bạn đã được liên kết.
+1286|Tài khoản Discord này đã được liên kết với tài khoản khác.
+1287|Không thể liên kết Discord. Hãy thử lại.
+1288|Liên kết Discord để nhận yêu cầu scrim, lời nhắc và kết quả qua tin nhắn riêng.
+1289|Bắt đầu
+1290|xong
+1291|Làm
+1292|Máy chủ này chưa cấu hình Discord: chủ trang web phải cung cấp một ứng dụng Discord. Thông báo của bạn vẫn ở trên trang (Hộp thư).
+1293|đã liên kết
+1294|Liên kết ngày {date}
+1295|Hủy liên kết
+1296|Thông báo qua tin nhắn riêng
+1297|Máy chủ này chưa bật tin nhắn riêng (không có bot): bạn vẫn thấy mọi thứ trong Hộp thư.
+1298|Yêu cầu scrim và tin nhắn
+1300|Câu trả lời và lời mời vào đội
+1301|Liên kết tài khoản Discord để nhận thông báo qua tin nhắn riêng. Chúng tôi chỉ hỏi tên và ảnh đại diện Discord của bạn: không đọc gì từ máy chủ hay tin nhắn của bạn.
+1302|Liên kết Discord của tôi
+1303|Bạn sẽ nhận được
+1304|Yêu cầu scrim mới
+1305|Nova Gaming yêu cầu bạn một scrim BO3 (Global Ban & Pick) vào thứ Sáu 20:00 UTC.
+1306|Bạn trả lời trên trang, trong Hộp thư.
+1307|Đã đóng thông báo
+1308|Vì sao bạn báo cáo cuộc trò chuyện này?
+1309|Cảm ơn: quản trị viên sẽ xem xét.
+1310|Chặn đội này? Họ sẽ không gửi được yêu cầu cho bạn và bạn cũng không gửi được cho họ.
+1311|Đã chặn đội
+1312|Hủy liên kết tài khoản Discord của bạn?
+1313|Đã gửi yêu cầu
+1314|Đã đăng thông báo
+1315|Đã lưu hồ sơ
+1316|Tìm scrim | {site}
+1317|Thông báo scrim đang mở của các đội Honor of Kings Global: lọc theo trình độ, thể thức và luật tướng.
+1318|Hộp thư | {site}
+1319|Yêu cầu scrim và thông báo.
+1320|Lịch | {site}
+1321|Lịch của các đội bạn.
+1322|Discord | {site}
+1323|Liên kết tài khoản Discord của bạn.
+1324|Người chơi | {site}
+1325|Một người chơi của cộng đồng.
+1326|Lặp lại
+1327|Không lặp lại
+1328|Mỗi tuần, thêm {count} lần
+1329|Chỉ ban huấn luyện và đội trưởng mới làm được việc này.
+1330|Một đội có tối đa {max} thông báo đang mở.
+1331|Không tìm thấy thông báo.
+1332|Đội này không nhận yêu cầu từ bạn.
+1333|Thông báo này không còn mở.
+1334|Bạn có thể gửi {max} yêu cầu mỗi ngày cho mỗi đội.
+1335|Đã có một yêu cầu cho giờ này đang chờ trả lời.
+1336|Không tìm thấy yêu cầu.
+1337|Yêu cầu này đã bị hủy.
+1338|Cuộc trò chuyện này đã đầy.
+1339|Yêu cầu này đã được giải quyết.
+1340|Chỉ đội đã đề xuất giờ mới hủy được.
+1341|Đến lượt đội kia trả lời.
+1342|Một đội không thể tự chặn mình.
+1343|Chỉ thành viên của đội mới trả lời được.
+1344|Thể thức là BO1, BO3, BO5 hoặc BO7.
+1345|Khung giờ này quá dài.
+1346|Giờ này đã qua.
+1347|Một đội không thể yêu cầu scrim với chính mình.
+1348|Câu trả lời là going, maybe hoặc no.
+1349|Tướng chính tối đa 3 tướng khác nhau.
+1350|{label} phải là đúng hoặc sai.
+1351|Lặp lại hằng tuần là một số tuần nguyên từ 0 đến 12.
+1352|Danh sách không hợp lệ.
+1353|Chỉ thành viên của đội mới xuất được lịch của đội.
+1354|Không tìm thấy người chơi.
+1355|Hãy liên kết tài khoản Discord của bạn trước.
+1356|Hộp thư
+1357|Hồ sơ người chơi
+1358|Discord
+1359|Đã xác minh
+1360|Điều hành viên
+1361|Nhà tổ chức
+1362|Người đóng góp
+1363|Nhãn
+1364|Lưu các nhãn
+1365|Đã lưu các nhãn
+1366|Nhãn là danh sách các nhãn đã biết và khác nhau.
+1367|Tuần
+1368|Báo cáo
+1369|Không có tin nhắn văn bản trong cuộc trò chuyện này.
+1370|Được báo cáo bởi {name}
+1371|Đóng báo cáo
+1372|Các cuộc trò chuyện bị cộng đồng báo cáo.
+1373|Không có báo cáo
+1374|Các cuộc trò chuyện bị báo cáo xuất hiện ở đây.
+1375|Báo cáo | {site}
+1376|Không tìm thấy báo cáo.
+1377|Lời nhắc lịch (trước 6 giờ, 4 giờ và 2 giờ)
+1378|Đã thêm bot vào máy chủ của bạn. Giờ hãy chọn một kênh.
+1379|Không thể thêm bot vào máy chủ của bạn. Hãy thử lại.
+1380|Máy chủ này chưa cấu hình bot Discord: chủ trang web phải cung cấp một ứng dụng Discord.
+1381|Hãy thêm bot vào máy chủ Discord của bạn: bot đăng lời nhắc (trước 6 giờ, 4 giờ và 2 giờ), các scrim đã xác nhận và bản tóm tắt hằng tuần vào kênh bạn chọn.
+1382|Thêm bot vào máy chủ của tôi
+1383|đã kết nối
+1384|Bot không còn thấy máy chủ này: hãy thêm lại.
+1385|Kênh nhận thông báo
+1386|Đổi kênh
+1387|Dùng kênh này
+1388|Ngắt kết nối
+1389|Ngắt kết nối máy chủ Discord này?
+1390|Đã lưu kênh: một tin nhắn xác nhận đã được đăng.
+1391|Hãy chọn một kênh Discord.
+1392|Hãy thêm bot vào một máy chủ Discord trước.
+1393|Kênh này không tồn tại trên máy chủ của bạn.
+1394|Chưa có draft nào đang diễn ra. Hãy tạo một series để bắt đầu.
+1395|Draft trực tiếp | {site}
+1396|Mở draft đang diễn ra: pick và ban của cả hai phe, trực tiếp.
+1397|Draft trực tiếp
+1398|Cổ điển
+1399|Chỉ có pick, và hai phe có thể chọn cùng một tướng. Khi chơi online, bạn chỉ thấy pick của mình cho đến khi draft kết thúc.
+1400|Pick ẩn
+1401|{team} đã chọn một tướng.
+1402|{label} có ban trong một draft không có ban.
+1405|Draft này không có ban.
+1406|Luyện tập | {site}
+1407|Các tướng của bạn, sổ tay combo và cơ chế, cùng các tình huống để nghiên cứu trên bản đồ.
+1408|Mục tiêu
+1409|Cơ chế
+1410|Combo
+1411|Cần làm
+1412|Đang luyện
+1413|Đã thành thạo
+1414|Trại
+1415|Mục tiêu bản đồ
+1416|Trụ
+1417|Bụi cỏ
+1418|Trung lập
+1419|Luyện tập
+1420|Luyện tập của bạn
+1421|Đăng nhập để chọn tướng và giữ sổ tay của bạn.
+1422|Sổ tay
+1423|Tình huống
+1424|Các phần luyện tập
+1425|Chưa chọn tướng nào
+1426|Đánh dấu trong danh sách những tướng bạn luyện: chúng hiện ở đây để truy cập nhanh.
+1427|Không thể tải trang của tướng này.
+1428|Trang đầy đủ của tướng
+1429|Ghi chú về tướng này
+1430|Hồi chiêu {seconds} giây
+1431|Tiêu hao {cost}
+1432|Kỹ năng của tướng này chưa được lấy về.
+1433|Các tướng bạn luyện, cùng mọi thứ cần để thành thạo chúng.
+1435|{count} trên {max} tướng
+1436|Chọn tướng của bạn
+1437|Tất cả đường
+1439|Combo: chọn kỹ năng theo thứ tự
+1440|Gợi ý (tùy chọn)
+1441|Gợi ý cho bước {number}
+1442|Lên
+1443|Xuống
+1444|Xóa bước {number}
+1445|Chưa có bước nào: chọn một kỹ năng ở trên.
+1446|Loại
+1447|Không có tướng
+1449|Ghi chú mới
+1450|Tất cả tướng
+1451|Sổ tay của bạn còn trống
+1452|Ghi lại điều bạn muốn luyện: một cơ chế, một combo, một mục tiêu cho buổi scrim tới.
+1453|Xóa ghi chú này?
+1454|(đã chết)
+1455|Bản đồ
+1456|Đã chết
+1457|Các tình huống do quản trị viên chuẩn bị: đặt mình trên bản đồ và quyết định phải làm gì.
+1458|Tình huống mới
+1459|{count} điểm đánh dấu
+1460|Bản nháp
+1461|Chưa có tình huống
+1462|Quản trị viên chưa chuẩn bị tình huống nào. Hãy quay lại sau.
+1463|Hãy tải bản đồ lên trước.
+1464|Xóa bản đồ này?
+1465|Bản đồ
+1466|Quản trị viên
+1467|Tải lên bản đồ của trò chơi (PNG, JPEG hoặc WebP, tối đa 12 MB). Các điểm đánh dấu được đặt lên đó: không có gì được vẽ sẵn cho bạn.
+1468|Chưa có bản đồ.
+1469|Tải bản đồ lên
+1470|Không tìm thấy tình huống
+1471|Quay lại các tình huống
+1472|Hãy nghiên cứu vị trí, rồi viết bạn sẽ làm gì.
+1473|Bản nháp: chỉ quản trị viên thấy.
+1475|Tình huống
+1477|Bạn sẽ làm gì, và vì sao?
+1478|Lưu câu trả lời của tôi
+1479|Đăng nhập để viết câu trả lời.
+1480|Đã lưu câu trả lời.
+1481|Chọn một tướng
+1482|Sửa tình huống
+1483|Chọn một công cụ rồi bấm vào bản đồ. Kéo một điểm đánh dấu để di chuyển; phím mũi tên dịch điểm đang chọn.
+1484|Công cụ
+1485|Tên trên bản đồ
+1486|Thuộc về
+1487|Điểm đánh dấu
+1488|Chưa có điểm đánh dấu.
+1489|Đánh dấu còn sống
+1490|Đánh dấu đã chết
+1491|Xóa điểm đánh dấu
+1492|Đã đăng
+1493|Xóa tình huống này?
+1494|Hãy chọn một tướng trước.
+1495|Tướng này đã ở phe đó.
+1496|Mỗi phe có tối đa 5 tướng.
+1497|{label} tối đa {max} ký tự.
+1498|Chọn tối đa {max} tướng.
+1499|Tướng không xác định.
+1500|Mỗi tướng chỉ được chọn một lần.
+1501|Combo thuộc về một tướng.
+1502|Chỉ combo mới có các bước.
+1503|Combo có tối đa {max} bước.
+1504|Mỗi bước cần một kỹ năng.
+1505|Combo cần ít nhất một bước.
+1506|{label} phải là số từ 0 đến 1.
+1507|Hãy chọn một trong các bản đồ đã tải lên.
+1508|Một tình huống có tối đa {max} điểm đánh dấu.
+1509|Mỗi điểm đánh dấu cần một mã ngắn riêng.
+1510|Một tướng chỉ có thể xuất hiện một lần trên bản đồ cho mỗi phe.
+1511|Mỗi phe có tối đa {max} tướng.
+1512|Đăng nhập để dùng khu luyện tập.
+1513|Không tìm thấy ghi chú.
+1514|Không tìm thấy bản đồ.
+1515|Không tìm thấy tình huống.
+1516|Hãy chọn ảnh PNG, JPEG hoặc WebP.
+1517|Ảnh này quá lớn (tối đa 12 MB).
+1518|Sổ tay của bạn đã đầy ({max} ghi chú). Hãy xóa bớt trước.
+1519|Bản đồ này đang được {count} tình huống sử dụng. Hãy xóa hoặc chuyển chúng trước.
+1520|Chào mừng
+1521|Các phần của bạn
+1522|Scrim và draft
+1523|Chạy các series scrim với draft ban và pick, theo dõi draft trực tiếp, và xem lịch sử cùng thống kê.
+1524|Tạo một series
+1525|Tạo tier list cho từng đường bằng kéo thả và chia sẻ chúng.
+1526|Mở tier list
+1527|Tướng và build
+1528|Mọi tướng Global với kỹ năng, lịch sử bản vá và hình minh họa, cùng phòng thí nghiệm build để thử trang bị và ngọc.
+1529|Xem các tướng
+1530|Chọn các tướng bạn luyện, giữ sổ tay combo và cơ chế, và nghiên cứu tình huống trên bản đồ.
+1531|Tạo hoặc tham gia một đội, với danh sách, vai trò và lời mời.
+1532|Thông báo của các đội đang tìm scrim, và yêu cầu kèm đề xuất lại.
+1533|Lịch của các đội bạn kèm nhắc nhở, và ai sẽ tham gia.
+1534|Yêu cầu scrim và thông báo ở một nơi.
+1535|Trang công khai của bạn: tướng chính, ngôn ngữ, đội.
+1536|Liên kết tài khoản để nhận nhắc nhở và trả lời yêu cầu từ Discord.
+1537|Chào mừng đến với HOK Global Scrim Lab
+1538|Nơi dành cho cộng đồng thi đấu Honor of Kings Global: chơi scrim với draft chính thức, tìm đối thủ, lên lịch và luyện tập.
+1539|Chỉ dữ liệu game Global. Không có dữ liệu xếp hạng. Không có gì được bịa ra.
+1540|Chỉ mất một phút: bạn chọn điều muốn xem, và có thể đổi bất cứ lúc nào.
+1541|Bạn muốn xem gì?
+1542|Chọn các phần bạn cần. Phần còn lại bị ẩn khỏi menu (trang của chúng vẫn mở được từ liên kết).
+1543|Luôn bật: đội, yêu cầu scrim, lịch, hộp thư, trang người chơi và Discord.
+1544|Cộng đồng
+1545|Phần này dành cho mọi người và luôn có trong menu của bạn.
+1546|Tạo tài khoản để dùng cộng đồng: miễn phí.
+1547|Bạn đã sẵn sàng
+1548|Đây là nơi để bắt đầu. Menu của bạn giờ chỉ hiển thị phần bạn chọn và cộng đồng.
+1549|Các bước
+1550|Quay lại
+1551|Bỏ qua, giữ tất cả
+1552|Chào mừng | {site}
+1553|Chọn các phần của trang web bạn muốn xem.
+1554|modules phải là một danh sách.
+1555|Phần trang web không xác định.
+1556|Đăng nhập để lưu lựa chọn của bạn.
+1558|Cài đặt | {site}
+1559|Các phần của trang, giá trị mặc định và giao diện của bạn.
+1560|Cài đặt
+1561|Lựa chọn của bạn được lưu trong tài khoản.
+1562|Lựa chọn của bạn được lưu trong trình duyệt này. Đăng nhập để giữ chúng ở mọi nơi.
+1563|Tài khoản của bạn
+1564|Các phần của trang
+1565|Bật một phần trước đây bạn không muốn, hoặc ẩn phần bạn không dùng. Các phần bị ẩn vẫn mở được từ địa chỉ của chúng.
+1566|Xem lại các trang chào mừng
+1567|Biểu mẫu series mới bắt đầu với các lựa chọn này.
+1568|Giao diện
+1569|Trang bắt đầu
+1570|Giảm hiệu ứng chuyển động
+1571|Trang bắt đầu mở khi bạn vào trang. Hiệu ứng giảm cũng áp dụng khi thiết bị của bạn yêu cầu.
+1572|Chọn tin nhắn bạn nhận trên Discord, và liên kết tài khoản, tại trang Discord.
+1573|Mở cài đặt Discord
+1574|Mở hộp thư
+1575|Đăng nhập để nhận thông báo.
+1576|Trang người chơi của bạn
+1577|Lưu cài đặt
+1578|Đã lưu cài đặt.
+1579|{label} không phải là lựa chọn được hỗ trợ.
+1580|settings phải là một đối tượng.
+1581|reduceMotion phải là true hoặc false.
+1582|Bạn có thay đổi chưa lưu.
+1583|Hủy thay đổi
+1584|Mỗi tướng giữ ít nhất một đường.
+1585|Gỡ đường {lane}
+1586|Đã cập nhật các đường
+1587|Free For All
+1588|Tất cả luật
+1589|Chưa có đường
+1590|{hero}: {lane}
+1591|Đường đã chơi
+1592|Không có đường
+1593|Kéo một đường lên một tướng, hoặc bấm một đường rồi bấm một tướng.
+1594|Luật draft
+1595|{label} phải cho mỗi pick trong năm pick một đường (hoặc không có).
+1596|{label} chứa một đường không tồn tại.
+1597|{label} gán cùng một đường cho hai tướng của một phe.
+1598|Luật không hợp lệ.
+1599|Mỗi tướng giữ ít nhất một đường: hãy thêm đường khác trước khi gỡ đường này.
+1600|Tướng này không có đường đó.
+1601|Chuyển sang giao diện tối
+1602|Chuyển sang giao diện sáng
+1603|Chế độ tối
+1604|Chế độ sáng
+1607|Không có kết quả cho “{query}”
+1608|{count} chưa đọc
+1609|Đã đọc hết
+1610|Chưa có thông báo.
+1611|Scrim Lab
+1612|Scrim & Draft
+1613|Tướng & Build
+1614|Hơn cả một trò chơi, một cộng đồng.
+1615|Hướng văn bản
+1616|Điều hướng di động
+1617|Trực tiếp
+1619|Câu trả lời của bạn: {answer}
+1620|Bạn chưa trả lời.
+1621|Ai sẽ đến
+1622|{going} trên {total} sẽ đến
+1623|Chưa có kế hoạch
+1624|Tạo một series để bắt đầu draft, hoặc tìm đội để thi đấu.
+1625|Sắp tới: {title} cùng {team}, {when}.
+1626|Mở phòng draft
+1627|Xem lịch
+1628|Mở draft
+1629|Draft, scrim, luyện tập.
+1630|Chuẩn bị scrim, nâng cao kỹ năng, khám phá các tướng và xây dựng đội của bạn trên HOK Global Scrim Lab.
+1631|Tài khoản miễn phí
+1632|Lưu series của bạn, chơi trực tuyến.
+1633|Tạo tài khoản để lưu scrim, chơi trực tuyến với đối thủ được mời, chia sẻ tier list và tham gia một đội.
+1634|Nổi bật
+1635|Sự kiện của các đội bạn sẽ hiện ở đây.
+1636|Đăng nhập để xem lịch của các đội bạn.
+1641|Sự kiện sắp tới
+1642|Xem tất cả
+1643|Cải thiện cơ chế chơi, ôn lại combo và luyện các tình huống trong game.
+1644|Mở
+1645|Đội của tôi
+1646|Tạo đội hoặc chấp nhận lời mời để thấy đội ở đây.
+1647|Thống kê nhanh
+1648|Chỉ dữ liệu Global
+1649|Không có dữ liệu ranked hay ladder. Thống kê cá nhân bị ẩn cho đến khi có đủ trận.
+1650|Scrim của tôi
+1651|Sắp tới
+1652|Đã qua
+1653|Chào buổi sáng, {name}.
+1654|Chào buổi chiều, {name}.
+1655|Chào buổi tối, {name}.
+1656|Tướng của ngày
+1657|Mở hồ sơ
+1659|Sắp xếp
+1660|Chế độ xem
+1661|Lưới
+1662|5 GIÂY CUỐI
+1663|HẾT GIỜ
+1664|{seconds} giây
+1665|Lượt chọn tiếp theo
+1666|Được tiết lộ khi draft kết thúc
+1667|Lượt chọn {number}/5
+1668|Lượt chọn ẩn
+1670|Đang diễn ra
+1671|Đã kết thúc
+1672|Chuẩn bị một series, draft trực tiếp và lưu lại lịch sử từng trận.
+1673|Vào phòng
+1674|Đội, chế độ…
+1675|Tướng này đã có trong phần luyện tập của bạn.
+1676|Đã thêm vào phần luyện tập của bạn.
+1677|Đường trên
+1678|Đường giữa
+1679|Đường dưới
+1680|Build được đề xuất
+1684|Thêm vào luyện tập
+1685|Ở cấp {level}
+1686|Vai trò trong đội hình
+1692|Sao chép liên kết đội
+1688|Chủ sở hữu và đội trưởng
+1689|Người chơi và dự bị
+1690|Ban huấn luyện (quản lý, huấn luyện viên, phân tích viên)
+1687|Bạn chưa ở trong đội nào.
+1691|Nhấp vào biểu tượng để đặt đường cho người chơi.
+1693|Thông báo của bạn
+1694|Yêu cầu của bạn
+1697|Khung giờ
+1695|Phản hồi có chữ ký
+1696|Trên Discord, yêu cầu đến kèm nút Chấp nhận và Từ chối. Mỗi lần bấm đều được Discord ký và kiểm tra tại đây, và chỉ ban quản lý của đội mới có thể trả lời.
+1698|Tìm kiếm…
+1703|Hôm nay
+1701|Tuần trước
+1702|Tuần sau
+1700|Không có gì được lên lịch vào ngày đó.
+1699|Chờ trả lời
+1705|Đọc
+1706|Giao diện
+1707|Tối
+1708|Sáng
+1709|Từ trái sang phải
+1710|Từ phải sang trái
+1711|Các mục
+1712|Bước {number}/{count}
+1713|Phòng thí nghiệm scrim của Honor of Kings Global.
+1714|Draft trực tiếp theo thứ tự thi đấu chính thức
+1715|Tier list theo đường, chia sẻ bằng một liên kết
+1716|Nhắc nhở và phản hồi có chữ ký ngay trên Discord
+1717|Mã 6 chữ số
+1718|Người chơi đã kết nối
+1719|Đang chờ người chơi
+1720|Chiến thắng
+1721|Xem lại draft
+1722|Thời lượng trung bình
+1723|Tóm tắt
+1724|Tướng được chọn nhiều nhất
+1725|{count, plural, other {# trận}}
+1728|Đối đầu theo từng đường
+1727|Đã nhập đủ tất cả các đường.
+1726|{count, plural, other {Còn # đường cần nhập}} · xanh {blue}, đỏ {red}
+1729|Không ban
+1752|Ít nhất một trang bị hoặc một ngọc
+1730|Build
+1749|Đã lưu build: {name}
+1734|Build hiển thị
+1758|Build đã viết
+1764|Thay đổi chưa được lưu
+1732|Sao chép liên kết của build này
+1763|Xóa build {variant}
+1771|Xóa build {variant} của tướng này?
+1733|Xóa build này
+1750|Xóa build này?
+1774|Chỉnh sửa build
+1767|Hướng dẫn tướng
+1775|Hướng dẫn tướng | {site}
+1757|Tướng hiển thị
+1756|Tướng có ít nhất một build
+1744|Chỉ lưu trong trình duyệt này, không cần tài khoản. Xóa dữ liệu trình duyệt sẽ làm mất chúng: hãy sao chép liên kết của build để lưu ở nơi khác.
+1770|Rời khỏi build này? Những gì bạn đã đổi chưa được lưu.
+1731|Tải
+1751|Đánh dấu {min} hoặc {max} trang bị cốt lõi (hiện có {count})
+1736|Build của tôi
+1739|Tên của build này
+1738|Tên của build này (không bắt buộc)
+1743|Chưa có build nào được lưu. Hãy lưu một build để tìm lại ở đây lần sau, cho bất kỳ tướng nào.
+1759|Chưa đặt tên
+1760|Chưa được lưu
+1737|Trên thiết bị này
+1765|Chọn một tướng trong danh sách để viết build cho tướng đó.
+1745|Đăng làm build đề xuất
+1741|Lưu thành build mới
+1762|Lưu build {variant}
+1742|Lưu build này
+1766|Xem trang của tướng
+1773|Đăng nhập để viết hướng dẫn cho các tướng.
+1761|Liên kết nguồn (không bắt buộc)
+1753|Nguồn là liên kết bắt đầu bằng https://
+1777|Thao tác này chỉ dành cho quản trị viên và cộng tác viên.
+1748|Trình duyệt này không lưu build (cửa sổ riêng tư hoặc bộ nhớ đầy).
+1769|Build này đến từ phòng thí nghiệm build. Hãy kiểm tra rồi lưu.
+1735|Tướng này
+1772|Trang này dành cho những người viết hướng dẫn tướng. Quản trị viên có thể cấp cho bạn nhãn Cộng tác viên.
+1740|Cập nhật “{name}”
+1755|Có build
+1754|Chưa có build
+1776|Viết build đề xuất và combo hiển thị trên trang của từng tướng.
+1768|Viết build đề xuất và combo hiển thị trên trang của từng tướng. Mỗi build được kiểm tra theo danh mục của game.
+1746|Bạn có thể giữ {max} build cho một tướng: hãy xóa một build trước.
+1747|Bạn có thể giữ tổng cộng {max} build: hãy xóa một build trước.
+1778|Chọn ngày đầu và ngày cuối của khoảng thời gian.
+1779|Khoảng thời gian phải kéo dài ít nhất {months} tháng.
+1781|Thắng trước
+1784|Mẫu nhỏ
+1785|Không dòng nào đạt {count} trận trong khoảng thời gian này: hãy giảm mức tối thiểu.
+1786|Không có gì để xếp hạng trong khoảng thời gian này.
+1787|{count, plural, other {# bản draft}}
+1788|Cả hai phe
+1789|Phe
+1790|Các lượt chọn chưa nhập đường bị bỏ qua: {count}.
+1809|{months, plural, other {# tháng}}
+1792|Từ trận đầu tiên
+1793|Số trận tối thiểu
+1794|Xếp hạng theo
+1795|Chơi nhiều nhất
+1796|Chỉ các trận giải đấu, không bao giờ là scrim. Trận đầu tiên vào {date}.
+1797|Chỉ các trận giải đấu, không bao giờ là scrim.
+1798|Draft phổ biến
+1799|Tướng phổ biến
+1800|Các bộ draft năm tướng thắng nhiều nhất và được chơi nhiều nhất ở giải đấu, cho mỗi phe.
+1801|Các tướng thắng nhiều nhất và được chơi nhiều nhất ở giải đấu, cho mỗi đường.
+1802|Không có trận giải đấu nào trong khoảng thời gian này.
+1803|Hãy mở rộng khoảng thời gian, hoặc nhờ quản trị viên nhập các trận đã diễn ra.
+1804|Phổ biến
+1805|Draft
+1806|Draft và tướng phổ biến ở giải đấu | {site}
+1807|Các bộ draft và tướng thắng nhiều nhất, được chơi nhiều nhất ở giải đấu Honor of Kings Global, cho mỗi phe và mỗi đường.
+1808|minGames phải là số nguyên từ 1 đến 50.
+1810|Xếp hạng ở {lane}: {tier}
+1812|Chuyển {name} sang
+1813|Kéo một tướng vào một tier, hoặc nhấp vào tướng rồi chọn tier.
+1814|Chưa từng được lưu
+1815|Lưu xếp hạng
+1816|Xếp hạng chính thức
+1817|Xếp hạng các tướng của mỗi đường từ SS đến D. Xếp hạng hiện cạnh từng đường trên trang của tướng; bản thân các danh sách chỉ dành cho biên tập viên.
+1818|Đã lưu xếp hạng
+1819|Rời khỏi đường này? Những gì bạn đã đổi chưa được lưu.
+1820|Trang này dành cho những người viết xếp hạng của các tướng. Quản trị viên có thể cấp cho bạn nhãn Cộng tác viên.
+1821|Đăng nhập để viết xếp hạng cho các tướng.
+1822|Xếp hạng chính thức | {site}
+1823|Xếp hạng các tướng của mỗi đường, từ SS đến D.
+1824|Các xếp hạng này đã thay đổi kể từ khi bạn mở. Hãy tải lại rồi thử lại.
+1825|Các tier phải là một đối tượng JSON.
+1826|Gửi các tướng của mỗi tier, từ SS đến D.
+1827|Các tier là SS, S, A, B, C và D, mỗi tier một lần.
+1828|Các tướng của một tier phải là danh sách id tướng.
+1829|Một tướng chỉ có thể ở một tier, theo id của tướng.
+1830|Xếp hạng
+1831|Combo đã có tên
+1832|Ít nhất một bước (hiện có {count})
+1833|Chỉnh sửa combo
+1834|Combo mới
+1835|{count} / {max} bước
+1836|Lưu combo
+1837|Chưa có combo nào
+1838|Viết combo đầu tiên của tướng này: chọn kỹ năng theo thứ tự sử dụng.
+1839|Rời khỏi combo này? Những gì bạn đã đổi chưa được lưu.
+1840|Đã lưu combo
+1841|Xóa combo {name}?
+1842|Đã xóa combo
+1843|Combo
+1844|Chưa có combo
+1845|Đã có combo
+1846|Tướng có ít nhất một combo
+1847|Combo đã viết
+1848|Nội dung cần viết
+1849|Luyện các combo này
+1850|Chỉnh sửa combo
+1851|Thêm combo ({count})
+1852|Chưa có combo nào được viết cho tướng này.
+1853|Dạng đã thành thạo: {name}
+1854|Thường
+1855|Hủy animation
+1856|Gửi mỗi combo của tướng một lần, theo thứ tự mong muốn.
+1857|Mỗi dạng của combo là đã thành thạo hoặc chưa: true hoặc false.
+1858|Cho biết dạng nào của combo đã thành thạo.
+1859|Không tìm thấy combo.
+1860|Mỗi tướng có tối đa {max} combo.
+1861|Thời gian phản xạ
+1862|Trí nhớ chuỗi
+1863|Bài kiểm tra tinh tinh
+1864|Luyện ngắm
+1865|Theo dõi thị giác
+1866|Bạn hay thù
+1867|Last hit
+1868|Phím kỹ năng
+1869|Chạm vào bảng ngay khi nó chuyển sang màu xanh.
+1870|Lặp lại thứ tự các ô sáng lên.
+1871|Nhớ vị trí các con số và chạm theo thứ tự.
+1872|Bắn trúng ba mươi mục tiêu nhanh nhất có thể.
+1873|Theo dõi những quả bóng sáng khi chúng di chuyển.
+1874|Đánh kẻ địch, đừng đụng đến đồng đội.
+1875|Ra đòn khi thanh máu xuống dưới vạch.
+1876|Nhấn các phím kỹ năng theo thứ tự hiển thị.
+1877|Thời gian trung bình
+1878|Cấp độ đạt được
+1879|Số đã hoàn thành
+1880|Thời gian trung bình mỗi mục tiêu
+1881|Số bóng đã theo dõi
+1882|Thời gian trung bình, gồm cả phạt
+1883|Sai số trung bình
+1884|Thời gian trung bình mỗi lượt
+1885|Càng thấp càng tốt
+1886|Càng cao càng tốt
+1887|{count, plural, other {# lượt}}
+1888|{count, plural, other {# phút}}
+1889|{count, plural, other {# ngày}}
+1890|Mỗi ngày
+1891|Mỗi tuần
+1892|Bất kỳ bài tập nào
+1893|Mỗi đội có tối đa {max} mục tiêu luyện tập.
+1894|Tính theo
+1895|Lượt chơi
+1896|Phút
+1897|Số lượng
+1898|Bài tập
+1899|Thêm mục tiêu
+1900|Chưa ai phải luyện tập: mục tiêu dành cho người chơi, dự bị và đội trưởng.
+1901|Chưa có mục tiêu. Hãy yêu cầu người chơi một số lượt hoặc số phút mỗi ngày hoặc mỗi tuần.
+1902|Ban huấn luyện chưa đặt mục tiêu nào.
+1903|Mục tiêu luyện tập
+1904|Mỗi người chơi được yêu cầu một số lượt, hoặc số phút, các bài tập phản xạ mỗi ngày hoặc mỗi tuần. Một ngày, và một tuần tính từ thứ Hai, theo giờ của đội.
+1905|Tiến độ của người chơi
+1906|Tiến độ của bạn
+1907|Luyện phản xạ
+1908|Chưa có gì để theo dõi cho đến khi có mục tiêu.
+1909|Lưu mục tiêu
+1910|Đã lưu mục tiêu
+1911|Đã xóa mục tiêu
+1912|Mục tiêu
+1913|Mục tiêu {done} / {total}
+1914|Số {number}
+1915|Chạm từ 1 đến {count} theo thứ tự
+1916|Hoàn thành: từ 1 đến {count}
+1917|Lỗi {strikes} / {max}
+1918|Đơn vị {done} / {total}
+1919|Kẻ địch
+1920|Đồng đội
+1921|Các kỹ năng cần nhấn, theo thứ tự
+1922|Kỹ năng {number}
+1923|Lượt {done} / {total}
+1924|Ra đòn
+1925|Lính {done} / {total}
+1926|Quá muộn: lính đã chết
+1927|Chuẩn xác!
+1928|Sớm {ms} ms
+1929|Muộn {ms} ms
+1930|Chờ màu xanh…
+1931|Vòng {round} / {rounds}
+1932|Bấm ngay!
+1933|Quá sớm!
+1934|Hãy chờ màu xanh. Vòng này sẽ được chơi lại.
+1935|Ô {number}
+1936|Cấp {level}: quan sát
+1937|Cấp {level}: đến lượt bạn
+1938|Sai ô
+1939|Xong cấp {level}
+1940|Bóng {number}
+1941|Ghi nhớ các quả bóng sáng ({count})
+1942|Dõi theo bằng mắt
+1943|Chạm vào các quả bóng bạn đã theo dõi ({count})
+1944|Tìm đủ rồi!
+1945|Chưa đúng. Còn lại {lives} mạng
+1946|Bảng chuyển sang màu xanh sau một khoảng chờ ngẫu nhiên. Hãy chạm ngay khi nó xanh. Chạm trước khi xanh không được tính: vòng đó sẽ chơi lại. Năm vòng.
+1947|Các ô sáng lên lần lượt. Hãy lặp lại thứ tự. Mỗi cấp thêm một ô, và chỉ cần sai một ô là kết thúc lượt chơi.
+1948|Các con số nằm rải rác trên bàn. Chạm theo thứ tự từ 1: ngay khi chạm số 1, các số còn lại sẽ bị ẩn. Ba lỗi sẽ kết thúc lượt chơi.
+1949|Một mục tiêu xuất hiện: bắn trúng thì mục tiêu tiếp theo hiện ra ở chỗ khác. Ba mươi mục tiêu. Bấm trượt cạnh mục tiêu sẽ cộng thêm 150 ms cho mục tiêu đó.
+1950|Một số quả bóng sáng lên, rồi tất cả trông giống nhau và di chuyển. Khi dừng lại, hãy chạm vào những quả đã sáng. Mỗi cấp thêm một quả bóng; có ba mạng.
+1951|Các đơn vị xuất hiện trong một giây. Đánh những đơn vị đỏ (kẻ địch) và đừng đụng đến đơn vị xanh (đồng đội). Ba mươi đơn vị.
+1952|Thanh máu của lính tụt xuống và có một vạch trên đó. Hãy ra đòn đúng lúc thanh máu xuống dưới vạch, không sớm không muộn. Mười lính.
+1953|Bốn kỹ năng xuất hiện. Hãy nhấn theo thứ tự bằng phím 1 đến 4, hoặc chạm. Mười lăm lượt. Nhấn sai phím cộng thêm 300 ms.
+1954|Trung bình năm vòng của bạn, tính bằng mili giây.
+1955|Chuỗi dài nhất bạn lặp lại mà không sai.
+1956|Nhiều số nhất bạn hoàn thành trên một bàn.
+1957|Thời gian trung bình để bắn trúng một mục tiêu, tính bằng mili giây.
+1958|Nhiều quả bóng nhất bạn theo dõi mà không sai.
+1959|Thời gian trung bình để đánh trúng một kẻ địch, tính bằng mili giây (kẻ địch bị lỡ tính trọn một giây), cộng 250 ms cho mỗi đồng đội bị đánh nhầm.
+1960|Độ lệch trung bình của các đòn đánh, tính bằng mili giây.
+1961|Thời gian trung bình cho một lượt, tính bằng mili giây.
+1962|Do các đội của bạn đặt
+1963|Chưa chơi
+1964|Tốt nhất
+1965|Các bài tập ngắn cho phản xạ, trí nhớ và khả năng ngắm của bạn. Chúng chạy ngay trong trình duyệt và không gửi gì khi bạn chơi.
+1966|Tuần này
+1967|Chuỗi ngày
+1968|Bạn chưa chơi bài này.
+1969|Điểm gần đây của bạn
+1970|Tất cả bài tập
+1971|Dừng
+1972|Đang lưu…
+1973|Đã lưu.
+1974|Kỷ lục mới!
+1975|Thử lưu lại
+1976|Thử lại
+1977|Phản xạ
+1978|Bài tập không xác định.
+1979|{label} phải là một trong: {allowed}.
+1980|Độ lệch múi giờ phải là số phút từ -840 đến 840.
+1981|Luyện tập nhiều quá cho một ngày: hãy quay lại sau.
+1982|Chỉ thành viên của đội mới xem được phần luyện tập của đội.
+1983|Chỉ chủ đội, quản lý và huấn luyện viên mới đặt được phần luyện tập của đội.
+1984|Không tìm thấy mục tiêu.
+1985|Xóa mục tiêu này?
+1986|Cách chơi
+1987|Cách tính điểm
+1988|Giữ build này trong không gian của tôi
+1989|Để tìm lại một build trên mọi thiết bị và chia sẻ nó, hãy giữ nó trong không gian của bạn.
+1990|Đăng nhập để giữ build trong không gian của bạn, trên mọi thiết bị.
+1991|Đã giữ trong không gian của bạn
+1992|Phiếu luyện tập
+1993|Mọi vai trò
+1994|{count, plural, other {# tướng}}
+1995|Chưa có tướng nào được xếp hạng trong danh sách này.
+1996|Chưa có tier list nào
+1997|Hãy tạo một tier list, nó sẽ được giữ ở đây.
+1998|Mở trong phòng thí nghiệm build
+1999|Gỡ build này khỏi không gian của tôi
+2000|Chưa giữ build nào
+2001|Hãy lưu một build trong phòng thí nghiệm build, rồi giữ nó trong không gian của bạn.
+2002|Ở đây chưa giữ gì cả.
+2003|Tướng đang luyện
+2004|Chưa chọn tướng nào.
+2005|Chưa có gì trong sổ tay.
+2006|Combo đã thành thạo
+2007|Chưa thành thạo combo nào.
+2008|Chưa chơi bài tập nào.
+2009|Mở phần luyện tập
+2010|Không gian của tôi
+2011|Đăng nhập để giữ build, tier list và phiếu luyện tập của bạn, và chia sẻ chúng bằng một liên kết.
+2012|Không hết hạn
+2013|Hết hạn vào {date}
+2014|{count, plural, other {Đã mở # lần}}
+2015|Chưa từng mở
+2016|Liên kết ngày {date}
+2017|Gỡ liên kết
+2018|Chia sẻ không gian của tôi
+2019|{count} / {max} liên kết
+2020|Ai có liên kết đều xem được phần nó chia sẻ, chỉ đọc và không cần tài khoản. Liên kết là cách duy nhất để chia sẻ không gian của bạn: không có gì được liệt kê công khai.
+2021|Liên kết chia sẻ
+2022|Tên liên kết (tùy chọn)
+2023|Cho huấn luyện viên của tôi
+2024|Liên kết có hiệu lực
+2025|Đến khi tôi gỡ
+2026|Tạo liên kết
+2027|Liên kết mới của bạn
+2028|Chỉ hiển thị một lần: hãy sao chép ngay. Ai có nó đều xem được phần nó chia sẻ.
+2029|Địa chỉ liên kết
+2030|Sao chép liên kết
+2031|Các liên kết của bạn
+2032|Chưa có liên kết: không ai xem được không gian của bạn.
+2033|Những gì bạn giữ trên trang: tier list, build và phiếu luyện tập. Chia sẻ tất cả, hoặc chỉ phần bạn chọn, bằng một liên kết.
+2034|Gỡ liên kết này? Những người có nó sẽ không xem được không gian của bạn nữa.
+2035|Đã gỡ liên kết
+2036|Gỡ build này khỏi không gian của bạn?
+2037|Đã gỡ build
+2038|Không gian này không khả dụng
+2039|Quay lại trang
+2040|Địa chỉ này không có liên kết. Hãy xin người đó toàn bộ liên kết.
+2041|Không gian được chia sẻ
+2042|Không gian của {name}
+2043|Được chia sẻ với bạn qua một liên kết. Bạn xem nó như hiện tại và không thể thay đổi gì ở đây.
+2044|Không có gì được chia sẻ.
+2045|Không gian của tôi | {site}
+2046|Những gì bạn giữ trên trang và các liên kết chia sẻ chúng.
+2047|Không gian được chia sẻ | {site}
+2048|Một không gian mà ai đó đã chia sẻ với bạn.
+2049|Chọn một tướng trong danh sách, hoặc không chọn.
+2050|Chọn nội dung mà liên kết chia sẻ.
+2051|Một liên kết có hiệu lực 7, 30 hoặc 90 ngày, hoặc đến khi bạn gỡ nó.
+2052|Liên kết này không hợp lệ.
+2053|Đăng nhập để dùng không gian của bạn.
+2054|Không tìm thấy liên kết.
+2055|Liên kết này không tồn tại hoặc đã hết hạn.
+2056|Bạn chỉ có thể giữ tối đa {max} build trong không gian của mình.
+2057|Bạn chỉ có thể giữ tối đa {max} build cho mỗi tướng.
+2058|Bạn chỉ có thể tạo tối đa {max} liên kết. Hãy gỡ bớt một cái trước.
+2059|Khởi động
+2060|Cơ chế
+2061|Tập trung và trí nhớ
+2062|Tất cả
+2063|Phản xạ, ngắm và phím kỹ năng: đánh thức đôi tay trước một trận scrim.
+2064|Phím kỹ năng, last hit, bạn hay thù và ngắm: độ chính xác của đôi tay.
+2065|Trí nhớ chuỗi, bài kiểm tra tinh tinh và theo dõi thị giác: giữ thông tin trong đầu.
+2066|Tám bài tập, lần lượt từng bài.
+2067|Đã chơi hôm nay
+2068|Lộ trình
+2069|Chơi liên tiếp nhiều bài tập, lần lượt từng bài, rồi xem kết quả ở cuối.
+2070|Chọn một lộ trình
+2071|{count, plural, other {# bài tập}}
+2072|Bắt đầu lộ trình
+2073|Lộ trình của riêng bạn
+2074|Đánh dấu các bài tập bạn muốn, chúng được chơi theo thứ tự của danh sách.
+2075|Hãy đánh dấu ít nhất hai bài tập.
+2076|Đã xong lộ trình
+2077|Kết quả của bạn, từng bài tập một.
+2078|Kết quả của bạn
+2079|Kỷ lục
+2080|Chưa chơi gì trong lộ trình này.
+2081|Làm lại
+2082|Lộ trình
+2083|Bỏ qua bài tập này
+2084|Dừng lộ trình
+2085|Xem kết quả
+2086|Tiếp theo: {name}
+2087|Bảng xếp hạng
+2088|Hiển thị bảng xếp hạng cho người chơi
+2089|Điểm tốt nhất của mỗi người chơi được yêu cầu luyện tập, trong bài tập bạn chọn. Đồng điểm thì chia chung hạng.
+2090|Tuần này chưa ai chơi bài tập này.
+2091|Chưa ai chơi bài tập này.
+2092|Người chơi có thể xem bảng xếp hạng
+2093|Bảng xếp hạng chỉ dành cho ban huấn luyện
+2094|Bảng xếp hạng được hiển thị cho người chơi hoặc không: true hoặc false.
+2095|Ban huấn luyện chưa mở bảng xếp hạng cho người chơi.
+2096|Cả hai dạng
+2097|{count, plural, other {# combo}}
+2098|Chưa có mục tiêu về tướng. Hãy yêu cầu người chơi thành thạo các combo của một tướng.
+2099|Ban huấn luyện chưa yêu cầu gì về các tướng.
+2100|Mỗi đội có tối đa {max} mục tiêu về tướng.
+2101|Chưa tướng nào có combo: các biên tập viên viết chúng trong hướng dẫn tướng.
+2102|Thành thạo ở dạng
+2103|Yêu cầu tướng này
+2104|Tướng cần thành thạo
+2105|Mỗi người chơi được yêu cầu thành thạo các combo của những tướng này ở dạng đã chọn. Các combo là những combo biên tập viên đã viết cho tướng.
+2106|Luyện tập
+2107|Combo cần kiểm tra hôm nay
+2108|Bạn đã thành thạo các combo này từ lâu: bạn còn làm tốt không?
+2109|Vẫn tốt
+2110|Hơi rỉ
+2111|Còn {count} combo nữa sau những combo này.
+2112|Hôm nay không có gì cần kiểm tra.
+2113|Combo cần học
+2114|Các combo của những tướng bạn đang luyện và của những tướng đội bạn yêu cầu mà bạn chưa thành thạo.
+2115|Bạn sẽ gặp lại nó sau {days}.
+2116|Cho biết bạn còn thành thạo combo này không: true hoặc false.
+2117|Combo này không nằm trong lịch ôn tập của bạn.
+2118|Tướng này chưa có combo nào.
+2119|Đội đã yêu cầu điều này rồi.
+2120|Xem từ {time}
+2121|Xem video
+2122|Dòng {line}: viết một mốc thời gian như 12:30, rồi điều cần xem.
+2123|Dòng {line}: tối đa {max} ký tự.
+2124|Một bài xem lại video có tối đa {max} thời điểm.
+2125|Liên kết video
+2126|Những thời điểm cần xem lại
+2128|Mỗi dòng một thời điểm: mốc thời gian (12:30 hoặc 1:02:03), rồi điều cần xem.
+2129|Những điều cần luyện: mục tiêu, cơ chế, combo và bài xem lại video. Chỉ bạn nhìn thấy.
+2130|Xem lại video
+2131|Cần xem
+2132|Đang xem lại
+2133|Đã xem lại
+2134|Mỗi thời điểm cần một mốc thời gian từ 0:00 đến {max}.
+2135|Một bài xem lại video thuộc về một tướng.
+2136|Liên kết video phải là địa chỉ https:// đầy đủ.
+2137|Chỉ bài xem lại video mới có liên kết và các thời điểm.
+2138|12:30 di chuyển chậm
+2139|{subject} không phải {value}
+2140|{subject} tối thiểu là {value}
+2141|{subject} tối đa là {value}
+2142|{subject} lớn hơn {value}
+2143|{subject} nhỏ hơn {value}
+2144|{subject} là {value}
+2145|không ({conditions})
+2146|{stat} không phải {options}
+2147|{stat} là {options}
+2148|Không có thẻ {tag}
+2149|Có thẻ {tag}
+2150|Lớp không phải {role}
+2151|Lớp là {role}
+2152|Không chơi đường {lane}
+2153|Chơi đường {lane}
+2154|Tướng không phải {heroes}
+2155|Tướng là {heroes}
+2156|Khi: {conditions}
+2157|Tạm thời, {seconds} giây
+2158|Tạm thời
+2160|Không áp dụng cho tướng này.
+2161|Không thể kiểm tra: dữ liệu của tướng này chưa đầy đủ.
+2162|{count, plural, other {# giá trị không áp dụng cho tướng này}}
+2163|{count, plural, other {# giá trị không thể kiểm tra: dữ liệu của tướng chưa đầy đủ}}
+2164|{count, plural, other {# giá trị phụ thuộc vào tướng: hãy chọn một tướng để tính}}
+2165|{count, plural, other {# giá trị tạm thời, không nằm trong tổng}}
+2159|Giá trị phụ thuộc vào tướng chỉ được tính khi áp dụng cho tướng bạn chọn. Giá trị tạm thời được hiển thị riêng và không nằm trong tổng.
+2166|Chỉ số của tướng
+2167|Thẻ của tướng
+2168|Lớp của tướng
+2169|Đường của tướng
+2170|Tướng
+2171|Cấp độ của tướng
+2172|Nhóm điều kiện
+2173|Tất cả đều đúng
+2174|Ít nhất một điều đúng
+2175|Cần bao nhiêu điều kiện đúng
+2176|là
+2177|không phải
+2178|Phải là, hay không phải là
+2179|So sánh
+2180|Thẻ
+2182|Loại điều kiện
+2181|Xóa điều kiện này
+2183|Không
+2184|Thêm điều kiện
+2185|Thêm nhóm
+2186|Áp dụng cho mọi tướng.
+2187|Chỉ dành cho một số tướng
+2188|Áp dụng khi
+2189|{count, plural, other {# điều kiện}}
+2190|Số nguyên
+2191|Lựa chọn (một danh sách tùy chọn)
+2192|Lựa chọn: {options}
+2193|Tùy chọn
+2194|Tạm thời và điều kiện
+2195|Kéo dài (giây)
+2196|Khi nào hoặc như thế nào (tùy chọn)
+2197|Tên tùy chọn
+2198|Xóa tùy chọn này
+2199|Thêm tùy chọn
+2200|Các tùy chọn của lựa chọn (giá trị mà tướng hoặc trang bị có thể nhận)
+2201|Có điều kiện chưa hoàn tất: hãy điền đầy đủ hoặc xóa nó.
+2202|{label} tham chiếu đến thứ không tồn tại.
+2203|{label} phải liệt kê các tùy chọn của chỉ số.
+2204|{label} liệt kê cùng một tùy chọn hai lần.
+2205|{label} phải liệt kê từ 1 đến {max} tướng.
+2206|{label} liệt kê cùng một tướng hai lần.
+2207|Các điều kiện có thể lồng nhau tối đa {max} cấp.
+2208|Một nhóm điều kiện không được để trống.
+2209|Tổng cộng có tối đa {max} điều kiện.
+2210|Một tập điều kiện có tối đa {max} điều kiện.
+2211|{label} phải là một tập điều kiện.
+2212|{label} phải là số nguyên.
+2213|Chỉ giá trị tạm thời mới có thời lượng.
+2214|{label} liệt kê cùng một chỉ số hai lần với cùng điều kiện.
+2215|Một lựa chọn cần từ {min} đến {max} tùy chọn.
+2216|Chỉ số này đang được {count} trang bị, ngọc hoặc tướng sử dụng: không thể đổi từ số sang lựa chọn (hoặc ngược lại) khi chúng còn dùng.
+2217|Tùy chọn “{name}” đang được {count} trang bị, ngọc hoặc tướng sử dụng: hãy gỡ nó khỏi chúng trước.
+2218|{count} giá trị của chỉ số này không phải số nguyên: hãy sửa chúng trước.
+2219|Thẻ này được nêu trong điều kiện của {count} trang bị hoặc ngọc: hãy gỡ nó khỏi chúng trước.
+2220|Bản dịch
+2221|Thất bại
+2222|Thủ công
+2223|Tự động
+2224|Mô tả thẻ
+2225|Tên hiệu ứng
+2226|Ghi chú về chỉ số cộng thêm
+2227|Ghi chú kỹ năng
+2228|Chi tiết kỹ năng
+2229|Ghi chú build
+2230|Ghi chú combo
+2231|Gợi ý
+2232|Tình huống
+2233|Điểm đánh dấu
+2234|Các con số không giống với trong văn bản.
+2235|Bản dịch dài hơn nhiều so với văn bản.
+2236|Bản dịch trống.
+2237|Dịch vụ không trả về văn bản nào.
+2238|Dịch vụ không phản hồi cho văn bản này.
+2239|Dịch tự động đang tắt
+2241|Dịch vụ dịch đã từ chối khóa
+2242|Sẽ không có gì được gửi cho đến khi khóa được đổi trên máy chủ và có yêu cầu chạy một lượt.
+2243|Tạm dừng
+2244|Bộ dịch đang chờ và sẽ tự thử lại.
+2245|Sự cố gần nhất: {message}
+2246|Tắt
+2248|Bản dịch đã xong
+2250|bản dịch đã xong
+2251|đang chờ
+2252|thất bại
+2253|viết thủ công
+2254|Đã gửi hôm nay: {used} trên {limit} ký tự.
+2255|Đang dịch…
+2256|Dịch ngay
+2257|Tìm văn bản mới
+2258|Thử lại những bản thất bại
+2259|Viết bằng ngôn ngữ này
+2260|Viết bằng {language}
+2261|Bản dịch sang {language}
+2262|Quay lại tự động
+2263|Văn bản giữ nguyên như đã nhập ở mọi ngôn ngữ
+2264|Giữ nguyên
+2265|Văn bản bằng {language}
+2266|Hiển thị
+2267|Không có văn bản nào khớp.
+2268|Chưa có gì để dịch: hãy viết một chỉ số, trang bị hoặc thẻ và nó sẽ xuất hiện ở đây.
+2269|Đã bắt đầu dịch
+2270|Các văn bản thất bại sẽ được thử lại
+2271|Đã lưu bản dịch
+2272|Đã quay lại bản dịch tự động
+2273|Văn bản này giữ nguyên như đã nhập ở mọi ngôn ngữ
+2274|Không tìm thấy văn bản.
+2275|{label} phải là một ngôn ngữ của trang.
+2276|Bản dịch phải là văn bản.
+2277|Văn bản
+2278|Vật lý
+2279|Phép thuật
+2280|Phòng thủ
+2281|Đi rừng
+2282|Roaming
+2283|Danh mục
+2284|PNG, JPEG, WebP hoặc GIF, tối đa 3 MB. Ảnh được giữ đến 256 px; giữ nguyên độ trong suốt.
+2285|Chưa có danh mục
+2286|Chỉ số mang lại (tối đa 4, cho một ngọc)
+2287|Tất cả danh mục
+2288|Phân loại nhiều trang bị
+2289|{count, plural, other {Đã chọn # trang bị}}
+2290|Chọn tất cả đang hiển thị
+2291|Bỏ chọn tất cả
+2292|Danh mục của các trang bị đã chọn
+2293|Ô trang bị của các trang bị đã chọn
+2294|{count, plural, other {Đã cập nhật # trang bị}}
+2295|Xong phân loại
+2296|Phân loại hàng loạt
+2301|Đánh dấu các trang bị trong danh sách, rồi chọn danh mục hoặc ô của chúng.
+2298|{label} phải liệt kê từ 1 đến {max} trang bị.
+2299|{label} có cùng một trang bị hai lần.
+2300|Hãy nói cần đổi gì: ô, danh mục hoặc cả hai.
+2302|Số ký tự đã dùng của tài khoản trong kỳ này: {used} (không giới hạn).
+2303|Số ký tự đã dùng của tài khoản trong kỳ này: {used} trên {limit}.
+2304|Dừng ở {percent}% hạn mức để chừa lại cho các cách dùng khác của khóa.
+2305|Hạn mức đã dùng
+2306|Dịch sang {language}
+2307|Một ngôn ngữ được dịch ngay khi có người yêu cầu: khách đọc trang bằng ngôn ngữ đó, hoặc bạn bằng các nút dấu cộng.
+2308|Dịch sang mọi ngôn ngữ
+2309|Mỗi văn bản được hiển thị đúng như đã nhập, và bạn có thể dịch thủ công ở bên dưới. Để tự động dịch, hãy thêm khóa DeepL vào máy chủ với tên DEEPL_API_KEY (xem README) rồi khởi động lại.
+2310|Đã hết hạn mức
+2311|Sẽ không gửi gì cho đến khi hạn mức được làm mới hoặc nâng lên.
+2312|Những gì ban quản trị viết được giữ nguyên và dịch sang các ngôn ngữ mà trang được đọc. Khách đọc bằng ngôn ngữ của mình; khi chưa có bản dịch, họ đọc đúng như đã nhập.
+2313|Chưa ai yêu cầu ngôn ngữ này.
+2314|Ngôn ngữ này sẽ được dịch.
+2315|Mọi ngôn ngữ sẽ được dịch.
+2320|Đường
+2316|Gợi ý các đường
+2321|Gợi ý đường cho mọi series
+2319|Không thể gợi ý thêm điều gì một cách chắc chắn.
+2324|Không thể gợi ý thêm một cách chắc chắn: hãy tự kéo các đường.
+2318|Chỉ đề xuất những đường mà đường của các tướng cho phép chắc chắn; những đường bạn đã nhập được giữ nguyên, và sau đó bạn có thể đổi bất kỳ đường nào trong trình chỉnh sửa.
+2317|{series, plural, other {# series}} có thể được gợi ý đường (tổng cộng {count, plural, other {# đường}}).
+2322|Đã lưu đường cho {count, plural, other {# series}}
+2323|{count, plural, other {# đường được gợi ý}}: hãy đổi bằng cách kéo.
+2325|Mở khóa ở cấp {level}
+2326|Mọi trang bị trong game, theo ô và theo danh mục cửa hàng.
+2327|Các bảng ngọc trong game, đỏ, xanh dương và xanh lá, và những gì mỗi loại mang lại.
+2328|Các phép bổ trợ người chơi mang vào trận: tác dụng và thời gian hồi.
+2329|Màu
+2330|Chọn một mục để xem chi tiết.
+2331|Chưa được nhập.
+2332|Dữ liệu game
+2333|Một bộ build có tối đa {max} phép bổ trợ.
+2334|Một phép bổ trợ của bộ build này không có trong danh mục.
+2335|{name} được dùng hai lần: một phép bổ trợ chỉ có thể xuất hiện một lần trong bộ build.
+2336|Trang bị Honor of Kings Global — chỉ số, giá và danh mục | {site}
+2337|Mọi trang bị của Honor of Kings Global với hình ảnh, giá, chỉ số, nội tại và kích hoạt, theo ô và danh mục cửa hàng.
+2338|Bảng ngọc Honor of Kings Global — đỏ, xanh dương và xanh lá | {site}
+2339|Mọi bảng ngọc của Honor of Kings Global, đỏ, xanh dương và xanh lá, cùng chỉ số mỗi loại mang lại.
+2340|Phép bổ trợ Honor of Kings Global — tác dụng và thời gian hồi | {site}
+2341|Các phép bổ trợ người chơi mang vào trận Honor of Kings Global: tác dụng của từng loại, bao lâu thì hồi và mở khóa từ cấp nào.
+2342|Không tìm thấy phép bổ trợ.
+2343|Đã có phép bổ trợ với tên này.
+2344|Mở khóa ở cấp
+2345|Đội của tôi
+2346|Tôi
+2350|Xem {count} tướng
+2347|Lưu các series
+2348|Lên lịch scrim cùng đội
+2349|Chia sẻ tier list
+2351|Bắt đầu
+2352|Chọn chế độ và bắt đầu
+2353|Một mình, trên một thiết bị dùng chung, hoặc trực tuyến với đối thủ được mời.
+2354|Draft cùng đồng hồ
+2355|Cấm và chọn theo đúng thứ tự thật, có đồng hồ cho mỗi lượt.
+2356|Xem lại và chia sẻ
+2357|Mỗi ván đều được lưu: xuất file, chia sẻ liên kết hoặc dựng tier list.
+2358|Đòn đánh thường
+2359|Nhật ký draft
+2360|Đồng hồ trận
+2362|Bộ lọc
+2368|Bắt đầu nhanh
+2369|Thiết lập
+2370|Chọn luật tướng, thể thức và hai đội.
+2371|Ban và pick với đồng hồ 30 giây, một mình, trên một thiết bị hoặc trực tuyến.
+2372|Xem lại
+2373|Ghi lại kết quả, sau đó xuất hoặc chia sẻ series.
+2374|Một series diễn ra thế nào
+2375|Đội A chơi phe xanh ở trận 1; sau đó các phe luân phiên.
+2401|Khóa này không thể đọc mục này: cần phạm vi {scope}.
+2398|API chỉ cho phép đọc: hãy dùng GET.
+2403|Bạn có thể giữ {max} khóa API đang hoạt động: hãy thu hồi một khóa trước.
+2396|Hãy chọn ít nhất một thứ mà khóa có thể đọc.
+2397|Chọn thời hạn của khóa: {choices} ngày (0 = không hết hạn).
+2402|Không tìm thấy khóa API.
+2404|Chỉ chủ sở hữu, quản lý hoặc huấn luyện viên của đội mới có thể chia sẻ một series với đội.
+2405|Chỉ người tạo series hoặc người phụ trách của đội mới có thể làm việc này.
+2406|Series này không thuộc đội này.
+2407|Một series có thể thuộc tối đa {max} đội.
+2361|Thêm tướng
+2363|Bộ lọc đang bật
+2364|Đặt lại bộ lọc
+2365|Lên đầu trang
+2366|Bỏ bộ lọc {name}
+2379|Giới thiệu tướng
+2380|Tướng khác ở {lane}
+2381|Cách tính các con số
+2382|Mỗi trận đến từ một loạt giải đấu do nhân viên nhập tay.
+2383|Tỷ lệ chọn và tỷ lệ cấm tính các trận trong kỳ mà tướng được chọn hoặc bị cấm.
+2384|Mẫu nhỏ được đánh dấu, không bao giờ bị ẩn: hãy đọc cẩn thận.
+2367|Không có trận nào được nhập theo luật này trong kỳ này.
+2408|Thứ tự draft
+2409|Giải đấu chuyên nghiệp
+2410|Tier list của bạn
+2411|30 ngày
+2412|90 ngày
+2413|1 năm
+2414|Không hết hạn
+2415|Đã thu hồi {date}
+2416|Đã hết hạn {date}
+2417|Hết hạn {date}
+2418|Hãy sao chép khóa ngay: khóa chỉ hiển thị một lần.
+2419|Dùng như sau
+2420|Tôi đã lưu
+2421|Chưa có khóa nào. Hãy tạo một khóa ở trên.
+2422|Dùng lần cuối {date}
+2423|Chưa từng dùng
+2424|Tạo ngày {date}
+2425|Thu hồi
+2426|Tên khóa
+2427|Bot thống kê của tôi
+2428|Khóa có thể đọc gì
+2429|Thời hạn
+2430|Tạo khóa
+2431|{live} trong {max} khóa đang dùng
+2432|Khóa của bạn
+2433|Khóa đọc những gì bạn đọc được: scrim của bạn, các series đội đã chia sẻ với bạn, tier list của bạn và dữ liệu trò chơi. Khóa không bao giờ ghi và không bao giờ có quyền quản trị.
+2434|Hãy đặt tên cho khóa trước.
+2435|Đã sao chép.
+2436|Thu hồi khóa “{name}”? Các chương trình dùng khóa này sẽ ngừng hoạt động ngay.
+2437|Đã thu hồi khóa.
+2438|Khóa API
+2439|Đọc dữ liệu của bạn và của trò chơi từ chương trình của riêng bạn. Khóa chỉ đọc, không bao giờ ghi.
+2385|Giá
+2386|Sắp xếp theo
+2387|{count, plural, other {# kết quả}}
+2388|Xóa bộ lọc
+2389|Cùng danh mục
+2390|Ván đấu giải
+2391|Mọi ván do ban quản trị nhập đều được tính, scrim thì không bao giờ.
+2392|Phe và đường
+2393|Draft được xếp hạng theo từng phe, tướng theo từng đường.
+2394|Tối thiểu ba tháng
+2395|Khoảng thời gian ngắn hơn nói quá ít nên bị từ chối.
+2376|Đã xếp hạng {count}
+2377|Chia sẻ
+2378|Phím mũi tên chuyển giữa các tướng, Enter chọn một tướng, 1 đến 9 đưa tướng vào bậc đó, 0 trả về Chưa xếp hạng.
+2440|Chia sẻ với một đội
+2446|Thành viên của một đội mà bạn quản lý có thể mở và đọc series này, nhưng không thể chỉnh sửa.
+2444|Đã chia sẻ với
+2445|Chưa chia sẻ với đội nào.
+2443|Chọn một đội
+2442|Không có đội nào để thêm: bạn phải là chủ sở hữu, quản lý hoặc huấn luyện viên của đội để chia sẻ series.
+2447|Đã chia sẻ series với {team}
+2448|Đã gỡ series khỏi {team}
+2441|Gỡ series khỏi {team}
+2449|Thẻ tướng
+2450|Chưa có danh mục
+2451|Chưa có chỉ số
+2452|Chưa có giá
+2453|Chưa có mô tả
+2454|Chưa có hồi chiêu
+2455|Chưa có cấp mở khóa
+2456|Chưa được dùng
+2457|Chưa có thẻ
+2458|Trang bị cần phân loại
+2459|Trang bị chưa có chỉ số
+2460|Văn bản cần dịch
+2461|Không có gì cần sửa ở đây.
+2462|Cần chú ý
+2502|Còn phải viết
+2503|Mức phủ theo đường
+2504|Ghi chú
+2505|Chưa có ghi chú
+2506|Chưa có liên kết nguồn
+2507|Phiên bản {number}
+2508|Tướng đã đánh giá
+2509|Phiên bản
+2537|Sự kiện
+2538|Theo sự kiện
+2539|Hiển thị mọi series
+2540|Nhập nhanh
+2541|Mô tả series
+2542|Sự kiện, ngày, hai đội và luật draft.
+2543|Chọn tướng
+2544|Nhấp một ô, gõ tên tướng rồi nhấn Enter: ô trống tiếp theo sẽ được điền.
+2545|Gán đường cho từng tướng
+2465|Tất cả đội
+2510|Một đội hoạt động như thế nào
+2511|Đăng ký
+2512|Tên, tag, trình độ và khu vực: đội có trang riêng.
+2513|Mời người chơi bằng tag của họ. Không ai vào đội nếu chưa trả lời.
+2514|Lên lịch scrim, chia sẻ series, luyện tập đội hình.
+2478|Đang tìm scrim
+2515|{won} thắng · {lost} thua
+2516|Chưa có series nào được chia sẻ với đội.
+2517|Thành viên
+2474|Thông báo đang mở
+2518|Hãy tạo một đội hoặc chờ lời mời từ đội trưởng.
+2519|Hiện thêm đội
+2520|Đã chia sẻ series với đội
+2521|Đã gỡ series khỏi đội
+2522|Đường đã có người
+2523|Sự kiện đã lên lịch
+2524|Khung giờ mở
+2525|Chỗ trống
+2526|Thành lập
+2527|Thắng
+2528|Thua
+2529|Gỡ khỏi đội
+2530|Người tạo series đưa nó lên đội để các thành viên có thể đọc.
+2531|Chia sẻ một series
+2532|Không còn series nào để chia sẻ.
+2533|Hãy tạo một series rồi đưa nó lên đội.
+2534|Vùng nguy hiểm
+2535|Người chơi
+2536|Hoàn thành mọi mục tiêu
+2463|Lịch hoạt động như thế nào
+2464|7 ngày tới
+2466|Lịch
+2467|Chưa kết nối
+2468|Nhận yêu cầu, lời nhắc và kết quả qua tin nhắn riêng.
+2469|Một đội có đội hình, lịch và máy chủ Discord riêng.
+2470|Cho các đội khác biết khi nào bạn rảnh để chơi.
+2471|Xin scrim từ một đội, hoặc trả lời một yêu cầu.
+2472|Máy chủ của đội
+2473|Chỉ chủ đội và quản lý mới có thể kết nối máy chủ của đội.
+2475|Khu vực
+2476|Scrim diễn ra như thế nào
+2477|Lời mời
+2479|Yêu cầu scrim, phản hồi và lời mời, tất cả ở một nơi.
+2480|Chưa đọc
+2481|Tướng {lane}
+2482|Đồng đội
+2483|Cuộc trò chuyện
+2484|Tin nhắn
+2485|Lý do
+2486|Người báo cáo
+2487|Báo cáo hoạt động như thế nào
+2488|Người chơi báo cáo một cuộc trò chuyện từ hộp thư, kèm lý do.
+2489|Cuộc trò chuyện hiện ở đây, kèm người báo cáo và thời điểm.
+2490|Quyết định
+2491|Bỏ qua báo cáo sau khi đã xử lý.
+2492|Đăng hoặc chọn
+2493|Đăng khung giờ trống của bạn, hoặc hỏi một đội đã đăng sẵn.
+2494|Thống nhất
+2495|Đội kia chấp nhận hoặc đề xuất giờ khác, ngay trong hộp thư của bạn.
+2496|Scrim vào lịch; series chỉ cách một cú nhấp.
+2497|Tham gia một đội
+2498|Lên kế hoạch
+2499|Scrim, buổi tập, xem lại VOD và trận đấu, theo múi giờ của bạn.
+2500|Trả lời
+2501|Cho biết bạn có đến không chỉ với một cú nhấp; Discord nhắc người chơi trước 6 giờ, 4 giờ và 2 giờ.
+2546|Hãy nhập chỉ số của game trước: trang bị và ngọc đều được viết bằng các chỉ số này.
+2547|Sau đó là trang bị, ngọc và kỹ năng, mỗi thứ có hình ảnh, chỉ số và hiệu ứng riêng.
+2548|Gán danh mục cho từng trang bị chỉ với vài lần nhấp, rồi xem kết quả trong phòng thí nghiệm build.
+2549|Số liệu được dùng ở đâu
+2550|Quay lại
+2551|Quá ngắn
+2552|Yếu
+2553|Trung bình
+2554|Tốt
+2555|Mạnh
+2556|Ứng dụng xác thực
+2557|Hiện mật khẩu
+2558|Ẩn mật khẩu
+2559|Xác thực hai yếu tố đang tắt trên tài khoản này.
+2560|Đăng nhập lại để thiết lập
+2561|Có sẵn khi xác thực hai yếu tố được bật.
+2562|Đăng nhập gần nhất
+2563|Chỉ đọc
+2564|Cần kiểm tra
+2565|Thêm vào tướng của tôi
+2566|Không có ghi chú nào khớp với bộ lọc này.
+2567|Bài tập
+2568|Gần nhất
+2569|Bảng xếp hạng đội
+2570|Hãy tham gia một đội để xem bảng xếp hạng của đội.
+2571|Nghiên cứu bản đồ
+2572|Ai ở đâu, ai đã chết, các trại và mục tiêu đang ra sao.
+2573|Hãy đặt mình vào tình huống: bạn sẽ làm gì tiếp theo, và vì sao?
+2574|Viết câu trả lời của bạn
+2575|Câu trả lời được lưu trong tài khoản và bạn có thể sửa bất cứ lúc nào.
+2576|Mục tiêu
+2577|Chọn tướng của bạn
+2578|Chọn tối đa {max} tướng: mỗi tướng có một thẻ với mục tiêu và combo của nó.
+2579|Học combo của họ
+2580|Nắm vững từng combo ở hai dạng: nguyên bản và hủy hoạt ảnh.
+2581|Kiểm tra lại
+2582|Combo sẽ quay lại sau vài ngày: hãy cho biết bạn còn thuần thục không.
+2583|Tướng của bạn, sổ tay, các combo đã thành thạo và điểm phản xạ của bạn.
+2595|Gửi cho tôi một tin nhắn thử
+2593|Kiểm tra xem có hoạt động không
+2594|Bot sẽ gửi cho bạn một tin nhắn.
+2587|Đã gửi tin nhắn thử: hãy xem tin nhắn trực tiếp trên Discord của bạn.
+2588|Discord không cho bot nhắn cho bạn. Bot chỉ nhắn được cho người ở chung máy chủ với nó (hãy thêm bot vào máy chủ của đội từ thẻ Discord của đội) và cho phép tin nhắn trực tiếp từ thành viên máy chủ.
+2589|Discord đã từ chối token của bot: chủ trang web cần kiểm tra lại.
+2590|Discord yêu cầu chậm lại. Hãy thử lại sau một phút.
+2591|Không thể kết nối với Discord. Hãy thử lại sau một phút.
+2592|Discord đã từ chối tin nhắn. Hãy thử lại sau.
+2584|Chưa có vật phẩm nào thuộc ô này.
+2585|Quản trị viên chọn ô của từng vật phẩm trong Danh mục.
+2586|Mở Danh mục
+2601|Độ tin cậy
+2597|Đọc từ video
+2599|Danh sách tướng
+2596|Đọc từ video và đã được một người kiểm tra.
+2598|Công cụ đọc từ video: vẫn còn một số điểm cần kiểm tra.
+2600|Lấy từ trang kết quả: có tướng, cấm và đường, nhưng không có thứ tự chọn.
+2603|Lọc theo độ tin cậy
+2602|{count, plural, other {# điểm cần kiểm tra}}
+2604|Độ tin cậy không hợp lệ.
+2607|Tướng này không được chơi trong giai đoạn này.
+2609|Tỷ lệ thắng đáng tin (chắc chắn 95 %): {rate}
+2610|Bản chính
+2611|thay cho
+2612|{count, plural, other {# biến thể}}
+2613|Xếp theo tỷ lệ thắng thấp nhất mà số trận cho phép tin cậy: một trận thắng trong một trận không vượt được tướng đã chứng tỏ qua nhiều trận.
+2614|Trận cuối quyết định của chuỗi Global Ban & Pick, chơi theo luật draft cổ điển: có thể chọn lại các tướng của những trận trước.
+2615|Ultimate Battle
+2616|{label}.ultimateBattle phải là true hoặc false.
+2617|Ultimate Battle là trận cuối quyết định của chuỗi Global Ban & Pick.
+2622|Đối thủ gặp nhiều nhất trong các trận đã thắng
+2624|Thắng nhiều nhất cùng
+2625|Thắng nhiều nhất khi gặp
+2626|Chưa có tướng nào gặp nhau trong {count} trận: chưa có gì để xếp hạng.
+2627|Xếp theo tỷ lệ thắng đáng tin cậy trên các trận chơi cùng nhau; mỗi tướng cần ít nhất {count} trận.
+2628|Thua nhiều nhất cùng
+2629|Thua nhiều nhất khi gặp
+2630|Tìm tướng, trang bị, ngọc, đội…
+2631|điều khoản sử dụng
+2632|chính sách quyền riêng tư
+2633|Khi tạo tài khoản, bạn đồng ý với {terms} và {privacy}.
+2634|Điều khoản sử dụng
+2635|Chính sách quyền riêng tư
+2636|Liên hệ
+2637|đã đăng nhập
+2638|Đánh dấu chưa xử lý
+2639|Đánh dấu đã xử lý
+2640|Tin nhắn từ trang liên hệ
+2641|Chưa có tin nhắn nào.
+2642|Cookie
+2643|Thông tin pháp lý
+2644|Thông tin pháp lý
+2645|Chủ đề
+2646|Chúng tôi chỉ dùng tên và email của bạn để trả lời, và giữ tin nhắn tối đa 12 tháng. Xem {privacy}.
+2647|Gửi tin nhắn
+2648|Tin nhắn của bạn đã được gửi. Cảm ơn, chúng tôi sẽ trả lời theo địa chỉ bạn đã cung cấp.
+2649|Hãy điền mọi trường: một email hợp lệ và tin nhắn có ít nhất 10 ký tự.
+2650|Không thể gửi tin nhắn của bạn.
+2651|Hãy viết cho những người làm ra trang web. Chúng tôi đọc mọi tin nhắn.
+2652|Các văn bản pháp lý được viết bằng tiếng Pháp và tiếng Anh. Đây là bản tiếng Anh, bản tham chiếu.
+2653|Bạn cũng có thể viết tới {email}.
+2654|Cập nhật lần cuối: {date}
+2655|Điều khoản sử dụng | {site}
+2656|Quy tắc sử dụng HOK Global Scrim Lab.
+2657|Chính sách quyền riêng tư | {site}
+2658|HOK Global Scrim Lab lưu dữ liệu cá nhân nào, vì sao, trong bao lâu và cách thực hiện quyền của bạn theo GDPR.
+2659|Cookie và bộ nhớ cục bộ | {site}
+2660|Các cookie và bộ nhớ cục bộ mà HOK Global Scrim Lab dùng, và mục đích của từng loại.
+2661|Thông tin pháp lý | {site}
+2662|Ai xuất bản và lưu trữ HOK Global Scrim Lab.
+2663|Liên hệ | {site}
+2664|Hãy viết cho những người đứng sau HOK Global Scrim Lab.
+2665|Tin nhắn phải có từ 10 đến 4000 ký tự.
+2666|Tin nhắn này không tồn tại.
+2667|HOK Global Scrim Lab là dự án của người hâm mộ, không liên kết với Tencent / TiMi Studio Group. Honor of Kings và hình ảnh của game thuộc về họ.
+2668|Dữ liệu của bạn đã được tải xuống.
+2669|Hãy đánh dấu ô để xác nhận.
+2670|Dữ liệu của bạn
+2671|Tải xuống bản sao mọi thứ trang web lưu về bạn. Mật khẩu, khóa bí mật của ứng dụng xác thực và mã khôi phục không có trong đó.
+2672|Tải dữ liệu của tôi
+2673|Xóa vĩnh viễn tài khoản của bạn: các series, tier list, ghi chú và kết quả của bạn sẽ bị xóa. Các đội bạn tạo sẽ chuyển cho thành viên khác, hoặc bị xóa nếu không còn ai. Không thể hoàn tác.
+2674|Tôi hiểu rằng tài khoản của tôi sẽ bị xóa vĩnh viễn.
+2675|Xóa tài khoản của tôi
+2678|Tên khác
+2679|Các tên khác của tướng này trong các buổi phát sóng và trên Liquipedia. Việc nhập tự động đọc chúng để tìm tướng trong tiêu đề hoặc bảng.
+2680|Chưa có tên khác.
+2681|Tên cần thêm
+2682|Thêm tên
+2677|Xóa tên {name}
+2676|Đã cập nhật tên
+2683|Đó đã là tên của tướng này.
+2684|Đó là tên của một tướng khác.
+2685|Tướng này đã có tên đó.
+2686|Một tướng khác đã có tên đó.
+2687|Tướng này không có tên đó.
+2688|Bí danh cần ít nhất hai chữ cái hoặc chữ số.
+2690|Chưa biết thứ tự chọn
+2689|Đã biết thứ tự chọn
+2691|Đã đối chiếu với nguồn: tướng, cấm, đường và đội thắng khớp nhau. Chưa biết thứ tự chọn.

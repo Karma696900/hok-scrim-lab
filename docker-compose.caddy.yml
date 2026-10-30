@@ -1,0 +1,29 @@
+# HTTPS in front of the site: Caddy gets and renews the certificate (Let's Encrypt) and is the only service published on
+# the machine (80 and 443). The domain comes from APP_DOMAIN in .env (the host part of APP_ORIGIN, without https://).
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml -f docker-compose.caddy.yml up -d --build
+# Caddy is one proxy hop: keep TRUST_PROXY=1 (the default of docker-compose.prod.yml).
+services:
+  hok-scrim-lab:
+    ports: !reset [] # reachable by Caddy only, on the network of the stack
+
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:?Set APP_DOMAIN (the domain alone, e.g. scrims.example.com) in .env}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp" # HTTP/3
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data # the certificates: keep this volume
+      - caddy-config:/config
+    security_opt:
+      - no-new-privileges:true
+    depends_on:
+      - hok-scrim-lab
+
+volumes:
+  caddy-data:
+  caddy-config:

@@ -1,0 +1,127 @@
+/* ---------- narrow screens ---------- */
+@media (max-width: 1100px) {
+  .st-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  /* the rail becomes a strip under the top bar that scrolls sideways */
+  .st-rail {
+    position: sticky;
+    top: var(--topbar);
+    z-index: 20;
+    padding: 8px;
+    background: var(--panel);
+  }
+  .st-rail__me,
+  .st-rail__cta {
+    display: none;
+  }
+  .st-rail ul {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .st-rail ul a {
+    flex: none;
+  }
+  .st-card {
+    scroll-margin-top: calc(var(--topbar) + 72px);
+  }
+  .ak-console,
+  .st-iface {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .st-langs {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .st-block--wide {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .page-head.st-stage {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding: 24px 20px 20px;
+  }
+  /* three figures in a row, four in two rows of two: no cell is left alone on a line */
+  .st-figures {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .st-figures--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .st-figures li {
+    min-width: 0;
+    padding: 14px 16px 12px;
+  }
+  .st-figures--4 li:nth-child(odd) {
+    border-inline-start: 0;
+  }
+  .st-figures--4 li:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+  .st-mods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .st-mods .mod,
+  .st-mods .mod:nth-child(n + 4) {
+    grid-column: auto;
+  }
+  .st-mods .mod:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 720px) {
+  .st-figures b {
+    font-size: 34px;
+  }
+  .st-figures span {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
+  }
+  .st-figures li {
+    gap: 6px;
+    padding: 12px 10px;
+  }
+  .st-card {
+    padding: 20px 16px 22px;
+  }
+  .st-card__head h2 {
+    font-size: 24px;
+  }
+  .st-mods,
+  .st-choices,
+  .st-links,
+  .st-links--3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .st-choices--4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .st-langs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .st-langs button:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+  .st-savebar {
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    bottom: 66px;
+  }
+  .ak-form {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px;
+  }
+  .ak-key {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 14px;
+  }
+  .ak-key .btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}

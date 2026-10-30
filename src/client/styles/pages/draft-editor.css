@@ -1,0 +1,149 @@
+/* The editor of the bans and picks of a game ("Edit bans & picks" on the series board): two panes, the four rows of five slots on
+   the left, the search and the heroes to put in the slot that is open on the right. */
+.draft-editor {
+  width: min(980px, 100%);
+}
+.draft-editor-form {
+  display: grid;
+  grid-template-columns: minmax(
+    0,
+    1fr
+  ); /* the width of the dialog, not the width of its widest row */
+  gap: 16px;
+}
+.draft-editor-form .dialog__head {
+  margin-bottom: 0;
+}
+.draft-editor-form .dialog__foot {
+  margin-top: 4px;
+}
+.editor-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+}
+.editor-note .i {
+  margin-top: 2px;
+  color: var(--faint);
+}
+.editor-body {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+.editor-rows {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.editor-row {
+  display: grid;
+  gap: 8px;
+}
+.editor-row-label {
+  font: 700 14px/1.2 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.editor-row-label.blue {
+  color: var(--team-blue-text);
+}
+.editor-row-label.red {
+  color: var(--team-red-text);
+}
+.editor-slots {
+  display: flex;
+  gap: 8px;
+}
+.editor-slot-wrap {
+  position: relative;
+}
+.editor-slot.blue {
+  --team: var(--team-blue);
+}
+.editor-slot {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  overflow: hidden;
+  padding: 0;
+  border: 2px dashed var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font: 700 16px var(--font-display);
+  cursor: pointer;
+}
+.editor-slot.red {
+  --team: var(--team-red);
+}
+.editor-slot.filled {
+  border-style: solid;
+  border-color: var(--team);
+}
+.editor-slot.active {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+}
+.editor-slot img,
+.editor-slot .image-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.editor-clear {
+  position: absolute;
+  inset-block-start: -7px;
+  inset-inline-end: -7px;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--panel-raised);
+  box-shadow: 0 0 0 1px var(--line);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+.editor-clear:hover {
+  background: var(--danger);
+  color: var(--panel-soft);
+}
+.editor-picker {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+.draft-editor .field--search {
+  width: 100%;
+}
+.editor-picker .editor-grid {
+  max-height: 420px;
+}
+@media (max-width: 860px) {
+  .editor-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .editor-picker .editor-grid {
+    max-height: 300px;
+  }
+}
+@media (max-width: 560px) {
+  .editor-rows {
+    padding: 12px;
+  }
+  .editor-slot {
+    width: 44px;
+    height: 44px;
+  }
+  .editor-slots {
+    gap: 6px;
+  }
+}

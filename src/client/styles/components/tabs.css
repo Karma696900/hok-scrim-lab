@@ -1,0 +1,54 @@
+/* Tabs. */
+/* ---------- tabs ---------- */
+.tabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid var(--line-soft);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tabs button {
+  position: relative;
+  flex: none;
+  padding: 0 0 14px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: 700 15px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 160ms;
+}
+.tabs button:hover {
+  color: var(--ink);
+}
+.tabs button.on {
+  color: var(--brand-ink);
+}
+.tabs button.on::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 3px;
+  background: var(--brand);
+}
+.tabs .count {
+  margin-inline-start: 6px;
+}
+
+/* A row of tabs with its controls (a search field, a button) on the right, under one rule. */
+.tabrow {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.tabrow .tabs {
+  flex: 1;
+  border: 0;
+}
+.tabrow .btn {
+  margin-bottom: 10px;
+}

@@ -1,0 +1,41 @@
+/* The components on smaller screens (after the components, so that these rules win over theirs). */
+@media (max-width: 720px) {
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .toasts {
+    inset-inline: 12px;
+    bottom: 140px;
+    justify-items: center;
+  }
+}
+
+/* A finger is about 40 px wide: what has to be hit on a phone or a tablet is at least that high (the small buttons, the
+   tabs and segmented choices, the presets of the history, the controls of a tier, the "more" links of the hero sheet). */
+@media (max-width: 900px) {
+  .btn--sm,
+  .tabs button,
+  .seg button,
+  .hi-preset,
+  .lane-tab,
+  .hs-more {
+    min-height: 40px;
+  }
+  .tier-controls button {
+    min-width: 40px;
+    min-height: 40px;
+  }
+  .tabs button,
+  .seg button {
+    padding-block: 6px;
+  }
+  /* the link of a card's header ("See all"), the way back of a page and the link of a sheet: a line of their own */
+  .card__head .link,
+  .crumb a,
+  .crumb .link,
+  .hs-mod__head .link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+}

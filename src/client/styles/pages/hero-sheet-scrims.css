@@ -1,0 +1,471 @@
+/* the scrims of the person: a strip (the ring and the bars), then the two lists side by side */
+.hs-mod--scrims > .stat-visuals {
+  padding-bottom: 8px;
+}
+
+/* what is missing: ONE line each, with the action that would fill it */
+.hs-gaps {
+  display: grid;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.hs-gaps + *,
+.hs-panel > .hs-gaps + .hs-fill {
+  margin-top: 28px;
+}
+.hs-panel > .hs-gaps {
+  margin-bottom: 0;
+}
+.hs-gap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  min-height: 52px;
+  padding: 10px 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.hs-gap + .hs-gap {
+  border-top: 1px solid var(--line-soft);
+}
+.hs-gap > .i,
+.hs-note > .i {
+  color: var(--warn);
+}
+.hs-gap__text {
+  display: flex;
+  flex: 1 1 240px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 14px;
+  min-width: 0;
+}
+.hs-gap__text b {
+  color: var(--ink);
+  font: 700 16px/1.2 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.hs-gap strong,
+.hs-note strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.hs-gap__actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hs-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  background: var(--tint-1);
+  color: var(--muted);
+  font-size: 14px;
+}
+.hs-fill {
+  display: grid;
+  gap: 24px;
+}
+.hs-shelves {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+.hs-poster {
+  overflow: hidden;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+}
+.hs-poster img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+}
+.hs-steps {
+  display: grid;
+  gap: 14px;
+  flex: 1;
+  align-content: space-evenly;
+}
+.hs-row--one .hs-steps {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+.hs-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  color: var(--muted);
+}
+.hs-steps b {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--brand);
+  border-radius: 50%;
+  color: var(--brand-ink);
+  font: 700 17px/1 var(--font-display);
+}
+.hs-novideo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+/* ---------- the overview: the skills, big, with their first words ---------- */
+.hs-skilllist {
+  display: grid;
+  flex: 1;
+  grid-auto-rows: 1fr;
+}
+.hs-skill {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  padding: 14px 12px;
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+  background: none;
+  color: var(--ink);
+  text-align: start;
+  transition: background 160ms;
+}
+.hs-skilllist li:first-child .hs-skill {
+  border-top: 0;
+}
+/* alone on its row, the skills make two columns: no line is mostly empty */
+.hs-row--one .hs-skilllist {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 40px;
+}
+.hs-row--one .hs-skilllist li:nth-child(2) .hs-skill {
+  border-top: 0;
+}
+.hs-row--one .hs-skilllist li:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.hs-skill:hover,
+.hs-skill:focus-visible {
+  background: var(--tint-1);
+}
+.hs-skill__icon {
+  width: 84px;
+  height: 84px;
+  border: 2px solid var(--brand);
+  border-radius: 16px;
+  background: var(--panel);
+  object-fit: cover;
+  transition: transform 220ms var(--ease);
+}
+.hs-skill:hover .hs-skill__icon {
+  transform: scale(1.05);
+}
+.hs-skill__main {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.hs-skill__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+.hs-skill__title b {
+  font: 700 24px/1.05 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.hs-skill__title small {
+  color: var(--brand-ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+.hs-skill__desc {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+.hs-skill > .i {
+  color: var(--faint);
+}
+
+/* ---------- the overview: the presentation video, framed ---------- */
+.hs-mod--video {
+  --shade: rgb(6 11 20);
+}
+.hs-player {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: #05080f;
+}
+.hs-player video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #05080f;
+}
+.hs-player__play {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 88px;
+  height: 88px;
+  margin: auto;
+  padding: 0;
+  border: 2px solid var(--brand);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--shade) 72%, transparent);
+  color: #fff;
+  transition:
+    transform 200ms var(--ease),
+    background 160ms;
+}
+.hs-player__play .i {
+  width: 34px;
+  height: 34px;
+  margin-inline-start: 4px;
+}
+.hs-player__play:hover {
+  background: var(--brand-strong);
+  transform: scale(1.06);
+}
+.hs-player.is-playing .hs-player__play {
+  display: none;
+}
+.hs-mod--video .bg-tools {
+  margin-top: auto;
+}
+
+/* ---------- the overview: the biography ---------- */
+.hs-profile__top {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.hs-profile__emblem {
+  width: 96px;
+  height: 96px;
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.hs-profile__big {
+  display: grid;
+  gap: 4px;
+}
+.hs-profile__big b {
+  font: 700 40px/1 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.hs-profile__big small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.hs-facts {
+  display: grid;
+  flex: 1;
+  grid-auto-rows: 1fr;
+  margin: 0;
+}
+.hs-facts > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 44px;
+  border-top: 1px solid var(--line-soft);
+}
+.hs-facts dt {
+  color: var(--muted);
+  font-size: 14px;
+}
+.hs-facts dd {
+  margin: 0;
+  font: 700 18px/1.2 var(--font-display);
+  letter-spacing: 0.03em;
+  text-align: end;
+}
+
+/* ---------- the overview: the heroes of the same lane ---------- */
+.hs-peers {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.hs-row--one .hs-peers {
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+.hs-peer {
+  --shade: rgb(6 11 20);
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  color: #fff;
+  text-align: start;
+  transition: border-color 160ms;
+}
+.hs-peer img,
+.hs-peer .image-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  transition: transform 560ms var(--ease);
+}
+.hs-peer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    color-mix(in srgb, var(--shade) 92%, transparent) 0%,
+    transparent 55%
+  );
+}
+.hs-peer b {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 8px 8px 9px;
+  font: 700 15px/1.05 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.hs-peer:hover,
+.hs-peer:focus-visible {
+  border-color: var(--brand);
+}
+.hs-peer:hover img {
+  transform: scale(1.08);
+}
+
+/* ---------- the overview: the artwork, a few pictures ---------- */
+.hs-thumbs {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 12px;
+}
+.hs-thumbs--1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+.hs-thumbs--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+/* two or three pictures in a column of the sheet: stacked, each one a wide banner that can take the height the column asks
+   for (narrow tall strips cropped the artwork, which is drawn wide); alone in a row they sit side by side */
+.hs-col .hs-thumbs--2,
+.hs-col .hs-thumbs--3 {
+  grid-template-columns: minmax(0, 1fr);
+}
+.hs-row--one .hs-thumbs--4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.hs-row--one .hs-thumb {
+  aspect-ratio: 4 / 3;
+}
+.hs-thumbs > li {
+  display: flex;
+  min-width: 0;
+}
+.hs-thumb {
+  position: relative;
+  display: block;
+  flex: 1;
+  min-width: 0;
+  min-height: 120px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+}
+.hs-thumb img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms var(--ease);
+}
+.hs-thumb:hover {
+  border-color: var(--brand);
+}
+.hs-thumb:hover img {
+  transform: scale(1.06);
+}
+/* the latest patches take the height the block next to it asks for (its own text does not count): what does
+   not fit fades out */
+.hs-mod--patch {
+  min-height: 360px;
+  contain: size;
+}
+.hs-mod--patch .patch-list {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, #000 86%, transparent);
+  mask-image: linear-gradient(180deg, #000 86%, transparent);
+}
+
+.hs-lost {
+  display: grid;
+  gap: 14px;
+  justify-items: start;
+  padding: 36px 0 8px;
+}
+.hs-lost h1 {
+  font: 700 56px/1 var(--font-display);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.hs-lost + .hl-more {
+  margin-top: 32px;
+}
+.source-note {
+  margin-top: 28px;
+  font-size: 13px;
+}
+.hs-panels + .note {
+  margin-top: 20px;
+}

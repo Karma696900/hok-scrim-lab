@@ -1,0 +1,467 @@
+/* Training: one stage (the cover of a hero, the title, three big numbers), four entries with how far the
+   person is, and under them the zone that is open.
+     heroes     three panes: the roster to tick (left), the cards and the workspace of the open hero (middle),
+                what to do today (right, sticky); two panes under 1360 px, one under 960 px
+     notebook   the notes (left) and the editor, or the overview of the notebook, (right, sticky)
+     situations the list as wide rows with the key of the map beside it; one situation: the map (left), the
+                brief and the answer (right, sticky)
+   The reflex exercises have their own sheet (reflex.css). Every class is trn-* unless a test hooks it. */
+
+/* ---------- the chrome: stage, then the four entries ---------- */
+.trn-chrome {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.trn-chrome > .cm-stage {
+  margin-bottom: 0;
+}
+.trn-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.trn-tab {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: center;
+  gap: 2px 14px;
+  min-height: 84px;
+  padding: 14px 16px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+  color: var(--ink);
+  overflow: hidden;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    transform 160ms var(--ease);
+}
+.trn-tab:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+.trn-tab.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 14%, var(--panel));
+}
+.trn-tab.on::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--brand);
+}
+.trn-tab__icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.trn-tab.on .trn-tab__icon {
+  border-color: var(--brand);
+  background: var(--brand-strong);
+  color: #fff;
+}
+.trn-tab__body {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.trn-tab__name {
+  font: 700 22px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.trn-tab__line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+.trn-tab__stat b {
+  color: var(--ink);
+  font: 700 16px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.trn-tab .bar {
+  grid-column: 1 / -1;
+  height: 3px;
+  margin-top: 4px;
+}
+
+/* a person who is not signed in: the sign-in line, then what the zone holds */
+.trn-visitor {
+  display: grid;
+  gap: 20px;
+}
+.trn-visitor > .cm-line {
+  flex-wrap: wrap;
+  margin: 0;
+}
+.trn-visitor > .cm-line .hstack {
+  flex-wrap: wrap;
+}
+
+/* a title between two blocks of a zone */
+.trn-sec {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 12px;
+}
+.trn-sec h2 {
+  color: var(--muted);
+  font: 700 18px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.trn-steps {
+  margin: 0;
+}
+
+/* ---------- the hero of the day, on its cover ---------- */
+.trn-feature {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: 240px;
+  padding: 28px 32px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #14233f 0%, #0a111a 100%);
+  color: var(--ink);
+}
+.trn-feature__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.trn-feature__art.is-on {
+  opacity: 1;
+}
+.trn-feature__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 20%;
+}
+.trn-feature__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(10, 17, 26, 0.94) 0%, rgba(10, 17, 26, 0.7) 42%, transparent 100%),
+    linear-gradient(0deg, rgba(10, 17, 26, 0.8), transparent 60%);
+}
+[dir="rtl"] .trn-feature__veil {
+  transform: scaleX(-1);
+}
+.trn-feature__body {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+  max-width: 520px;
+}
+.trn-feature h2 {
+  font: 700 44px/1 var(--font-display);
+  letter-spacing: 0.03em;
+}
+.trn-feature__roles {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ---------- heroes: the cockpit ---------- */
+.trn-work {
+  display: grid;
+  grid-template-columns: 296px minmax(0, 1fr);
+  grid-template-areas: "pick main";
+  gap: 20px;
+  align-items: start;
+}
+.trn-work.has-today {
+  grid-template-columns: 296px minmax(0, 1fr) 340px;
+  grid-template-areas: "pick main today";
+}
+.trn-main {
+  grid-area: main;
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+  align-content: start;
+}
+.trn-details {
+  scroll-margin-top: calc(var(--topbar) + 16px);
+}
+.trn-today {
+  grid-area: today;
+  position: sticky;
+  top: calc(var(--topbar) + 16px);
+  display: grid;
+  gap: 16px;
+  max-height: calc(100vh - var(--topbar) - 32px);
+  overflow-y: auto;
+  align-content: start;
+}
+.trn-mod {
+  padding: 16px;
+}
+.trn-mod .card__head {
+  margin-bottom: 10px;
+}
+.trn-mod .card__head h2 {
+  font-size: 18px;
+}
+.trn-mod > p.muted {
+  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.trn-team {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 8px;
+  font: 600 13px/1.2 var(--font-body);
+}
+.trn-team:first-of-type {
+  margin-top: 0;
+}
+/* what a team asks, in the narrow column: the hero and its count on one line, the bar under it */
+.trn-today .goal-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "what count"
+    "bar bar"
+    "act act";
+  padding: 10px 12px;
+}
+.trn-today .goal-row__what {
+  grid-area: what;
+}
+.trn-today .goal-row__count {
+  grid-area: count;
+}
+.trn-today .goal-row__bar {
+  grid-area: bar;
+}
+.trn-today .goal-row > button {
+  grid-area: act;
+  justify-self: start;
+}
+.review-list {
+  gap: 8px;
+}
+.review-row {
+  display: grid;
+  gap: 8px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.trn-rv__who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.review-row__text {
+  display: grid;
+  min-width: 0;
+}
+.review-row__text b {
+  overflow: hidden;
+  font: 600 14px/1.3 var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.review-row__text small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.review-row__actions {
+  flex-wrap: wrap;
+}
+
+/* the roster to choose from */
+.trn-pick {
+  grid-area: pick;
+  position: sticky;
+  top: calc(var(--topbar) + 16px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(100vh - var(--topbar) - 32px);
+  padding: 16px;
+}
+.trn-pick__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.trn-pick__head h2 {
+  flex: 1;
+  min-width: 0;
+  font: 700 18px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+}
+.trn-pick__toggle {
+  display: none;
+}
+.trn-pick__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+.trn-pick .field--search {
+  width: 100%;
+}
+.trn-lanes {
+  display: grid;
+  grid-template-columns: 1.3fr repeat(5, minmax(0, 1fr));
+  gap: 6px;
+}
+.trn-lane {
+  display: grid;
+  place-items: center;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition:
+    border-color 160ms,
+    background 160ms;
+}
+.trn-lane:hover {
+  border-color: var(--brand);
+}
+.trn-lane.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 20%, transparent);
+  color: var(--ink);
+}
+.trn-pick__list {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 8px;
+  align-content: start;
+  min-height: 0;
+  padding-block: 2px 4px;
+  padding-inline: 2px 4px;
+  overflow-y: auto;
+}
+.trn-pick__none {
+  grid-column: 1 / -1;
+  padding: 12px 0;
+  text-align: center;
+}
+.trn-tile {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  justify-items: center;
+  min-width: 0;
+  cursor: pointer;
+}
+.trn-tile input {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.trn-tile__img {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 2px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  overflow: hidden;
+  transition: border-color 160ms;
+}
+.trn-tile__img img,
+.trn-tile__img .image-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.trn-tile__check {
+  position: absolute;
+  inset-block-start: 4px;
+  inset-inline-end: 4px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--brand-strong);
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 160ms,
+    transform 160ms var(--ease);
+}
+.trn-tile__name {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--muted);
+  font: 600 12px/1.2 var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.trn-tile:hover .trn-tile__img {
+  border-color: var(--brand);
+}
+.trn-tile:has(input:checked) .trn-tile__img {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--brand) 35%, transparent);
+}
+.trn-tile:has(input:checked) .trn-tile__check {
+  opacity: 1;
+  transform: none;
+}
+.trn-tile:has(input:checked) .trn-tile__name {
+  color: var(--ink);
+}
+.trn-tile:has(input:focus-visible) .trn-tile__img {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.trn-tile:has(input:disabled) {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.trn-tile input:disabled {
+  cursor: not-allowed;
+}

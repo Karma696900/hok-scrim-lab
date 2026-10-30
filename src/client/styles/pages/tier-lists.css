@@ -1,0 +1,495 @@
+/* The tier lists page: the stage that opens it (cover of the best-ranked hero, title, lanes, the lists of the
+   person as cards), the toolbar of the list, the controls of a tier and the dock where the heroes that are not
+   ranked yet wait, with the bar that says where to send the hero that was picked. The board itself (bands,
+   badges, portraits) is components/tier-board.css: the official ratings are drawn on the same one. */
+
+/* ---------- the stage ---------- */
+.page-head.tl-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: space-between;
+  justify-content: stretch;
+  align-items: stretch;
+  gap: 24px;
+  min-height: 0;
+  margin-bottom: 18px;
+  padding: 30px 34px 24px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(
+      120% 90% at 85% 0%,
+      color-mix(in srgb, var(--brand) 22%, transparent),
+      transparent 60%
+    ),
+    linear-gradient(135deg, #14233f 0%, #0a111a 100%);
+  color: #fff;
+  overflow: hidden;
+}
+.tl-stage__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.tl-stage__art.is-on {
+  opacity: 1;
+}
+.tl-stage__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 20%;
+}
+.tl-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      #0a111a 0%,
+      rgba(10, 17, 26, 0.9) 30%,
+      rgba(10, 17, 26, 0.4) 66%,
+      rgba(10, 17, 26, 0.12) 100%
+    ),
+    linear-gradient(0deg, rgba(10, 17, 26, 0.88), transparent 58%);
+}
+[dir="rtl"] .tl-stage::after {
+  transform: scaleX(-1);
+}
+.tl-stage__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 24px;
+}
+.tl-stage__title {
+  flex: 1 1 480px;
+  min-width: 0;
+}
+.page-head.tl-stage h1 {
+  font-size: clamp(40px, 5.2vw, 64px);
+}
+.page-head.tl-stage p {
+  max-width: 62ch;
+  color: #d3dcee;
+  font-size: 16px;
+}
+.tl-stage__bottom {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+/* the shelf of the lists arrives with the data: its room is kept, so that the board below does not move when it comes */
+@media (min-width: 1101px) {
+  .tl-stage__bottom {
+    align-content: start;
+    min-height: 128px;
+  }
+}
+
+/* the lanes: they filter the lists below and decide which lane a new list is made for */
+.tl-stage .lane-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.tl-stage .lane-tab {
+  flex: none;
+  height: 38px;
+  padding: 0 14px;
+  gap: 8px;
+  border-color: var(--line);
+  border-radius: var(--r-sm);
+  background: rgba(8, 14, 23, 0.66);
+  box-shadow: none;
+  color: #fff;
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tl-stage .lane-tab img {
+  width: 20px;
+  height: 20px;
+}
+.tl-stage .lane-tab:hover {
+  transform: none;
+}
+[data-theme="light"] .tl-stage .lane-tab img {
+  padding: 0;
+  background: none;
+}
+.tl-stage .lane-tab.active {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 30%, rgba(8, 14, 23, 0.8));
+  box-shadow: none;
+}
+
+/* the lists of the person, as cards that scroll sideways: a preview of the heroes of the best tier */
+.tl-shelf {
+  display: flex;
+  gap: 12px;
+  padding-block-end: 6px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+.tl-card {
+  display: grid;
+  flex: 0 0 300px;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 2px 14px;
+  min-height: 72px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: rgba(8, 14, 23, 0.78);
+  color: #fff;
+  text-align: start;
+  scroll-snap-align: start;
+  transition:
+    transform 160ms var(--ease),
+    border-color 160ms,
+    background 160ms;
+}
+.tl-card:hover {
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+.tl-card.is-active {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 26%, rgba(8, 14, 23, 0.86));
+  box-shadow: inset 0 0 0 1px var(--brand);
+}
+.tl-card b {
+  overflow: hidden;
+  font: 700 18px/1.15 var(--font-display);
+  letter-spacing: 0.04em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.tl-card small {
+  overflow: hidden;
+  color: #b9c6dc;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tl-card__faces {
+  display: flex;
+  grid-row: 1 / span 2;
+  align-items: center;
+  min-width: 56px;
+  min-height: 40px;
+}
+.tl-card__face {
+  width: 40px;
+  height: 40px;
+  margin-inline-end: -8px;
+  border: 2px solid #0a111a;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+.tl-card__faces em {
+  margin-inline-start: 14px;
+  color: #b9c6dc;
+  font: 700 13px/1 var(--font-body);
+  font-style: normal;
+}
+.tl-card__none {
+  color: #9fb0cc;
+}
+.tl-card--new {
+  grid-template-columns: auto minmax(0, 1fr);
+  border-style: dashed;
+  color: var(--brand-ink);
+  text-align: start;
+}
+.tl-card--new b {
+  grid-row: 1 / span 2;
+  overflow: visible;
+  font-size: 15px;
+  white-space: normal;
+}
+.tl-card--new .i {
+  grid-row: 1 / span 2;
+  width: 28px;
+  height: 28px;
+}
+
+/* ---------- the list ---------- */
+.tl-toolbar {
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+}
+.tl-name {
+  flex: 1 1 260px;
+  min-width: 0;
+}
+.tl-name input {
+  width: 100%;
+  height: 48px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--ink);
+  font: 700 28px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: border-color 160ms;
+}
+.tl-name input:hover {
+  border-color: var(--line);
+}
+.tl-name input:focus {
+  border-color: var(--brand);
+  background: var(--panel-soft);
+  outline: none;
+}
+.tl-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin-inline-start: auto;
+}
+.tl-tools__group {
+  display: flex;
+  gap: 6px;
+  padding-inline-end: 10px;
+  border-inline-end: 1px solid var(--line-soft);
+}
+.tl-board {
+  margin-bottom: 12px;
+}
+.tier-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 52px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--muted);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    border-color 160ms,
+    color 160ms;
+}
+.tier-add:hover {
+  border-color: var(--brand);
+  color: var(--brand-ink);
+}
+.tl-hint {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0 2px 16px;
+  font-size: 13px;
+}
+.tl-hint .i {
+  flex: none;
+  margin-top: 2px;
+}
+
+/* a tier that is empty still shows where to drop */
+.tier-hint {
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 72px;
+  padding-inline: 16px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--r-md);
+  color: var(--muted);
+  font: 500 14px/1.2 var(--font-body);
+}
+.tier-drop.is-over .tier-hint {
+  border-color: var(--brand);
+  color: var(--brand-ink);
+}
+
+/* move up, move down, remove: the strip at the end of a band (it sits in the badge, and is placed against the band) */
+.tier-controls {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: 6px;
+  border-inline-start: 1px solid var(--line-soft);
+}
+.tl-board .tier-drop {
+  padding-inline-end: 56px;
+}
+.tier-controls button {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--muted);
+  transition:
+    background 160ms,
+    color 160ms;
+}
+.tier-controls button:hover:not(:disabled) {
+  background: var(--tint-3);
+  color: var(--ink);
+}
+.tier-controls button[data-action="remove-tier"]:hover {
+  color: var(--danger);
+}
+.tier-controls button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+/* the lane of a Flowborn form in an All Roles list */
+.tier-lane-badge {
+  position: absolute;
+  inset-block-start: 2px;
+  inset-inline-start: 2px;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  padding: 3px;
+  border-radius: 50%;
+  background: rgba(6, 12, 22, 0.88);
+}
+
+/* while a hero is picked, every place where it can go says so */
+.is-picking .tier-drop {
+  cursor: pointer;
+  outline: 1px dashed var(--gild-line);
+  outline-offset: -6px;
+}
+.is-picking .tier-drop:hover {
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+}
+
+/* ---------- the dock of the heroes that are not ranked yet ---------- */
+.tier-dock {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+}
+.tier-dock {
+  position: relative;
+}
+@media (min-width: 901px) and (min-height: 861px) {
+  .tier-dock {
+    position: sticky;
+    inset-block-end: 12px;
+    z-index: 8;
+  }
+}
+.tier-reserve {
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: var(--panel);
+  box-shadow: 0 -10px 36px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.tier-reserve__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--panel-raised);
+}
+.tier-reserve__head h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 700 20px/1 var(--font-display);
+  letter-spacing: 0.05em;
+}
+.tier-reserve__head .field {
+  width: 260px;
+  max-width: 100%;
+  height: 38px;
+}
+.tier-reserve__lanes {
+  display: flex;
+  gap: 6px;
+  margin-inline-start: auto;
+}
+.tier-reserve__lanes button {
+  display: grid;
+  place-items: center;
+  min-width: 40px;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition:
+    border-color 160ms,
+    background 160ms;
+}
+.tier-reserve__lanes button:hover {
+  border-color: var(--brand);
+}
+.tier-reserve__lanes button[aria-pressed="true"] {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 22%, var(--panel-soft));
+  color: var(--ink);
+}
+.tier-reserve__lanes img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+[data-theme="light"] .tier-reserve__lanes img {
+  padding: 3px;
+  border-radius: 6px;
+  background: #2a3d63;
+}
+.tier-reserve .tier-drop {
+  align-content: flex-start;
+  gap: 8px;
+  min-height: 92px;
+  max-height: 160px;
+  padding: 12px 16px;
+  overflow-y: auto;
+}
+.tier-reserve .tier-avatar {
+  --tc: var(--line);
+  width: 64px;
+  height: 64px;
+}
+/* the name of a hero of the reserve shows when it is looked at (the portraits are dense) */
+.tier-reserve .tier-avatar[data-name]::after {
+  opacity: 0;
+  transition: opacity 120ms;
+}
+.tier-reserve .tier-avatar:hover::after,
+.tier-reserve .tier-avatar:focus-visible::after,
+.tier-reserve .tier-avatar.is-picked::after {
+  opacity: 1;
+}

@@ -1,0 +1,442 @@
+/* The way in (sign in, create an account, the code, the authenticator, the pseudo): over the whole screen,
+   two columns. On one side the cover of the hero of the day under a veil, a line and three reasons; on the
+   other one column of labelled fields, the steps of the flow above the title, a message under the field it is
+   about. The pieces are au-*; the account page (account.css) uses the form pieces too. */
+.authpage {
+  position: fixed;
+  z-index: 65; /* over the tab bar of a phone (60), under the dialogs (70) */
+  inset: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(460px, 0.95fr);
+  overflow-y: auto;
+  background: var(--canvas);
+}
+
+/* ---------- the art ---------- */
+.au-art {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  height: 100vh;
+  min-height: 600px;
+  padding: 36px 48px 44px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      110% 90% at 80% 0%,
+      color-mix(in srgb, var(--brand) 30%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--brand-strong) 34%, var(--panel-soft)),
+      var(--panel-soft)
+    );
+  color: var(--ink);
+}
+.au-art__img {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.au-art__img.is-on {
+  opacity: 1;
+}
+.au-art__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 64% 18%;
+}
+.au-art__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--panel-soft) 80%, transparent) 0%,
+    color-mix(in srgb, var(--panel-soft) 12%, transparent) 26%,
+    color-mix(in srgb, var(--panel-soft) 30%, transparent) 48%,
+    color-mix(in srgb, var(--panel-soft) 76%, transparent) 66%,
+    color-mix(in srgb, var(--panel-soft) 94%, transparent) 100%
+  );
+}
+.au-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  align-self: flex-start;
+  font: 700 16px/1.05 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.au-pitch {
+  display: grid;
+  gap: 26px;
+}
+.au-hook {
+  max-width: 13ch;
+  font: 700 clamp(40px, 4.6vw, 64px) / 0.98 var(--font-display);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 14px color-mix(in srgb, var(--panel-soft) 70%, transparent);
+}
+.au-hook::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 16px;
+  background: var(--brand);
+}
+.au-perks {
+  display: grid;
+  gap: 8px;
+  max-width: 480px;
+}
+.au-perks li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 16px 10px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--panel-soft) 78%, transparent);
+  backdrop-filter: blur(6px);
+  font: 500 16px/1.3 var(--font-body);
+}
+.au-perks__ico {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
+  color: var(--brand-ink);
+}
+
+/* ---------- the form side ---------- */
+.au-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+  padding: 20px 48px 36px;
+}
+.au-card {
+  width: min(460px, 100%);
+  margin: auto;
+  padding-block: 20px;
+  animation: rise 420ms var(--ease) both;
+}
+.au-card h1 {
+  font: 700 clamp(34px, 3.4vw, 44px) / 1 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.au-badge {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 18px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.au-card h1::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 12px;
+  background: var(--brand);
+}
+.au-lead {
+  margin: 14px 0 22px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.au-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin-bottom: 24px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+}
+.au-tabs a {
+  display: grid;
+  place-items: center;
+  min-height: 40px;
+  padding: 0 8px;
+  border-radius: 3px;
+  color: var(--muted);
+  font: 700 15px/1.1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+  transition:
+    background 160ms,
+    color 160ms;
+}
+.au-tabs a:hover {
+  color: var(--ink);
+}
+.au-tabs a.on {
+  background: var(--brand-strong);
+  color: #fff;
+}
+.au-steps {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  gap: 8px;
+  margin: 0 0 26px;
+  padding: 0;
+  list-style: none;
+}
+.au-steps li {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 6px 8px;
+  padding-top: 12px;
+  color: var(--muted);
+  font: 600 13px/1.25 var(--font-body);
+}
+.au-steps li::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--line);
+}
+.au-steps li.is-done::before,
+.au-steps li.is-now::before {
+  background: var(--brand-strong);
+}
+.au-steps li.is-now {
+  color: var(--ink);
+}
+.au-steps__n {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font: 700 12px/1 var(--font-display);
+}
+.au-steps__n .i {
+  width: 13px;
+  height: 13px;
+  stroke-width: 2.6;
+}
+.is-now .au-steps__n {
+  border-color: var(--brand);
+  background: var(--brand-strong);
+  color: #fff;
+}
+.is-done .au-steps__n {
+  border-color: var(--brand);
+  color: var(--brand-ink);
+}
+.au-steps__label {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- the fields ---------- */
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+.au-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.au-field .label {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+  color: var(--ink);
+  font: 600 14px/1.2 var(--font-body);
+}
+.au-field .label small {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.au-field .field {
+  height: 46px;
+}
+.au-field .field input {
+  font-size: 16px;
+}
+.au-field .field:has(input[aria-invalid="true"]) {
+  border-color: var(--danger);
+}
+.au-field .field input:-webkit-autofill {
+  -webkit-text-fill-color: var(--ink);
+  caret-color: var(--ink);
+  box-shadow: 0 0 0 100px var(--panel-soft) inset;
+}
+.au-eye {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  margin-inline-end: -8px;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: none;
+  color: var(--muted);
+}
+.au-eye:hover {
+  color: var(--ink);
+}
+.auth-form .form-error {
+  padding: 9px 12px;
+  border: 1px solid color-mix(in srgb, var(--danger) 45%, transparent);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.field--code {
+  height: 64px;
+  padding: 0;
+}
+.field--code input {
+  height: 100%;
+  padding-inline-start: 0.5em;
+  text-align: center;
+  font: 700 30px/1 var(--font-display);
+  letter-spacing: 0.5em;
+}
+.field--code input::placeholder {
+  color: var(--faint);
+  letter-spacing: 0.5em;
+}
+
+/* The strength of a new password: four bars the page fills as it is typed, and the word that goes with them. */
+.au-strength {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 18px;
+}
+.meter-pw {
+  display: grid;
+  flex: 1;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+}
+.meter-pw i {
+  height: 5px;
+  border-radius: 3px;
+  background: var(--tint-3);
+  transition: background 240ms;
+}
+.meter-pw[data-score="1"] i:nth-child(-n + 1) {
+  background: var(--danger);
+}
+.meter-pw[data-score="2"] i:nth-child(-n + 2) {
+  background: var(--warn);
+}
+.meter-pw[data-score="3"] i:nth-child(-n + 3) {
+  background: color-mix(in srgb, var(--success) 70%, var(--warn));
+}
+.meter-pw[data-score="4"] i {
+  background: var(--success);
+}
+.au-strength__word {
+  min-width: 76px;
+  color: var(--muted);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-align: end;
+  text-transform: uppercase;
+}
+.meter-pw[data-score="1"] ~ .au-strength__word {
+  color: var(--danger);
+}
+.meter-pw[data-score="2"] ~ .au-strength__word {
+  color: var(--warn);
+}
+.meter-pw[data-score="3"] ~ .au-strength__word,
+.meter-pw[data-score="4"] ~ .au-strength__word {
+  color: var(--success);
+}
+
+/* ---------- the lines around the form ---------- */
+.au-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+.auth-google {
+  margin-top: 4px;
+}
+.or {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  color: var(--faint);
+  font-size: 13px;
+}
+.or::before,
+.or::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line-soft);
+}
+.au-switch {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.au-switch a,
+.au-link {
+  color: var(--brand-ink);
+  font: 600 14px/1.2 var(--font-body);
+}
+.au-switch a:hover,
+.au-link:hover {
+  text-decoration: underline;
+}
+.au-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: 20px;
+}
+.au-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: start;
+}

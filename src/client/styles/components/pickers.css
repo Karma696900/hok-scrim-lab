@@ -1,0 +1,50 @@
+/* The heroes to choose from, as tiles in a grid (the editor of a draft, the tournaments). */
+.editor-grid,
+.picker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(86px, 1fr));
+  gap: 8px;
+  max-height: 280px;
+  padding: 6px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  overflow: auto;
+}
+.editor-hero,
+.picker-hero {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 6px 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  color: var(--ink);
+  font: 500 12px/1.2 var(--font-body);
+  cursor: pointer;
+}
+.editor-hero img,
+.editor-hero .image-fallback,
+.picker-hero img,
+.picker-hero .image-fallback {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.editor-hero span:not(.image-fallback),
+.picker-hero span:not(.image-fallback) {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.editor-hero:hover:not(:disabled),
+.picker-hero:hover:not(:disabled) {
+  border-color: var(--brand);
+}
+.editor-hero:disabled,
+.picker-hero:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}

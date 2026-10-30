@@ -1,0 +1,2637 @@
+HONOR OF KINGS GLOBAL — DRAFT, TIER LIST & SCRIM SIMULATOR
+PROMPT COMPLET POUR CLAUDE
+
+Je veux que tu développes un site web entièrement gratuit dédié à Honor of Kings Global.
+
+L'objectif est de créer un véritable outil permettant de :
+
+1. simuler des phases de Ban & Pick avec les règles de draft compétitives ;
+2. consulter et filtrer l'ensemble des héros disponibles sur Honor of Kings Global ;
+3. créer et gérer des Tier Lists personnalisées ;
+4. simuler et enregistrer des scrims complets ;
+5. simuler plusieurs Games dans une même série : BO1, BO2, BO3, BO4, BO5, BO7, etc. ;
+6. conserver les compositions, bans, picks, résultats et durées de chaque Game ;
+7. calculer ensuite des statistiques à partir des scrims réellement enregistrés.
+
+Le site doit être fonctionnel, propre, moderne, responsive et réellement utilisable.
+
+Je ne veux pas uniquement une maquette ou une démo statique.
+
+
+==================================================
+1. IMPORTANT : HONOR OF KINGS GLOBAL UNIQUEMENT
+==================================================
+
+Le jeu ciblé est :
+
+Honor of Kings — Global version
+
+Il ne faut PAS utiliser par défaut les données, héros ou images provenant exclusivement de la version chinoise :
+
+王者荣耀 / Honor of Kings CN
+
+Avant de développer la partie héros, recherche les sources permettant d'obtenir les données et images correspondant au roster Global actuel.
+
+Je veux notamment :
+
+- tous les héros disponibles sur la version Global ;
+- leur nom ;
+- leur ID si disponible ;
+- leur image/portrait ;
+- leur rôle/lane ;
+- éventuellement leurs rôles secondaires ;
+- leur disponibilité sur Global.
+
+Les images doivent provenir d'une source fiable.
+
+Si les assets officiels du site Honor of Kings Global sont accessibles publiquement, privilégie-les.
+
+L'objectif est que le site puisse facilement être mis à jour lorsque de nouveaux héros arrivent sur Global.
+
+Ne crée PAS manuellement une petite liste fictive de héros pour la démonstration.
+
+
+==================================================
+2. MISE À JOUR AUTOMATIQUE DU ROSTER
+==================================================
+
+C'est une exigence importante du projet.
+
+La liste des héros ne doit PAS être considérée comme une liste statique qui devra être modifiée manuellement dans le code à chaque sortie d'un nouveau héros.
+
+Je veux que le système puisse mettre automatiquement à jour le roster Honor of Kings Global.
+
+Lorsqu'un nouveau héros devient disponible sur Honor of Kings Global, le site doit pouvoir récupérer automatiquement ses informations et l'ajouter au roster.
+
+Il ne doit donc pas être nécessaire de modifier manuellement heroes.json ou un tableau TypeScript à chaque nouveau héros.
+
+
+==================================================
+3. SOURCE DES DONNÉES
+==================================================
+
+Lors de l'étape de recherche, vérifie :
+
+1. où récupérer la liste actuelle des héros Honor of Kings Global ;
+2. où récupérer leurs portraits/images ;
+3. comment récupérer leurs lanes/rôles ;
+4. si les assets officiels peuvent être utilisés directement ;
+5. s'il existe une API publique ;
+6. s'il existe une source open-source fiable ;
+7. comment automatiser la mise à jour du roster ;
+8. comment différencier proprement Global et CN.
+
+Privilégie les sources officielles lorsque c'est possible.
+
+Si les données officielles ne sont pas exposées sous forme d'API publique, recherche une solution permettant de récupérer automatiquement les données depuis les assets/données publiques du site officiel.
+
+Une source communautaire fiable peut être utilisée comme fallback si aucune source officielle exploitable n'existe.
+
+
+==================================================
+4. SYNCHRONISATION DES HÉROS
+==================================================
+
+Créer un système de synchronisation.
+
+Architecture souhaitée :
+
+Hero Data Source
+       ↓
+Roster Sync
+       ↓
+Validation
+       ↓
+Local Hero Database / Cache
+       ↓
+Website
+       ↓
+Draft
+Tier Lists
+Hero Browser
+
+Le site doit utiliser une source commune pour toutes les fonctionnalités.
+
+Ainsi :
+
+Heroes
+   ↓
+Draft
+   ↓
+Tier List
+   ↓
+Hero Browser
+   ↓
+Scrim Statistics
+
+doivent tous utiliser le même roster.
+
+
+==================================================
+5. FRÉQUENCE DE SYNCHRONISATION
+==================================================
+
+Prévoir une synchronisation automatique, par exemple :
+
+- au démarrage du site ;
+- périodiquement ;
+- ou via une tâche planifiée.
+
+La fréquence exacte dépendra de la source utilisée.
+
+Je veux également un bouton permettant de forcer manuellement une synchronisation :
+
+[ Update Hero Roster ]
+
+Afficher éventuellement :
+
+Last updated: [date]
+
+
+==================================================
+6. GESTION DES NOUVEAUX HÉROS
+==================================================
+
+Lorsqu'un nouveau héros est détecté :
+
+1. il est ajouté automatiquement au roster ;
+2. son image est récupérée ;
+3. ses informations sont ajoutées ;
+4. il apparaît automatiquement dans la page Heroes ;
+5. il apparaît automatiquement dans les filtres ;
+6. il devient automatiquement disponible dans les futures Drafts ;
+7. il apparaît dans la zone Unranked des nouvelles Tier Lists.
+
+Aucune modification manuelle du code de la Draft ne doit être nécessaire pour ajouter un nouveau héros.
+
+
+==================================================
+7. GESTION DES HÉROS RETIRÉS OU MODIFIÉS
+==================================================
+
+Prévoir le cas où un héros :
+
+- n'est plus disponible sur Global ;
+- change de rôle ;
+- change de lane ;
+- change d'image ;
+- reçoit des informations mises à jour.
+
+Ne supprime pas brutalement un héros déjà présent dans une Tier List ou un ancien Scrim.
+
+Les anciennes données doivent rester consultables.
+
+
+==================================================
+8. CACHE ET FALLBACK
+==================================================
+
+Le site ne doit pas devenir inutilisable si la source distante est temporairement indisponible.
+
+Prévoir :
+
+Online source available
+        ↓
+Fetch latest data
+        ↓
+Validate data
+        ↓
+Update local cache
+        ↓
+Use latest roster
+
+Si la source est indisponible :
+
+Online source unavailable
+        ↓
+Use last valid cached roster
+        ↓
+Website remains functional
+
+Afficher éventuellement :
+
+Using cached hero data
+
+Une erreur de récupération ne doit pas supprimer ou remplacer un roster valide.
+
+
+==================================================
+9. VALIDATION DES DONNÉES
+==================================================
+
+Ne remplace pas automatiquement les données existantes par une réponse invalide ou incomplète.
+
+Avant de mettre à jour le roster :
+
+- vérifier que les données sont valides ;
+- vérifier qu'il y a bien des héros ;
+- vérifier que les IDs sont uniques ;
+- vérifier que les images sont accessibles ;
+- vérifier que les données correspondent bien à la version Global.
+
+Si la synchronisation échoue, conserver le dernier roster valide.
+
+
+==================================================
+10. GLOBAL VS CN
+==================================================
+
+Le système de synchronisation doit explicitement éviter de mélanger les données de :
+
+Honor of Kings Global
+
+et :
+
+王者荣耀 / Honor of Kings CN
+
+Un héros présent uniquement sur CN ne doit pas être ajouté au roster Global simplement parce qu'il existe dans une base de données commune.
+
+La disponibilité Global doit être déterminée à partir de données fiables.
+
+
+==================================================
+11. PAGE PRINCIPALE
+==================================================
+
+Créer une interface permettant d'accéder aux principales fonctionnalités :
+
+Draft
+Heroes
+Tier Lists
+Scrims
+History
+
+L'interface doit être pensée comme un véritable outil destiné aux joueurs de Honor of Kings.
+
+
+==================================================
+12. PAGE HEROES
+==================================================
+
+Créer une page permettant d'explorer tous les héros.
+
+Exemple :
+
+Heroes
+
+[ Search heroes... ]
+
+[ All ]
+[ Clash Lane ]
+[ Jungle ]
+[ Mid Lane ]
+[ Farm Lane ]
+[ Roamer ]
+
+---------------------------------
+
+[Hero] [Hero] [Hero] [Hero]
+[Hero] [Hero] [Hero] [Hero]
+
+Chaque héros doit afficher :
+
+- portrait ;
+- nom ;
+- rôle/lane.
+
+Un clic peut ouvrir une fiche détaillée.
+
+
+==================================================
+13. RECHERCHE ET FILTRES
+==================================================
+
+La liste des héros doit permettre :
+
+- recherche par nom ;
+- recherche instantanée ;
+- filtrage par lane ;
+- filtrage par rôle ;
+- filtrage par plusieurs rôles ;
+- affichage en grille.
+
+Utiliser les catégories correspondant à Honor of Kings Global.
+
+Par exemple :
+
+- Clash Lane
+- Jungle
+- Mid Lane
+- Farm Lane
+- Roamer
+
+Prévoir également :
+
+All
+
+pour afficher tous les héros.
+
+Si un héros possède plusieurs rôles, il doit pouvoir apparaître dans plusieurs filtres.
+
+
+==================================================
+14. STRUCTURE DES DONNÉES DES HÉROS
+==================================================
+
+Créer une structure de données propre et centralisée.
+
+Par exemple :
+
+{
+  "id": "...",
+  "name": "...",
+  "image": "...",
+  "roles": ["Jungle"],
+  "secondaryRoles": [],
+  "availableGlobal": true
+}
+
+La structure exacte peut être améliorée.
+
+L'important est de ne pas disperser les informations des héros dans tout le code.
+
+
+==================================================
+15. HERO DETAILS
+==================================================
+
+Si les données disponibles le permettent, une fiche héros peut afficher :
+
+- nom ;
+- portrait ;
+- rôles ;
+- lanes ;
+- difficulté ;
+- autres informations disponibles.
+
+Ne mets aucune donnée inventée.
+
+
+==================================================
+16. MODE BAN & PICK
+==================================================
+
+Je veux pouvoir lancer une simulation de Draft :
+
+MODE SOLO
+
+Une seule personne contrôle les deux équipes.
+
+MODE TWO PLAYERS
+
+Deux joueurs participent à la Draft, chacun contrôlant une équipe.
+
+Le mode deux joueurs peut fonctionner localement sur le même appareil.
+
+Si un vrai multijoueur en ligne est implémenté, il doit rester entièrement gratuit.
+
+Cependant, ne rends pas l'architecture inutilement complexe si un mode local suffit.
+
+
+==================================================
+17. RÈGLES EXACTES DE DRAFT
+==================================================
+
+La séquence doit être exactement :
+
+PHASE 1 — BANS
+
+1.  Blue Team — Ban
+2.  Red Team — Ban
+3.  Blue Team — Ban
+4.  Red Team — Ban
+
+
+PHASE 2 — PICKS
+
+5.  Blue Team — Pick
+6.  Red Team — Pick
+7.  Red Team — Pick
+8.  Blue Team — Pick
+9.  Blue Team — Pick
+10. Red Team — Pick
+
+
+PHASE 3 — BANS
+
+11. Red Team — Ban
+12. Blue Team — Ban
+13. Red Team — Ban
+14. Blue Team — Ban
+15. Red Team — Ban
+16. Blue Team — Ban
+
+
+PHASE 4 — PICKS
+
+17. Red Team — Pick
+18. Blue Team — Pick
+19. Blue Team — Pick
+20. Red Team — Pick
+
+
+PHASE 5 — WAITING
+
+21. 30 seconds waiting
+
+Résultat attendu :
+
+Blue Team
+5 bans
+5 picks
+
+Red Team
+5 bans
+5 picks
+
+Donc :
+
+10 bans
+10 picks
+20 actions
+
+puis :
+
+30 seconds waiting
+
+
+==================================================
+18. TIMER DE DRAFT
+==================================================
+
+Chaque étape de Ban/Pick doit avoir un timer de :
+
+30 secondes
+
+Le timer doit être clairement visible.
+
+Exemple :
+
+BLUE TEAM — BAN
+00:30
+
+Puis :
+
+RED TEAM — BAN
+00:30
+
+etc.
+
+Lorsque le timer arrive à zéro :
+
+- l'action correspondante expire ;
+- l'utilisateur ne peut plus effectuer l'action ;
+- le système passe à l'étape suivante selon le comportement prévu.
+
+Le timer doit être réellement géré par la logique de l'application et pas seulement affiché visuellement.
+
+La phase finale d'attente doit également durer :
+
+30 secondes.
+
+
+==================================================
+19. CONFIGURATION DU TIMER
+==================================================
+
+Prévoir éventuellement dans les paramètres :
+
+Ban duration
+Pick duration
+Final waiting duration
+
+Par défaut :
+
+30 seconds
+
+Je veux pouvoir modifier ces valeurs plus tard sans modifier toute l'application.
+
+
+==================================================
+20. DRAFT STATE MACHINE
+==================================================
+
+Utiliser une logique explicite de phases.
+
+Par exemple :
+
+BAN_BLUE
+BAN_RED
+BAN_BLUE
+BAN_RED
+
+PICK_BLUE
+PICK_RED
+PICK_RED
+PICK_BLUE
+PICK_BLUE
+PICK_RED
+
+BAN_RED
+BAN_BLUE
+BAN_RED
+BAN_BLUE
+BAN_RED
+BAN_BLUE
+
+PICK_RED
+PICK_BLUE
+PICK_BLUE
+PICK_RED
+
+WAITING
+
+Chaque phase doit contenir quelque chose de similaire à :
+
+{
+  team: "blue",
+  action: "ban",
+  duration: 30
+}
+
+Cela doit permettre de modifier facilement les règles plus tard.
+
+
+==================================================
+21. INTERDICTION DE SÉLECTIONNER UN HÉROS
+==================================================
+
+Pendant une Draft :
+
+Un héros sélectionné comme Ban ne peut plus être sélectionné.
+
+Un héros sélectionné comme Pick ne peut plus être sélectionné.
+
+Un héros déjà sélectionné par une équipe ne peut donc plus être sélectionné par l'autre équipe.
+
+La liste doit se mettre à jour dynamiquement.
+
+États visuels :
+
+- disponible ;
+- ban ;
+- pick Blue ;
+- pick Red ;
+- indisponible ;
+- sélection actuelle.
+
+
+==================================================
+22. INTERFACE DE DRAFT
+==================================================
+
+L'interface doit ressembler à une véritable Draft compétitive de MOBA.
+
+Afficher notamment :
+
+BLUE TEAM
+
+- bans Blue ;
+- picks Blue.
+
+RED TEAM
+
+- bans Red ;
+- picks Red.
+
+CENTRE
+
+- phase actuelle ;
+- équipe actuelle ;
+- héros actuellement sélectionné ;
+- timer.
+
+HERO POOL
+
+Tous les héros disponibles.
+
+
+==================================================
+23. BLUE / RED PAR GAME
+==================================================
+
+Pour chaque Game, permettre de définir quelle équipe est Blue et quelle équipe est Red.
+
+Exemple :
+
+Game 1
+
+Blue
+Team A
+
+Red
+Team B
+
+Puis :
+
+Game 2
+
+Blue
+Team B
+
+Red
+Team A
+
+Ne jamais supposer qu'une équipe est toujours Blue.
+
+
+==================================================
+24. FIN D'UNE DRAFT
+==================================================
+
+Après la dernière sélection et la phase d'attente :
+
+Afficher un résumé :
+
+DRAFT COMPLETE
+
+Blue Team
+
+Bans:
+...
+
+Picks:
+...
+
+
+Red Team
+
+Bans:
+...
+
+Picks:
+...
+
+Puis demander le résultat de la Game.
+
+
+==================================================
+25. RÉSULTAT D'UNE GAME
+==================================================
+
+L'utilisateur doit pouvoir indiquer quelle équipe a gagné.
+
+Exemple :
+
+[ Team A Won ]
+[ Team B Won ]
+
+Ne jamais déterminer automatiquement le gagnant à partir des compositions.
+
+Le résultat de la Game est une information saisie par l'utilisateur.
+
+
+==================================================
+26. COMPOSITION COMPLÈTE
+==================================================
+
+À la fin de chaque Game, afficher :
+
+TEAM A — BLUE
+
+Bans:
+Hero 1
+Hero 2
+Hero 3
+Hero 4
+Hero 5
+
+Picks:
+Hero 6
+Hero 7
+Hero 8
+Hero 9
+Hero 10
+
+
+TEAM B — RED
+
+Bans:
+Hero 11
+Hero 12
+Hero 13
+Hero 14
+Hero 15
+
+Picks:
+Hero 16
+Hero 17
+Hero 18
+Hero 19
+Hero 20
+
+Les 5 bans et 5 picks de chaque équipe doivent être conservés.
+
+
+==================================================
+27. DURÉE DE LA GAME
+==================================================
+
+Chaque Game doit également enregistrer la durée réelle de la partie.
+
+IMPORTANT :
+
+La durée de la partie est différente de la durée de la Draft.
+
+Le timer de 30 secondes concerne uniquement les actions de Ban & Pick.
+
+La durée de la Game correspond au temps réellement joué dans la partie de Honor of Kings.
+
+Exemples :
+
+12:43
+18:27
+24:51
+31:06
+
+La durée doit être enregistrée avec la Game.
+
+
+==================================================
+28. TIMER DE PARTIE OPTIONNEL
+==================================================
+
+Prévoir également la possibilité de lancer un chronomètre pendant la Game :
+
+[ Start Game Timer ]
+
+Puis :
+
+01:23:47
+
+avec :
+
+[ Pause ]
+[ Resume ]
+[ Finish Game ]
+
+Lorsque l'utilisateur clique sur :
+
+Finish Game
+
+la durée est automatiquement proposée comme durée de la Game.
+
+L'utilisateur doit toutefois pouvoir la modifier manuellement avant de valider.
+
+Exemple :
+
+Game Duration
+
+Detected:
+24:37
+
+[ 24:37 ]
+
+[ Confirm Result ]
+
+Le timer de partie doit être complètement indépendant du timer de Draft.
+
+
+==================================================
+29. SAISIE MANUELLE DE LA DURÉE
+==================================================
+
+Même si le timer de partie est utilisé, l'utilisateur doit pouvoir entrer ou modifier manuellement la durée.
+
+Format affiché :
+
+MM:SS
+
+Exemples :
+
+12:43
+24:37
+31:12
+
+Permettre de corriger une durée depuis l'historique.
+
+
+==================================================
+30. DURÉE DANS LES DONNÉES
+==================================================
+
+Chaque Game doit conserver la durée.
+
+Par exemple :
+
+Game {
+    id
+    gameNumber
+
+    blueTeam
+    redTeam
+
+    blueBans[]
+    redBans[]
+
+    bluePicks[]
+    redPicks[]
+
+    winner
+
+    durationSeconds
+
+    completedAt
+}
+
+Utiliser de préférence les secondes comme valeur interne.
+
+Exemple :
+
+durationSeconds: 1487
+
+et convertir en :
+
+24:47
+
+dans l'interface.
+
+Cela facilitera les statistiques et les tris.
+
+
+==================================================
+31. AFFICHAGE DE LA DURÉE
+==================================================
+
+L'historique des Games doit afficher la durée.
+
+Exemple :
+
+Game 1
+Team A WIN
+Duration: 24:37
+
+Game 2
+Team B WIN
+Duration: 31:12
+
+Game 3
+Team A WIN
+Duration: 18:54
+
+Le résumé d'une Game doit également afficher :
+
+GAME 1
+
+Winner:
+Team A
+
+Duration:
+24:37
+
+Blue:
+Team A
+
+Red:
+Team B
+
+Bans:
+...
+
+Picks:
+...
+
+
+==================================================
+32. MODIFICATION DE LA DURÉE APRÈS LA GAME
+==================================================
+
+L'utilisateur doit pouvoir modifier la durée d'une Game depuis son historique.
+
+Exemple :
+
+Game 2
+
+Duration:
+31:12
+
+[ Edit ]
+
+New duration:
+[ 29:48 ]
+
+[ Save ]
+
+La modification doit mettre automatiquement à jour les statistiques concernées.
+
+
+==================================================
+33. IMPORTANT — NE PAS CONFONDRE LES TIMERS
+==================================================
+
+Il existe trois notions distinctes :
+
+DRAFT TIMER
+
+30 secondes par action de Ban/Pick.
+
+FINAL DRAFT WAITING
+
+30 secondes après la dernière action.
+
+GAME TIMER
+
+Durée réelle de la partie Honor of Kings.
+
+Ces trois timers doivent être complètement indépendants.
+
+
+==================================================
+34. TIER LIST
+==================================================
+
+Le site doit permettre de créer des Tier Lists.
+
+Par défaut :
+
+S
+A
+B
+C
+D
+
+Mais l'utilisateur doit pouvoir ajouter autant de tiers qu'il veut.
+
+Exemples :
+
+S+
+S
+S-
+
+A+
+A
+A-
+
+B
+C
+D
+
+
+==================================================
+35. MODIFICATION DES TIER LISTS
+==================================================
+
+L'utilisateur doit pouvoir :
+
+- créer une Tier List ;
+- donner un nom ;
+- ajouter des tiers ;
+- supprimer des tiers ;
+- renommer les tiers ;
+- modifier leur ordre ;
+- déplacer les héros ;
+- retirer un héros ;
+- remettre un héros dans Unranked.
+
+Utiliser du drag & drop.
+
+
+==================================================
+36. UNRANKED
+==================================================
+
+Prévoir une zone :
+
+Unranked
+
+contenant les héros qui ne sont placés dans aucun tier.
+
+Drag & drop possible entre :
+
+Unranked
+↓
+S
+↓
+A
+↓
+B
+...
+
+et inversement.
+
+
+==================================================
+37. SAUVEGARDE DES TIER LISTS
+==================================================
+
+Les Tier Lists doivent être sauvegardables.
+
+Pour rester entièrement gratuit et sans compte obligatoire :
+
+utiliser localStorage ou IndexedDB si nécessaire.
+
+Les Tier Lists doivent rester disponibles après fermeture du navigateur.
+
+
+==================================================
+38. IMPORT / EXPORT TIER LIST
+==================================================
+
+Prévoir :
+
+Export Tier List
+Import Tier List
+
+L'export peut être en JSON.
+
+Une exportation sous forme d'image peut également être ajoutée si pertinente.
+
+
+==================================================
+39. SCRIM / MATCH SIMULATOR
+==================================================
+
+Le site ne doit pas seulement simuler une Draft isolée.
+
+Je veux pouvoir utiliser l'application pour :
+
+simuler et enregistrer des scrims complets.
+
+Une série peut contenir plusieurs Games.
+
+Exemple :
+
+Scrim
+
+Team A vs Team B
+
+Game 1
+Draft
+Result
+Duration
+
+Game 2
+Draft
+Result
+Duration
+
+Game 3
+Draft
+Result
+Duration
+
+
+==================================================
+40. FORMATS DE SÉRIE
+==================================================
+
+Permettre :
+
+Best of 1
+Best of 2
+Best of 3
+Best of 4
+Best of 5
+Best of 7
+
+et idéalement :
+
+Best of N
+
+avec un nombre personnalisé.
+
+Le système doit automatiquement déterminer combien de victoires sont nécessaires.
+
+Exemple :
+
+BO3 = First to 2 wins
+BO5 = First to 3 wins
+BO7 = First to 4 wins
+
+
+==================================================
+41. ÉQUIPES
+==================================================
+
+Avant une série :
+
+Team A
+[ Team name ]
+
+Team B
+[ Team name ]
+
+Les noms doivent être personnalisables.
+
+
+==================================================
+42. UNE DRAFT = UNE GAME
+==================================================
+
+Une Draft terminée correspond à une Game.
+
+Une série contient plusieurs Games.
+
+Architecture logique :
+
+Series
+ ├── Game 1
+ │    └── Draft
+ │
+ ├── Game 2
+ │    └── Draft
+ │
+ └── Game 3
+      └── Draft
+
+Chaque Game possède :
+
+- ses propres bans ;
+- ses propres picks ;
+- son propre Blue/Red ;
+- son propre résultat ;
+- sa propre durée.
+
+
+==================================================
+43. PLUSIEURS GAMES SUR UNE SEULE PAGE
+==================================================
+
+Je veux pouvoir gérer toute une série sur la même page.
+
+Exemple :
+
+TEAM A             1 - 0             TEAM B
+
+Game 1
+Completed — Team A WIN
+Duration: 24:37
+
+Game 2
+In Progress
+
+---------------------------------
+
+CURRENT GAME — GAME 2
+
+Blue Team
+Team B
+
+Red Team
+Team A
+
+Bans
+...
+
+Picks
+...
+
+Draft Timer
+00:23
+
+Game Timer
+00:00
+
+Hero Pool
+...
+
+Je ne veux pas devoir retourner à l'accueil entre chaque Game.
+
+
+==================================================
+44. NOUVELLE GAME
+==================================================
+
+Après une Game terminée :
+
+[ Start Game 2 ]
+
+doit commencer immédiatement la Draft suivante.
+
+Le score doit être automatiquement mis à jour.
+
+Exemple :
+
+Game 1
+Team A WIN
+
+Score:
+Team A 1 - 0 Team B
+
+Puis :
+
+Game 2
+Team B WIN
+
+Score:
+Team A 1 - 1 Team B
+
+
+==================================================
+45. FIN AUTOMATIQUE DE LA SÉRIE
+==================================================
+
+Le système doit savoir quand une série est terminée.
+
+Exemple BO3 :
+
+Team A 2 - 0 Team B
+
+La série est terminée immédiatement.
+
+Il ne doit pas être possible de lancer une Game 3 dans cette série.
+
+Même logique pour tous les formats.
+
+
+==================================================
+46. BO2 ET ÉGALITÉS
+==================================================
+
+Pour un BO2 :
+
+1 - 1
+
+est possible.
+
+La série peut donc se terminer sans vainqueur.
+
+Afficher :
+
+SERIES DRAW
+
+Team A 1 - 1 Team B
+
+
+==================================================
+47. HISTORIQUE DES SCRIMS
+==================================================
+
+Créer une section :
+
+Scrim History
+
+Exemple :
+
+September 30, 2026
+
+Team A 2 - 1 Team B
+BO3
+
+Game 1 — Team A WIN — 24:37
+Game 2 — Team B WIN — 31:12
+Game 3 — Team A WIN — 18:54
+
+[ View ]
+
+Chaque série doit pouvoir être ouverte pour consulter tous ses détails.
+
+
+==================================================
+48. SAUVEGARDE DES SCRIMS
+==================================================
+
+Utiliser localStorage ou IndexedDB.
+
+Les données doivent rester disponibles après fermeture du navigateur.
+
+
+==================================================
+49. REPRISE D'UNE SÉRIE
+==================================================
+
+Si une série est en cours et que l'utilisateur ferme le navigateur :
+
+Active Scrim
+
+Team A 1 - 0 Team B
+BO3
+
+Game 2
+Draft in progress
+
+[ Resume ]
+
+La progression doit être sauvegardée.
+
+Le timer ne doit pas être exploitable pour obtenir artificiellement du temps supplémentaire.
+
+
+==================================================
+50. STRUCTURE DES DONNÉES D'UNE SÉRIE
+==================================================
+
+Par exemple :
+
+Series {
+    id
+    createdAt
+
+    teamA {
+        name
+    }
+
+    teamB {
+        name
+    }
+
+    format
+
+    games[]
+}
+
+Chaque Game :
+
+Game {
+    id
+
+    gameNumber
+
+    blueTeam
+    redTeam
+
+    blueBans[]
+    redBans[]
+
+    bluePicks[]
+    redPicks[]
+
+    winner
+
+    durationSeconds
+
+    completedAt
+}
+
+La structure peut être améliorée si nécessaire.
+
+
+==================================================
+51. NE PAS MÉLANGER LES GAMES
+==================================================
+
+Une Game ne doit jamais écraser les données d'une autre.
+
+Exemple :
+
+Game 1
+Blue picks:
+A B C D E
+
+Game 2
+Blue picks:
+F G H I J
+
+Les deux doivent être conservées indépendamment.
+
+
+==================================================
+52. RÉCAPITULATIF FINAL D'UNE SÉRIE
+==================================================
+
+À la fin :
+
+====================================
+
+          SERIES COMPLETE
+
+       Team A     2 - 1     Team B
+
+====================================
+
+Game 1
+Winner: Team A
+Duration: 24:37
+
+Blue: Team A
+Red: Team B
+
+Bans:
+...
+
+Picks:
+...
+
+
+Game 2
+Winner: Team B
+Duration: 31:12
+
+Blue: Team B
+Red: Team A
+
+Bans:
+...
+
+Picks:
+...
+
+
+Game 3
+Winner: Team A
+Duration: 18:54
+
+Blue: Team A
+Red: Team B
+
+Bans:
+...
+
+Picks:
+...
+
+====================================
+
+Total Game Time: 1:14:43
+Average Game Time: 24:54
+
+[ Back to Scrims ]
+[ New Series ]
+
+
+==================================================
+53. DURÉE TOTALE ET MOYENNE D'UNE SÉRIE
+==================================================
+
+Puisque chaque Game possède une durée, afficher éventuellement :
+
+Total Game Time
+
+et :
+
+Average Game Time
+
+Exemple :
+
+Game 1: 24:37
+Game 2: 31:12
+Game 3: 18:54
+
+Total Game Time: 1:14:43
+Average Game Time: 24:54
+
+Ne pas inclure la durée de la Draft dans la durée réelle de la Game.
+
+
+==================================================
+54. EXPORT D'UNE SÉRIE
+==================================================
+
+Prévoir :
+
+[ Export Series ]
+
+permettant d'exporter toute la série en JSON.
+
+Une exportation sous forme d'image ou de résumé partageable peut également être ajoutée si pertinente.
+
+
+==================================================
+55. STATISTIQUES DE SCRIMS
+==================================================
+
+Prévoir une architecture permettant de calculer des statistiques à partir des résultats réellement enregistrés.
+
+Minimum :
+
+- Series played
+- Games played
+- Wins
+- Losses
+- Draws
+
+Pour chaque équipe.
+
+Éventuellement :
+
+- Blue side wins
+- Red side wins
+
+Ne jamais inventer de statistiques.
+
+
+==================================================
+56. STATISTIQUES DE DURÉE
+==================================================
+
+Puisque les durées sont enregistrées, prévoir une architecture permettant de calculer :
+
+- durée moyenne des Games ;
+- durée minimale ;
+- durée maximale ;
+- durée moyenne des victoires ;
+- durée moyenne des défaites ;
+- durée totale d'une série ;
+- durée moyenne par série.
+
+Ces statistiques doivent être calculées uniquement à partir des Games réellement enregistrées.
+
+
+==================================================
+57. STATISTIQUES DES HÉROS
+==================================================
+
+Puisque toutes les Drafts sont conservées, prévoir une architecture permettant de calculer :
+
+Hero
+Games picked
+Games banned
+Wins
+Losses
+Win rate
+Pick rate
+Ban rate
+
+Exemple :
+
+Hero X
+
+Pick: 12
+Ban: 8
+Wins: 7
+Losses: 5
+Win rate: 58.3%
+
+Ces statistiques doivent uniquement provenir des Games enregistrées.
+
+Ne pas afficher de statistiques lorsqu'il n'y a pas suffisamment de données.
+
+
+==================================================
+58. DASHBOARD SCRIMS
+==================================================
+
+Créer une section :
+
+Scrims
+
+avec :
+
+Active Series
+
+Team A 1 - 0 Team B
+BO3
+Game 2 in progress
+
+[ Resume ]
+
+Puis :
+
+Recent Series
+
+Team A 2 - 1 Team B
+BO3
+
+Team C 0 - 2 Team D
+BO3
+
+Team A 1 - 1 Team B
+BO2
+
+
+==================================================
+59. HERO DATA + DRAFT + SCRIMS
+==================================================
+
+Toutes les fonctionnalités doivent utiliser la même source de données.
+
+Architecture :
+
+                    HERO DATABASE
+                         │
+          ┌──────────────┼──────────────┐
+          │              │              │
+        Heroes         Draft        Tier Lists
+                         │
+                         ▼
+                       Games
+                         │
+                         ▼
+                       Series
+                         │
+                         ▼
+                    Scrim History
+                         │
+                         ▼
+                    Statistics
+
+Un nouveau héros ajouté au roster doit automatiquement être disponible :
+
+- dans Heroes ;
+- dans Draft ;
+- dans les nouvelles Tier Lists ;
+- dans les statistiques futures.
+
+
+==================================================
+60. DESIGN
+==================================================
+
+Je veux une interface moderne inspirée des interfaces de jeux compétitifs / esports.
+
+Mais :
+
+ne copie pas directement l'interface officielle de Honor of Kings.
+
+Créer une identité visuelle propre.
+
+L'interface doit être :
+
+- sombre ;
+- lisible ;
+- moderne ;
+- responsive ;
+- agréable sur desktop ;
+- utilisable sur tablette ;
+- raisonnablement utilisable sur mobile.
+
+
+==================================================
+61. RESPONSIVE
+==================================================
+
+Le site doit fonctionner sur :
+
+- desktop ;
+- laptop ;
+- tablette ;
+- mobile.
+
+Sur petit écran, adapter automatiquement :
+
+- grille des héros ;
+- Blue/Red ;
+- timer ;
+- bans ;
+- picks ;
+- historique ;
+- résultats ;
+- affichage des séries.
+
+
+==================================================
+62. ACCESSIBILITÉ
+==================================================
+
+Prévoir :
+
+- alt text sur les images ;
+- contraste correct ;
+- boutons clairement identifiables ;
+- états hover ;
+- états selected ;
+- états disabled ;
+- navigation clavier autant que raisonnablement possible.
+
+
+==================================================
+63. PERFORMANCE
+==================================================
+
+Le site doit rester rapide avec tout le roster et beaucoup d'images.
+
+Éviter :
+
+- de charger inutilement plusieurs fois les mêmes images ;
+- les requêtes inutiles ;
+- les composants excessivement lourds ;
+- une architecture inutilement complexe.
+
+Utiliser lazy loading si nécessaire.
+
+
+==================================================
+64. GRATUITÉ
+==================================================
+
+Le projet doit être :
+
+100 % gratuit.
+
+Je ne veux pas dépendre d'une API payante pour les fonctionnalités principales.
+
+Éviter les services cloud payants obligatoires.
+
+Pour les données statiques, privilégier :
+
+- assets publics ;
+- données versionnées ;
+- sources officielles publiques ;
+- sources open-source appropriées.
+
+
+==================================================
+65. STACK
+==================================================
+
+Choisis une stack moderne adaptée.
+
+Par exemple :
+
+- React ;
+- TypeScript ;
+- Vite ;
+- CSS ou Tailwind.
+
+Tu peux choisir une autre stack si elle est plus pertinente.
+
+Je veux néanmoins une architecture propre avec séparation entre :
+
+data/
+components/
+pages/
+hooks/
+utils/
+types/
+services/
+
+ou une organisation équivalente.
+
+Évite un énorme composant contenant toute l'application.
+
+
+==================================================
+66. ROUTES
+==================================================
+
+Prévoir au minimum :
+
+/
+Accueil
+
+/draft
+Draft
+
+/heroes
+Heroes
+
+/tier-list
+Tier Lists
+
+/scrims
+Scrims / séries
+
+/history
+Historique
+
+
+==================================================
+67. QUALITÉ DU CODE
+==================================================
+
+Je veux du code réellement exploitable.
+
+Évite :
+
+- TODO partout ;
+- données fictives ;
+- boutons qui ne font rien ;
+- pages non fonctionnelles ;
+- fonctionnalités simulées uniquement visuellement.
+
+Si une fonctionnalité n'est pas possible immédiatement, explique clairement pourquoi et propose une alternative gratuite.
+
+
+==================================================
+68. TESTS
+==================================================
+
+Tester au minimum :
+
+HERO SYSTEM
+
+- récupération des héros ;
+- synchronisation ;
+- cache ;
+- fallback ;
+- détection des nouveaux héros.
+
+DRAFT
+
+- séquence exacte ;
+- 5 bans Blue ;
+- 5 bans Red ;
+- 5 picks Blue ;
+- 5 picks Red ;
+- timer ;
+- blocage des héros ;
+- reset.
+
+GAME
+
+- résultat ;
+- durée ;
+- timer de partie ;
+- modification manuelle de la durée ;
+- sauvegarde.
+
+SERIES
+
+- BO1 ;
+- BO2 ;
+- BO3 ;
+- BO5 ;
+- BO7 ;
+- format personnalisé ;
+- score ;
+- fin automatique ;
+- égalité BO2 ;
+- plusieurs Games.
+
+PERSISTENCE
+
+- sauvegarde ;
+- rechargement ;
+- reprise ;
+- historique.
+
+TIER LISTS
+
+- création ;
+- suppression ;
+- ajout de tiers ;
+- drag & drop ;
+- sauvegarde ;
+- import/export.
+
+
+==================================================
+69. ORDRE DE TRAVAIL
+==================================================
+
+Travaille dans cet ordre :
+
+Étape 1
+Recherche et validation des données Honor of Kings Global.
+
+Étape 2
+Déterminer comment récupérer automatiquement le roster et les images.
+
+Étape 3
+Création du projet et architecture.
+
+Étape 4
+Implémentation de la base de données des héros.
+
+Étape 5
+Système de synchronisation automatique.
+
+Étape 6
+Page Heroes + recherche + filtres.
+
+Étape 7
+Système de Draft / State Machine.
+
+Étape 8
+Timer et règles de Draft.
+
+Étape 9
+Interface de Draft.
+
+Étape 10
+Système Game / résultat / durée.
+
+Étape 11
+Système Series / BO1 / BO2 / BO3 / etc.
+
+Étape 12
+Historique et sauvegarde des Scrims.
+
+Étape 13
+Tier List + drag & drop.
+
+Étape 14
+Statistiques.
+
+Étape 15
+Import / export.
+
+Étape 16
+Responsive + UX + polish.
+
+Étape 17
+Tests complets.
+
+
+==================================================
+70. IMPORTANT — COMMENCER PAR LA RECHERCHE
+==================================================
+
+Ne commence pas directement par écrire toute l'application.
+
+Commence par l'Étape 1.
+
+Recherche et présente-moi :
+
+1. la meilleure source pour le roster Honor of Kings Global ;
+2. la meilleure source pour les images ;
+3. la manière de récupérer automatiquement les nouveaux héros ;
+4. les informations disponibles concernant les lanes ;
+5. les éventuelles API ;
+6. les éventuels assets officiels ;
+7. les limitations éventuelles ;
+8. comment éviter les données CN.
+
+Explique ensuite quelle architecture de synchronisation tu comptes utiliser.
+
+Je veux valider cette partie avant que tu développes le reste.
+
+
+==================================================
+72. MODES DE JEU — GLOBAL BAN & PICK / FREE FOR ALL
+==================================================
+
+Le système de Scrim doit proposer deux modes distincts concernant la disponibilité des héros entre les Games d'une même série.
+
+MODE 1 — GLOBAL BAN & PICK
+
+Ce mode applique une restriction globale sur toute la série.
+
+Lorsqu'une équipe a utilisé un héros comme Pick dans un BO/Game, cette même équipe ne peut plus reprendre ce héros dans les Games/BO suivants de la même série.
+
+Exemple :
+
+Game 1
+
+Team A picks:
+Hero X
+
+Game 2
+
+Team A ne peut PAS pick Hero X.
+
+En revanche, l'autre équipe peut utiliser Hero X si les règles de la Draft et les restrictions de cette équipe le permettent.
+
+La restriction est donc :
+
+TEAM-SPECIFIC
+
+et non :
+
+GLOBAL TOUS JOUEURS.
+
+Exemple :
+
+Game 1
+Team A → Hero X
+
+Game 2
+Team A → Hero X = INTERDIT
+Team B → Hero X = AUTORISÉ
+
+Cette restriction doit être appliquée automatiquement par l'interface.
+
+Un héros déjà utilisé par l'équipe dans un Game précédent doit apparaître comme indisponible pour cette équipe dans les Games suivants.
+
+IMPORTANT :
+
+La restriction concerne les PICKS.
+
+Un héros simplement BANNI dans un Game ne doit pas être considéré comme utilisé par l'équipe pour cette règle, sauf si une future règle spécifique le demande.
+
+Les bans restent propres à chaque Draft.
+
+Le système doit conserver un historique des héros déjà pickés par chaque équipe pendant la série.
+
+
+==================================================
+73. MODE FREE FOR ALL
+==================================================
+
+Le deuxième mode est :
+
+FREE FOR ALL
+
+Dans ce mode, il n'y a aucune restriction de reprise d'un héros entre les Games d'une même série.
+
+Une équipe peut reprendre un héros autant de fois qu'elle le souhaite dans les Games suivants.
+
+Exemple :
+
+Game 1
+Team A → Hero X
+
+Game 2
+Team A → Hero X
+
+Game 3
+Team A → Hero X
+
+Game 4
+Team A → Hero X
+
+Tout cela est autorisé en Free For All.
+
+Les seules restrictions restent celles de la Draft du Game actuellement joué :
+
+- un héros déjà Pick dans la Game actuelle ne peut pas être repris ;
+- un héros Banni dans la Game actuelle ne peut pas être Pick ;
+- un héros ne peut pas être sélectionné deux fois dans la même Draft.
+
+
+==================================================
+74. SÉLECTION DU MODE AVANT UNE SÉRIE
+==================================================
+
+Lors de la création d'une série, permettre de sélectionner :
+
+Game Mode
+
+[ Global Ban & Pick ]
+[ Free For All ]
+
+Afficher une explication courte :
+
+Global Ban & Pick
+A team cannot pick the same hero again in later Games of the same series.
+
+Free For All
+Heroes can be picked again freely in later Games.
+
+Le mode sélectionné doit être enregistré dans la série.
+
+Exemple :
+
+Series {
+    id
+    createdAt
+
+    teamA
+    teamB
+
+    format
+
+    gameMode: "global-ban-pick"
+
+    games[]
+}
+
+ou :
+
+gameMode: "free-for-all"
+
+
+==================================================
+75. RESTRICTIONS PAR ÉQUIPE DANS GLOBAL BAN & PICK
+==================================================
+
+Il faut maintenir deux ensembles distincts :
+
+teamAUsedHeroes
+teamBUsedHeroes
+
+Exemple :
+
+Game 1
+
+Team A picks:
+Arthur
+Marco Polo
+Hero X
+Hero Y
+Hero Z
+
+Team B picks:
+Hero A
+Hero B
+Hero C
+Hero D
+Hero E
+
+Pour Game 2 :
+
+Team A :
+Arthur = unavailable
+Marco Polo = unavailable
+Hero X = unavailable
+Hero Y = unavailable
+Hero Z = unavailable
+
+Team B :
+Hero A = unavailable
+Hero B = unavailable
+Hero C = unavailable
+Hero D = unavailable
+Hero E = unavailable
+
+Mais :
+
+Team A peut utiliser un héros que Team B avait utilisé précédemment.
+
+Team B peut utiliser un héros que Team A avait utilisé précédemment.
+
+Cette logique doit être appliquée automatiquement dans la Draft.
+
+
+==================================================
+76. FLOWBORN — RÈGLE SPÉCIALE
+==================================================
+
+ATTENTION :
+
+Flowborn possède une règle spéciale qui doit être traitée indépendamment de la notion de rôle.
+
+Une équipe ne peut utiliser Flowborn qu'UNE SEULE FOIS pendant toute une série en mode :
+
+GLOBAL BAN & PICK
+
+Cela signifie que dès que Team A a utilisé Flowborn dans un Game :
+
+Team A → Flowborn = définitivement indisponible pour les Games suivants de cette série.
+
+Peu importe le rôle / lane / configuration sous laquelle Flowborn a été utilisé.
+
+Exemple :
+
+Game 1
+
+Team A
+Flowborn — Clash Lane
+
+Game 2
+
+Team A
+Flowborn — Jungle
+
+INTERDIT.
+
+Autre exemple :
+
+Game 1
+
+Team A
+Flowborn — Farm Lane
+
+Game 2
+
+Team A
+Flowborn — Roamer
+
+INTERDIT.
+
+Le système doit considérer Flowborn comme un seul héros unique, indépendamment de son rôle.
+
+La règle est :
+
+1 TEAM
++
+1 SERIES
++
+1 FLOWBORN USE
+
+Une équipe ne peut donc utiliser Flowborn qu'une seule fois dans toute la série.
+
+Cette règle doit être appliquée même si les rôles sont différents.
+
+
+==================================================
+77. FLOWBORN ET FREE FOR ALL
+==================================================
+
+Dans le mode :
+
+FREE FOR ALL
+
+les héros peuvent normalement être repris librement entre les Games.
+
+Cependant, la règle spéciale concernant Flowborn doit être explicitement configurable selon les règles du mode choisi.
+
+Par défaut, appliquer :
+
+FREE FOR ALL
+→ Flowborn peut également être repris dans les Games suivants.
+
+GLOBAL BAN & PICK
+→ Flowborn ne peut être utilisé qu'une seule fois par équipe sur toute la série.
+
+Ne jamais créer plusieurs entrées de Flowborn simplement parce qu'il peut être associé à plusieurs rôles.
+
+Flowborn doit toujours correspondre à un seul Hero ID.
+
+
+==================================================
+78. FLOWBORN — HERO ID UNIQUE
+==================================================
+
+Dans la base de données des héros :
+
+Flowborn doit avoir un identifiant unique.
+
+Les éventuels rôles/lane associés à Flowborn doivent être des attributs du même héros.
+
+Exemple conceptuel :
+
+{
+    "id": "flowborn",
+    "name": "Flowborn",
+    "roles": [
+        "..."
+    ]
+}
+
+Ne pas créer :
+
+flowborn-clash
+flowborn-jungle
+flowborn-roamer
+
+comme trois héros différents.
+
+Il s'agit toujours du même héros.
+
+Cela permet d'appliquer correctement la restriction :
+
+Flowborn utilisé une fois
+→ Flowborn indisponible pour cette équipe dans les Games suivants en Global Ban & Pick.
+
+
+==================================================
+79. INDICATEUR DES HÉROS DÉJÀ UTILISÉS
+==================================================
+
+En Global Ban & Pick, afficher clairement lorsqu'un héros est indisponible à cause d'une Game précédente.
+
+Exemples d'état :
+
+Available
+Banned this Game
+Picked this Game
+Used by your team in previous Game
+Used by opponent in previous Game
+Unavailable
+
+Exemple :
+
+FLOWBORN
+
+Used by Team A in Game 1
+
+→ UNAVAILABLE FOR TEAM A
+
+Mais :
+
+→ AVAILABLE FOR TEAM B
+
+si Team B ne l'a pas encore utilisé et qu'aucune autre restriction de la Draft actuelle ne l'interdit.
+
+
+==================================================
+80. RESET DES RESTRICTIONS
+==================================================
+
+Les restrictions Global Ban & Pick doivent être limitées à la série actuelle.
+
+Lorsqu'une nouvelle série est créée :
+
+Team A used heroes = empty
+Team B used heroes = empty
+
+Les restrictions de la série précédente ne doivent pas contaminer la nouvelle série.
+
+Exemple :
+
+Series 1
+Team A used Flowborn
+
+Series 2
+Team A peut de nouveau utiliser Flowborn.
+
+
+==================================================
+81. AFFICHAGE DES RESTRICTIONS DE SÉRIE
+==================================================
+
+Dans la page de Scrim, afficher éventuellement un panneau :
+
+SERIES HERO USAGE
+
+Team A
+
+Used:
+Hero X
+Hero Y
+Flowborn
+
+Available again next Game:
+...
+
+Team B
+
+Used:
+Hero A
+Hero B
+
+Available again next Game:
+...
+
+Ce panneau permet de comprendre immédiatement pourquoi certains héros sont indisponibles.
+
+
+==================================================
+82. EXPORT D'UN BO / D'UNE GAME
+==================================================
+
+Je veux pouvoir télécharger les données d'un seul BO/Game.
+
+Depuis le résumé d'une Game, ajouter :
+
+[ Download Game ]
+
+Le fichier doit contenir toutes les informations de cette Game :
+
+- numéro de Game ;
+- Team A ;
+- Team B ;
+- Blue Team ;
+- Red Team ;
+- mode de jeu ;
+- bans Blue ;
+- bans Red ;
+- picks Blue ;
+- picks Red ;
+- winner ;
+- durée ;
+- date ;
+- éventuellement les paramètres de Draft.
+
+Format recommandé :
+
+JSON
+
+Exemple de nom :
+
+TeamA_vs_TeamB_Game_1.json
+
+
+==================================================
+83. EXPORT DE TOUTE LA SÉRIE
+==================================================
+
+Je veux également pouvoir télécharger l'intégralité d'une série.
+
+Ajouter :
+
+[ Download Series ]
+
+Le fichier doit contenir :
+
+- informations des équipes ;
+- format de la série ;
+- mode de jeu ;
+- score final ;
+- toutes les Games ;
+- toutes les Drafts ;
+- tous les bans ;
+- tous les picks ;
+- vainqueur de chaque Game ;
+- durée de chaque Game ;
+- durée totale ;
+- informations de création ;
+- historique nécessaire à la compréhension des restrictions Global Ban & Pick.
+
+Exemple de nom :
+
+TeamA_vs_TeamB_BO3.json
+
+
+==================================================
+84. EXPORT DU BO COMPLET OU DU BO INDIVIDUEL
+==================================================
+
+Le terme "BO" peut représenter la série complète.
+
+Il faut donc permettre les deux niveaux :
+
+1. Télécharger une seule Game/BO individuel.
+2. Télécharger l'ensemble de la série/BO complet.
+
+Exemple :
+
+Team A vs Team B — BO5
+
+[ Download Game 1 ]
+[ Download Game 2 ]
+[ Download Game 3 ]
+
+et :
+
+[ Download Full BO5 ]
+
+Le téléchargement complet doit contenir toutes les Games dans un seul fichier.
+
+Si la série n'a qu'une seule Game, comme un BO1 :
+
+[ Download Game 1 ]
+[ Download Full BO1 ]
+
+Les deux doivent être disponibles.
+
+
+==================================================
+85. EXPORT D'UNE SÉRIE EN COURS
+==================================================
+
+Même si une série n'est pas encore terminée, permettre :
+
+[ Export Current Series ]
+
+Le fichier doit alors contenir :
+
+- Games terminées ;
+- Game actuellement en cours si son état peut être sérialisé ;
+- score actuel ;
+- format ;
+- mode de jeu ;
+- restrictions Global Ban & Pick déjà accumulées.
+
+Cela permet de faire une sauvegarde externe de la progression.
+
+
+==================================================
+86. IMPORT D'UNE SÉRIE
+==================================================
+
+Puisque les séries peuvent être exportées, prévoir idéalement :
+
+[ Import Series ]
+
+L'utilisateur peut sélectionner un fichier JSON précédemment exporté.
+
+Le système doit :
+
+1. valider le fichier ;
+2. vérifier sa structure ;
+3. vérifier les données des équipes ;
+4. vérifier les Games ;
+5. vérifier les héros référencés ;
+6. vérifier le mode de jeu ;
+7. restaurer la série.
+
+Ne pas accepter silencieusement un fichier invalide.
+
+
+==================================================
+87. STATISTIQUES ET GLOBAL BAN & PICK
+==================================================
+
+Les statistiques de héros doivent tenir compte des restrictions de série mais ne doivent pas inventer de données.
+
+Pour chaque héros, conserver les utilisations réelles.
+
+Exemple :
+
+Hero X
+Picked: 5
+Banned: 8
+Wins: 3
+Losses: 2
+
+Flowborn :
+
+Picked: 2
+
+si deux équipes différentes l'ont utilisé, ou davantage si plusieurs séries différentes sont concernées.
+
+La restriction "une seule utilisation par équipe dans une série" ne signifie pas que Flowborn ne peut être utilisé que deux fois dans toute la base de données.
+
+Elle est limitée :
+
+par équipe
++
+par série
++
+en mode Global Ban & Pick.
+
+
+==================================================
+88. TESTS SUPPLÉMENTAIRES DES MODES
+==================================================
+
+Tester explicitement :
+
+GLOBAL BAN & PICK
+
+Test 1 :
+Team A picks Hero X in Game 1.
+Team A cannot pick Hero X in Game 2.
+
+Test 2 :
+Team B can pick Hero X in Game 2 if Team B has not used it.
+
+Test 3 :
+Team A cannot pick Flowborn twice in the same series.
+
+Test 4 :
+Flowborn cannot be reused by the same team under a different lane/role.
+
+Test 5 :
+A new series resets all previous restrictions.
+
+FREE FOR ALL
+
+Test 6 :
+Team A picks Hero X in Game 1.
+Team A can pick Hero X again in Game 2.
+
+Test 7 :
+Team A can pick Flowborn again in Game 2 when Free For All is selected, conformément à la règle de ce mode.
+
+DRAFT
+
+Test 8 :
+Regardless of series mode, a hero cannot be picked twice inside the same Draft.
+
+EXPORT
+
+Test 9 :
+Download Game exports exactly one Game.
+
+Test 10 :
+Download Series exports all Games.
+
+Test 11 :
+Importing an exported Series restores its Games, score, mode and restrictions.
+
+
+==================================================
+89. RÈGLE GÉNÉRALE À RETENIR
+==================================================
+
+Il faut clairement séparer :
+
+DRAFT-LEVEL RESTRICTIONS
+
+Ce qui est interdit pendant une seule Draft.
+
+SERIES-LEVEL RESTRICTIONS
+
+Ce qui est interdit entre plusieurs Games de la même série.
+
+GLOBAL BAN & PICK
+
+→ applique les restrictions de réutilisation des Picks au niveau de chaque équipe sur toute la série.
+
+FREE FOR ALL
+
+→ autorise la réutilisation des héros entre les Games.
+
+FLOWBORN
+
+→ est toujours un seul héros, quel que soit son rôle.
+
+→ en Global Ban & Pick, une équipe ne peut utiliser Flowborn qu'une seule fois dans toute la série.
+
+NEW SERIES
+
+→ réinitialise les restrictions de série.
+
+EXPORT GAME
+
+→ exporte une seule Game.
+
+EXPORT SERIES
+
+→ exporte toute la série.
+
+Ces règles doivent être implémentées dans la logique métier et pas seulement représentées visuellement dans l'interface.
+
+
+==================================================
+71. OBJECTIF FINAL
+==================================================
+
+Le résultat final doit être un véritable :
+
+Honor of Kings Global Draft & Scrim Simulator
+
+permettant :
+
+- d'explorer tous les héros Global ;
+- de filtrer par lane/rôle ;
+- de maintenir automatiquement le roster ;
+- de faire des Drafts compétitives ;
+- de faire du Solo ;
+- de faire du Two Players local ;
+- de gérer les bans/picks ;
+- d'utiliser un timer de 30 secondes ;
+- de déterminer le résultat de chaque Game ;
+- de conserver les 5 picks et 5 bans de chaque équipe ;
+- d'enregistrer la durée réelle de chaque Game ;
+- de lancer éventuellement un timer de partie ;
+- de modifier manuellement la durée ;
+- de simuler des BO1 ;
+- de simuler des BO2 ;
+- de simuler des BO3 ;
+- de simuler des BO4 ;
+- de simuler des BO5 ;
+- de simuler des BO7 ;
+- de créer des formats personnalisés ;
+- de gérer plusieurs Games sur une seule page ;
+- de conserver l'historique des scrims ;
+- de reprendre une série en cours ;
+- de calculer des statistiques à partir des résultats enregistrés ;
+- de calculer des statistiques de durée ;
+- de créer des Tier Lists ;
+- d'ajouter autant de tiers que nécessaire ;
+- de sauvegarder les Tier Lists ;
+- d'importer/exporter les données ;
+- et de rester entièrement gratuit.
+
+Le site doit être conçu comme un véritable outil que des joueurs peuvent utiliser pour simuler, analyser et enregistrer leurs scrims Honor of Kings Global.
+
+IMPORTANT :
+Une Draft = une Game.
+Une série = plusieurs Games.
+La durée d'une Game est indépendante des timers de Draft.
+Les bans, picks, résultats et durées doivent être conservés pour chaque Game.
+Le roster Global doit pouvoir être mis à jour automatiquement sans modification manuelle du code.

@@ -1,0 +1,496 @@
+/* The personal space (what a person keeps, and the links that share it) and the page that a link opens.
+     the stage      the cover of a hero, the title, three big numbers
+     the share band the link form on the left, the links that were given on the right (the owner only)
+     the columns    tier lists, builds, training sheet: one column each, a head that stays under the top bar
+   The columns are the same for the owner and for the people a link is given to (read only). */
+.sp-body {
+  display: grid;
+  gap: 20px;
+}
+/* the page comes in once: what is drawn again after a change stays put */
+.sp-page.is-settled .rise {
+  animation: none;
+}
+.sp-visitor {
+  display: grid;
+  gap: 20px;
+}
+.sp-visitor .cm-line,
+.sp-body > .cm-line {
+  flex-wrap: wrap;
+}
+.sp-visitor .cm-line .hstack,
+.sp-body > .cm-line .hstack {
+  flex-wrap: wrap;
+}
+.sp-owner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.sp-owner > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.sp-readonly {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--panel-soft) 74%, transparent);
+  color: var(--ink);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---------- the share band ---------- */
+.sp-share {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+  scroll-margin-top: calc(var(--topbar) + 16px);
+}
+.sp-share__make > p {
+  margin-bottom: 14px;
+}
+.sp-share__links {
+  min-width: 0;
+  padding-inline-start: 32px;
+  border-inline-start: 1px solid var(--line-soft);
+}
+.sp-share__links .subheading {
+  margin-top: 0;
+}
+.sp-links {
+  display: grid;
+  gap: 8px;
+  max-height: 380px;
+  padding-inline-end: 4px;
+  overflow-y: auto;
+}
+.sp-link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.sp-link .grow {
+  display: grid;
+  flex: 1 1 220px;
+  gap: 4px;
+  min-width: 0;
+}
+.sp-link b {
+  overflow-wrap: anywhere;
+}
+.sp-link__parts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sp-link small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.sp-fresh {
+  margin-top: 14px;
+}
+.sp-fresh p {
+  margin: 4px 0 10px;
+}
+.sp-copy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sp-copy .field {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+.sp-copy input {
+  text-overflow: ellipsis;
+}
+
+/* ---------- the parts: one under the other, each in balanced columns ---------- */
+.sp-parts {
+  display: grid;
+  gap: 28px;
+}
+.sp-part {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  min-width: 0;
+}
+.sp-part > .cm-line {
+  margin: 0;
+}
+.sp-part__head {
+  position: sticky;
+  top: var(--topbar);
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  padding: 10px 0;
+  border-bottom: 2px solid var(--gild-line);
+  background: color-mix(in srgb, var(--canvas) 90%, transparent);
+  backdrop-filter: blur(8px);
+}
+.sp-part__head h2 {
+  flex: 1 1 120px;
+  min-width: 0;
+  font: 700 26px/1 var(--font-display);
+  letter-spacing: 0.05em;
+}
+.sp-part__icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+/* the cards fall into columns by themselves: no column ends far above the others */
+.sp-part__items {
+  columns: 3 330px;
+  column-gap: 20px;
+  min-width: 0;
+  margin-bottom: -20px;
+}
+.sp-part__items.sp-cols-1 {
+  columns: 1;
+}
+.sp-part__items.sp-cols-2 {
+  columns: 2 330px;
+}
+.sp-part__items > li {
+  break-inside: avoid;
+  margin: 0 0 20px;
+}
+
+/* what a space keeps, for a person who has nothing to look at yet */
+.sp-explain {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.sp-explain li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 14px;
+  align-content: start;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.sp-explain .sp-part__icon {
+  grid-row: span 2;
+  width: 44px;
+  height: 44px;
+}
+.sp-explain b {
+  align-self: end;
+  font: 700 21px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sp-explain li > span:last-child {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* the lanes of the tier lists, with how many lists each one has */
+.sp-lanes {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+.sp-lanes__list {
+  display: grid;
+  gap: 6px;
+}
+.sp-lanestrip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+.sp-lanestrip .sp-lane {
+  padding: 12px;
+  border-color: var(--line);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.sp-lane {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 6px;
+  padding-inline: 6px 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  background: var(--tint-1);
+  color: inherit;
+  font: 600 14px/1 var(--font-body);
+  transition: border-color 160ms;
+}
+.sp-lane:hover {
+  border-color: var(--brand);
+}
+.sp-lane b {
+  margin-inline-start: auto;
+  color: var(--muted);
+  font: 700 16px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+/* tier lists: a name, then a band per tier with the portraits of its heroes */
+.sp-list {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+}
+.sp-list__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+}
+.sp-list__head b {
+  flex: 1 1 100%;
+  font: 700 21px/1.15 var(--font-display);
+  letter-spacing: 0.03em;
+  overflow-wrap: anywhere;
+}
+.sp-list__head .pill .lane {
+  --ls: 16px;
+  padding: 2px;
+}
+.sp-tier {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+  padding: 6px;
+  border-radius: var(--r-sm);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--tc, var(--line)) 14%, var(--panel)),
+    var(--panel) 62%
+  );
+}
+.sp-tier b {
+  display: grid;
+  place-items: center;
+  min-height: 38px;
+  padding: 0 4px;
+  border-radius: var(--r-sm);
+  background: var(--tc, var(--tint-3));
+  color: var(--ink);
+  font: 700 20px/1 var(--font-display);
+  overflow-wrap: anywhere;
+}
+.sp-tier[data-tier] b {
+  color: #10141c;
+}
+.sp-tier[data-tier="SS"] {
+  --tc: var(--tier-ss);
+}
+.sp-tier[data-tier="S"] {
+  --tc: var(--tier-s);
+}
+.sp-tier[data-tier="A"] {
+  --tc: var(--tier-a);
+}
+.sp-tier[data-tier="B"] {
+  --tc: var(--tier-b);
+}
+.sp-tier[data-tier="C"] {
+  --tc: var(--tier-c);
+}
+.sp-tier[data-tier="D"] {
+  --tc: var(--tier-d);
+}
+.sp-heroes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* builds */
+.sp-build {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  min-width: 0;
+  padding: 16px;
+}
+.sp-build__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.sp-build__head .grow {
+  display: grid;
+  flex: 1 1 140px;
+  gap: 2px;
+  min-width: 0;
+}
+.sp-build__head b {
+  font: 700 21px/1.15 var(--font-display);
+  letter-spacing: 0.03em;
+  overflow-wrap: anywhere;
+}
+.sp-build__head small {
+  color: var(--muted);
+  font-size: 13px;
+}
+.sp-build__icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.sp-build .build-view {
+  margin: 4px 0 0;
+}
+.sp-day {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-height: 200px;
+  padding: 18px;
+  overflow: hidden;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, #14233f 0%, #0a111a 100%);
+}
+.sp-day__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.sp-day__art.is-on {
+  opacity: 1;
+}
+.sp-day__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 20%;
+}
+.sp-day__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(0deg, rgba(10, 17, 26, 0.92), rgba(10, 17, 26, 0.1) 70%);
+}
+.sp-day__body {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.sp-day__body b {
+  font: 700 28px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* the training sheet: a block for each thing it keeps */
+.sp-block {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 16px;
+}
+.sp-block__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.sp-block__head h3 {
+  color: var(--muted);
+  font: 700 16px/1 var(--font-display);
+  letter-spacing: 0.1em;
+}
+.sp-notes {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sp-notes li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 10px;
+}
+.sp-notes li p {
+  flex-basis: 100%;
+  font-size: 13px;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+@media (max-width: 900px) {
+  .sp-lanestrip {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+@media (max-width: 1180px) {
+  .sp-share {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+  .sp-share__links {
+    padding-inline-start: 0;
+    padding-top: 20px;
+    border-inline-start: 0;
+    border-top: 1px solid var(--line-soft);
+  }
+  .sp-explain {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .sp-owner {
+    gap: 12px;
+  }
+  .sp-part__head h2 {
+    font-size: 22px;
+  }
+  .sp-build__head b,
+  .sp-list__head b {
+    font-size: 19px;
+  }
+}

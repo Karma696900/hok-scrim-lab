@@ -1,0 +1,211 @@
+/* the same cards as rows: a small portrait, the name and the class, the lanes at the end */
+.hl-grid.rows {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 8px;
+}
+.hl-grid.rows .hcard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  aspect-ratio: auto;
+  min-height: 72px;
+  padding: 8px 14px 8px 8px;
+  background: var(--card-bg);
+}
+.hl-grid.rows .hcard::before,
+.hl-grid.rows .hcard::after,
+.hl-grid.rows .hl-card__lanes {
+  display: none;
+}
+.hl-grid.rows .hl-card__img {
+  position: static;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--r-sm);
+}
+.hl-grid.rows .hl-card__name {
+  position: static;
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  color: var(--ink);
+}
+.hl-grid.rows .hl-card__name b {
+  font-size: 18px;
+}
+.hl-grid.rows .hl-card__name small {
+  color: var(--muted);
+}
+.hl-grid.rows .hl-card__row-lanes {
+  display: inline-flex;
+}
+.hl-grid.rows .hcard:hover {
+  border-color: var(--brand);
+}
+
+/* no hero matches: one line, and the heroes to open instead */
+.hl-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  color: var(--muted);
+}
+.hl-line b {
+  color: var(--ink);
+}
+.hl-line .btn {
+  margin-inline-start: auto;
+}
+.hl-more {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line-soft);
+}
+.hl-more h2 {
+  margin-bottom: 16px;
+  font: 700 22px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.hl-more ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+  gap: 18px 14px;
+}
+.hl-more .hl-mini {
+  width: 100%;
+}
+.hl-more .hl-mini__img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
+
+.hl-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 14px;
+}
+.hl-admin {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+  margin-top: 24px;
+  padding: 14px 18px;
+  border: 1px dashed var(--line);
+  border-radius: var(--r-md);
+}
+.hl-admin .hstack {
+  min-width: 0;
+}
+.hl-admin .btn {
+  height: auto;
+  min-height: 34px;
+  padding-block: 7px;
+  line-height: 1.15;
+  text-align: center;
+  white-space: normal;
+}
+.hl-admin h2 {
+  font: 700 16px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ---------- narrow screens ---------- */
+@media (max-width: 1100px) {
+  .hl-scene {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+  .hl-scene__more {
+    justify-self: start;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+@media (max-width: 900px) {
+  .hl-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hl-filters {
+    position: static;
+    max-height: none;
+    padding: 12px;
+    gap: 12px;
+  }
+  .hl-filters__toggle {
+    display: inline-flex;
+  }
+  .hl-filters__toggle .hl-count {
+    min-width: 20px;
+    padding: 4px 6px;
+    border-radius: 999px;
+    background: var(--brand-strong);
+    color: #fff;
+    text-align: center;
+  }
+  .hl-filters:not(.is-open) .hl-filters__body {
+    display: none;
+  }
+  .hl-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+}
+@media (max-width: 720px) {
+  .hl-scene {
+    --veil-dir: 0deg;
+    min-height: 0;
+    gap: 16px;
+    padding: 20px 16px 16px;
+  }
+  [dir="rtl"] .hl-scene {
+    --veil-dir: 0deg;
+  }
+  .hl-scene__body {
+    gap: 12px;
+  }
+  .hl-scene h2 {
+    font-size: 42px;
+  }
+  .hl-scene__skills {
+    display: none;
+  }
+  .hl-scene__more {
+    padding: 10px 12px 8px;
+  }
+  .hl-scene__more ul {
+    gap: 10px;
+  }
+  .hl-mini,
+  .hl-mini__img {
+    width: 56px;
+  }
+  .hl-mini__img {
+    height: 56px;
+  }
+  .hl-scene__body .btn--lg {
+    height: 44px;
+  }
+  .hl-card__name b {
+    font-size: 15px;
+  }
+  .hl-grid.rows {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .hl-foot {
+    flex-wrap: wrap;
+  }
+}

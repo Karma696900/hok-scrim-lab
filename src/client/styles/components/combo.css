@@ -1,0 +1,67 @@
+/* The combos of the heroes: the pictures of the skills in order, each with its number and a hint
+   (the page of the hero, the guides editor, the training sheet). */
+.combo-steps {
+  --combo-size: 48px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px 6px;
+}
+.combo-steps--compact {
+  --combo-size: 36px;
+}
+.combo-step {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  max-width: 96px;
+}
+.combo-step__frame {
+  position: relative;
+  display: block;
+}
+.combo-pic {
+  display: block;
+  width: var(--combo-size, 48px);
+  height: var(--combo-size, 48px);
+  border: 1.5px solid var(--brand);
+  border-radius: 50%;
+  background: var(--panel);
+  object-fit: cover;
+}
+/* the basic attack: a sword in the same round frame */
+.combo-pic--basic {
+  display: grid;
+  place-items: center;
+  color: var(--brand-ink);
+  background: var(--panel-raised);
+}
+.combo-pic--basic .i {
+  width: 56%;
+  height: 56%;
+}
+.combo-step__num {
+  position: absolute;
+  inset-block-end: -3px;
+  inset-inline-end: -5px;
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9px;
+  background: var(--brand-strong);
+  color: #fff;
+  font: 700 12px/1 var(--font-body);
+}
+.combo-step__hint {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.3;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.combo-steps__arrow {
+  margin-top: calc((var(--combo-size) - 16px) / 2);
+  color: var(--faint);
+}

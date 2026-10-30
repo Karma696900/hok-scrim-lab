@@ -1,0 +1,574 @@
+/* The welcome pages: over the whole screen, two columns. On one side the cover of a hero under a veil, the
+   four steps and a line of the site; on the other the step (the language, the parts of the site, the
+   community, where to start) with its buttons always in view. The tile of a part (.mod) is in settings.css. */
+.onboarding {
+  position: fixed;
+  z-index: 65; /* over the tab bar of a phone (60), under the dialogs (70) */
+  inset: 0;
+  overflow-y: auto;
+  background: var(--canvas);
+}
+.ob {
+  display: grid;
+  grid-template-columns: minmax(340px, 0.78fr) minmax(0, 1.22fr);
+  min-height: 100%;
+}
+
+/* ---------- the side: art, steps, a line ---------- */
+.ob-side {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+  height: 100vh;
+  min-height: 560px;
+  padding: 34px 44px 44px;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      110% 90% at 20% 0%,
+      color-mix(in srgb, var(--brand) 28%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--brand-strong) 30%, var(--panel-soft)),
+      var(--panel-soft)
+    );
+  color: var(--ink);
+}
+.ob-side__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.ob-side__art.is-on {
+  opacity: 1;
+}
+.ob-side__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 62% 18%;
+}
+.ob-side__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--panel-soft) 92%, transparent) 0%,
+    color-mix(in srgb, var(--panel-soft) 88%, transparent) 54%,
+    color-mix(in srgb, var(--panel-soft) 30%, transparent) 68%,
+    color-mix(in srgb, var(--panel-soft) 72%, transparent) 82%,
+    color-mix(in srgb, var(--panel-soft) 94%, transparent) 100%
+  );
+}
+.ob-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font: 700 16px/1.05 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.onboarding-steps {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.onboarding-steps li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  color: var(--muted);
+  font: 700 19px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.onboarding-steps li.on {
+  border-color: var(--gild-line);
+  background: color-mix(in srgb, var(--panel-soft) 72%, transparent);
+  color: var(--ink);
+}
+.onboarding-steps li.done {
+  color: var(--ink);
+}
+.ob-n {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font: 700 15px/1 var(--font-display);
+  letter-spacing: 0;
+}
+.onboarding-steps li.on .ob-n {
+  border-color: var(--brand);
+  background: var(--brand-strong);
+  color: #fff;
+}
+.onboarding-steps li.done .ob-n {
+  border-color: var(--brand);
+  color: var(--brand-ink);
+}
+.ob-hook {
+  max-width: 14ch;
+  font: 700 clamp(34px, 3.6vw, 52px) / 1 var(--font-display);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.ob-hook::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 14px;
+  background: var(--brand);
+}
+
+/* ---------- the step ---------- */
+.ob-main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
+  padding: 26px 56px 0;
+}
+.ob-top,
+.ob-body,
+.ob-foot {
+  width: min(920px, 100%);
+  margin-inline: auto;
+}
+.ob-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 40px;
+}
+.ob-count {
+  color: var(--muted);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ob-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-block: 26px 32px;
+  /* the cards of the parts carry an invisible checkbox with a z-index: it stays under the sticky footer (and its buttons)
+     whether the entrance animation, which made this a stacking context, runs or not (reduced motion) */
+  isolation: isolate;
+  animation: fade 320ms ease both;
+}
+.ob-body h1 {
+  font: 700 clamp(36px, 4.4vw, 56px) / 1 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.ob-body h1::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 14px;
+  background: var(--brand);
+}
+.ob-body .lead {
+  max-width: 62ch;
+  margin: 16px 0 28px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.ob-foot {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 0 22px;
+  background: linear-gradient(0deg, var(--canvas) 72%, transparent);
+}
+
+/* Step 1: the heroes there are, and the language. */
+.ob-faces {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 30px;
+  padding: 16px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.ob-faces p {
+  display: grid;
+  gap: 6px;
+  flex: none;
+  padding-inline-end: 22px;
+  border-inline-end: 1px solid var(--line);
+}
+.ob-faces b {
+  font: 700 56px/0.9 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.ob-faces span {
+  color: var(--brand-ink);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ob-faces ul {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  min-width: 0;
+  overflow: hidden;
+}
+.ob-faces li {
+  flex: none;
+  width: 66px;
+  height: 66px;
+  border: 2px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  overflow: hidden;
+}
+.ob-faces img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+}
+.ob-block h2 {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.langs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+.langs button {
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--ink);
+  font: 600 15px/1 var(--font-body);
+  text-align: start;
+  transition:
+    border-color 160ms,
+    background 160ms;
+}
+.langs button:hover {
+  border-color: var(--brand);
+}
+.langs button.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+}
+.ob-perks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 26px;
+}
+.ob-perks li {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+  font: 500 15px/1.4 var(--font-body);
+}
+.ob-perks__ico {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.ob-points {
+  display: grid;
+  gap: 8px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.ob-points li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ob-points .i {
+  color: var(--success);
+}
+
+/* Step 2: the parts of the site. */
+.ob-mods {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-rows: minmax(min-content, 1fr);
+  gap: 14px;
+  max-height: 640px;
+}
+.ob-mods .mod {
+  grid-column: span 2;
+}
+.ob-mods .mod:nth-child(n + 4) {
+  grid-column: span 3;
+}
+
+/* Step 3: the community, six pages in two columns of rows. */
+.ob-team {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(min-content, 1fr);
+  max-height: 560px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+  overflow: hidden;
+}
+.tile-info {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 18px;
+  align-items: center;
+  padding: 22px 24px;
+  border-top: 1px solid var(--line-soft);
+}
+.tile-info:nth-child(-n + 2) {
+  border-top: 0;
+}
+.tile-info:nth-child(odd) {
+  border-inline-end: 1px solid var(--line-soft);
+}
+.tile-info__ico {
+  display: grid;
+  grid-row: span 2;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.tile-info b {
+  align-self: end;
+  overflow-wrap: anywhere;
+  font: 700 20px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.tile-info small {
+  align-self: start;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.ob-register {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+  font-size: 14px;
+}
+.ob-register .link {
+  font-size: 14px;
+}
+
+/* Step 4: where to start. */
+.ob-ready {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(min-content, 1fr);
+  gap: 14px;
+  max-height: 600px;
+}
+.ob-go {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+  transition:
+    border-color 160ms,
+    transform 160ms var(--ease);
+}
+.ob-go:hover {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+.ob-go:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.ob-go__ico {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex: none;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.ob-go__text {
+  display: grid;
+  flex: 1;
+  gap: 4px;
+  min-width: 0;
+}
+.ob-go b {
+  font: 600 18px/1.25 var(--font-body);
+}
+.ob-go small {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+.ob-go > .i:last-child {
+  color: var(--faint);
+}
+
+/* ---------- narrow screens: the side becomes a strip with the steps in a row ---------- */
+@media (max-width: 900px) {
+  .ob {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+  }
+  .ob-side {
+    position: relative;
+    height: auto;
+    min-height: 0;
+    gap: 14px;
+    padding: 16px 18px 14px;
+  }
+  .ob-side__veil {
+    background: color-mix(in srgb, var(--panel-soft) 82%, transparent);
+  }
+  .ob-hook {
+    display: none;
+  }
+  .onboarding-steps {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+  .onboarding-steps li {
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 2px;
+    font-size: 13px;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+  .ob-main {
+    min-height: 0;
+    padding: 14px 18px 0;
+  }
+  .ob-mods,
+  .ob-team,
+  .ob-ready {
+    grid-template-columns: minmax(0, 1fr);
+    max-height: none;
+  }
+  .ob-mods .mod,
+  .ob-mods .mod:nth-child(n + 4) {
+    grid-column: auto;
+  }
+  .langs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .tile-info:nth-child(2) {
+    border-top: 1px solid var(--line-soft);
+  }
+  .tile-info:nth-child(odd) {
+    border-inline-end: 0;
+  }
+  .ob-faces {
+    gap: 14px;
+    padding: 12px 14px;
+  }
+  .ob-faces li:nth-child(n + 5) {
+    display: none;
+  }
+  .ob-perks {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ob-perks li {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+  }
+  .ob-foot .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 1200px) {
+  .langs {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .langs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .langs button:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+/* scripts without capitals need room between the lines of a big line */
+:lang(ar) .ob-hook,
+:lang(th) .ob-hook,
+:lang(ja) .ob-hook,
+:lang(ko) .ob-hook,
+:lang(zh) .ob-hook {
+  line-height: 1.3;
+}

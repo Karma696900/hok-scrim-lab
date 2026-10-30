@@ -1,0 +1,334 @@
+/* ---------- last hit ---------- */
+.rx-life {
+  --notch: 30;
+  position: relative;
+  width: min(100%, 760px);
+  height: 48px;
+  margin: 56px auto 6px;
+  border: 2px solid #5671a6;
+  border-radius: var(--r-md);
+  background: #101c30;
+  overflow: visible;
+}
+.rx-life-fill {
+  position: absolute;
+  inset: 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #15874f, #34d399);
+  transform-origin: left center;
+}
+.rx-notch {
+  position: absolute;
+  inset-block: -10px;
+  inset-inline-start: calc(var(--notch) * 1%);
+  width: 5px;
+  margin-inline-start: -2.5px;
+  border-radius: 3px;
+  background: #ffd166;
+  box-shadow: 0 0 12px rgba(255, 209, 102, 0.8);
+}
+.rx-notch::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  inset-inline-start: 50%;
+  margin-inline-start: -8px;
+  border: 8px solid transparent;
+  border-top-color: #ffd166;
+  border-bottom: 0;
+}
+[dir="rtl"] .rx-life-fill {
+  transform-origin: right center;
+}
+.rx-verdict {
+  min-height: 38px;
+  color: var(--muted);
+  font: 700 clamp(22px, 4vw, 32px) / 1.2 var(--font-display);
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.rx-verdict[data-side="early"] {
+  color: var(--brand-ink);
+}
+.rx-verdict[data-side="late"] {
+  color: var(--warn);
+}
+.rx-strike {
+  width: min(100%, 420px);
+  height: 88px;
+  border: 0;
+  border-radius: var(--r-lg);
+  background: linear-gradient(180deg, #4a85f2, #2f6fe8);
+  box-shadow: 0 8px 0 #1c4aa8;
+  color: #fff;
+  font: 700 30px/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.rx-strike:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 4px;
+}
+.rx-strike:active {
+  transform: translateY(4px);
+  box-shadow: 0 4px 0 #1c4aa8;
+}
+
+/* ---------- skill keys ---------- */
+.rx-prompt {
+  display: flex;
+  justify-content: center;
+  gap: clamp(10px, 2.4vw, 18px);
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+}
+.rx-prompt li {
+  display: grid;
+  place-items: center;
+  width: clamp(56px, 12vw, 104px);
+  aspect-ratio: 1;
+  border: 2px solid #5671a6;
+  border-radius: var(--r-lg);
+  background: #1b2b47;
+  color: #a9b7cf;
+  font: 700 clamp(28px, 6vw, 52px) / 1 var(--font-display);
+}
+.rx-prompt li[data-state="now"] {
+  border-color: #d6e6ff;
+  background: #2f6fe8;
+  color: #fff;
+  box-shadow:
+    0 0 0 4px rgba(91, 155, 255, 0.3),
+    0 0 30px rgba(91, 155, 255, 0.6);
+}
+.rx-prompt li[data-state="done"] {
+  border-color: #34d399;
+  background: #0e2a22;
+  color: #34d399;
+}
+.rx-prompt li.wrong {
+  border-color: #ffc2c8;
+  background: #cf3340;
+  color: #fff;
+}
+.rx-keys {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: min(100%, 520px);
+}
+.rx-key {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 120px;
+  height: clamp(64px, 12vh, 88px);
+  border: 2px solid #5671a6;
+  border-radius: var(--r-lg);
+  background: #1b2b47;
+  color: #fff;
+  font: 700 30px/1 var(--font-display);
+}
+.rx-key:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.rx-key:active {
+  border-color: #d6e6ff;
+  background: #2f6fe8;
+}
+
+/* ---------- narrower screens ---------- */
+@media (max-width: 1280px) {
+  .rx-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .rx-list--small {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .rx-top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 1100px) {
+  .rx-list,
+  .rx-list--small {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .rx-intro,
+  .rx-result {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+}
+@media (max-width: 720px) {
+  .rx-list,
+  .rx-list--small {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .rx-card,
+  .rx-sample {
+    grid-template-columns: 112px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+  }
+  .rx-card__art {
+    grid-row: span 2;
+    aspect-ratio: auto;
+    border-inline-end: 1px solid var(--line-soft);
+    border-bottom: 0;
+  }
+  .rx-card__body {
+    padding: 12px 14px 4px;
+  }
+  .rx-card__body b {
+    font-size: 19px;
+  }
+  .rx-card__body p {
+    display: none;
+  }
+  .rx-card__best {
+    padding: 4px 14px 12px;
+    border-top: 0;
+  }
+  .rx-banner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rx-routines {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rx-board {
+    padding: 14px;
+  }
+  .rx-intro__how {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rx-hud {
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .rx-hud__name {
+    font-size: 18px;
+  }
+  .rx-hud__count {
+    font-size: 24px;
+  }
+  .rx-stage {
+    padding: 4px 12px 12px;
+  }
+  .rx-status {
+    font-size: 16px;
+  }
+  .rx-stats {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rx-result {
+    padding: 16px;
+  }
+  .rx-yours__best {
+    font-size: 56px;
+  }
+  .rx-result__score {
+    font-size: 64px;
+  }
+}
+
+/* the tightest phones: the way out is its cross alone (the button keeps its name for the readers) */
+@media (max-width: 420px) {
+  .rx-hud__stop {
+    justify-content: center;
+    width: 44px;
+    padding: 0;
+  }
+  .rx-hud__stop span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+/* a phone held upright: the 40 places of the chimp test are five across, eight down, so that a finger covers one */
+@media (orientation: portrait) and (max-width: 720px) {
+  .rx-chimp {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    width: 100%;
+  }
+}
+
+/* ---------- a phone in the hand: what a thumb needs ---------- */
+/* a run never pulls the page, selects a word or opens the callout of a long press */
+html:has(.is-running) {
+  overscroll-behavior: none;
+}
+.rx-stage,
+.rx-stage * {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+/* the balls of the tracking are 32 px: the area that answers a finger reaches 48 */
+.rx-ball::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+}
+@media (max-width: 720px) {
+  /* the first page of an exercise: your best and Start are at the top, how it is played comes after */
+  .rx-intro > .rx-yours {
+    order: -1;
+  }
+  .rx-intro__art {
+    max-width: 200px;
+  }
+}
+/* a phone held sideways (or any short window): the run keeps everything on the screen */
+@media (max-height: 520px) {
+  .rx-hud {
+    padding-block: 4px;
+  }
+  .rx-hud__stop,
+  .rx-hud__meter {
+    min-height: 40px;
+    height: 40px;
+  }
+  .rx-status {
+    font-size: 14px;
+  }
+  .rx-stage {
+    gap: 8px;
+    padding-block: 4px 8px;
+  }
+  .rx-pads {
+    width: min(100%, 520px, calc(100dvh - 130px));
+  }
+  .rx-chimp {
+    width: min(100%, 980px, calc((100dvh - 120px) * 1.6));
+  }
+  .rx-life {
+    height: 36px;
+    margin-block: 28px 2px;
+  }
+  .rx-verdict {
+    min-height: 26px;
+    font-size: 20px;
+  }
+  .rx-strike {
+    height: 60px;
+    box-shadow: 0 5px 0 #1c4aa8;
+  }
+  .rx-prompt {
+    margin-bottom: 8px;
+  }
+  .rx-prompt li {
+    width: clamp(44px, 9vw, 64px);
+    font-size: 24px;
+  }
+  .rx-key {
+    height: 52px;
+  }
+  .rx-pad b {
+    font-size: 36px;
+  }
+}

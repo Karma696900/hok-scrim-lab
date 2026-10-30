@@ -1,0 +1,469 @@
+/* A series: the band at the top (the way back, the two teams around the score, where the series stands, the games as
+   tabs and the actions), the online strip, what comes next, and what the games said. The board bleeds to the edges of
+   the page: it cancels the padding of the page and gives it back to the blocks that are not full width. */
+.series-board {
+  --host-px: 28px;
+  --host-pt: 24px;
+  --host-pb: 96px;
+  /* the side space of the blocks that are not full width: the padding of the page, and the margin of its 1500 px column on a wide screen */
+  --gutter: max(var(--host-px), calc((100% - 1444px) / 2));
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  /* bleeds to both edges of the window (--sbw, set by the script, is the width of the scrollbar that 100vw counts) */
+  margin: calc(-1 * var(--host-pt)) calc((100% - 100vw + var(--sbw, 0px)) / 2) 0;
+}
+.series-board > [data-region]:empty {
+  display: none;
+}
+/* a series that is being drafted: the band, then the room that takes all the height that is left */
+.sr-board--room {
+  /* what stands over the room (the band, the block of the teams, the online strip): the room takes the rest of the screen */
+  --above-room: calc(128px + var(--above-teams, 0px) + var(--above-online, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-height: calc(100dvh - var(--topbar));
+}
+.sr-board--room:has([data-region="online"]:not(:empty)) {
+  --above-online: 60px;
+}
+.sr-board--room:has([data-region="teams"]:not(:empty)) {
+  --above-teams: 104px;
+}
+.sr-board--room > [data-region="draft"] {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+.sr-board--room > [data-region="details"] {
+  padding-top: 24px;
+  padding-bottom: var(--host-pb);
+}
+.sr-board--bare {
+  margin-bottom: calc(-1 * var(--host-pb));
+}
+
+/* ---------- the band ---------- */
+.sr-band {
+  padding-inline: var(--host-px);
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+.sr-band__top {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(0, 780px) minmax(150px, 1fr);
+  align-items: center;
+  gap: 12px 24px;
+  padding-block: 10px 4px;
+}
+.sr-back {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: var(--brand-ink);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.sr-back:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.scoreboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+.vsteam {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+.vsteam--a {
+  flex-direction: row-reverse;
+  text-align: end;
+}
+.vsteam .emblem {
+  --s: 48px;
+}
+.vsteam__who {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.vsteam--a .vsteam__who {
+  justify-items: end;
+}
+.vsteam h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  /* one line is always kept, so the empty frame drawn before the names arrive is as tall as the band with them */
+  min-height: 1.05em;
+  font: 700 25px/1.05 var(--font-display);
+  letter-spacing: 0.03em;
+}
+.vsteam h2 > span:last-child {
+  display: -webkit-box;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.vsteam small {
+  color: var(--muted);
+}
+.vsscore {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  min-width: 132px;
+}
+.vsscore b {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--muted);
+  font: 700 46px/0.95 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.vsscore b i {
+  color: var(--faint);
+  font-style: normal;
+}
+.vsscore .w {
+  color: var(--brand-ink);
+}
+.vsscore small {
+  color: var(--muted);
+  white-space: nowrap;
+}
+.sr-band__info {
+  display: grid;
+  justify-items: end;
+  gap: 4px;
+  color: var(--muted);
+  text-align: end;
+}
+.sr-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--brand-ink);
+  font: 700 15px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.sr-live::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--brand);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.sr-band__bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+.sr-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+/* the games, as tabs */
+.game-nav {
+  display: flex;
+  gap: 4px;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.game-chip {
+  flex: none;
+}
+.game-chip-main {
+  position: relative;
+  display: grid;
+  gap: 3px;
+  padding: 6px 16px 10px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  text-align: start;
+  transition: color 160ms;
+}
+.game-chip-main strong {
+  font: 700 16px/1 var(--font-display);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.game-chip-main span {
+  font-size: 12px;
+  line-height: 1.2;
+}
+.game-chip-main:hover {
+  color: var(--ink);
+}
+.game-chip.active .game-chip-main {
+  color: var(--brand-ink);
+}
+.game-chip.active .game-chip-main::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 3px;
+  background: var(--brand);
+}
+.game-chip.current strong::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-inline-end: 8px;
+  border-radius: 50%;
+  background: var(--brand);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+/* the teams a series is shared with: what it is for, the teams it is on, the teams it can be put on */
+.sr-teams {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 2fr) minmax(260px, 1fr);
+  align-items: start;
+  gap: 12px 28px;
+  padding: 16px var(--host-px);
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-raised);
+}
+.sr-teams h2 {
+  font: 700 20px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+}
+.sr-teams__intro p {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.sr-teams__on h3 {
+  margin-bottom: 8px;
+  color: var(--muted);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+}
+.sr-teams__on ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sr-teams__chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 3px 3px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+}
+.sr-teams__chip a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.sr-teams__chip b {
+  overflow: hidden;
+  font: 600 14px/1.2 var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sr-teams__chip .btn {
+  border-radius: 50%;
+}
+.sr-teams__add {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 8px;
+}
+.sr-teams__add > p {
+  grid-column: 1 / -1;
+  font-size: 13px;
+}
+.sr-teams .form-error {
+  grid-column: 1 / -1;
+}
+
+/* an online room: who is connected, and the invitation */
+.sr-online {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 20px;
+  padding: 12px var(--host-px);
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-raised);
+}
+.sr-online__what {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sr-online h2 {
+  font: 700 16px/1 var(--font-display);
+  letter-spacing: 0.08em;
+}
+.sr-online p {
+  flex: 1 1 280px;
+  font-size: 13px;
+}
+.sr-online__invite {
+  display: flex;
+  flex: 1 1 380px;
+  gap: 8px;
+}
+.sr-online__invite .field {
+  height: 36px;
+}
+
+/* what comes next: the next game, or the end of the series */
+.sr-next,
+.sr-over {
+  display: grid;
+  align-items: center;
+  gap: 16px 28px;
+  margin: 24px var(--gutter) 0;
+  padding: 24px 32px;
+}
+.sr-next {
+  grid-template-columns: auto minmax(0, 1fr) minmax(200px, 260px) auto;
+}
+.sr-next__number {
+  color: var(--brand);
+  font: 700 88px/0.8 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.sr-next h2,
+.sr-over h2 {
+  font: 700 32px/1 var(--font-display);
+  letter-spacing: 0.04em;
+}
+.sr-next p,
+.sr-over p {
+  margin-top: 8px;
+}
+.sr-over {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+.sr-over > .i {
+  color: var(--brand);
+}
+
+/* before the first game: the order of the steps, and what was chosen */
+.sr-lobby {
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr);
+  gap: 16px;
+  margin: 16px var(--gutter) 0;
+}
+.sr-order ol {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 8px;
+}
+.sr-order li.blue {
+  --k: var(--team-blue);
+}
+.sr-order li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-content: space-between;
+  gap: 4px 6px;
+  min-height: 92px;
+  padding: 10px;
+  border: 1px solid color-mix(in srgb, var(--k) 50%, var(--line));
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--k) 14%, var(--panel));
+}
+.sr-order li.red {
+  --k: var(--team-red);
+}
+.sr-order li b {
+  grid-column: 1 / -1;
+  color: var(--ink);
+  font: 700 30px/1 var(--font-display);
+}
+.sr-order li .i {
+  align-self: center;
+  width: 18px;
+  height: 18px;
+  color: color-mix(in srgb, var(--k) 35%, var(--ink));
+}
+.sr-order li span {
+  align-self: center;
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sr-order li small {
+  grid-column: 1 / -1;
+  color: var(--muted);
+}
+.sr-roster {
+  grid-column: 1 / -1;
+}
+.sr-roster ul {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 12px;
+}
+.sr-tile {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+}
+.sr-tile b {
+  max-width: 100%;
+  overflow: hidden;
+  font: 600 13px/1.2 var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sr-tile:hover .sr-hero__art,
+.sr-tile:focus-visible .sr-hero__art {
+  box-shadow: 0 0 0 2px var(--brand);
+}
+.sr-rules {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+.sr-rules .card__head {
+  margin-bottom: 0;
+}
+.sr-rules p {
+  font-size: 13px;
+  line-height: 1.5;
+}

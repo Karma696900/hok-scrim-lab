@@ -1,0 +1,110 @@
+/* Cards, grids and layout helpers. */
+/* ---------- cards ---------- */
+.card {
+  position: relative;
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+/* a card that leads a page: corner brackets in gold */
+.card--feature::before,
+.card--feature::after {
+  content: "";
+  position: absolute;
+  inline-size: 16px;
+  block-size: 16px;
+  pointer-events: none;
+  border: 2px solid var(--brand);
+}
+.card--feature::before {
+  inset-block-start: -1px;
+  inset-inline-start: -1px;
+  border-inline-end: 0;
+  border-block-end: 0;
+}
+.card--feature::after {
+  inset-block-end: -1px;
+  inset-inline-end: -1px;
+  border-inline-start: 0;
+  border-block-start: 0;
+}
+.card--blue {
+  background: var(--card-blue);
+  border-color: var(--gild-line);
+}
+.card--flush {
+  padding: 0;
+  overflow: hidden;
+}
+.card__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.card__head h2,
+.card__head h3 {
+  font: 700 20px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.card__head .tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* a title inside a card, between two blocks of it */
+.subheading {
+  margin: 20px 0 10px;
+  font-size: 15px;
+}
+
+.stack-y {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+.hstack {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.between {
+  justify-content: space-between;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.grow {
+  flex: 1;
+  min-width: 0;
+}
+.tight {
+  gap: 8px;
+}
+
+/* On a phone the cards under the first screen are laid out and painted when they are scrolled near: the first layout of a page
+   is a third lighter (Lighthouse total blocking time). `auto` keeps the real height once a card has been seen. The cards that stick
+   while the page scrolls are left out (a contained box would hold their position back), and so are the last two of a column: the
+   end of a page is laid out for good, so that nothing grows under the footer while it is scrolled to. A page whose cards have a known
+   height says it in `--cv-size` (and then even the last ones can be skipped: nothing grows when they are laid out). */
+@media (max-width: 900px) {
+  main#view
+    :is(.card, .ws-card, .hs-mod):not(
+      .gd-detail,
+      .ws-panel,
+      .trn-pick,
+      .bl-side,
+      .bed-heroes,
+      .dr-room .card,
+      :nth-last-child(-n + 2)
+    ) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto var(--cv-size, 400px);
+  }
+}

@@ -1,0 +1,555 @@
+/* What the pages of the community share (teams, a team, agenda, inbox, find a scrim, players, Discord, reports):
+   the stage that opens them, its big numbers, the two-column layouts with the filters on the left, the
+   chips, the steps, the one-line empty state and the colour of a kind of event. Every class here is cm-*
+   (or k-*, the kinds of event), written by the features "community" and "teams". */
+
+/* ---------- the stage: the cover of a hero under a dark veil, the title, the actions, the big numbers ---------- */
+.page-head.cm-stage {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px 40px;
+  min-height: 0;
+  margin-bottom: 20px;
+  padding: 38px 40px 34px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background:
+    radial-gradient(
+      110% 120% at 88% 0%,
+      color-mix(in srgb, var(--brand) 26%, transparent),
+      transparent 62%
+    ),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--brand-strong) 24%, var(--panel-soft)),
+      var(--panel-soft)
+    );
+  color: var(--ink);
+  overflow: hidden;
+}
+.page-head.cm-stage--slim {
+  min-height: 0;
+  padding-block: 30px 26px;
+}
+.cm-stage__art {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+}
+.cm-stage__art.is-on {
+  opacity: 1;
+}
+.cm-stage__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 22%;
+}
+.cm-stage__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--panel-soft) 96%, transparent) 0%,
+      color-mix(in srgb, var(--panel-soft) 84%, transparent) 34%,
+      color-mix(in srgb, var(--panel-soft) 38%, transparent) 70%,
+      color-mix(in srgb, var(--panel-soft) 12%, transparent) 100%
+    ),
+    linear-gradient(0deg, color-mix(in srgb, var(--panel-soft) 86%, transparent), transparent 58%);
+}
+[dir="rtl"] .cm-stage__veil {
+  transform: scaleX(-1);
+}
+.cm-stage__who {
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  min-width: 0;
+}
+.cm-stage__badge {
+  flex: none;
+}
+.cm-stage__main {
+  display: grid;
+  align-content: end;
+  min-width: 0;
+}
+.page-head.cm-stage h1 {
+  font-size: clamp(40px, 5.4vw, 64px);
+  line-height: 0.98;
+  text-shadow: 0 2px 14px color-mix(in srgb, var(--panel-soft) 70%, transparent);
+}
+.page-head.cm-stage p {
+  max-width: 52ch;
+  margin-top: 14px;
+  color: var(--ink);
+  opacity: 0.88;
+  font-size: 16px;
+}
+.cm-stage__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+.cm-stage .btn:not(.btn--primary):not(.btn--discord) {
+  background: color-mix(in srgb, var(--panel-soft) 74%, transparent);
+}
+.cm-stage :focus-visible {
+  outline-color: var(--brand-ink);
+}
+.cm-stage .crumb {
+  color: var(--brand-ink);
+}
+
+/* the big numbers, on a plate that keeps them readable over the art */
+.cm-figures b small {
+  margin-inline-start: 2px;
+  color: var(--muted);
+  font-size: 0.42em;
+  font-weight: 600;
+}
+.cm-figures {
+  display: flex;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--panel-soft) 82%, transparent);
+  backdrop-filter: blur(6px);
+}
+.cm-figures li {
+  display: grid;
+  gap: 8px;
+  min-width: 116px;
+  padding: 18px 26px 16px;
+}
+.cm-figures li + li {
+  border-inline-start: 1px solid var(--line);
+}
+.cm-figures b {
+  font: 700 clamp(44px, 4.6vw, 64px) / 0.9 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.cm-figures span {
+  color: var(--brand-ink);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ---------- two columns (the filters or a side panel on the left or the right), three with both ---------- */
+.cm-layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.cm-layout--3 {
+  grid-template-columns: 250px minmax(0, 1fr) 340px;
+  gap: 20px;
+}
+.cm-layout--side {
+  grid-template-columns: minmax(0, 1fr) 360px;
+}
+.cm-main {
+  display: grid;
+  gap: 20px;
+  min-width: 0;
+  align-content: start;
+}
+.cm-side {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  align-content: start;
+}
+
+/* ---------- the column of filters ---------- */
+.cm-filters {
+  position: sticky;
+  top: calc(var(--topbar) + 16px);
+  display: grid;
+  gap: 20px;
+  max-height: calc(100vh - var(--topbar) - 32px);
+  padding: 18px;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+}
+.cm-filters__body {
+  display: grid;
+  gap: 20px;
+}
+.cm-filters__toggle {
+  display: none;
+}
+.cm-group {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.cm-group > h2,
+.cm-group > legend {
+  padding: 0;
+  color: var(--muted);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cm-group .field {
+  width: 100%;
+}
+.cm-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cm-chip {
+  position: relative;
+}
+.cm-chip input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.cm-chip span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--muted);
+  font: 600 13px/1 var(--font-body);
+  transition:
+    border-color 160ms,
+    background 160ms,
+    color 160ms;
+}
+.cm-chip input:hover + span {
+  border-color: var(--brand);
+  color: var(--ink);
+}
+.cm-chip input:checked + span {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  color: var(--ink);
+}
+.cm-chip input:focus-visible + span {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+/* a choice written as a row (a scope: all, mine), with its count on the right */
+.cm-scope {
+  display: grid;
+  gap: 6px;
+}
+.cm-scope button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font: 600 14px/1 var(--font-body);
+  text-align: start;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    color 160ms;
+}
+.cm-scope button:hover {
+  border-color: var(--brand);
+  color: var(--ink);
+}
+.cm-scope button.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  color: var(--ink);
+}
+.cm-scope .count {
+  margin: 0;
+}
+
+/* ---------- a line of what is shown, with the way to take the filters off ---------- */
+.cm-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  min-height: 34px;
+}
+.cm-bar p {
+  color: var(--muted);
+  font-size: 14px;
+}
+.cm-bar b {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- the steps of "how it works": one band, three columns, big numerals ---------- */
+.cm-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+  box-shadow: var(--edge);
+  counter-reset: cm-step;
+  overflow: hidden;
+}
+.cm-steps li {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 4px 16px;
+  align-content: start;
+  padding: 22px 24px 22px 22px;
+}
+.cm-steps li + li {
+  border-inline-start: 1px solid var(--line-soft);
+}
+.cm-steps__icon {
+  grid-row: span 2;
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.cm-steps__icon i {
+  position: absolute;
+  inset-block-start: -9px;
+  inset-inline-end: -9px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--brand-strong);
+  color: #fff;
+  font: 700 12px/1 var(--font-body);
+  font-style: normal;
+}
+.cm-steps b {
+  align-self: end;
+  font: 700 20px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.cm-steps li > span:last-child {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- an empty list is one line with its action, never a block ---------- */
+.cm-line {
+  display: flex;
+  align-items: center;
+  justify-items: initial;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px dashed var(--line);
+  border-radius: var(--r-md);
+  color: var(--muted);
+  text-align: start;
+}
+.cm-line > .i {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--faint);
+}
+.cm-line > span {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.45;
+}
+.cm-line b {
+  color: var(--ink);
+}
+.cm-line .btn {
+  flex: none;
+}
+
+/* ---------- the colour of a kind of event (--ec): the chips, the columns, the rows, the legend ---------- */
+.k-scrim {
+  --ec: var(--brand);
+}
+.k-tournament {
+  --ec: color-mix(in srgb, var(--brand) 55%, var(--tier-ss));
+}
+.k-practice {
+  --ec: var(--success);
+}
+.k-vod {
+  --ec: var(--warn);
+}
+.k-meeting {
+  --ec: var(--muted);
+}
+.k-availability {
+  --ec: var(--cyan);
+}
+.k-unavailable {
+  --ec: var(--danger);
+}
+
+/* ---------- a small date block (day number over the weekday), coloured by the kind of event ---------- */
+.cm-date {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  width: 54px;
+  height: 58px;
+  flex: none;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--ec, var(--brand)) 20%, transparent);
+  color: var(--ink);
+  font: 700 24px/1 var(--font-display);
+}
+span.cm-date small {
+  color: color-mix(in srgb, var(--ec, var(--brand)) 35%, var(--ink));
+  font: 700 12px/1 var(--font-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1280px) {
+  .cm-layout--3 {
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+  .cm-layout--3 > .cm-side {
+    position: static;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .page-head.cm-stage {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding: 28px 20px 22px;
+  }
+  .cm-figures {
+    width: 100%;
+  }
+  .cm-figures li {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 12px;
+  }
+  .cm-figures b {
+    font-size: 40px;
+  }
+  .cm-figures span {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    overflow-wrap: anywhere;
+  }
+  .cm-layout,
+  .cm-layout--3,
+  .cm-layout--side {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+  .cm-side {
+    position: static;
+  }
+  .cm-filters {
+    position: static;
+    max-height: none;
+    gap: 14px;
+    padding: 12px;
+  }
+  .cm-filters__toggle {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .cm-filters:not(.is-open) .cm-filters__body {
+    display: none;
+  }
+  .cm-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cm-steps li + li {
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--line-soft);
+  }
+}
+
+/* a danger button on the pages of the community keeps AA on its red tint in the light theme */
+.tp-danger .btn--danger,
+.dc-linked .btn--danger,
+.ib-detail .btn--danger {
+  color: color-mix(in srgb, var(--danger) 78%, var(--ink));
+}
+/* the messages of the contact page, under the reports (administrators) */
+.rp-contact {
+  margin-top: 20px;
+}
+.rp-msgs {
+  display: grid;
+  gap: 12px;
+}
+.rp-msg {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+}
+.rp-msg.is-done {
+  opacity: 0.6;
+}
+.rp-msg header {
+  display: grid;
+  gap: 2px;
+}
+.rp-msg small {
+  color: var(--faint);
+}
+.rp-msg p {
+  color: var(--muted);
+  line-height: 1.55;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.rp-msg footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}

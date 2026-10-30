@@ -1,0 +1,472 @@
+/* Scrims and History share their opening stage and the rows of a series; the Scrims page adds its listing, its quick starts and
+   the panel that sets up a new series. Everything here is prefixed sc- (the page that owns the class), apart from the
+   hooks the browser tests use (.series-item, .series-row, .series-export). */
+
+/* ---------- the stage: two covers cut by a diagonal, the title, the big numbers, the actions ---------- */
+.sc-scene {
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--ink);
+}
+.sc-scene__art {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+.sc-scene__art.is-ready img {
+  opacity: 1;
+}
+.sc-scene__art img {
+  opacity: 0;
+  transition: opacity 700ms var(--ease);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sc-scene__art--blue {
+  clip-path: polygon(0 0, 64% 0, 40% 100%, 0 100%);
+  background: linear-gradient(
+    110deg,
+    color-mix(in srgb, var(--team-blue) 34%, var(--panel-soft)),
+    var(--panel-soft)
+  );
+}
+.sc-scene__art--blue img {
+  object-position: 70% 28%;
+}
+.sc-scene__art--red {
+  clip-path: polygon(64% 0, 100% 0, 100% 100%, 40% 100%);
+  background: linear-gradient(
+    250deg,
+    color-mix(in srgb, var(--team-red) 34%, var(--panel-soft)),
+    var(--panel-soft)
+  );
+}
+.sc-scene__art--red img {
+  object-position: 30% 28%;
+}
+[dir="rtl"] .sc-scene__art--blue {
+  clip-path: polygon(36% 0, 100% 0, 100% 100%, 60% 100%);
+}
+[dir="rtl"] .sc-scene__art--red {
+  clip-path: polygon(0 0, 36% 0, 60% 100%, 0 100%);
+}
+/* a reading veil from the side of the title, and the team tint of each half */
+.sc-scene__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--panel-soft) 90%, transparent) 0%,
+      color-mix(in srgb, var(--panel-soft) 58%, transparent) 30%,
+      color-mix(in srgb, var(--panel-soft) 8%, transparent) 56%,
+      transparent 70%,
+      color-mix(in srgb, var(--panel-soft) 30%, transparent) 100%
+    ),
+    linear-gradient(0deg, color-mix(in srgb, var(--panel-soft) 60%, transparent), transparent 48%);
+}
+[dir="rtl"] .sc-scene__veil {
+  background:
+    linear-gradient(
+      270deg,
+      color-mix(in srgb, var(--panel-soft) 90%, transparent) 0%,
+      color-mix(in srgb, var(--panel-soft) 58%, transparent) 30%,
+      color-mix(in srgb, var(--panel-soft) 8%, transparent) 56%,
+      transparent 70%,
+      color-mix(in srgb, var(--panel-soft) 30%, transparent) 100%
+    ),
+    linear-gradient(0deg, color-mix(in srgb, var(--panel-soft) 60%, transparent), transparent 48%);
+}
+/* the bright line along the cut */
+.sc-scene__cut {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--brand-ink);
+  opacity: 0.8;
+  pointer-events: none;
+  clip-path: polygon(64% 0, calc(64% + 2px) 0, calc(40% + 2px) 100%, 40% 100%);
+}
+[dir="rtl"] .sc-scene__cut {
+  clip-path: polygon(36% 0, calc(36% + 2px) 0, calc(60% + 2px) 100%, 60% 100%);
+}
+.sc-scene__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px 40px;
+  min-height: 0;
+  padding: 36px 44px 32px;
+}
+.sc-scene__main {
+  display: grid;
+  align-content: end;
+  gap: 22px;
+  min-width: 0;
+}
+.sc-scene .page-head {
+  display: block;
+  margin: 0;
+}
+.sc-scene .page-head h1 {
+  font-size: clamp(40px, 5.4vw, 64px);
+  line-height: 0.98;
+}
+.sc-scene .page-head p {
+  margin-top: 14px;
+  max-width: 46ch;
+  color: var(--ink);
+  opacity: 0.86;
+  font-size: 16px;
+}
+.sc-scene__actions {
+  gap: 10px;
+}
+/* the keyboard ring is the bright blue of the dark surfaces, in both themes (the stage stays dark) */
+.sc-scene :focus-visible {
+  outline-color: var(--brand-ink);
+}
+/* over the art a ghost button needs a ground of its own */
+.sc-scene .btn--ghost {
+  background: color-mix(in srgb, var(--panel-soft) 74%, transparent);
+}
+.sc-scene .page-head h1,
+.sc-scene .page-head p {
+  text-shadow: 0 2px 14px color-mix(in srgb, var(--panel-soft) 70%, transparent);
+}
+/* the big numbers, on a plate that keeps them readable over the art */
+.sc-figures {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--panel-soft) 84%, transparent);
+  backdrop-filter: blur(6px);
+}
+.sc-figures li {
+  display: grid;
+  gap: 6px;
+  min-width: 128px;
+  padding: 20px 28px 18px;
+}
+.sc-figures li + li {
+  border-inline-start: 1px solid var(--line);
+}
+.sc-figures b {
+  color: var(--brand-ink);
+  font: 700 clamp(44px, 5vw, 72px) / 0.9 var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+.sc-figures span {
+  color: var(--muted);
+  font: 700 13px/1.2 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- the page: the series on the left, the panel of a new series on the right ---------- */
+.sc-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 440px;
+  gap: 20px;
+  align-items: start;
+}
+.sc-main {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  min-width: 0;
+}
+.sc-notice:empty {
+  display: none;
+}
+/* the roster note is one quiet line, not a warning box */
+.sc-notice .note {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+}
+.sc-notice .note .i {
+  color: var(--faint);
+}
+
+/* the listing: tabs and search, then one rich row per series */
+.sc-listing .tabrow {
+  align-items: flex-end;
+  padding: 20px 24px 0;
+  background: var(--panel);
+}
+.sc-listing .tabs {
+  gap: 24px;
+}
+.sc-listing .tabrow .field {
+  width: 260px;
+  height: 40px;
+  margin-bottom: 12px;
+}
+.sc-list {
+  gap: 10px;
+  padding: 16px 16px 20px;
+  /* a long list scrolls inside its card: the page stays as tall as the panel of a new series next to it */
+  max-height: 680px;
+  overflow-y: auto;
+}
+.sc-item {
+  position: relative;
+  container: sc-row / inline-size;
+}
+.sc-item .series-export {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border-color: transparent;
+  color: var(--muted);
+}
+.sc-item .series-export:hover {
+  color: var(--ink);
+}
+.sc-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px minmax(0, 1fr);
+  grid-template-areas:
+    "a mid b"
+    "pa foot pb";
+  align-items: center;
+  gap: 10px 20px;
+  width: 100%;
+  padding: 16px 56px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+  color: var(--ink);
+  text-align: start;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    transform 160ms var(--ease);
+}
+/* a row without pictures of picks (the summaries of History): the two teams stand beside the whole centre */
+.sc-row--plain {
+  grid-template-areas:
+    "a mid b"
+    "a foot b";
+}
+.sc-row:hover {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 6%, var(--tint-1));
+  transform: translateY(-1px);
+}
+.sc-row--live {
+  border-color: var(--gild-line);
+  background: color-mix(in srgb, var(--brand) 7%, var(--tint-1));
+}
+.sc-team {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  gap: 14px;
+  min-width: 0;
+  max-width: 100%;
+}
+.sc-team--a {
+  grid-area: a;
+  justify-self: end;
+  text-align: end;
+}
+.sc-team--b {
+  grid-area: b;
+  justify-self: start;
+}
+.sc-team b {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  font: 700 22px/1.1 var(--font-display);
+  letter-spacing: 0.03em;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+}
+.sc-picks {
+  display: flex;
+  gap: 6px;
+}
+.sc-picks--a {
+  grid-area: pa;
+  justify-self: end;
+}
+.sc-picks--b {
+  grid-area: pb;
+  justify-self: start;
+}
+.sc-pick {
+  border-radius: var(--r-sm);
+  box-shadow: 0 0 0 1px var(--gild-line);
+}
+.sc-pick--empty {
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--line);
+  background: none;
+  box-shadow: none;
+  color: var(--faint);
+  font: 700 12px/1 var(--font-display);
+}
+.sc-mid {
+  display: grid;
+  grid-area: mid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+}
+.sc-foot {
+  display: grid;
+  grid-area: foot;
+  justify-items: center;
+  gap: 2px;
+  text-align: center;
+}
+.sc-score {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font: 700 44px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.sc-score i {
+  color: var(--faint);
+  font-style: normal;
+}
+.sc-score b {
+  color: var(--ink);
+}
+.sc-score b.w {
+  color: var(--brand-ink);
+}
+.sc-score b.l {
+  color: var(--faint);
+}
+.sc-state {
+  height: 22px;
+}
+.sc-state--live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--brand-ink);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.sc-state--live::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-ink);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+.sc-meta,
+.sc-when {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.3;
+}
+.sc-empty {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  padding: 22px 24px;
+  color: var(--muted);
+}
+.sc-empty b {
+  color: var(--ink);
+}
+.sc-empty .btn {
+  margin-inline-start: auto;
+}
+
+/* quick starts and the three moves of a series */
+.sc-quick__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.sc-quick__tile {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 4px 14px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  color: var(--ink);
+  text-align: start;
+  transition:
+    border-color 160ms,
+    transform 160ms var(--ease);
+}
+.sc-quick__tile:hover {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+.sc-quick__tile > .i {
+  color: var(--brand-ink);
+}
+.sc-quick__tile b {
+  display: block;
+  font: 700 18px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sc-quick__tile small {
+  color: var(--muted);
+}
+.sc-how ol {
+  display: grid;
+  gap: 4px;
+  counter-reset: step;
+}
+.sc-how li {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: center;
+  gap: 2px 14px;
+  padding: 12px 0;
+  counter-increment: step;
+}
+.sc-how li + li {
+  border-top: 1px solid var(--line-soft);
+}
+.sc-how li::before {
+  content: counter(step);
+  grid-row: 1 / span 2;
+  color: var(--brand);
+  font: 700 48px/1 var(--font-display);
+  text-align: center;
+}
+.sc-how b {
+  font: 700 18px/1.1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.sc-how span {
+  color: var(--muted);
+}

@@ -1,0 +1,428 @@
+/* the bar: the way out, the name, how far the run is */
+.rx-hud {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+.rx-hud__stop {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+  color: var(--ink);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.rx-hud__stop:hover {
+  border-color: var(--brand);
+  background: var(--tint-2);
+}
+.rx-hud__name {
+  min-width: 0;
+  overflow: hidden;
+  font: 700 22px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.rx-hud__meter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  min-width: 44px;
+  min-height: 44px;
+}
+.rx-hud__count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  font: 700 28px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.rx-hud__count .i {
+  align-self: center;
+  color: var(--brand-ink);
+}
+.rx-hud__count small {
+  color: var(--muted);
+  font: 600 16px/1 var(--font-body);
+}
+.rx-hud__lives {
+  display: inline-flex;
+  gap: 6px;
+}
+.rx-hud__lives i {
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--muted);
+  border-radius: 50%;
+}
+.rx-hud__lives i.is-on {
+  border-color: var(--danger);
+  background: var(--danger);
+}
+.rx-hud__bar {
+  height: 4px;
+  background: var(--tint-2);
+}
+.rx-hud__bar i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-strong), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 240ms var(--ease);
+}
+[dir="rtl"] .rx-hud__bar i {
+  transform-origin: right center;
+}
+
+/* the stage fills what the bar leaves; what an exercise draws is centred in it, or fills it (the pad, the fields) */
+.rx-stage {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  align-content: center;
+  justify-items: center;
+  min-height: 0;
+  padding: 8px 16px 16px;
+  overflow: hidden;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.rx-stage:has(> .rx-pad) {
+  grid-template-rows: minmax(0, 1fr);
+  align-content: stretch;
+  justify-items: stretch;
+}
+.rx-stage:has(> .rx-arena),
+.rx-stage:has(> .rx-field) {
+  grid-template-rows: auto minmax(0, 1fr);
+  align-content: stretch;
+  justify-items: stretch;
+}
+.rx-status {
+  justify-self: center;
+  max-width: 60ch;
+  color: var(--ink);
+  font: 600 18px/1.3 var(--font-body);
+  text-align: center;
+}
+
+/* calm: the stage and the entries step aside while a run lasts */
+.is-running > #trn-chrome {
+  display: none;
+}
+.is-running .rx-others {
+  display: none;
+}
+
+/* the result */
+.rx-result {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+  padding: clamp(18px, 3vw, 32px);
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-lg);
+  background:
+    radial-gradient(
+      110% 140% at 0% 0%,
+      color-mix(in srgb, var(--brand-strong) 30%, transparent),
+      transparent 62%
+    ),
+    #070d17;
+  color: var(--ink);
+}
+.rx-result__main {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+@media (min-width: 1101px) {
+  .rx-result {
+    grid-template-columns: minmax(0, 340px) minmax(0, 1fr);
+  }
+  .rx-result__main {
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+    grid-template-areas:
+      "label trend"
+      "score trend"
+      "record trend"
+      "saved trend"
+      "actions actions";
+    column-gap: 48px;
+    justify-items: stretch;
+  }
+  .rx-result__label {
+    grid-area: label;
+  }
+  .rx-result__score {
+    grid-area: score;
+  }
+  .rx-result__record {
+    grid-area: record;
+  }
+  .rx-result__saved {
+    grid-area: saved;
+  }
+  .rx-result__main > .rx-trend-slot {
+    grid-area: trend;
+    align-self: center;
+  }
+  .rx-result__main > .hstack {
+    grid-area: actions;
+    margin-top: 6px;
+  }
+}
+.rx-result__label {
+  color: var(--muted);
+  font: 600 14px/1.2 var(--font-body);
+}
+.rx-result__score {
+  font: 700 96px/0.95 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.rx-result__score small {
+  margin-inline-start: 6px;
+  color: var(--muted);
+  font: 600 22px/1 var(--font-body);
+}
+.rx-result__record {
+  color: var(--muted);
+}
+.rx-result__record.is-best {
+  color: var(--success);
+  font-weight: 700;
+}
+.rx-result__saved {
+  min-height: 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- reaction time: the pad is the stage ---------- */
+.rx-pad {
+  display: grid;
+  place-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: var(--r-lg);
+  background: #c42b39;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.16);
+  color: #fff;
+  text-align: center;
+  transition: background 90ms linear;
+}
+.rx-pad:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: -10px;
+}
+.rx-pad b {
+  font: 700 clamp(38px, 7vw, 76px) / 1.05 var(--font-display);
+  letter-spacing: 0.02em;
+}
+.rx-pad small {
+  font-size: clamp(16px, 2.2vw, 20px);
+  opacity: 0.94;
+}
+.rx-pad[data-state="go"] {
+  background: #15874f;
+}
+.rx-pad[data-state="soon"] {
+  background: #9a5f0d;
+}
+.rx-pad[data-state="hit"] {
+  background: #2f6fe8;
+}
+
+/* ---------- sequence memory ---------- */
+.rx-pads {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(8px, 2.4vw, 16px);
+  width: min(100%, 520px, calc(100vh - 240px));
+  width: min(100%, 520px, calc(100dvh - 240px));
+  aspect-ratio: 1;
+}
+.rx-pad-cell {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #5671a6;
+  border-radius: var(--r-lg);
+  background: #1b2b47;
+  transition:
+    background 80ms linear,
+    border-color 80ms linear,
+    box-shadow 80ms linear;
+}
+.rx-pad-cell:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.rx-pad-cell.lit {
+  border-color: #d6e6ff;
+  background: linear-gradient(180deg, #6aa5ff, #2f6fe8);
+  box-shadow:
+    0 0 0 4px rgba(91, 155, 255, 0.3),
+    0 0 40px rgba(91, 155, 255, 0.75);
+}
+.rx-pad-cell.wrong {
+  border-color: #ffc2c8;
+  background: #cf3340;
+}
+
+/* ---------- the chimp test ---------- */
+.rx-chimp {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: clamp(4px, 1vw, 10px);
+  width: min(100%, 980px, calc((100vh - 220px) * 1.6));
+  width: min(100%, 980px, calc((100dvh - 220px) * 1.6));
+}
+.rx-num,
+.rx-void {
+  aspect-ratio: 1;
+  border-radius: var(--r-md);
+}
+.rx-num {
+  border: 2px solid #5b9bff;
+  background: #1b2b47;
+  color: #fff;
+  font: 700 clamp(18px, 3.4vw, 40px) / 1 var(--font-display);
+}
+.rx-num:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.rx-hidden .rx-num:not(.done) {
+  border-color: #e9eef8;
+  background: #e9eef8;
+  color: transparent;
+}
+.rx-num.done {
+  visibility: hidden;
+}
+.rx-num.wrong {
+  border-color: #ffc2c8;
+  background: #cf3340;
+  color: #fff;
+}
+
+/* ---------- aim, friend or foe, tracking: a field with things that appear or move in it ---------- */
+.rx-arena,
+.rx-field {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: 2px solid #2b3d5e;
+  border-radius: var(--r-lg);
+  background:
+    linear-gradient(rgba(91, 155, 255, 0.08) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(90deg, rgba(91, 155, 255, 0.08) 1px, transparent 1px) 0 0 / 44px 44px,
+    radial-gradient(circle at 50% 45%, #14233d, #0a1220 75%);
+  overflow: hidden;
+  touch-action: none;
+}
+.rx-arena {
+  cursor: crosshair;
+}
+.rx-arena.miss {
+  border-color: #ff6b78;
+  box-shadow: inset 0 0 40px rgba(207, 51, 64, 0.45);
+}
+.rx-target,
+.rx-unit,
+.rx-ball {
+  position: absolute;
+  inset: 0 auto auto 0;
+  border-radius: 50%;
+  padding: 0;
+}
+.rx-target[hidden],
+.rx-unit[hidden] {
+  display: none;
+}
+.rx-target:focus-visible,
+.rx-unit:focus-visible,
+.rx-ball:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+.rx-target {
+  width: 56px;
+  height: 56px;
+  border: 0;
+  background: radial-gradient(
+    circle,
+    #fff 0 12%,
+    var(--team-red) 12% 36%,
+    #fff 36% 58%,
+    var(--team-red) 58%
+  );
+  box-shadow:
+    0 0 0 3px #060b13,
+    0 0 26px rgba(255, 90, 105, 0.6);
+}
+.rx-unit {
+  width: 60px;
+  height: 60px;
+  border: 3px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 3px #060b13;
+}
+.rx-unit.team-red {
+  background: var(--team-red);
+}
+.rx-unit.team-blue {
+  background: var(--team-blue);
+}
+.rx-unit.good {
+  box-shadow:
+    0 0 0 3px #060b13,
+    0 0 0 8px color-mix(in srgb, var(--success) 75%, transparent);
+}
+.rx-unit.bad {
+  box-shadow:
+    0 0 0 3px #060b13,
+    0 0 0 8px color-mix(in srgb, var(--warn) 85%, transparent);
+}
+
+/* tracking */
+.rx-ball {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #c8d6ee;
+  background: #2b4068;
+}
+.rx-ball.hot {
+  border-color: #7af0bd;
+  background: #1fbf80;
+  box-shadow:
+    0 0 0 4px rgba(52, 211, 153, 0.28),
+    0 0 22px rgba(52, 211, 153, 0.8);
+}
+.rx-ball.picked {
+  border-color: #d6e6ff;
+  background: #3f7df0;
+  box-shadow: 0 0 0 4px rgba(91, 155, 255, 0.35);
+}
+.rx-ball.wrong {
+  border-color: #ffc2c8;
+  background: #cf3340;
+}

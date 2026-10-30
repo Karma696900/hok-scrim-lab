@@ -1,0 +1,5 @@
+# Heroku builds the image from the Dockerfile (container stack: `heroku stack:set container`) and starts its CMD.
+# Heroku gives the port in $PORT, which the server reads; the database comes from JAWSDB_URL (src/server/config.js).
+build:
+  docker:
+    web: Dockerfile

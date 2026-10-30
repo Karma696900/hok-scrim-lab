@@ -1,0 +1,11 @@
+# The proxy in front of the site (docker-compose.caddy.yml). The site sends its own security headers (CSP, HSTS,
+# nosniff, ...) and compresses its files; Caddy only ends TLS and passes the request on with X-Forwarded-For/-Proto.
+{$APP_DOMAIN} {
+	reverse_proxy hok-scrim-lab:3000
+	header -Server
+}
+
+# www goes to the bare domain, for good
+www.{$APP_DOMAIN} {
+	redir https://{$APP_DOMAIN}{uri} permanent
+}

@@ -1,0 +1,387 @@
+/* application shell: the top bar (logo, the five groups of the navigation, search, language, theme, account),
+   the page host and the heading of a page. On a phone the groups become a drawer under the Menu tab. */
+.app {
+  min-height: 100vh;
+}
+/* ---------- the top bar ---------- */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: grid;
+  grid-template-columns: auto auto minmax(150px, 1fr) auto;
+  align-items: center;
+  gap: 8px 18px;
+  height: var(--topbar);
+  padding-inline: 24px;
+  border-bottom: 1px solid var(--gild-line, var(--line-soft));
+  background: var(--chrome);
+  backdrop-filter: blur(14px);
+}
+/* The sign-in pages and the welcome pages cover the whole screen: the bars under them cannot be seen, so the Tab key
+   and the screen readers must not go there either. */
+body:has(.authpage, .onboarding) :is(.topbar, .tabbar) {
+  visibility: hidden;
+}
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo img {
+  width: 38px;
+  height: 46px;
+  object-fit: contain;
+}
+.logo b {
+  display: block;
+  font: 700 16px/1.05 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.topbar .field {
+  width: 100%;
+  max-width: 420px;
+  height: 42px;
+  padding-inline-end: 8px;
+}
+.topbar .field input {
+  cursor: pointer;
+}
+.topbar__end {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lang {
+  height: 42px;
+  padding: 0 14px;
+}
+.bell {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+.bell .count {
+  position: absolute;
+  top: -4px;
+  inset-inline-end: -4px;
+  min-width: 17px;
+  height: 17px;
+  font-size: 12px;
+}
+.account-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 12px 0 6px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: none;
+  text-align: start;
+  transition-property: var(--fx);
+  transition-duration: 160ms;
+}
+.chip:hover,
+.chip[aria-expanded="true"] {
+  border-color: var(--line);
+  background: var(--panel);
+}
+.chip b {
+  display: block;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font: 600 14px/1.15 var(--font-body);
+}
+.chip small {
+  display: block;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted);
+  font-size: 12px;
+}
+.chip .pt {
+  --s: 36px;
+}
+/* ---------- the navigation: Overview, then five groups that open a panel ---------- */
+.side {
+  min-width: 0;
+}
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.nav-home,
+.nav-group__btn {
+  --nav-pad: 12px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--topbar);
+  padding: 0 var(--nav-pad);
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: 700 15px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 160ms;
+}
+.nav-home .i,
+.nav-group__btn > .i:first-child {
+  display: none;
+}
+.nav-group__btn .i--sm {
+  width: 12px;
+  height: 12px;
+  transition: transform 200ms var(--ease);
+}
+.nav-group__btn[aria-expanded="true"] .i--sm {
+  transform: rotate(180deg);
+}
+.nav-home:hover,
+.nav-group__btn:hover,
+.nav-group:focus-within > .nav-group__btn,
+.nav-group__btn[aria-expanded="true"] {
+  color: var(--ink);
+}
+/* the bar under the group that holds the current page: exactly under the word (the arrow, 12 px and its 8 px gap, is left out) */
+.nav-home::after,
+.nav-group__btn::after {
+  content: "";
+  position: absolute;
+  inset-inline: var(--nav-pad);
+  bottom: 0;
+  height: 3px;
+  background: var(--brand);
+  transform: scaleX(0);
+  transition: transform 220ms var(--ease);
+}
+.nav-home.active,
+.nav-group.active > .nav-group__btn {
+  color: var(--brand-ink);
+}
+.nav-home.active::after,
+.nav-group.active > .nav-group__btn::after {
+  transform: scaleX(1);
+}
+.nav-group__btn::after {
+  inset-inline-end: calc(var(--nav-pad) + 20px);
+}
+.nav-group {
+  position: relative;
+}
+/* a group whose every entry is hidden (module off, not signed in) is not drawn */
+.nav-group:not(:has(.nav-link:not([hidden]))) {
+  display: none;
+}
+.nav-panel {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% - 8px);
+  inset-inline-start: 0;
+  display: none;
+  min-width: 250px;
+  padding: 8px;
+  border: 1px solid var(--gild-line, var(--line));
+  border-radius: var(--r-md);
+  background: var(--panel);
+  box-shadow: var(--shadow-pop);
+}
+.nav-group--end .nav-panel {
+  inset-inline-start: auto;
+  inset-inline-end: 0;
+}
+.nav-group.open > .nav-panel {
+  display: grid;
+  gap: 2px;
+  animation: fade 160ms ease both;
+}
+@media (hover: hover) and (min-width: 901px) {
+  .nav-group:hover > .nav-panel {
+    display: grid;
+    gap: 2px;
+  }
+}
+.nav-panel .nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 44px;
+  flex: none;
+  padding: 0 12px;
+  border-radius: 8px;
+  color: var(--muted);
+  font: 500 15px/1 var(--font-body);
+  transition:
+    background 160ms,
+    color 160ms;
+}
+.nav-panel .nav-link .i {
+  width: 20px;
+  height: 20px;
+  color: var(--faint);
+  transition: color 160ms;
+}
+.nav-panel .nav-link:hover {
+  background: var(--tint-2);
+  color: var(--ink);
+}
+.nav-panel .nav-link:hover .i {
+  color: var(--brand-ink);
+}
+.nav-panel .nav-link.active {
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  color: var(--brand-ink);
+  font-weight: 600;
+}
+.nav-panel .nav-link.active .i {
+  color: var(--brand-ink);
+}
+.nav-panel .nav-link .count {
+  margin-inline-start: auto;
+}
+.mode {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+  padding: 12px;
+  border-top: 1px solid var(--line-soft);
+  font: 500 13px/1 var(--font-body);
+}
+.mode__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.mode__row > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.mode .seg {
+  width: 100%;
+}
+.mode .seg button {
+  flex: 1;
+}
+/* ---------- the footer: the legal pages, and who owns the game ---------- */
+.sitefoot {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 22px 28px 30px;
+  border-top: 1px solid var(--line-soft);
+  text-align: center;
+}
+.sitefoot__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px 6px;
+}
+.sitefoot__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 10px;
+  border-radius: var(--r-md);
+  color: var(--muted);
+  font: 600 13px/1 var(--font-body);
+  transition: color 160ms;
+}
+.sitefoot__links a:hover {
+  color: var(--ink);
+}
+.sitefoot__note {
+  max-width: 70ch;
+  color: var(--faint);
+  font-size: 12px;
+  line-height: 1.5;
+}
+body:has(.authpage, .onboarding) .sitefoot {
+  display: none;
+}
+/* ---------- the page host and the heading of a page ---------- */
+.host {
+  width: 100%;
+  min-width: 0;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 24px 28px 48px;
+}
+.host:focus {
+  outline: none;
+}
+/* The footer starts at the foot of the first screen whatever the page holds: a page that grows when its data arrives no longer
+   pushes a footer that is in view (that was the layout shift of the signed-in pages, 0.15 to 0.40). */
+main#view {
+  min-height: calc(100vh - var(--topbar));
+}
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.page-head h1 {
+  font: 700 44px/1 var(--font-display);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+/* the short gold rule under the title of every page */
+.page-head h1::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 3px;
+  margin-top: 12px;
+  background: var(--brand);
+}
+.page-head p {
+  margin-top: 10px;
+  max-width: 70ch;
+  color: var(--muted);
+  font-size: 16px;
+}
+.crumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin-bottom: 6px;
+  color: var(--brand-ink);
+  font: 500 13px/1.2 var(--font-body);
+}
+.crumb > a,
+.crumb .i {
+  flex: none;
+  white-space: nowrap;
+}
+.crumb .i {
+  width: 14px;
+  height: 14px;
+  color: var(--faint);
+}
+.stage {
+  display: grid;
+  gap: 16px;
+}

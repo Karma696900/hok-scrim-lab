@@ -1,0 +1,19 @@
+{
+  "maxFileLines": 400,
+  "maxFunctionLines": 120,
+  "maxCssLines": 600,
+  "exceptions": {
+    "scripts/performance/api-probe.mjs": {
+      "lines": 1067
+    },
+    "src/testing/layout-lint.js": {
+      "functions": {
+        "layoutProblems": 325
+      }
+    }
+  },
+  "reasons": {
+    "scripts/performance/api-probe.mjs": "Un script de mesure lancé à la main, qui parcourt l'API de bout en bout dans l'ordre : le découper en fichiers ferait perdre ce fil. Il ne fait pas partie de l'application.",
+    "src/testing/layout-lint.js": "La fonction layoutProblems est envoyée telle quelle dans la page par Playwright (page.evaluate) : elle doit rester d'un seul tenant et ne rien importer."
+  }
+}

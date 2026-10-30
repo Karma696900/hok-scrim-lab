@@ -1,0 +1,81 @@
+/* Buttons. */
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-raised);
+  color: var(--ink);
+  font: 700 14px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    transform 160ms var(--ease),
+    border-color 160ms,
+    background 160ms,
+    box-shadow 160ms;
+}
+.btn:hover {
+  border-color: var(--brand);
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn--primary {
+  background: var(--gild);
+  border-color: var(--brand);
+  color: var(--on-brand);
+  box-shadow: var(--glow);
+}
+.btn--primary:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 10px 32px rgba(91, 155, 255, 0.4);
+}
+.btn--ghost {
+  background: transparent;
+}
+.btn--danger {
+  color: var(--danger);
+  border-color: rgba(255, 138, 149, 0.4);
+  background: rgba(207, 51, 64, 0.12);
+}
+.btn--discord {
+  background: var(--discord);
+  border-color: #6c78f5;
+  color: #fff;
+}
+.btn--sm {
+  height: 34px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+.btn--lg {
+  height: 48px;
+  padding: 0 24px;
+  font-size: 16px;
+}
+.btn--icon {
+  width: 40px;
+  padding: 0;
+}
+.btn--icon.btn--sm {
+  width: 32px;
+}
+.btn--block {
+  width: 100%;
+}
+.btn .i {
+  width: 16px;
+  height: 16px;
+}
+.btn[disabled] {
+  opacity: 0.45;
+  pointer-events: none;
+}

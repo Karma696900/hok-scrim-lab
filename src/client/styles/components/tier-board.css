@@ -1,0 +1,244 @@
+/* The board of tiers, shared by the tier lists and the official ratings: one full-width band per tier. Each
+   band has a big badge in the colour of its name (SS to D; another name takes the colour of its place), the
+   portraits of its heroes, which wrap, and a place to drop them that stays on screen when it is empty. */
+
+/* the toolbar above the board */
+.tier-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  margin-bottom: 14px;
+}
+.tier-list-layout {
+  display: grid;
+  gap: 10px;
+}
+.tier-row {
+  --tc: var(--line);
+  position: relative;
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  min-height: 100px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--tc) 13%, var(--panel)),
+    var(--panel) 48%
+  );
+  overflow: hidden;
+}
+[dir="rtl"] .tier-row {
+  background: linear-gradient(
+    270deg,
+    color-mix(in srgb, var(--tc) 13%, var(--panel)),
+    var(--panel) 48%
+  );
+}
+.tier-row:nth-child(5n + 1) {
+  --tc: var(--tier-s);
+}
+.tier-row:nth-child(5n + 2) {
+  --tc: var(--tier-a);
+}
+.tier-row:nth-child(5n + 3) {
+  --tc: var(--tier-b);
+}
+.tier-row:nth-child(5n + 4) {
+  --tc: var(--tier-c);
+}
+.tier-row:nth-child(5n + 5) {
+  --tc: var(--tier-d);
+}
+.tier-row[data-tier="SS"] {
+  --tc: var(--tier-ss);
+}
+.tier-row[data-tier="S"] {
+  --tc: var(--tier-s);
+}
+.tier-row[data-tier="A"] {
+  --tc: var(--tier-a);
+}
+.tier-row[data-tier="B"] {
+  --tc: var(--tier-b);
+}
+.tier-row[data-tier="C"] {
+  --tc: var(--tier-c);
+}
+.tier-row[data-tier="D"] {
+  --tc: var(--tier-d);
+}
+/* the band of the heroes that are not ranked yet (the ratings keep them in a band of the board) */
+.tier-row.tier-unranked {
+  --tc: var(--line);
+  border-style: dashed;
+  background: var(--panel);
+}
+
+/* the badge: the name of the tier, as big as the band allows, on its colour */
+.tier-label {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 4px;
+  padding: 10px 8px;
+  background: var(--tc);
+  color: #10141c;
+}
+.tier-name {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: 700 64px/1 var(--font-display);
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: uppercase;
+}
+.tier-name.is-m {
+  font-size: 40px;
+}
+.tier-name.is-s {
+  font-size: 24px;
+}
+.tier-name:focus-visible {
+  outline: 2px solid #10141c;
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+.tier-count {
+  font: 700 13px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.tier-unranked .tier-label {
+  background: var(--panel-raised);
+  color: var(--muted);
+}
+.tier-unranked .tier-label span {
+  font: 600 14px/1.2 var(--font-body);
+  text-align: center;
+}
+
+/* where the heroes are, and where they are dropped */
+.tier-drop {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 100px;
+  padding: 14px 16px;
+  transition: background 160ms;
+}
+.tier-drop > .muted {
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  padding-inline: 16px;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--r-md);
+  font-size: 14px;
+}
+.tier-drop.is-over,
+.tier-drop.over {
+  background: color-mix(in srgb, var(--brand) 12%, transparent);
+  outline: 2px dashed var(--brand);
+  outline-offset: -6px;
+}
+
+/* a hero: its portrait in a frame in the colour of the tier, its name on the foot of the picture */
+.tier-avatar {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 2px solid color-mix(in srgb, var(--tc) 80%, transparent);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+  overflow: hidden;
+  cursor: grab;
+  transition:
+    transform 160ms var(--ease),
+    border-color 160ms,
+    box-shadow 160ms;
+}
+.tier-avatar[role="img"] {
+  cursor: default;
+}
+.tier-avatar:hover,
+.tier-avatar:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--brand);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
+}
+.tier-avatar[role="img"]:hover {
+  transform: none;
+  box-shadow: none;
+}
+.tier-avatar:active {
+  cursor: grabbing;
+}
+/* picked with a click or a key: a ring that does not depend on the colour of the tier */
+.tier-avatar[aria-pressed="true"],
+.tier-avatar.is-picked {
+  border-color: var(--brand);
+  box-shadow:
+    0 0 0 3px var(--canvas),
+    0 0 0 5px var(--brand);
+  transform: translateY(-3px);
+}
+.tier-avatar.is-dragging {
+  opacity: 0.35;
+}
+.tier-avatar[data-name]::after {
+  content: attr(data-name);
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  padding: 14px 3px 3px;
+  overflow: hidden;
+  background: linear-gradient(0deg, rgba(5, 9, 16, 0.94) 35%, transparent);
+  color: #fff;
+  font: 600 12px/1.1 var(--font-body);
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tier-portrait {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+}
+
+@media (max-width: 720px) {
+  .tier-row {
+    grid-template-columns: 76px minmax(0, 1fr);
+    min-height: 92px;
+  }
+  .tier-name {
+    font-size: 40px;
+  }
+  .tier-name.is-m {
+    font-size: 28px;
+  }
+  .tier-name.is-s {
+    font-size: 18px;
+  }
+  .tier-drop {
+    min-height: 92px;
+    gap: 8px;
+    padding: 10px;
+  }
+  .tier-avatar {
+    width: 60px;
+    height: 60px;
+  }
+}

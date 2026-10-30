@@ -1,0 +1,465 @@
+/* The inbox: a slim stage, then three panes that fill the height of the screen (the filters, the list, the
+   conversation). On a phone the list and the conversation take turns. */
+
+.page-head.ib-stage {
+  min-height: 0;
+  padding-block: 28px 24px;
+}
+.page-head.ib-stage h1 {
+  font-size: clamp(36px, 4.6vw, 56px);
+}
+.ib-stage .cm-figures b {
+  font-size: clamp(36px, 3.6vw, 48px);
+}
+.ib-app {
+  display: grid;
+  grid-template-columns: 220px 340px minmax(0, 1fr);
+  gap: 16px;
+  height: max(440px, calc(100vh - var(--topbar) - 340px));
+}
+.ib-app > * {
+  min-height: 0;
+}
+
+/* ---------- the filters ---------- */
+.ib-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 14px;
+}
+.ib-rail__list {
+  display: grid;
+  gap: 6px;
+}
+.ib-rail__list button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: none;
+  color: var(--muted);
+  font: 700 15px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-align: start;
+  text-transform: uppercase;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    color 160ms;
+}
+.ib-rail__list button:hover {
+  background: var(--tint-1);
+  color: var(--ink);
+}
+.ib-rail__list button.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  color: var(--ink);
+}
+.ib-rail__list .count {
+  margin-inline-start: auto;
+}
+.rules-note {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ---------- the list ---------- */
+.ib-listpane {
+  display: flex;
+  flex-direction: column;
+}
+.ib-listtop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.ib-listtop .field {
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+}
+.threads {
+  display: grid;
+  flex: 1;
+  gap: 4px;
+  align-content: start;
+  padding: 8px;
+  overflow-y: auto;
+}
+.th,
+.notif,
+.ib-inv {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  background: none;
+  color: inherit;
+  text-align: start;
+  text-decoration: none;
+  transition:
+    border-color 160ms,
+    background 160ms;
+}
+.notif {
+  align-items: flex-start;
+}
+.th:hover,
+.notif:hover {
+  background: var(--tint-1);
+}
+.th.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+}
+.th b,
+.ib-inv b {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font: 600 15px/1.2 var(--font-body);
+}
+.th b small {
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 400;
+}
+.th p,
+.ib-inv p {
+  margin-top: 3px;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.th .unread {
+  width: 9px;
+  height: 9px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 8px var(--brand);
+}
+.notif .ico {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
+  color: var(--brand-ink);
+}
+.notif p {
+  font-size: 14px;
+  line-height: 1.4;
+}
+.notif small {
+  color: var(--faint);
+  font-size: 12px;
+}
+.notif.unread {
+  background: color-mix(in srgb, var(--brand) 9%, transparent);
+}
+.ib-inv {
+  flex-wrap: wrap;
+  border-color: var(--gild-line);
+  background: color-mix(in srgb, var(--brand) 6%, transparent);
+}
+.ib-inv .grow {
+  min-width: 140px;
+}
+
+/* ---------- the conversation ---------- */
+.ib-detail {
+  display: flex;
+  flex-direction: column;
+}
+.chat-head,
+.ib-info,
+.composer,
+.reqcard {
+  flex: none;
+}
+.chat-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.chat-head h2 {
+  font: 700 24px/1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.chat-head small {
+  color: var(--muted);
+  font-size: 13px;
+}
+.ib-back {
+  display: none;
+}
+.ib-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.ib-info:empty {
+  display: none;
+}
+.reqcard {
+  margin: 14px 18px 0;
+  padding: 16px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: var(--card-blue);
+}
+.reqcard .rows {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+.reqcard .rows div {
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--panel-soft) 55%, transparent);
+}
+.reqcard .rows small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+.reqcard .rows b {
+  font: 600 14px/1.3 var(--font-body);
+}
+.reqcard .signed {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.reqcard > .hstack,
+.reqcard > .counter-fields {
+  margin-top: 12px;
+}
+.reqnote {
+  margin-top: 4px;
+  color: var(--muted);
+  font-style: italic;
+}
+.counter-fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.counter-fields[hidden] {
+  display: none;
+}
+.msgs {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  overflow-y: auto;
+}
+.sysmsg {
+  align-self: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--tint-2);
+  color: var(--muted);
+  font-size: 12px;
+  animation: rise 360ms var(--ease) both;
+}
+.composer {
+  display: grid;
+  gap: 10px;
+  padding: 12px 18px 16px;
+  border-top: 1px solid var(--line-soft);
+}
+.composer form {
+  display: flex;
+  gap: 8px;
+}
+.composer .field {
+  flex: 1;
+}
+.composer .form-error {
+  margin: 0;
+}
+
+/* nothing is open: one line and the steps */
+.ib-welcome {
+  display: grid;
+  gap: 20px;
+  align-content: center;
+  height: 100%;
+  padding: 24px;
+  overflow-y: auto;
+}
+.ib-welcome .cm-steps {
+  grid-template-columns: minmax(0, 1fr);
+}
+.ib-welcome .cm-steps li + li {
+  border-inline-start: 0;
+  border-block-start: 1px solid var(--line-soft);
+}
+
+@media (max-width: 1200px) {
+  .ib-app {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+  .ib-detail {
+    grid-column: 1 / -1;
+    min-height: 560px;
+  }
+  .ib-listpane {
+    max-height: 520px;
+  }
+  .ib-app {
+    height: auto;
+  }
+}
+@media (max-width: 900px) {
+  .ib-app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ib-rail__list {
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    overflow-x: auto;
+  }
+  .ib-rail .rules-note {
+    display: none;
+  }
+  .ib-listpane {
+    max-height: 440px;
+  }
+  .ib-detail {
+    min-height: 0;
+  }
+  .ib-app.has-open .ib-rail,
+  .ib-app.has-open .ib-listpane {
+    display: none;
+  }
+  .ib-app.has-open .ib-detail {
+    min-height: 520px;
+  }
+  .ib-back {
+    display: inline-flex;
+  }
+  .ib-welcome {
+    height: auto;
+    padding: 16px;
+  }
+  .chat-head {
+    flex-wrap: wrap;
+    padding: 12px 14px;
+  }
+  .reqcard {
+    margin: 12px 14px 0;
+  }
+  .reqcard .rows {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* the teams the requests can be limited to, and what an empty list offers */
+.ib-teams .cm-group {
+  padding-top: 14px;
+  border-top: 1px solid var(--line-soft);
+}
+.ib-teams__list {
+  display: grid;
+  gap: 4px;
+}
+.ib-teams__list button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: none;
+  color: var(--muted);
+  font: 600 14px/1 var(--font-body);
+  text-align: start;
+  transition:
+    border-color 160ms,
+    background 160ms,
+    color 160ms;
+}
+.ib-teams__list button span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ib-teams__list button:hover {
+  background: var(--tint-1);
+  color: var(--ink);
+}
+.ib-teams__list button.on {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--ink);
+}
+.ib-sug {
+  display: grid;
+  gap: 4px;
+}
+.ib-sug__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+  background: var(--tint-1);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 160ms;
+}
+.ib-sug__row:hover {
+  border-color: var(--brand);
+}
+.ib-sug__row b {
+  font: 600 15px/1.2 var(--font-body);
+}
+.ib-sug__row p {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.threads .subheading {
+  margin: 14px 4px 6px;
+  color: var(--muted);
+  font: 700 13px/1 var(--font-display);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

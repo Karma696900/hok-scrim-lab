@@ -1,0 +1,36 @@
+/* The hero chosen as the background of the site: a video or a picture behind the pages. */
+.bg-stage {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: var(--canvas);
+}
+.bg-stage video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  filter: saturate(0.9) blur(2px);
+  transition: opacity 1.4s ease;
+}
+.bg-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 15, 31, 0.9) 0,
+      rgba(7, 15, 31, 0.72) 40%,
+      rgba(7, 15, 31, 0.92) 100%
+    ),
+    radial-gradient(ellipse at 76% -10%, rgba(47, 111, 232, 0.22) 0, transparent 50%);
+}
+.has-bg .bg-stage video {
+  opacity: 0.42;
+}
+.has-bg body {
+  background: transparent;
+}
