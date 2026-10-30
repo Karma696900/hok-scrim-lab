@@ -35,17 +35,19 @@ jobs:
           --health-timeout=5s
           --health-retries=30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 24
           cache: npm
       - run: npm ci
+      # the PDF exports and the server-side rendering run in Chromium, as in the Docker image
+      - run: npx playwright install --with-deps --only-shell chromium
       - run: npm run lint
-      # a test file that cannot reach MySQL is skipped: here a skipped test fails the run
+      # a test file that cannot reach MySQL or Chromium is skipped: here a skipped test fails the run
       - name: Unit tests
         shell: bash
         run: |
           set -o pipefail
           npm test 2>&1 | tee test.log
-          grep -q "^ℹ skipped 0$" test.log || { echo "Some tests were skipped: MySQL was not reachable."; exit 1; }
+          grep -q "^ℹ skipped 0$" test.log || { echo "Some tests were skipped: MySQL or Chromium was not reachable."; exit 1; }
