@@ -152,7 +152,7 @@ GitHub n'a aucune clé du serveur : c'est le serveur qui lit le dépôt public. 
 Mise en place, une seule fois, sur le serveur :
 
 ```bash
-deploy/install-auto-update.sh
+sh deploy/install-auto-update.sh
 ```
 
 Ce qui s'est passé : `tail -20 ~/auto-update.log` (une ligne par mise à jour : « installing », puis « done » ou « FAILED »).

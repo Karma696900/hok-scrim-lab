@@ -2,7 +2,7 @@
 # Automatic updates: run every 2 minutes by cron (see deploy/HETZNER.md). When GitHub has a newer commit on main AND
 # the CI run of that commit has passed (the job "tests" of .github/workflows/ci.yml), the server takes it and rebuilds;
 # otherwise it does nothing. GitHub holds no key to this server: the server only reads the public repository.
-#   */2 * * * * /home/hok/hok/deploy/auto-update.sh >> /home/hok/auto-update.log 2>&1
+#   */2 * * * * sh /home/hok/hok/deploy/auto-update.sh >> /home/hok/auto-update.log 2>&1
 set -eu
 cd "$(dirname "$0")/.."
 exec 9> /tmp/hok-auto-update.lock
