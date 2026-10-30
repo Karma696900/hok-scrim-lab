@@ -1,11 +1,12 @@
 import { icon } from "../../../shared/icons.js";
-import { responsive, wide } from "../../../shared/media.js";
+import { responsive } from "../../../shared/media.js";
 import { skeleton } from "../../lib/skeleton.js";
 import { api } from "../../app/api-client.js";
 import { app, escapeHtml, tell } from "../../lib/dom.js";
 import { catalogImageFluid } from "../../domain/catalog-display.js";
 import { teamEmblem } from "../../domain/team-emblem.js";
-import { heroOfTheDay, heroSheet } from "../../domain/hero-of-the-day.js";
+import { heroOfTheDay } from "../../domain/hero-of-the-day.js";
+import { bannerArt, fillBannerArt } from "./home-art.js";
 import { currentLanguage, number, t } from "../../app/browser-i18n.js";
 import { laneLogos, laneName } from "../../domain/lanes.js";
 import { render } from "../../app/router.js";
@@ -157,7 +158,7 @@ function banner() {
     ? [personalSlide(user), live ? liveSlide(live) : "", brandSlide()]
     : [brandSlide(), joinSlide()];
   const shown = slides.filter(Boolean);
-  return `<section class="hello card--blue keep-dark rise" id="hello" aria-roledescription="carousel" aria-label="${t("Highlights")}"><div class="hello__art" id="hello-art"></div>${heroCredit()}${shown
+  return `<section class="hello card--blue keep-dark rise" id="hello" aria-roledescription="carousel" aria-label="${t("Highlights")}">${bannerArt()}${heroCredit()}${shown
     .map(
       (slide, index) =>
         `<div class="hello__slide${index ? "" : " is-on"}" data-slide="${index}" role="group" aria-roledescription="slide" aria-label="${index + 1} / ${shown.length}"${index ? " inert" : ""}>${slide}</div>`
@@ -340,21 +341,6 @@ const heroCredit = () => {
     ? `<button type="button" class="hello__credit" data-action="open-hero" data-hero-id="${escapeHtml(hero.id)}">${hero.image ? `<img ${responsive(hero.image, 72, "72px")} alt="" width="72" height="72" decoding="async">` : ""}<span><small>${t("Hero of the day")}</small><b>${escapeHtml(hero.displayName || hero.name)}</b></span></button>`
     : "";
 };
-
-/** The cover art of the hero of the day behind the banner, once its sheet is read (no art, no image). */
-async function fillBannerArt() {
-  const slot = document.querySelector("#hello-art");
-  const hero = heroOfTheDay();
-  if (!slot || !hero) {
-    return;
-  }
-  const cover = (await heroSheet(hero))?.art?.cover;
-  if (!cover || !slot.isConnected) {
-    return;
-  }
-  slot.innerHTML = `<img ${wide(cover, [640, 960, 1280, 1920], "100vw")} alt="" decoding="async">`;
-  slot.classList.add("is-on");
-}
 
 export function renderHome() {
   const overview = state.overview;

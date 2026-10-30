@@ -63,6 +63,14 @@ export async function render(ctx, path, language, variant = "") {
       );
       if (variant) {
         await page.waitForTimeout(400); // what the page draws before its data is there, once it has settled
+      } else {
+        // a slot still [data-filling] (the banner art of the overview) is the largest picture of the page: in the
+        // captured markup, the browser fetches it with the HTML; past the limit the page is captured without it
+        await page
+          .waitForFunction(() => !document.querySelector("#view [data-filling]"), null, {
+            timeout: FILL_TIMEOUT_MS
+          })
+          .catch(() => {});
       }
       // Inline style attributes are not allowed by the CSP (they would only be tones and
       // animation delays: the client redraws them).
@@ -186,6 +194,7 @@ export const PRERENDER_HEADER = "x-hok-prerender";
 
 /** How long a frame may take to draw, and how long a view that drew nothing is left alone before it is tried again. */
 const FRAME_TIMEOUT_MS = 6000;
+const FILL_TIMEOUT_MS = 3000;
 
 const FRAME_RETRY_MS = 5 * 60 * 1000;
 

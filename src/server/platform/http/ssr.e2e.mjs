@@ -23,6 +23,24 @@ await app.store.saveHeroes(
   ],
   "20260925"
 );
+// the only hero is the hero of the day: its cover is the art of the overview banner
+await app.store.saveHeroDetails("505", {
+  schema: 1,
+  campHeroId: "505",
+  name: "Hero Five",
+  mainClass: "Mage",
+  minorClass: null,
+  lane: "Mid Lane",
+  listedAt: null,
+  firstSkillToLevel: null,
+  art: { cover: "https://camp.honorofkings.com/cover.jpg", coverColor: null, worldIcon: null },
+  skills: [],
+  world: { height: null, region: null, identity: null, energy: null, video: null },
+  gallery: [],
+  cinematic: null,
+  adjustments: [],
+  adjustmentsDetailed: false
+});
 const problems = [];
 const check = (label, condition) => {
   console.log(`${condition ? "ok  " : "FAIL"} ${label}`);
@@ -54,6 +72,17 @@ const browser = await chromium.launch();
       expected.test(await page.locator("#view h1").first().innerText())
     );
   }
+  await page.goto(`${app.baseUrl}/`);
+  check(
+    "the banner art of the overview is in the HTML, fetched first (the largest picture of the page)",
+    await page.evaluate(() => {
+      const art = document.querySelector("#hello-art.is-on[data-hero='505'] img");
+      return Boolean(
+        art?.getAttribute("src")?.includes("cover.jpg") &&
+        art.getAttribute("fetchpriority") === "high"
+      );
+    })
+  );
   await page.goto(`${app.baseUrl}/heroes`);
   check(
     "the hero index is drawn: its cards are there",
@@ -114,7 +143,8 @@ for (const [path, selector] of [
   await page.goto(`${app.baseUrl}${path}`);
   await page.evaluate(() => {
     window.__heading = document.querySelector("#view h1");
-  }); // the heading the server drew
+    window.__art = document.querySelector("#hello-art img");
+  }); // the heading (and the banner art) the server drew
   const before = await page.locator("#view").textContent(); // textContent: off-screen cards (content-visibility) are not part of innerText
   await page.waitForFunction(() => document.documentElement.dataset.ready === "1");
   await page.waitForTimeout(500);
@@ -131,6 +161,17 @@ for (const [path, selector] of [
       () => window.__heading !== null && window.__heading === document.querySelector("#view h1")
     )
   );
+  if (path === "/") {
+    check(
+      "/: the banner art the server drew is still there once the script has drawn (no fade again)",
+      await page.evaluate(() => {
+        const art = document.querySelector("#hello-art.is-on img");
+        return Boolean(
+          window.__art && art?.getAttribute("src") === window.__art.getAttribute("src")
+        );
+      })
+    );
+  }
   check(`${path}: the interactive element is there`, (await page.locator(selector).count()) > 0);
   check(`${path}: no console error (CSP included)`, errors.length === 0);
   check(

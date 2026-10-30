@@ -107,8 +107,11 @@ describe("response headers", { skip }, () => {
     assert.doesNotMatch(csp, /unsafe-inline/);
     assert.doesNotMatch(html, /\sstyle=/i);
     assert.doesNotMatch(html, /\son\w+=/i);
-    // the schema.org names of a JSON-LD block are identifiers, not addresses the browser will fetch
-    const requested = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "");
+    // the schema.org names of a JSON-LD block are identifiers, not addresses the browser will fetch, and a link
+    // (the source code on GitHub, in the footer) is only followed on a click
+    const requested = html
+      .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/g, "")
+      .replace(/<a\s[^>]*>/g, "<a>");
     const foreign = (requested.match(/https?:\/\/[^\s"'<>]+/g) || []).filter(
       url => !url.startsWith(app.baseUrl)
     );
