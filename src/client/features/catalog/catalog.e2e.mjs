@@ -144,7 +144,10 @@ for (let index = 0; index < 4; index += 1) {
   }
   await page.fill(`[name="stat-${index}-value"]`, String(index + 1));
 }
-check("an arcana offers at most four stats", (await page.locator('[data-add-stat="stat"]').count()) === 0);
+check(
+  "an arcana offers at most four stats",
+  (await page.locator('[data-add-stat="stat"]').count()) === 0
+);
 await page.click('#catalog-form button[type="submit"]');
 await page.waitForFunction(() =>
   document.querySelector(".catalog-list")?.innerText.includes("Zeal")
