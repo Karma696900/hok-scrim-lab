@@ -1,6 +1,6 @@
 // catalog routes, admin: registerAdminRoutes.
-import { notFound } from "../../platform/errors.js";
-import { parseItem, parseItemSort, parseStat, parseTag } from "./catalog-domain.js";
+import { badRequest, notFound } from "../../platform/errors.js";
+import { parseItem, parseItemSort, parseStat, parseTag, parseTagGroups } from "./catalog-domain.js";
 import { wrap } from "../../platform/http/async.js";
 import { positive } from "./catalog-routes-shared.js";
 
@@ -67,6 +67,31 @@ export function registerAdminRoutes(ctx) {
         throw notFound("Tag not found.");
       }
       return { deleted: true };
+    })
+  );
+
+  // two tags that say the same thing: the first one goes, everything that used it uses the other one
+  ctx.router.post(
+    "/admin/catalog/tags/:id/merge",
+    ctx.limiters.write,
+    wrap(async request => {
+      const from = positive(request.params.id);
+      const into = positive(request.body?.into);
+      if (from === into) {
+        throw badRequest("A tag cannot be merged into itself.", "invalid_body");
+      }
+      if (!(await ctx.store.mergeTag(from, into))) {
+        throw notFound("Tag not found.");
+      }
+      return { id: into };
+    })
+  );
+  ctx.router.put(
+    "/admin/catalog/tag-groups",
+    ctx.limiters.write,
+    wrap(async request => {
+      await ctx.store.saveTagGroups(parseTagGroups(request.body));
+      return { saved: true };
     })
   );
 

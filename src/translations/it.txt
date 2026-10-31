@@ -2530,3 +2530,24 @@
 2697|Scegli un nome dall'elenco.
 2696|{count, plural, one {# scelto} other {# scelti}}
 2695|Un nome è stato digitato ma non scelto dall'elenco: {name}
+2698|Colore e gruppo
+2699|Gruppo
+2700|Rosa
+2701|Arancione
+2702|Ciano
+2703|Viola
+2704|Oro
+2705|Grigio
+2706|Gruppi di tag
+2707|Ogni colore di tag è un gruppo: dagli un nome e i tag saranno ordinati per gruppo ovunque.
+2708|Nome del gruppo
+2709|Salva i gruppi
+2710|Unisci a un altro tag
+2711|Scegli il tag che resta
+2712|Oggetti, arcani, eroi e condizioni che usano questo tag useranno quello scelto, poi questo tag verrà eliminato.
+2713|Unisci
+2714|Scegli il tag che resta.
+2715|Unire questo tag a {name}? Verrà poi eliminato.
+2716|Unito a {name}
+2717|Gruppo di tag
+2718|Un tag non può essere unito a sé stesso.

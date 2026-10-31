@@ -2530,3 +2530,24 @@
 2697|Escolha um nome da lista.
 2696|{count, plural, one {# escolhido} other {# escolhidos}}
 2695|Um nome foi digitado, mas não escolhido da lista: {name}
+2698|Cor e grupo
+2699|Grupo
+2700|Rosa
+2701|Laranja
+2702|Ciano
+2703|Violeta
+2704|Dourado
+2705|Cinza
+2706|Grupos de tags
+2707|Cada cor de tag é um grupo: dê um nome a ele, e as tags ficam organizadas por grupo em todo lugar.
+2708|Nome do grupo
+2709|Salvar os grupos
+2710|Mesclar em outra tag
+2711|Escolha a tag que fica
+2712|Os itens, arcanos, heróis e condições que usam esta tag passarão a usar a escolhida, e depois esta tag será excluída.
+2713|Mesclar
+2714|Escolha a tag que fica.
+2715|Mesclar esta tag em {name}? Ela será excluída em seguida.
+2716|Mesclada em {name}
+2717|Grupo de tags
+2718|Uma tag não pode ser mesclada nela mesma.

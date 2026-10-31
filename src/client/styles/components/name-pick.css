@@ -71,3 +71,13 @@
   overflow-y: auto;
   scrollbar-width: thin;
 }
+/* the tags of an item, group by group: the whole list scrolls, not each group */
+.box-search .tag-groups {
+  max-height: 340px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.box-search .tag-groups .tag-boxes {
+  max-height: none;
+  overflow: visible;
+}

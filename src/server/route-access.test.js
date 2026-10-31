@@ -33,6 +33,8 @@ const EXPECTED = {
   "POST /admin/catalog/tags": "admin",
   "DELETE /admin/catalog/tags/:id": "admin",
   "PUT /admin/catalog/tags/:id": "admin",
+  "POST /admin/catalog/tags/:id/merge": "admin",
+  "PUT /admin/catalog/tag-groups": "admin",
   "GET /admin/competitive-imports": "admin",
   "POST /admin/competitive-imports": "admin",
   "DELETE /admin/competitive-imports/:id": "admin",

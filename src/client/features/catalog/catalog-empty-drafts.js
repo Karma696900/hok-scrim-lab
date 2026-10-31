@@ -9,7 +9,7 @@ export const emptyDrafts = view => ({
     sortOrder: (view.catalog.stats.at(-1)?.sortOrder ?? 0) + 1,
     options: []
   }),
-  tags: () => ({ name: "", color: "gray", description: "", conflicts: [] }),
+  tags: () => ({ name: "", color: view.colorFilter || "gray", description: "", conflicts: [] }),
   items: () => ({
     name: "",
     category: view.categoryFilter || "regular",

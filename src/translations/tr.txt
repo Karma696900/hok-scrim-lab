@@ -2530,3 +2530,24 @@
 2697|Listeden bir ad seç.
 2696|{count, plural, other {# seçildi}}
 2695|Bir ad yazıldı ama listeden seçilmedi: {name}
+2698|Renk ve grup
+2699|Grup
+2700|Pembe
+2701|Turuncu
+2702|Camgöbeği
+2703|Mor
+2704|Altın
+2705|Gri
+2706|Etiket grupları
+2707|Her etiket rengi bir gruptur: ona bir ad verin, etiketler her yerde gruba göre sıralanır.
+2708|Grubun adı
+2709|Grupları kaydet
+2710|Başka bir etiketle birleştir
+2711|Kalacak etiketi seçin
+2712|Bu etiketi kullanan eşyalar, arkanalar, kahramanlar ve koşullar seçilen etiketi kullanacak, ardından bu etiket silinecek.
+2713|Birleştir
+2714|Kalacak etiketi seçin.
+2715|Bu etiket {name} ile birleştirilsin mi? Ardından silinecek.
+2716|{name} ile birleştirildi
+2717|Etiket grubu
+2718|Bir etiket kendisiyle birleştirilemez.

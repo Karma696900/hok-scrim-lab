@@ -2530,3 +2530,24 @@
 2697|Wähle einen Namen aus der Liste.
 2696|{count, plural, one {# gewählt} other {# gewählt}}
 2695|Ein Name wurde getippt, aber nicht aus der Liste gewählt: {name}
+2698|Farbe und Gruppe
+2699|Gruppe
+2700|Rosa
+2701|Orange
+2702|Cyan
+2703|Violett
+2704|Gold
+2705|Grau
+2706|Tag-Gruppen
+2707|Jede Tag-Farbe ist eine Gruppe: Gib ihr einen Namen, dann werden die Tags überall nach Gruppe sortiert.
+2708|Name der Gruppe
+2709|Gruppen speichern
+2710|In ein anderes Tag zusammenführen
+2711|Wähle das Tag, das bleibt
+2712|Die Items, Arkana, Helden und Bedingungen mit diesem Tag nutzen dann das gewählte, danach wird dieses Tag gelöscht.
+2713|Zusammenführen
+2714|Wähle das Tag, das bleibt.
+2715|Dieses Tag in {name} zusammenführen? Es wird danach gelöscht.
+2716|In {name} zusammengeführt
+2717|Tag-Gruppe
+2718|Ein Tag kann nicht in sich selbst zusammengeführt werden.

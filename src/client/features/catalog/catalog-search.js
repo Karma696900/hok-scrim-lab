@@ -140,9 +140,14 @@ export function onSearchInput(event) {
   }
   if (target.matches?.("[data-box-filter]")) {
     const wanted = fold(target.value);
-    for (const box of target.closest("[data-box-search]").querySelectorAll("label")) {
+    const holder = target.closest("[data-box-search]");
+    for (const box of holder.querySelectorAll("label")) {
       const ticked = box.querySelector("input")?.checked;
       box.hidden = Boolean(wanted) && !ticked && !fold(box.textContent).includes(wanted);
+    }
+    // a group of tags with none of its tags left in view goes too, its name with it
+    for (const group of holder.querySelectorAll("[data-tag-group]")) {
+      group.hidden = !group.querySelector("label:not([hidden])");
     }
     return true;
   }

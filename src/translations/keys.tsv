@@ -2530,3 +2530,24 @@
 2695	A name was typed but not chosen from the list: {name}
 2696	{count, plural, one {# chosen} other {# chosen}}
 2697	Choose a name from the list.
+2698	Colour and group
+2699	Group
+2700	Pink
+2701	Orange
+2702	Cyan
+2703	Violet
+2704	Gold
+2705	Grey
+2706	Groups of tags
+2707	Each colour of tag is a group: name it, and the tags are sorted by group everywhere.
+2708	Name of the group
+2709	Save the groups
+2710	Merge into another tag
+2711	Choose the tag that stays
+2712	The items, arcana, heroes and conditions that use this tag will use the chosen one, then this tag is deleted.
+2713	Merge
+2714	Choose the tag that stays.
+2715	Merge this tag into {name}? It is then deleted.
+2716	Merged into {name}
+2717	Group of tags
+2718	A tag cannot be merged into itself.

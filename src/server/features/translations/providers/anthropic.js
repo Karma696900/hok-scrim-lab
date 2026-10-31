@@ -31,6 +31,7 @@ const KINDS = {
   option: "name of one choice of a statistic (for example Melee or Ranged)",
   tag: "name of a label",
   "tag-note": "short description of a label",
+  "tag-group": "name of a group of labels (one colour of labels)",
   item: "name of an item",
   "item-note": "description of an item",
   effect: "name of the passive or active effect of an item",

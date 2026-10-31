@@ -7,6 +7,7 @@ import { number, t } from "../../app/browser-i18n.js";
 import { sceneArtSlot } from "../../domain/scene-art.js";
 import { categoryLabel, colorLabel } from "./catalog-shared.js";
 import { lead } from "./catalog-parts.js";
+import { TAG_COLORS, groupName, groupsEditor } from "./catalog-tag-groups.js";
 
 export const rise = (view, depth = "") => (view.entered ? "" : ` rise${depth}`);
 
@@ -99,13 +100,15 @@ export function chipsMarkup(view) {
     ([key, label, test]) =>
       `<button type="button" class="ws-chip${view.flags.has(key) ? " on" : ""}" data-flag="${key}" aria-pressed="${view.flags.has(key)}">${label}<em>${number(all.filter(test).length)}</em></button>`
   );
-  const colourChips =
-    view.tab === "arcana"
-      ? ["", ...ARCANA_COLORS].map(
-          color =>
-            `<button type="button" class="ws-chip${view.colorFilter === color ? " on" : ""}" data-color="${color}" aria-pressed="${view.colorFilter === color}">${color ? colorLabel(color) : t("All")}</button>`
-        )
-      : [];
+  const colours = view.tab === "arcana" ? ARCANA_COLORS : view.tab === "tags" ? TAG_COLORS : [];
+  const colourText = color =>
+    view.tab === "tags" ? esc(groupName(view, color)) : colorLabel(color);
+  const colourChips = colours.length
+    ? ["", ...colours].map(
+        color =>
+          `<button type="button" class="ws-chip${view.colorFilter === color ? " on" : ""}" data-color="${color}" aria-pressed="${view.colorFilter === color}">${color ? colourText(color) : t("All")}</button>`
+      )
+    : [];
   const chips = [...colourChips, ...flagChips];
   const selects = view.tab === "items" ? view.itemFilters() : "";
   return chips.length || selects
@@ -173,7 +176,7 @@ export function idleMarkup(view) {
     ? `<ul class="ws-todo">${lines.map(line => `<li class="is-todo"><b>${number(line.count)}</b><span>${line.label}</span><button type="button" class="btn btn--sm" data-flag-go="${line.key}">${t("Show")}</button></li>`).join("")}</ul>`
     : `<p class="empty-line"><span>${t("Nothing to fix here.")}</span></p>`;
   return `<div class="ws-panel__head"><h2>${t("Select an entry or add a new one")}</h2></div>
-      <div class="ws-panel__body"><h3 class="ws-title">${t("Needs attention")}</h3>${todo}
+      <div class="ws-panel__body"><h3 class="ws-title">${t("Needs attention")}</h3>${todo}${view.tab === "tags" ? groupsEditor(view) : ""}
         <div class="hstack wrap">${view.tab === "hero-tags" ? "" : `<button type="button" class="btn btn--primary" data-new>${icon("plus", "i--sm")}${t("New")}</button>`}<a class="btn" href="/build-lab">${icon("cube", "i--sm")}${t("Open the build lab")}</a></div></div>`;
 }
 

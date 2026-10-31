@@ -44,6 +44,8 @@ export function createCatalogStore({ pool, inTransaction }) {
     createTag: ctx.createTag,
     updateTag: ctx.updateTag,
     deleteTag: ctx.deleteTag,
+    mergeTag: ctx.mergeTag,
+    saveTagGroups: ctx.saveTagGroups,
 
     saveImage: ctx.saveImage,
     getImage: ctx.getImage,

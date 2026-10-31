@@ -183,6 +183,10 @@ export function onClick(view, event) {
     deleteEntry(view);
     return;
   }
+  if (target.matches("[data-merge-tag]")) {
+    view.mergeTag();
+    return;
+  }
   const draft = view.readDraft();
   if (target.matches("[data-pick-image]")) {
     view.root.querySelector("#catalog-file").click();
@@ -274,6 +278,22 @@ export const onKeydown = (view, event) => {
     return;
   }
   if (onSearchKeydown(event)) {
+    return;
+  }
+  // Enter in a field of the form takes what was typed, as leaving the field would: it does not save the
+  // whole entry (the Save button and Ctrl+Enter do)
+  if (
+    event.key === "Enter" &&
+    !event.ctrlKey &&
+    !event.metaKey &&
+    !event.isComposing &&
+    event.target.closest?.("#catalog-form") &&
+    event.target.matches?.(
+      "input:not([type=button], [type=submit], [type=file], [type=checkbox], [type=radio]), select"
+    )
+  ) {
+    event.preventDefault();
+    event.target.dispatchEvent(new Event("change", { bubbles: true }));
     return;
   }
   // a line of the table is a control for the keyboard too

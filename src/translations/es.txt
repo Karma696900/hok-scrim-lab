@@ -2530,3 +2530,24 @@
 2697|Elige un nombre de la lista.
 2696|{count, plural, one {# elegida} other {# elegidas}}
 2695|Se escribió un nombre pero no se eligió de la lista: {name}
+2698|Color y grupo
+2699|Grupo
+2700|Rosa
+2701|Naranja
+2702|Cian
+2703|Violeta
+2704|Dorado
+2705|Gris
+2706|Grupos de etiquetas
+2707|Cada color de etiqueta es un grupo: ponle nombre y las etiquetas se ordenan por grupo en todas partes.
+2708|Nombre del grupo
+2709|Guardar los grupos
+2710|Fusionar con otra etiqueta
+2711|Elige la etiqueta que se queda
+2712|Los objetos, arcanos, héroes y condiciones que usan esta etiqueta usarán la elegida, y luego esta etiqueta se eliminará.
+2713|Fusionar
+2714|Elige la etiqueta que se queda.
+2715|¿Fusionar esta etiqueta con {name}? Después se eliminará.
+2716|Fusionada con {name}
+2717|Grupo de etiquetas
+2718|Una etiqueta no puede fusionarse consigo misma.

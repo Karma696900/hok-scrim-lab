@@ -2530,3 +2530,24 @@
 2697|Pilih nama dari daftar.
 2696|{count, plural, other {# dipilih}}
 2695|Nama diketik tetapi tidak dipilih dari daftar: {name}
+2698|Warna dan grup
+2699|Grup
+2700|Merah muda
+2701|Oranye
+2702|Sian
+2703|Ungu
+2704|Emas
+2705|Abu-abu
+2706|Grup tag
+2707|Setiap warna tag adalah satu grup: beri nama, dan tag akan diurutkan per grup di mana saja.
+2708|Nama grup
+2709|Simpan grup
+2710|Gabungkan ke tag lain
+2711|Pilih tag yang tetap
+2712|Item, arcana, hero, dan kondisi yang memakai tag ini akan memakai tag yang dipilih, lalu tag ini dihapus.
+2713|Gabungkan
+2714|Pilih tag yang tetap.
+2715|Gabungkan tag ini ke {name}? Setelah itu tag ini dihapus.
+2716|Digabungkan ke {name}
+2717|Grup tag
+2718|Tag tidak bisa digabungkan ke dirinya sendiri.

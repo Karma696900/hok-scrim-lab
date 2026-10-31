@@ -2530,3 +2530,24 @@
 2697|Choisis un nom dans la liste.
 2696|{count, plural, one {# choisi} other {# choisis}}
 2695|Un nom a été tapé mais pas choisi dans la liste : {name}
+2698|Couleur et groupe
+2699|Groupe
+2700|Rose
+2701|Orange
+2702|Cyan
+2703|Violet
+2704|Or
+2705|Gris
+2706|Groupes de tags
+2707|Chaque couleur de tag est un groupe : donnez-lui un nom, et les tags sont rangés par groupe partout.
+2708|Nom du groupe
+2709|Enregistrer les groupes
+2710|Fusionner dans un autre tag
+2711|Choisir le tag qui reste
+2712|Les objets, arcanes, héros et conditions qui utilisent ce tag utiliseront celui choisi, puis ce tag sera supprimé.
+2713|Fusionner
+2714|Choisissez le tag qui reste.
+2715|Fusionner ce tag dans {name} ? Il sera ensuite supprimé.
+2716|Fusionné dans {name}
+2717|Groupe de tags
+2718|Un tag ne peut pas être fusionné dans lui-même.

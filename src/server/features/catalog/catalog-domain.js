@@ -7,6 +7,7 @@ export { TAG_COLORS } from "./catalog-domain-stats.js";
 export { valueFor } from "./catalog-domain-stats.js";
 export { parseStat } from "./catalog-domain-stats.js";
 export { parseTag } from "./catalog-domain-stats.js";
+export { parseTagGroups } from "./catalog-domain-stats.js";
 export { parseSpell } from "./catalog-domain-hero.js";
 export { parseHeroProfile } from "./catalog-domain-hero.js";
 export { parseBuildSet } from "./catalog-domain-hero.js";

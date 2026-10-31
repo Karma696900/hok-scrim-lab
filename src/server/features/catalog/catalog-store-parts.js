@@ -1,6 +1,7 @@
 // catalog store, small helpers: parse, forget, tagsOf, setTags, and 11 more.
 import { ARCANA_COLORS } from "../../../shared/build-model.js";
 import { conflict } from "../../platform/errors.js";
+import { TAG_COLORS } from "./catalog-domain-stats.js";
 import { randomUUID } from "node:crypto";
 
 import { jsonColumn as parse } from "../../platform/database/json-column.js";
@@ -121,19 +122,21 @@ export async function readCatalog(ctx) {
     return ctx.cache.value;
   }
   const readAt = ctx.generation;
-  const [[stats], [tags], [items], [arcana], [spells], itemTags, arcanaTags] = await Promise.all([
-    ctx.pool.query("SELECT * FROM game_stats ORDER BY sort_order, id"),
-    ctx.pool.query("SELECT * FROM tags ORDER BY name"),
-    ctx.pool.query("SELECT * FROM catalog_items ORDER BY name"),
-    // by colour in the order of ARCANA_COLORS (red, blue, green: shared/build-model.js compareArcana says the same), then by name
-    ctx.pool.query(
-      `SELECT * FROM catalog_arcana ORDER BY FIELD(color, ${ARCANA_COLORS.map(() => "?").join(", ")}), name`,
-      ARCANA_COLORS
-    ),
-    ctx.pool.query("SELECT * FROM catalog_spells ORDER BY name"),
-    tagsOf(ctx.pool, "item"),
-    tagsOf(ctx.pool, "arcana")
-  ]);
+  const [[stats], [tags], [groups], [items], [arcana], [spells], itemTags, arcanaTags] =
+    await Promise.all([
+      ctx.pool.query("SELECT * FROM game_stats ORDER BY sort_order, id"),
+      ctx.pool.query("SELECT * FROM tags ORDER BY name"),
+      ctx.pool.query("SELECT color, name FROM tag_groups"),
+      ctx.pool.query("SELECT * FROM catalog_items ORDER BY name"),
+      // by colour in the order of ARCANA_COLORS (red, blue, green: shared/build-model.js compareArcana says the same), then by name
+      ctx.pool.query(
+        `SELECT * FROM catalog_arcana ORDER BY FIELD(color, ${ARCANA_COLORS.map(() => "?").join(", ")}), name`,
+        ARCANA_COLORS
+      ),
+      ctx.pool.query("SELECT * FROM catalog_spells ORDER BY name"),
+      tagsOf(ctx.pool, "item"),
+      tagsOf(ctx.pool, "arcana")
+    ]);
   const value = {
     stats: stats.map(row => ({
       id: row.id,
@@ -149,6 +152,10 @@ export async function readCatalog(ctx) {
       description: row.description,
       conflicts: parse(row.conflicts_json, [])
     })),
+    // the name of the group of each colour of tag, "" while nobody named it
+    tagGroups: Object.fromEntries(
+      TAG_COLORS.map(color => [color, groups.find(row => row.color === color)?.name ?? ""])
+    ),
     items: items.map(row => presentItem(row, itemTags)),
     arcana: arcana.map(row => presentArcana(row, arcanaTags)),
     spells: spells.map(presentSpell)

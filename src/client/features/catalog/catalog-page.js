@@ -21,6 +21,7 @@ import { onView as catalogPaint, repaintFilteredOf } from "./catalog-paint.js";
 import { onView as catalogSorting } from "./catalog-sorting.js";
 import { onView as catalogSave } from "./catalog-save.js";
 import { onView as catalogActions } from "./catalog-actions.js";
+import { onView as catalogTagGroups } from "./catalog-tag-groups.js";
 import { emptyDrafts } from "./catalog-empty-drafts.js";
 import { heroName } from "./catalog-parts.js";
 import { onSearchFocusIn, onSearchFocusOut, onSearchPointer } from "./catalog-search.js";
@@ -36,7 +37,8 @@ export function createCatalogPage({ api, tell }) {
     catalogPaint,
     catalogSorting,
     catalogSave,
-    catalogActions
+    catalogActions,
+    catalogTagGroups
   );
   view.root = null;
   view.heroes = [];
@@ -123,7 +125,11 @@ export function createCatalogPage({ api, tell }) {
       view.root.addEventListener("focusout", onSearchFocusOut);
       view.root.addEventListener("submit", event => {
         event.preventDefault();
-        view.save();
+        if (event.target.id === "tag-groups-form") {
+          view.saveTagGroups(event.target);
+        } else {
+          view.save();
+        }
       });
       document.removeEventListener("keydown", view.onDocumentKeydown);
       document.addEventListener("keydown", view.onDocumentKeydown);

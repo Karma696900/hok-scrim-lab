@@ -7,6 +7,7 @@ import { number, t } from "../../app/browser-i18n.js";
 import { shopCategoryLabel } from "../../domain/catalog-display.js";
 import { categoryLabel, colorLabel, unitLabel } from "./catalog-shared.js";
 import { heroName, numberCell } from "./catalog-parts.js";
+import { TAG_COLORS, groupName } from "./catalog-tag-groups.js";
 
 /** The things to fix in each section: [key, what it says, which entries it is true of]. */
 export const flagDefs = view =>
@@ -148,6 +149,13 @@ const COLUMNS = {
   tags: view => [
     { key: "name", label: t("Name"), value: entry => entry.name },
     {
+      key: "group",
+      label: t("Group"),
+      value: entry => TAG_COLORS.indexOf(entry.color),
+      cell: entry =>
+        `<span class="ct-group-cell"><i class="ct-dot tag-${esc(entry.color)}" aria-hidden="true"></i>${esc(groupName(view, entry.color))}</span>`
+    },
+    {
       key: "meaning",
       label: t("What it means (optional)"),
       value: entry => entry.description,
@@ -197,7 +205,14 @@ export const shopMatches = (view, entry) =>
 // the arcana list by colour (red, blue, green) then by name, like everywhere else; the rest by name
 export const sortOf = view =>
   view.sorts[view.tab] ?? {
-    key: view.tab === "stats" ? "order" : view.tab === "arcana" ? "color" : "name",
+    key:
+      view.tab === "stats"
+        ? "order"
+        : view.tab === "arcana"
+          ? "color"
+          : view.tab === "tags"
+            ? "group"
+            : "name",
     dir: 1
   };
 
@@ -214,7 +229,9 @@ export function listFor(view) {
       (view.tab !== "items" ||
         ((!view.categoryFilter || entry.category === view.categoryFilter) &&
           view.shopMatches(entry))) &&
-      (view.tab !== "arcana" || !view.colorFilter || entry.color === view.colorFilter)
+      ((view.tab !== "arcana" && view.tab !== "tags") ||
+        !view.colorFilter ||
+        entry.color === view.colorFilter)
     );
   });
   const { key, dir } = view.sortOf();

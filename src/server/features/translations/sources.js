@@ -37,6 +37,9 @@ export function gatherTexts(tables) {
     add(row.name, "tag");
     add(row.description, "tag-note");
   }
+  for (const row of tables.tagGroups ?? []) {
+    add(row.name, "tag-group");
+  }
   for (const row of tables.items ?? []) {
     add(row.name, "item");
     add(row.description, "item-note");
@@ -88,10 +91,11 @@ export function gatherTexts(tables) {
 /** Every text that the staff has written, as it is in the database now. */
 export async function collectTexts(pool) {
   const rows = sql => pool.query(sql).then(([result]) => result);
-  const [stats, tags, items, arcana, spells, profiles, builds, combos, scenarios, maps] =
+  const [stats, tags, tagGroups, items, arcana, spells, profiles, builds, combos, scenarios, maps] =
     await Promise.all([
       rows("SELECT name, options_json FROM game_stats"),
       rows("SELECT name, description FROM tags"),
+      rows("SELECT name FROM tag_groups"),
       rows("SELECT name, description, effects_json, stats_json FROM catalog_items"),
       rows("SELECT name, description, stats_json FROM catalog_arcana"),
       rows("SELECT name, description FROM catalog_spells"),
@@ -105,6 +109,7 @@ export async function collectTexts(pool) {
   return gatherTexts({
     stats,
     tags,
+    tagGroups,
     items,
     arcana,
     spells,

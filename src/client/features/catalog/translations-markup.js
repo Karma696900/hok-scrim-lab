@@ -175,6 +175,7 @@ const kindLabel = kind =>
     option: t("Option"),
     tag: t("Tag"),
     "tag-note": t("Tag description"),
+    "tag-group": t("Group of tags"),
     item: t("Item"),
     "item-note": t("Description"),
     effect: t("Effect name"),

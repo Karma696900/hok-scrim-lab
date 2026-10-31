@@ -8,6 +8,7 @@ import { t } from "../../app/browser-i18n.js";
 import { categoryLabel, colorLabel, unitLabel } from "./catalog-shared.js";
 import { chip, field, group, picture } from "./catalog-parts.js";
 import { boxFilter, comboField } from "./catalog-search.js";
+import { TAG_COLORS, byGroup, colourOption, groupName, mergeField } from "./catalog-tag-groups.js";
 
 /** The most stat lines of one passive or active (the server says the same: EFFECT_STATS_MAX). */
 const EFFECT_STATS_MAX = 8;
@@ -71,16 +72,23 @@ export const optionRows = options => `<div class="option-rows">${options
   .join("")}
       ${options.length < OPTIONS_MAX ? `<button type="button" class="btn btn--sm" data-add-option>${icon("plus", "i--sm")}${t("Add an option")}</button>` : ""}</div>`;
 
-/** The tags as boxes to tick, the ticked ones first, with a search over their names. */
+/** The tags as boxes to tick, group by group (the ticked ones first in each), with a search over their names. */
 export const tagBoxes = (view, selected, name) =>
   view.catalog.tags.length
     ? boxFilter(
         t("Search a tag"),
-        `<div class="tag-boxes">${[...view.catalog.tags]
-          .sort((a, b) => Number(selected.includes(b.id)) - Number(selected.includes(a.id)))
+        `<div class="tag-groups">${byGroup(view.catalog.tags)
           .map(
-            tag =>
-              `<label class="tag-box"><input type="checkbox" name="${name}" value="${tag.id}"${selected.includes(tag.id) ? " checked" : ""}> ${chip(tag)}</label>`
+            ([color, inGroup]) =>
+              `<div class="tag-group" data-tag-group><b class="tag-group__name">${esc(groupName(view, color))}</b><div class="tag-boxes">${[
+                ...inGroup
+              ]
+                .sort((a, b) => Number(selected.includes(b.id)) - Number(selected.includes(a.id)))
+                .map(
+                  tag =>
+                    `<label class="tag-box"><input type="checkbox" name="${name}" value="${tag.id}"${selected.includes(tag.id) ? " checked" : ""}> ${chip(tag)}</label>`
+                )
+                .join("")}</div></div>`
           )
           .join("")}</div>`,
         view.catalog.tags.filter(tag => selected.includes(tag.id)).length
@@ -125,8 +133,9 @@ export const formFor = (view, draft) => {
       ${draft.unit === "choice" ? group(t("Options of the choice (what a hero or an item can take)"), optionRows(draft.options)) : ""}`;
   }
   if (view.tab === "tags") {
-    return `<p class="ct-tag-sample" aria-hidden="true">${chip({ ...draft, name: draft.name || t("New") })}</p>${name}${field(t("Colour"), `<select name="color">${TAG_COLORS.map(color => `<option value="${color}"${draft.color === color ? " selected" : ""}>${color}</option>`).join("")}</select>`)}
-      ${field(t("What it means (optional)"), `<input name="description" maxlength="200" value="${esc(draft.description)}">`)}`;
+    return `<p class="ct-tag-sample" aria-hidden="true">${chip({ ...draft, name: draft.name || t("New") })}</p>${name}${field(t("Colour and group"), `<select name="color">${TAG_COLORS.map(color => `<option value="${color}"${draft.color === color ? " selected" : ""}>${esc(colourOption(view, color))}</option>`).join("")}</select>`)}
+      ${field(t("What it means (optional)"), `<input name="description" maxlength="200" value="${esc(draft.description)}">`)}
+      ${mergeField(view, view.editing?.id)}`;
   }
   if (view.tab === "items") {
     return `${imageField(draft)}${name}
@@ -150,8 +159,6 @@ export const formFor = (view, draft) => {
       <h3>${t("Stats it gives (up to 4, for one arcana)")}</h3>${view.statRows(draft.stats, 4)}
       <h3>${t("Tags")}</h3>${view.tagBoxes(draft.tags, "tags")}`;
 };
-
-const TAG_COLORS = ["gray", "red", "orange", "gold", "green", "cyan", "blue", "violet", "pink"];
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
 export const onView = { statLine, statRows, tagBoxes, effectRows, formFor };

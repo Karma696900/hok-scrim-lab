@@ -39,7 +39,7 @@ export async function save(view) {
     const keep =
       view.tab === "items"
         ? { category: draft.category, shopCategory: draft.shopCategory ?? null }
-        : view.tab === "arcana"
+        : view.tab === "arcana" || view.tab === "tags"
           ? { color: draft.color }
           : {};
     await view.reload();

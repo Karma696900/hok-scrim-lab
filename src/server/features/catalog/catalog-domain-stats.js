@@ -206,3 +206,20 @@ export function parseTag(input, tagIds, selfId = null) {
     conflicts
   };
 }
+
+/** The names of the colour groups, { color: name } for some of the colours; "" takes a name away. */
+export function parseTagGroups(input) {
+  const body = object(input, "The groups");
+  const groups = object(body.groups, "groups");
+  return Object.fromEntries(
+    Object.entries(groups).map(([color, name]) => {
+      if (!TAG_COLORS.includes(color)) {
+        throw badRequest("{label} must be one of: {options}.", "invalid_body", {
+          label: "groups",
+          options: TAG_COLORS.join(", ")
+        });
+      }
+      return [color, text(name, `groups.${color}`, { max: 40 })];
+    })
+  );
+}

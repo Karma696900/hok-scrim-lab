@@ -2530,3 +2530,24 @@
 2697|Hãy chọn một tên trong danh sách.
 2696|{count, plural, other {Đã chọn #}}
 2695|Đã gõ tên nhưng chưa chọn trong danh sách: {name}
+2698|Màu và nhóm
+2699|Nhóm
+2700|Hồng
+2701|Cam
+2702|Lục lam
+2703|Tím
+2704|Vàng kim
+2705|Xám
+2706|Nhóm thẻ
+2707|Mỗi màu thẻ là một nhóm: hãy đặt tên, và các thẻ sẽ được xếp theo nhóm ở mọi nơi.
+2708|Tên nhóm
+2709|Lưu các nhóm
+2710|Gộp vào thẻ khác
+2711|Chọn thẻ được giữ lại
+2712|Các trang bị, phù hiệu, tướng và điều kiện dùng thẻ này sẽ dùng thẻ đã chọn, sau đó thẻ này bị xóa.
+2713|Gộp
+2714|Hãy chọn thẻ được giữ lại.
+2715|Gộp thẻ này vào {name}? Sau đó thẻ này sẽ bị xóa.
+2716|Đã gộp vào {name}
+2717|Nhóm thẻ
+2718|Không thể gộp một thẻ vào chính nó.
