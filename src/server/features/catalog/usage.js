@@ -9,9 +9,15 @@ import { conditionsOf } from "../../../shared/condition-model.js";
 // counts the things that use the reference (an item, an arcana or a hero counts once however many
 // times it uses it), which is what the message to the administrator says.
 
+/** Every line of an item or an arcana: its own, and those of its passives and actives. */
+const linesIn = piece => [
+  ...(piece.stats ?? []),
+  ...(piece.effects ?? []).flatMap(effect => effect.stats ?? [])
+];
+
 /** Every set of conditions of an item or an arcana: the ones of its lines and of its effects. */
 const setsOf = piece => [
-  ...(piece.stats ?? []).map(line => line.when),
+  ...linesIn(piece).map(line => line.when),
   ...(piece.effects ?? []).map(effect => effect.when)
 ];
 
@@ -27,7 +33,7 @@ const scaledBy = (skills, statId) =>
 /** How many things (items, arcana, heroes) write with this stat, or have a condition on it. */
 export function statUsage({ catalog, profiles }, statId) {
   const piece = entry =>
-    (entry.stats ?? []).some(line => line.statId === statId) ||
+    linesIn(entry).some(line => line.statId === statId) ||
     conditionsIn(entry).some(condition => condition.kind === "stat" && condition.statId === statId);
   return (
     catalog.items.filter(piece).length +
@@ -43,7 +49,7 @@ export function statUsage({ catalog, profiles }, statId) {
 /** How many things use this option of a choice stat: as a value, or in a condition. */
 export function optionUsage({ catalog, profiles }, statId, optionId) {
   const piece = entry =>
-    (entry.stats ?? []).some(line => line.statId === statId && line.option === optionId) ||
+    linesIn(entry).some(line => line.statId === statId && line.option === optionId) ||
     conditionsIn(entry).some(
       condition =>
         condition.kind === "stat" &&
@@ -69,7 +75,9 @@ export function tagConditionUsage({ catalog }, tagId) {
 /** How many values of a stat (lines of items and arcana, base stats and growths) are not whole numbers. */
 export function fractionalUsage({ catalog, profiles }, statId) {
   const lines = [...catalog.items, ...catalog.arcana].flatMap(entry =>
-    (entry.stats ?? []).filter(line => line.statId === statId).map(line => [line.value])
+    linesIn(entry)
+      .filter(line => line.statId === statId)
+      .map(line => [line.value])
   );
   const bases = profiles.flatMap(profile =>
     (profile.baseStats ?? [])

@@ -22,6 +22,9 @@ const EFFECTS_MAX = 12;
 
 const EFFECT_KINDS = ["passive", "active"];
 
+/** The most stat lines of one passive or active. */
+export const EFFECT_STATS_MAX = 8;
+
 function effects(value, known) {
   if (value === undefined || value === null) {
     return [];
@@ -47,12 +50,18 @@ function effects(value, known) {
         ? null
         : number(row.cooldownSeconds, `effects[${index}].cooldownSeconds`, { min: 0, max: 3600 });
     const when = parseWhen(row.when, `effects[${index}].when`, known);
+    // the stats the effect gives, written like the lines of the item
+    const lines = statLines(row.stats ?? [], `effects[${index}].stats`, known, {
+      min: 0,
+      max: EFFECT_STATS_MAX
+    });
     return {
       kind: row.kind,
       name: text(row.name, `effects[${index}].name`, { max: 60 }),
       text: text(row.text, `effects[${index}].text`, { max: 600, required: true }),
       cooldownSeconds: row.kind === "active" ? cooldown : null,
-      ...(when ? { when } : {})
+      ...(when ? { when } : {}),
+      ...(lines.length ? { stats: lines } : {})
     };
   });
 }

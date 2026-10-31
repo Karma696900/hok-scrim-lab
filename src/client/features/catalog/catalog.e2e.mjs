@@ -93,9 +93,9 @@ await page.waitForSelector(".catalog-picture-big[src^='/catalog-images/']");
 check("the picture is uploaded and shown", true);
 await page.fill('#catalog-form [name="name"]', "Sunblade");
 await page.selectOption('#catalog-form [name="category"]', "regular");
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 await page.fill('[name="stat-0-value"]', "400");
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 await pickName(page, "stat-1-id", { label: "Crit Rate (%)" });
 await page.fill('[name="stat-1-value"]', "15");
 for (const [kind, name] of [
@@ -140,11 +140,11 @@ await page.click("[data-new]");
 await page.fill('#catalog-form [name="name"]', "Zeal");
 for (let index = 0; index < 4; index += 1) {
   if (index > 0) {
-    await page.click("[data-add-stat]");
+    await page.click('[data-add-stat="stat"]');
   }
   await page.fill(`[name="stat-${index}-value"]`, String(index + 1));
 }
-check("an arcana offers at most four stats", (await page.locator("[data-add-stat]").count()) === 0);
+check("an arcana offers at most four stats", (await page.locator('[data-add-stat="stat"]').count()) === 0);
 await page.click('#catalog-form button[type="submit"]');
 await page.waitForFunction(() =>
   document.querySelector(".catalog-list")?.innerText.includes("Zeal")

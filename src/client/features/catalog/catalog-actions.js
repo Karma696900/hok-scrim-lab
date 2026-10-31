@@ -1,6 +1,6 @@
 // What happens when a person acts on the page: clicks, typing, keys, dropped pictures.
 import { t } from "../../app/browser-i18n.js";
-import { blankLine } from "./catalog-form.js";
+import { changeDraft, focusAdded } from "./catalog-draft-buttons.js";
 import { onSearchChange, onSearchInput, onSearchKeydown } from "./catalog-search.js";
 
 // ---- what is done on the page ----------------------------------------------------------------------
@@ -141,72 +141,6 @@ function deleteEntry(view) {
       view.error = problem.message;
       view.paint();
     });
-}
-
-/** A button inside the form (add or remove a stat, an effect, an option, a condition) changes the draft. False for any other button. */
-function changeDraft(view, target, draft) {
-  if (target.matches("[data-clear-image]")) {
-    draft.imageId = null;
-  } else if (target.matches("[data-add-stat]")) {
-    draft.stats.push(
-      blankLine(
-        view.catalog.stats.find(stat => !draft.stats.some(row => row.statId === stat.id))?.id ??
-          view.catalog.stats[0]?.id
-      )
-    );
-  } else if (target.dataset.removeStat !== undefined) {
-    draft.stats.splice(Number(target.dataset.removeStat), 1);
-  } else if (target.matches("[data-add-effect]")) {
-    draft.effects.push({
-      kind: "passive",
-      name: "",
-      text: "",
-      cooldownSeconds: null,
-      when: null,
-      open: false
-    });
-  } else if (target.dataset.removeEffect !== undefined) {
-    draft.effects.splice(Number(target.dataset.removeEffect), 1);
-  } else if (target.matches("[data-add-option]")) {
-    draft.options.push({ id: null, name: "" });
-  } else if (target.dataset.removeOption !== undefined) {
-    draft.options.splice(Number(target.dataset.removeOption), 1);
-  } else if (
-    target.dataset.wAdd !== undefined ||
-    target.dataset.wGroup !== undefined ||
-    target.dataset.wRemove !== undefined
-  ) {
-    // a button of the conditions of a line (stat-2) or of an effect (effect-1)
-    const [kind, index] = (
-      target.dataset.wAdd ??
-      target.dataset.wGroup ??
-      target.dataset.wRemove
-    ).split("-");
-    const holder = kind === "stat" ? draft.stats[Number(index)] : draft.effects[Number(index)];
-    view.when.press(target, holder);
-    holder.open = true;
-  } else {
-    return false;
-  }
-  return true;
-}
-
-/** After "Add a stat" or "Add a passive or an active", the cursor goes to what was added. */
-function focusAdded(view, target) {
-  const field = target.matches("[data-add-stat]")
-    ? [...view.root.querySelectorAll(".stat-line [data-name-pick-input]")].at(-1)
-    : target.matches("[data-add-effect]")
-      ? [...view.root.querySelectorAll('.effect-row [name$="-name"]')].at(-1)
-      : null;
-  if (!field) {
-    return;
-  }
-  // the list of names waits for the first letter: open at once, it would cover what is below the line
-  field.dataset.quiet = "";
-  field.focus({ preventScroll: true });
-  delete field.dataset.quiet;
-  field.select?.();
-  field.scrollIntoView({ block: "nearest" });
 }
 
 export function onClick(view, event) {

@@ -11,8 +11,9 @@ import { indexCatalog } from "./build-order.js";
  * none. What a piece gives counts only when its conditions hold for the hero: a value that does not
  * apply is in `notes.skipped`, one that cannot be checked (no hero, or the data of the hero does not
  * say) in `notes.unknown`; neither is added. A temporary value is in `notes.temporary` and in the
- * `temporary` of its row, never in the total. Only numbers the administrator entered are added;
- * passives and actives are texts and are not computed.
+ * `temporary` of its row, never in the total. Only numbers the administrator entered are added; the
+ * stats a passive or an active of an item gives count like the stats of the item (only for the heroes
+ * the effect is for), and its text is not computed.
  *
  * One row per stat that appears anywhere:
  *   { statId, base, items, arcana, total, temporary }               a number stat
@@ -51,7 +52,7 @@ export function computeStats(profile, build, level, catalog, hero = null) {
       kind: "item",
       id,
       count: 1,
-      stats: index.items.get(id)?.stats ?? []
+      stats: linesOfItem(index.items.get(id))
     })),
     ...ARCANA_COLORS.flatMap(color =>
       build.arcana[color].map(({ id, count }) => ({
@@ -114,6 +115,21 @@ export function computeStats(profile, build, level, catalog, hero = null) {
   });
   return { rows: result, notes };
 }
+
+/** Two sets of conditions that must both hold (either may be missing). */
+const both = (first, second) =>
+  !first ? second : !second ? first : { match: "all", of: [first, second] };
+
+/** The stats an item gives: its own lines, then those of its passives and actives (with their conditions). */
+export const linesOfItem = item => [
+  ...(item?.stats ?? []),
+  ...(item?.effects ?? []).flatMap(effect =>
+    (effect.stats ?? []).map(line => {
+      const when = both(effect.when, line.when);
+      return { ...line, ...(when ? { when } : {}) };
+    })
+  )
+];
 
 /** The rows of `computeStats`: the stats of a hero wearing a build at a level. */
 export const totalStats = (profile, build, level, catalog, hero = null) =>

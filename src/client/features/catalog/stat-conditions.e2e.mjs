@@ -118,14 +118,14 @@ await page.click("[data-new]");
 await page.fill('#catalog-form [name="name"]', "Bow of dusk");
 await page.fill('#catalog-form [name="description"]', "A bow that likes distance.");
 // line 1: Max HP, whatever the hero
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 await pickName(page, "stat-0-id", { value: String(hp) });
 await page.fill('[name="stat-0-value"]', "300");
 // line 2: Max HP, for a melee hero (the first condition is already the stat of the hero: Melee)
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 await pickName(page, "stat-1-id", { value: String(hp) });
 await page.fill('[name="stat-1-value"]', "120");
-await page.click('[data-extra="1"] > summary');
+await page.click('[data-extra="stat-1"] > summary');
 await page.click('[data-w-add="stat-1"]');
 await page.waitForSelector('[name="w-stat-1-0-kind"]');
 check(
@@ -137,10 +137,10 @@ check(
     (await page.inputValue('[name="stat-0-value"]')) === "300"
 );
 // line 3: a temporary range bonus, for a ranged hero, or a Marksman, or a Fighter from level 8
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 await pickName(page, "stat-2-id", { value: String(bonus) });
 await page.fill('[name="stat-2-value"]', "1.5");
-await page.click('[data-extra="2"] > summary');
+await page.click('[data-extra="stat-2"] > summary');
 check(
   "the duration waits for the value to be temporary",
   await page.locator('[name="stat-2-duration"]').isDisabled()
@@ -243,7 +243,7 @@ check(
     (await page.isChecked('[name="stat-2-temporary"]')) &&
     (await page.inputValue('[name="stat-2-duration"]')) === "3" &&
     (await page.inputValue('[name="w-stat-2-2-1-role"]')) === "Fighter" &&
-    (await text(page, '[data-extra="2"] > summary')).includes("4 conditions")
+    (await text(page, '[data-extra="stat-2"] > summary')).includes("4 conditions")
 );
 await page.keyboard.press("Control+Enter");
 await page.waitForFunction(() => !document.querySelector('[name="stat-2-id"]'));
@@ -257,10 +257,10 @@ check(
 // ---- a condition that is not finished is refused before anything is sent --------------------------------------------------------
 await page.click("[data-new]");
 await page.fill('#catalog-form [name="name"]', "Unfinished");
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 await pickName(page, "stat-0-id", { value: String(hp) });
 await page.fill('[name="stat-0-value"]', "10");
-await page.click('[data-extra="0"] > summary');
+await page.click('[data-extra="stat-0"] > summary');
 await page.click('[data-w-add="stat-0"]');
 await pickName(page, "w-stat-0-0-stat", { value: String(hp) }); // a number to compare: no number written yet
 await page.waitForSelector('[name="w-stat-0-0-op"]');
@@ -302,7 +302,7 @@ check(
 // ---- a line can carry the option of a choice stat -------------------------------------------------------------------------------
 await page.click("[data-new]");
 await page.fill('#catalog-form [name="name"]', "Wings");
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 await page.waitForSelector('[name="stat-0-option"]');
 check(
   "a line of a choice stat asks for an option, not a number",
@@ -310,7 +310,7 @@ check(
     (await page.locator('[name="stat-0-option"] option').allInnerTexts()).join() === "Melee,Ranged"
 );
 await page.selectOption('[name="stat-0-option"]', "2");
-await page.click('[data-extra="0"] > summary');
+await page.click('[data-extra="stat-0"] > summary');
 await page.check('[name="stat-0-temporary"]');
 await page.fill('[name="stat-0-duration"]', "5");
 await page.keyboard.press("Control+Enter");

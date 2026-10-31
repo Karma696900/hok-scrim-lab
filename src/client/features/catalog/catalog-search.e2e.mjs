@@ -73,7 +73,7 @@ const lines = [
 ];
 const jumps = [];
 for (const [index, [typed, name, value]] of lines.entries()) {
-  await page.click("[data-add-stat]");
+  await page.click('[data-add-stat="stat"]');
   const field = page.locator(`[data-name-pick-input="stat-${index}-id"]`);
   check(
     `line ${index + 1}: the cursor is in the new line, ready to type its stat`,
@@ -104,7 +104,7 @@ check(
 check("the panel did scroll (the check above means something)", (await panelTop()) > 0);
 
 // the arrows choose another name than the first one that matches
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 const sixth = page.locator('[data-name-pick-input="stat-6-id"]');
 await sixth.fill("defense");
 await sixth.press("ArrowDown");
@@ -117,7 +117,7 @@ check("the arrows move to the second name that matches", true);
 await page.fill('[name="stat-6-value"]', "40");
 
 // a name typed but not chosen stops the save, and says so
-await page.click("[data-add-stat]");
+await page.click('[data-add-stat="stat"]');
 await page.locator('[data-name-pick-input="stat-7-id"]').fill("nothing like this");
 await page.keyboard.press("Control+Enter");
 await page.waitForTimeout(400);
@@ -128,7 +128,7 @@ check(
       .locator('[data-name-pick-input="stat-7-id"]')
       .evaluate(input => !input.validity.valid))
 );
-await page.click('[data-remove-stat="7"]');
+await page.click('[data-remove-stat="stat-7"]');
 
 // tags: a search over the boxes; a ticked box stays shown and is counted
 const search = page.locator(".box-search__input").first();
@@ -148,7 +148,7 @@ check(
 await page.check(`input[name="tags"][value="${tags[31]}"]`);
 
 // a condition on a line: its stat by name, then its heroes by a search
-await page.click('[data-extra="0"] > summary');
+await page.click('[data-extra="stat-0"] > summary');
 await page.click('[data-w-add="stat-0"]');
 await page.waitForSelector('[data-name-pick-input="w-stat-0-0-stat"]');
 await pickName(page, "w-stat-0-0-stat", { value: String(stats.Mana) });
@@ -164,6 +164,33 @@ check(
     (await page.locator(".when-heroes .tag-box:visible", { hasText: wanted }).count()) >= 1
 );
 await page.locator(".when-heroes .tag-box", { hasText: wanted }).first().locator("input").check();
+
+// a passive with stats of its own: one permanent, one temporary
+await page.click("[data-add-effect]");
+await page.fill('[name="effect-0-name"]', "Swift");
+await page.fill('[name="effect-0-text"]', "Moves faster, and much faster after a kill.");
+const beforeEffect = await panelTop();
+await page.click('[data-add-stat="effect-0-stat"]');
+const effectField = page.locator('[data-name-pick-input="effect-0-stat-0-id"]');
+check(
+  "a passive has its own Add a stat, and the cursor goes to its new line",
+  await effectField.evaluate(input => input === document.activeElement)
+);
+await effectField.fill("movement");
+await effectField.press("Enter");
+await page.fill('[name="effect-0-stat-0-value"]', "5");
+await page.click('[data-add-stat="effect-0-stat"]');
+await pickName(page, "effect-0-stat-1-id", { value: String(stats["Movement Speed"]) });
+await page.fill('[name="effect-0-stat-1-value"]', "20");
+await page.click('[data-extra="effect-0-stat-1"] > summary');
+await page.check('[name="effect-0-stat-1-temporary"]');
+await page.fill('[name="effect-0-stat-1-duration"]', "2");
+check(
+  "the panel keeps its place while the passive gets its stats",
+  (await panelTop()) >= beforeEffect - 2 &&
+    (await page.inputValue('[name="effect-0-stat-0-value"]')) === "5" &&
+    (await page.locator(".stat-line").count()) === 9
+);
 
 // saved, then read back
 await page.keyboard.press("Control+Enter");
@@ -190,6 +217,32 @@ check(
       JSON.stringify(wantedStats) &&
     [...item.tags].sort().join() === [shield, tags[31]].sort().join() &&
     JSON.stringify(item.stats[0].when).includes("hero")
+);
+check(
+  "the passive is saved with its two stats, the second one temporary, apart from the item's",
+  JSON.stringify(item?.effects?.[0]?.stats) ===
+    JSON.stringify([
+      { statId: stats["Movement Speed"], value: 5 },
+      { statId: stats["Movement Speed"], value: 20, temporary: true, durationSeconds: 2 }
+    ])
+);
+
+// opened again: the passive shows its lines as they were saved
+await page.click('.catalog-entry:has-text("Fast Blade")');
+await page.waitForSelector('[name="effect-0-stat-1-id"]', { state: "attached" });
+check(
+  "an item opened again shows the stats of its passive",
+  (await page.inputValue('[name="effect-0-stat-1-value"]')) === "20" &&
+    (await page.isChecked('[name="effect-0-stat-1-temporary"]'))
+);
+
+// the page of the items shows them under the passive
+await page.goto(`${app.baseUrl}/items`);
+await page.click('.gd-tile:has-text("Fast Blade")');
+await page.waitForSelector(".effect-line .effect-stats");
+check(
+  "the page of the item lists the stats of the passive under it",
+  (await page.locator(".effect-line .effect-stats li").count()) === 2
 );
 
 await browser.close();

@@ -109,26 +109,26 @@ const verdictNote = (when, facts, escapeHtml) => {
 export function pieceTip(kind, piece, catalog, escapeHtml, { facts = null } = {}) {
   const index = indexCatalog(catalog);
   const words = wordsFor(catalog);
-  const stats = (piece.stats ?? [])
-    .map(line => {
-      const stat = index.stats.get(line.statId);
-      if (!stat) {
-        return "";
-      }
-      const note = [
-        line.temporary ? temporaryText(line) : "",
-        line.when ? whenText(line.when, words) : ""
-      ]
-        .filter(Boolean)
-        .join(" · ");
-      return `<li class="tip-stat${verdictClass(line.when, facts)}"><span>${escapeHtml(tx(stat.name))}</span><strong><bdi>${escapeHtml(formatEntry(stat, line, tx))}</bdi></strong>${note ? `<small>${escapeHtml(note)}</small>` : ""}</li>`;
-    })
-    .join("");
+  const tipLine = line => {
+    const stat = index.stats.get(line.statId);
+    if (!stat) {
+      return "";
+    }
+    const note = [
+      line.temporary ? temporaryText(line) : "",
+      line.when ? whenText(line.when, words) : ""
+    ]
+      .filter(Boolean)
+      .join(" · ");
+    return `<li class="tip-stat${verdictClass(line.when, facts)}"><span>${escapeHtml(tx(stat.name))}</span><strong><bdi>${escapeHtml(formatEntry(stat, line, tx))}</bdi></strong>${note ? `<small>${escapeHtml(note)}</small>` : ""}</li>`;
+  };
+  const stats = (piece.stats ?? []).map(tipLine).join("");
   const effects = (piece.effects ?? [])
-    .map(
-      effect =>
-        `<div class="tip-effect${verdictClass(effect.when, facts)}"><b>${effect.kind === "active" ? t("Active") : t("Passive")}${effect.name ? ` · ${escapeHtml(tx(effect.name))}` : ""}</b><p>${escapeHtml(tx(effect.text))}</p></div>`
-    )
+    .map(effect => {
+      // the stats of a passive or an active, under its text
+      const own = (effect.stats ?? []).map(tipLine).join("");
+      return `<div class="tip-effect${verdictClass(effect.when, facts)}"><b>${effect.kind === "active" ? t("Active") : t("Passive")}${effect.name ? ` · ${escapeHtml(tx(effect.name))}` : ""}</b><p>${escapeHtml(tx(effect.text))}</p>${own ? `<ul class="tip-stats">${own}</ul>` : ""}</div>`;
+    })
     .join("");
   const meta =
     kind === "item"
@@ -147,27 +147,24 @@ export function pieceTip(kind, piece, catalog, escapeHtml, { facts = null } = {}
 export function pieceDetails(kind, piece, catalog, escapeHtml, { facts = null } = {}) {
   const index = indexCatalog(catalog);
   const words = wordsFor(catalog);
-  const stats = (piece.stats ?? [])
-    .map(line => {
-      const stat = index.stats.get(line.statId);
-      if (!stat) {
-        return "";
-      }
-      const notes = [
-        line.temporary ? `<small class="line-tag">${escapeHtml(temporaryText(line))}</small>` : "",
-        line.note ? `<small class="line-note">${escapeHtml(tx(line.note))}</small>` : "",
-        line.when
-          ? `<small class="line-when">${escapeHtml(whenText(line.when, words))}</small>`
-          : "",
-        verdictNote(line.when, facts, escapeHtml)
-      ].join("");
-      return `<li class="piece-stat${verdictClass(line.when, facts)}"><span>${escapeHtml(tx(stat.name))}</span><strong>${escapeHtml(formatEntry(stat, line, tx))}</strong>${notes}</li>`;
-    })
-    .join("");
+  const detailLine = line => {
+    const stat = index.stats.get(line.statId);
+    if (!stat) {
+      return "";
+    }
+    const notes = [
+      line.temporary ? `<small class="line-tag">${escapeHtml(temporaryText(line))}</small>` : "",
+      line.note ? `<small class="line-note">${escapeHtml(tx(line.note))}</small>` : "",
+      line.when ? `<small class="line-when">${escapeHtml(whenText(line.when, words))}</small>` : "",
+      verdictNote(line.when, facts, escapeHtml)
+    ].join("");
+    return `<li class="piece-stat${verdictClass(line.when, facts)}"><span>${escapeHtml(tx(stat.name))}</span><strong>${escapeHtml(formatEntry(stat, line, tx))}</strong>${notes}</li>`;
+  };
+  const stats = (piece.stats ?? []).map(detailLine).join("");
   const effects = (piece.effects ?? [])
     .map(
       effect =>
-        `<div class="effect-line${verdictClass(effect.when, facts)}"><p><strong>${effect.kind === "active" ? t("Active") : t("Passive")}${effect.name ? ` · ${escapeHtml(tx(effect.name))}` : ""}</strong>${effect.cooldownSeconds ? ` <span class="muted">(${t("cooldown {seconds}s", { seconds: number(effect.cooldownSeconds) })})</span>` : ""}</p>${effect.when ? `<p class="line-when">${escapeHtml(whenText(effect.when, words))}</p>` : ""}<p>${escapeHtml(tx(effect.text))}</p>${verdictNote(effect.when, facts, escapeHtml)}</div>`
+        `<div class="effect-line${verdictClass(effect.when, facts)}"><p><strong>${effect.kind === "active" ? t("Active") : t("Passive")}${effect.name ? ` · ${escapeHtml(tx(effect.name))}` : ""}</strong>${effect.cooldownSeconds ? ` <span class="muted">(${t("cooldown {seconds}s", { seconds: number(effect.cooldownSeconds) })})</span>` : ""}</p>${effect.when ? `<p class="line-when">${escapeHtml(whenText(effect.when, words))}</p>` : ""}<p>${escapeHtml(tx(effect.text))}</p>${effect.stats?.length ? `<ul class="stat-list effect-stats">${effect.stats.map(detailLine).join("")}</ul>` : ""}${verdictNote(effect.when, facts, escapeHtml)}</div>`
     )
     .join("");
   const tags = (piece.tags ?? [])

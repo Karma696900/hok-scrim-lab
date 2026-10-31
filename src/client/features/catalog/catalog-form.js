@@ -9,6 +9,9 @@ import { categoryLabel, colorLabel, unitLabel } from "./catalog-shared.js";
 import { chip, field, group, picture } from "./catalog-parts.js";
 import { boxFilter, comboField } from "./catalog-search.js";
 
+/** The most stat lines of one passive or active (the server says the same: EFFECT_STATS_MAX). */
+const EFFECT_STATS_MAX = 8;
+
 // ---- editors shared by items and arcana -------------------------------------------------------
 
 /** A line of an item or of an arcana as the form holds it: a stat and its value, or its option. */
@@ -24,36 +27,39 @@ export const blankLine = statId => ({
 });
 
 /** One line: the stat, its value (or its option), and what makes it temporary or conditional. */
-export const statLine = (view, row, index) => {
+export const statLine = (view, row, index, prefix = "stat") => {
+  const key = `${prefix}-${index}`; // stat-2 for the item, effect-0-stat-1 for a passive or an active
   const stat = view.statOf(row.statId);
   const value = isChoice(stat)
-    ? `<label class="field"><select name="stat-${index}-option" aria-label="${t("Option")}">${stat.options.map(option => `<option value="${option.id}"${option.id === (row.option ?? stat.options[0]?.id) ? " selected" : ""}>${esc(option.name)}</option>`).join("")}</select></label>`
-    : `<label class="field"><input name="stat-${index}-value" type="number" step="${stat?.unit === "whole" ? 1 : "any"}" value="${row.value ?? ""}" aria-label="${t("Value")}" required></label>`;
+    ? `<label class="field"><select name="${key}-option" aria-label="${t("Option")}">${stat.options.map(option => `<option value="${option.id}"${option.id === (row.option ?? stat.options[0]?.id) ? " selected" : ""}>${esc(option.name)}</option>`).join("")}</select></label>`
+    : `<label class="field"><input name="${key}-value" type="number" step="${stat?.unit === "whole" ? 1 : "any"}" value="${row.value ?? ""}" aria-label="${t("Value")}" required></label>`;
   const marks = [row.temporary ? t("Temporary") : "", view.when.summary(row.when)]
     .filter(Boolean)
     .join(" · ");
-  return `<div class="stat-line" data-stat-line="${index}">
-      <div class="stat-row">${comboField({ name: `stat-${index}-id`, options: view.catalog.stats.map(entry => [entry.id, `${entry.name}${entry.unit === "percent" ? " (%)" : ""}`]), selected: row.statId, label: t("Search a stat"), repaint: true })}${value}<button type="button" class="btn btn--ghost btn--icon btn--sm" data-remove-stat="${index}" aria-label="${t("Remove this stat")}">${icon("x", "i--sm")}</button></div>
-      <details class="stat-extra" data-extra="${index}"${row.open || row.temporary || row.when || row.note ? " open" : ""}>
+  return `<div class="stat-line" data-stat-line="${key}">
+      <div class="stat-row">${comboField({ name: `${key}-id`, options: view.catalog.stats.map(entry => [entry.id, `${entry.name}${entry.unit === "percent" ? " (%)" : ""}`]), selected: row.statId, label: t("Search a stat"), repaint: true })}${value}<button type="button" class="btn btn--ghost btn--icon btn--sm" data-remove-stat="${key}" aria-label="${t("Remove this stat")}">${icon("x", "i--sm")}</button></div>
+      <details class="stat-extra" data-extra="${key}"${row.open || row.temporary || row.when || row.note ? " open" : ""}>
         <summary>${t("Temporary and conditions")}${marks ? ` <span class="stat-extra__marks">${esc(marks)}</span>` : ""}</summary>
         <div class="stat-extra__body">
           <div class="hstack wrap">
-            <label class="chip-check"><input type="checkbox" name="stat-${index}-temporary" value="1"${row.temporary ? " checked" : ""}><span>${t("Temporary")}</span></label>
-            <label class="field stat-duration"><input name="stat-${index}-duration" type="number" min="0.1" max="3600" step="any" value="${row.durationSeconds ?? ""}" placeholder="${t("Lasts (s)")}" aria-label="${t("Lasts (s)")}"${row.temporary ? "" : " disabled"}></label>
-            <label class="field stat-note"><input name="stat-${index}-note" maxlength="200" value="${esc(row.note ?? "")}" placeholder="${t("When or how (optional)")}" aria-label="${t("When or how (optional)")}"></label>
+            <label class="chip-check"><input type="checkbox" name="${key}-temporary" value="1"${row.temporary ? " checked" : ""}><span>${t("Temporary")}</span></label>
+            <label class="field stat-duration"><input name="${key}-duration" type="number" min="0.1" max="3600" step="any" value="${row.durationSeconds ?? ""}" placeholder="${t("Lasts (s)")}" aria-label="${t("Lasts (s)")}"${row.temporary ? "" : " disabled"}></label>
+            <label class="field stat-note"><input name="${key}-note" maxlength="200" value="${esc(row.note ?? "")}" placeholder="${t("When or how (optional)")}" aria-label="${t("When or how (optional)")}"></label>
           </div>
-          ${view.when.markup(`stat-${index}`, row.when)}
+          ${view.when.markup(`${key}`, row.when)}
         </div>
       </details>
     </div>`;
 };
 
+/** The lines of an item or an arcana (prefix "stat"), or of one of its passives and actives. */
 export const statRows = (
   view,
   rows,
-  max
-) => `<div class="stat-rows" data-stat-rows>${rows.map(view.statLine).join("")}
-      ${rows.length < max ? `<button type="button" class="btn btn--sm" data-add-stat ${view.catalog.stats.length ? "" : "disabled"}>${icon("plus", "i--sm")}${t("Add a stat")}</button>` : ""}
+  max,
+  prefix = "stat"
+) => `<div class="stat-rows" data-stat-rows="${prefix}">${rows.map((row, index) => view.statLine(row, index, prefix)).join("")}
+      ${rows.length < max ? `<button type="button" class="btn btn--sm" data-add-stat="${prefix}" ${view.catalog.stats.length ? "" : "disabled"}>${icon("plus", "i--sm")}${t("Add a stat")}</button>` : ""}
       ${view.catalog.stats.length ? "" : `<p class="muted">${t("Enter the stats of the game first (Stats tab).")}</p>`}</div>`;
 
 /** The options of a choice stat: a name each (its id, once it has one, travels with it). */
@@ -102,7 +108,8 @@ export const effectRows = (view, effects) => `<div class="effect-rows">${effects
       <details class="stat-extra" data-effect-extra="${index}"${effect.open || effect.when ? " open" : ""}>
         <summary>${t("Only for some heroes")}${effect.when ? ` <span class="stat-extra__marks">${esc(view.when.summary(effect.when))}</span>` : ""}</summary>
         <div class="stat-extra__body">${view.when.markup(`effect-${index}`, effect.when)}</div>
-      </details></fieldset>`
+      </details>
+      <div class="effect-stats"><b>${t("Stats it gives")}</b>${view.statRows(effect.stats ?? [], EFFECT_STATS_MAX, `effect-${index}-stat`)}</div></fieldset>`
   )
   .join("")}
       ${effects.length < 12 ? `<button type="button" class="btn btn--sm" data-add-effect>${icon("plus", "i--sm")}${t("Add a passive or an active")}</button>` : ""}</div>`;

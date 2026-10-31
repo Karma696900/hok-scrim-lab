@@ -3,7 +3,12 @@ import { isChoice } from "../../../shared/stat-values.js";
 
 /** The lines of the draft as the API takes them (a line with nothing in it is dropped). */
 export function linesOf(view, draft) {
-  return (draft.stats ?? []).flatMap(row => {
+  return linesFrom(view, draft.stats ?? []);
+}
+
+/** Lines of the form as the API takes them: those of the item, or those of one of its passives. */
+export function linesFrom(view, rows) {
+  return rows.flatMap(row => {
     const stat = view.statOf(row.statId);
     if (!stat) {
       return [];
@@ -72,7 +77,8 @@ export function bodyOf(view, draft) {
           name: effect.name,
           text: effect.text,
           cooldownSeconds: effect.kind === "active" ? effect.cooldownSeconds : null,
-          ...(condition ? { when: condition } : {})
+          ...(condition ? { when: condition } : {}),
+          stats: linesFrom(view, effect.stats ?? [])
         };
       }),
       stats: view.linesOf(draft),
@@ -101,23 +107,25 @@ export function bodyOf(view, draft) {
 /** An entry of the catalogue as a draft: its lines and effects with their conditions as the form holds them. */
 export function draftOfEntry(view, entry) {
   const draft = { ...structuredClone(entry), price: entry.price ?? "" };
+  const toDraft = line => ({
+    statId: line.statId,
+    value: line.value ?? null,
+    option: line.option ?? null,
+    temporary: Boolean(line.temporary),
+    durationSeconds: line.durationSeconds ?? null,
+    note: line.note ?? "",
+    when: view.when.fromApi(line.when),
+    open: false
+  });
   if (view.getTab() === "items" || view.getTab() === "arcana") {
-    draft.stats = (entry.stats ?? []).map(line => ({
-      statId: line.statId,
-      value: line.value ?? null,
-      option: line.option ?? null,
-      temporary: Boolean(line.temporary),
-      durationSeconds: line.durationSeconds ?? null,
-      note: line.note ?? "",
-      when: view.when.fromApi(line.when),
-      open: false
-    }));
+    draft.stats = (entry.stats ?? []).map(toDraft);
   }
   if (view.getTab() === "items") {
     draft.effects = (entry.effects ?? []).map(effect => ({
       ...effect,
       when: view.when.fromApi(effect.when),
-      open: false
+      open: false,
+      stats: (effect.stats ?? []).map(toDraft)
     }));
   }
   return draft;
