@@ -334,9 +334,8 @@
   gap: 4px 12px;
 }
 .when-heroes {
-  height: auto;
-  min-width: 200px;
-  padding: 4px 8px;
+  flex: 1 1 100%;
+  min-width: 0;
 }
 .when-group {
   display: grid;

@@ -16,11 +16,60 @@ export function syncPicks(view) {
   }
 }
 
+/**
+ * Where the person is before the page is drawn again: the scroll of the window, of the list and of the
+ * panel, and the field that has the cursor. The panel keeps its place only while the same entry stays
+ * open (another entry, or a new one after a save, starts at its top).
+ */
+function placeOf(view) {
+  const same = Boolean(view.editing) && view.editing === view.paintedEditing;
+  const active = same && view.root.contains(document.activeElement) ? document.activeElement : null;
+  return {
+    window: window.scrollY,
+    list: view.root.querySelector(".catalog-list")?.scrollTop ?? 0,
+    panel: same ? (view.root.querySelector(".ct-panel .ws-panel__body")?.scrollTop ?? 0) : 0,
+    field: active?.getAttribute("name")
+      ? `[name="${CSS.escape(active.getAttribute("name"))}"]`
+      : active?.dataset.namePickInput
+        ? `[data-name-pick-input="${CSS.escape(active.dataset.namePickInput)}"]`
+        : "",
+    caret: typeof active?.selectionStart === "number" ? active.selectionStart : null
+  };
+}
+
+function backTo(view, place) {
+  const list = view.root.querySelector(".catalog-list");
+  if (list) {
+    list.scrollTop = place.list;
+  }
+  const panel = view.root.querySelector(".ct-panel .ws-panel__body");
+  if (panel) {
+    panel.scrollTop = place.panel;
+  }
+  const field = place.field ? view.root.querySelector(place.field) : null;
+  if (field && !field.disabled) {
+    field.dataset.quiet = ""; // a name field given its cursor back does not open its list again
+    field.focus({ preventScroll: true });
+    delete field.dataset.quiet;
+    if (
+      place.caret !== null &&
+      typeof field.setSelectionRange === "function" &&
+      field.type !== "number"
+    ) {
+      field.setSelectionRange(place.caret, place.caret);
+    }
+  }
+  if (window.scrollY !== place.window) {
+    window.scrollTo(window.scrollX, place.window);
+  }
+}
+
 export function paint(view) {
   if (view.tab === "translations") {
     view.paintTranslations();
     return;
   }
+  const place = view.root.isConnected ? placeOf(view) : null;
   const rows = view.listFor();
   const mode = view.editing ? "has-edit" : view.sorting ? "is-sorting" : "is-idle";
   view.root.innerHTML = `${view.stage()}
@@ -31,6 +80,10 @@ export function paint(view) {
   fillSceneArt(view.root.querySelector(".ws-stage__art"), lead());
   view.entered = true;
   view.revealTab();
+  if (place) {
+    backTo(view, place);
+  }
+  view.paintedEditing = view.editing;
 }
 
 /**

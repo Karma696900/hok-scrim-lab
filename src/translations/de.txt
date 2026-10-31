@@ -2525,3 +2525,8 @@
 2689|Die Reihenfolge der Picks ist bekannt
 2691|Mit der Quelle abgeglichen: Helden, Bans, Lanes und Sieger passen zusammen. Die Reihenfolge der Picks ist nicht bekannt.
 2692|Quellcode
+2693|Wert suchen
+2694|Tag suchen
+2697|Wähle einen Namen aus der Liste.
+2696|{count, plural, one {# gewählt} other {# gewählt}}
+2695|Ein Name wurde getippt, aber nicht aus der Liste gewählt: {name}

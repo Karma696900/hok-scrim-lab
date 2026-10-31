@@ -2525,3 +2525,8 @@
 2689|Seçim sırası biliniyor
 2691|Kaynağıyla karşılaştırıldı: kahramanlar, banlar, koridorlar ve kazananlar tutarlı. Seçim sırası bilinmiyor.
 2692|Kaynak kodu
+2693|Bir istatistik ara
+2694|Bir etiket ara
+2697|Listeden bir ad seç.
+2696|{count, plural, other {# seçildi}}
+2695|Bir ad yazıldı ama listeden seçilmedi: {name}

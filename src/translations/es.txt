@@ -2525,3 +2525,8 @@
 2689|Se conoce el orden de los picks
 2691|Comprobada con su fuente: héroes, baneos, líneas y ganadores son coherentes. No se conoce el orden de los picks.
 2692|Código fuente
+2693|Buscar una estadística
+2694|Buscar una etiqueta
+2697|Elige un nombre de la lista.
+2696|{count, plural, one {# elegida} other {# elegidas}}
+2695|Se escribió un nombre pero no se eligió de la lista: {name}

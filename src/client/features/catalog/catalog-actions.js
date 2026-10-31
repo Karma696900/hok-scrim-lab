@@ -1,6 +1,7 @@
 // What happens when a person acts on the page: clicks, typing, keys, dropped pictures.
 import { t } from "../../app/browser-i18n.js";
 import { blankLine } from "./catalog-form.js";
+import { onSearchChange, onSearchInput, onSearchKeydown } from "./catalog-search.js";
 
 // ---- what is done on the page ----------------------------------------------------------------------
 
@@ -190,6 +191,24 @@ function changeDraft(view, target, draft) {
   return true;
 }
 
+/** After "Add a stat" or "Add a passive or an active", the cursor goes to what was added. */
+function focusAdded(view, target) {
+  const field = target.matches("[data-add-stat]")
+    ? [...view.root.querySelectorAll(".stat-line [data-name-pick-input]")].at(-1)
+    : target.matches("[data-add-effect]")
+      ? [...view.root.querySelectorAll('.effect-row [name$="-name"]')].at(-1)
+      : null;
+  if (!field) {
+    return;
+  }
+  // the list of names waits for the first letter: open at once, it would cover what is below the line
+  field.dataset.quiet = "";
+  field.focus({ preventScroll: true });
+  delete field.dataset.quiet;
+  field.select?.();
+  field.scrollIntoView({ block: "nearest" });
+}
+
 export function onClick(view, event) {
   const target = event.target.closest("button");
   const row = event.target.closest("tr[data-edit], tr[data-pick-row]");
@@ -237,12 +256,16 @@ export function onClick(view, event) {
   }
   if (changeDraft(view, target, draft)) {
     view.paint();
+    focusAdded(view, target);
   }
 }
 
 export function onChange(view, event) {
   if (view.tab === "translations") {
     view.translations.onChange(event, view.paintTranslations);
+    return;
+  }
+  if (onSearchChange(event) && !event.target.matches("[data-repaint]")) {
     return;
   }
   if (event.target.id === "catalog-file") {
@@ -294,6 +317,9 @@ export function onInput(view, event) {
     view.translations.onInput(event, view.paintTranslations);
     return;
   }
+  if (onSearchInput(event)) {
+    return;
+  }
   if (event.target.name === "name" && view.editing) {
     // the preview of the entry follows the name as it is typed
     const live = view.root.querySelector("#ct-live-name, .ct-tag-sample .tag-chip");
@@ -311,6 +337,9 @@ export function onInput(view, event) {
 
 export const onKeydown = (view, event) => {
   if (!view.root?.isConnected) {
+    return;
+  }
+  if (onSearchKeydown(event)) {
     return;
   }
   // a line of the table is a control for the keyboard too

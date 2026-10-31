@@ -21,6 +21,7 @@
 @import "./components/skeleton.css";
 @import "./components/shared.css";
 @import "./components/build.css";
+@import "./components/name-pick.css";
 @import "./components/workspace.css";
 @import "./components/workspace-side-panel.css";
 @import "./components/responsive.css";

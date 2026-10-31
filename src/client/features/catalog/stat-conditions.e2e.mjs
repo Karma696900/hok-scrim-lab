@@ -6,6 +6,7 @@
 // marks the passives that are not for the hero. Phone width has no horizontal scroll.
 import { chromium } from "playwright";
 import { startTestServer } from "../../../testing/test-app.js";
+import { pickName, pickNames } from "../../../testing/name-pick.js";
 import { openHeroTab } from "../../../testing/nav.js";
 
 const app = await startTestServer();
@@ -118,11 +119,11 @@ await page.fill('#catalog-form [name="name"]', "Bow of dusk");
 await page.fill('#catalog-form [name="description"]', "A bow that likes distance.");
 // line 1: Max HP, whatever the hero
 await page.click("[data-add-stat]");
-await page.selectOption('[name="stat-0-id"]', String(hp));
+await pickName(page, "stat-0-id", { value: String(hp) });
 await page.fill('[name="stat-0-value"]', "300");
 // line 2: Max HP, for a melee hero (the first condition is already the stat of the hero: Melee)
 await page.click("[data-add-stat]");
-await page.selectOption('[name="stat-1-id"]', String(hp));
+await pickName(page, "stat-1-id", { value: String(hp) });
 await page.fill('[name="stat-1-value"]', "120");
 await page.click('[data-extra="1"] > summary');
 await page.click('[data-w-add="stat-1"]');
@@ -137,7 +138,7 @@ check(
 );
 // line 3: a temporary range bonus, for a ranged hero, or a Marksman, or a Fighter from level 8
 await page.click("[data-add-stat]");
-await page.selectOption('[name="stat-2-id"]', String(bonus));
+await pickName(page, "stat-2-id", { value: String(bonus) });
 await page.fill('[name="stat-2-value"]', "1.5");
 await page.click('[data-extra="2"] > summary');
 check(
@@ -156,10 +157,10 @@ await page.uncheck('[name="w-stat-2-0-options"][value="1"]');
 await page.check('[name="w-stat-2-0-options"][value="2"]');
 await page.click('[data-w-add="stat-2"]'); // a second condition, then its kind
 await page.selectOption('[name="w-stat-2-1-kind"]', "tag");
-await page.waitForSelector('[name="w-stat-2-1-tag"]');
+await page.waitForSelector('[name="w-stat-2-1-tag"]', { state: "attached" });
 check(
   "choosing the kind of a condition draws what it asks for: a tag to choose",
-  (await page.locator('[name="w-stat-2-1-tag"] option').count()) === 1
+  (await pickNames(page, "w-stat-2-1-tag").count()) === 1
 );
 await page.selectOption('[name="w-stat-2-match"]', "any");
 await page.click('[data-w-group="stat-2"]'); // a group: its first condition is a level
@@ -234,7 +235,7 @@ check(
 
 // ---- the same item, opened again and saved again: nothing changes -------------------------------------------------------------
 await page.click('.catalog-entry:has-text("Bow of dusk")');
-await page.waitForSelector('[name="stat-2-id"]');
+await page.waitForSelector('[name="stat-2-id"]', { state: "attached" });
 check(
   "the item opens with its conditions drawn: the stat and its options, the tag, the group",
   (await page.inputValue('[name="w-stat-2-match"]')) === "any" &&
@@ -257,11 +258,11 @@ check(
 await page.click("[data-new]");
 await page.fill('#catalog-form [name="name"]', "Unfinished");
 await page.click("[data-add-stat]");
-await page.selectOption('[name="stat-0-id"]', String(hp));
+await pickName(page, "stat-0-id", { value: String(hp) });
 await page.fill('[name="stat-0-value"]', "10");
 await page.click('[data-extra="0"] > summary');
 await page.click('[data-w-add="stat-0"]');
-await page.selectOption('[name="w-stat-0-0-stat"]', String(hp)); // a number to compare: no number written yet
+await pickName(page, "w-stat-0-0-stat", { value: String(hp) }); // a number to compare: no number written yet
 await page.waitForSelector('[name="w-stat-0-0-op"]');
 await page.keyboard.press("Control+Enter");
 await page.waitForFunction(() =>

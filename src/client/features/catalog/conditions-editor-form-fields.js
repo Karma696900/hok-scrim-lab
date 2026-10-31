@@ -7,6 +7,7 @@ import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
 import { KINDS } from "./conditions-editor-shared.js";
 import { heroName } from "./conditions-editor-parts.js";
+import { boxFilter, comboField } from "./catalog-search.js";
 
 // ---- the form fields -----------------------------------------------------------------------------
 
@@ -46,12 +47,13 @@ export function fields(view, node, name) {
   switch (node.kind) {
     case "stat": {
       const stat = view.statOf(node.statId);
-      const which = view.select(
-        `${name}-stat`,
-        catalog.stats.map(entry => [entry.id, entry.name]),
-        node.statId,
-        { repaint: true, label: t("Stat") }
-      );
+      const which = comboField({
+        name: `${name}-stat`,
+        options: catalog.stats.map(entry => [entry.id, entry.name]),
+        selected: node.statId,
+        label: t("Search a stat"),
+        repaint: true
+      });
       if (isChoice(stat)) {
         const boxes = stat.options
           .map(
@@ -66,12 +68,12 @@ export function fields(view, node, name) {
       })}<label class="field when-number"><input type="number" step="any" name="${name}-value" value="${view.esc(String(node.value ?? ""))}" aria-label="${t("Value")}"></label>`;
     }
     case "tag":
-      return `${view.isSelect(`${name}-negate`, node.negate)}${view.select(
-        `${name}-tag`,
-        catalog.tags.map(tag => [tag.id, tag.name]),
-        node.tagId,
-        { label: t("Tag") }
-      )}`;
+      return `${view.isSelect(`${name}-negate`, node.negate)}${comboField({
+        name: `${name}-tag`,
+        options: catalog.tags.map(tag => [tag.id, tag.name]),
+        selected: node.tagId ?? catalog.tags[0]?.id,
+        label: t("Search a tag")
+      })}`;
     case "role":
       return `${view.isSelect(`${name}-negate`, node.negate)}${view.select(
         `${name}-role`,
@@ -86,16 +88,22 @@ export function fields(view, node, name) {
         node.lane,
         { label: t("Lane") }
       )}`;
-    case "hero":
-      return `${view.isSelect(`${name}-negate`, node.negate)}<label class="field when-heroes"><select multiple size="5" name="${name}-heroes" aria-label="${t("Heroes")}">${[
-        ...view.getHeroes()
-      ]
-        .sort((a, b) => heroName(a).localeCompare(heroName(b)))
+    case "hero": {
+      // the ticked heroes first, then the others by name; a search hides the names that do not match
+      const chosen = new Set(node.heroIds ?? []);
+      const boxes = [...view.getHeroes()]
+        .sort(
+          (a, b) =>
+            Number(chosen.has(b.id)) - Number(chosen.has(a.id)) ||
+            heroName(a).localeCompare(heroName(b))
+        )
         .map(
           hero =>
-            `<option value="${view.esc(hero.id)}"${(node.heroIds ?? []).includes(hero.id) ? " selected" : ""}>${view.esc(heroName(hero))}</option>`
+            `<label class="tag-box"><input type="checkbox" name="${name}-heroes" value="${view.esc(hero.id)}"${chosen.has(hero.id) ? " checked" : ""}> ${view.esc(heroName(hero))}</label>`
         )
-        .join("")}</select></label>`;
+        .join("");
+      return `${view.isSelect(`${name}-negate`, node.negate)}<div class="when-heroes">${boxFilter(t("Search a hero"), `<div class="tag-boxes">${boxes}</div>`, chosen.size)}</div>`;
+    }
     default:
       // the level of the hero in the build
       return `${view.select(`${name}-op`, SIGNS, node.op, { label: t("Comparison") })}<label class="field when-number"><input type="number" min="1" max="${MAX_LEVEL}" step="1" name="${name}-value" value="${view.esc(String(node.value ?? ""))}" aria-label="${t("Level")}"></label>`;

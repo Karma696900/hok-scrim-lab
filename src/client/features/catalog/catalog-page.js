@@ -23,6 +23,7 @@ import { onView as catalogSave } from "./catalog-save.js";
 import { onView as catalogActions } from "./catalog-actions.js";
 import { emptyDrafts } from "./catalog-empty-drafts.js";
 import { heroName } from "./catalog-parts.js";
+import { onSearchFocusIn, onSearchFocusOut, onSearchPointer } from "./catalog-search.js";
 
 export function createCatalogPage({ api, tell }) {
   const view = { api, tell };
@@ -116,6 +117,10 @@ export function createCatalogPage({ api, tell }) {
         event.target.closest?.("[data-dropzone]")?.classList.remove("is-over");
       });
       view.root.addEventListener("drop", view.onDrop);
+      // choosing a stat, a tag or a hero by its name (catalog-search.js)
+      view.root.addEventListener("pointerdown", onSearchPointer);
+      view.root.addEventListener("focusin", onSearchFocusIn);
+      view.root.addEventListener("focusout", onSearchFocusOut);
       view.root.addEventListener("submit", event => {
         event.preventDefault();
         view.save();

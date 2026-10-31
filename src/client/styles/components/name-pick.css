@@ -1,0 +1,73 @@
+/* Choosing by name in the forms of the Catalog (catalog-search.js): a field whose names show below it as
+   they are typed, and a search over a long list of boxes (tags, heroes). */
+.name-pick {
+  position: relative;
+  min-width: 0;
+}
+.name-pick:not(:focus-within):has(.name-pick__input:invalid) {
+  border-color: var(--danger);
+}
+.name-pick__list {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  z-index: 5;
+  max-height: 240px;
+  margin: 0;
+  padding: 4px;
+  overflow-y: auto;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-raised);
+  box-shadow: var(--shadow-pop);
+  scrollbar-width: thin;
+}
+.name-pick__list li {
+  padding: 7px 10px;
+  border-radius: var(--r-sm);
+  color: var(--ink);
+  cursor: pointer;
+}
+.name-pick__list li[aria-selected] {
+  font-weight: 600;
+}
+.name-pick__list li:hover,
+.name-pick__list li.is-active {
+  background: var(--tint-2);
+}
+
+.box-search {
+  display: grid;
+  gap: 10px;
+}
+.box-search__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.box-search__input {
+  flex: 1;
+  min-width: 0;
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--ink);
+}
+.box-search__input:focus {
+  border-color: var(--brand);
+  outline: 0;
+}
+.box-search__count {
+  color: var(--muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+.box-search .tag-boxes {
+  max-height: 220px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}

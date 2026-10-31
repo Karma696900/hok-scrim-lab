@@ -2525,3 +2525,8 @@
 2690	Pick order unknown
 2691	Checked against its source: heroes, bans, lanes and winners hang together. The order of the picks is not known.
 2692	Source code
+2693	Search a stat
+2694	Search a tag
+2695	A name was typed but not chosen from the list: {name}
+2696	{count, plural, one {# chosen} other {# chosen}}
+2697	Choose a name from the list.

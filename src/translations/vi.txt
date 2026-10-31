@@ -2525,3 +2525,8 @@
 2689|Đã biết thứ tự chọn
 2691|Đã đối chiếu với nguồn: tướng, cấm, đường và đội thắng khớp nhau. Chưa biết thứ tự chọn.
 2692|Mã nguồn
+2693|Tìm chỉ số
+2694|Tìm thẻ
+2697|Hãy chọn một tên trong danh sách.
+2696|{count, plural, other {Đã chọn #}}
+2695|Đã gõ tên nhưng chưa chọn trong danh sách: {name}

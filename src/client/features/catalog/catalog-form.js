@@ -7,6 +7,7 @@ import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
 import { categoryLabel, colorLabel, unitLabel } from "./catalog-shared.js";
 import { chip, field, group, picture } from "./catalog-parts.js";
+import { boxFilter, comboField } from "./catalog-search.js";
 
 // ---- editors shared by items and arcana -------------------------------------------------------
 
@@ -32,7 +33,7 @@ export const statLine = (view, row, index) => {
     .filter(Boolean)
     .join(" · ");
   return `<div class="stat-line" data-stat-line="${index}">
-      <div class="stat-row"><label class="field"><select name="stat-${index}-id" data-repaint aria-label="${t("Stat")}">${view.catalog.stats.map(entry => `<option value="${entry.id}"${entry.id === row.statId ? " selected" : ""}>${esc(entry.name)}${entry.unit === "percent" ? " (%)" : ""}</option>`).join("")}</select></label>${value}<button type="button" class="btn btn--ghost btn--icon btn--sm" data-remove-stat="${index}" aria-label="${t("Remove this stat")}">${icon("x", "i--sm")}</button></div>
+      <div class="stat-row">${comboField({ name: `stat-${index}-id`, options: view.catalog.stats.map(entry => [entry.id, `${entry.name}${entry.unit === "percent" ? " (%)" : ""}`]), selected: row.statId, label: t("Search a stat"), repaint: true })}${value}<button type="button" class="btn btn--ghost btn--icon btn--sm" data-remove-stat="${index}" aria-label="${t("Remove this stat")}">${icon("x", "i--sm")}</button></div>
       <details class="stat-extra" data-extra="${index}"${row.open || row.temporary || row.when || row.note ? " open" : ""}>
         <summary>${t("Temporary and conditions")}${marks ? ` <span class="stat-extra__marks">${esc(marks)}</span>` : ""}</summary>
         <div class="stat-extra__body">
@@ -64,14 +65,20 @@ export const optionRows = options => `<div class="option-rows">${options
   .join("")}
       ${options.length < OPTIONS_MAX ? `<button type="button" class="btn btn--sm" data-add-option>${icon("plus", "i--sm")}${t("Add an option")}</button>` : ""}</div>`;
 
+/** The tags as boxes to tick, the ticked ones first, with a search over their names. */
 export const tagBoxes = (view, selected, name) =>
   view.catalog.tags.length
-    ? `<div class="tag-boxes">${view.catalog.tags
-        .map(
-          tag =>
-            `<label class="tag-box"><input type="checkbox" name="${name}" value="${tag.id}"${selected.includes(tag.id) ? " checked" : ""}> ${chip(tag)}</label>`
-        )
-        .join("")}</div>`
+    ? boxFilter(
+        t("Search a tag"),
+        `<div class="tag-boxes">${[...view.catalog.tags]
+          .sort((a, b) => Number(selected.includes(b.id)) - Number(selected.includes(a.id)))
+          .map(
+            tag =>
+              `<label class="tag-box"><input type="checkbox" name="${name}" value="${tag.id}"${selected.includes(tag.id) ? " checked" : ""}> ${chip(tag)}</label>`
+          )
+          .join("")}</div>`,
+        view.catalog.tags.filter(tag => selected.includes(tag.id)).length
+      )
     : `<p class="muted">${t("No tag yet (Tags tab).")}</p>`;
 
 /** The picture of an entry, big, with what to do with it: the preview at the head of the panel. */

@@ -2525,3 +2525,8 @@
 2689|L'ordre des picks est connu
 2691|Vérifiée avec sa source : héros, bans, lanes et vainqueurs sont cohérents. L'ordre des picks n'est pas connu.
 2692|Code source
+2693|Rechercher une stat
+2694|Rechercher un tag
+2697|Choisis un nom dans la liste.
+2696|{count, plural, one {# choisi} other {# choisis}}
+2695|Un nom a été tapé mais pas choisi dans la liste : {name}

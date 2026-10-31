@@ -3,6 +3,7 @@
 import { chromium } from "playwright";
 import sharp from "sharp";
 import { startTestServer } from "../../../testing/test-app.js";
+import { pickName } from "../../../testing/name-pick.js";
 
 const app = await startTestServer();
 const admin = await app.signIn("Admin", { admin: true });
@@ -95,7 +96,7 @@ await page.selectOption('#catalog-form [name="category"]', "regular");
 await page.click("[data-add-stat]");
 await page.fill('[name="stat-0-value"]', "400");
 await page.click("[data-add-stat]");
-await page.selectOption('[name="stat-1-id"]', { label: "Crit Rate (%)" });
+await pickName(page, "stat-1-id", { label: "Crit Rate (%)" });
 await page.fill('[name="stat-1-value"]', "15");
 for (const [kind, name] of [
   ["passive", "Edge"],

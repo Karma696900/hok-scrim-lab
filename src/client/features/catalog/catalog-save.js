@@ -1,5 +1,6 @@
 // Reading the catalog from the server, saving an entry, choosing its picture.
 import { t } from "../../app/browser-i18n.js";
+import { unchosen } from "./catalog-search.js";
 
 export const pathOf = view => `/api/admin/catalog/${view.tab}`;
 
@@ -9,6 +10,14 @@ export async function reload(view) {
 
 export async function save(view) {
   if (view.busy || !view.editing) {
+    return;
+  }
+  // a stat or a tag typed but not chosen: said at once, without drawing the form again (what was typed stays)
+  const loose = unchosen(view.root);
+  if (loose) {
+    loose.focus({ preventScroll: true });
+    loose.scrollIntoView({ block: "nearest" });
+    view.tell(t("A name was typed but not chosen from the list: {name}", { name: loose.value }));
     return;
   }
   view.busy = true;

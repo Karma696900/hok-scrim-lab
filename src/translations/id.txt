@@ -2525,3 +2525,8 @@
 2689|Urutan pick diketahui
 2691|Dicek dengan sumbernya: hero, ban, lane, dan pemenang saling cocok. Urutan pick tidak diketahui.
 2692|Kode sumber
+2693|Cari statistik
+2694|Cari tag
+2697|Pilih nama dari daftar.
+2696|{count, plural, other {# dipilih}}
+2695|Nama diketik tetapi tidak dipilih dari daftar: {name}
