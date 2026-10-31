@@ -26,7 +26,8 @@ export async function bumpChallengeAttempts(ctx, tokenHash) {
     "SELECT attempts FROM auth_challenges WHERE token_hash = ?",
     [tokenHash]
   );
-  return row?.attempts ?? 99;
+  // null: the challenge is gone (another sign-in of the account replaced it)
+  return row?.attempts ?? null;
 }
 
 export async function setChallengeSecret(ctx, tokenHash, encrypted) {

@@ -35,7 +35,7 @@ export async function enrolConfirm(ctx, request, response, { code }) {
   if (!challenge.pending_secret_enc) {
     throw badRequest("Scan the code first.", "no_pending_secret");
   }
-  if ((await ctx.store.bumpChallengeAttempts(tokenHash)) > MAX_CHALLENGE_ATTEMPTS) {
+  if ((await countAttempt(ctx, response, tokenHash)) > MAX_CHALLENGE_ATTEMPTS) {
     await ctx.store.deleteChallenge(tokenHash);
     throw new HttpError(429, "too_many_attempts", "Too many wrong codes. Sign in again.");
   }
@@ -64,7 +64,7 @@ export async function verifySecondFactor(ctx, request, response, { code, recover
   if (!user || Number(user.locked_until) > Date.now()) {
     throw invalidCode();
   }
-  if ((await ctx.store.bumpChallengeAttempts(tokenHash)) > MAX_CHALLENGE_ATTEMPTS) {
+  if ((await countAttempt(ctx, response, tokenHash)) > MAX_CHALLENGE_ATTEMPTS) {
     await ctx.store.deleteChallenge(tokenHash);
     await ctx.store.recordLoginFailure(user.id);
     await ctx.event(user.id, "mfa_blocked", "too many attempts", request);
@@ -160,6 +160,20 @@ export async function logout(ctx, request, response) {
 }
 
 const MAX_CHALLENGE_ATTEMPTS = 5;
+
+/**
+ * Counts one more code tried on the sign-in in progress. A sign-in that another sign-in of the same
+ * account replaced meanwhile (one open challenge per account) has expired: it says so, as when the
+ * challenge is not found at all, instead of "too many wrong codes".
+ */
+async function countAttempt(ctx, response, tokenHash) {
+  const attempts = await ctx.store.bumpChallengeAttempts(tokenHash);
+  if (attempts === null) {
+    ctx.identity.clearCookie(response, ctx.identity.names.challenge);
+    throw new HttpError(401, "challenge_expired", "Your sign-in expired. Start again.");
+  }
+  return attempts;
+}
 
 const invalidCode = () => new HttpError(401, "invalid_code", "This code is not valid.");
 
