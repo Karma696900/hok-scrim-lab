@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "นำซีรีส์ออกจาก {team}",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "นำมาจากหน้าผลการแข่งขัน: มีฮีโร่ แบน และเลน แต่ไม่มีลำดับการเลือก",
   "Tank": "แทงค์",
+  "Tap to play in full screen": "แตะเพื่อเล่นแบบเต็มหน้าจอ",
   "Target": "เป้า",
   "Target {done} of {total}": "เป้าที่ {done} จาก {total}",
   "Target {hero}": "เล็ง {hero}",

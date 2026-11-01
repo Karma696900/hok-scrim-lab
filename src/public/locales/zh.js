@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "从 {team} 移除该系列赛",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "取自赛果页面：有英雄、禁用和分路，但没有选取顺序。",
   "Tank": "坦克",
+  "Tap to play in full screen": "点击以全屏游玩",
   "Target": "目标",
   "Target {done} of {total}": "目标 {done} / {total}",
   "Target {hero}": "锁定{hero}",

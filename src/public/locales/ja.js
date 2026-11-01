@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "シリーズを {team} から外す",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "結果ページから取得：ヒーロー、BAN、レーンは分かりますが、ピックの順番は不明です。",
   "Tank": "タンク",
+  "Tap to play in full screen": "タップして全画面でプレイ",
   "Target": "ターゲット",
   "Target {done} of {total}": "ターゲット {done} / {total}",
   "Target {hero}": "{hero} を狙う",

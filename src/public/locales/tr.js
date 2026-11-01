@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "Seriyi {team} takımından kaldır",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "Bir sonuç sayfasından alındı: kahramanlar, banlar ve koridorlar var, seçim sırası yok.",
   "Tank": "Tank",
+  "Tap to play in full screen": "Tam ekran oynamak için dokunun",
   "Target": "Hedef",
   "Target {done} of {total}": "Hedef {done} / {total}",
   "Target {hero}": "{hero} hedefle",

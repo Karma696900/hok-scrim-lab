@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "إزالة السلسلة من {team}",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "مأخوذة من صفحة نتائج: الأبطال والحظر والخطوط، لكن دون ترتيب الاختيار.",
   "Tank": "دبابة",
+  "Tap to play in full screen": "اضغط للعب بملء الشاشة",
   "Target": "هدف",
   "Target {done} of {total}": "الهدف {done} من {total}",
   "Target {hero}": "استهدف {hero}",

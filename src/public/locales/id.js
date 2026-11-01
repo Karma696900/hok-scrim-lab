@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "Hapus seri dari {team}",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "Diambil dari halaman hasil: hero, ban, dan lane, tetapi bukan urutan pick.",
   "Tank": "Tank",
+  "Tap to play in full screen": "Ketuk untuk bermain layar penuh",
   "Target": "Target",
   "Target {done} of {total}": "Target {done} dari {total}",
   "Target {hero}": "Bidik {hero}",

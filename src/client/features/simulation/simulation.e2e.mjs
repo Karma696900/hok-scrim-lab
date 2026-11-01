@@ -124,6 +124,20 @@ await player.goto(`${app.baseUrl}/simulation`);
 await player.click('[data-act="start"]');
 await player.waitForSelector(".sim-layer .sim-map__svg", { timeout: 20000 });
 check("the board covers the page", await player.locator(".sim-layer").isVisible());
+const fullscreen = page => page.evaluate(() => document.fullscreenElement !== null);
+check("the tap on start put the page in full screen", await fullscreen(player));
+await player.evaluate(() => document.exitFullscreen());
+await player.waitForSelector(".sim-full:not([hidden])", { timeout: 5000 });
+check(
+  "out of full screen, a button covers the board",
+  await player.locator(".sim-full").isVisible()
+);
+await player.click('[data-sim="fullscreen"]');
+await player.waitForFunction(() => document.fullscreenElement !== null, null, { timeout: 5000 });
+check(
+  "its tap takes the full screen back and the button goes",
+  (await fullscreen(player)) && !(await player.locator(".sim-full").isVisible())
+);
 const ticket = bots.seen.tickets.at(-1);
 check(
   "the ticket names the player and the set-up",
@@ -304,6 +318,7 @@ check(
   "the site kept the game the bots server handed it",
   await settles(player.waitForSelector(".sim-past", { timeout: 10000 }))
 );
+check("leaving the game gives the normal page back", !(await fullscreen(player)));
 check("it answered 201", bots.seen.results.at(-1) === 201);
 
 // ---- a watched game: ten bots, the speed and the view switched live, the winner at the end -------------------------

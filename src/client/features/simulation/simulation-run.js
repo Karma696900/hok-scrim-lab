@@ -9,6 +9,7 @@ import { api } from "../../app/api-client.js";
 import { boardHtml } from "./simulation-board.js";
 import { bindCamera, unbindCamera } from "./simulation-camera.js";
 import { bindControls, unbindControls } from "./simulation-controls.js";
+import { bindFullscreen, enterFullscreen, exitFullscreen } from "./simulation-fullscreen.js";
 import { placeAt, toggleScoreboard } from "./simulation-hud.js";
 import { moveDots } from "./simulation-motion.js";
 import { paintFrame } from "./simulation-paint.js";
@@ -103,6 +104,7 @@ function endGame(run, result) {
     ? watchEndHtml(result)
     : gradeHtml(result, { signedIn: run.signedIn });
   run.layerOf.end.querySelector("button")?.focus();
+  run.syncFullscreen?.();
   run.onEnd();
 }
 
@@ -139,6 +141,7 @@ function begin(run, start) {
     picture: { image: run.image, debug: run.choice.debug }
   });
   bindLayer(run);
+  bindFullscreen(run);
   if (run.watch) {
     bindWatch(run);
   } else {
@@ -183,7 +186,9 @@ const ACTIONS = {
   speed: (run, button) => send(run, { type: "speed", value: Number(button.dataset.value) }),
   view: (run, button) => send(run, { type: "view", value: button.dataset.value }),
   resume: run => send(run, { type: "resume" }),
+  fullscreen: () => enterFullscreen(),
   leave: run => {
+    exitFullscreen();
     run.stop();
     run.socket.close(1000, "left");
     run.layer.remove();
@@ -232,6 +237,7 @@ export function startRun({ host, game, choice, heroes, signedIn, onEnd, onLeave,
     cancelAnimationFrame(run.handle);
     unbindControls(run);
     unbindCamera(run);
+    run.unbindFullscreen?.();
   };
   run.send = order => !run.stopped && send(run, order);
   run.socket = new WebSocket(game.url);
@@ -246,6 +252,7 @@ export function startRun({ host, game, choice, heroes, signedIn, onEnd, onLeave,
   });
   run.socket.addEventListener("close", () => {
     if (!run.ended && !run.stopped) {
+      exitFullscreen();
       run.stop();
       run.layer.remove();
       onLost();

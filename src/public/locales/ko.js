@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "{team}에서 시리즈 제거",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "결과 페이지에서 가져옴: 영웅, 밴, 라인은 있으나 픽 순서는 없습니다.",
   "Tank": "탱커",
+  "Tap to play in full screen": "탭하여 전체 화면으로 플레이",
   "Target": "표적",
   "Target {done} of {total}": "표적 {done} / {total}",
   "Target {hero}": "{hero} 조준",

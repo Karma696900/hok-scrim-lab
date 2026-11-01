@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "Gỡ series khỏi {team}",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "Lấy từ trang kết quả: có tướng, cấm và đường, nhưng không có thứ tự chọn.",
   "Tank": "Đỡ đòn",
+  "Tap to play in full screen": "Chạm để chơi toàn màn hình",
   "Target": "Mục tiêu",
   "Target {done} of {total}": "Mục tiêu {done} / {total}",
   "Target {hero}": "Nhắm {hero}",

@@ -164,3 +164,20 @@
     scale: none;
   }
 }
+
+/* out of full screen during a game on a phone: one button over the board takes it back */
+.sim-full {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgb(6 11 19 / 0.86);
+}
+.sim-full[hidden] {
+  display: none;
+}
+.sim-full .btn {
+  min-height: 56px;
+}

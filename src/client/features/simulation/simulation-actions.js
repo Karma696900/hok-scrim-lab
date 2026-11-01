@@ -4,6 +4,7 @@ import { t } from "../../app/browser-i18n.js";
 import { paintStage, stageHero } from "../community/stage.js";
 import { pageHtml } from "./simulation-setup.js";
 import { loadGame, loadHistory, loadPool } from "./simulation-load.js";
+import { enterFullscreen } from "./simulation-fullscreen.js";
 import { startRun } from "./simulation-run.js";
 import { addressHooks, DIFFICULTIES, LANES, SIDES } from "./simulation-shared.js";
 
@@ -115,6 +116,8 @@ export function onClick(view, event) {
   }
   const act = button.dataset.act;
   if (act === "start") {
+    // full screen is granted only right after a tap: asked here, before the game is loaded
+    enterFullscreen();
     view.start();
     return;
   }

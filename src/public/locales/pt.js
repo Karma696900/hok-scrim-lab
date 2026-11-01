@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "Remover a série de {team}",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "Tirada de uma página de resultados: heróis, bans e rotas, mas não a ordem dos picks.",
   "Tank": "Tanque",
+  "Tap to play in full screen": "Toque para jogar em tela cheia",
   "Target": "Alvo",
   "Target {done} of {total}": "Alvo {done} de {total}",
   "Target {hero}": "Mirar em {hero}",

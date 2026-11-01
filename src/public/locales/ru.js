@@ -1936,6 +1936,7 @@ export default {
   "Take the series off {team}": "Убрать серию у команды {team}",
   "Taken from a results page: heroes, bans and lanes, but not the order of the picks.": "Взято со страницы результатов: герои, баны и линии, но не порядок пиков.",
   "Tank": "Танк",
+  "Tap to play in full screen": "Нажмите, чтобы играть на весь экран",
   "Target": "Мишень",
   "Target {done} of {total}": "Мишень {done} из {total}",
   "Target {hero}": "Цель: {hero}",
