@@ -11,6 +11,7 @@ import { bindCamera, unbindCamera } from "./simulation-camera.js";
 import { bindControls, unbindControls } from "./simulation-controls.js";
 import { bindFullscreen, enterFullscreen, exitFullscreen } from "./simulation-fullscreen.js";
 import { placeAt, toggleScoreboard } from "./simulation-hud.js";
+import { boardShare } from "./simulation-map.js";
 import { moveDots } from "./simulation-motion.js";
 import { paintFrame } from "./simulation-paint.js";
 import { bindSkills } from "./simulation-skills.js";
@@ -73,6 +74,7 @@ function bindLayer(run) {
     end: one(".sim-end"),
     game: one(".sim-game"),
     miniEyes: one(".sim-mini-eyes"),
+    reach: one("[data-reach]"),
     miniDots: one(".sim-mini__dots"),
     miniFrame: one(".sim-mini__frame"),
     scoreBlue: one('[data-score="blue"]'),
@@ -148,6 +150,10 @@ function begin(run, start) {
     bindControls(run);
     bindSkills(run);
     bindCamera(run);
+    run.layerOf.reach?.style.setProperty(
+      "--reach",
+      `${boardShare(2 * (start.me.reach ?? 0)).toFixed(2)}%`
+    );
     loadItems(run);
   }
   loadIcons(run);

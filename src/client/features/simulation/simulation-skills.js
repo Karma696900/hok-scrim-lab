@@ -6,18 +6,37 @@
 import { t } from "../../app/browser-i18n.js";
 import { esc } from "./simulation-shared.js";
 
-// from the centre of the attack button, in pixels
-const RADIUS = 132;
+// the three skills of most heroes, measured on the owner's captures of the game: the distance from the centre of the
+// attack button in screen widths, and the angle (0° to the right, 90° up)
+const ARC = [
+  { radius: 0.215, degrees: 181 },
+  { radius: 0.185, degrees: 152 },
+  { radius: 0.17, degrees: 124 }
+];
+// a fourth skill: the same arc, spread from the first place to this angle and distance
+const LAST = { radius: 0.17, degrees: 112 };
 const FLASH_MS = 450;
 
 const skillName = key =>
   key === "ult" ? t("Ultimate") : `${t("Skills")} ${esc(key.replace(/^s/, ""))}`;
 
-/** Where each of `count` skills sits around the attack: from its left (180°) to straight above it (90°). */
+const spotOf = ({ radius, degrees }) => {
+  const angle = (degrees * Math.PI) / 180;
+  return { x: radius * Math.cos(angle), y: radius * Math.sin(angle) };
+};
+
+/** Where each of `count` skills sits from the centre of the attack, in screen widths (up is positive), as in the game. */
 export function arcSpots(count) {
+  if (count <= ARC.length) {
+    return ARC.slice(0, count).map(spotOf);
+  }
+  const [first] = ARC;
   return Array.from({ length: count }, (_, index) => {
-    const angle = Math.PI - (count > 1 ? (index / (count - 1)) * (Math.PI / 2) : 0);
-    return { x: RADIUS * Math.cos(angle), y: RADIUS * Math.sin(angle) };
+    const share = index / (count - 1);
+    return spotOf({
+      radius: first.radius + (LAST.radius - first.radius) * share,
+      degrees: first.degrees + (LAST.degrees - first.degrees) * share
+    });
   });
 }
 
@@ -56,8 +75,8 @@ export function bindSkills(run) {
   const spots = arcSpots(skills.length);
   run.arc = new Map();
   skills.forEach((element, index) => {
-    element.style.setProperty("--x", `${spots[index].x.toFixed(1)}px`);
-    element.style.setProperty("--y", `${spots[index].y.toFixed(1)}px`);
+    element.style.setProperty("--x", spots[index].x.toFixed(4));
+    element.style.setProperty("--y", spots[index].y.toFixed(4));
     run.arc.set(element.dataset.skill, {
       element,
       time: element.querySelector(".sim-arc__time"),

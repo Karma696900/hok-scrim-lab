@@ -7,6 +7,20 @@ import { followCamera } from "./simulation-camera.js";
 import { standDots } from "./simulation-stand.js";
 import { place } from "./simulation-paint.js";
 
+// the gold ring of the player's attack reach, on the ground under its dot (shown while the hero is alive)
+function placeReach(run) {
+  const ring = run.layerOf?.reach;
+  const mine = run.glide.get(run.me.id);
+  const dot = run.dots.get(run.me.id);
+  if (!ring) {
+    return;
+  }
+  ring.hidden = !mine || !dot || dot.hidden;
+  if (!ring.hidden) {
+    place(ring, mine.drawn, run.side);
+  }
+}
+
 const FRAME_MS = 100;
 // farther than this between two frames is a jump (a respawn, a teleport): no glide
 const JUMP = 80;
@@ -64,6 +78,7 @@ export function moveDots(run, now) {
         : lerp(entry.from, entry.to, Math.min(1, (now - entry.at) / FRAME_MS));
     place(dot, entry.drawn, run.side);
   }
+  placeReach(run);
   run.movedAt = now;
   if (run.camera) {
     followCamera(run, now);

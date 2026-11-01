@@ -29,14 +29,28 @@ test("the last second shows its tenths", () => {
   assert.equal(coolState(null, 0.7).label, "0.7");
 });
 
-test("the skills sit on an arc left of and above the attack: the first on its left, the ultimate above it", () => {
-  const three = arcSpots(3);
-  assert.equal(three.length, 3);
-  assert.ok(three[0].x < -100 && Math.abs(three[0].y) < 1, "first on the left");
-  assert.ok(Math.abs(three[2].x) < 1 && three[2].y > 100, "last straight above");
-  const four = arcSpots(4);
-  for (let i = 1; i < four.length; i += 1) {
-    const gap = Math.hypot(four[i].x - four[i - 1].x, four[i].y - four[i - 1].y);
-    assert.ok(gap >= 58, `the buttons do not overlap (${gap.toFixed(0)} px)`);
+test("the skills sit where the game puts them, in screen widths from the attack: left of it, up-left, then higher", () => {
+  // measured on the owner's captures: 0.215 W at 181°, 0.185 W at 152°, 0.17 W at 124° (up is positive)
+  const [first, second, ult] = arcSpots(3);
+  const near = (spot, radius, degrees) =>
+    Math.abs(Math.hypot(spot.x, spot.y) - radius) < 0.003 &&
+    Math.abs((Math.atan2(spot.y, spot.x) * 180) / Math.PI - degrees) < 1;
+  assert.ok(near(first, 0.215, -179), "the first on the left, a hair low");
+  assert.ok(near(second, 0.185, 152), "the second up-left");
+  assert.ok(near(ult, 0.17, 124), "the ultimate higher");
+  for (const count of [1, 2, 3, 4]) {
+    const spots = arcSpots(count);
+    assert.equal(spots.length, count);
+    for (const spot of spots) {
+      assert.ok(
+        Math.hypot(spot.x, spot.y) >= 0.078,
+        "clear of the attack button (0.095 W) and itself (0.06 W)"
+      );
+    }
+    for (let i = 1; i < count; i += 1) {
+      const gap = Math.hypot(spots[i].x - spots[i - 1].x, spots[i].y - spots[i - 1].y);
+      assert.ok(gap >= 0.07, `the skills do not overlap (${gap.toFixed(3)} W)`);
+    }
+    assert.ok(spots.at(-1).x < -0.06, "none straight above the attack, where the tower button is");
   }
 });

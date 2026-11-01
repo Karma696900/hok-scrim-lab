@@ -8,6 +8,9 @@ const SIZE = 1024;
 const FRAME = { from: 150, side: 724 };
 const points = list => list.map(([x, y]) => `${x},${y}`).join(" ");
 
+/** A length of the map (its pixels) as a share of the board's side (0..100). */
+export const boardShare = length => (length / FRAME.side) * 100;
+
 /** Where a point of the map is drawn, as shares of the board (0..100), turned for the red side. */
 export function placeOnBoard([x, y], side) {
   const [px, py] = side === "red" ? [SIZE - x, SIZE - y] : [x, y];

@@ -112,6 +112,7 @@
       "pages/simulation-gauge.css",
       "pages/simulation-skills.css",
       "pages/simulation-tilt.css",
+      "pages/simulation-pov.css",
       "pages/simulation-watch.css"
     ],
     "popular": ["pages/popular.css", "pages/popular-empty-period.css"],

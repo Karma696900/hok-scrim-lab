@@ -25,7 +25,7 @@ const AIMS = { Space: "auto", KeyE: "minion", KeyR: "tower" };
 
 /** The joystick and the attack buttons, laid over the bottom corners; `spell` (the spell's button) beside the attack. */
 export function controlsHtml(spell = "") {
-  return `<div class="sim-stick" data-stick role="group" aria-label="${esc(t("Move: hold and drag, or W A S D"))}"><span class="sim-stick__knob"></span></div>
+  return `<div class="sim-stick-zone" data-stick-zone><div class="sim-stick" data-stick role="group" aria-label="${esc(t("Move: hold and drag, or W A S D"))}"><span class="sim-stick__knob"></span></div></div>
   <div class="sim-strike" role="group" aria-label="${esc(t("Attack"))}">
     <div class="sim-avatars" aria-label="${esc(t("Enemies in sight"))}"></div>
     <button type="button" class="sim-aim sim-aim--minion" data-sim="aim" data-kind="minion" aria-label="${esc(t("Minions and monsters"))} (E)" title="${esc(t("Minions and monsters"))} (E)">${icon("users")}</button>
@@ -83,20 +83,52 @@ function fromPointer(base, event) {
   return size > 1 ? [dx / size, dy / size] : [dx, dy];
 }
 
-function bindStick(run, base) {
+/**
+ * How far the ring moves so that its centre comes under the finger (`rest` its centre at rest, `finger` the touch,
+ * both in screen pixels), kept whole on the `width` x `height` screen. The game's stick floats this way.
+ */
+export function floatShift({ rest, finger, radius, width, height }) {
+  const keep = (value, size) => Math.min(Math.max(value, radius), size - radius);
+  return [
+    Math.round(keep(finger[0], width) - rest[0]),
+    Math.round(keep(finger[1], height) - rest[1])
+  ];
+}
+
+function shiftRing(base, shift) {
+  base.style.setProperty("--sx", `${shift[0]}px`);
+  base.style.setProperty("--sy", `${shift[1]}px`);
+}
+
+function bindStick(run, base, zone) {
   let pointer = null;
   const set = stick => {
     knobAt(run, stick);
     sendStick(run, stick);
   };
-  base.addEventListener("pointerdown", event => {
+  zone.addEventListener("pointerdown", event => {
+    if (pointer !== null) {
+      return;
+    }
     pointer = event.pointerId;
-    base.setPointerCapture?.(pointer);
+    zone.setPointerCapture?.(pointer);
     base.classList.add("is-held");
+    const box = base.getBoundingClientRect();
+    const radius = box.width / 2;
+    shiftRing(
+      base,
+      floatShift({
+        rest: [box.left + radius, box.top + radius],
+        finger: [event.clientX, event.clientY],
+        radius,
+        width: innerWidth,
+        height: innerHeight
+      })
+    );
     set(fromPointer(base, event));
     event.preventDefault();
   });
-  base.addEventListener("pointermove", event => {
+  zone.addEventListener("pointermove", event => {
     if (event.pointerId === pointer) {
       set(fromPointer(base, event));
     }
@@ -105,11 +137,12 @@ function bindStick(run, base) {
     if (event.pointerId === pointer) {
       pointer = null;
       base.classList.remove("is-held");
+      shiftRing(base, [0, 0]);
       set([0, 0]);
     }
   };
-  base.addEventListener("pointerup", release);
-  base.addEventListener("pointercancel", release);
+  zone.addEventListener("pointerup", release);
+  zone.addEventListener("pointercancel", release);
   // the change that came too soon after the last one goes now
   run.stick.timer = setInterval(() => sendStick(run, run.stick.now), SEND_EVERY_MS);
 }
@@ -172,7 +205,7 @@ export function bindControls(run) {
   run.avatarIds = [];
   run.avatarKey = "";
   run.avatars = run.layer.querySelector(".sim-avatars");
-  bindStick(run, base);
+  bindStick(run, base, run.layer.querySelector("[data-stick-zone]"));
   bindKeys(run);
 }
 

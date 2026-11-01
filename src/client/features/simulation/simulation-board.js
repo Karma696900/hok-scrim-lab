@@ -68,6 +68,7 @@ export function boardHtml({ start, heroes, picture = {} }) {
     <div class="sim-view">
       <div class="sim-map sim-map--${me.side}">
         ${mapSvg(start.map, me.side, { ...picture, marks: false })}
+        <span class="sim-reach" data-reach aria-hidden="true"></span>
       </div>
       <div class="sim-dots">${spotsHtml(start.map)}</div>
     </div>

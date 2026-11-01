@@ -266,6 +266,11 @@ describe("the board", () => {
     );
     assert.match(field, /<\/div>\s*<div class="sim-dots">\s*<span class="sim-spot sim-spot--tower/);
     assert.match(field, /class="sim-spot sim-spot--crystal sim-spot--red" data-crystal="red"/);
+    // the gold ring of the hero's attack reach lies on the ground: inside the tilted map, after the picture
+    assert.match(
+      field,
+      /<\/svg>\s*<span class="sim-reach" data-reach aria-hidden="true"><\/span>\s*<\/div>/
+    );
   });
 
   test("the pause box can resume or leave the game", () => {

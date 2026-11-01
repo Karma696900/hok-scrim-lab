@@ -192,6 +192,15 @@ const centred = await player.evaluate(() => {
       parseFloat(frame.left) + parseFloat(frame.width) / 2 - parseFloat(me.style.left),
       parseFloat(frame.top) + parseFloat(frame.height) / 2 - parseFloat(me.style.top)
     ),
+    reach: (() => {
+      // on the tilted ground the near half of the ring looks bigger: its box is centred across, a little low
+      const ring = document.querySelector("[data-reach]").getBoundingClientRect();
+      return {
+        across: Math.abs(ring.left + ring.width / 2 - (view.left + view.width / 2)),
+        down: (ring.top + ring.height / 2 - (view.top + view.height / 2)) / ring.height,
+        wider: ring.width > dot.width
+      };
+    })(),
     flat: !document.querySelector(".sim-dots").style.transform.includes("rotate"),
     farther: [...document.querySelectorAll(".sim-dot:not([hidden])")].some(other => {
       const box = other.getBoundingClientRect();
@@ -211,6 +220,13 @@ check(
 check(
   `the minimap's frame centred on the hero (${centred.frame.toFixed(2)} % off)`,
   centred.frame < 1
+);
+check(
+  `the gold ring of the attack reach lies around the hero (${centred.reach.across.toFixed(1)} px across, ${(centred.reach.down * 100).toFixed(0)} % low)`,
+  centred.reach.across < 3 &&
+    centred.reach.down >= 0 &&
+    centred.reach.down < 0.15 &&
+    centred.reach.wider
 );
 check("the dots stand on a flat layer above the tilted map", centred.flat);
 check("a dot farther up the map is drawn smaller", centred.farther);
@@ -265,8 +281,12 @@ check(
 );
 await shot(player, "hud");
 if (process.env.SIM_SHOTS) {
+  // a window in full screen cannot be resized
+  await player.evaluate(() => document.exitFullscreen());
   await player.setViewportSize({ width: 844, height: 390 });
   await player.waitForTimeout(300);
+  // the picture of the board, without the button back to full screen
+  await player.evaluate(() => (document.querySelector(".sim-full").hidden = true));
   await shot(player, "hud-phone");
   await player.setViewportSize({ width: 1280, height: 800 });
 }
