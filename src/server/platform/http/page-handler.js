@@ -5,6 +5,7 @@ import { requestLanguage, tr } from "../server-i18n.js";
 import { BOOT_SCRIPT, BOOT_SCRIPT_HASH, safeJson } from "./first-paint.js";
 import { requestDisplay } from "./display-cookies.js";
 import { contentSecurityPolicy } from "./security-headers.js";
+import { botsSockets } from "../../features/simulation/bots-link.js";
 import { WEB } from "./web-root.js";
 import { OG_LOCALES, ROOM_FRAME_VIEW, SESSION_COOKIE } from "./page-handler-views.js";
 import {
@@ -16,9 +17,13 @@ import {
 } from "./page-handler-assets.js";
 import { escapeHtml } from "./page-handler-shared.js";
 import { structuredData } from "./page-handler-seo.js";
+import { addressesOf, localizeLinks, sentToLanguageAddress } from "./page-handler-language.js";
 import { bindTo } from "../../../shared/bind-to.js";
 import { onView as pageHandlerParts } from "./page-handler-parts.js";
 import { decidePage } from "./page-handler-decide.js";
+
+// the bots server, where the live games of /simulation are played (its socket is outside this origin)
+const SOCKETS = botsSockets();
 
 export { SSR_VIEWS } from "./page-handler-views.js";
 export { FRAME_VIEWS } from "./page-handler-views.js";
@@ -57,14 +62,14 @@ export function createPageHandler({
   return async function page(request, response, next) {
     try {
       const language = request.language ?? requestLanguage(request);
+      if (sentToLanguageAddress(request, response, language, prerender)) {
+        return;
+      }
       const { info, session, matched, inRoom, isFrame, drawn } = await decidePage(
         ctx,
         request,
         language,
-        {
-          prerender,
-          bootstrap
-        }
+        { prerender, bootstrap }
       );
       // The inline stylesheet: the critical one, or (a page drawn) the one of its first screen, which
       // the policy of the response then allows by its hash instead of the critical one alone.
@@ -72,7 +77,7 @@ export function createPageHandler({
       if (drawn) {
         response.setHeader(
           "Content-Security-Policy",
-          contentSecurityPolicy([inline.hash], [BOOT_SCRIPT_HASH])
+          contentSecurityPolicy([inline.hash], [BOOT_SCRIPT_HASH], SOCKETS)
         );
       }
       const display = requestDisplay(request, language);
@@ -84,12 +89,13 @@ export function createPageHandler({
       const calls = dataCalls(matched, Boolean(session?.me));
       const base = ctx.origin(request);
       const structured = structuredData({ matched, info, base, language });
-      const canonical = `${base}${request.path === "/" ? "/" : request.path.replace(/\/+$/, "")}`;
+      const { canonical, alternates } = addressesOf(base, request, info);
       // One pass: a value that happens to contain a placeholder is never expanded again.
       const values = {
         TITLE: escapeHtml(info.title),
         DESCRIPTION: escapeHtml(info.description),
         CANONICAL: escapeHtml(canonical),
+        ALTERNATES: alternates,
         // a private page stays out of the search engines: they never carry a session, so it is the page of someone who is
         // not signed in that says so (a person with a session reads their own page, which is no business of a crawler).
         // A page that does not exist does not say it: its 404 is what keeps it out of the index, and a noindex on top
@@ -116,7 +122,7 @@ export function createPageHandler({
           icon(name, extra)
         )
         .replace(
-          /__(TITLE|DESCRIPTION|CANONICAL|ROBOTS|OG_IMAGE|SITE_NAME|CRITICAL_CSS|LANG|DIR|THEME|FIRST_DRAW|THEME_COLOR|LANGUAGE_NAME|OG_LOCALE|BOOT)__/g,
+          /__(TITLE|DESCRIPTION|CANONICAL|ALTERNATES|ROBOTS|OG_IMAGE|SITE_NAME|CRITICAL_CSS|LANG|DIR|THEME|FIRST_DRAW|THEME_COLOR|LANGUAGE_NAME|OG_LOCALE|BOOT)__/g,
           (_match, key) => values[key]
         );
       if (!drawn?.account && !request.user && !SESSION_COOKIE.test(request.headers.cookie ?? "")) {
@@ -151,7 +157,7 @@ export function createPageHandler({
               ? "public, max-age=300"
               : "no-store"
         )
-        .send(html);
+        .send(localizeLinks(html, language));
     } catch (error) {
       next(error);
     }

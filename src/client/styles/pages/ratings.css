@@ -297,3 +297,24 @@
     font-size: 12px;
   }
 }
+
+/* a hero the tournament games already rank in this lane: greyed, its computed tier in the corner */
+.rt-board .tier-avatar.is-computed {
+  position: relative;
+}
+.rt-board .tier-avatar.is-computed img {
+  filter: grayscale(1);
+  opacity: 0.55;
+}
+.rt-computed {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  min-width: 20px;
+  padding: 1px 4px;
+  border-radius: var(--r-sm);
+  background: var(--panel-raised);
+  color: var(--ink);
+  font: 800 12px/1.3 var(--font-display);
+  text-align: center;
+}

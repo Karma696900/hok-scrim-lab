@@ -1,10 +1,10 @@
-// The API keys of the signed-in person (a section of Settings): make a key, copy it (it is shown once),
+// The API keys of the signed-in person (on the API page, /me/api): make a key, copy it (it is shown once),
 // see what each key did last, revoke it. A key only reads; what it can read is chosen when it is made.
 // The section is drawn as a small console: the form that makes a key beside the call that uses it, then the
 // keys in a list that reads at a glance.
 import { t } from "../../app/browser-i18n.js";
 import { bindTo } from "../../../shared/bind-to.js";
-import { onView as settingsApiKeysParts } from "./settings-api-keys-parts.js";
+import { onView as apiKeysParts } from "./api-keys-parts.js";
 
 /**
  * Draws the section into `root` and wires it. `api` and `tell` are the page's; the secret of a new
@@ -13,7 +13,7 @@ import { onView as settingsApiKeysParts } from "./settings-api-keys-parts.js";
  */
 export async function mountApiKeys(root, { api, escapeHtml, tell, onCount }) {
   const view = { onCount, root, api, tell };
-  bindTo(view, settingsApiKeysParts);
+  bindTo(view, apiKeysParts);
   view.esc = escapeHtml;
   view.data = null;
   view.fresh = null; // { secret, name } of the key that was just made
@@ -61,7 +61,7 @@ export async function mountApiKeys(root, { api, escapeHtml, tell, onCount }) {
       view.tell(error.message, "warn");
     }
   });
-  // Enter in the name field makes the key; it must not save the settings form around it.
+  // Enter in the name field makes the key (and never submits a form around it).
   view.root.addEventListener("keydown", event => {
     if (event.key === "Enter" && event.target.id === "ak-name") {
       event.preventDefault();

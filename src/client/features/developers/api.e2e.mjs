@@ -1,7 +1,9 @@
-// Browser check of the API keys: a signed-in person makes a key in Settings, copies it once, uses it
-// against /api/v1, and revokes it; a visitor has no such section.
+// Browser check of the API pages: a signed-in person makes a key on the API page (/me/api), copies it once, uses it
+// against /api/v1, and revokes it; Settings only links there; a visitor is asked to sign in; the AI setup carries
+// the address of the site; the public documentation (/developers) lists every address of the API.
 import { chromium } from "playwright";
 import { startTestServer } from "../../../testing/test-app.js";
+import { API_ENDPOINTS } from "../../../server/features/api-keys/endpoints.js";
 
 const app = await startTestServer();
 const user = await app.signIn("Keymaker");
@@ -41,10 +43,47 @@ const visitor = await open(null);
 await visitor.goto(`${app.baseUrl}/settings`);
 await ready(visitor);
 check("a visitor sees no API section", (await visitor.locator("#settings-api").count()) === 0);
+check("nor the API link of the menu", (await visitor.locator("#nav-api[hidden]").count()) === 1);
+await visitor.goto(`${app.baseUrl}/me/api`);
+await ready(visitor);
+check(
+  "the API page asks a visitor to sign in, and makes no key",
+  (await visitor.locator(".api-visitor a[href^='/login']").count()) === 1 &&
+    (await visitor.locator("#ak-form").count()) === 0
+);
 
-// ---- a signed-in person makes a key -------------------------------------------------------------
+// ---- the documentation is public and made from the list of addresses ---------------------------
+await visitor.goto(`${app.baseUrl}/developers`);
+await ready(visitor);
+await visitor.waitForSelector(".dev-op");
+check(
+  "the documentation shows every address of the API, with its example answer",
+  (await visitor.locator(".dev-op").count()) === API_ENDPOINTS.length &&
+    (await visitor.locator(".dev-op .dev-example").count()) === API_ENDPOINTS.length
+);
+check(
+  "its title says HOK API and Honor of Kings",
+  /HOK API/.test(await visitor.title()) && /Honor of Kings/.test(await visitor.title())
+);
+check(
+  "it shows how to connect an AI, with the address of this site",
+  (await visitor.locator("#dev-ai [data-ai]").count()) === 4 &&
+    (await visitor.locator("#dev-ai").innerText()).includes(`${app.baseUrl}/api/v1/mcp`)
+);
+
+// ---- Settings only links to the API page ---------------------------------------------------------
 const page = await open(user);
 await page.goto(`${app.baseUrl}/settings`);
+await ready(page);
+check(
+  "Settings has no key form any more, only a link to the API page",
+  (await page.locator("#ak-form").count()) === 0 &&
+    (await page.locator("#settings-api a[href='/me/api']").count()) === 1
+);
+check("the menu has the API page", (await page.locator("#nav-api:not([hidden])").count()) === 1);
+
+// ---- a signed-in person makes a key -------------------------------------------------------------
+await page.goto(`${app.baseUrl}/me/api`);
 await ready(page);
 await page.waitForSelector("#ak-form");
 check(
@@ -53,9 +92,24 @@ check(
     (await page.locator("#ak-form [data-ak-create]").isEnabled())
 );
 check(
-  "every scope is offered, all checked by default",
-  (await page.locator('input[name="ak-scope"]').count()) === 7 &&
-    (await page.locator('input[name="ak-scope"]:checked').count()) === 7
+  "every scope is offered, the public data only checked by default",
+  (await page.locator('input[name="ak-scope"]').count()) === 8 &&
+    (await page.locator('input[name="ak-scope"]:checked').count()) === 2 &&
+    (await page.locator('input[name="ak-scope"][value="game"]:checked').count()) === 1 &&
+    (await page.locator('input[name="ak-scope"][value="competitive"]:checked').count()) === 1
+);
+check(
+  "the AI setup is on the page, with one key per assistant advised",
+  (await page.locator("#ai [data-ai]").count()) === 4 &&
+    (await page.locator("#ai .api-advice").count()) === 1 &&
+    (await page.locator("#ai [data-ai='claude-code'] code").innerText()).includes(
+      `${app.baseUrl}/api/v1/mcp`
+    )
+);
+await page.locator("#ai [data-ai='cursor'] [data-copy]").click();
+check(
+  "a setup snippet is copied with its button",
+  (await page.evaluate(() => navigator.clipboard.readText())).includes('"hok-api"')
 );
 
 await page.click("[data-ak-create]");
@@ -65,15 +119,12 @@ check(
     (await page.locator("#toasts .toast").count()) >= 1
 );
 await page.fill("#ak-name", "Stats bot");
-await page.uncheck('input[name="ak-scope"][value="training"]');
-await page.uncheck('input[name="ak-scope"][value="account"]');
-await page.press("#ak-name", "Enter"); // Enter makes the key and does not save the settings form
+for (const scope of ["scrims", "tier-lists", "teams"]) {
+  await page.check(`input[name="ak-scope"][value="${scope}"]`);
+}
+await page.press("#ak-name", "Enter"); // Enter makes the key
 await page.waitForSelector(".ak-secret");
-check(
-  "Enter makes the key and the settings form is not submitted",
-  (await page.locator("#settings-savebar:not([hidden])").count()) === 0 &&
-    page.url().endsWith("/settings")
-);
+check("Enter makes the key and stays on the page", page.url().endsWith("/me/api"));
 const secret = (await page.locator("#ak-secret-text").innerText()).trim();
 check("the secret is shown once, with a curl example", /^hok_[A-Za-z0-9_-]{43}$/.test(secret));
 check(
@@ -166,4 +217,4 @@ if (problems.length) {
   console.error(`\n${problems.length} problem(s):\n- ${problems.join("\n- ")}`);
   process.exit(1);
 }
-console.log("\napi-keys e2e passed");
+console.log("\napi e2e passed");

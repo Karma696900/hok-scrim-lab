@@ -1,4 +1,5 @@
-import { LANGUAGES, LANGUAGE_COOKIE, directionOf, isLanguage } from "../../shared/i18n.js";
+import { LANGUAGES, directionOf, isLanguage } from "../../shared/i18n.js";
+import { changeLanguage } from "../app/language-address.js";
 import { skeleton } from "../lib/skeleton.js";
 import { icon } from "../../shared/icons.js";
 import { api } from "../app/api-client.js";
@@ -35,9 +36,7 @@ function languageMenu(button) {
         if (!isLanguage(code) || code === current) {
           return;
         }
-        const secure = location.protocol === "https:" ? "; Secure" : "";
-        document.cookie = `${LANGUAGE_COOKIE}=${code}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`;
-        location.reload();
+        changeLanguage(code);
       }
     }
   );

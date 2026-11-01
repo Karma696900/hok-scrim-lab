@@ -36,6 +36,7 @@ export function createCompetitiveStore({ pool, inTransaction }) {
     competitiveSummary: ctx.competitiveSummary,
 
     rememberCompetitive: ctx.rememberCompetitive,
+    heroChangeDays: ctx.heroChangeDays,
 
     createCompetitiveImport: ctx.createCompetitiveImport,
     listCompetitiveImports: ctx.listCompetitiveImports,

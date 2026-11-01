@@ -1,0 +1,553 @@
+/* The API page (/me/api): the keys of the person drawn as a small console (the form that makes a key beside the
+   call that uses it, then the keys), the setup of the AI assistants, and the developers documentation (/developers).
+   Every class here is ak-* (the keys), api-* (the page) or dev-* (the documentation). */
+
+/* ---------- the API keys: a console (the form beside the call), then the keys ---------- */
+.ak {
+  display: grid;
+  gap: 22px;
+}
+.ak-console {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: stretch;
+}
+.ak-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 16px;
+  align-content: start;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+}
+.ak-form .ak-scopes,
+.ak-form .ak-actions {
+  grid-column: 1 / -1;
+}
+.ak-form .label {
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
+}
+.ak-scopes {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.ak-scopes > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ak-scope {
+  position: relative;
+  display: inline-flex;
+}
+.ak-scope input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.ak-scope span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--muted);
+  font: 600 14px/1 var(--font-body);
+  transition:
+    border-color 160ms,
+    background 160ms,
+    color 160ms;
+}
+.ak-scope span .i {
+  display: none;
+}
+.ak-scope:hover span {
+  border-color: var(--brand);
+}
+.ak-scope input:checked + span {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  color: var(--ink);
+}
+.ak-scope input:checked + span .i {
+  display: inline-block;
+  color: var(--brand-ink);
+}
+.ak-scope input:focus-visible + span {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+.ak-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
+}
+.ak-doc {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand-strong) 10%, var(--panel-soft));
+}
+.ak-doc figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--brand-ink);
+  font: 700 15px/1 var(--font-display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ak-curl,
+.ak-example,
+.ak-secret code,
+.ak-paths code,
+.ak-key__name code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  /* an address, a command, a key: always written left to right, in a right-to-left page too */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.ak-curl {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.ak-curl__cmd {
+  color: var(--brand-ink);
+  font-weight: 700;
+}
+.ak-curl__flag {
+  color: var(--muted);
+}
+.ak-curl__text {
+  color: var(--ink);
+}
+.ak-paths {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ak-paths li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+  background: var(--tint-1);
+}
+.ak-paths .pill {
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.ak-paths code {
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.ak-title {
+  font: 700 26px/1 var(--font-display);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.ak-secret {
+  display: grid;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--brand);
+  border-radius: var(--r-md);
+  background: color-mix(in srgb, var(--brand) 10%, var(--panel));
+}
+.ak-secret .btn--ghost {
+  justify-self: start;
+}
+.ak-secret__line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.ak-secret code,
+.ak-example {
+  font-size: 14px;
+  word-break: break-all;
+}
+.ak-secret__line code {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  user-select: all;
+}
+.ak-example {
+  margin: 0;
+  padding: 12px;
+  overflow-x: auto;
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  white-space: pre-wrap;
+}
+.ak-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ak-key {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+}
+.ak-key.is-off {
+  border-style: dashed;
+  background: transparent;
+}
+.ak-key.is-off .ak-key__name b {
+  color: var(--muted);
+}
+.ak-key__main {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.ak-key__name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+.ak-key__name b {
+  font: 700 22px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+.ak-key__name code {
+  padding: 2px 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.ak-key__scopes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.ak-key__scopes .pill {
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+.ak-key__life {
+  color: var(--muted);
+  font-size: 13px;
+}
+.ak-note {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+}
+.ak-key__ico {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 14%, transparent);
+  color: var(--brand-ink);
+}
+
+@media (max-width: 1100px) {
+  .ak-console {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .ak-form {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 16px;
+  }
+  .ak-key {
+    grid-template-columns: auto minmax(0, 1fr);
+    padding: 14px;
+  }
+  .ak-key .btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+/* ---------- the API page and the documentation: a head, then cards ---------- */
+.api-page {
+  display: grid;
+  gap: 22px;
+  min-width: 0;
+}
+.api-page__body,
+.dev-scope {
+  display: grid;
+  gap: 22px;
+  min-width: 0;
+}
+.api-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.api-head p {
+  max-width: 72ch;
+}
+.api-card,
+.dev-section {
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+  padding: 22px;
+}
+.api-card h2,
+.dev-section h2 {
+  margin: 0;
+  font: 700 24px/1.1 var(--font-display);
+  letter-spacing: 0.04em;
+}
+.api-visitor {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+}
+.api-visitor > .i {
+  width: 28px;
+  height: 28px;
+  color: var(--brand-ink);
+}
+.api-visitor h2 {
+  margin-bottom: 6px;
+}
+.api-visitor p {
+  margin: 0 0 14px;
+}
+.api-advice {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+  font-size: 14px;
+}
+.api-ai {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.api-ai__client {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+.api-ai__client h3 {
+  margin: 0;
+  font: 700 18px/1.2 var(--font-display);
+}
+.api-ai__client p,
+.api-ai__then {
+  margin: 0;
+  font-size: 14px;
+}
+.api-code {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  margin: 0;
+}
+.api-code figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.api-code pre,
+.dev-example pre {
+  margin: 0;
+  padding: 12px 14px;
+  overflow: auto;
+  max-height: 340px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.api-code code,
+.api-ai__then code,
+.dev-page code {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  /* an address, a command, a key: always written left to right, in a right-to-left page too */
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+.api-code pre code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- the documentation (/developers) ---------- */
+.dev-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.dev-step {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.dev-step > .i {
+  color: var(--brand-ink);
+}
+.dev-step span {
+  font-size: 14px;
+}
+.dev-section p {
+  margin: 0;
+}
+.dev-params {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.dev-params th,
+.dev-params td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: start;
+  vertical-align: top;
+}
+.dev-params th {
+  color: var(--muted);
+  font-weight: 600;
+}
+.dev-ref {
+  padding: 0;
+}
+.dev-scope {
+  gap: 12px;
+}
+.dev-scope h3 {
+  margin: 12px 0 0;
+  font: 700 20px/1.2 var(--font-display);
+}
+.dev-scope h3 code {
+  color: var(--muted);
+  font-size: 14px;
+}
+.dev-op {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--card-bg);
+}
+.dev-op p {
+  margin: 0;
+}
+.dev-op__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.dev-method {
+  padding: 3px 8px;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
+  color: var(--brand-ink);
+  font: 700 13px/1.2 var(--font-body);
+}
+.dev-op__path {
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  font-weight: 600;
+}
+.dev-op__tool {
+  font-size: 13px;
+}
+.dev-example summary {
+  cursor: pointer;
+  color: var(--brand-ink);
+  font-size: 14px;
+  font-weight: 600;
+}
+.dev-example {
+  min-width: 0;
+}
+.dev-example pre {
+  max-width: 100%;
+  margin-top: 8px;
+}
+.dev-params code {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .api-ai,
+  .dev-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .api-card,
+  .dev-section {
+    padding: 16px;
+  }
+}

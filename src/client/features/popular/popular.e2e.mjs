@@ -21,13 +21,14 @@ const tournament = (playedOn, blue, red, winner, rule = "free-for-all") => ({
   sourceUrl: "https://example.test/vod",
   note: "",
   rule,
+  pickOrderKnown: true,
   games: [
     {
       blueTeam: "Alpha",
       redTeam: "Beta",
       winner,
       durationSeconds: 900,
-      bans: { blue: [], red: [] },
+      bans: { blue: [id(27)], red: [] },
       picks: { blue, red },
       pickLanes: { blue: LANES, red: LANES }
     }
@@ -104,13 +105,32 @@ check(
 await page.click('[data-rank="rate"]');
 const bestBlue = page.locator(".pop-side--blue .pop-row").first();
 check(
-  "ranked by the reliable win rate: the draft that won 2 of 3 comes before the one that won its only game",
-  /67%/.test(await bestBlue.locator(".pop-rate").innerText())
+  "ranked by the score: pulled toward 50 % and recent games weighing more, the recent 1 of 1 edges the older 2 of 3",
+  /100%/.test(await bestBlue.locator(".pop-rate").innerText()) &&
+    /67%/.test(
+      await page.locator(".pop-side--blue .pop-row").nth(1).locator(".pop-rate").innerText()
+    )
 );
-const lastBlue = page.locator(".pop-side--blue .pop-row").last();
 check(
   "a draft played less than three times is marked as a small sample",
-  /Small sample/.test(await lastBlue.innerText())
+  /Small sample/.test(await bestBlue.innerText())
+);
+check(
+  "under each draft: the phase each hero is picked in, the first pick first, and the enemy a counter-pick answers",
+  (await bestBlue.locator(".pop-phase").count()) === 5 &&
+    /First pick/.test(await bestBlue.locator(".pop-phase").first().innerText()) &&
+    (await bestBlue.locator(".pop-phase__vs").count()) >= 1
+);
+check(
+  "under the two sides: the best duos, and a choice of a pair of lanes",
+  (await page.locator(".pop-duos .pop-duo").count()) >= 1 &&
+    (await page.locator("#pop-duo-lanes option").count()) > 1
+);
+await page.selectOption("#pop-duo-lanes", "Jungle+Roamer");
+check(
+  "the duos of one pair of lanes show those lanes",
+  /Jungle/.test(await page.locator(".pop-duo__lanes").innerText()) &&
+    (await page.locator(".pop-duos .pop-duo").count()) >= 1
 );
 check(
   "under each draft: the heroes met most when it won and when it lost (three at most)",
@@ -221,6 +241,17 @@ check(
 );
 await page.click('[data-rank="plays"]');
 check("and ranked by games played", (await page.locator('[data-rank="plays"].on').count()) === 1);
+await page.click('[data-scope="all"]');
+check(
+  "a hero shows how often it was picked in the lane, banned, and there at all",
+  /Pick \d+%/.test(await page.locator(".pop-row .pop-rates").first().innerText()) &&
+    /Presence \d+%/.test(await page.locator(".pop-row .pop-rates").first().innerText())
+);
+await page.click('[data-rank="presence"]');
+check(
+  "ranked by presence (picked or banned): a hero banned in every game leads, at 100 %",
+  /Presence 100%/.test(await page.locator(".pop-row .pop-rates").first().innerText())
+);
 
 // ---- on a phone ----------------------------------------------------------------------------------------------
 await page.setViewportSize({ width: 390, height: 844 });

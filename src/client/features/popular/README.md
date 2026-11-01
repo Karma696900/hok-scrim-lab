@@ -7,6 +7,7 @@ Ce dossier est une page (ou un groupe de pages) du site, côté navigateur. Le f
 | Fichier | Rôle |
 |---|---|
 | `popular-page-actions.js` | popular page, what happens on a click, a key or a submit: onClick, onChange. |
+| `popular-page-extras.js` | The pick, ban and presence rates of a hero, the pick phases of a draft and the best duos. |
 | `popular-page-markup.js` | popular page, markup: face, portrait, metList, versus, and 10 more. |
 | `popular-page-parts.js` | popular page, small helpers: heroOf, nameOf, day, ruleLabel, and 2 more. |
 | `popular-page-stage.js` | popular page, stage: leadHero, podium, figures, aside, and 1 more. |

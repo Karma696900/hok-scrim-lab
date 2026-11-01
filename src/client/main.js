@@ -13,6 +13,7 @@ import { finishHydration, installHydration } from "./app/hydration.js";
 import { t } from "./app/browser-i18n.js";
 import { boot, installPageLoad, stylesReady } from "./app/stylesheet-loading.js";
 import { applyRoute, go, installNavigation, pageShown } from "./app/router.js";
+import { keepLanguageInAddresses } from "./app/language-address.js";
 import { state } from "./app/app-state.js";
 import { installAuthActions } from "./features/auth/auth-actions.js";
 import { installSharingActions } from "./features/sharing/sharing-actions.js";
@@ -22,6 +23,7 @@ import { installTopbar } from "./shell/topbar.js";
 
 installHydration();
 installPageLoad();
+keepLanguageInAddresses();
 installNavigation();
 installTopbar();
 installMenu();

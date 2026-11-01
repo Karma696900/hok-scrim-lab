@@ -361,7 +361,7 @@ check(
 await finder.fill("#palette-input", "sword");
 await finder.waitForSelector('.palette__item:has-text("Long Sword")');
 await finder.keyboard.press("Enter");
-await finder.waitForURL(/\/items\?piece=\d+$/);
+await finder.waitForURL(/\/items\/\d+$/);
 await finder.waitForSelector(".gd-tile.is-open");
 check(
   "choosing an item opens /items on the sheet of that item",
@@ -372,7 +372,7 @@ await finder.keyboard.press("Control+k");
 await finder.fill("#palette-input", "flash");
 await finder.waitForSelector('.palette__item:has-text("Flash")');
 await finder.keyboard.press("Enter");
-await finder.waitForURL(/\/spells\?piece=\d+$/);
+await finder.waitForURL(/\/spells\/\d+$/);
 await finder.waitForSelector(".gd-tile.is-open");
 check(
   "a spell too, from another page of the data",

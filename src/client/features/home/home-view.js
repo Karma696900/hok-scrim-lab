@@ -140,7 +140,7 @@ function liveSlide(series) {
 }
 
 const brandSlide = () =>
-  `<div class="hello__body"><span class="eyebrow hstack"><img src="/logo.svg" alt="" width="14" height="17">HOK Global Scrim Lab</span><h2 class="hello__title display">Honor of Kings Global</h2><p class="display-sub">${t("Draft, scrims, training.")}</p><p>${t("Prepare your scrims, improve your game, explore the heroes and build your team on HOK Global Scrim Lab.")}</p><div class="hstack"><a class="btn btn--primary" href="/find">${t("Find a scrim")}${icon("arrow")}</a></div></div>`;
+  `<div class="hello__body"><span class="eyebrow hstack"><img src="/logo.svg" alt="" width="14" height="17">HOK Global Scrim Lab</span><h2 class="hello__title display">Honor of Kings Global</h2><p class="display-sub">${t("Draft, scrims, training.")}</p><p>${t("Prepare your scrims, improve your game, explore the heroes and build your team on HOK Global Scrim Lab.")}</p><div class="hstack wrap"><a class="btn btn--primary" href="/find">${t("Find a scrim")}${icon("arrow")}</a><a class="btn btn--ghost" href="/tier-list">${icon("crown")}${t("See the HOK tier list")}</a></div></div>`;
 
 /** "Create account" then "Sign in"; the sign-in alone, as the main button, when the server takes no new accounts. */
 const joinButtons = (arrow = "") =>

@@ -80,4 +80,20 @@ export async function load(view) {
 }
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
-export const onView = { kindOf, all, matches, list, filtered, mainStats, load };
+/** The address and the heading follow the open piece: /items/12 while its sheet is open, /items when none is. */
+export function followAddress(view) {
+  const section = view.picked === null ? "" : `/${view.picked}`;
+  if (view.state) {
+    view.state.pieceSection = section;
+  }
+  const path = `/${view.section}${section}`;
+  if (location.pathname !== path) {
+    history.replaceState(null, "", path);
+  }
+  const heading = view.root?.querySelector(".gd-stage__title h1");
+  if (heading) {
+    heading.textContent = view.heading();
+  }
+}
+
+export const onView = { kindOf, all, matches, list, filtered, mainStats, load, followAddress };

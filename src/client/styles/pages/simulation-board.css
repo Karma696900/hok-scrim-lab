@@ -1,0 +1,596 @@
+/* ---------- Game Simulation: the board of a game (it covers the screen, like a reflex run) ---------- */
+html:has(.sim-layer) {
+  overflow: hidden;
+}
+.sim-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  background: #060b13;
+  color: #e8eef7;
+}
+.sim-game {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  height: 100dvh;
+  padding: 8px;
+}
+.sim-turn {
+  display: none;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  height: 100dvh;
+  padding: 24px;
+  text-align: center;
+}
+.sim-turn svg {
+  width: 48px;
+  height: 48px;
+  rotate: 90deg;
+}
+
+/* the top: the allies, the clock, the pause */
+.sim-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.sim-allies {
+  display: flex;
+  flex: 1;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+}
+.sim-ally {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sim-ally__face {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border: 2px solid var(--team-blue-text);
+  border-radius: 50%;
+}
+.sim-ally__face img,
+.sim-me__face img,
+.sim-dot__face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sim-ally.is-dead .sim-ally__face img {
+  filter: grayscale(1) brightness(0.5);
+}
+.sim-ally__timer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 800 13px/1 var(--font-body);
+}
+.sim-ally__timer[hidden] {
+  display: none;
+}
+.sim-ally__bars {
+  display: grid;
+  gap: 3px;
+  width: 64px;
+}
+.sim-clock {
+  font: 700 18px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+/* the bars: their length is --p (a share out of 100), written through the style object */
+.sim-bar {
+  display: block;
+  height: 5px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.sim-bar[hidden] {
+  display: none;
+}
+.sim-bar > i {
+  display: block;
+  width: calc(var(--p, 100) * 1%);
+  height: 100%;
+  background: #4ad07a;
+}
+.sim-bar--mana > i {
+  background: #4b8df0;
+}
+.sim-bar--ult > i {
+  background: #f2c94c;
+}
+.sim-bar--farm {
+  flex: 1;
+  height: 6px;
+  background: var(--team-red);
+}
+.sim-bar--farm > i {
+  background: var(--team-blue);
+}
+
+/* the map and what stands on it */
+.sim-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 8px;
+  min-height: 0;
+}
+.sim-map {
+  position: relative;
+  justify-self: center;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: #0b1220;
+}
+.sim-map__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.sim-map.is-hidden .sim-map__svg,
+.sim-map.is-hidden .sim-dots,
+.sim-map.is-hidden .sim-decision,
+.sim-map.is-hidden .sim-death {
+  visibility: hidden;
+}
+.sim-void {
+  fill: #0b1220;
+}
+.sim-ground {
+  fill: #1b2a24;
+}
+.sim-river {
+  fill: #1c4660;
+}
+.sim-lane {
+  fill: none;
+  stroke: rgba(214, 196, 150, 0.22);
+  stroke-width: 16;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.sim-wall {
+  fill: #303846;
+}
+.sim-bush {
+  fill: #2c6a3a;
+  opacity: 0.85;
+}
+.sim-fountain--blue,
+.sim-tower--blue,
+.sim-crystal--blue {
+  fill: #3d7be0;
+}
+.sim-fountain--red,
+.sim-tower--red,
+.sim-crystal--red {
+  fill: #e0533d;
+}
+.sim-fountain--blue,
+.sim-fountain--red {
+  opacity: 0.35;
+}
+.sim-tower,
+.sim-crystal {
+  stroke: #0b1220;
+  stroke-width: 3;
+}
+.sim-camp {
+  fill: #b9a77a;
+  stroke: #0b1220;
+  stroke-width: 3;
+}
+.sim-camp--red-buff {
+  fill: #e36a4a;
+}
+.sim-camp--blue-buff {
+  fill: #4a9be3;
+}
+.sim-camp--neutral {
+  fill: #a46be0;
+}
+.is-down {
+  opacity: 0.18;
+}
+.sim-camp.is-unknown {
+  opacity: 0.5;
+  stroke: #e8eef7;
+  stroke-dasharray: 4 4;
+}
+.sim-fog {
+  fill: rgba(3, 6, 12, 0.66);
+}
+.sim-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.sim-dot,
+.sim-wave,
+.sim-bar--camp {
+  position: absolute;
+  translate: -50% -50%;
+}
+.sim-dot {
+  z-index: 2;
+  width: 4.4%;
+  aspect-ratio: 1;
+}
+.sim-dot__face {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 2px solid var(--team-blue-text);
+  border-radius: 50%;
+  background: #0b1220;
+}
+.sim-dot--enemy .sim-dot__face {
+  border-color: var(--team-red);
+}
+.sim-dot--me {
+  z-index: 3;
+}
+.sim-dot--me .sim-dot__face {
+  border-color: var(--gild);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.6);
+}
+.sim-dot .sim-bar {
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 4px;
+}
+.sim-dot--enemy .sim-bar > i {
+  background: #e0533d;
+}
+.sim-dot__approx {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  padding: 0 3px;
+  border-radius: 6px;
+  background: var(--warn);
+  color: #111;
+  font: 800 12px/1.2 var(--font-body);
+  font-style: normal;
+}
+.sim-dot__cast {
+  position: absolute;
+  left: 50%;
+  bottom: 115%;
+  translate: -50% 0;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  border: 1px solid var(--gild-line);
+  border-radius: 6px;
+  background: #0b1220;
+  font: 800 12px/1 var(--font-body);
+}
+.sim-dot__cast[hidden] {
+  display: none;
+}
+.sim-wave {
+  z-index: 1;
+  width: 1.2%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #6fa0ef;
+}
+.sim-wave--enemy {
+  background: #ef7a65;
+}
+.sim-bar--camp {
+  z-index: 1;
+  width: 3.6%;
+  height: 4px;
+  margin-top: 14px;
+}
+
+/* the boxes over the map */
+.sim-decision {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 4;
+  display: grid;
+  gap: 6px;
+  width: min(300px, 48%);
+  padding: 10px;
+  border: 1px solid var(--gild-line);
+  border-radius: var(--r-md);
+  background: rgba(10, 16, 28, 0.94);
+  box-shadow: var(--shadow-pop);
+}
+.sim-decision[hidden],
+.sim-cover[hidden],
+.sim-death[hidden],
+.sim-end[hidden],
+.sim-game[hidden] {
+  display: none;
+}
+.sim-decision__title {
+  margin: 0;
+  font: 700 13px/1.3 var(--font-body);
+}
+.sim-choices {
+  display: grid;
+  gap: 5px;
+}
+.sim-choice {
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  font: 600 13px/1.25 var(--font-body);
+  text-align: start;
+  cursor: pointer;
+}
+.sim-choice:hover,
+.sim-choice:focus-visible {
+  border-color: var(--brand);
+  background: rgba(61, 123, 224, 0.2);
+}
+.sim-choice--stay {
+  color: #b9c3d3;
+  font-weight: 500;
+}
+.sim-death {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  z-index: 4;
+  translate: -50% 0;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(10, 16, 28, 0.9);
+  font: 700 14px/1.2 var(--font-body);
+}
+.sim-death p {
+  margin: 0;
+}
+.sim-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: #060b13;
+}
+.sim-question,
+.sim-paused,
+.sim-grade-card {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  max-width: 480px;
+  text-align: center;
+}
+.sim-question h2,
+.sim-paused h2,
+.sim-grade-card h2 {
+  margin: 0;
+  font: 700 20px/1.3 var(--font-display);
+}
+.sim-cover__kicker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  color: #b9c3d3;
+  font-size: 13px;
+}
+.sim-answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+.sim-end {
+  display: grid;
+  place-items: center;
+  height: 100dvh;
+  padding: 24px;
+}
+.sim-grade-card h2 {
+  font-size: 26px;
+}
+.sim-grade-card .sim-grade {
+  font-size: 1.6em;
+}
+
+/* the side panel: the gold, the hero, the calls */
+.sim-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 0;
+  overflow-y: auto;
+}
+.sim-farm {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sim-farm__side {
+  display: grid;
+  font-variant-numeric: tabular-nums;
+}
+.sim-farm__side small {
+  color: #b9c3d3;
+  font-size: 12px;
+}
+.sim-farm__side--blue b {
+  color: var(--team-blue-text);
+}
+.sim-farm__side--red {
+  text-align: end;
+}
+.sim-farm__side--red b {
+  color: var(--team-red-text);
+}
+.sim-me {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--r-md);
+}
+.sim-me__who {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sim-me__who > span:last-child {
+  display: grid;
+}
+.sim-me__who small {
+  color: #b9c3d3;
+}
+.sim-me__face {
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border: 2px solid var(--gild);
+  border-radius: 50%;
+}
+.sim-skills {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sim-skill {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--r-sm);
+  font: 800 13px/1 var(--font-body);
+}
+.sim-skill__cd {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, 0.66);
+}
+.sim-skill__cd[hidden] {
+  display: none;
+}
+.sim-spell {
+  justify-content: flex-start;
+}
+.sim-spell.is-ready {
+  border-color: var(--gild);
+}
+.sim-spell__state {
+  margin-inline-start: auto;
+  color: var(--gild);
+  font-size: 12px;
+}
+.sim-calls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.sim-call {
+  justify-content: flex-start;
+  min-width: 0;
+  font-size: 12px;
+}
+.sim-call span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sim-leave {
+  margin-top: auto;
+}
+
+/* a phone held upright: the game asks to be turned; held sideways: a narrower panel */
+@media (orientation: portrait) and (max-width: 760px) {
+  .sim-game:not([hidden]) {
+    display: none;
+  }
+  .sim-turn {
+    display: grid;
+  }
+  .sim-layer:has(.sim-end:not([hidden])) .sim-turn {
+    display: none;
+  }
+}
+@media (max-height: 520px) {
+  .sim-game {
+    gap: 4px;
+    padding: 4px;
+  }
+  .sim-main {
+    grid-template-columns: minmax(0, 1fr) 200px;
+  }
+  .sim-ally__face {
+    width: 26px;
+    height: 26px;
+  }
+  .sim-ally__bars {
+    width: 44px;
+  }
+  .sim-me {
+    gap: 6px;
+    padding: 6px;
+  }
+  .sim-me__face {
+    width: 32px;
+    height: 32px;
+  }
+  .sim-skill {
+    width: 28px;
+    height: 28px;
+  }
+  .sim-call span,
+  .sim-pause span,
+  .sim-leave span {
+    display: none;
+  }
+  .sim-calls {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .sim-decision {
+    width: min(240px, 60%);
+    padding: 6px;
+  }
+  .sim-choice {
+    padding: 5px 7px;
+    font-size: 12px;
+  }
+}

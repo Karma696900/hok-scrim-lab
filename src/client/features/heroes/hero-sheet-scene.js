@@ -21,12 +21,18 @@ const LANE_BLURB = {
  * The official rating of the hero in a lane, from SS to D (nothing when the lane was not rated: a
  * rating is never guessed).
  */
-function ratingBadge(lane, tier) {
+function ratingBadge(lane, tier, source) {
   if (!tier) {
     return "";
   }
-  const label = t("Rating in {lane}: {tier}", { lane: fullLaneName(lane), tier });
-  return `<span class="hero-rating" data-tier="${escapeHtml(tier)}" role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${escapeHtml(tier)}</span>`;
+  const values = { lane: fullLaneName(lane), tier };
+  const label =
+    source === "tournaments"
+      ? t("Tier in {lane}: {tier}, from the tournament games", values)
+      : source === "editors"
+        ? t("Tier in {lane}: {tier}, from the editors (too few tournament games)", values)
+        : t("Rating in {lane}: {tier}", values);
+  return `<a class="hero-rating" href="/tier-list" data-tier="${escapeHtml(tier)}"${source ? ` data-source="${escapeHtml(source)}"` : ""} aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${escapeHtml(tier)}</a>`;
 }
 
 /** What the lane is in the game, when that says more than its name ("Bottom lane" for Farm; nothing for Jungle). */
@@ -36,7 +42,7 @@ const blurbOf = lane => {
 };
 
 /** The lanes the hero plays, each with its logo and its rating (an administrator adds and removes them). */
-function lanesBlock(hero, isAdmin, ratings) {
+function lanesBlock(hero, isAdmin, ratings, sources = {}) {
   // Every lane can be taken away (Camp's too) as long as the hero keeps one; the change reaches
   // every list at once.
   const removeButton = lane => {
@@ -49,7 +55,7 @@ function lanesBlock(hero, isAdmin, ratings) {
   const lanes = (hero.lanes || [])
     .map(
       lane =>
-        `<div class="flane lane-pill hs-lane">${laneIcons([lane], escapeHtml)}<div class="hs-lane__text"><b>${escapeHtml(laneLabel(lane) || lane)}</b>${blurbOf(lane) || hero.laneSources?.[lane] === "manual" ? `<small>${escapeHtml(blurbOf(lane))}${hero.laneSources?.[lane] === "manual" ? ` <span class="manual">${t("manual")}</span>` : ""}</small>` : ""}</div>${ratingBadge(lane, ratings[lane])}${isAdmin ? removeButton(lane) : ""}</div>`
+        `<div class="flane lane-pill hs-lane">${laneIcons([lane], escapeHtml)}<div class="hs-lane__text"><b>${escapeHtml(laneLabel(lane) || lane)}</b>${blurbOf(lane) || hero.laneSources?.[lane] === "manual" ? `<small>${escapeHtml(blurbOf(lane))}${hero.laneSources?.[lane] === "manual" ? ` <span class="manual">${t("manual")}</span>` : ""}</small>` : ""}</div>${ratingBadge(lane, ratings[lane], sources[lane])}${isAdmin ? removeButton(lane) : ""}</div>`
     )
     .join("");
   const missing = PICK_LANES.filter(lane => !(hero.lanes || []).includes(lane));
@@ -107,7 +113,7 @@ export function sceneMarkup({ hero, sheet, details, ctx, isAdmin, roster, canTra
       ${world.identity ? `<p class="hs-scene__title">${escapeHtml(world.identity)}</p>` : ""}
       ${official}
       ${chips ? `<ul class="hs-chips">${chips}</ul>` : ""}
-      ${lanesBlock(hero, isAdmin, sheet?.ratings ?? {})}
+      ${lanesBlock(hero, isAdmin, sheet?.ratings ?? {}, sheet?.ratingSources ?? {})}
       ${isAdmin ? `<div class="hs-aliases" id="hero-aliases" data-hero-id="${escapeHtml(hero.id)}"></div>` : ""}
     </div>
     ${numbersBlock(sheet, ctx)}

@@ -39,6 +39,9 @@ export async function onChange(view, event) {
   } else if (id === "pop-min") {
     view.ask.minGames = Number(value);
     await view.load();
+  } else if (id === "pop-duo-lanes") {
+    view.duoLanes = value;
+    view.paint();
   } else if (id === "pop-from") {
     view.ask.from = value;
   } else if (id === "pop-to") {

@@ -1,4 +1,5 @@
-import { AUTH_VIEWS, SITE_NAME, matchRoute, pathFor } from "../../shared/routes.js";
+import { AUTH_VIEWS, SITE_NAME, matchRoute, pathFor, routeTexts } from "../../shared/routes.js";
+import { heroTitleKey } from "../../shared/hero-title.js";
 import { t } from "./browser-i18n.js";
 import { api } from "./api-client.js";
 import { contentReady } from "../domain/staff-content.js";
@@ -10,32 +11,45 @@ import { renderNotFound } from "./status-pages.js";
 import { drawnView, wholeStylesheet } from "./stylesheet-loading.js";
 import { loadPreferences } from "./menu-preferences.js";
 import { state } from "./app-state.js";
+import { addressOf } from "./language-address.js";
 import { highlightNavigation, setMenu } from "../shell/menu.js";
 import { onClick } from "./event-actions.js";
 
 function setTitle() {
   const route = matchRoute(location.pathname);
-  let title = route.route.title ? t(route.route.title, { site: SITE_NAME }) : SITE_NAME;
-  if (state.view === "hero" && state.heroSheet?.hero) {
-    title = t("{name} — Honor of Kings Global hero guide | {site}", {
-      name: state.heroSheet.hero.displayName || state.heroSheet.hero.name,
-      site: SITE_NAME
-    });
+  const texts = routeTexts(route);
+  let title = texts.title ? t(texts.title, { site: SITE_NAME }) : SITE_NAME;
+  const sheet = state.heroSheet;
+  if (state.view === "hero" && sheet?.hero) {
+    // the same title as the server's (platform/http/page-handler-hero.js): only what the page holds
+    title = t(
+      heroTitleKey({ build: Boolean(sheet.builds?.length), games: sheet.tournament?.picks > 0 }),
+      { name: sheet.hero.displayName || sheet.hero.name, site: SITE_NAME }
+    );
   }
   document.title = title;
 }
 
 /** Keeps the address bar in step with the view (real, shareable URLs). */
 function syncUrl() {
-  const target = pathFor({
-    view: state.view,
-    heroId: state.selectedHeroId,
-    guideHeroId: state.guideHeroId,
-    seriesId: state.activeSeriesId,
-    teamId: state.activeTeamId,
-    tag: state.activePlayerTag,
-    section: state.view === "popular" ? state.popularSection : state.trainingSection
-  });
+  const target = addressOf(
+    pathFor({
+      view: state.view,
+      heroId: state.selectedHeroId,
+      guideHeroId: state.guideHeroId,
+      seriesId: state.activeSeriesId,
+      teamId: state.activeTeamId,
+      tag: state.activePlayerTag,
+      section:
+        {
+          popular: state.popularSection,
+          "tier-list": state.tierListSection,
+          items: state.pieceSection,
+          arcana: state.pieceSection,
+          spells: state.pieceSection
+        }[state.view] ?? state.trainingSection
+    })
+  );
   if (location.pathname !== target) {
     history.pushState(null, "", target);
   }
@@ -121,6 +135,10 @@ export async function applyRoute(route) {
   state.activePlayerTag = route.view === "player" ? route.tag : null;
   state.trainingSection = route.view === "training" ? (route.section ?? "") : "";
   state.popularSection = route.view === "popular" ? (route.section ?? "") : "";
+  state.tierListSection = route.view === "tier-list" ? (route.section ?? "") : "";
+  state.pieceSection = ["items", "arcana", "spells"].includes(route.view)
+    ? (route.section ?? "")
+    : "";
   state.guideHeroId = route.view === "guides" ? (route.guideHeroId ?? null) : null;
   if (route.view === "scrims" && route.seriesId) {
     state.activeSeriesId = route.seriesId;
@@ -144,7 +162,8 @@ export async function applyRoute(route) {
   render();
 }
 
-export function go(path, { replace = false, force = false } = {}) {
+export function go(wanted, { replace = false, force = false } = {}) {
+  const path = addressOf(wanted);
   const current = location.pathname + location.search;
   if (current !== path || force) {
     history[replace ? "replaceState" : "pushState"](null, "", path);

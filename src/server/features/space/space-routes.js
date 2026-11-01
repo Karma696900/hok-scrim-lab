@@ -27,6 +27,31 @@ const account = request => {
  * only way a space is shared. The token travels in the body of a request, never in an address, so
  * that no log keeps it.
  */
+/** The training part of a space: heroes worked on, notes, combos, reflex bests, last simulation games. */
+async function trainingOf(store, userId) {
+  const [focus, notes, combos, reflex, simulation] = await Promise.all([
+    store.getTrainingFocus(userId),
+    store.listTrainingNotes(userId),
+    store.acquiredCombos(userId),
+    store.reflexSummary(userId, { now: Date.now(), offset: 0 }),
+    store.listSimulationGames(userId, 5)
+  ]);
+  return {
+    focus,
+    notes,
+    combos,
+    simulation,
+    reflex: {
+      streak: reflex.streak,
+      best: Object.fromEntries(
+        Object.entries(reflex.exercises)
+          .filter(([, stats]) => stats.best !== null)
+          .map(([id, stats]) => [id, stats.best])
+      )
+    }
+  };
+}
+
 export function createSpaceRouter({ store, limiters }) {
   const router = Router();
   const knownHeroIds = async () =>
@@ -44,25 +69,7 @@ export function createSpaceRouter({ store, limiters }) {
       shown.builds = await store.listSpaceBuilds(userId);
     }
     if (sections.includes("training")) {
-      const [focus, notes, combos, reflex] = await Promise.all([
-        store.getTrainingFocus(userId),
-        store.listTrainingNotes(userId),
-        store.acquiredCombos(userId),
-        store.reflexSummary(userId, { now: Date.now(), offset: 0 })
-      ]);
-      shown.training = {
-        focus,
-        notes,
-        combos,
-        reflex: {
-          streak: reflex.streak,
-          best: Object.fromEntries(
-            Object.entries(reflex.exercises)
-              .filter(([, stats]) => stats.best !== null)
-              .map(([id, stats]) => [id, stats.best])
-          )
-        }
-      };
+      shown.training = await trainingOf(store, userId);
     }
     return shown;
   }

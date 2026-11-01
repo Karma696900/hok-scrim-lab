@@ -5,6 +5,7 @@ import {
   loadBuildLab,
   loadCatalogPage,
   loadCommunity,
+  loadDevelopers,
   loadOnboarding,
   loadGameData,
   loadHeroes,
@@ -12,6 +13,7 @@ import {
   loadHome,
   loadLegal,
   loadPopular,
+  loadPublicTierList,
   loadRatings,
   loadSettings,
   loadScrims,
@@ -19,7 +21,8 @@ import {
   loadTeams,
   loadTierLists,
   loadTournaments,
-  loadTraining
+  loadTraining,
+  loadSimulation
 } from "./lazy-pages.js";
 import { state } from "./app-state.js";
 
@@ -33,13 +36,29 @@ export const LAZY_VIEWS = {
   home: { loader: () => loadHome, show: page => page.show() },
   heroes: { loader: () => loadHeroes, show: page => page.showIndex() },
   hero: { loader: () => loadHeroes, show: page => page.showSheet() },
+  "tier-list": {
+    loader: () => loadPublicTierList,
+    show: page => page.show(app, state.tierListSection)
+  },
   "tier-lists": { loader: () => loadTierLists, show: page => page.show() },
   scrims: { loader: () => loadScrims, show: page => page.show() },
   history: { loader: () => loadHistoryPages, show: page => page.show() },
   "build-lab": { loader: () => loadBuildLab, content: true, show: page => page.show(app) },
-  items: { loader: () => loadGameData, content: true, show: page => page.show(app, state.view) },
-  arcana: { loader: () => loadGameData, content: true, show: page => page.show(app, state.view) },
-  spells: { loader: () => loadGameData, content: true, show: page => page.show(app, state.view) },
+  items: {
+    loader: () => loadGameData,
+    content: true,
+    show: page => page.show(app, state.view, state.pieceSection)
+  },
+  arcana: {
+    loader: () => loadGameData,
+    content: true,
+    show: page => page.show(app, state.view, state.pieceSection)
+  },
+  spells: {
+    loader: () => loadGameData,
+    content: true,
+    show: page => page.show(app, state.view, state.pieceSection)
+  },
   popular: { loader: () => loadPopular, show: page => page.show(app, state.popularSection) },
   ratings: { loader: () => loadRatings, show: page => page.show(app) },
   space: { loader: () => loadSpace, content: true, show: page => page.show(app) },
@@ -57,9 +76,12 @@ export const LAZY_VIEWS = {
     content: true,
     show: page => page.show(app, state.trainingSection)
   },
+  simulation: { loader: () => loadSimulation, show: page => page.show(app) },
   teams: { loader: () => loadTeams, show: page => page.show(app, null) },
   team: { loader: () => loadTeams, show: page => page.show(app, state.activeTeamId) },
   tournaments: { loader: () => loadTournaments, show: page => page.show(app) },
+  developers: { loader: () => loadDevelopers, show: page => page.show(app, "developers") },
+  "me-api": { loader: () => loadDevelopers, show: page => page.show(app, "me-api") },
   ...Object.fromEntries(
     ["find", "inbox", "agenda", "discord", "player", "reports"].map(view => [
       view,

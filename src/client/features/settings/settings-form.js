@@ -114,7 +114,7 @@ export const sectionsOf = ui => [
           t(
             "Read your data and the data of the game from your own programs. A key only reads, never writes."
           ),
-          `<div class="ak" id="api-keys-root"><p class="muted">${t("Loading…")}</p></div>`
+          `<div class="st-links">${ui.flow.linkTile("/me/api", "key", t("Open the API page"), t("Make and revoke your keys, and connect an AI assistant to your data."))}</div>`
         )
       ]
     : [])

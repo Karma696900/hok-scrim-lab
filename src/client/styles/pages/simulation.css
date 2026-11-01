@@ -1,0 +1,223 @@
+/* ---------- Game Simulation: the set-up screen and the list of games (the board: simulation-board.css) ---------- */
+.sim-page {
+  display: grid;
+  gap: 18px;
+}
+.sim-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+.sim-setup,
+.sim-history {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+}
+.sim-setup h2,
+.sim-history h2 {
+  margin: 0;
+  font: 700 18px/1.2 var(--font-display);
+}
+.sim-field {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.sim-field .seg {
+  flex-wrap: wrap;
+}
+.sim-hint {
+  margin: 0;
+  font-size: 13px;
+}
+.sim-slots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+.sim-team {
+  display: grid;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  background: var(--panel-soft);
+}
+.sim-team h3 {
+  margin: 0 0 2px;
+  font: 700 13px/1.2 var(--font-body);
+}
+.sim-team--blue h3 {
+  color: var(--team-blue-text);
+}
+.sim-team--red h3 {
+  color: var(--team-red-text);
+}
+.sim-slot {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  grid-template-areas:
+    "face lane"
+    "face pick";
+  column-gap: 8px;
+  align-items: center;
+  padding: 4px;
+  border-radius: var(--r-sm);
+}
+.sim-slot.is-mine {
+  outline: 1px solid var(--gild-line);
+  background: var(--tint-1);
+}
+.sim-slot__face {
+  grid-area: face;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--faint);
+}
+.sim-slot__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sim-slot__lane {
+  grid-area: lane;
+  color: var(--muted);
+  font-size: 12px;
+}
+.sim-slot__lane em {
+  color: var(--gild);
+  font-style: normal;
+  font-weight: 700;
+}
+.sim-slot select {
+  grid-area: pick;
+  min-width: 0;
+  width: 100%;
+}
+.sim-phone {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 13px;
+}
+.sim-start {
+  display: flex;
+  gap: 10px;
+}
+.sim-pasts {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sim-past {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "face hero grade"
+    "face meta grade";
+  column-gap: 10px;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-sm);
+}
+.sim-past__face {
+  grid-area: face;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.sim-past__face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sim-past__hero {
+  grid-area: hero;
+  display: grid;
+  font-weight: 600;
+}
+.sim-past__hero small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.sim-past__level,
+.sim-past time {
+  grid-area: meta;
+  color: var(--faint);
+  font-size: 12px;
+}
+.sim-past time {
+  justify-self: end;
+}
+.sim-past .sim-grade {
+  grid-area: grade;
+  font-size: 22px;
+}
+.sim-grade {
+  font: 800 1em/1 var(--font-display);
+  color: var(--ink);
+}
+.sim-grade--sss,
+.sim-grade--ss {
+  color: var(--tier-ss);
+}
+.sim-grade--s {
+  color: var(--tier-s);
+}
+.sim-grade--a {
+  color: var(--tier-a);
+}
+.sim-grade--b {
+  color: var(--tier-b);
+}
+.sim-grade--c {
+  color: var(--tier-c);
+}
+.sim-grade--d {
+  color: var(--tier-d);
+}
+@media (max-width: 900px) {
+  .sim-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .sim-phone {
+    display: flex;
+  }
+  .sim-slots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ?debug=map: the vector the bots use, drawn over the picture of the map as outlines */
+.sim-debug {
+  fill: none;
+  stroke-width: 2;
+  vector-effect: non-scaling-stroke;
+}
+.sim-wall.sim-debug {
+  stroke: #ff5a5a;
+}
+.sim-bush.sim-debug {
+  stroke: #ffe14d;
+}
+.sim-river.sim-debug {
+  stroke: #4dd2ff;
+}
+.sim-lane.sim-debug {
+  stroke: rgba(255, 255, 255, 0.6);
+}

@@ -1,7 +1,7 @@
 /* The settings page: a stage with the figures that matter, a rail of sections that follows the page, one card
    per section (the parts of the site, the new series, the interface, the notifications, the account, the API
-   keys) and a bar that asks for the save. Every class here is st-* (the page), mod* (the tile of a part,
-   shared with the welcome pages) or ak-* (the API keys). */
+   keys, a link to the API page) and a bar that asks for the save. Every class here is st-* (the page) or mod* (the
+   tile of a part, shared with the welcome pages); the API keys (ak-*) are in api.css. */
 
 /* ---------- the stage ---------- */
 .page-head.st-stage {
@@ -214,8 +214,7 @@
   margin-bottom: 22px;
 }
 .st-card__ico,
-.st-link__ico,
-.ak-key__ico {
+.st-link__ico {
   display: grid;
   place-items: center;
   width: 44px;

@@ -36,7 +36,7 @@ export const tile = (view, piece) => {
         ? colorLabel(piece.color)
         : spellFacts(piece);
   const stats = view.section === "spells" ? [] : view.mainStats(piece);
-  return `<button type="button" class="gd-tile${piece.id === view.picked ? " is-open" : ""}${view.section === "arcana" ? ` gd-${piece.color}` : ""}" data-pick="${piece.id}" aria-pressed="${piece.id === view.picked}" title="${view.esc(nameOf(piece))}"><span class="gd-frame">${pieceImage(piece, 88, view.esc)}</span><b>${view.esc(nameOf(piece))}</b>${cost ? `<em>${view.esc(cost)}</em>` : ""}${stats.length ? `<small>${stats.map(line => `<bdi>${view.esc(line)}</bdi>`).join("<br>")}</small>` : ""}</button>`;
+  return `<a class="gd-tile${piece.id === view.picked ? " is-open" : ""}${view.section === "arcana" ? ` gd-${piece.color}` : ""}" href="/${view.section}/${piece.id}" data-pick="${piece.id}"${piece.id === view.picked ? ' aria-current="true"' : ""} title="${view.esc(nameOf(piece))}"><span class="gd-frame">${pieceImage(piece, 88, view.esc)}</span><b>${view.esc(nameOf(piece))}</b>${cost ? `<em>${view.esc(cost)}</em>` : ""}${stats.length ? `<small>${stats.map(line => `<bdi>${view.esc(line)}</bdi>`).join("<br>")}</small>` : ""}</a>`;
 };
 
 /** A filter: a column of buttons, each with how many pieces it holds. */
@@ -245,6 +245,12 @@ export function stageIcons(view) {
 
 export const stageHero = view => sceneHero(2 + SECTIONS.indexOf(view.section));
 
+/** The heading of the page: the open piece (its own address), or the section. */
+export function heading(view) {
+  const piece = view.picked === null ? null : view.all().find(entry => entry.id === view.picked);
+  return piece ? nameOf(piece) : sectionLabel(view.section);
+}
+
 // The sheet of the open piece is `position: fixed` on a small screen, so it must not live inside an element that is
 // animated: a finished entrance animation keeps an identity transform, an element with a transform holds its fixed
 // descendants, and the sheet would be placed at the bottom of the page, out of sight. The entrance animation is
@@ -254,7 +260,7 @@ export function paint(view) {
     return;
   }
   const pieces = view.catalog && !view.problem ? view.list() : [];
-  view.root.innerHTML = `<header class="page-head gd-stage keep-dark rise">${sceneArtSlot("gd-stage__art", view.stageHero())}<div class="gd-stage__title"><h1>${view.esc(sectionLabel(view.section))}</h1><p>${view.esc(sectionLead(view.section))}</p></div>${view.catalog ? view.stageIcons() : ""}<nav class="gd-tabs" aria-label="${view.esc(t("Game data"))}">${view.tabs()}</nav></header>${
+  view.root.innerHTML = `<header class="page-head gd-stage keep-dark rise">${sceneArtSlot("gd-stage__art", view.stageHero())}<div class="gd-stage__title"><h1>${view.esc(view.heading())}</h1><p>${view.esc(sectionLead(view.section))}</p></div>${view.catalog ? view.stageIcons() : ""}<nav class="gd-tabs" aria-label="${view.esc(t("Game data"))}">${view.tabs()}</nav></header>${
     view.problem
       ? `<div class="gd-error" role="alert">${icon("warn", "i--sm")}<span>${view.esc(view.problem)}</span><button type="button" class="btn btn--sm" data-retry>${icon("refresh", "i--sm")}${t("Try again")}</button></div>`
       : view.catalog
@@ -320,6 +326,7 @@ export const onView = {
   tabs,
   stageIcons,
   stageHero,
+  heading,
   paint,
   repaintResults,
   repaintDetail,

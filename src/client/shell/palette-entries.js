@@ -70,7 +70,7 @@ export function pieceEntries() {
         label: tx(piece.name),
         alt: piece.name, // the name as it was written, found whatever the language of the page
         hint: group === "arcana" ? (colors[piece.color] ?? "") : "",
-        href: `/${group}?piece=${piece.id}`,
+        href: `/${group}/${piece.id}`,
         lead: piece.imageId
           ? `<img class="palette__piece" ${catalogImageAttrs(piece.imageId, 28)} alt="" width="28" height="28" loading="lazy" decoding="async">`
           : `<span class="palette__piece"></span>`

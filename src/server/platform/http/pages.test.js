@@ -167,7 +167,7 @@ describe("pages over HTTP", { skip }, () => {
 
   test("a hero page is described from its data, escaped, and Flowborn is simply Flowborn", async () => {
     const hero = head(await (await fetch(`${app.baseUrl}/heroes/501`)).text());
-    assert.match(hero.title, /^Hero &lt;b&gt;1&lt;\/b&gt; — Honor of Kings Global hero guide/);
+    assert.match(hero.title, /^Hero &lt;b&gt;1&lt;\/b&gt; — HOK Honor of Kings hero guide/);
     assert.doesNotMatch(hero.description, /<b>/);
     assert.equal(hero.canonical, `${app.baseUrl}/heroes/501`);
     const flowborn = head(await (await fetch(`${app.baseUrl}/heroes/500`)).text());
@@ -283,14 +283,16 @@ describe("pages over HTTP", { skip }, () => {
     const xml = await response.text();
     assert.match(
       xml,
-      /^<\?xml version="1.0" encoding="UTF-8"\?>\n<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9">/
+      /^<\?xml version="1.0" encoding="UTF-8"\?>\n<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9" xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml">/
     );
     const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
     for (const path of ["/", "/heroes", "/tier-lists", "/heroes/500", "/heroes/504"]) {
       assert.ok(urls.includes(`${app.baseUrl}${path}`), path);
     }
     assert.ok(urls.every(url => url.startsWith(app.baseUrl)));
-    assert.ok(!urls.some(url => /login|account|scrims|history|api/.test(url)));
+    // the scrims list is a public tool page now (the draft rooms of a series stay out)
+    assert.ok(!urls.some(url => /login|account|scrims\/|history|api/.test(url)));
+    assert.ok(urls.some(url => url.endsWith("/scrims")));
   });
 
   test("the sitemap also lists the build lab and the popular pages", async () => {

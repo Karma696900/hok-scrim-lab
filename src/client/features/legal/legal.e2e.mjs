@@ -40,7 +40,10 @@ await visitor.waitForSelector("html[data-ready='1']");
 check(
   "the footer links to the five legal pages",
   (
-    await visitor.locator(".sitefoot__links a").evaluateAll(links => links.map(a => a.pathname))
+    await visitor
+      .locator(".sitefoot__links a")
+      // the link to the source code leaves the site: the legal pages are the internal ones
+      .evaluateAll(links => links.filter(a => a.origin === location.origin).map(a => a.pathname))
   ).join(",") === "/terms,/privacy,/cookies,/legal,/contact"
 );
 for (const [path, heading] of [

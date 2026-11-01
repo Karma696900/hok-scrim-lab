@@ -454,3 +454,74 @@
 .pop-row--hero:hover .pop-hero b {
   color: var(--brand-ink);
 }
+
+/* a hero of a lane: how often it was picked here, banned, and there at all */
+.pop-rates {
+  grid-column: 2 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.pop-rates b {
+  color: var(--ink);
+}
+/* a draft: the phase each hero is picked in, and the enemy it answers */
+.pop-phases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pop-phase {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pop-phase small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.pop-phase__vs {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.pop-phase__vs em {
+  color: var(--muted);
+  font: 700 12px/1 var(--font-display);
+  font-style: normal;
+  text-transform: uppercase;
+}
+/* the best duos of the period */
+.pop-duos {
+  margin-top: 18px;
+}
+.pop-duo__lanes {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+.pop-duo {
+  display: grid;
+  grid-template-columns: 40px auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-md);
+}
+.pop-duo__heroes {
+  display: flex;
+  gap: 6px;
+}
+.pop-duo small {
+  color: var(--muted);
+  font-size: 13px;
+}

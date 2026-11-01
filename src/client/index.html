@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <meta name="description" content="__DESCRIPTION__">
     <meta name="robots" content="__ROBOTS__">
-    <link rel="canonical" href="__CANONICAL__">
+    <link rel="canonical" href="__CANONICAL__">__ALTERNATES__
     <meta property="og:site_name" content="__SITE_NAME__">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="__OG_LOCALE__">
@@ -41,6 +41,7 @@
                 <a class="nav-link" data-view="find" href="/find">{{i:search i--duo}}<span>{{t:Find a scrim}}</span><em class="count" id="badge-find" hidden></em></a>
                 <a class="nav-link" data-view="tournaments" href="/tournaments" id="nav-tournaments" hidden>{{i:medal i--duo}}<span>{{t:Tournaments}}</span></a>
                 <a class="nav-link" data-module="scrims" data-view="history" href="/history">{{i:clock i--duo}}<span>{{t:History}}</span></a>
+                <a class="nav-link" data-view="simulation" href="/simulation">{{i:map i--duo}}<span>{{t:Game Simulation}}</span></a>
               </div>
             </div>
             <div class="nav-group" data-group="heroes">
@@ -48,7 +49,8 @@
               <div class="nav-panel" id="nav-heroes">
                 <a class="nav-link" data-module="heroes" data-view="heroes" href="/heroes">{{i:book i--duo}}<span>{{t:Heroes & Builds}}</span></a>
                 <a class="nav-link" data-module="heroes" data-view="build-lab" href="/build-lab">{{i:layers i--duo}}<span>{{t:Build lab}}</span></a>
-                <a class="nav-link" data-module="tier-lists" data-view="tier-lists" href="/tier-lists">{{i:trophy i--duo}}<span>{{t:Tier Lists}}</span></a>
+                <a class="nav-link" data-module="heroes" data-view="tier-list" href="/tier-list">{{i:crown i--duo}}<span>{{t:Tier list}}</span></a>
+                <a class="nav-link" data-module="tier-lists" data-view="tier-lists" href="/tier-lists">{{i:trophy i--duo}}<span>{{t:Tier list maker}}</span></a>
                 <a class="nav-link" data-module="heroes" data-view="popular" href="/popular">{{i:trend i--duo}}<span>{{t:Popular}}</span></a>
                 <a class="nav-link" data-view="guides" href="/guides" id="nav-guides" hidden>{{i:star i--duo}}<span>{{t:Hero guides}}</span></a>
                 <a class="nav-link" data-view="ratings" href="/ratings" id="nav-ratings" hidden>{{i:crown i--duo}}<span>{{t:Ratings}}</span></a>
@@ -77,6 +79,7 @@
               <div class="nav-panel" id="nav-me">
                 <a class="nav-link" data-view="player" id="nav-player" hidden>{{i:user i--duo}}<span>{{t:Player profile}}</span></a>
                 <a class="nav-link" data-view="space" href="/space" id="nav-space" hidden>{{i:layers i--duo}}<span>{{t:My space}}</span></a>
+                <a class="nav-link" data-view="me-api" href="/me/api" id="nav-api" hidden>{{i:key i--duo}}<span>{{t:API}}</span></a>
                 <a class="nav-link" data-view="settings" href="/settings">{{i:settings i--duo}}<span>{{t:Settings}}</span></a>
                 <a class="nav-link" data-view="catalog" href="/catalog" id="nav-catalog" hidden>{{i:layers i--duo}}<span>{{t:Catalog}}</span></a>
                 <div class="mode">

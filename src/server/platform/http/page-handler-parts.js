@@ -1,10 +1,13 @@
 // page handler, small helpers: shell, origin, say, localized, and 4 more.
-import { NOT_FOUND, SITE_NAME, matchRoute } from "../../../shared/routes.js";
+import { NOT_FOUND, SITE_NAME, matchRoute, routeTexts } from "../../../shared/routes.js";
 import { loadFirstPaintCss } from "./page-handler-assets.js";
 import path from "node:path";
 import { readFile } from "node:fs/promises";
 import { tr } from "../server-i18n.js";
 import { wide } from "../../../shared/media.js";
+import { describeTierList } from "./page-handler-tier-list.js";
+import { describeHero } from "./page-handler-hero.js";
+import { PIECE_VIEWS, describePiece } from "./page-handler-pieces.js";
 
 export const shell = async ctx =>
   (ctx.template ??= await readFile(path.join(ctx.web.client, "index.html"), "utf8"));
@@ -52,8 +55,15 @@ export async function describe(ctx, request, language) {
       ? { status: 200, ...localized(language, matched.route) }
       : missing(language);
   }
+  if (PIECE_VIEWS.includes(matched.view) && matched.section) {
+    return (await describePiece(ctx, matched, language, localized)) ?? missing(language);
+  }
+  if (matched.view === "tier-list") {
+    return describeTierList(ctx, matched, language, say, localized);
+  }
   if (matched.view !== "hero") {
-    return { status: 200, ...localized(language, matched.route) };
+    // a section of a page (/popular/heroes, /training/reflex) has its own title
+    return { status: 200, ...localized(language, { ...matched.route, ...routeTexts(matched) }) };
   }
   const hero = (await ctx.store.readHeroes()).find(
     item => item.id === matched.heroId && item.availableGlobal !== false
@@ -61,20 +71,7 @@ export async function describe(ctx, request, language) {
   if (!hero) {
     return missing(language);
   }
-  const name = /^Flowborn/i.test(hero.name) ? "Flowborn" : hero.name;
-  const lanes = hero.lanes.join(" / ");
-  return {
-    status: 200,
-    index: true,
-    banner: await ctx.bannerSrcset(hero.id, language),
-    title: say(language, "{name} — Honor of Kings Global hero guide | {site}", { name }),
-    description: say(
-      language,
-      "{name} in Honor of Kings Global: {roles} hero for {lanes}. Skills with videos, artwork and full patch history.",
-      { name, roles: hero.roles.join(" / "), lanes }
-    ).slice(0, 300),
-    image: hero.image
-  };
+  return describeHero(ctx, hero, language, say);
 }
 
 /**

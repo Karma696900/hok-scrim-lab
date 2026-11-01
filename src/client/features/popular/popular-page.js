@@ -12,10 +12,18 @@ import { onView as popularPageParts } from "./popular-page-parts.js";
 import { onView as popularPageMarkup } from "./popular-page-markup.js";
 import { onView as popularPageStage } from "./popular-page-stage.js";
 import { onView as popularPageActions } from "./popular-page-actions.js";
+import { onView as popularPageExtras } from "./popular-page-extras.js";
 
 export function createPopularPages({ hydration, api, tell, state }) {
   const view = { state, api, tell };
-  bindTo(view, popularPageParts, popularPageMarkup, popularPageStage, popularPageActions);
+  bindTo(
+    view,
+    popularPageParts,
+    popularPageMarkup,
+    popularPageStage,
+    popularPageActions,
+    popularPageExtras
+  );
   view.esc = escapeHtml;
   view.root = null;
   view.tab = "drafts"; // "drafts" or "heroes"
@@ -23,7 +31,8 @@ export function createPopularPages({ hydration, api, tell, state }) {
   view.loading = false;
   view.problem = "";
   view.ask = { preset: "3", from: "", to: "", rule: "", minGames: 1 }; // what the person chose
-  view.rank = "plays"; // "plays" (the popularity) or "rate" (the reliable win rate)
+  view.rank = "plays"; // "plays" (the popularity), "rate" (the score) or "presence" (the heroes: picked or banned)
+  view.duoLanes = ""; // the pair of lanes of the duos, "" for all
   view.lane = PICK_LANES[0];
   view.scope = "all"; // the heroes: both sides, blue or red
 

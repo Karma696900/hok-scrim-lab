@@ -373,7 +373,13 @@ describe("opening a link", { skip }, () => {
     await app.store.saveTrainingAnswer?.(jon.user.id, "none", { note: "secret" }).catch(() => {});
     const { token } = (await jon.browser.post("/api/space/links", { sections: ["training"] })).body;
     const shared = (await open(app.browser(), token)).body;
-    assert.deepEqual(Object.keys(shared.training).sort(), ["combos", "focus", "notes", "reflex"]);
+    assert.deepEqual(Object.keys(shared.training).sort(), [
+      "combos",
+      "focus",
+      "notes",
+      "reflex",
+      "simulation"
+    ]);
     assert.deepEqual(Object.keys(shared.owner).sort(), ["name", "picture", "tag"]);
   });
 

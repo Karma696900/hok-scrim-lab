@@ -2551,3 +2551,243 @@
 2716|Mesclada em {name}
 2717|Grupo de tags
 2718|Uma tag não pode ser mesclada nela mesma.
+2719|Primeiro pick
+2720|Pick inicial
+2721|Pick tardio
+2722|Último pick
+2723|Pick {rate}
+2724|Ban {rate}
+2725|Presença {rate}
+2726|Responde a {name}
+2727|vs
+2728|Fases de pick
+2729|Melhores duplas
+2730|Pontuação (taxa de vitória puxada para 50 %, as partidas recentes pesam mais): {rate}
+2731|Classificado por uma pontuação: a taxa de vitória puxada para 50 % por dez partidas, as recentes pesando mais, para que uma vitória em uma partida não supere um herói que já se provou.
+2732|Escolhido ou banido: com que frequência o herói esteve presente nas partidas do período.
+2733|Presença
+2734|Tier em {lane}: {tier}, segundo as partidas de torneio
+2735|Tier em {lane}: {tier}, da redação (poucas partidas de torneio)
+2736|{name}: classificado {tier} pelas partidas de torneio
+2737|Os heróis em cinza são classificados pelas partidas de torneio: o tier aparece neles, e uma nota aqui só conta para os heróis pouco jogados.
+2738|Ver a tier list de HOK
+2739|Redação
+2740|Ainda sem classificação
+2741|Tier list de {lane}
+2742|Como os heróis são classificados
+2743|Primeiro as partidas de torneio: em cada rota, os heróis jogados pelo menos {count} vezes nos últimos três meses são classificados por uma pontuação (taxa de vitória puxada para 50 %, partidas recentes pesando mais). O melhor é SS, o pior D, e os tiers intermediários dividem a diferença igualmente.
+2744|Os heróis pouco jogados recebem o tier dado pela redação. Os outros aguardam em «Ainda sem classificação». A lista se atualiza sozinha a cada série de torneio registrada.
+2745|Faça sua própria tier list
+2746|Tier list de Honor of Kings: {lane}
+2747|Tier list de Honor of Kings
+2748|Atualizado em {date}
+2749|{count, plural, one {# partida de torneio} other {# partidas de torneio}}
+2750|Os melhores heróis de Honor of Kings Global em cada rota, de SS a D: primeiro as partidas de torneio dos últimos três meses, depois as notas da redação para os heróis pouco jogados.
+2751|Tier list de HOK — os melhores heróis de Honor of Kings por rota | {site}
+2752|A tier list de Honor of Kings Global de cada rota, de SS a D: pelas partidas de torneio dos últimos três meses, e pela redação para os heróis pouco jogados.
+2753|Criador de tier list de HOK — faça sua tier list de Honor of Kings | {site}
+2754|Tier list
+2755|Criador de tier list
+2756|Tier list de HOK {lane} ({month}) — os melhores heróis de {lane} em Honor of Kings | {site}
+2757|Tier list de HOK ({month}) — os melhores heróis de Honor of Kings por rota | {site}
+2758|HOK {name} — item de Honor of Kings: atributos, preço e passiva | {site}
+2759|HOK {name} — arcano de Honor of Kings: atributos e cor | {site}
+2760|HOK {name} — feitiço de Honor of Kings: efeito e recarga | {site}
+2761|Treino de Honor of Kings
+2762|Combos, reflexos e situações de mapa para jogadores de Honor of Kings Global: escolha os heróis que você treina, anote seus combos e mecânicas, treine suas reações e estude situações no mapa.
+2763|Situações de mapa
+2764|{name}: build, habilidades e counters — HOK Honor of Kings | {site}
+2765|{name}: build e habilidades — HOK Honor of Kings | {site}
+2766|{name}: habilidades e counters — HOK Honor of Kings | {site}
+2767|{name} — guia do herói HOK Honor of Kings, habilidades e rotas | {site}
+2768|{site} — simulador de draft HOK Honor of Kings, scrims e tier list
+2769|Heróis de HOK — todos os heróis de Honor of Kings, habilidades, builds e rotas | {site}
+2770|Scrims de HOK — simulador de draft de Honor of Kings com bans e picks | {site}
+2771|Jogue séries de scrims de Honor of Kings Global com a ordem competitiva de bans e picks: um simulador de draft gratuito para equipes, com sala de draft ao vivo e o histórico de cada partida.
+2772|Treino HOK — combos, reflexos e situações de mapa de Honor of Kings | {site}
+2773|Treine para Honor of Kings Global: escolha os heróis que você treina, anote combos e mecânicas, teste seus reflexos e estude situações no mapa.
+2774|Treino de reflexos HOK — exercícios de reação e esquiva de Honor of Kings | {site}
+2775|Exercícios de reflexos para jogadores de Honor of Kings Global: reaja, esquive e mire contra o relógio, e veja seus tempos melhorarem.
+2776|Situações de mapa HOK — treino macro de Honor of Kings | {site}
+2777|Situações de partidas de Honor of Kings Global desenhadas no mapa: para onde ir, o que fazer e por quê. Treino macro para cada rota.
+2778|Equipes HOK — elencos e staff de equipes de Honor of Kings Global | {site}
+2779|Equipes de Honor of Kings Global: crie uma equipe, convide jogadores e staff, compartilhe uma agenda e encontre parceiros de scrim.
+2780|Encontrar um scrim de HOK — parceiros de scrim de Honor of Kings Global | {site}
+2781|Calculadora de builds HOK — teste builds e atributos de Honor of Kings | {site}
+2782|Itens HOK — todos os itens de Honor of Kings com atributos e preço | {site}
+2783|Arcanos HOK — todos os arcanos de Honor of Kings, vermelhos, azuis e verdes | {site}
+2784|Feitiços HOK — feitiços de invocador de Honor of Kings e recargas | {site}
+2785|Meta de HOK — os drafts de torneio de Honor of Kings mais jogados e melhores | {site}
+2786|Heróis meta de HOK — taxa de pick, ban e vitória em torneios de Honor of Kings | {site}
+2787|Os heróis do meta de torneios de Honor of Kings Global, rota por rota: com que frequência cada um é escolhido e banido, e com que frequência vence.
+2788|Tier list de HOK: {tier} em {lane}.
+2789|Taxa de vitória em torneios: {rate} % em {count} partidas.
+2790|Não foi possível carregar os heróis.
+2791|Não foi possível salvar a partida.
+2792|Não foi possível preparar a partida.
+2793|Punição
+2794|Lampejo
+2795|Disparada
+2796|Teleporte
+2797|Executar
+2798|Frenesi
+2799|Intimidar
+2800|Purificar
+2801|Atordoar
+2802|Vida
+2803|Suas habilidades
+2804|Chamadas
+2805|Gire o celular na horizontal para jogar.
+2806|Seus aliados
+2807|Tempo de partida
+2808|Ouro das duas equipes
+2809|Sair da partida
+2810|Dados aproximados
+2811|Seu herói está esperando: e agora?
+2812|E agora?
+2813|Pergunta surpresa
+2814|O mapa fica oculto durante a pausa, e a pausa é indicada junto com sua nota.
+2815|Retomar
+2816|Volta em {seconds} s
+2817|Fim de jogo
+2818|Nota de macro: {grade}
+2819|A partida foi pausada.
+2820|A nota fica salva nas suas partidas.
+2821|Voltar à configuração
+2822|Simulação de partida
+2823|Jogue uma partida inteira de Honor of Kings com um herói, visto de cima no mapa. A cada poucos segundos você escolhe para onde seu herói vai: uma rota, um acampamento, um objetivo, um aliado para ajudar ou uma torre para defender. Sem mecânica, só decisões de macro, e uma nota no fim.
+2824|Você
+2825|Aleatório
+2826|O motor de scrims sorteia um herói para cada rota das duas equipes. Você joga o da sua função.
+2827|Carregando os heróis…
+2828|Uma vaga deixada em Aleatório é sorteada pelo motor de scrims.
+2829|Prepare sua partida
+2830|Seu lado
+2831|Sua função
+2832|Dificuldade
+2833|O time inimigo joga mais forte após decisões erradas, e alivia após as boas.
+2834|Heróis aleatórios
+2835|Escolher os heróis
+2836|No celular, jogue com a tela na horizontal.
+2837|Preparando a partida…
+2838|Começar a partida
+2839|Entre para guardar suas partidas e as notas.
+2840|Nenhuma partida ainda.
+2841|Fácil
+2842|Difícil
+2843|Nenhuma partida jogada ainda.
+2844|Simulação de partida HOK — jogue as decisões de macro de Honor of Kings | {site}
+2845|Jogue uma partida inteira de Honor of Kings com um herói no mapa e tome as decisões de macro: para onde ir, quando lutar, quando recuar. Uma nota no fim.
+2846|Reagrupar
+2847|Recuar
+2848|Cuidado com o caçador
+2849|rota do confronto
+2850|rota do farm
+2851|buff vermelho
+2852|buff azul
+2853|acampamento da selva
+2854|Tirano
+2855|Soberano
+2856|Tirano Sombrio
+2857|Soberano Sombrio
+2858|Espírito Espacial
+2859|Falcão de Fogo
+2860|Segure sua rota
+2861|Ir para a {lane}
+2862|Pegue seu {camp}
+2863|Invada o {camp} inimigo
+2864|Ir ao {objective}
+2865|Juntar-se a {hero}
+2866|Gankar {hero}
+2867|Espere no arbusto perto da {lane}
+2868|Recue para sua torre
+2869|Voltar para a base
+2870|Defenda sua torre na {lane}
+2871|Empurre a {lane}
+2872|Seguir {hero}
+2873|Dê visão perto da {lane}
+2874|Pressionar {hero}
+2875|Ficar onde estou
+2876|Sim
+2877|Não
+2878|Onde está o caçador inimigo, mais ou menos?
+2879|Perto da rota do confronto
+2880|Perto da rota do meio
+2881|Perto da rota do farm
+2882|O buff vermelho inimigo está disponível?
+2883|O buff azul inimigo está disponível?
+2884|A Punição do caçador inimigo está pronta?
+2885|Quantos heróis inimigos estão mortos agora?
+2886|Quantas torres inimigas caíram?
+2887|Quando o Tirano estará disponível?
+2888|Quando o Soberano estará disponível?
+2889|Já está disponível
+2890|Em menos de um minuto
+2891|Em um a dois minutos
+2892|Em mais de dois minutos
+2893|Qual equipe tem mais ouro?
+2894|A equipe inimiga
+2895|Mais ou menos igual
+2896|Informe de um a dez heróis.
+2897|Um herói escolhido manualmente não é válido.
+2898|{label} não é válido.
+2899|Entre para guardar suas partidas.
+2900|São muitas partidas para um dia: volte mais tarde.
+2901|Tabuleiro da Simulação de partida
+2902|Usar na Simulação de partida
+2903|Este mapa não existe.
+2904|Execute isto num terminal:
+2905|Adicione isto ao claude_desktop_config.json (Settings, Developer, Edit config) e reinicie o Claude. Requer Node.js.
+2906|Adicione isto ao .cursor/mcp.json, no seu projeto ou na sua pasta pessoal:
+2907|Num GPT personalizado: Configure, Create new action, Import from URL com este endereço. Depois Authentication: API key, tipo Bearer, e cole a sua chave.
+2908|Crie uma chave por assistente, só com o que ele precisa (os dados públicos do jogo bastam para perguntar sobre heróis, itens e drafts). Se uma vazar, revogue-a sem mexer nas outras.
+2909|Substitua {key} pela sua chave. O assistente vê então uma ferramenta por endereço que a sua chave pode ler, e só lê.
+2910|Sem chave, ou uma chave inválida, expirada ou revogada.
+2911|A chave não tem o escopo que este endereço exige.
+2912|Endereço desconhecido, ou algo que o dono da chave não pode ver.
+2913|Pedidos demais: aguarde os segundos de Retry-After.
+2914|Parâmetro
+2915|Onde
+2916|obrigatório
+2917|endereço
+2918|consulta
+2919|Ferramenta para uma IA: {name}
+2920|Exemplo de resposta
+2921|1. Crie uma chave
+2922|Entre, abra a página API e escolha o que a chave pode ler.
+2923|2. Chame um endereço
+2924|Envie a chave no cabeçalho Authorization. As respostas são JSON.
+2925|3. Ou pergunte a uma IA
+2926|Conecte Claude, ChatGPT ou Cursor: eles leem os dados por você.
+2927|Autenticação
+2928|Cada endereço pede uma chave de API, enviada como token bearer. Uma chave só lê e vê o que o seu dono vê: os dados do jogo para todos, os seus scrims, tier lists e equipes para você.
+2929|A sua primeira chamada
+2930|O cabeçalho X-API-Key também funciona. Uma chave no endereço é ignorada: endereços acabam em registros.
+2931|Limites e erros
+2932|Cada chave pode fazer {count} pedidos por minuto. Os erros são JSON com um código estável:
+2933|Significado
+2934|Usar com uma IA
+2935|A API também é um servidor MCP, em {address}: um assistente recebe uma ferramenta por endereço que a sua chave pode ler.
+2936|Endereços
+2937|A descrição completa, para importar numa ferramenta:
+2938|Selecione o texto e copie-o.
+2939|HOK API: dados de Honor of Kings para os seus programas
+2940|Leia os heróis, itens, arcanos, feitiços, a tier list e os drafts de torneio de Honor of Kings Global, e os seus próprios scrims, a partir de um programa ou de um assistente de IA. Só leitura, grátis, com uma chave.
+2941|Obter uma chave
+2942|Documentação
+2943|API
+2944|Leia os seus dados e os do jogo a partir dos seus programas e assistentes de IA.
+2945|Entre para criar chaves de API
+2946|Uma chave pertence a uma conta: lê o que você pode ler, e nada mais.
+2947|Leia os seus dados e os do jogo a partir dos seus programas e assistentes de IA. Uma chave só lê, nunca escreve.
+2948|Abrir a página API
+2949|Crie e revogue as suas chaves, e conecte um assistente de IA aos seus dados.
+2950|HOK API — dados de Honor of Kings para desenvolvedores e assistentes de IA | {site}
+2951|Leia os heróis, itens, arcanos, feitiços, a tier list e os drafts de torneio de Honor of Kings Global nos seus programas, ou conecte Claude, ChatGPT ou Cursor via MCP. Cada endereço, os seus parâmetros e um exemplo de resposta.
+2952|API | {site}
+2953|As suas chaves de API e como conectar um assistente de IA aos seus dados.
+2954|O servidor MCP recebe mensagens JSON-RPC via POST.
+2956|Exemplo de pedido
+2955|A situação enviada ao único POST não é válida: o erro diz o que está errado.
+2958|As partidas contra os bots não estão abertas agora. Tente mais tarde.
+2957|A conexão com a partida foi perdida.

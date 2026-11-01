@@ -67,6 +67,9 @@ services:
       MFA_ENCRYPTION_KEY: ${MFA_ENCRYPTION_KEY:-}
       PASSWORD_PEPPER: ${PASSWORD_PEPPER:-}
       REGISTRATION_ENABLED: ${REGISTRATION_ENABLED:-true}
+      # the bots server (repository hok-bots): empty = the games against the bots are closed
+      BOTS_URL: ${BOTS_URL:-}
+      BOTS_SHARED_SECRET: ${BOTS_SHARED_SECRET:-}
       DB_HOST: mysql
       DB_PORT: 3306
       DB_NAME: ${MYSQL_DATABASE:-hok_scrim}

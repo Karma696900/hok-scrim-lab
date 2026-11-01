@@ -15,9 +15,11 @@ describe("view modules", () => {
   test("every module of the map is a file of the client, drawn by a view that exists", () => {
     const views = new Set(
       [
-        ...(read("shared/routes.js") + read("shared/routes-table.js")).matchAll(
-          /view:\s*"([a-z-]+)"/g
-        )
+        ...(
+          read("shared/routes.js") +
+          read("shared/routes-table.js") +
+          read("shared/routes-table-api.js")
+        ).matchAll(/view:\s*"([a-z-]+)"/g)
       ].map(m => m[1])
     );
     for (const [view, source] of Object.entries(VIEW_MODULES)) {

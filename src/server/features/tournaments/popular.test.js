@@ -113,16 +113,17 @@ describe("popular drafts", () => {
     );
   });
 
-  test("the two rankings: the most reliable win rate first (then more games), or most played", () => {
+  test("the two rankings: the best score first (then more games), or most played", () => {
     const { blue } = popularDrafts(games);
+    // the score pulls both toward 50 % by ten games: one win in one game and two in three end close
     assert.deepEqual(
       blue.byWinRate.map(entry => [entry.heroes[0], entry.winRate, entry.games]),
       [
-        [id(1), 2 / 3, 3],
-        [id(6), 1, 1]
-      ],
-      "two wins in three games say more than one win in one game, although 100 % is a better rate"
+        [id(6), 1, 1],
+        [id(1), 2 / 3, 3]
+      ]
     );
+    assert.ok(blue.byWinRate[0].score - blue.byWinRate[1].score < 0.01);
     assert.deepEqual(
       blue.byPlays.map(entry => [entry.heroes[0], entry.games]),
       [

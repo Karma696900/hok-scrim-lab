@@ -2551,3 +2551,243 @@
 2716	Merged into {name}
 2717	Group of tags
 2718	A tag cannot be merged into itself.
+2719	First pick
+2720	Early pick
+2721	Late pick
+2722	Last pick
+2723	Pick {rate}
+2724	Ban {rate}
+2725	Presence {rate}
+2726	Answers {name}
+2727	vs
+2728	Pick phases
+2729	Best duos
+2730	Score (win rate pulled toward 50 %, recent games weighing more): {rate}
+2731	Ranked by a score: the win rate pulled toward 50 % by ten games, recent games weighing more, so that one win in one game does not beat a hero that proved itself.
+2732	Picked or banned: how often the hero was there in the games of the period.
+2733	Presence
+2734	Tier in {lane}: {tier}, from the tournament games
+2735	Tier in {lane}: {tier}, from the editors (too few tournament games)
+2736	{name}: ranked {tier} by the tournament games
+2737	Greyed heroes are ranked by the tournament games: their tier shows on them, and a rating here only counts for the heroes played too little.
+2738	See the HOK tier list
+2739	Editors
+2740	Not ranked yet
+2741	{lane} tier list
+2742	How the heroes are ranked
+2743	Tournament games first: in each lane, the heroes played at least {count} times in the last three months are ranked by a score (their win rate pulled toward 50 %, recent games weighing more). The best is SS, the worst D, and the tiers between share the gap equally.
+2744	The heroes played too little take the tier the editors gave them. The others wait under “Not ranked yet”. The list updates by itself with every tournament series that is entered.
+2745	Make your own tier list
+2746	Honor of Kings {lane} tier list
+2747	Honor of Kings tier list
+2748	Updated on {date}
+2749	{count, plural, one {# tournament game} other {# tournament games}}
+2750	The best Honor of Kings Global heroes of each lane, from SS to D: the tournament games of the last three months first, the editors' ratings for the heroes played too little.
+2751	HOK Tier List — best Honor of Kings heroes for every lane | {site}
+2752	The Honor of Kings Global tier list of every lane, from SS to D: ranked by the tournament games of the last three months, and by the editors for the heroes played too little.
+2753	HOK tier list maker — make your Honor of Kings tier list | {site}
+2754	Tier list
+2755	Tier list maker
+2756	HOK {lane} Tier List ({month}) — best Honor of Kings {lane} heroes | {site}
+2757	HOK Tier List ({month}) — best Honor of Kings heroes for every lane | {site}
+2758	HOK {name} — Honor of Kings item: stats, price and passive | {site}
+2759	HOK {name} — Honor of Kings arcana: stats and color | {site}
+2760	HOK {name} — Honor of Kings spell: effect and cooldown | {site}
+2761	Honor of Kings training
+2762	Combos, reflexes and map situations for Honor of Kings Global players: choose the heroes you work on, write down their combos and mechanics, train your reactions and study situations on the map.
+2763	Map situations
+2764	{name} build, skills and counters — HOK Honor of Kings | {site}
+2765	{name} build and skills — HOK Honor of Kings | {site}
+2766	{name} skills and counters — HOK Honor of Kings | {site}
+2767	{name} — HOK Honor of Kings hero guide, skills and lanes | {site}
+2768	{site} — HOK Honor of Kings draft simulator, scrims and tier list
+2769	HOK heroes — every Honor of Kings hero, skills, builds and lanes | {site}
+2770	HOK scrims — Honor of Kings draft simulator with ban and pick | {site}
+2771	Run Honor of Kings Global scrim series with the competitive ban and pick order: a free draft simulator for teams, with a live draft room and the history of every game.
+2772	HOK training — Honor of Kings combos, reflexes and map situations | {site}
+2773	Train for Honor of Kings Global: choose the heroes you work on, write down combos and mechanics, test your reflexes and study situations on the map.
+2774	HOK reflex training — Honor of Kings reaction and dodge drills | {site}
+2775	Reflex drills for Honor of Kings Global players: react, dodge and aim against the clock, and see how your times improve.
+2776	HOK map situations — Honor of Kings macro training | {site}
+2777	Situations of Honor of Kings Global games drawn on the map: where to go, what to do, and why. Macro training for every lane.
+2778	HOK teams — Honor of Kings Global team rosters and staff | {site}
+2779	Honor of Kings Global teams: create a team, invite players and staff, share an agenda and find scrim partners.
+2780	Find a HOK scrim — Honor of Kings Global scrim partners | {site}
+2781	HOK build calculator — test Honor of Kings builds and stats | {site}
+2782	HOK items — every Honor of Kings item with stats and price | {site}
+2783	HOK arcana — every Honor of Kings arcana, red, blue and green | {site}
+2784	HOK spells — Honor of Kings summoner spells and cooldowns | {site}
+2785	HOK meta — most played and best Honor of Kings tournament drafts | {site}
+2786	HOK meta heroes — pick rate, ban rate and win rate in Honor of Kings tournaments | {site}
+2787	The Honor of Kings Global heroes of the tournament meta, lane by lane: how often each one is picked and banned, and how often it wins.
+2788	HOK tier list: {tier} in {lane}.
+2789	Tournament win rate: {rate} % over {count} games.
+2790	The heroes could not be loaded.
+2791	The game could not be saved.
+2792	The game could not be set up.
+2793	Punish
+2794	Flash
+2795	Sprint
+2796	Teleport
+2797	Execute
+2798	Frenzy
+2799	Intimidate
+2800	Purify
+2801	Stun
+2802	Health
+2803	Your skills
+2804	Calls
+2805	Turn your phone sideways to play.
+2806	Your allies
+2807	Game time
+2808	Gold of both teams
+2809	Leave the game
+2810	Approximate data
+2811	Your hero is waiting: what next?
+2812	What next?
+2813	Surprise question
+2814	The map is hidden while the game is paused, and the pause is noted with your grade.
+2815	Resume
+2816	Back in {seconds} s
+2817	Game over
+2818	Macro grade: {grade}
+2819	The game was paused.
+2820	The grade is kept in your games.
+2821	Back to the set-up
+2822	Game Simulation
+2823	Play a whole Honor of Kings match as one hero, seen from above on the map. Every few seconds you choose where your hero goes next: a lane, a camp, an objective, an ally to help or a tower to defend. No mechanics, only macro decisions, and a grade at the end.
+2824	You
+2825	Random
+2826	The scrim engine draws one hero for each lane of both teams. You play the one of your role.
+2827	Loading the heroes…
+2828	A slot left on Random is drawn by the scrim engine.
+2829	Set up your game
+2830	Your side
+2831	Your role
+2832	Difficulty
+2833	The enemy team plays harder after wrong decisions, and eases off again after good ones.
+2834	Random heroes
+2835	Choose the heroes
+2836	On a phone, play with the screen turned sideways.
+2837	Setting up the game…
+2838	Start the game
+2839	Sign in to keep your games and their grade.
+2840	No game yet.
+2841	Easy
+2842	Hard
+2843	No game played yet.
+2844	HOK Game Simulation — play Honor of Kings macro decisions | {site}
+2845	Play a whole Honor of Kings match as one hero on the map and take its macro decisions: where to go, when to fight, when to fall back. A grade at the end.
+2846	Regroup
+2847	Retreat
+2848	Watch the jungler
+2849	Clash lane
+2850	Farm lane
+2851	red buff
+2852	blue buff
+2853	jungle camp
+2854	Tyrant
+2855	Overlord
+2856	Shadow Tyrant
+2857	Shadow Overlord
+2858	Space Sprite
+2859	Firehawk
+2860	Hold your lane
+2861	Go to the {lane}
+2862	Take your {camp}
+2863	Invade the enemy {camp}
+2864	Go to the {objective}
+2865	Join {hero}
+2866	Gank {hero}
+2867	Wait in the bush near the {lane}
+2868	Fall back to your tower
+2869	Go back to base
+2870	Defend your tower on the {lane}
+2871	Push the {lane}
+2872	Follow {hero}
+2873	Give vision near the {lane}
+2874	Harass {hero}
+2875	Stay where I am
+2876	Yes
+2877	No
+2878	Where is the enemy jungler, roughly?
+2879	Near the Clash lane
+2880	Near the Mid lane
+2881	Near the Farm lane
+2882	Is the enemy red buff up?
+2883	Is the enemy blue buff up?
+2884	Is the enemy jungler's Punish ready?
+2885	How many enemy heroes are dead right now?
+2886	How many enemy towers have fallen?
+2887	When is the Tyrant up?
+2888	When is the Overlord up?
+2889	It is up now
+2890	In less than a minute
+2891	In one to two minutes
+2892	In more than two minutes
+2893	Which team has more gold?
+2894	The enemy team
+2895	About even
+2896	Name one to ten heroes.
+2897	A hero chosen by hand is not valid.
+2898	{label} is not valid.
+2899	Sign in to keep your games.
+2900	That is a lot of games for one day: come back later.
+2901	Board of the Game Simulation
+2902	Use in the Game Simulation
+2903	This map does not exist.
+2904	Run this in a terminal:
+2905	Add this to claude_desktop_config.json (Settings, Developer, Edit config), then restart Claude. It needs Node.js.
+2906	Add this to .cursor/mcp.json, in your project or in your home folder:
+2907	In a custom GPT: Configure, Create new action, Import from URL with this address. Then Authentication: API key, type Bearer, and paste your key.
+2908	Make one key for each assistant, with only what it needs (the public data of the game is enough to ask about heroes, items and drafts). If one leaks, revoke it without touching the others.
+2909	Replace {key} with your key. The assistant then sees one tool per address your key can read, and only reads.
+2910	No key, or a key that is not valid, has expired or was revoked.
+2911	The key lacks the scope this address needs.
+2912	Unknown address, or something the owner of the key cannot see.
+2913	Too many requests: wait for the seconds of Retry-After.
+2914	Parameter
+2915	In
+2916	required
+2917	address
+2918	query
+2919	Tool for an AI: {name}
+2920	Example answer
+2921	1. Make a key
+2922	Sign in, open the API page and choose what the key can read.
+2923	2. Call an address
+2924	Send the key in the Authorization header. Answers are JSON.
+2925	3. Or ask an AI
+2926	Connect Claude, ChatGPT or Cursor: they read the data for you.
+2927	Authentication
+2928	Every address takes an API key, sent as a bearer token. A key only reads, and sees what its owner sees: the data of the game for everybody, your own scrims, tier lists and teams for you.
+2929	Your first call
+2930	The X-API-Key header works too. A key put in the address is ignored: addresses end up in logs.
+2931	Limits and errors
+2932	Each key may make {count} requests a minute. Errors are JSON with a stable code:
+2933	Meaning
+2934	Use with an AI
+2935	The API is also an MCP server, at {address}: an assistant gets one tool per address its key can read.
+2936	Addresses
+2937	The full description, to import in a tool:
+2938	Select the text and copy it.
+2939	HOK API: Honor of Kings data for your programs
+2940	Read the heroes, items, arcana, spells, tier list and tournament drafts of Honor of Kings Global, and your own scrims, from a program or an AI assistant. Read-only, free, with a key.
+2941	Get a key
+2942	Documentation
+2943	API
+2944	Read your data and the data of the game from your own programs and AI assistants.
+2945	Sign in to make API keys
+2946	A key belongs to an account: it reads what you can read, and nothing more.
+2947	Read your data and the data of the game from your own programs and AI assistants. A key only reads, never writes.
+2948	Open the API page
+2949	Make and revoke your keys, and connect an AI assistant to your data.
+2950	HOK API — Honor of Kings data for developers and AI assistants | {site}
+2951	Read Honor of Kings Global heroes, items, arcana, spells, the tier list and tournament drafts from your programs, or connect Claude, ChatGPT or Cursor through MCP. Every address, its parameters and an example answer.
+2952	API | {site}
+2953	Your API keys, and how to connect an AI assistant to your data.
+2954	The MCP server takes JSON-RPC messages in POST.
+2955	The situation sent to the one POST is not valid: the error says what is wrong.
+2956	Example request
+2957	The connection to the game was lost.
+2958	The games against the bots are not open right now. Try again later.

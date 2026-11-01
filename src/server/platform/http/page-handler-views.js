@@ -5,6 +5,7 @@ export const SSR_VIEWS = new Set([
   "home",
   "heroes",
   "hero",
+  "tier-list",
   "tier-lists",
   "scrims",
   "history",
@@ -19,12 +20,14 @@ export const SSR_VIEWS = new Set([
   "items",
   "arcana",
   "spells",
+  "simulation",
   "popular",
   "terms",
   "privacy",
   "cookies",
   "legal",
-  "contact"
+  "contact",
+  "developers"
 ]);
 
 /**

@@ -12,7 +12,21 @@ import { rankedIn } from "./rating-editor-parts.js";
 /** A hero on the board: its portrait, as in the tier lists, on a button so that a click or a key picks it. */
 export const avatar = (view, id) => {
   const name = view.esc(view.nameOf(id));
-  return `<button type="button" class="tier-avatar" draggable="true" data-hero="${view.esc(id)}" data-name="${name}" aria-pressed="${view.picked === id}" aria-label="${name}" title="${name}">${tierPortrait(view.heroOf(id))}</button>`;
+  // a hero the tournaments already rank in this lane: greyed, with its computed tier (the rating
+  // given here is kept but does not count)
+  const computed = view.saved.get(view.lane)?.computed?.[id];
+  const label = computed
+    ? view.esc(
+        t("{name}: ranked {tier} by the tournament games", {
+          name: view.nameOf(id),
+          tier: computed
+        })
+      )
+    : name;
+  const mark = computed
+    ? `<span class="rt-computed" aria-hidden="true">${view.esc(computed)}</span>`
+    : "";
+  return `<button type="button" class="tier-avatar${computed ? " is-computed" : ""}" draggable="true" data-hero="${view.esc(id)}" data-name="${name}" aria-pressed="${view.picked === id}" aria-label="${label}" title="${label}">${tierPortrait(view.heroOf(id))}${mark}</button>`;
 };
 
 export const row = (view, label, heroes) =>
@@ -62,7 +76,7 @@ export function spread(view) {
 /** What was moved since the lane was opened, the last move first. */
 export function log(view) {
   if (!view.moves.length) {
-    return `<p class="rt-hint">${t("Drag a hero to a tier, or click it and choose the tier.")}</p>`;
+    return `<p class="rt-hint">${t("Drag a hero to a tier, or click it and choose the tier.")}</p><p class="rt-hint">${t("Greyed heroes are ranked by the tournament games: their tier shows on them, and a rating here only counts for the heroes played too little.")}</p>`;
   }
   return `<ol class="rt-log" aria-label="${t("Changes not saved yet")}">${view.moves
     .slice(0, LOG_SHOWN)

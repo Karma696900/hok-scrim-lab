@@ -1,12 +1,15 @@
-// settings api keys, small helpers: scopeBoxes, secretBox, doc, list, and 3 more.
+// api keys, small helpers: scopeBoxes, secretBox, doc, list, and 3 more.
 import { currentLanguage, t } from "../../app/browser-i18n.js";
 import { icon } from "../../../shared/icons.js";
+
+/** The scopes ticked when a key is made: the public data only (a key for an AI rarely needs more). */
+export const PUBLIC_SCOPES = ["game", "competitive"];
 
 export const scopeBoxes = view =>
   view.data.scopes
     .map(
       scope =>
-        `<label class="ak-scope"><input type="checkbox" name="ak-scope" value="${view.esc(scope)}" checked><span>${icon("check", "i--sm")}${view.esc(SCOPE_LABELS()[scope] ?? scope)}</span></label>`
+        `<label class="ak-scope"><input type="checkbox" name="ak-scope" value="${view.esc(scope)}"${PUBLIC_SCOPES.includes(scope) ? " checked" : ""}><span>${icon("check", "i--sm")}${view.esc(scopeLabel(scope))}</span></label>`
     )
     .join("");
 
@@ -28,7 +31,7 @@ export const doc = view => {
         <figcaption><span>${t("Use it like this")}</span><button type="button" class="btn btn--ghost btn--sm" data-ak-copy-curl>${icon("copy", "i--sm")}${t("Copy")}</button></figcaption>
         <pre class="ak-curl"><code><span class="ak-curl__cmd">curl</span> <span class="ak-curl__flag">-H</span> <span class="ak-curl__text">"Authorization: Bearer hok_YOUR_KEY"</span> \\
   ${base}/api/v1/heroes</code></pre>
-        <ul class="ak-paths">${EXAMPLES.map(([path, scope]) => `<li><code>${path}</code><span class="pill pill--grey">${view.esc(SCOPE_LABELS()[scope])}</span></li>`).join("")}</ul>
+        <ul class="ak-paths">${EXAMPLES.map(([path, scope]) => `<li><code>${path}</code><span class="pill pill--grey">${view.esc(scopeLabel(scope))}</span></li>`).join("")}</ul>
       </figure>`;
 };
 
@@ -40,7 +43,7 @@ export const list = view => {
   return `<ul class="ak-list">${view.data.items
     .map(key => {
       const pills = key.scopes
-        .map(scope => `<span class="pill">${view.esc(SCOPE_LABELS()[scope] ?? scope)}</span>`)
+        .map(scope => `<span class="pill">${view.esc(scopeLabel(scope))}</span>`)
         .join("");
       const used = key.lastUsedAt
         ? t("Last used {date}", { date: day(key.lastUsedAt) })
@@ -120,8 +123,12 @@ const SCOPE_LABELS = () => ({
   "tier-lists": t("Your tier lists"),
   teams: t("Your teams"),
   training: t("Your training"),
-  account: t("Your account")
+  account: t("Your account"),
+  simulation: t("Game Simulation")
 });
+
+/** What a scope opens, in words (the name of the scope when it has none). */
+export const scopeLabel = scope => SCOPE_LABELS()[scope] ?? scope;
 
 const LIFETIME_LABELS = () => ({
   30: t("30 days"),

@@ -8,7 +8,7 @@ import { PRERENDER_HEADER } from "./prerender-parts.js";
  * `styleHashes` / `scriptHashes`: SHA-256 hashes of the one inline <style> (critical CSS) and the
  * one inline <script> (boot loader) the server itself writes. Nothing else inline is allowed.
  */
-export const contentSecurityPolicy = (styleHashes = [], scriptHashes = []) =>
+export const contentSecurityPolicy = (styleHashes = [], scriptHashes = [], connectSources = []) =>
   [
     "default-src 'self'",
     `script-src 'self'${scriptHashes.map(hash => ` '${hash}'`).join("")}`,
@@ -16,7 +16,7 @@ export const contentSecurityPolicy = (styleHashes = [], scriptHashes = []) =>
     "img-src 'self' data: https://camp.honorofkings.com https://*.googleusercontent.com",
     "font-src 'self'",
     "media-src 'self' https://res.sgameglobal.com https://camp.honorofkings.com",
-    "connect-src 'self'",
+    `connect-src 'self'${connectSources.map(source => ` ${source}`).join("")}`,
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
@@ -40,8 +40,14 @@ export function enforceHttps(enabled, prerender = null) {
   };
 }
 
-export function securityHeaders({ hsts = false, styleHashes = [], scriptHashes = [] } = {}) {
-  const policy = contentSecurityPolicy(styleHashes, scriptHashes);
+/** `connectSources`: other origins the pages may open a connection to (the bots server's live games). */
+export function securityHeaders({
+  hsts = false,
+  styleHashes = [],
+  scriptHashes = [],
+  connectSources = []
+} = {}) {
+  const policy = contentSecurityPolicy(styleHashes, scriptHashes, connectSources);
   return (_request, response, next) => {
     response.setHeader("Content-Security-Policy", policy);
     response.setHeader("X-Content-Type-Options", "nosniff");

@@ -56,6 +56,7 @@
 @import "./pages/settings.css";
 @import "./pages/settings-interface.css";
 @import "./pages/settings-small-screens.css";
+@import "./pages/api.css";
 @import "./pages/welcome.css";
 @import "./pages/auth.css";
 @import "./pages/auth-authenticator.css";
@@ -69,6 +70,8 @@
 @import "./pages/reflex.css";
 @import "./pages/reflex-bar.css";
 @import "./pages/reflex-last-hit.css";
+@import "./pages/simulation.css";
+@import "./pages/simulation-board.css";
 @import "./pages/series.css";
 @import "./pages/series-games.css";
 @import "./pages/draft-editor.css";
@@ -79,6 +82,7 @@
 @import "./pages/popular.css";
 @import "./pages/popular-empty-period.css";
 @import "./pages/ratings.css";
+@import "./pages/tier-list-public.css";
 @import "./pages/space.css";
 @import "./pages/catalog.css";
 @import "./pages/catalog-tags.css";

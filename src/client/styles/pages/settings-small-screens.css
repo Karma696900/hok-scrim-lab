@@ -27,7 +27,6 @@
   .st-card {
     scroll-margin-top: calc(var(--topbar) + 72px);
   }
-  .ak-console,
   .st-iface {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -111,17 +110,5 @@
     flex-wrap: wrap;
     gap: 10px 16px;
     bottom: 66px;
-  }
-  .ak-form {
-    grid-template-columns: minmax(0, 1fr);
-    padding: 16px;
-  }
-  .ak-key {
-    grid-template-columns: auto minmax(0, 1fr);
-    padding: 14px;
-  }
-  .ak-key .btn {
-    grid-column: 1 / -1;
-    justify-self: start;
   }
 }

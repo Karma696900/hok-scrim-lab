@@ -5,12 +5,11 @@ import { currentTheme } from "../../app/display-preferences.js";
 import { currentLanguage, t } from "../../app/browser-i18n.js";
 import { fillSceneArt, sceneArtSlot, sceneHero } from "../../domain/scene-art.js";
 import { icon } from "../../../shared/icons.js";
-import { mountApiKeys } from "./settings-api-keys.js";
 import { pageRoot } from "../../app/view-wrapper.js";
 import { bindTo } from "../../../shared/bind-to.js";
 import { onView as settingsPagePiecesPagePiecesPage } from "./settings-form.js";
 import { onView as settingsPagePiecesPageActions } from "./settings-actions.js";
-import { figure, sectionsOf } from "./settings-form.js";
+import { sectionsOf } from "./settings-form.js";
 import { onClickHandler } from "./settings-actions.js";
 import { canRegister } from "../../app/app-state.js";
 
@@ -77,8 +76,7 @@ export function show(flow, app) {
   const figures = [
     ["parts", t("Parts of the site")],
     ["format", t("Series format")],
-    ["language", t("Language")],
-    ...(ui.user ? [["keys", t("API keys")]] : [])
+    ["language", t("Language")]
   ];
 
   ui.root.innerHTML = `<header class="page-head st-stage keep-dark card--feature rise">${sceneArtSlot("st-stage__art", hero)}<div class="st-stage__veil" aria-hidden="true"></div>
@@ -110,16 +108,6 @@ export function show(flow, app) {
   ui.saved = JSON.stringify(ui.read());
 
   ui.paintFigures();
-
-  const keys = ui.root.querySelector("#api-keys-root");
-  if (keys) {
-    mountApiKeys(keys, {
-      api: ui.flow.api,
-      escapeHtml: ui.flow.esc,
-      tell: ui.flow.tell,
-      onCount: (live, max) => ui.setFigure("keys", figure(live, max))
-    });
-  }
 
   ui.form.addEventListener("input", ui.refresh);
   ui.form.addEventListener("change", ui.refresh);

@@ -32,14 +32,15 @@ export const keysCard = () => `<section class="card trn-keys" aria-labelledby="t
     </section>`;
 
 // ---- the maps (administrators) -------------------------------------------------------------------
-export const mapsAdmin = maps => `<section class="card trn-maps">
+// `board`: the address of the picture the Game Simulation uses as its board (or null)
+export const mapsAdmin = (maps, board = null) => `<section class="card trn-maps">
       <div class="card__head"><h2>${t("Maps")}</h2><span class="pill pill--grey">${t("Administrators")}</span></div>
       <p class="muted">${t("Upload the map of the game (PNG, JPEG or WebP, 12 MB at most). Pins are placed on it: nothing is drawn for you.")}</p>
       <ul class="list map-list">${
         maps
           .map(
             map =>
-              `<li class="row"><img src="${mapUrl(map)}" alt="" width="96" height="${Math.round((96 * map.height) / map.width)}" loading="lazy" decoding="async"><span class="row__body"><b>${esc(map.name)}</b><small>${map.width} × ${map.height}</small></span><button type="button" class="btn btn--ghost btn--sm" data-remove-map="${esc(map.id)}">${icon("trash", "i--sm")}${t("Delete")}</button></li>`
+              `<li class="row"><img src="${mapUrl(map)}" alt="" width="96" height="${Math.round((96 * map.height) / map.width)}" loading="lazy" decoding="async"><span class="row__body"><b>${esc(map.name)}</b><small>${map.width} × ${map.height}</small>${board === mapUrl(map) ? `<span class="pill pill--grey">${t("Board of the Game Simulation")}</span>` : ""}</span>${board === mapUrl(map) ? "" : `<button type="button" class="btn btn--ghost btn--sm" data-sim-map="${esc(map.id)}">${t("Use in the Game Simulation")}</button>`}<button type="button" class="btn btn--ghost btn--sm" data-remove-map="${esc(map.id)}">${icon("trash", "i--sm")}${t("Delete")}</button></li>`
           )
           .join("") || `<li class="muted">${t("No map yet.")}</li>`
       }</ul>
@@ -59,9 +60,12 @@ export async function showList(view) {
       : view.api("/api/training/scenarios"),
     view.api("/api/training/maps")
   ]);
+  const admin = view.kit.isAdmin();
+  const board = admin
+    ? (await view.api("/api/simulation/map").catch(() => ({ image: null }))).image
+    : null;
   const scenarios = known.scenarios;
   const mapOf = id => maps.find(map => map.id === id);
-  const admin = view.kit.isAdmin();
   const row = scenario => {
     const map = mapOf(scenario.mapId);
     return `<a class="trn-sit" href="/training/scenarios/${encodeURIComponent(scenario.id)}"><span class="trn-sit__map keep-dark">${map ? `<img src="${mapUrl(map)}" alt="" width="320" height="${Math.round((320 * map.height) / map.width)}" loading="lazy" decoding="async">` : ""}</span><span class="trn-sit__body"><b class="scenario-title">${esc(tx(scenario.title))}</b>${scenario.brief ? `<span class="trn-sit__brief">${esc(tx(scenario.brief))}</span>` : ""}<span class="trn-sit__meta"><span class="pill pill--grey">${icon("pin", "i--sm")}${t("{count} pins", { count: scenario.pinCount })}</span>${scenario.published ? "" : `<span class="pill pill--warn">${t("Draft")}</span>`}${map ? `<span class="muted">${esc(map.name)}</span>` : ""}</span></span><span class="trn-sit__go" aria-hidden="true">${icon("right")}</span></a>`;
@@ -91,7 +95,7 @@ export async function showList(view) {
           scenarios.map(row).join("") ||
           `${lineHtml("map", t("No situation yet"), t("The administrators have not prepared any situation. Come back soon."))}${steps}`
         }</div>
-        <aside class="trn-sits__side">${keysCard()}${admin ? mapsAdmin(maps) : ""}</aside>
+        <aside class="trn-sits__side">${keysCard()}${admin ? mapsAdmin(maps, board) : ""}</aside>
       </div>`;
   view.kit.paintChrome();
   root.onclick = event => {
@@ -100,6 +104,16 @@ export async function showList(view) {
         return view.tell(t("Upload a map first."));
       }
       view.editor.show(null, maps);
+    }
+    const simulationMap = event.target.closest("[data-sim-map]");
+    if (simulationMap) {
+      view
+        .api("/api/simulation/map", {
+          method: "PUT",
+          body: { mapId: simulationMap.dataset.simMap }
+        })
+        .then(view.showList)
+        .catch(error => view.tell(error.message));
     }
     const remove = event.target.closest("[data-remove-map]");
     if (remove && confirm(t("Delete this map?"))) {

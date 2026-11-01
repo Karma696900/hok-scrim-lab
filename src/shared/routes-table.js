@@ -1,12 +1,13 @@
 // The table of the pages of the site: address, view, title, who may read it, whether search engines may index it.
 import { message } from "./routes-shared.js";
+import { API_ROUTES } from "./routes-table-api.js";
 
 export const ROUTES = [
   {
     pattern: /^\/$/,
     view: "home",
     index: true,
-    title: message("{site} — Honor of Kings Global draft, scrims and tier lists"),
+    title: message("{site} — HOK Honor of Kings draft simulator, scrims and tier list"),
     description: message(
       "Free Honor of Kings Global draft simulator: competitive ban and pick, scrim series, tier lists per lane and hero guides with skills and patch history."
     )
@@ -15,17 +16,29 @@ export const ROUTES = [
     pattern: /^\/heroes$/,
     view: "heroes",
     index: true,
-    title: message("Honor of Kings Global heroes — skills, lanes and patch history | {site}"),
+    title: message("HOK heroes — every Honor of Kings hero, skills, builds and lanes | {site}"),
     description: message(
       "Every Honor of Kings Global hero with lane, class, skills, videos, artwork and balance changes from the official Camp data."
     )
   },
   { pattern: /^\/heroes\/(\d{1,6})$/, view: "hero", index: true, param: "heroId" },
   {
+    // the public tier list: every lane, or one (the address ends with its slug); the server adds the month
+    // to the title (page-handler-parts.js)
+    pattern: /^\/tier-list(\/(?:clash|jungle|mid|farm|roam))?$/,
+    view: "tier-list",
+    index: true,
+    param: "section",
+    title: message("HOK Tier List — best Honor of Kings heroes for every lane | {site}"),
+    description: message(
+      "The Honor of Kings Global tier list of every lane, from SS to D: ranked by the tournament games of the last three months, and by the editors for the heroes played too little."
+    )
+  },
+  {
     pattern: /^\/tier-lists$/,
     view: "tier-lists",
     index: true,
-    title: message("Honor of Kings Global tier list maker | {site}"),
+    title: message("HOK tier list maker — make your Honor of Kings tier list | {site}"),
     description: message(
       "Build and share Honor of Kings Global tier lists for all roles or a single lane with drag and drop."
     )
@@ -34,9 +47,9 @@ export const ROUTES = [
     pattern: /^\/scrims$/,
     view: "scrims",
     index: true,
-    title: message("Scrims — draft and record series | {site}"),
+    title: message("HOK scrims — Honor of Kings draft simulator with ban and pick | {site}"),
     description: message(
-      "Run Honor of Kings Global scrim series with the competitive ban and pick order."
+      "Run Honor of Kings Global scrim series with the competitive ban and pick order: a free draft simulator for teams, with a live draft room and the history of every game."
     )
   },
   {
@@ -53,10 +66,24 @@ export const ROUTES = [
     view: "training",
     index: true,
     param: "section",
-    title: message("Training | {site}"),
+    title: message("HOK training — Honor of Kings combos, reflexes and map situations | {site}"),
     description: message(
-      "Your heroes, your notebook of combos and mechanics, and situations to study on the map."
-    )
+      "Train for Honor of Kings Global: choose the heroes you work on, write down combos and mechanics, test your reflexes and study situations on the map."
+    ),
+    sections: {
+      "/reflex": {
+        title: message("HOK reflex training — Honor of Kings reaction and dodge drills | {site}"),
+        description: message(
+          "Reflex drills for Honor of Kings Global players: react, dodge and aim against the clock, and see how your times improve."
+        )
+      },
+      "/scenarios": {
+        title: message("HOK map situations — Honor of Kings macro training | {site}"),
+        description: message(
+          "Situations of Honor of Kings Global games drawn on the map: where to go, what to do, and why. Macro training for every lane."
+        )
+      }
+    }
   },
   {
     pattern: /^\/settings$/,
@@ -97,8 +124,10 @@ export const ROUTES = [
     pattern: /^\/teams$/,
     view: "teams",
     index: true,
-    title: message("Teams | {site}"),
-    description: message("Honor of Kings Global teams: rosters, staff roles and invitations.")
+    title: message("HOK teams — Honor of Kings Global team rosters and staff | {site}"),
+    description: message(
+      "Honor of Kings Global teams: create a team, invite players and staff, share an agenda and find scrim partners."
+    )
   },
   {
     pattern: /^\/teams\/([0-9a-f-]{36})$/i,
@@ -112,7 +141,7 @@ export const ROUTES = [
     pattern: /^\/find$/,
     view: "find",
     index: true,
-    title: message("Find a scrim | {site}"),
+    title: message("Find a HOK scrim — Honor of Kings Global scrim partners | {site}"),
     description: message(
       "Open scrim announcements of Honor of Kings Global teams: filter by level, format and hero rule."
     )
@@ -150,36 +179,51 @@ export const ROUTES = [
     pattern: /^\/build-lab$/,
     view: "build-lab",
     index: true,
-    title: message("Build lab — test Honor of Kings Global builds | {site}"),
+    title: message("HOK build calculator — test Honor of Kings builds and stats | {site}"),
     description: message(
       "Try a build for any Honor of Kings Global hero: items, arcana and the total stats it gives. No account needed."
     )
   },
   {
-    pattern: /^\/items$/,
+    pattern: /^\/items(\/\d{1,9})?$/,
     view: "items",
+    // the page of one piece of the catalogue: /items/12 (the server names it in the title)
+    param: "section",
     index: true,
-    title: message("Honor of Kings Global items — stats, prices and categories | {site}"),
+    title: message("HOK items — every Honor of Kings item with stats and price | {site}"),
     description: message(
       "Every item of Honor of Kings Global with its picture, price, stats, passives and actives, by slot and by shop category."
     )
   },
   {
-    pattern: /^\/arcana$/,
+    pattern: /^\/arcana(\/\d{1,9})?$/,
     view: "arcana",
+    // the page of one piece of the catalogue: /arcana/12 (the server names it in the title)
+    param: "section",
     index: true,
-    title: message("Honor of Kings Global arcana — red, blue and green | {site}"),
+    title: message("HOK arcana — every Honor of Kings arcana, red, blue and green | {site}"),
     description: message(
       "Every arcana of Honor of Kings Global, red, blue and green, with the stats each one gives."
     )
   },
   {
-    pattern: /^\/spells$/,
+    pattern: /^\/spells(\/\d{1,9})?$/,
     view: "spells",
+    // the page of one piece of the catalogue: /spells/12 (the server names it in the title)
+    param: "section",
     index: true,
-    title: message("Honor of Kings Global spells — what they do and their cooldown | {site}"),
+    title: message("HOK spells — Honor of Kings summoner spells and cooldowns | {site}"),
     description: message(
       "The spells a player takes into an Honor of Kings Global match: what each one does, how long before it comes back and from which level."
+    )
+  },
+  {
+    pattern: /^\/simulation$/,
+    view: "simulation",
+    index: true,
+    title: message("HOK Game Simulation — play Honor of Kings macro decisions | {site}"),
+    description: message(
+      "Play a whole Honor of Kings match as one hero on the map and take its macro decisions: where to go, when to fight, when to fall back. A grade at the end."
     )
   },
   {
@@ -187,11 +231,22 @@ export const ROUTES = [
     view: "popular",
     index: true,
     param: "section",
-    title: message("Popular drafts and heroes in tournaments | {site}"),
+    title: message("HOK meta — most played and best Honor of Kings tournament drafts | {site}"),
     description: message(
       "The drafts and the heroes that win most and that are played most in Honor of Kings Global tournaments, for each side and each lane."
-    )
+    ),
+    sections: {
+      "/heroes": {
+        title: message(
+          "HOK meta heroes — pick rate, ban rate and win rate in Honor of Kings tournaments | {site}"
+        ),
+        description: message(
+          "The Honor of Kings Global heroes of the tournament meta, lane by lane: how often each one is picked and banned, and how often it wins."
+        )
+      }
+    }
   },
+  ...API_ROUTES,
   {
     pattern: /^\/space$/,
     view: "space",

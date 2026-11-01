@@ -5,6 +5,7 @@
 // app/lazy-views.js is where a view meets its loader; src/shared/view-modules.test.js keeps the two in step.
 export const VIEW_MODULES = {
   home: "client/features/home/home-page.js",
+  "tier-list": "client/features/tier-list/tier-list-public-page.js",
   "tier-lists": "client/features/tier-lists/tier-list-page.js",
   scrims: "client/features/scrims/scrims-page.js",
   history: "client/features/history/history-page.js",
@@ -23,6 +24,7 @@ export const VIEW_MODULES = {
   settings: "client/features/settings/settings-page.js",
   welcome: "client/features/settings/onboarding.js",
   training: "client/features/training/training-pages.js",
+  simulation: "client/features/simulation/simulation-page.js",
   find: "client/features/community/community-pages.js",
   inbox: "client/features/community/community-pages.js",
   agenda: "client/features/community/community-pages.js",
@@ -36,7 +38,9 @@ export const VIEW_MODULES = {
   privacy: "client/features/legal/legal-page.js",
   cookies: "client/features/legal/legal-page.js",
   legal: "client/features/legal/legal-page.js",
-  contact: "client/features/legal/legal-page.js"
+  contact: "client/features/legal/legal-page.js",
+  developers: "client/features/developers/developers-page.js",
+  "me-api": "client/features/developers/developers-page.js"
 };
 
 // What a page needs in memory before it can be drawn. Every page shows a portrait or the name of a hero, so the roster

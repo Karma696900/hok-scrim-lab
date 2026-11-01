@@ -11,6 +11,7 @@ import { createSharingStore } from "../../features/sharing/sharing-store.js";
 import { createSpaceStore } from "../../features/space/space-store.js";
 import { createTeamStore } from "../../features/teams/team-store.js";
 import { createReflexStore } from "../../features/reflex/reflex-store.js";
+import { createSimulationStore } from "../../features/simulation/simulation-store.js";
 import { createOfficialRatingsStore } from "../../features/tier-lists/official-store.js";
 import { createDataRightsStore } from "../../features/auth/data-rights.js";
 import { createContactStore } from "../../features/contact/contact-store.js";
@@ -63,6 +64,7 @@ export function createStore(dbConfig, { log = () => {}, quotas = {} } = {}) {
     ...createComboStore(context),
     ...createTranslationStore(context),
     ...createReflexStore(context),
+    ...createSimulationStore(context),
     ...createSpaceStore(context),
     ...createSharingStore({ ...context, quotas }),
     ...createApiKeyStore(context),

@@ -1,6 +1,6 @@
 import express from "express";
 import { notFound } from "./platform/errors.js";
-import { requestLanguage } from "./platform/server-i18n.js";
+import { languageOfRequest } from "./platform/http/page-handler-language.js";
 import { BOOT_SCRIPT_HASH } from "./platform/http/first-paint.js";
 import { createIdentity } from "./platform/http/identity.js";
 import { createLimiters } from "./platform/http/rate-limits.js";
@@ -23,6 +23,7 @@ import { createDiscordService, createNotifier } from "./features/discord/discord
 import { createInteractionsRouter } from "./features/discord/discord-routes.js";
 import { createApiRouter } from "./app-api.js";
 import { mountSignIn } from "./app-sign-in.js";
+import { botsSockets } from "./features/simulation/bots-link.js";
 import { registerPictureRoutes } from "./app-media.js";
 import {
   SAFE_METHODS,
@@ -68,19 +69,15 @@ export function createApp({
   });
 
   app.use(requestContext(ctx.logger));
-  app.use((request, response, next) => {
-    request.language = requestLanguage(request);
-    response.vary("Accept-Language");
-    response.vary("Cookie");
-    next();
-  });
+  app.use(languageOfRequest);
   const critical = loadCriticalCss();
   app.use(enforceHttps(ctx.config.cookieSecure, ctx.prerender));
   app.use(
     securityHeaders({
       hsts: ctx.config.cookieSecure,
       styleHashes: [critical.hash], // a page the server draws carries its own (see pages.js)
-      scriptHashes: [BOOT_SCRIPT_HASH]
+      scriptHashes: [BOOT_SCRIPT_HASH],
+      connectSources: botsSockets()
     })
   );
   app.use(noStoreForApi);

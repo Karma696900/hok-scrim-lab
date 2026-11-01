@@ -2,7 +2,7 @@
 import { heroTournamentStats, parseDay } from "../tournaments/tournament-domain.js";
 import { notFound } from "../../platform/errors.js";
 import { presentHero } from "./hero-domain.js";
-import { ratingsOf } from "../tier-lists/official.js";
+import { currentTierList, heroTiers } from "../tier-lists/public-tier-list-service.js";
 import { revalidate } from "../../platform/http/cache-control.js";
 import { summariseCompetitive } from "../tournaments/competitive-import.js";
 import { wrap } from "../../platform/http/async.js";
@@ -119,12 +119,12 @@ export function registerHeroSheetRoutes(ctx) {
       }
       const names = await ctx.store.readHeroNames(lang);
       const since = parseSince(request.query.since);
-      const [games, builds, summary, profile, official, combos] = await Promise.all([
+      const [games, builds, summary, profile, tierList, combos] = await Promise.all([
         ctx.store.competitiveGames(since),
         ctx.store.listBuildSets(hero.id),
         ctx.store.competitiveSummary(),
         ctx.store.getHeroProfile(hero.id),
-        ctx.store.listOfficialTierLists(),
+        currentTierList(ctx.store),
         ctx.store.listCombos(hero.id)
       ]);
       const rules = ["classic", "free-for-all", "global-ban-pick"];
@@ -139,14 +139,17 @@ export function registerHeroSheetRoutes(ctx) {
           last: summary.last
         }
       };
+      const tiers = heroTiers(tierList, hero.id, hero.lanes);
       return {
         hero: localizeHero(presentHero(hero), names),
         competitive,
         tournament,
         builds,
         profile,
-        // the tier of the hero in the official list of each of its lanes (SS to D), where it was rated
-        ratings: ratingsOf(hero.id, hero.lanes, official),
+        // the tier of the hero in each of its lanes (SS to D), as the public tier list gives it, and
+        // where it comes from: "tournaments" (played enough) or "editors" (their rating)
+        ratings: tiers.ratings,
+        ratingSources: tiers.sources,
         // the combos the editors wrote for the hero, in their order (steps are skills of `details`)
         combos,
         details: stored?.details ?? null,

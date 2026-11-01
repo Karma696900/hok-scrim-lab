@@ -3,6 +3,8 @@ import { HttpError, forbidden, notFound, unauthorized } from "../../platform/err
 import { wrap } from "../../platform/http/async.js";
 import { API_ENDPOINTS, endpointOf } from "./endpoints.js";
 import { hashKey, keyFromRequest } from "./api-key-domain.js";
+import { buildOpenApi } from "./gateway-openapi.js";
+import { createMcpRoute } from "./gateway-mcp.js";
 
 /**
  * The public API, `/api/v1`: the data of the application, read with an API key instead of a session.
@@ -16,33 +18,10 @@ import { hashKey, keyFromRequest } from "./api-key-domain.js";
  * Cookies are not read on these addresses (see identity.js) and a key is not read anywhere else.
  * Its refusals stay in English: they are read by a developer's program, not by a visitor.
  */
-export function createApiGateway({ store, application, limiters, logger }) {
+export function createApiGateway({ store, application, limiters, logger, mcpTools = [] }) {
   const router = Router();
 
-  // Programs and pages of other sites may read (never write): the key travels in a header, not in a
-  // cookie, so there is no ambient authority for another site to abuse.
-  router.use((request, response, next) => {
-    response.set({
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
-      "Access-Control-Allow-Headers": "Authorization, X-API-Key",
-      "Access-Control-Expose-Headers": "RateLimit, RateLimit-Policy, Retry-After, X-Request-Id",
-      "Access-Control-Max-Age": "600",
-      "Cross-Origin-Resource-Policy": "cross-origin"
-    });
-    if (request.method === "OPTIONS") {
-      return response.status(204).end();
-    }
-    next();
-  });
-
-  router.use((request, response, next) => {
-    if (request.method !== "GET" && request.method !== "HEAD") {
-      response.set("Allow", "GET, HEAD, OPTIONS");
-      return next(new HttpError(405, "method_not_allowed", "The API only reads: use GET."));
-    }
-    next();
-  });
+  openDoor(router);
 
   // Who is calling. The same answer for a key that does not exist, was revoked or has expired: nothing
   // tells which, so a guess learns nothing. Every refusal is counted against the address of the caller
@@ -94,6 +73,9 @@ export function createApiGateway({ store, application, limiters, logger }) {
     next();
   });
 
+  // `mcpTools`: more tools that are not a GET of endpoints.js (see README.md).
+  router.post("/mcp", createMcpRoute({ extraTools: mcpTools }));
+
   router.get("/", (request, response) => {
     response.json({
       version: 1,
@@ -135,6 +117,50 @@ export function createApiGateway({ store, application, limiters, logger }) {
   router.use(application);
   router.use((_request, _response, next) => next(notFound("Unknown API endpoint.")));
   return router;
+}
+
+/**
+ * What every call meets first: CORS for the programs and pages of other sites, the public description, and the
+ * methods (GET only; POST for the MCP server and the bot's decision, which compute and change nothing).
+ */
+function openDoor(router) {
+  // Programs and pages of other sites may read (never write): the key travels in a header, not in a
+  // cookie, so there is no ambient authority for another site to abuse.
+  router.use((request, response, next) => {
+    response.set({
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "GET, HEAD, OPTIONS",
+      "Access-Control-Allow-Headers": "Authorization, X-API-Key",
+      "Access-Control-Expose-Headers": "RateLimit, RateLimit-Policy, Retry-After, X-Request-Id",
+      "Access-Control-Max-Age": "600",
+      "Cross-Origin-Resource-Policy": "cross-origin"
+    });
+    if (request.method === "OPTIONS") {
+      return response.status(204).end();
+    }
+    next();
+  });
+
+  // The description of the API is public: a program or an AI reads it before it has a key.
+  router.get("/openapi.json", (request, response) => {
+    response.set("Cache-Control", "public, max-age=300");
+    response.json(buildOpenApi({ origin: `${request.protocol}://${request.get("host")}` }));
+  });
+
+  // The MCP server talks JSON-RPC in POST bodies; it still only reads (see gateway-mcp.js).
+  const POST_ONLY = new Map([["/mcp", "The MCP server takes JSON-RPC messages in POST."]]);
+  router.use((request, response, next) => {
+    const postOnly = POST_ONLY.get(request.path);
+    if (postOnly && request.method !== "POST") {
+      response.set("Allow", "POST");
+      return next(new HttpError(405, "method_not_allowed", postOnly));
+    }
+    if (request.method !== "GET" && request.method !== "HEAD" && !postOnly) {
+      response.set("Allow", "GET, HEAD, OPTIONS");
+      return next(new HttpError(405, "method_not_allowed", "The API only reads: use GET."));
+    }
+    next();
+  });
 }
 
 const missingScope = scope =>

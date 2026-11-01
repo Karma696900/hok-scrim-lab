@@ -219,8 +219,8 @@ check(
       ])
 );
 check(
-  "the badge says what it is for a screen reader",
-  /Rating in .*Clash.*: A/.test(
+  "the badge says what it is and where it comes from (no tournament game here: the editors)",
+  /Tier in .*Clash.*: A, from the editors/.test(
     (await reader.locator('.hero-rating[data-tier="A"]').getAttribute("aria-label")) ?? ""
   )
 );

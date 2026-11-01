@@ -2551,3 +2551,243 @@
 2716|Đã gộp vào {name}
 2717|Nhóm thẻ
 2718|Không thể gộp một thẻ vào chính nó.
+2719|Pick đầu
+2720|Pick sớm
+2721|Pick muộn
+2722|Pick cuối
+2723|Pick {rate}
+2724|Cấm {rate}
+2725|Hiện diện {rate}
+2726|Đáp trả {name}
+2727|vs
+2728|Giai đoạn pick
+2729|Cặp đôi tốt nhất
+2730|Điểm (tỉ lệ thắng kéo về 50 %, trận gần đây có trọng số lớn hơn): {rate}
+2731|Xếp theo điểm: tỉ lệ thắng được kéo về 50 % bằng mười trận, trận gần đây nặng hơn, để một trận thắng duy nhất không vượt qua một tướng đã chứng tỏ mình.
+2732|Được chọn hoặc bị cấm: tần suất tướng xuất hiện trong các trận của giai đoạn.
+2733|Hiện diện
+2734|Tier ở {lane}: {tier}, theo các trận giải đấu
+2735|Tier ở {lane}: {tier}, do ban biên tập (quá ít trận giải đấu)
+2736|{name}: xếp hạng {tier} theo các trận giải đấu
+2737|Các tướng màu xám được xếp hạng theo các trận giải đấu: tier hiện trên chúng, và đánh giá ở đây chỉ tính cho các tướng được chơi quá ít.
+2738|Xem tier list HOK
+2739|Ban biên tập
+2740|Chưa xếp hạng
+2741|Tier list {lane}
+2742|Cách xếp hạng các tướng
+2743|Trận giải đấu trước tiên: ở mỗi đường, các tướng được chơi ít nhất {count} lần trong ba tháng qua được xếp theo điểm (tỉ lệ thắng kéo về 50 %, trận gần đây nặng hơn). Tốt nhất là SS, kém nhất là D, các tier ở giữa chia đều khoảng cách.
+2744|Các tướng được chơi quá ít nhận tier do ban biên tập đặt. Các tướng khác nằm ở “Chưa xếp hạng”. Danh sách tự cập nhật với mỗi loạt giải đấu được nhập.
+2745|Tự tạo tier list
+2746|Tier list Honor of Kings: {lane}
+2747|Tier list Honor of Kings
+2748|Cập nhật ngày {date}
+2749|{count, plural, other {# trận giải đấu}}
+2750|Những tướng Honor of Kings Global mạnh nhất ở mỗi đường, từ SS đến D: trước hết là các trận giải đấu ba tháng qua, sau đó là đánh giá của ban biên tập cho các tướng được chơi quá ít.
+2751|Tier list HOK — tướng Honor of Kings mạnh nhất mỗi đường | {site}
+2752|Tier list Honor of Kings Global của mọi đường, từ SS đến D: theo các trận giải đấu ba tháng qua, và theo ban biên tập cho các tướng được chơi quá ít.
+2753|Trình tạo tier list HOK — tạo tier list Honor of Kings của bạn | {site}
+2754|Tier list
+2755|Trình tạo tier list
+2756|Tier list HOK {lane} ({month}) — tướng {lane} mạnh nhất Honor of Kings | {site}
+2757|Tier list HOK ({month}) — tướng Honor of Kings mạnh nhất mỗi đường | {site}
+2758|HOK {name} — trang bị Honor of Kings: chỉ số, giá và nội tại | {site}
+2759|HOK {name} — ngọc Honor of Kings: chỉ số và màu | {site}
+2760|HOK {name} — phép bổ trợ Honor of Kings: hiệu ứng và hồi chiêu | {site}
+2761|Luyện tập Honor of Kings
+2762|Combo, phản xạ và tình huống bản đồ cho người chơi Honor of Kings Global: chọn các tướng bạn luyện, ghi lại combo và kỹ năng, luyện phản xạ và nghiên cứu các tình huống trên bản đồ.
+2763|Tình huống bản đồ
+2764|{name}: build, kỹ năng và khắc chế — HOK Honor of Kings | {site}
+2765|{name}: build và kỹ năng — HOK Honor of Kings | {site}
+2766|{name}: kỹ năng và khắc chế — HOK Honor of Kings | {site}
+2767|{name} — hướng dẫn tướng HOK Honor of Kings, kỹ năng và đường | {site}
+2768|{site} — mô phỏng draft HOK Honor of Kings, scrim và tier list
+2769|Tướng HOK — mọi tướng Honor of Kings, kỹ năng, build và đường | {site}
+2770|Scrim HOK — mô phỏng draft Honor of Kings có cấm và chọn | {site}
+2771|Tổ chức các loạt scrim Honor of Kings Global với thứ tự cấm chọn thi đấu: trình mô phỏng draft miễn phí cho đội, có phòng draft trực tiếp và lịch sử từng trận.
+2772|Luyện tập HOK — combo, phản xạ và tình huống bản đồ Honor of Kings | {site}
+2773|Luyện tập Honor of Kings Global: chọn các tướng bạn luyện, ghi lại combo và kỹ năng, thử phản xạ và nghiên cứu tình huống trên bản đồ.
+2774|Luyện phản xạ HOK — bài tập phản ứng và né tránh Honor of Kings | {site}
+2775|Bài tập phản xạ cho người chơi Honor of Kings Global: phản ứng, né và ngắm theo thời gian, và xem thành tích của bạn tiến bộ.
+2776|Tình huống bản đồ HOK — luyện tập vĩ mô Honor of Kings | {site}
+2777|Các tình huống trận Honor of Kings Global vẽ trên bản đồ: đi đâu, làm gì và vì sao. Luyện tập vĩ mô cho mọi đường.
+2778|Đội HOK — đội hình và ban huấn luyện Honor of Kings Global | {site}
+2779|Đội Honor of Kings Global: tạo đội, mời người chơi và ban huấn luyện, chia sẻ lịch và tìm đối thủ scrim.
+2780|Tìm scrim HOK — đối thủ scrim Honor of Kings Global | {site}
+2781|Máy tính build HOK — thử build và chỉ số Honor of Kings | {site}
+2782|Trang bị HOK — mọi trang bị Honor of Kings kèm chỉ số và giá | {site}
+2783|Ngọc HOK — mọi ngọc Honor of Kings, đỏ, xanh dương và xanh lá | {site}
+2784|Phép bổ trợ HOK — phép bổ trợ Honor of Kings và thời gian hồi | {site}
+2785|Meta HOK — các draft giải đấu Honor of Kings được chơi nhiều và mạnh nhất | {site}
+2786|Tướng meta HOK — tỉ lệ chọn, cấm và thắng ở giải Honor of Kings | {site}
+2787|Các tướng meta giải đấu Honor of Kings Global theo từng đường: mỗi tướng được chọn, bị cấm và thắng thường xuyên ra sao.
+2788|Tier list HOK: {tier} ở {lane}.
+2789|Tỉ lệ thắng giải đấu: {rate} % trong {count} trận.
+2790|Không thể tải các tướng.
+2791|Không thể lưu trận đấu.
+2792|Không thể thiết lập trận đấu.
+2793|Trừng Phạt
+2794|Tốc Biến
+2795|Tăng Tốc
+2796|Dịch Chuyển
+2797|Hành Quyết
+2798|Cuồng Nộ
+2799|Uy Hiếp
+2800|Thanh Tẩy
+2801|Choáng
+2802|Máu
+2803|Kỹ năng của bạn
+2804|Lệnh gọi
+2805|Xoay ngang điện thoại để chơi.
+2806|Đồng đội của bạn
+2807|Thời gian trận
+2808|Vàng của hai đội
+2809|Rời trận
+2810|Dữ liệu ước tính
+2811|Tướng của bạn đang chờ: làm gì tiếp?
+2812|Làm gì tiếp?
+2813|Câu hỏi bất ngờ
+2814|Bản đồ bị ẩn khi tạm dừng, và việc tạm dừng được ghi kèm điểm của bạn.
+2815|Tiếp tục
+2816|Hồi sinh sau {seconds} giây
+2817|Trận đấu kết thúc
+2818|Điểm macro: {grade}
+2819|Trận đấu đã bị tạm dừng.
+2820|Điểm được lưu trong các trận của bạn.
+2821|Quay lại thiết lập
+2822|Mô phỏng trận đấu
+2823|Chơi trọn một trận Honor of Kings với một tướng, nhìn từ trên bản đồ. Cứ vài giây bạn chọn nơi tướng đi tiếp: một đường, một bãi quái, một mục tiêu, một đồng đội cần hỗ trợ hay một trụ cần thủ. Không cần thao tác, chỉ quyết định macro, và có điểm khi kết thúc.
+2824|Bạn
+2825|Ngẫu nhiên
+2826|Bộ máy scrim chọn một tướng cho mỗi đường của cả hai đội. Bạn chơi tướng ở vai trò của mình.
+2827|Đang tải các tướng…
+2828|Vị trí để Ngẫu nhiên sẽ do bộ máy scrim chọn.
+2829|Thiết lập trận đấu
+2830|Phe của bạn
+2831|Vai trò của bạn
+2832|Độ khó
+2833|Đội địch chơi gắt hơn sau các quyết định sai, và dịu lại sau các quyết định đúng.
+2834|Tướng ngẫu nhiên
+2835|Chọn tướng
+2836|Trên điện thoại, hãy chơi với màn hình xoay ngang.
+2837|Đang thiết lập trận đấu…
+2838|Bắt đầu trận
+2839|Đăng nhập để lưu các trận và điểm của bạn.
+2840|Chưa có trận nào.
+2841|Dễ
+2842|Khó
+2843|Chưa chơi trận nào.
+2844|Mô phỏng trận đấu HOK — chơi các quyết định macro trong Honor of Kings | {site}
+2845|Chơi trọn một trận Honor of Kings với một tướng trên bản đồ và đưa ra quyết định macro: đi đâu, khi nào giao tranh, khi nào rút lui. Có điểm khi kết thúc.
+2846|Tập hợp
+2847|Rút lui
+2848|Coi chừng đi rừng
+2849|đường Đối Đầu
+2850|đường Phát Triển
+2851|bùa đỏ
+2852|bùa xanh
+2853|bãi quái rừng
+2854|Bạo Quân
+2855|Chúa Tể
+2856|Bạo Quân Bóng Tối
+2857|Chúa Tể Bóng Tối
+2858|Tinh Linh Không Gian
+2859|Hỏa Ưng
+2860|Giữ đường của bạn
+2861|Đi tới {lane}
+2862|Lấy {camp} của bạn
+2863|Xâm nhập {camp} của địch
+2864|Đi tới {objective}
+2865|Hỗ trợ {hero}
+2866|Gank {hero}
+2867|Chờ trong bụi gần {lane}
+2868|Lùi về trụ của bạn
+2869|Về nhà
+2870|Thủ trụ ở {lane}
+2871|Đẩy {lane}
+2872|Theo {hero}
+2873|Mở tầm nhìn gần {lane}
+2874|Quấy rối {hero}
+2875|Ở yên vị trí hiện tại
+2876|Có
+2877|Không
+2878|Đi rừng địch đang ở khoảng đâu?
+2879|Gần đường Đối Đầu
+2880|Gần đường Giữa
+2881|Gần đường Phát Triển
+2882|Bùa đỏ của địch đã có chưa?
+2883|Bùa xanh của địch đã có chưa?
+2884|Trừng Phạt của đi rừng địch đã hồi chưa?
+2885|Hiện có bao nhiêu tướng địch đang chết?
+2886|Đã phá được bao nhiêu trụ địch?
+2887|Khi nào Bạo Quân xuất hiện?
+2888|Khi nào Chúa Tể xuất hiện?
+2889|Đã xuất hiện
+2890|Dưới một phút nữa
+2891|Một đến hai phút nữa
+2892|Hơn hai phút nữa
+2893|Đội nào nhiều vàng hơn?
+2894|Đội địch
+2895|Gần như ngang nhau
+2896|Hãy nêu từ một đến mười tướng.
+2897|Một tướng chọn tay không hợp lệ.
+2898|{label} không hợp lệ.
+2899|Đăng nhập để lưu các trận của bạn.
+2900|Bạn đã chơi rất nhiều trận hôm nay: hãy quay lại sau.
+2901|Bản đồ Mô phỏng trận đấu
+2902|Dùng trong Mô phỏng trận đấu
+2903|Bản đồ này không tồn tại.
+2904|Chạy lệnh này trong terminal:
+2905|Thêm đoạn này vào claude_desktop_config.json (Settings, Developer, Edit config), rồi khởi động lại Claude. Cần có Node.js.
+2906|Thêm đoạn này vào .cursor/mcp.json, trong dự án hoặc thư mục cá nhân của bạn:
+2907|Trong một GPT tùy chỉnh: Configure, Create new action, Import from URL với địa chỉ này. Sau đó Authentication: API key, kiểu Bearer, và dán khóa của bạn.
+2908|Tạo một khóa cho mỗi trợ lý, chỉ với những gì nó cần (dữ liệu công khai của game là đủ để hỏi về tướng, trang bị và draft). Nếu một khóa bị lộ, thu hồi nó mà không ảnh hưởng các khóa khác.
+2909|Thay {key} bằng khóa của bạn. Trợ lý sẽ thấy một công cụ cho mỗi địa chỉ khóa đọc được, và chỉ đọc.
+2910|Không có khóa, hoặc khóa không hợp lệ, đã hết hạn hay bị thu hồi.
+2911|Khóa thiếu phạm vi mà địa chỉ này yêu cầu.
+2912|Địa chỉ không xác định, hoặc thứ mà chủ khóa không được xem.
+2913|Quá nhiều yêu cầu: hãy đợi số giây trong Retry-After.
+2914|Tham số
+2915|Vị trí
+2916|bắt buộc
+2917|địa chỉ
+2918|truy vấn
+2919|Công cụ cho AI: {name}
+2920|Ví dụ phản hồi
+2921|1. Tạo khóa
+2922|Đăng nhập, mở trang API và chọn những gì khóa được đọc.
+2923|2. Gọi một địa chỉ
+2924|Gửi khóa trong header Authorization. Phản hồi là JSON.
+2925|3. Hoặc hỏi một AI
+2926|Kết nối Claude, ChatGPT hoặc Cursor: chúng đọc dữ liệu giúp bạn.
+2927|Xác thực
+2928|Mỗi địa chỉ cần một khóa API, gửi dưới dạng bearer token. Khóa chỉ đọc và thấy những gì chủ của nó thấy: dữ liệu game cho mọi người, scrim, tier list và đội của bạn cho riêng bạn.
+2929|Lệnh gọi đầu tiên
+2930|Header X-API-Key cũng dùng được. Khóa đặt trong địa chỉ sẽ bị bỏ qua: địa chỉ thường bị ghi vào log.
+2931|Giới hạn và lỗi
+2932|Mỗi khóa được gửi {count} yêu cầu mỗi phút. Lỗi là JSON với một mã cố định:
+2933|Ý nghĩa
+2934|Dùng với AI
+2935|API cũng là một máy chủ MCP, tại {address}: trợ lý nhận một công cụ cho mỗi địa chỉ mà khóa của nó đọc được.
+2936|Địa chỉ
+2937|Mô tả đầy đủ, để nhập vào một công cụ:
+2938|Chọn văn bản rồi sao chép.
+2939|HOK API: dữ liệu Honor of Kings cho chương trình của bạn
+2940|Đọc tướng, trang bị, ngọc, phép bổ trợ, tier list và draft giải đấu của Honor of Kings Global, cùng scrim của chính bạn, từ một chương trình hoặc trợ lý AI. Chỉ đọc, miễn phí, cần một khóa.
+2941|Lấy khóa
+2942|Tài liệu
+2943|API
+2944|Đọc dữ liệu của bạn và dữ liệu game từ chương trình và trợ lý AI của riêng bạn.
+2945|Đăng nhập để tạo khóa API
+2946|Một khóa thuộc về một tài khoản: nó đọc những gì bạn đọc được, không hơn.
+2947|Đọc dữ liệu của bạn và dữ liệu game từ chương trình và trợ lý AI của riêng bạn. Khóa chỉ đọc, không bao giờ ghi.
+2948|Mở trang API
+2949|Tạo và thu hồi khóa, và kết nối trợ lý AI với dữ liệu của bạn.
+2950|HOK API — dữ liệu Honor of Kings cho nhà phát triển và trợ lý AI | {site}
+2951|Đọc tướng, trang bị, ngọc, phép bổ trợ, tier list và draft giải đấu của Honor of Kings Global từ chương trình của bạn, hoặc kết nối Claude, ChatGPT hay Cursor qua MCP. Mỗi địa chỉ, tham số và một ví dụ phản hồi.
+2952|API | {site}
+2953|Khóa API của bạn, và cách kết nối trợ lý AI với dữ liệu của bạn.
+2954|Máy chủ MCP nhận thông điệp JSON-RPC qua POST.
+2956|Ví dụ yêu cầu
+2955|Tình huống gửi tới POST duy nhất không hợp lệ: lỗi cho biết điều gì sai.
+2958|Các trận đấu với bot hiện chưa mở. Hãy thử lại sau.
+2957|Đã mất kết nối với trận đấu.

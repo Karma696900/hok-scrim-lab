@@ -9,6 +9,8 @@ Ce dossier est une tranche du serveur : ses routes, ses règles et ses requêtes
 | `official-routes.js` | Les adresses de l'API et leurs réponses. |
 | `official-store.js` | Les requêtes à la base de données. |
 | `official.js` | The official ratings: one list per lane with six fixed tiers, from SS (the best) to D. |
+| `public-tier-list.js` | The public tier list of each lane: tournaments first (six equal bands between the worst and the best score), the editors next, the others not ranked yet. |
+| `public-tier-list-service.js` | The public tier list as the site shows it, read from the database and kept with the tournament aggregations; the tier of a hero, the tiers the editors see. |
 | `tier-list-domain.js` | Les règles métier, sans accès à la base. |
 | `tier-list-routes.js` | Les adresses de l'API et leurs réponses. |
 | `tier-list-store.js` | Les requêtes à la base de données. |

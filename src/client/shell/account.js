@@ -71,6 +71,8 @@ export function renderAccountControl() {
   for (const id of ["agenda", "inbox", "player", "space"]) {
     document.querySelector(`#nav-${id}`).hidden = !user;
   }
+  // a guest identity cannot hold API keys
+  document.querySelector("#nav-api").hidden = !user || Boolean(user.isGuest);
   document.querySelector("#topbar-notifications").hidden = !user;
   if (user?.tag) {
     document.querySelector("#nav-player").href = `/players/${encodeURIComponent(user.tag)}`;

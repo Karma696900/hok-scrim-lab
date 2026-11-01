@@ -11,6 +11,8 @@ import {
 import { publicFor } from "../../platform/http/cache-control.js";
 import { parseDay } from "./tournament-domain.js";
 import { popularDrafts, popularHeroes } from "./popular.js";
+import { popularDuos } from "./popular-duos.js";
+import { heroFacts } from "./popular-facts.js";
 
 const RULES = ["classic", "free-for-all", "global-ban-pick"];
 
@@ -83,7 +85,14 @@ export function createPopularRouter({ store }) {
     const key = `${kind}|${period.from}|${period.to}|${period.rule}|${period.minGames}`;
     const body = await store.rememberCompetitive(key, async () => {
       const games = await gamesIn(period);
-      return { ...period.meta, totalGames: games.length, ...build(games, period.minGames) };
+      // the weights of the games count from the end of the period, or today when it is not over
+      const today = new Date().toISOString().slice(0, 10);
+      const day = period.to < today ? period.to : today;
+      return {
+        ...period.meta,
+        totalGames: games.length,
+        ...(await build(games, period.minGames, day))
+      };
     });
     publicFor(response);
     return body;
@@ -92,8 +101,9 @@ export function createPopularRouter({ store }) {
   router.get(
     "/popular/drafts",
     wrap((request, response) =>
-      answer("drafts", request, response, (games, minGames) => ({
-        sides: popularDrafts(games, { minGames })
+      answer("drafts", request, response, (games, minGames, today) => ({
+        sides: popularDrafts(games, { minGames, today }),
+        duos: popularDuos(games, { minGames, today })
       }))
     )
   );
@@ -101,7 +111,9 @@ export function createPopularRouter({ store }) {
   router.get(
     "/popular/heroes",
     wrap((request, response) =>
-      answer("heroes", request, response, (games, minGames) => popularHeroes(games, { minGames }))
+      answer("heroes", request, response, async (games, minGames, today) =>
+        popularHeroes(games, { minGames, today, ...(await heroFacts(store, today)) })
+      )
     )
   );
 

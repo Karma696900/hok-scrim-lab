@@ -22,6 +22,7 @@ import { createTrainingRouter } from "./features/training/training-routes.js";
 import { createTranslationRouter } from "./features/translations/translation-routes.js";
 import { createContactRouter } from "./features/contact/contact-routes.js";
 import { createPreferencesRouter } from "./features/preferences/preference-routes.js";
+import { createSimulationRouter } from "./features/simulation/simulation-routes.js";
 
 export function createApiRouter({
   store,
@@ -68,6 +69,7 @@ export function createApiRouter({
   api.use(createCommunityRouter({ store: store, limiters, notifier, discord, config: config }));
   api.use(createTrainingRouter({ store: store, limiters }));
   api.use(createReflexRouter({ store: store, limiters }));
+  api.use(createSimulationRouter({ store: store, limiters }));
   api.use(createSpaceRouter({ store: store, limiters }));
   api.use(createPreferencesRouter({ store: store, limiters }));
   api.use(createContactRouter({ store: store, limiters }));

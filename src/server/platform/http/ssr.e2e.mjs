@@ -95,7 +95,7 @@ const browser = await chromium.launch();
   );
   check(
     "the navigation is there and in the page (without the entries of an account, training included)",
-    (await page.locator("#main-nav .nav-link:not([hidden])").count()) === 14
+    (await page.locator("#main-nav .nav-link:not([hidden])").count()) === 16
   );
   await context.close();
 }

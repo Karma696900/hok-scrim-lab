@@ -37,6 +37,7 @@ export const EXPORTED = [
   ["training_maps", "created_by"],
   ["training_scenarios", "created_by"],
   ["reflex_runs", "user_id"],
+  ["simulation_games", "user_id"],
   ["contact_messages", "user_id"]
 ];
 

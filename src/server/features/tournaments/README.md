@@ -8,7 +8,12 @@ Ce dossier est une tranche du serveur : ses routes, ses règles et ses requêtes
 |---|---|
 | `competitive-import.js` |  |
 | `popular-routes.js` | Les adresses de l'API et leurs réponses. |
-| `popular.js` | What the tournament games say about the drafts and the heroes that are played most and that win most. |
+| `popular.js` | What the tournament games say about the heroes that are played, banned and win most (and the entry that re-exports the drafts). |
+| `popular-drafts.js` | The popular drafts: grouped by the hero of each lane, led by the best score, with the phase each hero is picked in and the enemy it answers. |
+| `popular-facts.js` | What weighs a hero's games: its last balance change and its lanes (popular pages and public tier list). |
+| `popular-duos.js` | The best duos of a side, over all lanes and per pair of lanes. |
+| `popular-score.js` | The shared score: recent games weigh more, half again before a hero's last balance change, a win rate pulled toward 50 %. |
+| `popular-shared.js` | What the drafts, the duos and the heroes share: the entries of a table, the orders, the reliable rate. |
 | `tournament-domain-shared.js` | Constantes et petites fonctions que plusieurs fichiers du dossier utilisent. |
 | `tournament-domain.js` | Les règles métier, sans accès à la base. |
 | `tournament-game-parser.js` | Reading one game of a series: its picks, bans and lanes. |

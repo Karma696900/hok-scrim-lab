@@ -25,6 +25,8 @@ export const API_KEY_HINT_LENGTH = 10;
  *   teams        your teams, their agenda
  *   training     your training notebook, your personal space
  *   account      who the key belongs to
+ *   simulation   the bots API at bots.hok-scrim-lab.com (decisions, analyses, the AI): that server asks the
+ *                site whether a key holds this scope
  */
 export const API_SCOPES = [
   "game",
@@ -33,7 +35,8 @@ export const API_SCOPES = [
   "tier-lists",
   "teams",
   "training",
-  "account"
+  "account",
+  "simulation"
 ];
 
 /** Active keys one person can hold at once. */

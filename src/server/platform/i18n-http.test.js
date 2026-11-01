@@ -68,8 +68,8 @@ describe("page shell language", { skip }, () => {
 
   test("the title, description, navigation and og:locale are in that language", async () => {
     const page = await (await get("/heroes", { "accept-language": "de" })).text();
-    assert.match(page, /<title>Honor-of-Kings-Global-Helden/);
-    assert.match(page, /data-view="heroes" href="\/heroes">[^]*?<span>Helden<\/span>/);
+    assert.match(page, /<title>HOK Helden — alle Honor of Kings Helden/);
+    assert.match(page, /data-view="heroes" href="\/de\/heroes">[^]*?<span>Helden<\/span>/);
     assert.match(page, /<meta property="og:locale" content="de_DE">/);
     assert.match(page, /"\/locales\/de\.js"/);
     assert.match(

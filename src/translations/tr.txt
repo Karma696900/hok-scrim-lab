@@ -2551,3 +2551,243 @@
 2716|{name} ile birleştirildi
 2717|Etiket grubu
 2718|Bir etiket kendisiyle birleştirilemez.
+2719|İlk pick
+2720|Erken pick
+2721|Geç pick
+2722|Son pick
+2723|Pick {rate}
+2724|Ban {rate}
+2725|Varlık {rate}
+2726|{name} karşılığı
+2727|vs
+2728|Pick aşamaları
+2729|En iyi ikililer
+2730|Puan (kazanma oranı %50'ye çekilmiş, yakın tarihli maçlar daha ağır): {rate}
+2731|Bir puana göre sıralı: kazanma oranı on maçla %50'ye çekilir, yakın tarihli maçlar daha ağırdır; böylece tek maçta tek galibiyet, kendini kanıtlamış bir kahramanı geçemez.
+2732|Seçildi ya da yasaklandı: kahramanın dönemin maçlarında ne sıklıkla yer aldığı.
+2733|Varlık
+2734|{lane} tier'ı: {tier}, turnuva maçlarına göre
+2735|{lane} tier'ı: {tier}, editörlerden (turnuva maçı çok az)
+2736|{name}: turnuva maçlarına göre {tier}
+2737|Gri kahramanlar turnuva maçlarına göre sıralanır: tier'ları üzerlerinde görünür; buradaki not yalnızca az oynanan kahramanlar için geçerlidir.
+2738|HOK tier listesini gör
+2739|Editörler
+2740|Henüz sıralanmadı
+2741|{lane} tier listesi
+2742|Kahramanlar nasıl sıralanır
+2743|Önce turnuva maçları: her koridorda son üç ayda en az {count} kez oynanan kahramanlar bir puana göre sıralanır (kazanma oranı %50'ye çekilir, yakın tarihli maçlar daha ağırdır). En iyisi SS, en kötüsü D; aradaki tier'lar farkı eşit paylaşır.
+2744|Az oynanan kahramanlar editörlerin verdiği tier'ı alır. Diğerleri “Henüz sıralanmadı” altında bekler. Liste, girilen her turnuva serisiyle kendiliğinden güncellenir.
+2745|Kendi tier listeni yap
+2746|Honor of Kings {lane} tier listesi
+2747|Honor of Kings tier listesi
+2748|{date} tarihinde güncellendi
+2749|{count, plural, other {# turnuva maçı}}
+2750|Her koridorun en iyi Honor of Kings Global kahramanları, SS'den D'ye: önce son üç ayın turnuva maçları, ardından az oynanan kahramanlar için editör notları.
+2751|HOK tier listesi — her koridorun en iyi Honor of Kings kahramanları | {site}
+2752|Her koridor için Honor of Kings Global tier listesi, SS'den D'ye: son üç ayın turnuva maçlarına göre, az oynanan kahramanlar için editörlere göre.
+2753|HOK tier listesi oluşturucu — Honor of Kings tier listeni yap | {site}
+2754|Tier listesi
+2755|Tier listesi oluşturucu
+2756|HOK {lane} tier listesi ({month}) — Honor of Kings'in en iyi {lane} kahramanları | {site}
+2757|HOK tier listesi ({month}) — her koridorun en iyi Honor of Kings kahramanları | {site}
+2758|HOK {name} — Honor of Kings eşyası: istatistikler, fiyat ve pasif | {site}
+2759|HOK {name} — Honor of Kings arkanası: istatistikler ve renk | {site}
+2760|HOK {name} — Honor of Kings büyüsü: etki ve bekleme süresi | {site}
+2761|Honor of Kings antrenmanı
+2762|Honor of Kings Global oyuncuları için kombolar, refleksler ve harita durumları: üzerinde çalıştığın kahramanları seç, kombolarını ve mekaniklerini yaz, reflekslerini çalıştır ve haritadaki durumları incele.
+2763|Harita durumları
+2764|{name} build, yetenekler ve counter'lar — HOK Honor of Kings | {site}
+2765|{name} build ve yetenekler — HOK Honor of Kings | {site}
+2766|{name} yetenekler ve counter'lar — HOK Honor of Kings | {site}
+2767|{name} — HOK Honor of Kings kahraman rehberi, yetenekler ve koridorlar | {site}
+2768|{site} — HOK Honor of Kings draft simülatörü, scrim'ler ve tier listesi
+2769|HOK kahramanları — tüm Honor of Kings kahramanları, yetenekler, build'ler ve koridorlar | {site}
+2770|HOK scrim'leri — ban ve pick'li Honor of Kings draft simülatörü | {site}
+2771|Rekabetçi ban ve pick sırasıyla Honor of Kings Global scrim serileri oyna: takımlar için ücretsiz bir draft simülatörü, canlı draft odası ve her maçın geçmişiyle.
+2772|HOK antrenmanı — Honor of Kings komboları, refleksler ve harita durumları | {site}
+2773|Honor of Kings Global için antrenman yap: kahramanlarını seç, komboları ve mekanikleri yaz, reflekslerini test et ve haritadaki durumları incele.
+2774|HOK refleks antrenmanı — Honor of Kings tepki ve kaçış alıştırmaları | {site}
+2775|Honor of Kings Global oyuncuları için refleks alıştırmaları: zamana karşı tepki ver, kaç ve nişan al; sürelerinin nasıl geliştiğini gör.
+2776|HOK harita durumları — Honor of Kings makro antrenmanı | {site}
+2777|Haritaya çizilmiş Honor of Kings Global maç durumları: nereye gidilir, ne yapılır ve neden. Her koridor için makro antrenman.
+2778|HOK takımları — Honor of Kings Global takım kadroları ve ekibi | {site}
+2779|Honor of Kings Global takımları: takım kur, oyuncu ve ekip davet et, ajanda paylaş ve scrim rakipleri bul.
+2780|HOK scrim bul — Honor of Kings Global scrim rakipleri | {site}
+2781|HOK build hesaplayıcı — Honor of Kings build'lerini ve istatistiklerini dene | {site}
+2782|HOK eşyaları — istatistik ve fiyatlarıyla tüm Honor of Kings eşyaları | {site}
+2783|HOK arkanaları — tüm Honor of Kings arkanaları, kırmızı, mavi ve yeşil | {site}
+2784|HOK büyüleri — Honor of Kings sihirdar büyüleri ve bekleme süreleri | {site}
+2785|HOK meta — en çok oynanan ve en iyi Honor of Kings turnuva draftları | {site}
+2786|HOK meta kahramanları — Honor of Kings turnuvalarında pick, ban ve kazanma oranı | {site}
+2787|Honor of Kings Global turnuva metasının kahramanları, koridor koridor: her birinin ne sıklıkla seçildiği, yasaklandığı ve kazandığı.
+2788|HOK tier listesi: {lane} için {tier}.
+2789|Turnuva kazanma oranı: {count} maçta %{rate}.
+2790|Kahramanlar yüklenemedi.
+2791|Oyun kaydedilemedi.
+2792|Oyun hazırlanamadı.
+2793|Ceza
+2794|Işınlanma
+2795|Hızlanma
+2796|Işınlan
+2797|İnfaz
+2798|Çılgınlık
+2799|Yıldırma
+2800|Arındırma
+2801|Sersemletme
+2802|Can
+2803|Yeteneklerin
+2804|Çağrılar
+2805|Oynamak için telefonunu yan çevir.
+2806|Müttefiklerin
+2807|Oyun süresi
+2808|İki takımın altını
+2809|Oyundan çık
+2810|Yaklaşık veriler
+2811|Kahramanın bekliyor: sırada ne var?
+2812|Sırada ne var?
+2813|Sürpriz soru
+2814|Oyun duraklatıldığında harita gizlenir ve duraklama notunla birlikte belirtilir.
+2815|Devam et
+2816|{seconds} sn sonra dönüyor
+2817|Oyun bitti
+2818|Makro notu: {grade}
+2819|Oyun duraklatıldı.
+2820|Not oyunlarına kaydedilir.
+2821|Ayarlara dön
+2822|Maç Simülasyonu
+2823|Bir Honor of Kings maçının tamamını tek bir kahramanla, haritaya yukarıdan bakarak oyna. Birkaç saniyede bir kahramanının nereye gideceğini seçersin: bir koridor, bir kamp, bir hedef, yardım edilecek bir müttefik ya da savunulacak bir kule. Mekanik yok, yalnızca makro kararlar ve sonunda bir not.
+2824|Sen
+2825|Rastgele
+2826|Scrim motoru iki takımın her koridoru için bir kahraman çeker. Sen kendi rolündekini oynarsın.
+2827|Kahramanlar yükleniyor…
+2828|Rastgele bırakılan bir yer scrim motoru tarafından çekilir.
+2829|Oyununu hazırla
+2830|Tarafın
+2831|Rolün
+2832|Zorluk
+2833|Rakip takım yanlış kararlardan sonra daha sert, doğru kararlardan sonra daha yumuşak oynar.
+2834|Rastgele kahramanlar
+2835|Kahramanları seç
+2836|Telefonda ekranı yan çevirerek oyna.
+2837|Oyun hazırlanıyor…
+2838|Oyunu başlat
+2839|Oyunlarını ve notlarını saklamak için giriş yap.
+2840|Henüz oyun yok.
+2841|Kolay
+2842|Zor
+2843|Henüz oynanmış oyun yok.
+2844|HOK Maç Simülasyonu — Honor of Kings makro kararlarını oyna | {site}
+2845|Bir Honor of Kings maçının tamamını haritada tek bir kahramanla oyna ve makro kararlarını ver: nereye gidilir, ne zaman savaşılır, ne zaman geri çekilinir. Sonunda bir not.
+2846|Toplanın
+2847|Geri çekilin
+2848|Ormancıya dikkat
+2849|çatışma koridoru
+2850|farm koridoru
+2851|kırmızı buff
+2852|mavi buff
+2853|orman kampı
+2854|Tiran
+2855|Hükümdar
+2856|Gölge Tiran
+2857|Gölge Hükümdar
+2858|Uzay Ruhu
+2859|Ateş Şahini
+2860|Koridorunu tut
+2861|{lane} koridoruna git
+2862|Kendi {camp} kampını al
+2863|Rakibin {camp} kampını işgal et
+2864|{objective} hedefine git
+2865|{hero} ile birleş
+2866|{hero} için gank at
+2867|{lane} yakınındaki çalılıkta bekle
+2868|Kulene geri çekil
+2869|Üsse dön
+2870|{lane} koridorundaki kuleni savun
+2871|{lane} koridorunu it
+2872|{hero} kahramanını takip et
+2873|{lane} yakınında görüş sağla
+2874|{hero} kahramanını taciz et
+2875|Olduğum yerde kal
+2876|Evet
+2877|Hayır
+2878|Rakip ormancı aşağı yukarı nerede?
+2879|Çatışma koridoru yakınında
+2880|Orta koridor yakınında
+2881|Farm koridoru yakınında
+2882|Rakibin kırmızı buff'ı çıktı mı?
+2883|Rakibin mavi buff'ı çıktı mı?
+2884|Rakip ormancının Ceza'sı hazır mı?
+2885|Şu anda kaç rakip kahraman ölü?
+2886|Kaç rakip kule yıkıldı?
+2887|Tiran ne zaman çıkıyor?
+2888|Hükümdar ne zaman çıkıyor?
+2889|Şu anda çıktı
+2890|Bir dakikadan kısa sürede
+2891|Bir ila iki dakika içinde
+2892|İki dakikadan fazla sürede
+2893|Hangi takımın daha çok altını var?
+2894|Rakip takım
+2895|Aşağı yukarı eşit
+2896|Bir ile on arasında kahraman belirt.
+2897|Elle seçilen bir kahraman geçersiz.
+2898|{label} geçersiz.
+2899|Oyunlarını saklamak için giriş yap.
+2900|Bir gün için çok fazla oyun: daha sonra tekrar gel.
+2901|Maç Simülasyonu haritası
+2902|Maç Simülasyonunda kullan
+2903|Bu harita yok.
+2904|Bunu bir terminalde çalıştırın:
+2905|Bunu claude_desktop_config.json dosyasına ekleyin (Settings, Developer, Edit config), sonra Claude'u yeniden başlatın. Node.js gerekir.
+2906|Bunu projenizdeki veya ana klasörünüzdeki .cursor/mcp.json dosyasına ekleyin:
+2907|Özel bir GPT'de: Configure, Create new action, bu adresle Import from URL. Ardından Authentication: API key, tür Bearer, ve anahtarınızı yapıştırın.
+2908|Her asistan için yalnızca ihtiyacı olanla ayrı bir anahtar oluşturun (kahramanlar, eşyalar ve draftlar hakkında sormak için oyunun açık verileri yeterli). Biri sızarsa diğerlerine dokunmadan iptal edin.
+2909|{key} yerine anahtarınızı yazın. Asistan, anahtarınızın okuyabildiği her adres için bir araç görür ve yalnızca okur.
+2910|Anahtar yok ya da anahtar geçersiz, süresi dolmuş veya iptal edilmiş.
+2911|Anahtarda bu adresin gerektirdiği kapsam yok.
+2912|Bilinmeyen adres ya da anahtar sahibinin göremediği bir şey.
+2913|Çok fazla istek: Retry-After'daki saniye kadar bekleyin.
+2914|Parametre
+2915|Nerede
+2916|zorunlu
+2917|adres
+2918|sorgu
+2919|Yapay zekâ için araç: {name}
+2920|Örnek yanıt
+2921|1. Anahtar oluşturun
+2922|Giriş yapın, API sayfasını açın ve anahtarın neleri okuyabileceğini seçin.
+2923|2. Bir adresi çağırın
+2924|Anahtarı Authorization başlığında gönderin. Yanıtlar JSON'dur.
+2925|3. Ya da bir yapay zekâya sorun
+2926|Claude, ChatGPT veya Cursor'ı bağlayın: verileri sizin için okurlar.
+2927|Kimlik doğrulama
+2928|Her adres bearer belirteci olarak gönderilen bir API anahtarı ister. Anahtar yalnızca okur ve sahibinin gördüğünü görür: herkes için oyun verileri, sizin için kendi scrim'leriniz, tier list'leriniz ve takımlarınız.
+2929|İlk çağrınız
+2930|X-API-Key başlığı da çalışır. Adrese konan anahtar yok sayılır: adresler günlüklere düşer.
+2931|Sınırlar ve hatalar
+2932|Her anahtar dakikada {count} istek yapabilir. Hatalar sabit bir kodla JSON olarak gelir:
+2933|Anlamı
+2934|Yapay zekâ ile kullan
+2935|API aynı zamanda {address} adresinde bir MCP sunucusudur: asistan, anahtarının okuyabildiği her adres için bir araç alır.
+2936|Adresler
+2937|Bir araca aktarmak için tam açıklama:
+2938|Metni seçip kopyalayın.
+2939|HOK API: programlarınız için Honor of Kings verileri
+2940|Honor of Kings Global'ın kahramanlarını, eşyalarını, arkanalarını, büyülerini, tier list'ini ve turnuva draftlarını, ayrıca kendi scrim'lerinizi bir programdan veya yapay zekâ asistanından okuyun. Salt okunur, ücretsiz, anahtarla.
+2941|Anahtar al
+2942|Belgeler
+2943|API
+2944|Verilerinizi ve oyunun verilerini kendi programlarınızdan ve yapay zekâ asistanlarınızdan okuyun.
+2945|API anahtarı oluşturmak için giriş yapın
+2946|Bir anahtar bir hesaba aittir: sizin okuyabildiğinizi okur, fazlasını değil.
+2947|Verilerinizi ve oyunun verilerini kendi programlarınızdan ve yapay zekâ asistanlarınızdan okuyun. Anahtar yalnızca okur, asla yazmaz.
+2948|API sayfasını aç
+2949|Anahtarlarınızı oluşturun ve iptal edin, bir yapay zekâ asistanını verilerinize bağlayın.
+2950|HOK API — geliştiriciler ve yapay zekâ asistanları için Honor of Kings verileri | {site}
+2951|Honor of Kings Global kahramanlarını, eşyalarını, arkanalarını, büyülerini, tier list'ini ve turnuva draftlarını programlarınızdan okuyun ya da Claude, ChatGPT veya Cursor'ı MCP ile bağlayın. Her adres, parametreleri ve örnek bir yanıt.
+2952|API | {site}
+2953|API anahtarlarınız ve bir yapay zekâ asistanını verilerinize nasıl bağlayacağınız.
+2954|MCP sunucusu JSON-RPC mesajlarını POST ile alır.
+2956|Örnek istek
+2955|Tek POST'a gönderilen durum geçerli değil: hata neyin yanlış olduğunu söyler.
+2958|Botlara karşı maçlar şu anda açık değil. Daha sonra tekrar deneyin.
+2957|Maçla bağlantı kesildi.

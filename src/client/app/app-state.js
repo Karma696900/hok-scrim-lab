@@ -27,6 +27,8 @@ export const state = {
   polling: false,
   selectedHeroId: null,
   popularSection: "", // "" (the drafts) or "/heroes"
+  pieceSection: "", // "" (the list) or "/12" (one piece) on /items, /arcana and /spells
+  tierListSection: "", // "" (every lane) or "/jungle" (one lane) on the public tier list
   guideHeroId: null, // the hero open in the guides editor
   gameMode: "global-ban-pick",
   auth: { enabled: false, user: null, registration: true }, // registration: whether the server takes new accounts

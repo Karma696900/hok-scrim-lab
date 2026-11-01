@@ -4,6 +4,7 @@ import { buildAddress, checkBuild } from "../../../shared/build-model.js";
 import { buildMarkup } from "../build-lab/build-lab-view.js";
 import { daysText, exerciseName, scoreText } from "../../domain/reflex-labels.js";
 import { exerciseOf } from "../../../shared/reflex-model.js";
+import { difficultyLabel } from "../simulation/simulation-shared.js";
 import { fillSceneArt, sceneArtSlot } from "../../domain/scene-art.js";
 import { heroOfTheDay } from "../../domain/hero-of-the-day.js";
 import { icon } from "../../../shared/icons.js";
@@ -111,6 +112,7 @@ export function buildsPart(view, builds, { owner }) {
 
 export function trainingPart(view, sheet, { owner }) {
   const { focus, notes, combos, reflex } = sheet;
+  const games = sheet.simulation ?? [];
   const best = Object.entries(reflex.best);
   const block = (title, body, count = null) =>
     `<li class="sp-block card"><div class="sp-block__head"><h3>${title}</h3>${count === null ? "" : `<span class="count">${number(count)}</span>`}</div>${body}</li>`;
@@ -159,9 +161,21 @@ export function trainingPart(view, sheet, { owner }) {
             )}<li><b>${t("Streak")}</b><span class="pill pill--grey">${view.esc(daysText(reflex.streak))}</span></li></ul>`
         : `<p class="muted">${t("No exercise played yet.")}</p>`,
       best.length
+    ),
+    block(
+      t("Game Simulation"),
+      games.length
+        ? `<ul class="sp-notes">${games
+            .map(
+              game =>
+                `<li><b>${view.esc(view.heroName(game.heroId))}</b><span class="muted">${view.esc(difficultyLabel(game.difficulty))}</span><span class="pill pill--blue">${view.esc(t("Macro grade: {grade}", { grade: game.grade }))}</span></li>`
+            )
+            .join("")}</ul>`
+        : `<p class="muted">${t("No game played yet.")}</p>`,
+      games.length
     )
   ];
-  return `<section class="sp-part" id="sp-training">${partHead("training", focus.length + notes.length + combos.length + best.length, owner ? `<a class="btn btn--ghost btn--sm" href="/training">${icon("target", "i--sm")}${t("Open the training")}</a>` : "")}${itemsHtml(items)}</section>`;
+  return `<section class="sp-part" id="sp-training">${partHead("training", focus.length + notes.length + combos.length + best.length + games.length, owner ? `<a class="btn btn--ghost btn--sm" href="/training">${icon("target", "i--sm")}${t("Open the training")}</a>` : "")}${itemsHtml(items)}</section>`;
 }
 
 /** The parts of what is shared (all three for the owner), one under the other, each in its own columns. */

@@ -78,6 +78,10 @@ export const loadGameData = lazy(
   () => import("../features/gamedata/gamedata-page.js"),
   (module, parts) => module.createGameDataPages(parts)
 );
+export const loadPublicTierList = lazy(
+  () => import("../features/tier-list/tier-list-public-page.js"),
+  (module, parts) => module.createPublicTierList(parts)
+);
 export const loadPopular = lazy(
   () => import("../features/popular/popular-page.js"),
   (module, parts) => module.createPopularPages(parts)
@@ -110,9 +114,17 @@ export const loadTraining = lazy(
   () => import("../features/training/training-pages.js"),
   (module, parts) => module.createTrainingPages(parts)
 );
+export const loadSimulation = lazy(
+  () => import("../features/simulation/simulation-page.js"),
+  (module, parts) => module.createSimulationPage(parts)
+);
 export const loadLegal = lazy(
   () => import("../features/legal/legal-page.js"),
   (module, parts) => module.createLegalPages(parts)
+);
+export const loadDevelopers = lazy(
+  () => import("../features/developers/developers-page.js"),
+  (module, parts) => module.createDevelopersPages(parts)
 );
 
 // The hero data editor (administrators): once a hero is saved, the sheet on screen and the catalogue are refreshed.

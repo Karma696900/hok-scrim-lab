@@ -4,6 +4,7 @@ import { percentage, t } from "../../app/browser-i18n.js";
 import { responsive } from "../../../shared/media.js";
 import { slotImage } from "../../lib/dom.js";
 import { day, ruleLabel } from "./popular-page-parts.js";
+import { rates } from "./popular-page-extras.js";
 
 // ---- markup -----------------------------------------------------------------------------------
 
@@ -35,7 +36,7 @@ export const versus = (view, entry) => `<div class="pop-vs">
 
 /** The win rate, big, with its bar, the record, and how much it was played compared with the most played of the list. */
 export const stats = (entry, most) => `<div class="pop-stats">
-      <b class="pop-rate" title="${t("Reliable win rate (95 % certainty): {rate}", { rate: percentage(entry.confidence ?? 0, 0) })}">${entry.winRate === null ? "—" : percentage(entry.winRate, 0)}</b>
+      <b class="pop-rate" title="${t("Score (win rate pulled toward 50 %, recent games weighing more): {rate}", { rate: percentage(entry.score ?? 0, 0) })}">${entry.winRate === null ? "—" : percentage(entry.winRate, 0)}</b>
       <span class="bar" aria-hidden="true"><i data-p="${Math.round((entry.winRate ?? 0) * 100)}"></i></span>
       <span class="bar pop-plays" aria-hidden="true"><i data-p="${Math.round((entry.games / Math.max(1, most)) * 100)}"></i></span>
       <small>${entry.wins}-${entry.losses} · ${t("{count, plural, one {# game} other {# games}}", { count: entry.games })}</small>
@@ -72,6 +73,7 @@ export const draftRow = (view, most) => (entry, index) => `<li class="pop-row">
       <div class="pop-main">
         <div class="pop-heroes">${entry.heroes.map(id => view.portrait(id, 64)).join("")}<span class="visually-hidden">${view.esc(entry.heroes.map(view.nameOf).join(", "))}</span></div>
         ${view.versus(entry)}
+        ${view.phases(entry)}
         ${view.variantsList(entry)}
       </div>
       ${stats(entry, most)}
@@ -85,6 +87,7 @@ export const heroRow = (view, most) => (entry, index) => {
       <a class="pop-hero" href="/heroes/${encodeURIComponent(entry.heroId)}">${hero?.image ? `<img class="pop-hero__art" ${responsive(hero.image, 112, "112px")} alt="" loading="lazy" decoding="async">` : `<span class="pop-hero__art image-fallback"></span>`}<b>${view.esc(view.nameOf(entry.heroId))}</b></a>
       ${stats(entry, most)}
       ${view.versus(entry)}
+      ${rates(entry)}
     </li>`;
 };
 
@@ -105,7 +108,7 @@ export const sideCard = (
     </section>`;
 
 export function draftsBody(view) {
-  return `<div class="pop-sides">${view.sideCard("blue", view.data.sides.blue)}${view.sideCard("red", view.data.sides.red)}</div>`;
+  return `<div class="pop-sides">${view.sideCard("blue", view.data.sides.blue)}${view.sideCard("red", view.data.sides.red)}</div>${view.duosCard()}`;
 }
 
 /** The lane that is open, and its table for the side that is chosen. */
@@ -129,7 +132,7 @@ export function heroesBody(view) {
   return `${tabs}
       <section class="card rise pop-side">
         <div class="card__head"><h2>${view.esc(laneLabel(view.lane))}</h2><div class="seg" role="group" aria-label="${t("Side")}">${sides.map(([value, label]) => `<button type="button" class="${view.scope === value ? "on" : ""}" data-scope="${value}" aria-pressed="${view.scope === value}">${label}</button>`).join("")}</div></div>
-        ${view.list(view.rank === "rate" ? table.byWinRate : table.byPlays, view.heroRow, " pop-list--heroes")}
+        ${view.list(view.rank === "rate" ? table.byWinRate : view.rank === "presence" ? table.byPresence : table.byPlays, view.heroRow, " pop-list--heroes")}
         ${view.data.unplaced ? `<p class="muted pop-note">${t("Picks without a lane entered are left out: {count}.", { count: view.data.unplaced })}</p>` : ""}
       </section>`;
 }
@@ -157,7 +160,7 @@ export function controls(view) {
         <div class="pop-controls__row">
           <label class="label">${t("Hero rule")}<span class="field"><select id="pop-rule"><option value="">${t("All rules")}</option>${(view.data?.rules ?? ["classic", "free-for-all", "global-ban-pick"]).map(rule => `<option value="${rule}"${view.ask.rule === rule ? " selected" : ""}>${view.esc(ruleLabel(rule))}</option>`).join("")}</select></span></label>
           <label class="label">${t("Minimum games")}<span class="field"><select id="pop-min">${MIN_GAMES.map(count => `<option value="${count}"${view.ask.minGames === count ? " selected" : ""}>${count}</option>`).join("")}</select></span></label>
-          <div class="label">${t("Rank by")}<div class="seg" role="group" aria-label="${t("Rank by")}"><button type="button" class="${view.rank === "plays" ? "on" : ""}" data-rank="plays" aria-pressed="${view.rank === "plays"}">${t("Most played")}</button><button type="button" class="${view.rank === "rate" ? "on" : ""}" data-rank="rate" aria-pressed="${view.rank === "rate"}" title="${t("Ranked by the lowest win rate the games allow us to believe: one win in one game does not beat a hero that proved itself over many games.")}">${t("Win rate")}</button></div></div>
+          <div class="label">${t("Rank by")}<div class="seg" role="group" aria-label="${t("Rank by")}"><button type="button" class="${view.rank === "plays" ? "on" : ""}" data-rank="plays" aria-pressed="${view.rank === "plays"}">${t("Most played")}</button><button type="button" class="${view.rank === "rate" ? "on" : ""}" data-rank="rate" aria-pressed="${view.rank === "rate"}" title="${t("Ranked by a score: the win rate pulled toward 50 % by ten games, recent games weighing more, so that one win in one game does not beat a hero that proved itself.")}">${t("Win rate")}</button>${view.tab === "heroes" ? `<button type="button" class="${view.rank === "presence" ? "on" : ""}" data-rank="presence" aria-pressed="${view.rank === "presence"}" title="${t("Picked or banned: how often the hero was there in the games of the period.")}">${t("Presence")}</button>` : ""}</div></div>
         </div>
         <p class="muted pop-note">${from && to ? `${view.esc(day(from))} → ${view.esc(day(to))}` : ""}${view.data ? ` · ${t("{count, plural, one {# game} other {# games}}", { count: view.data.totalGames })}` : ""}${first ? ` · ${t("Tournament games only, never scrims. The first one is from {date}.", { date: view.esc(day(first)) })}` : ` · ${t("Tournament games only, never scrims.")}`}</p>
         ${view.problem ? `<p class="form-error" role="alert">${view.esc(view.problem)}</p>` : ""}

@@ -48,14 +48,14 @@ const page = (path, headers = {}) =>
 describe("server-rendered first screen", { skip }, () => {
   test("an anonymous visitor receives the page already drawn, in their language, with the account control", async () => {
     calls.length = 0;
-    const { html } = await page("/heroes", { "accept-language": "fr" });
+    const { html } = await page("/fr/heroes");
     assert.match(
       html,
       /<main id="view" class="host app-view" tabindex="-1" data-ssr="1"><div class="page-head"><h1>Drawn \/heroes fr<\/h1>/
     );
     assert.match(
       html,
-      /<div id="account-control" class="account-control"><a href="\/login">Sign in<\/a><\/div>/
+      /<div id="account-control" class="account-control"><a href="\/fr\/login">Sign in<\/a><\/div>/
     );
     assert.deepEqual(calls, [["/heroes", "fr", ""]]);
   });

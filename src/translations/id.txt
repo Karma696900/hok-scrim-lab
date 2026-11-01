@@ -2551,3 +2551,243 @@
 2716|Digabungkan ke {name}
 2717|Grup tag
 2718|Tag tidak bisa digabungkan ke dirinya sendiri.
+2719|Pick pertama
+2720|Pick awal
+2721|Pick akhir
+2722|Pick terakhir
+2723|Pick {rate}
+2724|Ban {rate}
+2725|Kehadiran {rate}
+2726|Menjawab {name}
+2727|vs
+2728|Fase pick
+2729|Duo terbaik
+2730|Skor (win rate ditarik ke 50 %, game terbaru lebih berbobot): {rate}
+2731|Diurutkan berdasarkan skor: win rate ditarik ke 50 % sebanyak sepuluh game, game terbaru lebih berbobot, agar satu kemenangan dalam satu game tidak mengalahkan hero yang sudah terbukti.
+2732|Dipilih atau di-ban: seberapa sering hero hadir dalam game periode ini.
+2733|Kehadiran
+2734|Tier di {lane}: {tier}, dari game turnamen
+2735|Tier di {lane}: {tier}, dari editor (game turnamen terlalu sedikit)
+2736|{name}: peringkat {tier} dari game turnamen
+2737|Hero berwarna abu-abu diperingkat oleh game turnamen: tier mereka tampil di atasnya, dan rating di sini hanya berlaku untuk hero yang jarang dimainkan.
+2738|Lihat tier list HOK
+2739|Editor
+2740|Belum diperingkat
+2741|Tier list {lane}
+2742|Cara hero diperingkat
+2743|Game turnamen dulu: di setiap lane, hero yang dimainkan setidaknya {count} kali dalam tiga bulan terakhir diperingkat dengan skor (win rate ditarik ke 50 %, game terbaru lebih berbobot). Yang terbaik SS, terburuk D, dan tier di antaranya membagi selisih secara rata.
+2744|Hero yang jarang dimainkan mendapat tier dari editor. Yang lain menunggu di “Belum diperingkat”. Daftar ini diperbarui sendiri setiap kali seri turnamen dimasukkan.
+2745|Buat tier list sendiri
+2746|Tier list Honor of Kings: {lane}
+2747|Tier list Honor of Kings
+2748|Diperbarui {date}
+2749|{count, plural, other {# game turnamen}}
+2750|Hero Honor of Kings Global terbaik di setiap lane, dari SS ke D: game turnamen tiga bulan terakhir dulu, lalu rating editor untuk hero yang jarang dimainkan.
+2751|Tier list HOK — hero Honor of Kings terbaik di setiap lane | {site}
+2752|Tier list Honor of Kings Global untuk setiap lane, dari SS ke D: berdasarkan game turnamen tiga bulan terakhir, dan oleh editor untuk hero yang jarang dimainkan.
+2753|Pembuat tier list HOK — buat tier list Honor of Kings kamu | {site}
+2754|Tier list
+2755|Pembuat tier list
+2756|Tier list HOK {lane} ({month}) — hero {lane} terbaik Honor of Kings | {site}
+2757|Tier list HOK ({month}) — hero Honor of Kings terbaik di setiap lane | {site}
+2758|HOK {name} — item Honor of Kings: stat, harga, dan pasif | {site}
+2759|HOK {name} — arcana Honor of Kings: stat dan warna | {site}
+2760|HOK {name} — spell Honor of Kings: efek dan cooldown | {site}
+2761|Latihan Honor of Kings
+2762|Kombo, refleks, dan situasi peta untuk pemain Honor of Kings Global: pilih hero yang kamu latih, catat kombo dan mekaniknya, latih reaksimu, dan pelajari situasi di peta.
+2763|Situasi peta
+2764|{name}: build, skill, dan counter — HOK Honor of Kings | {site}
+2765|{name}: build dan skill — HOK Honor of Kings | {site}
+2766|{name}: skill dan counter — HOK Honor of Kings | {site}
+2767|{name} — panduan hero HOK Honor of Kings, skill dan lane | {site}
+2768|{site} — simulator draft HOK Honor of Kings, scrim, dan tier list
+2769|Hero HOK — semua hero Honor of Kings, skill, build, dan lane | {site}
+2770|Scrim HOK — simulator draft Honor of Kings dengan ban dan pick | {site}
+2771|Mainkan seri scrim Honor of Kings Global dengan urutan ban dan pick kompetitif: simulator draft gratis untuk tim, dengan ruang draft langsung dan riwayat setiap game.
+2772|Latihan HOK — kombo, refleks, dan situasi peta Honor of Kings | {site}
+2773|Berlatih untuk Honor of Kings Global: pilih hero yang kamu latih, catat kombo dan mekanik, uji refleksmu, dan pelajari situasi di peta.
+2774|Latihan refleks HOK — latihan reaksi dan menghindar Honor of Kings | {site}
+2775|Latihan refleks untuk pemain Honor of Kings Global: bereaksi, menghindar, dan membidik melawan waktu, dan lihat waktumu membaik.
+2776|Situasi peta HOK — latihan makro Honor of Kings | {site}
+2777|Situasi game Honor of Kings Global yang digambar di peta: ke mana pergi, apa yang dilakukan, dan mengapa. Latihan makro untuk setiap lane.
+2778|Tim HOK — roster dan staf tim Honor of Kings Global | {site}
+2779|Tim Honor of Kings Global: buat tim, undang pemain dan staf, bagikan agenda, dan temukan lawan scrim.
+2780|Cari scrim HOK — lawan scrim Honor of Kings Global | {site}
+2781|Kalkulator build HOK — uji build dan stat Honor of Kings | {site}
+2782|Item HOK — semua item Honor of Kings dengan stat dan harga | {site}
+2783|Arcana HOK — semua arcana Honor of Kings, merah, biru, dan hijau | {site}
+2784|Spell HOK — spell summoner Honor of Kings dan cooldown | {site}
+2785|Meta HOK — draft turnamen Honor of Kings paling sering dimainkan dan terbaik | {site}
+2786|Hero meta HOK — pick rate, ban rate, dan win rate di turnamen Honor of Kings | {site}
+2787|Hero meta turnamen Honor of Kings Global, per lane: seberapa sering masing-masing dipilih dan di-ban, dan seberapa sering menang.
+2788|Tier list HOK: {tier} di {lane}.
+2789|Win rate turnamen: {rate} % dari {count} game.
+2790|Hero tidak dapat dimuat.
+2791|Permainan tidak dapat disimpan.
+2792|Permainan tidak dapat disiapkan.
+2793|Punish
+2794|Flash
+2795|Sprint
+2796|Teleport
+2797|Execute
+2798|Frenzy
+2799|Intimidate
+2800|Purify
+2801|Stun
+2802|Darah
+2803|Skill kamu
+2804|Panggilan
+2805|Putar ponselmu ke samping untuk bermain.
+2806|Rekan timmu
+2807|Waktu permainan
+2808|Gold kedua tim
+2809|Keluar dari permainan
+2810|Data perkiraan
+2811|Hero kamu menunggu: apa selanjutnya?
+2812|Apa selanjutnya?
+2813|Pertanyaan kejutan
+2814|Peta disembunyikan selama jeda, dan jeda dicatat bersama nilaimu.
+2815|Lanjutkan
+2816|Kembali dalam {seconds} dtk
+2817|Permainan selesai
+2818|Nilai makro: {grade}
+2819|Permainan sempat dijeda.
+2820|Nilai disimpan di permainanmu.
+2821|Kembali ke pengaturan
+2822|Simulasi Permainan
+2823|Mainkan satu pertandingan Honor of Kings penuh dengan satu hero, dilihat dari atas peta. Setiap beberapa detik kamu memilih ke mana hero-mu pergi: lane, camp, objektif, rekan yang perlu dibantu, atau tower yang harus dipertahankan. Tanpa mekanik, hanya keputusan makro, dan nilai di akhir.
+2824|Kamu
+2825|Acak
+2826|Mesin scrim mengundi satu hero untuk setiap lane kedua tim. Kamu memainkan hero sesuai peranmu.
+2827|Memuat hero…
+2828|Slot yang dibiarkan Acak diundi oleh mesin scrim.
+2829|Atur permainanmu
+2830|Sisimu
+2831|Peranmu
+2832|Tingkat kesulitan
+2833|Tim musuh bermain lebih keras setelah keputusan salah, dan melunak lagi setelah keputusan tepat.
+2834|Hero acak
+2835|Pilih hero
+2836|Di ponsel, mainkan dengan layar dalam posisi menyamping.
+2837|Menyiapkan permainan…
+2838|Mulai permainan
+2839|Masuk untuk menyimpan permainan dan nilainya.
+2840|Belum ada permainan.
+2841|Mudah
+2842|Sulit
+2843|Belum ada permainan yang dimainkan.
+2844|Simulasi Permainan HOK — mainkan keputusan makro Honor of Kings | {site}
+2845|Mainkan satu pertandingan Honor of Kings penuh dengan satu hero di peta dan ambil keputusan makronya: ke mana pergi, kapan bertarung, kapan mundur. Nilai di akhir.
+2846|Kumpul
+2847|Mundur
+2848|Awas jungler
+2849|Clash lane
+2850|Farm lane
+2851|red buff
+2852|blue buff
+2853|camp hutan
+2854|Tyrant
+2855|Overlord
+2856|Shadow Tyrant
+2857|Shadow Overlord
+2858|Space Sprite
+2859|Firehawk
+2860|Tahan lane-mu
+2861|Pergi ke {lane}
+2862|Ambil {camp} milikmu
+2863|Invasi {camp} musuh
+2864|Pergi ke {objective}
+2865|Bergabung dengan {hero}
+2866|Gank {hero}
+2867|Tunggu di semak dekat {lane}
+2868|Mundur ke tower-mu
+2869|Kembali ke base
+2870|Pertahankan tower-mu di {lane}
+2871|Push {lane}
+2872|Ikuti {hero}
+2873|Beri vision dekat {lane}
+2874|Ganggu {hero}
+2875|Tetap di posisiku
+2876|Ya
+2877|Tidak
+2878|Kira-kira di mana jungler musuh?
+2879|Dekat Clash lane
+2880|Dekat Mid lane
+2881|Dekat Farm lane
+2882|Apakah red buff musuh sudah muncul?
+2883|Apakah blue buff musuh sudah muncul?
+2884|Apakah Punish jungler musuh siap?
+2885|Berapa hero musuh yang sedang mati?
+2886|Berapa tower musuh yang sudah runtuh?
+2887|Kapan Tyrant muncul?
+2888|Kapan Overlord muncul?
+2889|Sudah muncul sekarang
+2890|Kurang dari satu menit lagi
+2891|Satu sampai dua menit lagi
+2892|Lebih dari dua menit lagi
+2893|Tim mana yang punya gold lebih banyak?
+2894|Tim musuh
+2895|Kurang lebih seimbang
+2896|Sebutkan satu sampai sepuluh hero.
+2897|Hero yang dipilih manual tidak valid.
+2898|{label} tidak valid.
+2899|Masuk untuk menyimpan permainanmu.
+2900|Itu terlalu banyak permainan untuk sehari: kembali lagi nanti.
+2901|Papan Simulasi Permainan
+2902|Gunakan di Simulasi Permainan
+2903|Peta ini tidak ada.
+2904|Jalankan ini di terminal:
+2905|Tambahkan ini ke claude_desktop_config.json (Settings, Developer, Edit config), lalu mulai ulang Claude. Memerlukan Node.js.
+2906|Tambahkan ini ke .cursor/mcp.json, di proyek Anda atau di folder home:
+2907|Di GPT kustom: Configure, Create new action, Import from URL dengan alamat ini. Lalu Authentication: API key, tipe Bearer, dan tempel kunci Anda.
+2908|Buat satu kunci untuk setiap asisten, hanya dengan yang dibutuhkan (data publik game sudah cukup untuk bertanya soal hero, item, dan draft). Jika satu bocor, cabut tanpa menyentuh yang lain.
+2909|Ganti {key} dengan kunci Anda. Asisten lalu melihat satu alat per alamat yang dapat dibaca kunci Anda, dan hanya membaca.
+2910|Tidak ada kunci, atau kunci tidak valid, kedaluwarsa, atau dicabut.
+2911|Kunci tidak memiliki cakupan yang dibutuhkan alamat ini.
+2912|Alamat tidak dikenal, atau sesuatu yang tidak dapat dilihat pemilik kunci.
+2913|Terlalu banyak permintaan: tunggu sesuai detik di Retry-After.
+2914|Parameter
+2915|Letak
+2916|wajib
+2917|alamat
+2918|kueri
+2919|Alat untuk AI: {name}
+2920|Contoh jawaban
+2921|1. Buat kunci
+2922|Masuk, buka halaman API, dan pilih apa yang dapat dibaca kunci.
+2923|2. Panggil alamat
+2924|Kirim kunci di header Authorization. Jawaban berupa JSON.
+2925|3. Atau tanya AI
+2926|Hubungkan Claude, ChatGPT, atau Cursor: mereka membaca data untuk Anda.
+2927|Autentikasi
+2928|Setiap alamat membutuhkan kunci API yang dikirim sebagai token bearer. Kunci hanya membaca dan melihat apa yang dilihat pemiliknya: data game untuk semua orang, scrim, tier list, dan tim Anda untuk Anda.
+2929|Panggilan pertama Anda
+2930|Header X-API-Key juga bisa. Kunci di dalam alamat diabaikan: alamat berakhir di log.
+2931|Batas dan galat
+2932|Setiap kunci boleh membuat {count} permintaan per menit. Galat berupa JSON dengan kode tetap:
+2933|Arti
+2934|Gunakan dengan AI
+2935|API juga merupakan server MCP, di {address}: asisten mendapat satu alat per alamat yang dapat dibaca kuncinya.
+2936|Alamat
+2937|Deskripsi lengkap, untuk diimpor ke sebuah alat:
+2938|Pilih teks lalu salin.
+2939|HOK API: data Honor of Kings untuk program Anda
+2940|Baca hero, item, arcana, spell, tier list, dan draft turnamen Honor of Kings Global, serta scrim Anda sendiri, dari program atau asisten AI. Hanya baca, gratis, dengan kunci.
+2941|Dapatkan kunci
+2942|Dokumentasi
+2943|API
+2944|Baca data Anda dan data game dari program dan asisten AI Anda sendiri.
+2945|Masuk untuk membuat kunci API
+2946|Kunci milik sebuah akun: ia membaca apa yang bisa Anda baca, tidak lebih.
+2947|Baca data Anda dan data game dari program dan asisten AI Anda sendiri. Kunci hanya membaca, tidak pernah menulis.
+2948|Buka halaman API
+2949|Buat dan cabut kunci Anda, dan hubungkan asisten AI ke data Anda.
+2950|HOK API — data Honor of Kings untuk pengembang dan asisten AI | {site}
+2951|Baca hero, item, arcana, spell, tier list, dan draft turnamen Honor of Kings Global dari program Anda, atau hubungkan Claude, ChatGPT, atau Cursor melalui MCP. Setiap alamat, parameternya, dan contoh jawaban.
+2952|API | {site}
+2953|Kunci API Anda, dan cara menghubungkan asisten AI ke data Anda.
+2954|Server MCP menerima pesan JSON-RPC melalui POST.
+2956|Contoh permintaan
+2955|Situasi yang dikirim ke satu-satunya POST tidak valid: galatnya menyebutkan apa yang salah.
+2958|Permainan melawan bot sedang tidak dibuka. Coba lagi nanti.
+2957|Koneksi ke permainan terputus.

@@ -1,0 +1,106 @@
+/* The public tier list (/tier-list): a board per lane, each hero a portrait with its name in text. */
+.tlp-stage {
+  display: grid;
+  gap: 10px;
+}
+.tlp-stage p {
+  max-width: 70ch;
+  margin: 0;
+}
+.tlp-updated {
+  color: var(--muted);
+  font-size: 14px;
+}
+/* six tabs (every lane, then each lane): a grid that folds instead of one row that overflows */
+.tlp-tabs {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 8px;
+}
+.tlp-tabs .lane-tab {
+  height: 48px;
+  min-width: 0;
+}
+.tlp-tabs .lane-tab span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tlp-lane {
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+.tlp-lane h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+.tlp-board {
+  display: grid;
+  gap: 6px;
+}
+.tlp-board .tier-drop {
+  gap: 8px;
+}
+.tlp-hero {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  width: 84px;
+  color: var(--ink);
+  text-align: center;
+  text-decoration: none;
+}
+.tlp-hero:hover .tlp-hero__name,
+.tlp-hero:focus-visible .tlp-hero__name {
+  text-decoration: underline;
+}
+.tlp-hero__name {
+  overflow: hidden;
+  max-width: 100%;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tlp-hero small {
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+.tlp-hero[data-source="editors"] small {
+  font-style: italic;
+}
+.tlp-unranked {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+.tlp-unranked a {
+  color: inherit;
+}
+.tlp-method {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+.tlp-method p {
+  max-width: 75ch;
+  margin: 0;
+}
+.tlp-loading {
+  min-height: 420px;
+  margin-top: 18px;
+  border-radius: var(--r-md, 12px);
+}
+@media (max-width: 640px) {
+  .tlp-hero {
+    width: 64px;
+  }
+  .tlp-hero small {
+    display: none;
+  }
+}

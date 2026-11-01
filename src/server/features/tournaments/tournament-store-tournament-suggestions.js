@@ -1,4 +1,4 @@
-// tournament store, tournament suggestions: tournamentSuggestions, competitiveGames, competitiveSummary, rememberCompetitive.
+// tournament store, tournament suggestions: tournamentSuggestions, competitiveGames, competitiveSummary, rememberCompetitive, heroChangeDays.
 import { day, presentGame } from "./tournament-store-parse.js";
 
 /** Event names and team names already used (to complete the fields). */
@@ -65,10 +65,29 @@ export function rememberCompetitive(ctx, key, compute) {
   return ctx.cache.remember(`memo|${key}`, compute);
 }
 
+/**
+ * The days of the balance changes of each hero, from its Camp sheet (`adjustments`): { heroId: [YYYY-MM-DD...] }.
+ * Kept 30 s like the games.
+ */
+export function heroChangeDays(ctx) {
+  return ctx.cache.remember("hero-change-days", async () => {
+    const [rows] = await ctx.pool.query(
+      "SELECT hero_id, JSON_EXTRACT(data_json, '$.adjustments[*].publishedAt') AS days FROM hero_details"
+    );
+    const out = {};
+    for (const row of rows) {
+      const days = typeof row.days === "string" ? JSON.parse(row.days) : row.days;
+      out[row.hero_id] = Array.isArray(days) ? days.map(day => String(day).slice(0, 10)) : [];
+    }
+    return out;
+  });
+}
+
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
 export const onView = {
   tournamentSuggestions,
   competitiveGames,
   competitiveSummary,
-  rememberCompetitive
+  rememberCompetitive,
+  heroChangeDays
 };

@@ -10,8 +10,8 @@ import { onView as gamedataPageMarkup } from "./gamedata-page-markup.js";
 import { onView as gamedataPageActions } from "./gamedata-page-actions.js";
 import { SECTIONS } from "./gamedata-page-shared.js";
 
-export function createGameDataPages({ api }) {
-  const view = { api };
+export function createGameDataPages({ api, state }) {
+  const view = { api, state };
   bindTo(view, gamedataPageParts, gamedataPageMarkup, gamedataPageActions);
   view.esc = escapeHtml;
   view.root = null;
@@ -28,7 +28,8 @@ export function createGameDataPages({ api }) {
   view.filtersOpen = false; // on a phone: the filters are folded under a button
 
   return {
-    async show(app, name) {
+    /** `piece` is "" (the list) or "/12": the address of one piece opens on its sheet. */
+    async show(app, name, piece = "") {
       if (view.section !== name) {
         view.picked = null;
         view.search = "";
@@ -36,8 +37,10 @@ export function createGameDataPages({ api }) {
         view.order = "name";
       }
       view.section = SECTIONS.includes(name) ? name : "items";
-      // an address like /items?piece=12 (the search of the top bar) opens on the sheet of that piece
-      const wanted = Number(new URLSearchParams(location.search).get("piece"));
+      // an address like /items/12 (or the older /items?piece=12) opens on the sheet of that piece
+      const wanted = Number(
+        (piece ?? "").replace(/^\//, "") || new URLSearchParams(location.search).get("piece")
+      );
       if (Number.isInteger(wanted) && wanted > 0) {
         view.picked = wanted;
         view.wantedTile = true;

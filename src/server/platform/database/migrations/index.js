@@ -38,6 +38,7 @@ import heroAliases from "./037-hero-aliases.js";
 import seriesPickOrder from "./038-series-pick-order.js";
 import dropHeroBuilds from "./039-drop-hero-builds.js";
 import tagGroups from "./040-tag-groups.js";
+import simulationGames from "./041-simulation-games.js";
 
 // Append only. A migration is never edited once released and must be non-destructive (add
 // columns/tables, backfill; never drop or rewrite user data).
@@ -81,7 +82,8 @@ export const MIGRATIONS = [
   heroAliases,
   seriesPickOrder,
   dropHeroBuilds,
-  tagGroups
+  tagGroups,
+  simulationGames
 ];
 
 const LOCK_NAME = "hok_scrim_migrations";

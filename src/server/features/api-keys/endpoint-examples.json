@@ -1,0 +1,397 @@
+{
+  "/heroes": {
+    "heroes": [
+      {
+        "id": "h105",
+        "name": "Arli",
+        "displayName": "Arli",
+        "image": "https://camp.honorofkings.com/h105.png",
+        "roles": ["Marksman"],
+        "lanes": ["Farm Lane"],
+        "laneSources": { "Farm Lane": "camp" },
+        "sourceIds": ["105"],
+        "availableGlobal": true,
+        "isFlowborn": false,
+        "sourceUpdated": "20260925"
+      }
+    ],
+    "lastUpdated": "2026-10-31T08:00:00.000Z",
+    "sourceUpdated": "20260925",
+    "usingCache": true,
+    "language": "en",
+    "namesLanguage": "en"
+  },
+  "/heroes/:id": {
+    "hero": { "id": "h105", "name": "Arli", "roles": ["Marksman"], "lanes": ["Farm Lane"] },
+    "competitive": [],
+    "tournament": {
+      "since": null,
+      "totalGames": 48,
+      "picks": 21,
+      "bans": 9,
+      "wins": 12,
+      "losses": 9,
+      "winRate": 0.571,
+      "pickRate": 0.438,
+      "banRate": 0.188,
+      "byRule": {},
+      "range": { "first": "2026-08-01", "last": "2026-10-30" }
+    },
+    "builds": [],
+    "profile": null,
+    "ratings": { "Farm Lane": "A" },
+    "ratingSources": { "Farm Lane": "tournaments" },
+    "combos": [],
+    "details": null,
+    "detailsFetchedAt": null,
+    "detailsLanguage": "en",
+    "language": "en"
+  },
+  "/tier-list": {
+    "period": { "from": "2026-08-01", "to": "2026-10-31" },
+    "minGames": 10,
+    "totalGames": 120,
+    "lanes": [
+      {
+        "lane": "Farm Lane",
+        "slug": "farm",
+        "tiers": [
+          {
+            "label": "SS",
+            "heroes": [
+              {
+                "heroId": "h105",
+                "source": "tournaments",
+                "games": 48,
+                "winRate": 0.571,
+                "pickRate": 0.438,
+                "score": 0.62
+              }
+            ]
+          }
+        ],
+        "unranked": ["h199"]
+      }
+    ],
+    "updatedAt": "2026-10-31T08:00:00.000Z"
+  },
+  "/catalog": {
+    "stats": [{ "id": 1, "name": "Physical Attack" }],
+    "tags": [{ "id": 3, "name": "Burst" }],
+    "tagGroups": { "red": "Damage" },
+    "items": [],
+    "arcana": [],
+    "spells": [
+      {
+        "id": 1,
+        "name": "Flash",
+        "imageId": null,
+        "description": "Blink a short distance.",
+        "cooldownSeconds": 120,
+        "unlockLevel": null
+      }
+    ],
+    "heroTags": {}
+  },
+  "/catalog/:family": {
+    "spells": [
+      {
+        "id": 1,
+        "name": "Flash",
+        "imageId": null,
+        "description": "Blink a short distance.",
+        "cooldownSeconds": 120,
+        "unlockLevel": null
+      }
+    ]
+  },
+  "/catalog/:family/:id": {
+    "id": 1,
+    "name": "Flash",
+    "imageId": null,
+    "description": "Blink a short distance.",
+    "cooldownSeconds": 120,
+    "unlockLevel": null
+  },
+  "/tournaments": {
+    "items": [
+      {
+        "id": "8d1f6a52-3c1e-4b7e-9a51-1f2c3d4e5f60",
+        "name": "KPL West Finals",
+        "teamA": "Alpha",
+        "teamB": "Bravo",
+        "bestOf": 5,
+        "status": "complete"
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "pageSize": 25
+  },
+  "/tournaments/:id": {
+    "id": "8d1f6a52-3c1e-4b7e-9a51-1f2c3d4e5f60",
+    "teamA": { "name": "Alpha" },
+    "teamB": { "name": "Bravo" },
+    "bestOf": 5,
+    "gameMode": "global-ban-pick",
+    "status": "complete",
+    "games": [
+      {
+        "number": 1,
+        "bans": { "blue": ["h105"], "red": ["h199"] },
+        "picks": { "blue": ["h101"], "red": ["h120"] },
+        "winner": "blue",
+        "durationSeconds": 1104
+      }
+    ]
+  },
+  "/popular/drafts": {
+    "period": {
+      "from": "2026-08-01",
+      "to": "2026-10-31",
+      "first": "2026-08-03",
+      "last": "2026-10-30",
+      "minMonths": 3
+    },
+    "rule": "",
+    "rules": ["classic"],
+    "minGames": 1,
+    "totalGames": 120,
+    "sides": {
+      "blue": { "different": 80, "groups": 12, "eligible": 9, "byWinRate": [], "byPlays": [] },
+      "red": { "different": 77, "groups": 11, "eligible": 8, "byWinRate": [], "byPlays": [] }
+    },
+    "duos": { "all": [], "mostPlayed": [], "byLanes": {} }
+  },
+  "/popular/heroes": {
+    "period": {
+      "from": "2026-08-01",
+      "to": "2026-10-31",
+      "first": "2026-08-03",
+      "last": "2026-10-30",
+      "minMonths": 3
+    },
+    "rule": "",
+    "rules": ["classic"],
+    "minGames": 1,
+    "totalGames": 120,
+    "lanes": [
+      {
+        "lane": "Farm Lane",
+        "picks": 120,
+        "all": { "different": 14, "eligible": 9, "byWinRate": [], "byPlays": [], "byPresence": [] }
+      }
+    ],
+    "placed": 1180,
+    "unplaced": 20,
+    "games": 120
+  },
+  "/series": {
+    "items": [
+      {
+        "id": "16f3cb87-fb93-4a70-91e0-01f01f863f11",
+        "teamA": "Alpha",
+        "teamB": "Bravo",
+        "bestOf": 3,
+        "winsRequired": 2,
+        "gameMode": "free-for-all",
+        "draftMode": "solo",
+        "status": "active",
+        "score": { "teamA": 1, "teamB": 0 },
+        "gamesCount": 1,
+        "role": "owner",
+        "createdAt": "2026-10-31T20:15:23.262Z",
+        "updatedAt": "2026-10-31T20:45:00.000Z"
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "pageSize": 20
+  },
+  "/series/:id": {
+    "id": "16f3cb87-fb93-4a70-91e0-01f01f863f11",
+    "createdAt": "2026-10-31T20:15:23.262Z",
+    "updatedAt": "2026-10-31T20:45:00.000Z",
+    "teamA": { "name": "Alpha" },
+    "teamB": { "name": "Bravo" },
+    "bestOf": 3,
+    "winsRequired": 2,
+    "gameMode": "free-for-all",
+    "draftMode": "solo",
+    "status": "active",
+    "games": [],
+    "currentGame": null,
+    "version": 4,
+    "serverTime": 1793477723366,
+    "viewer": { "role": "owner", "side": null, "canDrive": true }
+  },
+  "/stats/overview": {
+    "label": "Your scrims",
+    "minGames": 30,
+    "seriesCount": 14,
+    "gamesCount": 37,
+    "totalDurationSeconds": 42180,
+    "averageDurationSeconds": 1140,
+    "shortestSeconds": 702,
+    "longestSeconds": 1598,
+    "blueWins": 20,
+    "redWins": 17,
+    "blueWinRate": 0.541,
+    "byMode": { "global-ban-pick": 30, "free-for-all": 7, "classic": 0 }
+  },
+  "/stats/heroes": {
+    "label": "Your scrims",
+    "minGames": 30,
+    "totalGames": 37,
+    "sort": "presence",
+    "rows": [{ "heroId": "h105", "picks": 12, "bans": 9, "wins": 7, "presence": 0.568 }],
+    "total": 1,
+    "page": 1,
+    "pageSize": 10
+  },
+  "/heroes/:id/scrims": {
+    "label": "Your scrims",
+    "minGames": 30,
+    "seriesCount": 9,
+    "totalGames": 37,
+    "picked": 12,
+    "wins": 7,
+    "losses": 5,
+    "banned": 9,
+    "winRate": null,
+    "pickRate": null,
+    "banRate": null,
+    "insufficient": true,
+    "lanes": [],
+    "synergies": [],
+    "matchups": []
+  },
+  "/tier-lists": {
+    "items": [
+      {
+        "id": "44d20ad7-4f74-4207-80f2-6e0b352ba662",
+        "name": "Farm lane, season 4",
+        "lane": "Farm Lane",
+        "updatedAt": "2026-10-31T20:15:23.224Z"
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "pageSize": 50
+  },
+  "/tier-lists/:id": {
+    "id": "44d20ad7-4f74-4207-80f2-6e0b352ba662",
+    "createdAt": "2026-10-31T20:15:23.224Z",
+    "updatedAt": "2026-10-31T20:15:23.224Z",
+    "name": "Farm lane, season 4",
+    "lane": "Farm Lane",
+    "tiers": [{ "id": "t1", "label": "S", "heroes": ["h105"] }],
+    "unranked": ["h199"],
+    "version": 0,
+    "viewer": { "role": "owner", "canEdit": true, "canDelete": true, "canShare": true }
+  },
+  "/me/teams": {
+    "items": [
+      {
+        "id": "07db7f13-4df0-4d4e-b6c9-453d26c41fe5",
+        "name": "Learn Squad",
+        "tag": "LERN",
+        "region": "EU",
+        "level": "amateur",
+        "memberCount": 5,
+        "myRole": "owner"
+      }
+    ]
+  },
+  "/teams": {
+    "items": [
+      {
+        "id": "07db7f13-4df0-4d4e-b6c9-453d26c41fe5",
+        "name": "Learn Squad",
+        "tag": "LERN",
+        "region": "EU",
+        "level": "amateur",
+        "memberCount": 5
+      }
+    ],
+    "total": 1,
+    "page": 1,
+    "pageSize": 18
+  },
+  "/teams/:id": {
+    "id": "07db7f13-4df0-4d4e-b6c9-453d26c41fe5",
+    "name": "Learn Squad",
+    "tag": "LERN",
+    "description": "",
+    "region": "EU",
+    "timezone": "UTC+1",
+    "languages": ["en"],
+    "level": "amateur",
+    "maxMembers": 10,
+    "createdAt": 1793477723239,
+    "members": [{ "name": "Kai", "tag": "YHX7EA", "role": "owner", "lane": "Jungle" }],
+    "myRole": "owner"
+  },
+  "/teams/:id/events": {
+    "items": [
+      {
+        "id": "2b9c0e3a-6f0d-4a8e-b1c2-3d4e5f6a7b8c",
+        "title": "Scrim vs Bravo",
+        "startsAt": 1793563200000
+      }
+    ],
+    "canSchedule": true
+  },
+  "/teams/:id/series": { "items": [], "total": 0, "page": 1, "pageSize": 20 },
+  "/me/agenda": {
+    "items": [
+      {
+        "id": "2b9c0e3a-6f0d-4a8e-b1c2-3d4e5f6a7b8c",
+        "title": "Scrim vs Bravo",
+        "startsAt": 1793563200000
+      }
+    ]
+  },
+  "/training/focus": { "heroIds": ["h105", "h120"] },
+  "/training/notes": { "notes": [] },
+  "/training/combos": { "progress": {} },
+  "/training/combos/review": {
+    "now": 1793477503716,
+    "due": [],
+    "dueTotal": 0,
+    "toLearn": [],
+    "toLearnTotal": 0,
+    "skills": {}
+  },
+  "/training/maps": { "maps": [] },
+  "/training/scenarios": { "scenarios": [] },
+  "/training/scenarios/:id": {
+    "id": "5e6f7a8b-9c0d-4e1f-a2b3-c4d5e6f7a8b9",
+    "title": "Defend the second tower",
+    "mapId": "main"
+  },
+  "/training/reflex": {
+    "exercises": { "reaction": { "runs": 12, "best": 231, "last": [] } },
+    "doneToday": [],
+    "today": { "runs": 3, "minutes": 4 },
+    "week": { "runs": 12, "minutes": 18 },
+    "streak": 2,
+    "teams": []
+  },
+  "/space": {
+    "tierLists": [],
+    "builds": [],
+    "training": { "focus": [], "notes": [], "combos": [], "reflex": { "streak": 0, "best": {} } },
+    "links": [],
+    "limits": { "builds": 300, "buildsPerHero": 30, "links": 20, "days": [7] }
+  },
+  "/me": {
+    "account": { "tag": "YHX7EA", "name": "Kai" },
+    "key": {
+      "id": "25bf6418-4cbf-448a-baed-30349809947e",
+      "name": "Stats bot",
+      "scopes": ["game", "competitive"],
+      "expiresAt": 1801253503341
+    }
+  }
+}

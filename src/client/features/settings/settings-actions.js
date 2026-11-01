@@ -1,5 +1,6 @@
 // settings page, what happens on a click, a key or a submit: onClick, onClickHandler, onSubmit.
-import { LANGUAGE_COOKIE, directionOf, isLanguage } from "../../../shared/i18n.js";
+import { directionOf, isLanguage } from "../../../shared/i18n.js";
+import { changeLanguage } from "../../app/language-address.js";
 import { changeSetting } from "../../app/menu-preferences.js";
 import { currentLanguage, t } from "../../app/browser-i18n.js";
 
@@ -24,9 +25,7 @@ export function onClickHandler(event) {
     if (!isLanguage(code) || code === currentLanguage()) {
       return;
     }
-    const secure = location.protocol === "https:" ? "; Secure" : "";
-    document.cookie = `${LANGUAGE_COOKIE}=${code}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`;
-    location.reload();
+    changeLanguage(code);
     return;
   }
   const button = event.target.closest("[data-set-theme], [data-set-direction]");

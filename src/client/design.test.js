@@ -136,8 +136,12 @@ describe("palette", () => {
       .split("}")
       .filter(rule => /var\(--team-blue(?:-text)?\)/.test(rule))
       .map(rule => rule.split("{")[0].trim())
-      // the marks of a series take the colour of their side (.b)
-      .filter(selector => !/blue|team|side|donut|ring|legend|\.b$/i.test(selector));
+      // the marks of a series take the colour of their side (.b), and the board of the simulation draws an ally,
+      // a hero on the map and the farm of a side in theirs
+      .filter(
+        selector =>
+          !/blue|team|side|donut|ring|legend|sim-ally|sim-dot|sim-bar--farm|\.b$/i.test(selector)
+      );
     assert.deepEqual(offenders, []);
   });
 
@@ -303,8 +307,10 @@ describe("a rule for a bare class stays on its page", () => {
     "build-lab.css": ["build-lab", "guides"],
     "guides.css": ["guides"],
     "legal.css": ["legal"],
+    "api.css": ["developers"],
     "popular.css": ["popular"],
     "ratings.css": ["ratings"],
+    "tier-list-public.css": ["tier-list"],
     "reflex.css": ["training"],
     "space.css": ["space"],
     "catalog.css": ["catalog"],
@@ -328,6 +334,7 @@ describe("a rule for a bare class stays on its page", () => {
     "scrims.css": ["scrims"],
     "series.css": ["scrims", "draft", "sharing"],
     "settings.css": ["settings"],
+    "simulation.css": ["simulation"],
     "team.css": ["teams"],
     "teams.css": ["teams"],
     "tier-lists.css": ["tier-lists"],

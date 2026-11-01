@@ -36,8 +36,14 @@ export function tr(language, key, params) {
   return translate(key, params);
 }
 
-/** The language of a request: saved choice (cookie), else Accept-Language, else English. */
+/**
+ * The language of a request: the one its address names (/fr/heroes, see app.js), else the saved choice
+ * (cookie), else Accept-Language, else English.
+ */
 export function requestLanguage(request) {
+  if (request.addressLanguage) {
+    return request.addressLanguage;
+  }
   return chooseLanguage({
     saved: readCookie(request.headers.cookie, LANGUAGE_COOKIE),
     acceptLanguage: request.headers["accept-language"]

@@ -1,17 +1,24 @@
 // gamedata page, what happens on a click, a key or a submit: onClick, onInput.
 
 export function onClick(view, event) {
-  const target = event.target.closest("button, a.gd-tab");
+  const target = event.target.closest("button, a.gd-tab, a.gd-tile");
   if (!target || !view.root.contains(target)) {
     return;
   }
   if (target.dataset.pick) {
+    // a tile is a link to the page of its piece (for search engines and a new tab); a plain click opens
+    // the sheet here and the address follows
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.button) {
+      return;
+    }
+    event.preventDefault();
     const id = Number(target.dataset.pick);
     view.picked = id === view.picked ? null : id;
+    view.followAddress();
     for (const tileButton of view.root.querySelectorAll(".gd-tile")) {
       const open = Number(tileButton.dataset.pick) === view.picked;
       tileButton.classList.toggle("is-open", open);
-      tileButton.setAttribute("aria-pressed", String(open));
+      tileButton.toggleAttribute("aria-current", open);
     }
     view.repaintDetail();
   } else if (target.dataset.slot !== undefined) {

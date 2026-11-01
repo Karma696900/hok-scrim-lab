@@ -115,7 +115,8 @@ export function needSignIn(view, zone) {
           `<div class="rx-sample"><span class="rx-card__art keep-dark">${exerciseArt(exercise.id)}</span><span class="rx-card__body"><b>${view.esc(exerciseName(exercise.id))}</b><p>${view.esc(exerciseBlurb(exercise.id))}</p></span></div>`
       ).join("")}</div>${howHtml()}`
   }[zone];
-  const title = zone === "reflex" ? t("Reflex training") : t("Your training");
+  // a visitor on /training reads what the training is (players search "hok training")
+  const title = zone === "reflex" ? t("Reflex training") : t("Honor of Kings training");
   view.overview = null;
   view.root.innerHTML = `${view.chrome({
     zone,
@@ -127,8 +128,10 @@ export function needSignIn(view, zone) {
           ? t(
               "Short exercises for your reflexes, memory and aim. They run in your browser and send nothing while you play."
             )
-          : t("The heroes you work on, with everything needed to master them.")
-  })}<div class="trn-visitor">${lineHtml(
+          : t(
+              "Combos, reflexes and map situations for Honor of Kings Global players: choose the heroes you work on, write down their combos and mechanics, train your reactions and study situations on the map."
+            )
+  })}<div class="trn-visitor">${zone === "heroes" ? `<p class="hstack wrap trn-visitor__links"><a class="btn btn--sm" href="/training/reflex">${icon("bolt", "i--sm")}${t("Reflex training")}</a><a class="btn btn--sm" href="/training/scenarios">${icon("target", "i--sm")}${t("Map situations")}</a></p>` : ""}${lineHtml(
     "lock",
     view.esc(title),
     t("Sign in to choose your heroes and keep your notebook."),

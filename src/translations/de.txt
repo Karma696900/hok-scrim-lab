@@ -2551,3 +2551,243 @@
 2716|In {name} zusammengeführt
 2717|Tag-Gruppe
 2718|Ein Tag kann nicht in sich selbst zusammengeführt werden.
+2719|Erster Pick
+2720|Früher Pick
+2721|Später Pick
+2722|Letzter Pick
+2723|Pick {rate}
+2724|Ban {rate}
+2725|Präsenz {rate}
+2726|Antwort auf {name}
+2727|vs
+2728|Pick-Phasen
+2729|Beste Duos
+2730|Wertung (Siegquote Richtung 50 % gezogen, neuere Spiele zählen mehr): {rate}
+2731|Nach einer Wertung sortiert: die Siegquote um zehn Spiele Richtung 50 % gezogen, neuere Spiele zählen mehr, damit ein Sieg in einem Spiel keinen bewährten Helden schlägt.
+2732|Gewählt oder gebannt: wie oft der Held in den Spielen des Zeitraums dabei war.
+2733|Präsenz
+2734|Tier in {lane}: {tier}, aus den Turnierspielen
+2735|Tier in {lane}: {tier}, von der Redaktion (zu wenige Turnierspiele)
+2736|{name}: von den Turnierspielen als {tier} eingestuft
+2737|Ausgegraute Helden werden von den Turnierspielen eingestuft: ihr Tier steht darauf, und eine Wertung hier zählt nur für zu selten gespielte Helden.
+2738|Zur HOK-Tierliste
+2739|Redaktion
+2740|Noch nicht eingestuft
+2741|Tierliste {lane}
+2742|Wie die Helden eingestuft werden
+2743|Zuerst die Turnierspiele: In jeder Lane werden die Helden, die in den letzten drei Monaten mindestens {count}-mal gespielt wurden, nach einer Wertung sortiert (Siegquote Richtung 50 % gezogen, neuere Spiele zählen mehr). Der beste ist SS, der schlechteste D, die Tiers dazwischen teilen den Abstand gleichmäßig.
+2744|Zu selten gespielte Helden erhalten das Tier der Redaktion. Die übrigen warten unter „Noch nicht eingestuft“. Die Liste aktualisiert sich mit jeder eingetragenen Turnierserie von selbst.
+2745|Eigene Tierliste erstellen
+2746|Honor of Kings Tierliste: {lane}
+2747|Honor of Kings Tierliste
+2748|Aktualisiert am {date}
+2749|{count, plural, one {# Turnierspiel} other {# Turnierspiele}}
+2750|Die besten Helden von Honor of Kings Global in jeder Lane, von SS bis D: zuerst die Turnierspiele der letzten drei Monate, dann die Wertungen der Redaktion für zu selten gespielte Helden.
+2751|HOK Tierliste — die besten Honor of Kings Helden jeder Lane | {site}
+2752|Die Honor of Kings Global Tierliste jeder Lane, von SS bis D: nach den Turnierspielen der letzten drei Monate, und von der Redaktion für zu selten gespielte Helden.
+2753|HOK Tierlisten-Ersteller — erstelle deine Honor of Kings Tierliste | {site}
+2754|Tierliste
+2755|Tierlisten-Ersteller
+2756|HOK {lane} Tierliste ({month}) — die besten {lane}-Helden in Honor of Kings | {site}
+2757|HOK Tierliste ({month}) — die besten Honor of Kings Helden jeder Lane | {site}
+2758|HOK {name} — Honor of Kings Item: Werte, Preis und Passiv | {site}
+2759|HOK {name} — Honor of Kings Arkanum: Werte und Farbe | {site}
+2760|HOK {name} — Honor of Kings Zauber: Wirkung und Abklingzeit | {site}
+2761|Honor of Kings Training
+2762|Combos, Reflexe und Kartensituationen für Honor of Kings Global Spieler: Wähle die Helden, an denen du arbeitest, notiere ihre Combos und Mechaniken, trainiere deine Reaktionen und studiere Situationen auf der Karte.
+2763|Kartensituationen
+2764|{name}: Build, Fähigkeiten und Konter — HOK Honor of Kings | {site}
+2765|{name}: Build und Fähigkeiten — HOK Honor of Kings | {site}
+2766|{name}: Fähigkeiten und Konter — HOK Honor of Kings | {site}
+2767|{name} — HOK Honor of Kings Heldenguide, Fähigkeiten und Lanes | {site}
+2768|{site} — HOK Honor of Kings Draft-Simulator, Scrims und Tierliste
+2769|HOK Helden — alle Honor of Kings Helden, Fähigkeiten, Builds und Lanes | {site}
+2770|HOK Scrims — Honor of Kings Draft-Simulator mit Bans und Picks | {site}
+2771|Spiele Honor of Kings Global Scrim-Serien mit der kompetitiven Ban- und Pick-Reihenfolge: ein kostenloser Draft-Simulator für Teams, mit Live-Draft-Raum und dem Verlauf jedes Spiels.
+2772|HOK Training — Honor of Kings Combos, Reflexe und Kartensituationen | {site}
+2773|Trainiere für Honor of Kings Global: Wähle deine Helden, notiere Combos und Mechaniken, teste deine Reflexe und studiere Situationen auf der Karte.
+2774|HOK Reflextraining — Honor of Kings Reaktions- und Ausweichübungen | {site}
+2775|Reflexübungen für Honor of Kings Global Spieler: Reagiere, weiche aus und ziele gegen die Uhr und sieh, wie deine Zeiten besser werden.
+2776|HOK Kartensituationen — Honor of Kings Makrotraining | {site}
+2777|Situationen aus Honor of Kings Global Spielen auf der Karte gezeichnet: wohin, was tun und warum. Makrotraining für jede Lane.
+2778|HOK Teams — Kader und Staff von Honor of Kings Global Teams | {site}
+2779|Honor of Kings Global Teams: Gründe ein Team, lade Spieler und Staff ein, teile einen Kalender und finde Scrim-Partner.
+2780|HOK Scrim finden — Scrim-Partner für Honor of Kings Global | {site}
+2781|HOK Build-Rechner — teste Honor of Kings Builds und Werte | {site}
+2782|HOK Items — alle Honor of Kings Items mit Werten und Preis | {site}
+2783|HOK Arkana — alle Honor of Kings Arkana, rot, blau und grün | {site}
+2784|HOK Zauber — Honor of Kings Beschwörerzauber und Abklingzeiten | {site}
+2785|HOK Meta — die meistgespielten und besten Honor of Kings Turnier-Drafts | {site}
+2786|HOK Meta-Helden — Pick-, Ban- und Siegquote in Honor of Kings Turnieren | {site}
+2787|Die Helden der Turnier-Meta von Honor of Kings Global, Lane für Lane: wie oft jeder gewählt und gebannt wird und wie oft er gewinnt.
+2788|HOK Tierliste: {tier} in {lane}.
+2789|Siegquote in Turnieren: {rate} % in {count} Spielen.
+2790|Die Helden konnten nicht geladen werden.
+2791|Das Spiel konnte nicht gespeichert werden.
+2792|Das Spiel konnte nicht vorbereitet werden.
+2793|Strafe
+2794|Blitz
+2795|Sprint
+2796|Teleport
+2797|Hinrichtung
+2798|Raserei
+2799|Einschüchtern
+2800|Reinigen
+2801|Betäuben
+2802|Leben
+2803|Deine Fähigkeiten
+2804|Ansagen
+2805|Dreh dein Handy quer, um zu spielen.
+2806|Deine Verbündeten
+2807|Spielzeit
+2808|Gold beider Teams
+2809|Spiel verlassen
+2810|Ungefähre Daten
+2811|Dein Held wartet: Was jetzt?
+2812|Was jetzt?
+2813|Überraschungsfrage
+2814|Die Karte ist während der Pause verborgen, und die Pause wird bei deiner Note vermerkt.
+2815|Fortsetzen
+2816|Zurück in {seconds} s
+2817|Spiel vorbei
+2818|Makro-Note: {grade}
+2819|Das Spiel wurde pausiert.
+2820|Die Note wird in deinen Spielen gespeichert.
+2821|Zurück zur Einrichtung
+2822|Spielsimulation
+2823|Spiele ein ganzes Honor-of-Kings-Match mit einem Helden, von oben auf der Karte gesehen. Alle paar Sekunden wählst du, wohin dein Held geht: eine Lane, ein Camp, ein Ziel, ein Verbündeter, dem du hilfst, oder ein Turm, den du verteidigst. Keine Mechanik, nur Makro-Entscheidungen, und am Ende eine Note.
+2824|Du
+2825|Zufällig
+2826|Die Scrim-Engine lost für jede Lane beider Teams einen Helden aus. Du spielst den deiner Rolle.
+2827|Helden werden geladen…
+2828|Ein auf Zufällig gelassener Platz wird von der Scrim-Engine ausgelost.
+2829|Richte dein Spiel ein
+2830|Deine Seite
+2831|Deine Rolle
+2832|Schwierigkeit
+2833|Das gegnerische Team spielt nach falschen Entscheidungen härter und nach guten wieder weicher.
+2834|Zufällige Helden
+2835|Helden wählen
+2836|Auf dem Handy spielst du mit quer gedrehtem Bildschirm.
+2837|Spiel wird vorbereitet…
+2838|Spiel starten
+2839|Melde dich an, um deine Spiele und ihre Note zu behalten.
+2840|Noch kein Spiel.
+2841|Leicht
+2842|Schwer
+2843|Noch kein Spiel gespielt.
+2844|HOK-Spielsimulation — triff die Makro-Entscheidungen von Honor of Kings | {site}
+2845|Spiele ein ganzes Honor-of-Kings-Match mit einem Helden auf der Karte und triff seine Makro-Entscheidungen: wohin gehen, wann kämpfen, wann zurückziehen. Am Ende eine Note.
+2846|Sammeln
+2847|Rückzug
+2848|Achtung, Jungler
+2849|Clash-Lane
+2850|Farm-Lane
+2851|roten Buff
+2852|blauen Buff
+2853|Jungle-Camp
+2854|Tyrann
+2855|Oberherr
+2856|Schattentyrann
+2857|Schattenoberherr
+2858|Raumgeist
+2859|Feuerfalke
+2860|Halte deine Lane
+2861|Geh zur {lane}
+2862|Nimm deinen {camp}
+2863|Fall in den gegnerischen {camp} ein
+2864|Geh zum {objective}
+2865|Zu {hero} gehen
+2866|{hero} ganken
+2867|Warte im Busch nahe der {lane}
+2868|Zieh dich zu deinem Turm zurück
+2869|Zurück zur Basis
+2870|Verteidige deinen Turm auf der {lane}
+2871|Pushe die {lane}
+2872|{hero} folgen
+2873|Sorge für Sicht nahe der {lane}
+2874|{hero} bedrängen
+2875|Bleiben, wo ich bin
+2876|Ja
+2877|Nein
+2878|Wo ist der gegnerische Jungler ungefähr?
+2879|Nahe der Clash-Lane
+2880|Nahe der Mid-Lane
+2881|Nahe der Farm-Lane
+2882|Ist der gegnerische rote Buff da?
+2883|Ist der gegnerische blaue Buff da?
+2884|Ist die Strafe des gegnerischen Junglers bereit?
+2885|Wie viele gegnerische Helden sind gerade tot?
+2886|Wie viele gegnerische Türme sind gefallen?
+2887|Wann ist der Tyrann da?
+2888|Wann ist der Oberherr da?
+2889|Er ist jetzt da
+2890|In weniger als einer Minute
+2891|In ein bis zwei Minuten
+2892|In mehr als zwei Minuten
+2893|Welches Team hat mehr Gold?
+2894|Das gegnerische Team
+2895|Ungefähr gleich
+2896|Nenne einen bis zehn Helden.
+2897|Ein von Hand gewählter Held ist ungültig.
+2898|{label} ist ungültig.
+2899|Melde dich an, um deine Spiele zu behalten.
+2900|Das sind viele Spiele für einen Tag: Komm später wieder.
+2901|Spielfeld der Spielsimulation
+2902|In der Spielsimulation verwenden
+2903|Diese Karte gibt es nicht.
+2904|Führe das in einem Terminal aus:
+2905|Füge das in claude_desktop_config.json ein (Settings, Developer, Edit config) und starte Claude neu. Node.js wird benötigt.
+2906|Füge das in .cursor/mcp.json ein, im Projekt oder in deinem Benutzerordner:
+2907|In einem eigenen GPT: Configure, Create new action, Import from URL mit dieser Adresse. Dann Authentication: API key, Typ Bearer, und deinen Schlüssel einfügen.
+2908|Erstelle einen Schlüssel pro Assistent, nur mit dem, was er braucht (die öffentlichen Spieldaten reichen für Fragen zu Helden, Items und Drafts). Wird einer bekannt, widerrufe ihn, ohne die anderen anzurühren.
+2909|Ersetze {key} durch deinen Schlüssel. Der Assistent sieht dann ein Werkzeug pro Adresse, die dein Schlüssel lesen darf, und liest nur.
+2910|Kein Schlüssel, oder ein ungültiger, abgelaufener oder widerrufener Schlüssel.
+2911|Dem Schlüssel fehlt der Bereich, den diese Adresse braucht.
+2912|Unbekannte Adresse, oder etwas, das der Besitzer des Schlüssels nicht sehen darf.
+2913|Zu viele Anfragen: warte die Sekunden aus Retry-After ab.
+2914|Parameter
+2915|Wo
+2916|Pflicht
+2917|Adresse
+2918|Abfrage
+2919|Werkzeug für eine KI: {name}
+2920|Beispielantwort
+2921|1. Schlüssel erstellen
+2922|Melde dich an, öffne die API-Seite und wähle, was der Schlüssel lesen darf.
+2923|2. Eine Adresse aufrufen
+2924|Sende den Schlüssel im Authorization-Header. Antworten sind JSON.
+2925|3. Oder frag eine KI
+2926|Verbinde Claude, ChatGPT oder Cursor: Sie lesen die Daten für dich.
+2927|Authentifizierung
+2928|Jede Adresse braucht einen API-Schlüssel, gesendet als Bearer-Token. Ein Schlüssel liest nur und sieht, was sein Besitzer sieht: die Spieldaten für alle, deine Scrims, Tier-Listen und Teams für dich.
+2929|Dein erster Aufruf
+2930|Der Header X-API-Key geht auch. Ein Schlüssel in der Adresse wird ignoriert: Adressen landen in Logs.
+2931|Limits und Fehler
+2932|Jeder Schlüssel darf {count} Anfragen pro Minute stellen. Fehler sind JSON mit einem festen Code:
+2933|Bedeutung
+2934|Mit einer KI nutzen
+2935|Die API ist auch ein MCP-Server unter {address}: Ein Assistent bekommt ein Werkzeug pro Adresse, die sein Schlüssel lesen darf.
+2936|Adressen
+2937|Die vollständige Beschreibung zum Import in ein Werkzeug:
+2938|Markiere den Text und kopiere ihn.
+2939|HOK API: Honor-of-Kings-Daten für deine Programme
+2940|Lies Helden, Items, Arkana, Zauber, die Tier-Liste und Turnier-Drafts von Honor of Kings Global sowie deine eigenen Scrims aus einem Programm oder einem KI-Assistenten. Nur lesend, kostenlos, mit einem Schlüssel.
+2941|Schlüssel holen
+2942|Dokumentation
+2943|API
+2944|Lies deine Daten und die Spieldaten aus deinen eigenen Programmen und KI-Assistenten.
+2945|Melde dich an, um API-Schlüssel zu erstellen
+2946|Ein Schlüssel gehört zu einem Konto: Er liest, was du lesen darfst, und nicht mehr.
+2947|Lies deine Daten und die Spieldaten aus deinen eigenen Programmen und KI-Assistenten. Ein Schlüssel liest nur, er schreibt nie.
+2948|API-Seite öffnen
+2949|Erstelle und widerrufe deine Schlüssel und verbinde einen KI-Assistenten mit deinen Daten.
+2950|HOK API — Honor-of-Kings-Daten für Entwickler und KI-Assistenten | {site}
+2951|Lies Helden, Items, Arkana, Zauber, die Tier-Liste und Turnier-Drafts von Honor of Kings Global aus deinen Programmen, oder verbinde Claude, ChatGPT oder Cursor über MCP. Jede Adresse, ihre Parameter und eine Beispielantwort.
+2952|API | {site}
+2953|Deine API-Schlüssel und wie du einen KI-Assistenten mit deinen Daten verbindest.
+2954|Der MCP-Server nimmt JSON-RPC-Nachrichten per POST an.
+2956|Beispielanfrage
+2955|Die an den einzigen POST gesendete Situation ist ungültig: Der Fehler sagt, was falsch ist.
+2958|Die Partien gegen die Bots sind gerade nicht geöffnet. Versuche es später noch einmal.
+2957|Die Verbindung zur Partie wurde unterbrochen.

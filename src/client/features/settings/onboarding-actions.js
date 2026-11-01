@@ -1,5 +1,6 @@
 // onboarding, what happens on a click, a key or a submit: onClick, onChange.
-import { LANGUAGE_COOKIE, isLanguage } from "../../../shared/i18n.js";
+import { isLanguage } from "../../../shared/i18n.js";
+import { changeLanguage } from "../../app/language-address.js";
 import { MODULES } from "./parts.js";
 import { currentLanguage } from "../../app/browser-i18n.js";
 import { steps } from "./onboarding-shared.js";
@@ -8,9 +9,7 @@ export async function onClick(ui, event) {
   const language = event.target.closest("[data-language]");
   if (language) {
     if (isLanguage(language.dataset.language) && language.dataset.language !== currentLanguage()) {
-      const secure = location.protocol === "https:" ? "; Secure" : "";
-      document.cookie = `${LANGUAGE_COOKIE}=${language.dataset.language}; Path=/; Max-Age=31536000; SameSite=Lax${secure}`;
-      location.reload();
+      changeLanguage(language.dataset.language);
     }
     return;
   }

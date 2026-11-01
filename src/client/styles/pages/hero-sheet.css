@@ -172,6 +172,12 @@
   background: var(--tc);
   color: #0b0f17;
   font: 800 26px/1 var(--font-display);
+  text-decoration: none;
+}
+.hero-rating:hover,
+.hero-rating:focus-visible {
+  color: #0b0f17;
+  outline-offset: 2px;
 }
 .hero-rating[data-tier="SS"] {
   --tc: var(--tier-ss);
