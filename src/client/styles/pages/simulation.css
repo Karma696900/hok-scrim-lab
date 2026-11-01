@@ -9,6 +9,22 @@
   gap: 18px;
   align-items: start;
 }
+/* the game is played on touch screens only: a computer with a mouse sees why instead of the set-up */
+.sim-phone-only {
+  display: none;
+  padding: 20px;
+}
+.sim-phone-only h2 {
+  margin: 0 0 8px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .sim-phone-only {
+    display: block;
+  }
+  .sim-columns {
+    display: none;
+  }
+}
 .sim-setup,
 .sim-history {
   display: grid;

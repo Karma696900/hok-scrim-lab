@@ -2831,3 +2831,6 @@
 2996|Um componente da receita não está no catálogo.
 2997|Um item não pode ser um dos seus próprios componentes.
 2998|É componente de outros {count} itens: retire-o primeiro das receitas deles.
+2999|Jogue no seu telemóvel
+3000|A simulação de partida foi feita para ecrãs táteis. Abra esta página no seu telemóvel ou tablet para jogar ou assistir a uma partida.
+3001|Habilidades, lançadas pela IA

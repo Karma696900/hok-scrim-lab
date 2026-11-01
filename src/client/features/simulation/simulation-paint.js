@@ -18,7 +18,9 @@ import {
   placeAt,
   share
 } from "./simulation-hud.js";
+import { paintGauge } from "./simulation-gauge.js";
 import { glideTo } from "./simulation-motion.js";
+import { paintSkills } from "./simulation-skills.js";
 import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
 import { clock, esc, portrait } from "./simulation-shared.js";
 
@@ -53,8 +55,7 @@ function paintDot(dot, hero) {
   const [hp, mana] = dot.querySelectorAll(".sim-bar");
   fillBar(hp, share(hero.hp ?? 1, hero.maxHp ?? 1), hero.maxHp ?? 1000);
   if (mana) {
-    mana.hidden = hero.mana === null || hero.mana === undefined;
-    fillBar(mana, share(hero.mana ?? 0, hero.maxMana ?? 0));
+    paintGauge(mana, hero);
   }
   const level = dot.querySelector(".sim-dot__level");
   if (level && level.textContent !== String(hero.level ?? 1)) {
@@ -213,6 +214,7 @@ export function paintFrame(run, state, view, now) {
   paintHeroes(run, view, now);
   paintWaves(run, view);
   paintCamps(run, view);
+  paintSkills(run, view, run.newCasts, now);
   paintCasts(run, now);
   if (run.eyes) {
     const eyes = eyesMarkup(run.eyes);

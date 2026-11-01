@@ -75,6 +75,9 @@
 @import "./pages/simulation-board.css";
 @import "./pages/simulation-controls.css";
 @import "./pages/simulation-hud.css";
+@import "./pages/simulation-gauge.css";
+@import "./pages/simulation-skills.css";
+@import "./pages/simulation-tilt.css";
 @import "./pages/simulation-watch.css";
 @import "./pages/series.css";
 @import "./pages/series-games.css";

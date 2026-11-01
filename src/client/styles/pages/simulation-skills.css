@@ -1,0 +1,103 @@
+/* ---------- Game Simulation: the skills in an arc around the attack, as in the game ---------- */
+/* The AI casts the skills (simulation-skills.js): the arc shows them, it takes no finger. Each skill is placed by its
+   --x and --y (pixels from the centre of the attack button, up is positive), set by the script. */
+.sim-arc {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 4;
+  width: 72px;
+  height: 72px;
+  pointer-events: none;
+}
+.sim-arc__skill {
+  position: absolute;
+  top: calc(50% - var(--y, 0px) - 28px);
+  left: calc(50% + var(--x, 0px) - 28px);
+  display: grid;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border: 2px solid rgba(232, 238, 247, 0.32);
+  border-radius: 50%;
+  background: rgba(10, 16, 28, 0.82);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  transition:
+    scale 0.15s ease-out,
+    border-color 0.15s ease-out;
+}
+.sim-arc__skill--ult {
+  border-color: rgba(242, 201, 76, 0.55);
+}
+.sim-arc__face,
+.sim-arc__time,
+.sim-arc__skill::after {
+  grid-area: 1 / 1;
+}
+.sim-arc__face {
+  display: grid;
+  place-items: center;
+  color: #e8eef7;
+  font: 800 16px/1 var(--font-body);
+}
+.sim-arc__face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* the dark sweep of the cooldown, shrinking clockwise */
+.sim-arc__skill.is-cooling::after {
+  content: "";
+  background: conic-gradient(
+    rgba(3, 6, 12, 0.74) calc(var(--sweep, 0) * 360deg),
+    rgba(3, 6, 12, 0.3) 0
+  );
+}
+.sim-arc__time {
+  z-index: 1;
+  place-self: center;
+  color: #fff;
+  font: 800 18px/1 var(--font-body);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+.sim-arc__time[hidden] {
+  display: none;
+}
+/* the AI just cast it */
+.sim-arc__skill.is-cast {
+  border-color: var(--gild);
+  scale: 1.1;
+}
+.sim-arc__skill.is-off {
+  opacity: 0.45;
+}
+
+/* the enemies in sight, above the arc */
+.sim-game--play .sim-strike .sim-avatars {
+  position: absolute;
+  right: 0;
+  bottom: 214px;
+  flex-wrap: nowrap;
+  max-width: none;
+}
+
+/* bottom middle: the summoner spell (or Punish) */
+.sim-tools {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  z-index: 5;
+  display: flex;
+  gap: 10px;
+  translate: -50% 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sim-arc__skill {
+    transition: none;
+  }
+  .sim-arc__skill.is-cast {
+    scale: none;
+  }
+}

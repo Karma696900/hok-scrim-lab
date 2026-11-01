@@ -153,6 +153,10 @@ export function historyHtml(view) {
   }</section>`;
 }
 
+/** On a computer (a mouse, no touch screen): the game is played on a phone or a tablet only (simulation.css). */
+const phoneOnlyHtml = () =>
+  `<section class="card sim-phone-only"><h2>${t("Play it on your phone")}</h2><p class="muted">${t("The Game Simulation is made for touch screens. Open this page on your phone or your tablet to play or watch a game.")}</p></section>`;
+
 /** The whole set-up screen. */
 export const pageHtml = view =>
-  `<div class="sim-page">${introHtml()}<div class="sim-columns">${setupHtml(view)}${historyHtml(view)}</div></div>`;
+  `<div class="sim-page">${introHtml()}${phoneOnlyHtml()}<div class="sim-columns">${setupHtml(view)}${historyHtml(view)}</div></div>`;

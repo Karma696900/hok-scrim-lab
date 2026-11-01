@@ -2831,3 +2831,6 @@
 2996|Một thành phần của công thức không có trong danh mục.
 2997|Một trang bị không thể là thành phần của chính nó.
 2998|Đây là thành phần của {count} trang bị khác: hãy gỡ nó khỏi công thức của chúng trước.
+2999|Chơi trên điện thoại của bạn
+3000|Mô phỏng trận đấu được làm cho màn hình cảm ứng. Hãy mở trang này trên điện thoại hoặc máy tính bảng để chơi hoặc xem một trận.
+3001|Kỹ năng, do AI tung ra

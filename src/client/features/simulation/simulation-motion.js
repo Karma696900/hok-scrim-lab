@@ -4,6 +4,7 @@
 // wall, a death, a teleport). Positions are the map's pixels; simulation-paint.js turns them for the red side. The
 // camera then follows the player's hero (simulation-camera.js).
 import { followCamera } from "./simulation-camera.js";
+import { standDots } from "./simulation-stand.js";
 import { place } from "./simulation-paint.js";
 
 const FRAME_MS = 100;
@@ -65,6 +66,7 @@ export function moveDots(run, now) {
   }
   run.movedAt = now;
   if (run.camera) {
-    followCamera(run);
+    followCamera(run, now);
+    standDots(run);
   }
 }

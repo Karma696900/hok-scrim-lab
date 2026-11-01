@@ -2,7 +2,7 @@
 // - the minimap: the whole map with its fog, the towers that stand, the heroes the side sees and the camera's
 //   frame;
 // - the cards of the player's hero and of the allies: portrait, level, health cut every 1000 points as in the
-//   game, mana, a ring when the ultimate is ready, the respawn countdown;
+//   game, the gauge in place of mana (simulation-gauge.js), a ring when the ultimate is ready, the respawn countdown;
 // - the top right: the clock, the kills of both teams, the player's kills, deaths and assists;
 // - the scoreboard (☰): both teams, each hero's level, kills, deaths, assists and items, the kills and the gold of
 //   each team. It does not pause the game, as in the game.
@@ -10,6 +10,7 @@
 import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
 import { catalogImageAttrs } from "../../domain/catalog-display.js";
+import { paintGauge } from "./simulation-gauge.js";
 import { mapSvg, placeOnBoard } from "./simulation-map.js";
 import { esc, heroName, portrait } from "./simulation-shared.js";
 
@@ -139,8 +140,7 @@ export function paintCards(run, view) {
     }
     const [hp, mana] = card.querySelectorAll(".sim-bar");
     fillBar(hp, hero.alive ? share(hero.hp ?? 1, hero.maxHp ?? 1) : 0, hero.maxHp ?? SEGMENT_HP);
-    mana.hidden = hero.mana === null || hero.mana === undefined;
-    fillBar(mana, share(hero.mana ?? 0, hero.maxMana ?? 0));
+    paintGauge(mana, hero);
     card.querySelector(".sim-card__level").textContent = String(hero.level ?? 1);
     card.classList.toggle("is-ult", hero.alive && Boolean(hero.ult));
     card.classList.toggle("is-dead", !hero.alive);

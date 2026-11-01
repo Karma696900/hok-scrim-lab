@@ -109,7 +109,8 @@
 }
 .sim-hud button,
 .sim-hud .sim-stick,
-.sim-hud .sim-avatars {
+.sim-hud .sim-avatars,
+.sim-hud .sim-mini {
   pointer-events: auto;
 }
 .sim-hud__button {
@@ -152,6 +153,11 @@
   border-radius: 10px;
   background: #0b1220;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  /* held, it moves the camera (simulation-camera.js): the finger must not scroll the page */
+  touch-action: none;
+}
+.sim-mini.is-looking {
+  border-color: var(--gild);
 }
 .sim-mini__svg {
   display: block;
@@ -373,13 +379,7 @@
   height: 22px;
 }
 
-/* the summoner spell (or Punish), beside the attack buttons */
-.sim-game--play .sim-strike {
-  grid-template-areas:
-    "avatars avatars"
-    "spell tower"
-    "minion attack";
-}
+/* the summoner spell (or Punish), bottom middle (simulation-skills.css places it) */
 .sim-game--play .sim-dot__cast {
   bottom: calc(100% + 32px);
 }

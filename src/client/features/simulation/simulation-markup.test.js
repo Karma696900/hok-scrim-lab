@@ -208,11 +208,19 @@ describe("the board", () => {
     assert.match(gradeHtml({ letter: "S", paused: true }, { signedIn: true }), /was paused/);
   });
 
-  test("the screen of the game: the minimap and the side's cards top left, the score top right, no skills, no shop", () => {
+  test("the screen of the game: the minimap and the side's cards top left, the score top right, the skills shown but not pressed, no shop", () => {
     const at = [500, 500];
     const start = {
       map,
-      me: { id: "blue-1", heroId: "105", side: "blue", lane: "Clash Lane", spell: "flash", at },
+      me: {
+        id: "blue-1",
+        heroId: "105",
+        side: "blue",
+        lane: "Clash Lane",
+        spell: "flash",
+        skills: ["s1", "s2", "ult"],
+        at
+      },
       heroes: [
         { id: "blue-1", heroId: "105", side: "blue" },
         { id: "blue-2", heroId: "131", side: "blue" },
@@ -239,8 +247,25 @@ describe("the board", () => {
     assert.match(html, /data-farm="blue"/);
     assert.match(html, /data-sim="spell"[^>]*aria-label="Flash"/);
     assert.equal(html.match(/class="sim-call"/g).length, 1);
-    assert.doesNotMatch(html, /sim-skill|sim-shop|data-sim="buy"/, "no skill button and no shop");
+    const skills = [...html.matchAll(/class="sim-arc__skill[^"]*" data-skill="([^"]+)"/g)].map(
+      m => m[1]
+    );
+    assert.deepEqual(skills, ["s1", "s2", "ult"], "the hero's skills, in the arc");
+    const arc = html.match(/<div class="sim-arc"[\s\S]*?<\/div>/)?.[0] ?? "";
+    assert.match(arc, /aria-label="Skills, cast by the AI"/);
+    assert.doesNotMatch(arc, /<button|data-sim=/, "the AI casts the skills: nothing to press");
+    assert.doesNotMatch(html, /sim-shop|data-sim="buy"/, "no shop");
     assert.doesNotMatch(html, /style="/, "no style attribute (content policy)");
+    // the field's dots stand on a flat layer beside the tilted map; towers, crystals and camps are dots there too
+    const field = html.match(/<div class="sim-view">[\s\S]*?<div class="sim-hud">/)?.[0] ?? "";
+    const tilted = field.match(/<div class="sim-map[\s\S]*?<\/svg>/)?.[0] ?? "";
+    assert.doesNotMatch(
+      tilted,
+      /data-tower=|data-camp=|data-crystal=/,
+      "no structure drawn on the tilted map"
+    );
+    assert.match(field, /<\/div>\s*<div class="sim-dots">\s*<span class="sim-spot sim-spot--tower/);
+    assert.match(field, /class="sim-spot sim-spot--crystal sim-spot--red" data-crystal="red"/);
   });
 
   test("the pause box can resume or leave the game", () => {

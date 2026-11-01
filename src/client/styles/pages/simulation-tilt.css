@@ -1,0 +1,77 @@
+/* ---------- Game Simulation: the field tilted like the game's camera ---------- */
+/* simulation-camera.js keeps the hero's dot in the middle of the screen and turns the map by --sim-tilt about it,
+   seen from --sim-depth: what is far away is drawn smaller. The dots stand on a flat layer of the map's size above it
+   (simulation-stand.js scales and places each one where the tilted map draws its point): never hidden by the map,
+   always round. Towers, crystals, camps and objectives are dots too, a little more transparent than the heroes. */
+.sim-game--play .sim-view {
+  --sim-tilt: 40deg;
+  --sim-depth: 900px;
+  perspective: var(--sim-depth);
+  perspective-origin: 50% 50%;
+}
+.sim-game--play .sim-dots {
+  inset: auto;
+  top: 0;
+  left: 0;
+  width: calc(max(100cqw, 100cqh) * 2.6);
+  aspect-ratio: 1;
+  will-change: transform;
+}
+
+.sim-spot {
+  --spot-tone: #b9a77a;
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border: 2px solid var(--spot-tone);
+  border-radius: 50%;
+  background: rgba(11, 18, 32, 0.85);
+  color: var(--spot-tone);
+  opacity: 0.72;
+}
+.sim-spot svg {
+  width: 62%;
+  height: 62%;
+  fill: currentColor;
+}
+.sim-spot--tower {
+  width: 34px;
+}
+.sim-spot--crystal,
+.sim-spot--objective {
+  width: 40px;
+}
+.sim-spot--red-buff,
+.sim-spot--blue-buff {
+  width: 30px;
+}
+.sim-spot--blue {
+  --spot-tone: #6fa0ef;
+}
+.sim-spot--red,
+.sim-spot--red-buff {
+  --spot-tone: #ef7a65;
+}
+.sim-spot--blue-buff {
+  --spot-tone: #4a9be3;
+}
+.sim-spot--objective {
+  --spot-tone: #b88cf0;
+}
+.sim-spot.is-down {
+  opacity: 0.18;
+}
+.sim-spot.is-unknown {
+  border-style: dashed;
+  opacity: 0.45;
+}
+.sim-spot.is-target {
+  box-shadow: 0 0 0 3px var(--gild);
+}
+.sim-game--play .sim-wave {
+  opacity: 0.8;
+}

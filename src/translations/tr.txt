@@ -2831,3 +2831,6 @@
 2996|Tarifteki bir bileşen katalogda yok.
 2997|Bir eşya kendi bileşeni olamaz.
 2998|Bu, {count} başka eşyanın bileşeni: önce onların tariflerinden çıkarın.
+2999|Telefonunda oyna
+3000|Maç simülasyonu dokunmatik ekranlar için yapıldı. Bir maç oynamak ya da izlemek için bu sayfayı telefonunda veya tabletinde aç.
+3001|Yetenekler, yapay zekâ kullanır

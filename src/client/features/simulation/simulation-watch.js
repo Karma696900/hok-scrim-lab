@@ -4,6 +4,7 @@
 // shows the blue base at the bottom. The end names the winner, the length and the kills: no grade, nothing kept.
 import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
+import { paintGauge } from "./simulation-gauge.js";
 import { eyesMarkup, mapSvg } from "./simulation-map.js";
 import {
   paintCamps,
@@ -101,8 +102,7 @@ function paintTeams(run, view) {
     }
     const [hp, mana, ult] = row.querySelectorAll(".sim-bar");
     setBar(hp, hero.alive ? share(hero.hp ?? 1, hero.maxHp ?? 1) : 0);
-    mana.hidden = hero.mana === null || hero.mana === undefined;
-    setBar(mana, share(hero.mana ?? 0, hero.maxMana ?? 0));
+    paintGauge(mana, hero);
     setBar(ult, hero.ult ? 100 : 0);
     ult.classList.toggle("is-ready", Boolean(hero.ult));
     const timer = row.querySelector(".sim-ally__timer");

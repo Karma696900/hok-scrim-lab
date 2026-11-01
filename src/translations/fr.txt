@@ -2831,3 +2831,6 @@
 2996|Un composant de la recette n'est pas dans le catalogue.
 2997|Un objet ne peut pas être l'un de ses propres composants.
 2998|C'est un composant de {count} autres objets : retirez-le d'abord de leurs recettes.
+2999|Jouez-y sur votre téléphone
+3000|La simulation de partie est faite pour les écrans tactiles. Ouvrez cette page sur votre téléphone ou votre tablette pour jouer ou regarder une partie.
+3001|Compétences, lancées par l'IA

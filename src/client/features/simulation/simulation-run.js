@@ -9,9 +9,10 @@ import { api } from "../../app/api-client.js";
 import { boardHtml } from "./simulation-board.js";
 import { bindCamera, unbindCamera } from "./simulation-camera.js";
 import { bindControls, unbindControls } from "./simulation-controls.js";
-import { toggleScoreboard } from "./simulation-hud.js";
+import { placeAt, toggleScoreboard } from "./simulation-hud.js";
 import { moveDots } from "./simulation-motion.js";
 import { paintFrame } from "./simulation-paint.js";
+import { bindSkills } from "./simulation-skills.js";
 import { gradeHtml } from "./simulation-popups.js";
 import { bindWatch, paintWatch, watchBoardHtml, watchEndHtml } from "./simulation-watch.js";
 
@@ -84,6 +85,10 @@ function bindLayer(run) {
   run.miniTowers = new Map(
     [...layer.querySelectorAll("[data-mini-tower]")].map(m => [m.dataset.miniTower, m])
   );
+  // the dots of the towers, crystals and camps of a game by hand, each on its point of the map (simulation-stand.js)
+  for (const spot of layer.querySelectorAll(".sim-spot[data-at]")) {
+    placeAt(spot, spot.dataset.at.split(",").map(Number), run.side);
+  }
   run.campMarks = new Map([...layer.querySelectorAll("[data-camp]")].map(m => [m.dataset.camp, m]));
   run.towerMarks = new Map(
     [...layer.querySelectorAll("[data-tower]")].map(m => [m.dataset.tower, m])
@@ -138,6 +143,7 @@ function begin(run, start) {
     bindWatch(run);
   } else {
     bindControls(run);
+    bindSkills(run);
     bindCamera(run);
     loadItems(run);
   }

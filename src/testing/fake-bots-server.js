@@ -126,6 +126,16 @@ function enemyNear(game) {
   return { ...enemy, pos: [460, 540], alive: true, hp: 400, maxHp: 1000 };
 }
 
+// the gauges in place of mana, one of each look: mana, pips (Charlotte at 3), a red bar (Lian Po), none (Arthur),
+// a bar turning from yellow to red (Li Xin)
+const GAUGES = [
+  { kind: "bar", share: 0.75, tone: "mana" },
+  { kind: "pips", pips: ["white", "white", "white", "", ""] },
+  { kind: "bar", share: 0.6, tone: "red" },
+  null,
+  { kind: "bar", share: 0.5, tone: "yellow", to: "red", blend: 0.5 }
+];
+
 function viewOf(game) {
   const { heroes, side } = game;
   return {
@@ -141,6 +151,7 @@ function viewOf(game) {
         maxHp: 3400,
         mana: 300,
         maxMana: 400,
+        gauge: GAUGES[index % GAUGES.length],
         ult: index === 0,
         cooldowns: { s1: 2 }
       }))
@@ -214,7 +225,9 @@ function tick(game) {
     type: "frame",
     state: stateOf(game),
     camps: { "blue-red": 0.4 },
-    casts: [],
+    // the AI casts the player's second skill every two seconds (the arc of skills flashes it)
+    casts:
+      game.me && Math.round(game.time * 10) % 20 === 0 ? [{ hero: game.me.id, key: "s2" }] : [],
     eyes: [{ at: [320, 700], radius: 120 }]
   });
   if (game.targetAt !== null && !game.paused && game.time >= game.targetAt + PLAYED_AFTER_TARGET) {

@@ -2831,3 +2831,6 @@
 2996|Un componente della ricetta non è nel catalogo.
 2997|Un oggetto non può essere uno dei propri componenti.
 2998|È un componente di altri {count} oggetti: toglilo prima dalle loro ricette.
+2999|Gioca dal tuo telefono
+3000|La simulazione di partita è pensata per gli schermi touch. Apri questa pagina sul telefono o sul tablet per giocare o guardare una partita.
+3001|Abilità, lanciate dall'IA

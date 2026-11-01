@@ -2831,3 +2831,6 @@
 2996|Un componente de la receta no está en el catálogo.
 2997|Un objeto no puede ser uno de sus propios componentes.
 2998|Es componente de otros {count} objetos: quítalo primero de sus recetas.
+2999|Juega en tu teléfono
+3000|La simulación de partida está hecha para pantallas táctiles. Abre esta página en tu teléfono o tu tableta para jugar o ver una partida.
+3001|Habilidades, lanzadas por la IA

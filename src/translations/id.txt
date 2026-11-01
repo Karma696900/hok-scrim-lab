@@ -2831,3 +2831,6 @@
 2996|Sebuah komponen resep tidak ada di katalog.
 2997|Sebuah item tidak bisa menjadi komponennya sendiri.
 2998|Ini komponen dari {count} item lain: keluarkan dulu dari resep mereka.
+2999|Mainkan di ponselmu
+3000|Simulasi pertandingan dibuat untuk layar sentuh. Buka halaman ini di ponsel atau tabletmu untuk bermain atau menonton pertandingan.
+3001|Skill, digunakan oleh AI

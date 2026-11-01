@@ -5,15 +5,18 @@
 // - top right: the clock, the kills of both teams, the player's kills, deaths and assists, the scoreboard (☰) and
 //   the pause (⚙), with the gold of both teams under them;
 // - on the right edge: the four free calls;
-// - at the bottom: the joystick on the left; the attack buttons and the summoner spell (or Punish) on the right.
-// No skill buttons (the AI casts the skills) and no shop. simulation-paint.js and simulation-hud.js fill it at
+// - at the bottom: the joystick on the left; the attack buttons on the right, with the skills in an arc around them
+//   (shown, not pressed: the AI casts them, simulation-skills.js); the summoner spell (or Punish) in the middle.
+// No shop. simulation-paint.js and simulation-hud.js fill it at
 // every frame; simulation-popups.js draws what opens on top.
 import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
 import { controlsHtml } from "./simulation-controls.js";
 import { heroCardHtml, miniMapHtml, scoreboardShellHtml } from "./simulation-hud.js";
 import { mapSvg } from "./simulation-map.js";
+import { spotsHtml } from "./simulation-stand.js";
 import { esc } from "./simulation-shared.js";
+import { skillsArcHtml } from "./simulation-skills.js";
 
 /** The engine's summoner spells, as the button names them. */
 export const SPELL_NAMES = {
@@ -64,9 +67,9 @@ export function boardHtml({ start, heroes, picture = {} }) {
   <div class="sim-game sim-game--play">
     <div class="sim-view">
       <div class="sim-map sim-map--${me.side}">
-        ${mapSvg(start.map, me.side, picture)}
-        <div class="sim-dots"></div>
+        ${mapSvg(start.map, me.side, { ...picture, marks: false })}
       </div>
+      <div class="sim-dots">${spotsHtml(start.map)}</div>
     </div>
     <div class="sim-hud">
       <div class="sim-hud__left">
@@ -75,7 +78,9 @@ export function boardHtml({ start, heroes, picture = {} }) {
       </div>
       ${topRightHtml()}
       ${callsHtml(calls)}
-      ${controlsHtml(spellHtml(me))}
+      ${controlsHtml()}
+      ${skillsArcHtml(me)}
+      <div class="sim-tools">${spellHtml(me)}</div>
     </div>
     <div class="sim-death" hidden></div>
     <div class="sim-cover" hidden></div>

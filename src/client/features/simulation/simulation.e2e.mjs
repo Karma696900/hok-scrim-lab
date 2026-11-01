@@ -60,8 +60,13 @@ const shot = async (page, name) =>
   process.env.SIM_SHOTS && page.screenshot({ path: `${process.env.SIM_SHOTS}/${name}.png` });
 
 const browser = await chromium.launch();
-const open = async (who, viewport = { width: 1280, height: 800 }, { quiet = [] } = {}) => {
-  const context = await browser.newContext({ viewport });
+// the game is played on touch screens only (simulation.css): every page is a touch device unless `touch` is false
+const open = async (
+  who,
+  viewport = { width: 1280, height: 800 },
+  { quiet = [], touch = true } = {}
+) => {
+  const context = await browser.newContext({ viewport, hasTouch: touch, isMobile: touch });
   if (who) {
     await context.addCookies([
       { name: "hok_session", value: who.browser.jar.get("hok_session"), url: app.baseUrl }
@@ -77,6 +82,18 @@ const open = async (who, viewport = { width: 1280, height: 800 }, { quiet = [] }
   });
   return page;
 };
+
+// ---- a computer with a mouse ---------------------------------------------------------------------------------------
+const desk = await open(null, undefined, { quiet: ["401"], touch: false });
+await desk.goto(`${app.baseUrl}/simulation`);
+await desk.waitForSelector(".sim-phone-only", { state: "attached", timeout: 20000 });
+const fine = await desk.evaluate(() => matchMedia("(hover: hover) and (pointer: fine)").matches);
+check(
+  `with a mouse (${fine ? "fine pointer" : "no fine pointer"}), the page asks for a phone instead of the set-up`,
+  (await desk.locator(".sim-phone-only").isVisible()) &&
+    !(await desk.locator(".sim-columns").isVisible())
+);
+await desk.close();
 
 // ---- the set-up screen, as a visitor ---------------------------------------------------------------------------
 // the refused ticket shows in the console as a failed request: expected here
@@ -138,12 +155,99 @@ const mini = await player.locator(".sim-mini").boundingBox();
 check("the minimap top left", mini !== null && mini.x < 40 && mini.y < 40);
 check("the cards of the side's five heroes", (await player.locator(".sim-card").count()) === 5);
 check(
-  "the camera follows the hero",
+  "the camera follows the hero, the map tilted like the game's",
   await settles(
-    player.waitForFunction(() =>
-      document.querySelector(".sim-game--play .sim-map")?.style.transform.includes("translate3d")
+    player.waitForFunction(() => {
+      const transform = document.querySelector(".sim-game--play .sim-map")?.style.transform ?? "";
+      return transform.includes("translate3d") && transform.includes("rotateX");
+    })
+  )
+);
+await player.waitForTimeout(400);
+const centred = await player.evaluate(() => {
+  const view = document.querySelector(".sim-view").getBoundingClientRect();
+  const me = document.querySelector(".sim-dot--me");
+  const dot = me.getBoundingClientRect();
+  const frame = document.querySelector(".sim-mini__frame").style;
+  return {
+    screen: Math.hypot(
+      dot.left + dot.width / 2 - (view.left + view.width / 2),
+      dot.top + dot.height / 2 - (view.top + view.height / 2)
+    ),
+    frame: Math.hypot(
+      parseFloat(frame.left) + parseFloat(frame.width) / 2 - parseFloat(me.style.left),
+      parseFloat(frame.top) + parseFloat(frame.height) / 2 - parseFloat(me.style.top)
+    ),
+    flat: !document.querySelector(".sim-dots").style.transform.includes("rotate"),
+    farther: [...document.querySelectorAll(".sim-dot:not([hidden])")].some(other => {
+      const box = other.getBoundingClientRect();
+      return box.top < dot.top - 40 && box.width < dot.width - 1;
+    }),
+    towers: document.querySelectorAll(".sim-dots .sim-spot--tower").length,
+    onMap: document.querySelectorAll(".sim-map [data-tower], .sim-map [data-camp]").length,
+    lighter:
+      Number(getComputedStyle(document.querySelector(".sim-spot--tower")).opacity) <
+      Number(getComputedStyle(me).opacity)
+  };
+});
+check(
+  `the hero's dot in the middle of the screen (${centred.screen.toFixed(1)} px off)`,
+  centred.screen < 6
+);
+check(
+  `the minimap's frame centred on the hero (${centred.frame.toFixed(2)} % off)`,
+  centred.frame < 1
+);
+check("the dots stand on a flat layer above the tilted map", centred.flat);
+check("a dot farther up the map is drawn smaller", centred.farther);
+check(
+  "the towers are dots too, a little more transparent than the heroes, none drawn on the map",
+  centred.towers === 2 && centred.onMap === 0 && centred.lighter
+);
+check(
+  "the skills in an arc, not pressable: the AI casts them",
+  (await player.locator(".sim-arc .sim-arc__skill").count()) === 3 &&
+    (await player.locator(".sim-arc button, .sim-arc [data-sim]").count()) === 0
+);
+check(
+  "a skill recharging shows its seconds",
+  await settles(
+    player.waitForFunction(
+      () =>
+        document.querySelector('.sim-arc__skill[data-skill="s1"] .sim-arc__time')?.textContent ===
+        "2"
     )
   )
+);
+check(
+  "the skill the AI casts flashes",
+  await settles(
+    player.waitForSelector('.sim-arc__skill[data-skill="s2"].is-cast', { timeout: 5000 })
+  )
+);
+const frameAt = () =>
+  player.evaluate(() => {
+    const frame = document.querySelector(".sim-mini__frame");
+    return [parseFloat(frame.style.left), parseFloat(frame.style.top)];
+  });
+const before = await frameAt();
+await player.mouse.move(mini.x + mini.width - 6, mini.y + 6);
+await player.mouse.down();
+await player.waitForTimeout(150);
+const looking = await frameAt();
+check(
+  "held, the minimap moves the camera to the finger",
+  (await player.locator(".sim-mini.is-looking").count()) === 1 &&
+    Math.hypot(looking[0] - before[0], looking[1] - before[1]) > 10
+);
+await shot(player, "minimap-look");
+await player.mouse.up();
+await player.waitForTimeout(450);
+const back = await frameAt();
+check(
+  "lifted, the camera glides back to the hero",
+  (await player.locator(".sim-mini.is-looking").count()) === 0 &&
+    Math.hypot(back[0] - before[0], back[1] - before[1]) < 2
 );
 await shot(player, "hud");
 if (process.env.SIM_SHOTS) {

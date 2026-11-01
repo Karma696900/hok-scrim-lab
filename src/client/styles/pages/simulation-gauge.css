@@ -1,0 +1,65 @@
+/* the gauge a hero shows in place of mana (simulation-gauge.js): its colour by data-tone, the colour it turns to
+   (Li Xin) by data-to and --blend, and the pips of the heroes who count stacks */
+.sim-bar--mana {
+  --tone: #4b8df0;
+}
+.sim-bar--mana[data-tone="red"],
+.sim-bar--mana > b[data-tone="red"] {
+  --tone: #e0533d;
+}
+.sim-bar--mana[data-tone="yellow"],
+.sim-bar--mana > b[data-tone="yellow"] {
+  --tone: #f2c94c;
+}
+.sim-bar--mana[data-tone="white"],
+.sim-bar--mana > b[data-tone="white"] {
+  --tone: #eef2f8;
+}
+.sim-bar--mana[data-tone="green"],
+.sim-bar--mana > b[data-tone="green"] {
+  --tone: #4ad07a;
+}
+.sim-bar--mana[data-tone="purple"],
+.sim-bar--mana > b[data-tone="purple"] {
+  --tone: #a978f2;
+}
+.sim-bar--mana[data-tone="grey"],
+.sim-bar--mana > b[data-tone="grey"] {
+  --tone: #8d96a6;
+}
+.sim-bar--mana[data-tone="pale-yellow"],
+.sim-bar--mana > b[data-tone="pale-yellow"] {
+  --tone: #f4e4a4;
+}
+.sim-bar--mana[data-tone="pale-blue"],
+.sim-bar--mana > b[data-tone="pale-blue"] {
+  --tone: #acd0f6;
+}
+.sim-bar--mana[data-to="red"] {
+  --to: #e0533d;
+}
+.sim-bar--mana[data-to="yellow"] {
+  --to: #f2c94c;
+}
+.sim-bar--mana > i {
+  background: var(--tone);
+}
+.sim-bar--mana[data-to] > i {
+  background: color-mix(in oklab, var(--tone), var(--to) calc(var(--blend, 0) * 1%));
+}
+
+/* pips: one cell per stack, empty cells dimmed, as in the game */
+.sim-bar--mana.is-pips:not([hidden]) {
+  display: flex;
+  gap: 1px;
+  overflow: visible;
+  background: transparent;
+}
+.sim-bar--mana.is-pips > b {
+  flex: 1;
+  border-radius: 1px;
+  background: rgba(255, 255, 255, 0.16);
+}
+.sim-bar--mana.is-pips > b[data-tone] {
+  background: var(--tone);
+}
