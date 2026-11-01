@@ -31,7 +31,7 @@ Importées par `scripts/catalog/import-recipes.mjs` depuis `scripts/catalog/data
 - [ ] **6 icônes manquent** (le serveur d'images du jeu répond 404) : Mystic Page, Plume of Enchantment, Primordial Crystal, Mirror of Radiance, Stone of All Creation, Ironbrand.
 - [ ] **6 objets sans recette** (aucune page ne la donne) : Lance of Swiftness, Pearl of Origin, Stone of All Creation, Ironbrand, Assassin's Wristbow, Guardian - Howl.
 - [ ] **5 recettes douteuses** (complétées par les stats, plusieurs candidats possibles) : Starbreaker, Tempest, Sage's Sanctuary, Boots of Fortitude, Boots of Resistance.
-- [ ] **« Assassin »** dans ta base a été rattaché à « Assassin's Wristbow » (seul objet du jeu qui commence ainsi). Pas renommé.
+- [x] **« Assassin »** renommé « Assassin's Wristbow » (base locale, 2026-11-01). En production : à renommer dans Catalogue → Objets.
 - [ ] **Anti-magic Cloak** et **Sparkling Sapphire** : absents de hokstats.gg, onglet de boutique inconnu.
 
 ## Objets sans stats (27) : à compléter à la main ou à me donner
