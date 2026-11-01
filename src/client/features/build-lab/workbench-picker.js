@@ -4,7 +4,8 @@ import {
   ARCANA_PER_COLOR,
   GROUP_OF,
   SPELLS_MAX,
-  arcanaTotal
+  arcanaTotal,
+  inBuilds
 } from "../../../shared/build-model.js";
 import {
   SHOP_CATEGORIES,
@@ -51,6 +52,7 @@ export function pickerGrid(view) {
       catalog.items.filter(
         piece =>
           GROUP_OF[piece.category] === view.tab &&
+          inBuilds(piece) &&
           (!view.shop || piece.shopCategory === view.shop) &&
           matches(piece)
       ),
@@ -115,7 +117,7 @@ export function pickerCard(view, { depth = "d-3" } = {}) {
 export function catalogBar(view) {
   const catalog = view.getCatalog();
   const holds = {
-    items: catalog.items.length,
+    items: catalog.items.filter(inBuilds).length,
     red: catalog.arcana.length,
     spells: (catalog.spells ?? []).length
   };

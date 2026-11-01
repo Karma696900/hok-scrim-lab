@@ -27,6 +27,9 @@ export function onClick(view, event) {
   } else if (target.dataset.shop !== undefined) {
     view.shop = target.dataset.shop;
     view.repaintKeepingFocus();
+  } else if (target.dataset.tier !== undefined) {
+    view.tier = target.dataset.tier;
+    view.repaintKeepingFocus();
   } else if (target.dataset.color !== undefined) {
     view.color = target.dataset.color;
     view.repaintKeepingFocus();
@@ -35,7 +38,7 @@ export function onClick(view, event) {
     view.repaintKeepingFocus();
   } else if (target.matches("[data-clear]")) {
     view.search = "";
-    view.slot = view.shop = view.color = "";
+    view.slot = view.shop = view.tier = view.color = "";
     view.paint();
   } else if (target.matches("[data-retry]")) {
     view.load();

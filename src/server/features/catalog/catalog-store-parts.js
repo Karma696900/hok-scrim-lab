@@ -47,11 +47,14 @@ export const duplicate = (error, make) => {
   throw error;
 };
 
-export const presentItem = (row, tags) => ({
+export const presentItem = (row, tags, recipes = new Map()) => ({
   id: row.id,
   name: row.name,
   category: row.category,
   shopCategory: row.shop_category ?? null,
+  tier: row.tier ?? null,
+  components: recipes.get(row.id) ?? [],
+  sources: parse(row.sources_json, {}),
   price: row.price,
   imageId: row.image_id,
   description: row.description,
@@ -122,7 +125,7 @@ export async function readCatalog(ctx) {
     return ctx.cache.value;
   }
   const readAt = ctx.generation;
-  const [[stats], [tags], [groups], [items], [arcana], [spells], itemTags, arcanaTags] =
+  const [[stats], [tags], [groups], [items], [arcana], [spells], itemTags, arcanaTags, [parts]] =
     await Promise.all([
       ctx.pool.query("SELECT * FROM game_stats ORDER BY sort_order, id"),
       ctx.pool.query("SELECT * FROM tags ORDER BY name"),
@@ -135,8 +138,15 @@ export async function readCatalog(ctx) {
       ),
       ctx.pool.query("SELECT * FROM catalog_spells ORDER BY name"),
       tagsOf(ctx.pool, "item"),
-      tagsOf(ctx.pool, "arcana")
+      tagsOf(ctx.pool, "arcana"),
+      ctx.pool.query(
+        "SELECT item_id, component_id FROM catalog_item_components ORDER BY item_id, position"
+      )
     ]);
+  const recipes = new Map();
+  for (const part of parts) {
+    recipes.set(part.item_id, [...(recipes.get(part.item_id) ?? []), part.component_id]);
+  }
   const value = {
     stats: stats.map(row => ({
       id: row.id,
@@ -156,7 +166,7 @@ export async function readCatalog(ctx) {
     tagGroups: Object.fromEntries(
       TAG_COLORS.map(color => [color, groups.find(row => row.color === color)?.name ?? ""])
     ),
-    items: items.map(row => presentItem(row, itemTags)),
+    items: items.map(row => presentItem(row, itemTags, recipes)),
     arcana: arcana.map(row => presentArcana(row, arcanaTags)),
     spells: spells.map(presentSpell)
   };

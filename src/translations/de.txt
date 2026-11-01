@@ -2817,3 +2817,17 @@
 2981|{hero} anvisieren
 2984|Punktetabelle
 2983|Kills, Tode und Assists
+2985|Basis
+2986|Zwischenstufe
+2987|Endstufe
+2988|Verzaubert
+2989|Bestandteil {number}
+2990|Kein Bestandteil
+2991|Noch nicht angegeben
+2992|Hergestellt aus
+2993|+ {price} Gold zum Zusammensetzen
+2994|Wird zu
+2995|{label} muss zwischen 0 und {max} Gegenstände enthalten.
+2996|Ein Bestandteil des Rezepts ist nicht im Katalog.
+2997|Ein Gegenstand kann nicht sein eigener Bestandteil sein.
+2998|Das ist ein Bestandteil von {count} anderen Gegenständen: Nimm es zuerst aus ihren Rezepten.

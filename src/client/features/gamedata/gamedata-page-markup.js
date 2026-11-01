@@ -2,11 +2,17 @@
 import {
   ARCANA_COLORS,
   GROUP_OF,
+  ITEM_TIERS,
   SHOP_CATEGORIES,
   buildAddress,
   emptyBuild
 } from "../../../shared/build-model.js";
-import { arcanaInOrder, itemsInOrder, shopCategoryLabel } from "../../domain/catalog-display.js";
+import {
+  arcanaInOrder,
+  itemsInOrder,
+  shopCategoryLabel,
+  tierLabel
+} from "../../domain/catalog-display.js";
 import {
   categoryLabel,
   colorLabel,
@@ -64,6 +70,17 @@ export const filters = view => {
         value => view.all().filter(piece => piece.category === value).length
       )
     );
+    if (view.all().some(piece => piece.tier)) {
+      parts.push(
+        view.group(
+          t("Level"),
+          ITEM_TIERS.map(value => [value, tierLabel(value)]),
+          view.tier,
+          "tier",
+          value => view.all().filter(piece => piece.tier === value).length
+        )
+      );
+    }
     if (view.all().some(piece => piece.shopCategory)) {
       parts.push(
         view.group(
@@ -127,6 +144,7 @@ export function overview(view) {
   if (view.section === "items") {
     groups = [
       [t("Goes in"), SLOTS.map(value => [categoryLabel(value), count(p => p.category === value)])],
+      [t("Level"), ITEM_TIERS.map(value => [tierLabel(value), count(p => p.tier === value)])],
       [
         t("Category"),
         SHOP_CATEGORIES.map(value => [
@@ -223,7 +241,7 @@ export const detail = view => {
   const bare =
     view.section !== "spells" &&
     !(piece.stats?.length || piece.effects?.length || piece.description || piece.price);
-  return `<button type="button" class="btn btn--ghost btn--icon btn--sm gd-detail__close" data-pick="${piece.id}" aria-label="${t("Close")}">${icon("x", "i--sm")}</button>${body}${bare ? `<p class="gd-missing muted">${icon("info", "i--sm")}${t("Not entered yet.")}</p>` : ""}${view.related(piece)}<a class="btn gd-lab" href="${view.esc(view.labLink(piece))}">${icon("layers", "i--sm")}${t("Try it in the build lab")}</a>`;
+  return `<button type="button" class="btn btn--ghost btn--icon btn--sm gd-detail__close" data-pick="${piece.id}" aria-label="${t("Close")}">${icon("x", "i--sm")}</button>${body}${bare ? `<p class="gd-missing muted">${icon("info", "i--sm")}${t("Not entered yet.")}</p>` : ""}${view.section === "items" ? view.recipe(piece) : ""}${view.related(piece)}<a class="btn gd-lab" href="${view.esc(view.labLink(piece))}">${icon("layers", "i--sm")}${t("Try it in the build lab")}</a>`;
 };
 
 /** Three tabs as big as buttons, each with the number of pieces of its section. */
@@ -289,7 +307,7 @@ export function repaintDetail(view) {
 export function repaintKeepingFocus(view) {
   const active = document.activeElement;
   const key = active?.dataset
-    ? ["slot", "shop", "color", "order"].find(name => name in active.dataset)
+    ? ["slot", "shop", "tier", "color", "order"].find(name => name in active.dataset)
     : null;
   const value = key ? active.dataset[key] : null;
   view.paint();

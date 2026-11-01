@@ -58,6 +58,17 @@ export const SHOP_CATEGORIES = [
 ];
 
 /**
+ * The LEVEL of an item in the shop of the game (its `tier`): a small basic item, an intermediate one built
+ * from small ones, a final one, an enchanted one (the upgrades of the Roaming family). None until known.
+ */
+export const ITEM_TIERS = ["basic", "intermediate", "final", "enchanted"];
+/** The most items one item is built from (the same one may count twice). */
+export const RECIPE_MAX = 3;
+
+/** Whether an item is offered in a build: not a part (basic, intermediate), as in the item slots of the game. */
+export const inBuilds = item => item.tier !== "basic" && item.tier !== "intermediate";
+
+/**
  * The core items of a build: the 2 or 3 main items the hero cannot do without (a recommended build
  * marks them; a visitor's build may).
  */

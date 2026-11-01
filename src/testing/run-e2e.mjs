@@ -35,6 +35,7 @@ const TESTS = [
   "stat-conditions",
   "translations",
   "item-categories",
+  "item-recipes",
   "guides",
   "combos",
   "ratings",

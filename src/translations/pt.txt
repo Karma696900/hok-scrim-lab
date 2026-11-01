@@ -2817,3 +2817,17 @@
 2981|Mirar em {hero}
 2984|Placar
 2983|Abates, mortes e assistências
+2985|Básico
+2986|Intermediário
+2987|Final
+2988|Encantado
+2989|Componente {number}
+2990|Sem componente
+2991|Ainda não indicado
+2992|Feito com
+2993|+ {price} de ouro para combiná-los
+2994|Evolui para
+2995|{label} deve ter entre 0 e {max} itens.
+2996|Um componente da receita não está no catálogo.
+2997|Um item não pode ser um dos seus próprios componentes.
+2998|É componente de outros {count} itens: retire-o primeiro das receitas deles.

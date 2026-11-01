@@ -2817,3 +2817,17 @@
 2981|Nhắm {hero}
 2984|Bảng điểm
 2983|Hạ gục, tử vong và hỗ trợ
+2985|Cơ bản
+2986|Trung cấp
+2987|Hoàn chỉnh
+2988|Phù phép
+2989|Thành phần {number}
+2990|Không có thành phần
+2991|Chưa ghi
+2992|Ghép từ
+2993|+ {price} vàng để ghép
+2994|Nâng cấp thành
+2995|{label} phải có từ 0 đến {max} trang bị.
+2996|Một thành phần của công thức không có trong danh mục.
+2997|Một trang bị không thể là thành phần của chính nó.
+2998|Đây là thành phần của {count} trang bị khác: hãy gỡ nó khỏi công thức của chúng trước.

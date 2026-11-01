@@ -54,6 +54,9 @@ RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack 
 COPY src ./src
 COPY --from=assets /build/dist ./dist
 COPY scripts/accounts ./scripts/accounts
+# the importers of the data of the game (levels, prices and recipes of the items), run by hand on the server:
+#   docker compose ... exec hok-scrim-lab node scripts/catalog/import-recipes.mjs [--apply --fetch-icons]
+COPY scripts/catalog ./scripts/catalog
 
 RUN chown -R node:node /app
 

@@ -1,10 +1,20 @@
 // The form of an entry (item, arcana, spell, stat, tag): its rows.
-import { ARCANA_COLORS, ITEM_CATEGORIES } from "../../../shared/build-model.js";
+import {
+  ARCANA_COLORS,
+  ITEM_CATEGORIES,
+  ITEM_TIERS,
+  RECIPE_MAX
+} from "../../../shared/build-model.js";
 import { OPTIONS_MAX, STAT_UNITS, isChoice } from "../../../shared/stat-values.js";
-import { SHOP_CATEGORIES, shopCategoryLabel } from "../../domain/catalog-display.js";
+import {
+  SHOP_CATEGORIES,
+  piecesByName,
+  shopCategoryLabel,
+  tierLabel
+} from "../../domain/catalog-display.js";
+import { number, t } from "../../app/browser-i18n.js";
 import { escapeHtml as esc } from "../../lib/escape.js";
 import { icon } from "../../../shared/icons.js";
-import { t } from "../../app/browser-i18n.js";
 import { categoryLabel, colorLabel, unitLabel } from "./catalog-shared.js";
 import { chip, field, group, picture } from "./catalog-parts.js";
 import { boxFilter, comboField } from "./catalog-search.js";
@@ -122,6 +132,16 @@ export const effectRows = (view, effects) => `<div class="effect-rows">${effects
   .join("")}
       ${effects.length < 12 ? `<button type="button" class="btn btn--sm" data-add-effect>${icon("plus", "i--sm")}${t("Add a passive or an active")}</button>` : ""}</div>`;
 
+/** The level of an item and the items it is built from (up to three, the same one possibly twice), as in the shop. */
+export const recipeFields = (view, draft) => {
+  const others = piecesByName(view.catalog.items.filter(item => item.id !== view.editing?.id));
+  const parts = draft.components ?? [];
+  const place = index =>
+    `<label class="field"><select name="component-${index}" aria-label="${t("Part {number}", { number: index + 1 })}"><option value="">${t("No part")}</option>${others.map(item => `<option value="${item.id}"${parts[index] === item.id ? " selected" : ""}>${esc(item.name)}${item.price ? ` (${t("{price} gold", { price: number(item.price) })})` : ""}</option>`).join("")}</select></label>`;
+  return `${field(t("Level"), `<select name="tier"><option value="">${t("Not said yet")}</option>${ITEM_TIERS.map(tier => `<option value="${tier}"${draft.tier === tier ? " selected" : ""}>${tierLabel(tier)}</option>`).join("")}</select>`)}
+      ${group(t("Built from"), `<div class="ct-recipe">${Array.from({ length: RECIPE_MAX }, (_, index) => place(index)).join("")}</div>`)}`;
+};
+
 export const formFor = (view, draft) => {
   const name = field(
     t("Name"),
@@ -142,6 +162,7 @@ export const formFor = (view, draft) => {
       ${field(t("Goes in"), `<select name="category">${ITEM_CATEGORIES.map(category => `<option value="${category}"${draft.category === category ? " selected" : ""}>${categoryLabel(category)}</option>`).join("")}</select>`)}
       ${field(t("Category"), `<select name="shopCategory"><option value="">${t("No category yet")}</option>${SHOP_CATEGORIES.map(category => `<option value="${category}"${draft.shopCategory === category ? " selected" : ""}>${shopCategoryLabel(category)}</option>`).join("")}</select>`)}
       ${field(t("Price (optional)"), `<input name="price" type="number" min="0" step="1" value="${draft.price ?? ""}">`)}
+      ${view.recipeFields(draft)}
       ${field(t("Description (optional)"), `<textarea name="description" rows="2" maxlength="600">${esc(draft.description)}</textarea>`, { area: true })}
       <h3>${t("Stats it gives")}</h3>${view.statRows(draft.stats, 20)}
       <h3>${t("Passives and actives")}</h3>${view.effectRows(draft.effects)}
@@ -161,4 +182,4 @@ export const formFor = (view, draft) => {
 };
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
-export const onView = { statLine, statRows, tagBoxes, effectRows, formFor };
+export const onView = { statLine, statRows, tagBoxes, effectRows, recipeFields, formFor };

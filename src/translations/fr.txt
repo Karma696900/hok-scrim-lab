@@ -2817,3 +2817,17 @@
 2981|Cibler {hero}
 2984|Tableau des scores
 2983|Éliminations, morts et assistances
+2985|Basique
+2986|Intermédiaire
+2987|Final
+2988|Enchanté
+2989|Composant {number}
+2990|Aucun composant
+2991|Pas encore indiqué
+2992|Composants
+2993|+ {price} or pour les assembler
+2994|Se transforme en
+2995|{label} doit contenir entre 0 et {max} objets.
+2996|Un composant de la recette n'est pas dans le catalogue.
+2997|Un objet ne peut pas être l'un de ses propres composants.
+2998|C'est un composant de {count} autres objets : retirez-le d'abord de leurs recettes.

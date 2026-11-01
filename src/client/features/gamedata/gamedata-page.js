@@ -8,11 +8,12 @@ import { bindTo } from "../../../shared/bind-to.js";
 import { onView as gamedataPageParts } from "./gamedata-page-parts.js";
 import { onView as gamedataPageMarkup } from "./gamedata-page-markup.js";
 import { onView as gamedataPageActions } from "./gamedata-page-actions.js";
+import { onView as gamedataRecipe } from "./gamedata-recipe.js";
 import { SECTIONS } from "./gamedata-page-shared.js";
 
 export function createGameDataPages({ api, state }) {
   const view = { api, state };
-  bindTo(view, gamedataPageParts, gamedataPageMarkup, gamedataPageActions);
+  bindTo(view, gamedataPageParts, gamedataPageMarkup, gamedataPageActions, gamedataRecipe);
   view.esc = escapeHtml;
   view.root = null;
   view.section = "items";
@@ -21,6 +22,7 @@ export function createGameDataPages({ api, state }) {
   view.search = "";
   view.slot = ""; // items: a slot, or "" for all
   view.shop = ""; // items: a category of the shop, or "" for all
+  view.tier = ""; // items: a level (basic, intermediate, final, enchanted), or "" for all
   view.color = ""; // arcana: a colour, or "" for all
   view.order = "name"; // "name", "price" (items) or "cooldown" (spells)
   view.picked = null; // the id of the piece whose sheet is open
@@ -33,7 +35,7 @@ export function createGameDataPages({ api, state }) {
       if (view.section !== name) {
         view.picked = null;
         view.search = "";
-        view.slot = view.shop = view.color = "";
+        view.slot = view.shop = view.tier = view.color = "";
         view.order = "name";
       }
       view.section = SECTIONS.includes(name) ? name : "items";
@@ -45,7 +47,7 @@ export function createGameDataPages({ api, state }) {
         view.picked = wanted;
         view.wantedTile = true;
         view.search = "";
-        view.slot = view.shop = view.color = ""; // a filter must not hide the tile that was asked for
+        view.slot = view.shop = view.tier = view.color = ""; // a filter must not hide the tile that was asked for
       }
       view.root = document.createElement("div");
       view.root.id = "gamedata-root";

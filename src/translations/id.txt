@@ -2817,3 +2817,17 @@
 2981|Bidik {hero}
 2984|Papan skor
 2983|Kill, kematian, dan assist
+2985|Dasar
+2986|Menengah
+2987|Akhir
+2988|Terpesona
+2989|Komponen {number}
+2990|Tanpa komponen
+2991|Belum diisi
+2992|Dibuat dari
+2993|+ {price} emas untuk menggabungkannya
+2994|Menjadi bagian dari
+2995|{label} harus berisi 0 sampai {max} item.
+2996|Sebuah komponen resep tidak ada di katalog.
+2997|Sebuah item tidak bisa menjadi komponennya sendiri.
+2998|Ini komponen dari {count} item lain: keluarkan dulu dari resep mereka.

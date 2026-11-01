@@ -1,0 +1,2964 @@
+{
+  "readOn": "2026-11-01",
+  "items": [
+    {
+      "name": "Hunting Knife",
+      "gameId": 1511,
+      "tier": "basic",
+      "price": 250,
+      "shopCategory": "jungling",
+      "stats": [],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Lightfoot Shoes",
+      "gameId": 1411,
+      "tier": "basic",
+      "price": 250,
+      "shopCategory": "movement",
+      "stats": [],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Anti-magic Cloak",
+      "gameId": 1313,
+      "tier": "basic",
+      "price": 275,
+      "shopCategory": null,
+      "stats": [
+        {
+          "stat": "Magical Defense",
+          "value": 100
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": null,
+        "components": null
+      },
+      "doubt": "absent from hokstats.gg: no id, no shop tab, no recipe"
+    },
+    {
+      "name": "Cloth Jerkin",
+      "gameId": 1312,
+      "tier": "basic",
+      "price": 275,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 100
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Iron Sword",
+      "gameId": 1111,
+      "tier": "basic",
+      "price": 275,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 20
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Sparkling Sapphire",
+      "gameId": 1212,
+      "tier": "basic",
+      "price": 275,
+      "shopCategory": null,
+      "stats": [
+        {
+          "stat": "Max Mana",
+          "value": 400
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": null,
+        "components": null
+      },
+      "doubt": "absent from hokstats.gg: no id, no shop tab, no recipe"
+    },
+    {
+      "name": "Spell Tome",
+      "gameId": 1211,
+      "tier": "basic",
+      "price": 275,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 35
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Dagger",
+      "gameId": 1112,
+      "tier": "basic",
+      "price": 300,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 10
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Knowledge Gem",
+      "gameId": 1701,
+      "tier": "basic",
+      "price": 300,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 5.0
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Mystic Page",
+      "gameId": 1217,
+      "tier": "basic",
+      "price": 300,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Lifesteal",
+          "value": 8
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Plume of Enchantment",
+      "gameId": 11110,
+      "tier": "basic",
+      "price": 300,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 5.0
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Primordial Crystal",
+      "gameId": 1218,
+      "tier": "basic",
+      "price": 300,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Pugilist's Gauntlet",
+      "gameId": 1113,
+      "tier": "basic",
+      "price": 300,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Critical Rate",
+          "value": 8
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Resilient Agate",
+      "gameId": 1311,
+      "tier": "basic",
+      "price": 300,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Max Health",
+          "value": 300
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Vampiric Scythe",
+      "gameId": 1114,
+      "tier": "basic",
+      "price": 300,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Lifesteal",
+          "value": 8
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": null
+      }
+    },
+    {
+      "name": "Guerrilla Machete",
+      "gameId": 1521,
+      "tier": "intermediate",
+      "price": 700,
+      "shopCategory": "jungling",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 40
+        }
+      ],
+      "components": ["Hunting Knife", "Spell Tome"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Magical Attack at a usual upgrade cost of 175"
+      },
+      "doubt": "no component gives ['Magical Attack']"
+    },
+    {
+      "name": "Patrol Axe",
+      "gameId": 1522,
+      "tier": "intermediate",
+      "price": 700,
+      "shopCategory": "jungling",
+      "stats": [
+        {
+          "stat": "Max Health",
+          "value": 400
+        }
+      ],
+      "components": ["Hunting Knife", "Resilient Agate"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Health at a usual upgrade cost of 150"
+      },
+      "doubt": "no component gives ['Health']"
+    },
+    {
+      "name": "Relentless Blade",
+      "gameId": 1523,
+      "tier": "intermediate",
+      "price": 700,
+      "shopCategory": "jungling",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 25
+        }
+      ],
+      "components": ["Hunting Knife", "Iron Sword"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Physical Attack at a usual upgrade cost of 175"
+      },
+      "doubt": "no component gives ['Physical Attack']"
+    },
+    {
+      "name": "Frosthold Targe",
+      "gameId": 1324,
+      "tier": "intermediate",
+      "price": 750,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        }
+      ],
+      "components": ["Cloth Jerkin", "Primordial Crystal"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Nettle Gauntlet",
+      "gameId": 1345,
+      "tier": "intermediate",
+      "price": 750,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        }
+      ],
+      "components": ["Cloth Jerkin", "Iron Sword"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Lance of Swiftness",
+      "gameId": 1115,
+      "tier": "intermediate",
+      "price": 760,
+      "shopCategory": null,
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": null,
+        "components": null
+      },
+      "doubt": "absent from hokstats.gg: no id, no shop tab, no recipe"
+    },
+    {
+      "name": "Meteor",
+      "gameId": 1124,
+      "tier": "intermediate",
+      "price": 760,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        }
+      ],
+      "components": ["Iron Sword", "Primordial Crystal"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Sunglow Striker",
+      "gameId": 1122,
+      "tier": "intermediate",
+      "price": 760,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35
+        },
+        {
+          "stat": "Max Health",
+          "value": 450
+        }
+      ],
+      "components": ["Iron Sword", "Resilient Agate"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Twinblades of Destruction",
+      "gameId": 1123,
+      "tier": "intermediate",
+      "price": 760,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 15
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Dagger", "Plume of Enchantment"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Blood Clan's Grimoire",
+      "gameId": 1222,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Lifesteal",
+          "value": 12
+        },
+        {
+          "stat": "Magical Attack",
+          "value": 60
+        }
+      ],
+      "components": ["Spell Tome", "Mystic Page"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Bloodsoul",
+      "gameId": 1158,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35
+        },
+        {
+          "stat": "Physical Lifesteal",
+          "value": 12
+        }
+      ],
+      "components": ["Vampiric Scythe", "Iron Sword"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Clandestine Cape",
+      "gameId": 1323,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Magical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Max Health",
+          "value": 450
+        }
+      ],
+      "components": ["Resilient Agate", "Anti-magic Cloak"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Magical Defense at a usual upgrade cost of 225"
+      },
+      "doubt": "no component gives ['Magical Defense']"
+    },
+    {
+      "name": "Cloud Piercer",
+      "gameId": 1154,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 15
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 12
+        }
+      ],
+      "components": ["Dagger", "Pugilist's Gauntlet"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Cuirass of Swiftness",
+      "gameId": 1317,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        },
+        {
+          "stat": "Max Health",
+          "value": 450
+        }
+      ],
+      "components": ["Resilient Agate", "Primordial Crystal"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Mirror of Radiance",
+      "gameId": 13211,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Max Health",
+          "value": 450
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Resilient Agate", "Plume of Enchantment"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Pearl of Origin",
+      "gameId": 1349,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": null,
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 150
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": null,
+        "components": null
+      },
+      "doubt": "absent from hokstats.gg: no id, no shop tab, no recipe"
+    },
+    {
+      "name": "Protector's Cuirass",
+      "gameId": 1325,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Max Health",
+          "value": 450
+        }
+      ],
+      "components": ["Cloth Jerkin", "Resilient Agate"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Sage's Codex",
+      "gameId": 1214,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 60
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        }
+      ],
+      "components": ["Spell Tome", "Primordial Crystal"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Stone of All Creation",
+      "gameId": 13212,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": null,
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 150
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": null,
+        "components": null
+      },
+      "doubt": "absent from hokstats.gg: no id, no shop tab, no recipe"
+    },
+    {
+      "name": "Stone of Sorcery",
+      "gameId": 1224,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 60
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Spell Tome", "Plume of Enchantment"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Swiftstrike Lance",
+      "gameId": 1129,
+      "tier": "intermediate",
+      "price": 800,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 15
+        }
+      ],
+      "components": ["Dagger", "Iron Sword"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Grand Staff",
+      "gameId": 1221,
+      "tier": "intermediate",
+      "price": 820,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 120
+        }
+      ],
+      "components": ["Spell Tome", "Spell Tome"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Thunderclap Brand",
+      "gameId": 1116,
+      "tier": "intermediate",
+      "price": 820,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 12
+        }
+      ],
+      "components": ["Iron Sword", "Pugilist's Gauntlet"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Nebulon Wood",
+      "gameId": 1243,
+      "tier": "intermediate",
+      "price": 840,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 60
+        },
+        {
+          "stat": "Max Health",
+          "value": 450
+        }
+      ],
+      "components": ["Spell Tome", "Resilient Agate"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Belt of Might",
+      "gameId": 1321,
+      "tier": "intermediate",
+      "price": 850,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Resilient Agate", "Resilient Agate"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Crimson Shadow",
+      "gameId": 1711,
+      "tier": "intermediate",
+      "price": 850,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Max Health",
+          "value": 500
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 5.0
+        }
+      ],
+      "components": ["Knowledge Gem", "Resilient Agate"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Guardian",
+      "gameId": 1714,
+      "tier": "intermediate",
+      "price": 850,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Max Health",
+          "value": 500
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 5.0
+        }
+      ],
+      "components": ["Knowledge Gem", "Resilient Agate"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Ironbrand",
+      "gameId": 11211,
+      "tier": "intermediate",
+      "price": 850,
+      "shopCategory": null,
+      "stats": [
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 15
+        },
+        {
+          "stat": "Max Health",
+          "value": 450
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": null,
+        "components": null
+      },
+      "doubt": "absent from hokstats.gg: no id, no shop tab, no recipe"
+    },
+    {
+      "name": "Storm Sword",
+      "gameId": 1121,
+      "tier": "intermediate",
+      "price": 850,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 75
+        }
+      ],
+      "components": ["Iron Sword", "Iron Sword"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Boots of Deftness",
+      "gameId": 1426,
+      "tier": "final",
+      "price": 700,
+      "shopCategory": "movement",
+      "stats": [
+        {
+          "stat": "Max Health",
+          "value": 300
+        }
+      ],
+      "components": ["Lightfoot Shoes", "Resilient Agate"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Boots of Dexterity",
+      "gameId": 1425,
+      "tier": "final",
+      "price": 700,
+      "shopCategory": "movement",
+      "stats": [
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 20
+        }
+      ],
+      "components": ["Lightfoot Shoes", "Dagger"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Boots of Fortitude",
+      "gameId": 1421,
+      "tier": "final",
+      "price": 700,
+      "shopCategory": "movement",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 100
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 50
+        }
+      ],
+      "components": ["Lightfoot Shoes", "Cloth Jerkin"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Magical Defense']; candidates []"
+    },
+    {
+      "name": "Boots of Resistance",
+      "gameId": 1422,
+      "tier": "final",
+      "price": 700,
+      "shopCategory": "movement",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 50
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 100
+        }
+      ],
+      "components": ["Lightfoot Shoes"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Magical Defense', 'Physical Defense']; candidates []"
+    },
+    {
+      "name": "Boots of Tranquility",
+      "gameId": 1423,
+      "tier": "final",
+      "price": 700,
+      "shopCategory": "movement",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 15
+        }
+      ],
+      "components": ["Lightfoot Shoes", "Primordial Crystal"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Boots of the Arcane",
+      "gameId": 1424,
+      "tier": "final",
+      "price": 700,
+      "shopCategory": "movement",
+      "stats": [
+        {
+          "stat": "Max Mana",
+          "value": 400
+        }
+      ],
+      "components": ["Lightfoot Shoes", "Sparkling Sapphire"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Mana at a usual upgrade cost of 175"
+      },
+      "doubt": "no component gives ['Mana']"
+    },
+    {
+      "name": "Bloodweeper",
+      "gameId": 1132,
+      "tier": "final",
+      "price": 2000,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 80
+        },
+        {
+          "stat": "Physical Lifesteal",
+          "value": 25
+        },
+        {
+          "stat": "Max Health",
+          "value": 500
+        }
+      ],
+      "components": ["Bloodsoul", "Sunglow Striker"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Eye of the Phoenix",
+      "gameId": 1334,
+      "tier": "final",
+      "price": 2020,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 90
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 180
+        }
+      ],
+      "components": ["Belt of Might", "Clandestine Cape"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Physical Defense']"
+    },
+    {
+      "name": "Holy Grail",
+      "gameId": 1226,
+      "tier": "final",
+      "price": 2020,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 150
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 15
+        },
+        {
+          "stat": "Max Health",
+          "value": 500
+        }
+      ],
+      "components": ["Sage's Codex", "Cuirass of Swiftness"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Longnight Guardian",
+      "gameId": 1347,
+      "tier": "final",
+      "price": 2020,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 90
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 180
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Clandestine Cape", "Mirror of Radiance"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Physical Defense']"
+    },
+    {
+      "name": "Ominous Premonition",
+      "gameId": 1333,
+      "tier": "final",
+      "price": 2020,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 300
+        }
+      ],
+      "components": ["Protector's Cuirass", "Protector's Cuirass"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Spikemail",
+      "gameId": 1327,
+      "tier": "final",
+      "price": 2020,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 45
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 300
+        },
+        {
+          "stat": "Max Health",
+          "value": 700
+        }
+      ],
+      "components": ["Nettle Gauntlet", "Protector's Cuirass"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Succubus Cloak",
+      "gameId": 1335,
+      "tier": "final",
+      "price": 2020,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Magical Defense",
+          "value": 300
+        }
+      ],
+      "components": ["Clandestine Cape", "Clandestine Cape"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Frigid Charge",
+      "gameId": 1341,
+      "tier": "final",
+      "price": 2030,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Protector's Cuirass", "Cuirass of Swiftness"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Ardent Dominion",
+      "gameId": 1227,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Lifesteal",
+          "value": 12
+        },
+        {
+          "stat": "Magical Attack",
+          "value": 150
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Blood Clan's Grimoire", "Stone of Sorcery"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Assassin's Wristbow",
+      "gameId": 1161,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": null,
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 40
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 20
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 20
+        },
+        {
+          "stat": "Max Health",
+          "value": 650
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": null,
+        "components": null
+      },
+      "doubt": "absent from hokstats.gg: no id, no shop tab, no recipe"
+    },
+    {
+      "name": "Blazing Cape",
+      "gameId": 1331,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 150
+        }
+      ],
+      "components": ["Protector's Cuirass", "Clandestine Cape"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Dawnlight",
+      "gameId": 1353,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 210
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Frosthold Targe", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Deepfrost Siege",
+      "gameId": 1128,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 70
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 25
+        },
+        {
+          "stat": "Max Health",
+          "value": 750
+        }
+      ],
+      "components": ["Sunglow Striker", "Swiftstrike Lance"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Dragon's Rage",
+      "gameId": 1534,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 160
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 80
+        }
+      ],
+      "components": ["Belt of Might", "Protector's Cuirass"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Magical Defense']"
+    },
+    {
+      "name": "Glacial Buckler",
+      "gameId": 1336,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 20
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 240
+        },
+        {
+          "stat": "Max Health",
+          "value": 600
+        }
+      ],
+      "components": ["Cuirass of Swiftness", "Frosthold Targe"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Shadow Ripper",
+      "gameId": 1136,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 45
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 35
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 20
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Thunderclap Brand", "Twinblades of Destruction"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Sparkforged Dagger",
+      "gameId": 1135,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 40
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 35
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Swiftstrike Lance", "Twinblades of Destruction"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Twilight Stream",
+      "gameId": 1727,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 160
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10
+        },
+        {
+          "stat": "Max Health",
+          "value": 500
+        }
+      ],
+      "components": ["Nebulon Wood", "Sage's Codex"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Venomous Staff",
+      "gameId": 12211,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 230
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Stone of Sorcery", "Sage's Codex"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Void Staff",
+      "gameId": 1231,
+      "tier": "final",
+      "price": 2040,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 210
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5
+        },
+        {
+          "stat": "Max Health",
+          "value": 500
+        }
+      ],
+      "components": ["Nebulon Wood", "Grand Staff"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Cooldown Reduction']"
+    },
+    {
+      "name": "Cuirass of Savagery",
+      "gameId": 1338,
+      "tier": "final",
+      "price": 2050,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 35
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 210
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Nettle Gauntlet", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Demonsbane",
+      "gameId": 1125,
+      "tier": "final",
+      "price": 2060,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 90
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Max Health",
+          "value": 600
+        }
+      ],
+      "components": ["Storm Sword", "Clandestine Cape"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Destiny",
+      "gameId": 1127,
+      "tier": "final",
+      "price": 2060,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 75
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 15
+        },
+        {
+          "stat": "Max Health",
+          "value": 500
+        }
+      ],
+      "components": ["Storm Sword", "Ironbrand"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Attack Speed, Health at a usual upgrade cost of 360"
+      },
+      "doubt": "no component gives ['Attack Speed', 'Health']"
+    },
+    {
+      "name": "Frostscar's Embrace",
+      "gameId": 13310,
+      "tier": "final",
+      "price": 2060,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 60
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 300
+        }
+      ],
+      "components": ["Nettle Gauntlet", "Frosthold Targe"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Insatiable Tome",
+      "gameId": 1240,
+      "tier": "final",
+      "price": 2060,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Lifesteal",
+          "value": 24
+        },
+        {
+          "stat": "Magical Attack",
+          "value": 160
+        },
+        {
+          "stat": "Max Health",
+          "value": 750
+        }
+      ],
+      "components": ["Blood Clan's Grimoire", "Blood Clan's Grimoire"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Health']"
+    },
+    {
+      "name": "Golden Blade",
+      "gameId": 1728,
+      "tier": "final",
+      "price": 2070,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 20
+        },
+        {
+          "stat": "Magical Attack",
+          "value": 150
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Grand Staff", "Twinblades of Destruction"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Crimson Shadow - Howl",
+      "gameId": 1723,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Crimson Shadow", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Crimson Shadow - Radiance",
+      "gameId": 1737,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Crimson Shadow", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Crimson Shadow - Redemption",
+      "gameId": 1721,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Crimson Shadow", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Crimson Shadow - Starspring",
+      "gameId": 1747,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Crimson Shadow", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Guardian - Howl",
+      "gameId": 1753,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": null,
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": [],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": null,
+        "components": null
+      },
+      "doubt": "absent from hokstats.gg: no id, no shop tab, no recipe"
+    },
+    {
+      "name": "Guardian - Radiance",
+      "gameId": 1754,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Guardian", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Guardian - Redemption",
+      "gameId": 1724,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Guardian", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Guardian - Starspring",
+      "gameId": 1725,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "roaming",
+      "stats": [
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Guardian", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Mask of Agony",
+      "gameId": 1235,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 100
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Nebulon Wood", "Cuirass of Swiftness"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Mortal Punisher",
+      "gameId": 11210,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 100
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 20
+        },
+        {
+          "stat": "Physical Lifesteal",
+          "value": 20
+        }
+      ],
+      "components": ["Bloodsoul", "Swiftstrike Lance"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Splendor",
+      "gameId": 1239,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Lifesteal",
+          "value": 12
+        },
+        {
+          "stat": "Magical Attack",
+          "value": 170
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        }
+      ],
+      "components": ["Blood Clan's Grimoire", "Sage's Codex"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Starbreaker",
+      "gameId": 1131,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 90
+        },
+        {
+          "stat": "Max Health",
+          "value": 700
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Sunglow Striker"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Movement Speed']; candidates [('Twinblades of Destruction', 560), ('Stone of Sorcery', 520), ('Mirror of Radiance', 520), ('Crimson Shadow', 470), ('Guardian', 470), ('Lance of Swiftness', 560)]"
+    },
+    {
+      "name": "Staves of Sorcery",
+      "gameId": 1236,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 180
+        },
+        {
+          "stat": "Max Mana",
+          "value": 300
+        },
+        {
+          "stat": "Max Health",
+          "value": 600
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Stone of Sorcery", "Nebulon Wood"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Mana']"
+    },
+    {
+      "name": "Tempest",
+      "gameId": 1159,
+      "tier": "final",
+      "price": 2080,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 50
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 30
+        },
+        {
+          "stat": "Max Health",
+          "value": 600
+        }
+      ],
+      "components": ["Swiftstrike Lance"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Health']; candidates [('Sunglow Striker', 520), ('Nebulon Wood', 440), ('Cuirass of Swiftness', 480), ('Belt of Might', 430), ('Mirror of Radiance', 480), ('Clandestine Cape', 480), (\"Protector's Cuirass\", 480), ('Boots of Deftness', 580), ('Patrol Axe', 580), ('Crimson Shadow', 430), ('Guardian', 430), ('Ironbrand', 430)]"
+    },
+    {
+      "name": "Axe of Torment",
+      "gameId": 1137,
+      "tier": "final",
+      "price": 2090,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 80
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10
+        },
+        {
+          "stat": "Max Health",
+          "value": 500
+        }
+      ],
+      "components": ["Meteor", "Sunglow Striker"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Doomsday",
+      "gameId": 1126,
+      "tier": "final",
+      "price": 2100,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 40
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 20
+        },
+        {
+          "stat": "Physical Lifesteal",
+          "value": 20
+        },
+        {
+          "stat": "Max Health",
+          "value": 500
+        }
+      ],
+      "components": ["Bloodsoul", "Ironbrand"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Attack Speed, Health at a usual upgrade cost of 450"
+      },
+      "doubt": "no component gives ['Attack Speed', 'Health']"
+    },
+    {
+      "name": "Frozen Breath",
+      "gameId": 1234,
+      "tier": "final",
+      "price": 2100,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 180
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        },
+        {
+          "stat": "Max Health",
+          "value": 500
+        }
+      ],
+      "components": ["Grand Staff", "Cuirass of Swiftness"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Master Sword",
+      "gameId": 1134,
+      "tier": "final",
+      "price": 2100,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 55
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 15
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 20
+        },
+        {
+          "stat": "Max Health",
+          "value": 600
+        }
+      ],
+      "components": ["Thunderclap Brand", "Ironbrand"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Attack Speed, Health at a usual upgrade cost of 430"
+      },
+      "doubt": "no component gives ['Attack Speed', 'Health']"
+    },
+    {
+      "name": "Scepter of Reverberation",
+      "gameId": 1233,
+      "tier": "final",
+      "price": 2100,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 210
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Stone of Sorcery", "Grand Staff"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Sunchaser",
+      "gameId": 1141,
+      "tier": "final",
+      "price": 2100,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 40
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 20
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 15
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Cloud Piercer", "Lance of Swiftness"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from), completed from the stats: the only lower item that gives Movement Speed, Physical Attack at a usual upgrade cost of 540"
+      },
+      "doubt": "no component gives ['Movement Speed', 'Physical Attack']"
+    },
+    {
+      "name": "Eternity Blade",
+      "gameId": 1133,
+      "tier": "final",
+      "price": 2110,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 120
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 20
+        }
+      ],
+      "components": ["Storm Sword", "Thunderclap Brand"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Breakthrough Robe",
+      "gameId": 1244,
+      "tier": "final",
+      "price": 2120,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 130
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Nebulon Wood", "Nebulon Wood"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Pure Sky",
+      "gameId": 11311,
+      "tier": "final",
+      "price": 2140,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 80
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        }
+      ],
+      "components": ["Meteor", "Nettle Gauntlet"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Savant's Wrath",
+      "gameId": 1232,
+      "tier": "final",
+      "price": 2140,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 210
+        }
+      ],
+      "components": ["Grand Staff", "Grand Staff"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Augur's Word",
+      "gameId": 1237,
+      "tier": "final",
+      "price": 2150,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 140
+        },
+        {
+          "stat": "Max Mana",
+          "value": 450
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Grand Staff", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Mana']"
+    },
+    {
+      "name": "Giant's Grip",
+      "gameId": 1532,
+      "tier": "final",
+      "price": 2160,
+      "shopCategory": "jungling",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 5.0
+        }
+      ],
+      "components": ["Patrol Axe", "Cuirass of Swiftness"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Movement Speed']"
+    },
+    {
+      "name": "Rapacious Bite",
+      "gameId": 1533,
+      "tier": "final",
+      "price": 2160,
+      "shopCategory": "jungling",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 90
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 5.0
+        }
+      ],
+      "components": ["Relentless Blade", "Meteor"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Movement Speed']"
+    },
+    {
+      "name": "Runeblade",
+      "gameId": 1531,
+      "tier": "final",
+      "price": 2160,
+      "shopCategory": "jungling",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 130
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 5.0
+        }
+      ],
+      "components": ["Guerrilla Machete", "Sage's Codex"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Movement Speed']"
+    },
+    {
+      "name": "Blood Rage",
+      "gameId": 1328,
+      "tier": "final",
+      "price": 2180,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 75
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Storm Sword", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Sage's Sanctuary",
+      "gameId": 1337,
+      "tier": "final",
+      "price": 2280,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Cooldown Reduction', 'Magical Defense', 'Physical Defense']; candidates []"
+    },
+    {
+      "name": "Overlord's Platemail",
+      "gameId": 1332,
+      "tier": "final",
+      "price": 2450,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Defense",
+          "value": 180
+        },
+        {
+          "stat": "Magical Defense",
+          "value": 90
+        }
+      ],
+      "components": ["Belt of Might", "Belt of Might"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Magical Defense', 'Physical Defense']"
+    },
+    {
+      "name": "Overlord's Might",
+      "gameId": 1138,
+      "tier": "final",
+      "price": 2540,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 150
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 5
+        }
+      ],
+      "components": ["Storm Sword", "Storm Sword"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      },
+      "doubt": "no component gives ['Cooldown Reduction']"
+    },
+    {
+      "name": "Daybreaker's Virtue",
+      "gameId": 1155,
+      "tier": "final",
+      "price": 2570,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 75
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 30
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 15
+        }
+      ],
+      "components": ["Cloud Piercer", "Swiftstrike Lance"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Sage's Tome",
+      "gameId": 1238,
+      "tier": "final",
+      "price": 2610,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Attack",
+          "value": 350
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10
+        }
+      ],
+      "components": ["Grand Staff", "Sage's Codex"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Amble - Winter",
+      "gameId": 1351,
+      "tier": "enchanted",
+      "price": 3190,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Frigid Charge"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Immovable - Sky Dome",
+      "gameId": 1157,
+      "tier": "enchanted",
+      "price": 3280,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 80
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 10
+        },
+        {
+          "stat": "Physical Defense",
+          "value": 150
+        }
+      ],
+      "components": ["Pure Sky"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Haste - Sunpool",
+      "gameId": 1156,
+      "tier": "enchanted",
+      "price": 3320,
+      "shopCategory": "physical",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 40
+        },
+        {
+          "stat": "Attack Speed Bonus",
+          "value": 20
+        },
+        {
+          "stat": "Critical Rate",
+          "value": 15
+        },
+        {
+          "stat": "Movement Speed Bonus",
+          "value": 7.5
+        }
+      ],
+      "components": ["Sunchaser"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Enigma - Moon Goddess",
+      "gameId": 1242,
+      "tier": "enchanted",
+      "price": 3340,
+      "shopCategory": "magical",
+      "stats": [
+        {
+          "stat": "Magical Lifesteal",
+          "value": 12
+        },
+        {
+          "stat": "Magical Attack",
+          "value": 170
+        },
+        {
+          "stat": "Cooldown Reduction",
+          "value": 7.5
+        }
+      ],
+      "components": ["Splendor"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    },
+    {
+      "name": "Ravage - Phantom",
+      "gameId": 1350,
+      "tier": "enchanted",
+      "price": 3350,
+      "shopCategory": "defense",
+      "stats": [
+        {
+          "stat": "Physical Attack",
+          "value": 75
+        },
+        {
+          "stat": "Max Health",
+          "value": 900
+        }
+      ],
+      "components": ["Blood Rage"],
+      "sources": {
+        "price": "https://hub-game.com/hok/en/items",
+        "stats": "https://hub-game.com/hok/en/items",
+        "tier": "price level (under 400: basic; under 1000: intermediate, boots: final; 3000 and more: enchanted)",
+        "shopCategory": "https://hokstats.gg/items/",
+        "components": "https://hokstats.gg/items/ (Built from)"
+      }
+    }
+  ]
+}

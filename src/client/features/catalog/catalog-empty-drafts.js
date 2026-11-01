@@ -15,6 +15,8 @@ export const emptyDrafts = view => ({
     category: view.categoryFilter || "regular",
     shopCategory: SHOP_CATEGORIES.includes(view.shopFilter) ? view.shopFilter : null,
     price: "",
+    tier: null,
+    components: [],
     imageId: null,
     description: "",
     effects: [],

@@ -41,6 +41,17 @@ export const shopCategoryLabel = category =>
     roaming: t("Roaming")
   })[category] ?? category;
 
+/** The level of an item in the shop of the game (a small basic one up to an enchanted one), or "". */
+export const tierLabel = tier =>
+  tier
+    ? ({
+        basic: t("Basic"),
+        intermediate: t("Intermediate"),
+        final: t("Final"),
+        enchanted: t("Enchanted")
+      }[tier] ?? tier)
+    : "";
+
 // The order the pieces of the catalogue are listed in, on every page that lists them (the data of the game, the
 // picker of the build lab): the rules are those of shared/build-model.js (compareArcana, compareItems), applied to
 // the names as the visitor reads them, in the alphabet of their language.

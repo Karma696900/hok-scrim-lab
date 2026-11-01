@@ -319,6 +319,7 @@ describe("a rule for a bare class stays on its page", () => {
     "draft-editor.css": ["draft"],
     "draft.css": ["draft", "scrims"],
     "gamedata.css": ["gamedata"],
+    "gamedata-recipe.css": ["gamedata"],
     "find.css": ["community"],
     "hero-builds.css": ["heroes"],
     "hero-editor.css": ["heroes"],

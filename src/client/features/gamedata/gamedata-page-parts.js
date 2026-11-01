@@ -26,7 +26,8 @@ export const list = view => {
       pieces.filter(
         piece =>
           (!view.slot || piece.category === view.slot) &&
-          (!view.shop || piece.shopCategory === view.shop)
+          (!view.shop || piece.shopCategory === view.shop) &&
+          (!view.tier || piece.tier === view.tier)
       ),
       view.shop
     );
@@ -44,7 +45,8 @@ export const list = view => {
   return pieces;
 };
 
-export const filtered = view => Boolean(view.search.trim() || view.slot || view.shop || view.color);
+export const filtered = view =>
+  Boolean(view.search.trim() || view.slot || view.shop || view.tier || view.color);
 
 /** The two main stats of a piece (the ones that always count come first), as short lines. */
 export function mainStats(view, piece) {

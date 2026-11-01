@@ -2817,3 +2817,17 @@
 2981|Apuntar a {hero}
 2984|Marcador
 2983|Asesinatos, muertes y asistencias
+2985|Básico
+2986|Intermedio
+2987|Final
+2988|Encantado
+2989|Componente {number}
+2990|Sin componente
+2991|Aún sin indicar
+2992|Se fabrica con
+2993|+ {price} de oro para combinarlos
+2994|Sirve para
+2995|{label} debe tener entre 0 y {max} objetos.
+2996|Un componente de la receta no está en el catálogo.
+2997|Un objeto no puede ser uno de sus propios componentes.
+2998|Es componente de otros {count} objetos: quítalo primero de sus recetas.

@@ -68,6 +68,8 @@ export function bodyOf(view, draft) {
       category: draft.category,
       shopCategory: draft.shopCategory ?? null,
       price: draft.price,
+      tier: draft.tier ?? null,
+      components: draft.components ?? [],
       imageId: draft.imageId,
       description: draft.description,
       effects: draft.effects.map(effect => {

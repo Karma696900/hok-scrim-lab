@@ -11,6 +11,7 @@ export const known = async ctx => {
     catalog,
     stats: new Map(catalog.stats.map(entry => [entry.id, entry])),
     tagIds: new Set(catalog.tags.map(entry => entry.id)),
+    itemIds: new Set(catalog.items.map(entry => entry.id)),
     imageIds,
     heroIds: new Set(heroes.map(hero => hero.id)),
     roles: new Set(heroes.flatMap(hero => hero.roles ?? []))

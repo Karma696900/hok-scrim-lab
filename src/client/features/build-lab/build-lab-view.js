@@ -5,7 +5,7 @@ import { icon } from "../../../shared/icons.js";
 import { evaluate } from "../../../shared/condition-model.js";
 import { optionOf } from "../../../shared/stat-values.js";
 import { temporaryText, whenText } from "../../domain/condition-text.js";
-import { catalogImageAttrs, shopCategoryLabel } from "../../domain/catalog-display.js";
+import { catalogImageAttrs, shopCategoryLabel, tierLabel } from "../../domain/catalog-display.js";
 import { tx } from "../../domain/staff-content.js";
 import { number, t } from "../../app/browser-i18n.js";
 import { state } from "../../app/app-state.js";
@@ -132,7 +132,7 @@ export function pieceTip(kind, piece, catalog, escapeHtml, { facts = null } = {}
     .join("");
   const meta =
     kind === "item"
-      ? `${categoryLabel(piece.category)}${piece.shopCategory ? ` · ${shopCategoryLabel(piece.shopCategory)}` : ""}${piece.price ? ` · ${t("{price} gold", { price: number(piece.price) })}` : ""}`
+      ? `${categoryLabel(piece.category)}${piece.tier ? ` · ${tierLabel(piece.tier)}` : ""}${piece.shopCategory ? ` · ${shopCategoryLabel(piece.shopCategory)}` : ""}${piece.price ? ` · ${t("{price} gold", { price: number(piece.price) })}` : ""}`
       : kind === "spell"
         ? spellFacts(piece)
         : `${colorLabel(piece.color)} ${t("arcana")}`;
@@ -174,7 +174,7 @@ export function pieceDetails(kind, piece, catalog, escapeHtml, { facts = null } 
     .join("");
   const meta =
     kind === "item"
-      ? `${categoryLabel(piece.category)}${piece.shopCategory ? ` · ${shopCategoryLabel(piece.shopCategory)}` : ""}${piece.price ? ` · ${t("{price} gold", { price: number(piece.price) })}` : ""}`
+      ? `${categoryLabel(piece.category)}${piece.tier ? ` · ${tierLabel(piece.tier)}` : ""}${piece.shopCategory ? ` · ${shopCategoryLabel(piece.shopCategory)}` : ""}${piece.price ? ` · ${t("{price} gold", { price: number(piece.price) })}` : ""}`
       : kind === "spell"
         ? spellFacts(piece)
         : `${colorLabel(piece.color)} ${t("arcana")}`;

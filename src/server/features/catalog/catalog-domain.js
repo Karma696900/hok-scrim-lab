@@ -1,5 +1,11 @@
 import { badRequest } from "../../platform/errors.js";
-import { ARCANA_COLORS, ITEM_CATEGORIES, SHOP_CATEGORIES } from "../../../shared/build-model.js";
+import {
+  ARCANA_COLORS,
+  ITEM_CATEGORIES,
+  ITEM_TIERS,
+  RECIPE_MAX,
+  SHOP_CATEGORIES
+} from "../../../shared/build-model.js";
 import { parseWhen } from "./conditions.js";
 import { ids, number, object, text, whole } from "./fields.js";
 import { statLines } from "./catalog-domain-stats.js";
@@ -99,6 +105,45 @@ function shopCategoryOf(body, label = "shopCategory") {
   return value;
 }
 
+/** The level of an item: one of ITEM_TIERS, null for none, undefined when the body does not say (kept). */
+function tierOf(body) {
+  const value = body.tier;
+  if (value === undefined) {
+    return undefined;
+  }
+  if (value === null || value === "") {
+    return null;
+  }
+  if (!ITEM_TIERS.includes(value)) {
+    throw badRequest("{label} must be one of: {options}.", "invalid_body", {
+      label: "tier",
+      options: ITEM_TIERS.join(", ")
+    });
+  }
+  return value;
+}
+
+/** The items an item is built from, in order (the same one possibly twice); undefined when not said (kept). */
+function componentsOf(body, itemIds) {
+  const value = body.components;
+  if (value === undefined) {
+    return undefined;
+  }
+  if (!Array.isArray(value) || value.length > RECIPE_MAX) {
+    throw badRequest("{label} must list between 0 and {max} items.", "invalid_body", {
+      label: "components",
+      max: RECIPE_MAX
+    });
+  }
+  return value.map(entry => {
+    const id = whole(entry, "components", { min: 1, max: 2_000_000_000 });
+    if (!itemIds?.has(id)) {
+      throw badRequest("A component of the recipe is not in the catalogue.", "unknown_reference");
+    }
+    return id;
+  });
+}
+
 /** The most items one bulk request can sort. */
 const SORT_MAX = 300;
 
@@ -157,7 +202,9 @@ export function parseItem(input, known) {
     description: text(body.description, "description", { max: 600 }),
     effects: effects(body.effects, known),
     stats: statLines(body.stats ?? [], "stats", known, { min: 0, max: ITEM_STATS_MAX }),
-    tags: ids(body.tags, "tags", known.tagIds)
+    tags: ids(body.tags, "tags", known.tagIds),
+    tier: tierOf(body),
+    components: componentsOf(body, known.itemIds)
   };
 }
 

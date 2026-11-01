@@ -173,6 +173,13 @@
     background 160ms,
     border-color 160ms;
 }
+/* the parts of an item: three choices side by side, one under the other on a phone */
+.ct-recipe {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin-top: 6px;
+}
 .ct-preview.is-over {
   border-color: var(--brand);
   background: color-mix(in srgb, var(--brand) 12%, transparent);

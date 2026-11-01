@@ -2817,3 +2817,17 @@
 2981|{hero} hedefle
 2984|Skor tablosu
 2983|Öldürme, ölüm ve asist
+2985|Temel
+2986|Ara
+2987|Son
+2988|Büyülü
+2989|Bileşen {number}
+2990|Bileşen yok
+2991|Henüz belirtilmedi
+2992|Şunlardan yapılır
+2993|Birleştirmek için + {price} altın
+2994|Şuna dönüşür
+2995|{label} 0 ile {max} arasında eşya içermelidir.
+2996|Tarifteki bir bileşen katalogda yok.
+2997|Bir eşya kendi bileşeni olamaz.
+2998|Bu, {count} başka eşyanın bileşeni: önce onların tariflerinden çıkarın.

@@ -22,6 +22,18 @@ Pour tout reprendre en arrière : `node scripts/catalog/import-data.mjs --undo b
 - [ ] **Teleport n'a pas d'icône** : son adresse n'est pas sur le serveur officiel du jeu (`vgvd.gg`), je ne l'ai pas téléchargée. À ajouter dans Catalogue → Sorts.
 - [ ] **Le texte du wiki est une phrase d'accroche** (« Great against squishy targets »), pas la description complète des passifs et actifs : les effets (passifs/actifs) sont à écrire à la main. Les textes des sites de fans ne sont pas à publier tels quels sans les citer (le wiki est sous licence CC BY-SA).
 
+## Recettes des objets (import du 2026-11-01)
+
+Importées par `scripts/catalog/import-recipes.mjs` depuis `scripts/catalog/data/game-items-2026-11-01.json` (prix et stats : hub-game.com ; composants et onglet de boutique : hokstats.gg ; identifiants et icônes : liste officielle pvp.qq.com). Sauvegarde avant : `backups/hok_scrim-20261101-212733.sql`. Pour tout reprendre en arrière : `node scripts/catalog/import-recipes.mjs --undo backups/catalog-recipes-20261101-202840.229.json --apply`.
+
+- **Ajoutés** : 44 objets (les petits « basiques » et les « intermédiaires »), chacun avec son niveau, son prix, son onglet de boutique et ses stats. **71 objets existants complétés** (seulement les champs vides : tes prix et catégories sont gardés). **94 recettes** écrites.
+- **Niveau** : déduit du prix (moins de 400 : basique ; moins de 1000 : intermédiaire, sauf les bottes = finales ; 3000 et plus : enchanté). À corriger à la main si un objet est mal classé (Catalogue → Objets → Niveau).
+- [ ] **6 icônes manquent** (le serveur d'images du jeu répond 404) : Mystic Page, Plume of Enchantment, Primordial Crystal, Mirror of Radiance, Stone of All Creation, Ironbrand.
+- [ ] **6 objets sans recette** (aucune page ne la donne) : Lance of Swiftness, Pearl of Origin, Stone of All Creation, Ironbrand, Assassin's Wristbow, Guardian - Howl.
+- [ ] **5 recettes douteuses** (complétées par les stats, plusieurs candidats possibles) : Starbreaker, Tempest, Sage's Sanctuary, Boots of Fortitude, Boots of Resistance.
+- [ ] **« Assassin »** dans ta base a été rattaché à « Assassin's Wristbow » (seul objet du jeu qui commence ainsi). Pas renommé.
+- [ ] **Anti-magic Cloak** et **Sparkling Sapphire** : absents de hokstats.gg, onglet de boutique inconnu.
+
 ## Objets sans stats (27) : à compléter à la main ou à me donner
 
 | fait | Objet                       | Slot   | Pourquoi vide                                                                                                                           |

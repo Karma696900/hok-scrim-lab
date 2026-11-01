@@ -2817,3 +2817,17 @@
 2982	Play a whole Honor of Kings match as one hero, seen from above on the map. Move with the joystick or W A S D and attack with the buttons: your skills are cast for you. Your macro is graded behind the scenes (where you go, what you take, and when), and the grade comes at the end.
 2983	Kills, deaths and assists
 2984	Scoreboard
+2985	Basic
+2986	Intermediate
+2987	Final
+2988	Enchanted
+2989	Part {number}
+2990	No part
+2991	Not said yet
+2992	Built from
+2993	+ {price} gold to put them together
+2994	Builds into
+2995	{label} must list between 0 and {max} items.
+2996	A component of the recipe is not in the catalogue.
+2997	An item cannot be one of its own components.
+2998	This is a component of {count} other items: take it out of their recipes first.

@@ -76,6 +76,11 @@ export function readDraft(view) {
       draft.category = String(data.get("category"));
       draft.shopCategory = String(data.get("shopCategory") ?? "") || null;
       draft.price = numberOrNull(data.get("price"));
+      draft.tier = String(data.get("tier") ?? "") || null;
+      draft.components = [...data.keys()]
+        .filter(key => key.startsWith("component-"))
+        .map(key => Number(data.get(key)))
+        .filter(id => id > 0);
       draft.effects = [];
       for (let index = 0; data.has(`effect-${index}-kind`); index += 1) {
         draft.effects.push({

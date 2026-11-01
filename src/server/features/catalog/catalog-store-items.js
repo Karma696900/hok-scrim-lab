@@ -1,17 +1,42 @@
 // catalog store, items: createItem, updateItem, buildsUsing, deleteItem, and 1 more.
-import { conflict, notFound } from "../../platform/errors.js";
+import { badRequest, conflict, notFound } from "../../platform/errors.js";
 import { dropImageIfOrphan, duplicate, parse, setTags } from "./catalog-store-parts.js";
 
 // ---- items ----------------------------------------------------------------------------------
+/** Where the values of an item were read (an import gives it; the admin form never does, so it is kept). */
+async function setSources(connection, id, sources) {
+  if (sources !== undefined) {
+    await connection.execute("UPDATE catalog_items SET sources_json = ? WHERE id = ?", [
+      JSON.stringify(sources),
+      id
+    ]);
+  }
+}
+
+/** Writes the recipe of an item (its components in order); `undefined` leaves the recipe as it is. */
+async function setComponents(connection, id, components) {
+  if (components === undefined) {
+    return;
+  }
+  await connection.execute("DELETE FROM catalog_item_components WHERE item_id = ?", [id]);
+  for (const [position, componentId] of components.entries()) {
+    await connection.execute(
+      "INSERT INTO catalog_item_components (item_id, position, component_id) VALUES (?, ?, ?)",
+      [id, position, componentId]
+    );
+  }
+}
+
 export async function createItem(ctx, item) {
   try {
     const id = await ctx.inTransaction(async connection => {
       const [result] = await connection.execute(
-        "INSERT INTO catalog_items (name, category, shop_category, price, image_id, description, effects_json, stats_json, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "INSERT INTO catalog_items (name, category, shop_category, tier, price, image_id, description, effects_json, stats_json, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
         [
           item.name,
           item.category,
           item.shopCategory ?? null,
+          item.tier ?? null,
           item.price,
           item.imageId,
           item.description,
@@ -21,6 +46,8 @@ export async function createItem(ctx, item) {
         ]
       );
       await setTags(connection, "item", result.insertId, item.tags);
+      await setComponents(connection, result.insertId, item.components);
+      await setSources(connection, result.insertId, item.sources);
       return result.insertId;
     });
     ctx.forget();
@@ -45,12 +72,17 @@ export async function updateItem(ctx, id, item) {
       }
       // a body that does not mention the shop category (an older page) leaves it as it was
       const keepShop = item.shopCategory === undefined;
+      const keepTier = item.tier === undefined;
+      if (item.components?.includes(id)) {
+        throw badRequest("An item cannot be one of its own components.", "invalid_body");
+      }
       await connection.execute(
-        `UPDATE catalog_items SET name = ?, category = ?, ${keepShop ? "" : "shop_category = ?, "}price = ?, image_id = ?, description = ?, effects_json = ?, stats_json = ?, updated_at = ? WHERE id = ?`,
+        `UPDATE catalog_items SET name = ?, category = ?, ${keepShop ? "" : "shop_category = ?, "}${keepTier ? "" : "tier = ?, "}price = ?, image_id = ?, description = ?, effects_json = ?, stats_json = ?, updated_at = ? WHERE id = ?`,
         [
           item.name,
           item.category,
           ...(keepShop ? [] : [item.shopCategory]),
+          ...(keepTier ? [] : [item.tier]),
           item.price,
           item.imageId,
           item.description,
@@ -61,6 +93,8 @@ export async function updateItem(ctx, id, item) {
         ]
       );
       await setTags(connection, "item", id, item.tags);
+      await setComponents(connection, id, item.components);
+      await setSources(connection, id, item.sources);
       if (old.image_id !== item.imageId) {
         await dropImageIfOrphan(connection, old.image_id);
       }
@@ -104,6 +138,17 @@ export async function deleteItem(ctx, id) {
     ]);
     if (!old) {
       return false;
+    }
+    const [[held]] = await connection.execute(
+      "SELECT COUNT(*) AS count FROM catalog_item_components WHERE component_id = ?",
+      [id]
+    );
+    if (held.count) {
+      throw conflict(
+        "This is a component of {count} other items: take it out of their recipes first.",
+        "in_recipe",
+        { count: Number(held.count) }
+      );
     }
     await connection.execute(
       "DELETE FROM entity_tags WHERE entity_type = 'item' AND entity_id = ?",
