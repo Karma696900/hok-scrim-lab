@@ -394,6 +394,59 @@ await phone.waitForSelector(".sim-layer", { timeout: 20000 });
 check("upright, the phone is asked to turn", await phone.locator(".sim-turn").isVisible());
 await phone.close();
 
+// ---- a phone held sideways: every control takes the finger where it is drawn ----------------------------------------
+const sideways = await open(ana, { width: 844, height: 390 });
+await sideways.goto(`${app.baseUrl}/simulation`);
+await sideways.click('[data-act="start"]');
+await sideways.waitForSelector(".sim-layer .sim-map__svg", { timeout: 20000 });
+await sideways.waitForTimeout(400);
+const covered = await sideways.evaluate(() =>
+  [
+    "[data-stick]",
+    '[data-sim="aim"][data-kind="auto"]',
+    '[data-sim="aim"][data-kind="minion"]',
+    '[data-sim="aim"][data-kind="tower"]',
+    '[data-sim="spell"]',
+    '[data-sim="scoreboard"]',
+    '[data-sim="pause"]',
+    ...[...document.querySelectorAll(".sim-call")].map((_, i) => `.sim-call:nth-child(${i + 1})`)
+  ].filter(selector => {
+    const element = document.querySelector(selector);
+    const box = element?.getBoundingClientRect();
+    if (!box || box.width < 44 || box.height < 44) {
+      return true;
+    }
+    const hit = document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2);
+    return !(hit === element || element.contains(hit));
+  })
+);
+check(
+  `sideways on a phone, every control is 44 px or more and takes the finger (${covered.join(", ") || "none covered"})`,
+  covered.length === 0
+);
+const floated = await sideways.evaluate(async () => {
+  const ring = document.querySelector("[data-stick]");
+  const zone = document.querySelector("[data-stick-zone]");
+  const rest = ring.getBoundingClientRect();
+  const at = { clientX: rest.right + 60, clientY: rest.top + 10, pointerId: 7, bubbles: true };
+  zone.dispatchEvent(new PointerEvent("pointerdown", at));
+  const moved = ring.getBoundingClientRect();
+  zone.dispatchEvent(new PointerEvent("pointerup", at));
+  const back = ring.getBoundingClientRect();
+  return {
+    under: Math.hypot(
+      moved.left + moved.width / 2 - at.clientX,
+      moved.top + moved.height / 2 - at.clientY
+    ),
+    back: Math.hypot(back.left - rest.left, back.top - rest.top)
+  };
+});
+check(
+  `the stick floats under a finger put beside it (${floated.under.toFixed(1)} px off), and goes back after`,
+  floated.under < 2 && floated.back < 1
+);
+await sideways.close();
+
 // ---- the picture of the map, chosen by an administrator among the maps of the training -------------------------
 const boss = await app.signIn("SimBoss", { admin: true });
 const map = await app.store.saveTrainingMap({

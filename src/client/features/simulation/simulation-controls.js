@@ -111,7 +111,11 @@ function bindStick(run, base, zone) {
       return;
     }
     pointer = event.pointerId;
-    zone.setPointerCapture?.(pointer);
+    try {
+      zone.setPointerCapture?.(pointer);
+    } catch {
+      // a pointer already gone: the stick still follows it while it lasts
+    }
     base.classList.add("is-held");
     const box = base.getBoundingClientRect();
     const radius = box.width / 2;
