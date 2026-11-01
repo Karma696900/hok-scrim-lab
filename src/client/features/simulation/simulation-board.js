@@ -1,13 +1,19 @@
-// The board of a game, drawn once when it starts: the allies at the top (health, mana, a yellow bar
-// when their ultimate is ready), the clock and the pause; the map with the dots, the decision box in
-// its top-left corner and the cover that hides it (question, pause); the side panel with the gold of
-// both teams, the player's hero (its skill cooldowns, its spell or Punish) and the four free calls.
-// simulation-paint.js fills it at every frame; simulation-popups.js draws what opens on top.
+// The board of a game, laid out like the game's own screen and drawn once when it starts. The field fills the
+// screen and a camera follows the player's hero (simulation-camera.js). Over it:
+// - top left: the minimap and, to its right, the player's hero and the allies (portrait, level, health, mana, a
+//   ready ultimate, the respawn countdown);
+// - top right: the clock, the kills of both teams, the player's kills, deaths and assists, the scoreboard (☰) and
+//   the pause (⚙), with the gold of both teams under them;
+// - on the right edge: the four free calls;
+// - at the bottom: the joystick on the left; the attack buttons and the summoner spell (or Punish) on the right.
+// No skill buttons (the AI casts the skills) and no shop. simulation-paint.js and simulation-hud.js fill it at
+// every frame; simulation-popups.js draws what opens on top.
 import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
-import { laneName } from "../../domain/lanes.js";
+import { controlsHtml } from "./simulation-controls.js";
+import { heroCardHtml, miniMapHtml, scoreboardShellHtml } from "./simulation-hud.js";
 import { mapSvg } from "./simulation-map.js";
-import { esc, heroName, portrait } from "./simulation-shared.js";
+import { esc } from "./simulation-shared.js";
 
 /** The engine's summoner spells, as the button names them. */
 export const SPELL_NAMES = {
@@ -23,70 +29,57 @@ export const SPELL_NAMES = {
   stun: () => t("Stun")
 };
 
-const SKILL_LABELS = { s1: "1", s2: "2", s3: "3", s4: "4", ult: "U" };
-
-const bar = (cls, label) =>
-  `<span class="sim-bar ${cls}" role="img" aria-label="${esc(label)}"><i data-p="100"></i></span>`;
-
-function allyHtml(heroes, hero) {
-  return `<li class="sim-ally" data-ally="${esc(hero.id)}"><span class="sim-ally__face">${portrait(heroes, hero.heroId, 32)}<b class="sim-ally__timer" hidden></b></span><span class="sim-ally__bars">${bar("sim-bar--hp", t("Health"))}${bar("sim-bar--mana", t("Mana"))}${bar("sim-bar--ult", t("Ultimate"))}</span></li>`;
-}
-
-function meHtml(heroes, me) {
-  const skills = Object.keys(SKILL_LABELS)
-    .filter(key => (me.skills ?? []).includes(key))
-    .map(
-      key =>
-        `<li class="sim-skill" data-skill="${key}"><span class="sim-skill__pic">${SKILL_LABELS[key]}</span><b class="sim-skill__cd" hidden></b></li>`
-    )
-    .join("");
-  const spell = SPELL_NAMES[me.spell]?.() ?? esc(me.spell ?? "");
-  return `<div class="sim-me">
-    <div class="sim-me__who"><span class="sim-me__face">${portrait(heroes, me.heroId, 48)}</span><span><b>${esc(heroName(heroes, me.heroId))}</b><small>${laneName(me.lane ?? "")}</small></span></div>
-    ${bar("sim-bar--hp", t("Health"))}
-    <ul class="sim-skills" aria-label="${t("Your skills")}">${skills}</ul>
-    <button type="button" class="btn sim-spell" data-sim="spell">${icon(me.spell === "punish" ? "flame" : "bolt")}<span>${spell}</span><b class="sim-spell__state"></b></button>
-  </div>`;
-}
-
 const callsHtml = calls =>
   `<div class="sim-calls" role="group" aria-label="${t("Calls")}">${calls
     .map(
       entry =>
-        `<button type="button" class="btn sim-call" data-sim="call" data-call="${entry.id}" aria-label="${t(entry.label)}" title="${t(entry.label)}">${icon(entry.icon)}<span>${t(entry.label)}</span></button>`
+        `<button type="button" class="sim-call" data-sim="call" data-call="${entry.id}" aria-label="${t(entry.label)}" title="${t(entry.label)}">${icon(entry.icon)}</button>`
     )
     .join("")}</div>`;
 
+function spellHtml(me) {
+  const name = SPELL_NAMES[me.spell]?.() ?? esc(me.spell ?? "");
+  return `<button type="button" class="sim-spell" data-sim="spell" aria-label="${esc(name)}" title="${esc(name)}">${icon(me.spell === "punish" ? "flame" : "bolt")}<span class="sim-spell__name">${name}</span></button>`;
+}
+
+const topRightHtml = () => `<div class="sim-hud__right">
+    <div class="sim-scorebar">
+      <span class="sim-scorebar__time"><b class="sim-clock" aria-label="${t("Game time")}">00:00</b><span class="sim-score" aria-label="${t("Score")}"><b data-score="blue">0</b><small>vs</small><b data-score="red">0</b></span></span>
+      <span class="sim-kda" aria-label="${t("Kills, deaths and assists")}"><b data-kda>0 / 0 / 0</b></span>
+      <button type="button" class="sim-hud__button" data-sim="scoreboard" aria-haspopup="dialog" aria-label="${t("Scoreboard")}" title="${t("Scoreboard")}">${icon("list")}</button>
+      <button type="button" class="sim-hud__button" data-sim="pause" aria-label="${t("Pause")}" title="${t("Pause")}">${icon("settings")}</button>
+    </div>
+    <div class="sim-farm" aria-label="${t("Gold of both teams")}"><b class="sim-farm__gold sim-farm__gold--blue" data-farm="blue">0</b><span class="sim-bar sim-bar--farm"><i data-p="50"></i></span><b class="sim-farm__gold sim-farm__gold--red" data-farm="red">0</b></div>
+  </div>`;
+
 /**
  * The board. `start` is the bots server's first message (the map, the ten heroes, the player's hero `me`
- * with its lane and skills, the free calls), `heroes` the roster (names and portraits), `picture` the
+ * with its lane, spell and skills, the free calls), `heroes` the roster (names and portraits), `picture` the
  * picture of the map (`{ image, debug }`).
  */
 export function boardHtml({ start, heroes, picture = {} }) {
   const { me, calls } = start;
   const allies = start.heroes.filter(hero => hero.side === me.side && hero.id !== me.id);
   return `<div class="sim-turn" role="alert">${icon("phone")}<p>${t("Turn your phone sideways to play.")}</p></div>
-  <div class="sim-game">
-    <header class="sim-top">
-      <ul class="sim-allies" aria-label="${t("Your allies")}">${allies.map(hero => allyHtml(heroes, hero)).join("")}</ul>
-      <b class="sim-clock" aria-label="${t("Game time")}">00:00</b>
-      <button type="button" class="btn sim-pause" data-sim="pause" aria-label="${t("Pause")}">${icon("pause")}<span>${t("Pause")}</span></button>
-    </header>
-    <div class="sim-main">
+  <div class="sim-game sim-game--play">
+    <div class="sim-view">
       <div class="sim-map sim-map--${me.side}">
         ${mapSvg(start.map, me.side, picture)}
         <div class="sim-dots"></div>
-        <div class="sim-decision" aria-live="polite" hidden></div>
-        <div class="sim-death" hidden></div>
-        <div class="sim-cover" hidden></div>
       </div>
-      <aside class="sim-panel">
-        <div class="sim-farm" aria-label="${t("Gold of both teams")}"><span class="sim-farm__side sim-farm__side--blue"><small>${t("Blue")}</small><b data-farm="blue">0</b></span><span class="sim-bar sim-bar--farm"><i data-p="50"></i></span><span class="sim-farm__side sim-farm__side--red"><small>${t("Red")}</small><b data-farm="red">0</b></span></div>
-        ${meHtml(heroes, me)}
-        ${callsHtml(calls)}
-        <button type="button" class="btn btn--ghost sim-leave" data-sim="leave" aria-label="${t("Leave the game")}">${icon("x")}<span>${t("Leave the game")}</span></button>
-      </aside>
     </div>
+    <div class="sim-hud">
+      <div class="sim-hud__left">
+        ${miniMapHtml(start.map, me.side, picture)}
+        <ul class="sim-cards" aria-label="${t("Your allies")}">${[me, ...allies].map(hero => heroCardHtml(heroes, hero, hero.id === me.id)).join("")}</ul>
+      </div>
+      ${topRightHtml()}
+      ${callsHtml(calls)}
+      ${controlsHtml(spellHtml(me))}
+    </div>
+    <div class="sim-death" hidden></div>
+    <div class="sim-cover" hidden></div>
+    ${scoreboardShellHtml()}
   </div>
   <div class="sim-end" hidden></div>`;
 }

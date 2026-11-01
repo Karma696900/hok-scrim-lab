@@ -2791,3 +2791,29 @@
 2955|Tek POST'a gönderilen durum geçerli değil: hata neyin yanlış olduğunu söyler.
 2958|Botlara karşı maçlar şu anda açık değil. Daha sonra tekrar deneyin.
 2957|Maçla bağlantı kesildi.
+2959|Scrim motoru iki takımın her koridoru için bir kahraman seçer.
+2960|Maçı izle
+2961|Mod
+2962|Bir kahraman oyna
+2963|On botu izle
+2964|On bot maçın tamamını oynar. İzlerken hızı ve görünümü değiştir: her şey ya da bir takımın gördükleri.
+2965|Öldürmeler ve ölümler
+2966|Kırmızı takım
+2967|Mavi takım
+2968|İzlemek için telefonunu yan çevir.
+2969|Hız
+2970|Mavi kazandı
+2971|Kırmızı kazandı
+2972|Kazanan yok
+2973|Maç süresi
+2974|Mavi öldürmeler
+2975|Kırmızı öldürmeler
+2982|Bir kahramanla haritaya yukarıdan bakarak eksiksiz bir Honor of Kings maçı oyna. Joystick ya da W A S D ile hareket et, düğmelerle saldır: yeteneklerin senin yerine kullanılır. Makron arka planda notlanır (nereye gittiğin, neyi aldığın ve ne zaman) ve not sonda gelir.
+2976|Hareket: basılı tut ve sürükle ya da W A S D
+2977|Saldır
+2978|Görüşteki rakipler
+2979|Minyonlar ve canavarlar
+2980|Kuleler
+2981|{hero} hedefle
+2984|Skor tablosu
+2983|Öldürme, ölüm ve asist

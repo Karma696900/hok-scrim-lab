@@ -1,14 +1,16 @@
 // A stand-in for the bots server (private repository hok-bots) in the browser check of /simulation: the heroes the
 // bots play, and a live game over a WebSocket that speaks the same messages (a start, frames of what the side
-// sees, the orders, the end), scripted and short: a decision at once, the end three seconds of play after it is
-// answered. At the end it hands the game to the site with the shared secret, as the real server does. The
+// sees, the orders, the end), scripted and short: the stick and the targets are noted, the end comes three seconds of
+// play after the first target. At the end it hands the game to the site with the shared secret, as the real server does. A ticket of
+// mode "watch" plays a watched game instead: ten bots, the speed and the view switched by orders, nothing handed. The
 // WebSocket is written by hand (RFC 6455, unfragmented text frames only): no package for a test.
 import { createHash } from "node:crypto";
 import { createServer } from "node:http";
+import { watchGame } from "./fake-bots-watch.js";
 
 const GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
 const TICK_MS = 100;
-const PLAYED_AFTER_CHOICE = 3;
+const PLAYED_AFTER_TARGET = 3;
 const LANES = ["Clash Lane", "Jungle", "Mid Lane", "Farm Lane", "Roamer"];
 
 /** A map of the same shape as the bots server's (its real map stays private). */
@@ -118,6 +120,12 @@ function lineup(ticket, roster) {
   return { heroes, me: heroes.find(hero => hero.side === side && hero.role === lane) };
 }
 
+// one enemy in the sight of the player's hero (the first of the other side)
+function enemyNear(game) {
+  const enemy = game.heroes.find(hero => hero.side !== game.side);
+  return { ...enemy, pos: [460, 540], alive: true, hp: 400, maxHp: 1000 };
+}
+
 function viewOf(game) {
   const { heroes, side } = game;
   return {
@@ -128,41 +136,37 @@ function viewOf(game) {
         ...hero,
         pos: [300 + index * 40, 700 - index * 40],
         alive: true,
-        hp: 900,
-        maxHp: 1000,
+        level: 4 + index,
+        hp: 2600,
+        maxHp: 3400,
         mana: 300,
         maxMana: 400,
         ult: index === 0,
         cooldowns: { s1: 2 }
-      })),
+      }))
+      .concat(game.me ? [enemyNear(game)] : []),
     camps: [...MAP.camps, ...MAP.neutral].map(camp => ({ ...camp, known: true, alive: true })),
     towers: MAP.towers.map(tower => ({ id: tower.id, side: tower.side, alive: true })),
     waves: [{ id: "w1", side, at: [360, 680] }],
+    scoreboard: heroes.map((hero, index) => ({
+      id: hero.id,
+      heroId: hero.heroId,
+      side: hero.side,
+      level: 4,
+      kills: index % 3,
+      deaths: 1,
+      assists: 2,
+      items: index === 0 ? ["unknown-item"] : []
+    })),
     farm: { blue: 1200, red: 1100 }
   };
 }
 
-const CHOICES = [
-  { id: "c1", label: "Go to the {lane}", params: { lane: "Mid lane" } },
-  { id: "c2", label: "Take your {camp}", params: { camp: "red buff" } },
-  { id: "c3", label: "Push the {lane}", params: { lane: "Farm lane" } },
-  { id: "c4", label: "Fall back to your tower", params: {} }
-];
-
 function stateOf(game) {
-  const decision =
-    game.chosenAt === null
-      ? {
-          options: CHOICES,
-          stay: { id: "stay", label: "Stay where I am", params: {} },
-          shownAt: 0,
-          waiting: false
-        }
-      : null;
   return {
     time: game.time,
     view: viewOf(game),
-    decision,
+    target: game.target,
     dead: false,
     respawnAt: 0,
     paused: game.paused,
@@ -213,16 +217,23 @@ function tick(game) {
     casts: [],
     eyes: [{ at: [320, 700], radius: 120 }]
   });
-  if (game.chosenAt !== null && !game.paused && game.time >= game.chosenAt + PLAYED_AFTER_CHOICE) {
+  if (game.targetAt !== null && !game.paused && game.time >= game.targetAt + PLAYED_AFTER_TARGET) {
     finish(game);
   }
 }
 
+const TARGETS = { auto: "hero", minion: "wave", tower: "tower" };
+
 const ORDERS = {
-  choose: game => {
-    if (game.chosenAt === null) {
-      game.chosenAt = game.time;
-    }
+  move: (game, order) => game.seen.moves.push([order.x, order.y]),
+  target: (game, order) => {
+    game.seen.targets.push(order.kind);
+    const enemy = enemyNear(game);
+    game.target =
+      order.kind === "auto" || order.kind === enemy.id
+        ? { kind: "hero", id: enemy.id }
+        : { kind: TARGETS[order.kind] ?? "hero", id: order.kind === "tower" ? "red-mid-1" : "w1" };
+    game.targetAt ??= game.time;
   },
   pause: game => {
     game.paused = true;
@@ -247,7 +258,11 @@ function listen(game) {
       try {
         const order = JSON.parse(text);
         game.seen.orders.push(order.type);
-        ORDERS[order.type]?.(game);
+        if (game.orders) {
+          game.orders[order.type]?.(order);
+        } else {
+          ORDERS[order.type]?.(game, order);
+        }
       } catch {
         // not JSON: ignored, as the bots server does
       }
@@ -259,6 +274,10 @@ function listen(game) {
 }
 
 function play(socket, ticket, context) {
+  if (ticket.choice?.mode === "watch") {
+    watchGame(socket, context, { MAP, TICK_MS, lineup, listen, textFrame, viewOf });
+    return;
+  }
   const { heroes, me } = lineup(ticket, context.roster);
   const game = {
     ...context,
@@ -270,14 +289,23 @@ function play(socket, ticket, context) {
     time: 0,
     paused: false,
     pausedOnce: false,
-    chosenAt: null,
+    target: null,
+    targetAt: null,
     send: message => socket.writable && socket.write(textFrame(JSON.stringify(message)))
   };
   game.send({
     type: "start",
     map: MAP,
     heroes,
-    me: { ...me, lane: ticket.choice.lane, spell: "flash", skills: ["s1", "s2", "ult"] },
+    me: {
+      ...me,
+      lane: ticket.choice.lane,
+      spell: "flash",
+      skills: ["s1", "s2", "ult"],
+      speed: 60,
+      reach: 25,
+      sight: 300
+    },
     difficulty: ticket.choice.difficulty,
     calls: [
       { id: "regroup", label: "Regroup", icon: "users" },
@@ -291,12 +319,12 @@ function play(socket, ticket, context) {
 }
 
 /**
- * Starts the stand-in: `{ url, seen: { tickets, orders, results }, setSite(url), close() }`. `roster` is the ids of
+ * Starts the stand-in: `{ url, seen: { tickets, orders, results, moves, targets }, setSite(url), close() }`. `roster` is the ids of
  * the heroes it plays (the site must know them), `secret` the shared secret; `setSite` gives it the site's address
  * once the site runs (the site needs the stand-in's address first).
  */
 export async function startFakeBots({ secret, roster }) {
-  const seen = { tickets: [], orders: [], results: [] };
+  const seen = { tickets: [], orders: [], results: [], moves: [], targets: [] };
   const context = { secret, roster, seen, siteUrl: "" };
   const server = createServer((request, response) => {
     if (request.url === "/v1/heroes") {

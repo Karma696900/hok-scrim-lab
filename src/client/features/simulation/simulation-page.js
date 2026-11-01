@@ -13,6 +13,7 @@ export function createSimulationPage({ hydration, api, tell, state }) {
     root: null,
     heroes: [],
     signedIn: false,
+    mode: "play",
     side: "blue",
     lane: "Mid Lane",
     difficulty: "normal",

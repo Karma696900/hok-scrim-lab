@@ -84,6 +84,23 @@ describe(
       assert.equal(payload.limit, 120);
     });
 
+    test("a ticket to watch ten bots keeps only the mode and the heroes chosen by hand", async () => {
+      const ana = await app.signIn("WatchAna");
+      const watch = { mode: "watch", side: "blue", fixed: { "red:Mid Lane": heroId } };
+      const answer = await ana.browser.post("/api/simulation/ticket", watch);
+      assert.equal(answer.status, 200, answer.text);
+      const ticket = new URL(answer.body.url).searchParams.get("ticket");
+      const payload = JSON.parse(Buffer.from(ticket.split(".")[0], "base64url").toString("utf8"));
+      assert.deepEqual(payload.choice, {
+        mode: "watch",
+        fixed: [{ side: "red", lane: "Mid Lane", heroId }]
+      });
+      const spy = { mode: "spy", side: "blue", lane: "Jungle", difficulty: "normal" };
+      assert.equal((await ana.browser.post("/api/simulation/ticket", spy)).status, 400);
+      const wrong = { mode: "watch", fixed: { "red:Mid Lane": "nobody" } };
+      assert.equal((await ana.browser.post("/api/simulation/ticket", wrong)).status, 400);
+    });
+
     test("the heroes the bots can play come from the bots server", async () => {
       const answer = await app.browser().get("/api/simulation/pool");
       assert.equal(answer.status, 200, answer.text);

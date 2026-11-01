@@ -2791,3 +2791,29 @@
 2955|Die an den einzigen POST gesendete Situation ist ungültig: Der Fehler sagt, was falsch ist.
 2958|Die Partien gegen die Bots sind gerade nicht geöffnet. Versuche es später noch einmal.
 2957|Die Verbindung zur Partie wurde unterbrochen.
+2959|Die Scrim-Engine lost für jede Lane beider Teams einen Helden aus.
+2960|Spiel ansehen
+2961|Modus
+2962|Einen Helden spielen
+2963|Zehn Bots zusehen
+2964|Zehn Bots spielen das ganze Match. Beim Zusehen änderst du Tempo und Ansicht: alles oder das, was ein Team sieht.
+2965|Kills und Tode
+2966|Rotes Team
+2967|Blaues Team
+2968|Dreh dein Handy quer, um zuzusehen.
+2969|Tempo
+2970|Blau gewinnt
+2971|Rot gewinnt
+2972|Kein Sieger
+2973|Spieldauer
+2974|Kills Blau
+2975|Kills Rot
+2982|Spiele ein ganzes Honor-of-Kings-Match mit einem Helden, von oben auf der Karte gesehen. Bewege dich mit dem Joystick oder W A S D und greife mit den Tasten an: deine Fähigkeiten werden für dich gewirkt. Deine Makro wird im Hintergrund bewertet (wohin du gehst, was du nimmst und wann), die Note kommt am Ende.
+2976|Bewegen: halten und ziehen, oder W A S D
+2977|Angreifen
+2978|Gegner in Sicht
+2979|Vasallen und Monster
+2980|Türme
+2981|{hero} anvisieren
+2984|Punktetabelle
+2983|Kills, Tode und Assists

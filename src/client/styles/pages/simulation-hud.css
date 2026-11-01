@@ -1,0 +1,586 @@
+/* ---------- Game Simulation: a game played by hand, laid out like the game's own screen ----------
+   The field fills the screen and moves under a camera (simulation-camera.js); the heads-up display sits over it:
+   minimap and hero cards top left, clock / score / K-D-A / scoreboard / pause top right with the gold of both teams,
+   the calls on the right edge, the joystick and the attack buttons at the bottom (simulation-controls.css). */
+.sim-game--play {
+  position: relative;
+  display: block;
+  height: 100dvh;
+  padding: 0;
+  overflow: hidden;
+}
+.sim-view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  container-type: size;
+  background: #0b1220;
+}
+.sim-game--play .sim-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(max(100cqw, 100cqh) * 2.6);
+  height: auto;
+  max-width: none;
+  border-radius: 0;
+  will-change: transform;
+}
+.sim-game.is-hidden .sim-view,
+.sim-game.is-hidden .sim-mini {
+  visibility: hidden;
+}
+.sim-game.is-dead .sim-view {
+  filter: grayscale(1) brightness(0.7);
+}
+
+/* a hero on the field: its level, health cut every 1000 points and mana over its portrait, as in the game */
+.sim-game--play .sim-dot {
+  width: 44px;
+}
+.sim-dot__head {
+  position: absolute;
+  bottom: calc(100% + 3px);
+  left: 50%;
+  translate: -50% 0;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  width: max(180%, 64px);
+}
+.sim-dot__level {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(232, 238, 247, 0.4);
+  border-radius: 50%;
+  background: #0b1220;
+  font: 700 12px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.sim-dot__bars {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+}
+.sim-dot .sim-dot__head .sim-bar {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  width: auto;
+  height: 7px;
+  border: 1px solid rgba(3, 6, 12, 0.85);
+  border-radius: 2px;
+  background: rgba(3, 6, 12, 0.7);
+}
+.sim-dot .sim-dot__head .sim-bar--mana {
+  height: 4px;
+}
+.sim-dot--ally:not(.sim-dot--me) .sim-bar--hp > i {
+  background: #46a5ff;
+}
+
+/* health cut every 1000 points: --segments (the maximum over 1000) is written with the bar */
+.sim-bar--hp {
+  position: relative;
+}
+.sim-bar--hp::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to right,
+    transparent 0,
+    transparent calc(100% / var(--segments, 1) - 1px),
+    rgba(3, 6, 12, 0.85) calc(100% / var(--segments, 1) - 1px),
+    rgba(3, 6, 12, 0.85) calc(100% / var(--segments, 1))
+  );
+  pointer-events: none;
+}
+
+/* the layer of the display: only its controls take the finger */
+.sim-hud {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.sim-hud button,
+.sim-hud .sim-stick,
+.sim-hud .sim-avatars {
+  pointer-events: auto;
+}
+.sim-hud__button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(232, 238, 247, 0.22);
+  border-radius: 50%;
+  background: rgba(10, 16, 28, 0.72);
+  color: #e8eef7;
+  cursor: pointer;
+}
+.sim-hud__button:hover,
+.sim-hud__button:focus-visible {
+  border-color: var(--brand);
+}
+.sim-hud__button svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* top left: the minimap and the cards of the side's heroes */
+.sim-hud__left {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.sim-mini {
+  position: relative;
+  flex: none;
+  width: clamp(120px, 15vw, 210px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(232, 238, 247, 0.22);
+  border-radius: 10px;
+  background: #0b1220;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+.sim-mini__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.sim-mini__dots {
+  position: absolute;
+  inset: 0;
+}
+.sim-mini__hero {
+  position: absolute;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  border: 2px solid #46a5ff;
+  border-radius: 50%;
+  background: #0b1220;
+  translate: -50% -50%;
+}
+.sim-mini__hero[hidden] {
+  display: none;
+}
+.sim-mini__hero--enemy {
+  border-color: var(--team-red);
+}
+.sim-mini__hero.is-me {
+  z-index: 2;
+  border-color: var(--gild);
+}
+.sim-mini__hero img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sim-mini__frame {
+  position: absolute;
+  border: 1.5px solid rgba(232, 238, 247, 0.85);
+  border-radius: 2px;
+}
+.sim-cards {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sim-card {
+  display: grid;
+  gap: 3px;
+  width: 48px;
+}
+.sim-card__face {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #46a5ff;
+  border-radius: 50%;
+  background: #0b1220;
+}
+.sim-card__face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.sim-card.is-me .sim-card__face {
+  border-color: var(--gild);
+}
+.sim-card.is-ult .sim-card__face {
+  box-shadow: 0 0 0 2px #f2c94c;
+}
+.sim-card.is-dead .sim-card__face img {
+  filter: grayscale(1) brightness(0.45);
+}
+.sim-card__level {
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  display: grid;
+  place-items: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 3px;
+  border: 1px solid rgba(232, 238, 247, 0.4);
+  border-radius: 10px;
+  background: #0b1220;
+  font: 700 12px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.sim-card__timer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font: 800 14px/1 var(--font-body);
+}
+.sim-card__timer[hidden] {
+  display: none;
+}
+.sim-card__bars {
+  display: grid;
+  gap: 2px;
+}
+.sim-card .sim-bar--hp {
+  height: 6px;
+  border-radius: 2px;
+}
+.sim-card .sim-bar--mana {
+  height: 4px;
+  border-radius: 2px;
+}
+.sim-card:not(.is-me) .sim-bar--hp > i {
+  background: #46a5ff;
+}
+
+/* top right: clock and score, the player's kills, deaths and assists, the scoreboard, the pause, the gold */
+.sim-hud__right {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  display: grid;
+  justify-items: stretch;
+  gap: 4px;
+  width: min(360px, 46vw);
+}
+.sim-scorebar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 2px 4px 2px 12px;
+  border-radius: 12px;
+  background: rgba(6, 11, 19, 0.62);
+}
+.sim-scorebar__time {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  margin-inline-end: auto;
+}
+.sim-game--play .sim-clock {
+  font: 700 14px/1 var(--font-display);
+}
+.sim-score {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font: 800 18px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.sim-score small {
+  color: #b9c3d3;
+  font: 600 12px/1 var(--font-body);
+}
+.sim-score [data-score="blue"] {
+  color: var(--team-blue-text);
+}
+.sim-score [data-score="red"] {
+  color: var(--team-red-text);
+}
+.sim-kda b {
+  font: 700 14px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.sim-hud__right .sim-farm {
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 10px;
+  background: rgba(6, 11, 19, 0.62);
+}
+.sim-farm__gold {
+  font: 700 13px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.sim-farm__gold--blue {
+  color: var(--team-blue-text);
+}
+.sim-farm__gold--red {
+  color: var(--team-red-text);
+}
+
+/* the calls, on the right edge */
+.sim-game--play .sim-calls {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  display: grid;
+  grid-template-columns: 44px;
+  gap: 8px;
+  translate: 0 -75%;
+}
+.sim-call {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(232, 238, 247, 0.22);
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(10, 16, 28, 0.72);
+  color: #7cc4ff;
+  cursor: pointer;
+}
+.sim-call:hover,
+.sim-call:focus-visible {
+  border-color: var(--brand);
+}
+.sim-call:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.sim-call svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* the summoner spell (or Punish), beside the attack buttons */
+.sim-game--play .sim-strike {
+  grid-template-areas:
+    "avatars avatars"
+    "spell tower"
+    "minion attack";
+}
+.sim-game--play .sim-dot__cast {
+  bottom: calc(100% + 32px);
+}
+.sim-spell {
+  grid-area: spell;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 2px solid rgba(232, 238, 247, 0.28);
+  border-radius: 50%;
+  background: rgba(10, 16, 28, 0.78);
+  color: #e8eef7;
+  cursor: pointer;
+}
+.sim-spell svg {
+  width: 20px;
+  height: 20px;
+}
+.sim-spell__name {
+  max-width: 52px;
+  overflow: hidden;
+  font: 600 12px/1 var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sim-spell.is-ready {
+  border-color: var(--gild);
+  color: var(--gild);
+}
+.sim-spell:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* the death: the field turns grey and the countdown shows in the middle */
+.sim-game--play .sim-death {
+  top: 42%;
+  bottom: auto;
+  z-index: 3;
+  font-size: 18px;
+}
+
+/* the boxes over the whole game */
+.sim-game--play .sim-cover {
+  z-index: 6;
+}
+.sim-scores {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: rgba(3, 6, 12, 0.6);
+}
+.sim-scores[hidden] {
+  display: none;
+}
+.sim-scores__card {
+  display: grid;
+  gap: 10px;
+  width: min(920px, 100%);
+  max-height: 100%;
+  padding: 12px 14px;
+  overflow-y: auto;
+  border: 1px solid rgba(232, 238, 247, 0.16);
+  border-radius: 14px;
+  background: #0d1626;
+}
+.sim-scores__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sim-scores__head h2 {
+  margin: 0;
+  font: 700 18px/1.2 var(--font-display);
+}
+.sim-scores__teams {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.sim-scores__team h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 6px;
+  font: 700 15px/1.2 var(--font-display);
+}
+.sim-scores__team--blue h3 {
+  color: var(--team-blue-text);
+}
+.sim-scores__team--red h3 {
+  color: var(--team-red-text);
+}
+.sim-scores__team h3 small {
+  margin-inline-start: auto;
+  color: #b9c3d3;
+  font: 600 13px/1 var(--font-body);
+}
+.sim-scores__team ol {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sim-scores__row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr) auto;
+  grid-template-areas:
+    "face name kda"
+    "face items items";
+  align-items: center;
+  gap: 2px 8px;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+.sim-scores__row.is-me {
+  background: rgba(232, 197, 110, 0.1);
+}
+.sim-scores__row .sim-card__face {
+  grid-area: face;
+  width: 36px;
+  height: 36px;
+}
+.sim-scores__team--red .sim-card__face {
+  border-color: var(--team-red);
+}
+.sim-scores__name {
+  grid-area: name;
+  overflow: hidden;
+  font: 600 13px/1.2 var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sim-scores__kda {
+  grid-area: kda;
+  font: 700 13px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.sim-scores__items {
+  grid-area: items;
+  display: flex;
+  gap: 3px;
+}
+.sim-item {
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(232, 238, 247, 0.18);
+  border-radius: 6px;
+  background: rgba(232, 238, 247, 0.06);
+}
+.sim-item.is-empty {
+  border-style: dashed;
+  background: none;
+}
+.sim-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 700px) {
+  .sim-scores__teams {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-height: 480px) {
+  .sim-mini {
+    width: 112px;
+  }
+  .sim-cards {
+    gap: 5px;
+  }
+  .sim-card {
+    width: 38px;
+  }
+  .sim-card__face {
+    width: 34px;
+    height: 34px;
+  }
+  .sim-game--play .sim-dot {
+    width: 36px;
+  }
+  .sim-game--play .sim-calls {
+    top: 84px;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    gap: 4px;
+    translate: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sim-game--play .sim-map {
+    will-change: auto;
+  }
+}

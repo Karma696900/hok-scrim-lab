@@ -60,6 +60,7 @@ export async function start(view) {
   view.paint();
   const hooks = addressHooks();
   const choice = {
+    mode: view.mode,
     side: view.side,
     lane: view.lane,
     difficulty: view.difficulty,
@@ -95,6 +96,7 @@ export async function start(view) {
 }
 
 const CHOICES = {
+  mode: (view, value) => ["play", "watch"].includes(value) && (view.mode = value),
   side: (view, value) => SIDES.includes(value) && (view.side = value),
   lane: (view, value) => LANES.includes(value) && (view.lane = value),
   difficulty: (view, value) => DIFFICULTIES.includes(value) && (view.difficulty = value),

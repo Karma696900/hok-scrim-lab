@@ -2791,3 +2791,29 @@
 2955|La situation envoyée à l'unique POST n'est pas valide : l'erreur dit ce qui ne va pas.
 2958|Les parties contre les bots ne sont pas ouvertes pour le moment. Réessayez plus tard.
 2957|La connexion à la partie a été perdue.
+2959|Le moteur de scrim tire un héros pour chaque voie des deux équipes.
+2960|Regarder la partie
+2961|Mode
+2962|Jouer un héros
+2963|Regarder dix bots
+2964|Dix bots jouent tout le match. Pendant que tu regardes, change la vitesse et la vue : tout, ou ce que voit une équipe.
+2965|Éliminations et morts
+2966|Équipe rouge
+2967|Équipe bleue
+2968|Tourne ton téléphone à l’horizontale pour regarder.
+2969|Vitesse
+2970|Victoire des Bleus
+2971|Victoire des Rouges
+2972|Pas de vainqueur
+2973|Durée de la partie
+2974|Éliminations bleues
+2975|Éliminations rouges
+2982|Joue un match complet d’Honor of Kings avec un héros, vu de haut sur la carte. Déplace-toi avec le joystick ou Z Q S D et attaque avec les boutons : tes compétences sont lancées pour toi. Ta macro est notée en coulisses (où tu vas, ce que tu prends et quand), et la note arrive à la fin.
+2976|Déplacement : maintiens et glisse, ou Z Q S D
+2977|Attaquer
+2978|Ennemis en vue
+2979|Sbires et monstres
+2980|Tours
+2981|Cibler {hero}
+2984|Tableau des scores
+2983|Éliminations, morts et assistances

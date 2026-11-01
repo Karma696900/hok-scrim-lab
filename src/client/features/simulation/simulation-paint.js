@@ -1,49 +1,69 @@
-// Each frame of a game: the dots where they are (only what the player's side sees), their health
-// bars (heroes, monsters and objectives; none for the minions of a wave), the fog, the towers and
-// camps that fell, the picture of each skill seen cast (a third of a second), the allies' bars, the
-// player's cooldowns, the gold of both teams, the clock, and the boxes that open on top. Positions
-// and bar lengths go through the style object (the page's content policy forbids style attributes).
+// Each frame of a game: the dots where they are (only what the player's side sees), the level, health and mana
+// over each hero as in the game (health cut every 1000 points; mana for the side's own heroes), the bars of the
+// monsters and objectives (none for the minions of a wave), the fog of the field and of the minimap, the towers and
+// camps that fell, the picture of each skill seen cast (a third of a second), the heads-up display
+// (simulation-hud.js), the clock, and the boxes that open on top. The heroes glide between two frames
+// (simulation-motion.js) and the camera follows the player's (simulation-camera.js). Positions and bar lengths go
+// through the style object (the page's content policy forbids style attributes).
 import { t } from "../../app/browser-i18n.js";
-import { eyesMarkup, placeOnBoard } from "./simulation-map.js";
-import { decisionHtml, deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
+import { eyesMarkup } from "./simulation-map.js";
+import { paintControls } from "./simulation-controls.js";
+import {
+  fillBar,
+  healthBar,
+  paintCards,
+  paintMini,
+  paintScoreboard,
+  paintTop,
+  placeAt,
+  share
+} from "./simulation-hud.js";
+import { glideTo } from "./simulation-motion.js";
+import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
 import { clock, esc, portrait } from "./simulation-shared.js";
 
 const CAST_SHOWN_MS = 333;
 
-const share = (part, whole) =>
-  whole > 0 ? Math.max(0, Math.min(100, Math.round((part / whole) * 100))) : 0;
+export { share };
 
-function setBar(element, percent) {
-  const fill = element?.firstElementChild;
-  if (fill && fill.dataset.p !== String(percent)) {
-    fill.dataset.p = String(percent);
-    fill.style.setProperty("--p", String(percent));
-  }
-}
+export const setBar = (element, percent) => fillBar(element, percent);
 
-function place(element, at, side) {
-  const [x, y] = placeOnBoard(at, side);
-  element.style.left = `${x.toFixed(2)}%`;
-  element.style.top = `${y.toFixed(2)}%`;
-}
+/** Puts `element` at map point `at` on the board of `side`. */
+export const place = placeAt;
 
 function dotOf(run, hero) {
   let dot = run.dots.get(hero.id);
   if (!dot) {
     dot = document.createElement("span");
     const mine = hero.id === run.me.id;
-    dot.className = `sim-dot sim-dot--${hero.side === run.side ? "ally" : "enemy"}${mine ? " sim-dot--me" : ""}`;
+    const own = hero.side === run.side;
+    dot.className = `sim-dot sim-dot--${own ? "ally" : "enemy"}${mine ? " sim-dot--me" : ""}`;
     const approximate = run.approximate.has(hero.id)
       ? `<em class="sim-dot__approx" title="${esc(t("Approximate data"))}">≈</em>`
       : "";
-    dot.innerHTML = `<span class="sim-dot__face">${portrait(run.heroes, hero.heroId, 32)}</span><span class="sim-bar sim-bar--hp"><i></i></span>${approximate}<span class="sim-dot__cast" hidden></span>`;
+    const mana = own ? `<span class="sim-bar sim-bar--mana"><i></i></span>` : "";
+    dot.innerHTML = `<span class="sim-dot__head"><b class="sim-dot__level">${hero.level ?? 1}</b><span class="sim-dot__bars">${healthBar("")}${mana}</span></span><span class="sim-dot__face">${portrait(run.heroes, hero.heroId, 40)}</span>${approximate}<span class="sim-dot__cast" hidden></span>`;
     run.layerOf.dots.append(dot);
     run.dots.set(hero.id, dot);
   }
   return dot;
 }
 
-function paintHeroes(run, view) {
+function paintDot(dot, hero) {
+  const [hp, mana] = dot.querySelectorAll(".sim-bar");
+  fillBar(hp, share(hero.hp ?? 1, hero.maxHp ?? 1), hero.maxHp ?? 1000);
+  if (mana) {
+    mana.hidden = hero.mana === null || hero.mana === undefined;
+    fillBar(mana, share(hero.mana ?? 0, hero.maxMana ?? 0));
+  }
+  const level = dot.querySelector(".sim-dot__level");
+  if (level && level.textContent !== String(hero.level ?? 1)) {
+    level.textContent = String(hero.level ?? 1);
+  }
+}
+
+/** The heroes the side sees; with `now`, they glide to their place (simulation-motion.js). */
+export function paintHeroes(run, view, now) {
   const shown = new Set();
   for (const hero of view.heroes) {
     if (!hero.alive) {
@@ -52,8 +72,12 @@ function paintHeroes(run, view) {
     const dot = dotOf(run, hero);
     shown.add(hero.id);
     dot.hidden = false;
-    place(dot, hero.pos, run.side);
-    setBar(dot.querySelector(".sim-bar"), share(hero.hp ?? 1, hero.maxHp ?? 1));
+    if (now === undefined || !run.glide) {
+      place(dot, hero.pos, run.side);
+    } else {
+      glideTo(run, hero.id, hero.pos, now);
+    }
+    paintDot(dot, hero);
   }
   for (const [id, dot] of run.dots) {
     if (!shown.has(id)) {
@@ -62,7 +86,7 @@ function paintHeroes(run, view) {
   }
 }
 
-function paintWaves(run, view) {
+export function paintWaves(run, view) {
   const seen = new Set(view.waves.map(wave => wave.id));
   for (const wave of view.waves) {
     let mark = run.waves.get(wave.id);
@@ -83,7 +107,7 @@ function paintWaves(run, view) {
 }
 
 /** Camps and objectives: fallen, unknown (in the fog), or standing with their health when seen. */
-function paintCamps(run, view) {
+export function paintCamps(run, view) {
   for (const camp of view.camps) {
     const mark = run.campMarks.get(camp.id);
     mark?.classList.toggle("is-unknown", !camp.known);
@@ -111,7 +135,7 @@ function paintCamps(run, view) {
 }
 
 /** The picture of each skill the side sees cast (the frame lists them), on the caster, for a third of a second. */
-function paintCasts(run, now) {
+export function paintCasts(run, now) {
   for (const cast of run.newCasts.splice(0)) {
     run.castUntil.set(cast.hero, { until: now + CAST_SHOWN_MS, key: cast.key });
   }
@@ -136,47 +160,17 @@ function paintCasts(run, now) {
   }
 }
 
-function paintAllies(run, view) {
-  for (const ally of view.heroes.filter(h => h.side === run.side && h.id !== run.me.id)) {
-    const row = run.allyRows.get(ally.id);
-    if (!row) {
-      continue;
-    }
-    const [hp, mana, ult] = row.querySelectorAll(".sim-bar");
-    setBar(hp, ally.alive ? share(ally.hp ?? 1, ally.maxHp ?? 1) : 0);
-    mana.hidden = ally.mana === null || ally.mana === undefined;
-    setBar(mana, share(ally.mana ?? 0, ally.maxMana ?? 0));
-    setBar(ult, ally.ult ? 100 : 0);
-    ult.classList.toggle("is-ready", Boolean(ally.ult));
-    const timer = row.querySelector(".sim-ally__timer");
-    timer.hidden = ally.alive;
-    if (!ally.alive) {
-      timer.textContent = String(Math.max(0, Math.ceil((ally.respawnAt ?? 0) - view.time)));
-    }
-    row.classList.toggle("is-dead", !ally.alive);
-  }
-}
-
-function paintMe(run, view) {
+function paintSpell(run, view) {
   const me = view.heroes.find(hero => hero.id === run.me.id);
-  if (!me) {
+  const spell = run.layerOf.spell;
+  if (!me || !spell) {
     return;
   }
-  setBar(run.layerOf.meHp, me.alive ? share(me.hp ?? 1, me.maxHp ?? 1) : 0);
-  for (const [key, cell] of run.skillCells) {
-    const left = me.cooldowns?.[key] ?? 0;
-    const cd = cell.lastElementChild;
-    cd.hidden = left <= 0;
-    cd.textContent = left > 0 ? String(Math.ceil(left)) : "";
-    cell.classList.toggle("is-cooling", left > 0);
-  }
-  const ready = me.alive && Boolean(me.spellReady || me.punishReady);
-  run.layerOf.spell.classList.toggle("is-ready", ready);
-  run.layerOf.spellState.textContent = ready ? t("Ready") : "";
-  run.layerOf.spell.disabled = !me.alive;
+  spell.classList.toggle("is-ready", me.alive && Boolean(me.spellReady || me.punishReady));
+  spell.disabled = !me.alive;
 }
 
-function paintFarm(run, view) {
+export function paintFarm(run, view) {
   const { blue, red } = view.farm;
   run.layerOf.farmBlue.textContent = String(Math.round(blue));
   run.layerOf.farmRed.textContent = String(Math.round(red));
@@ -186,15 +180,6 @@ function paintFarm(run, view) {
 /** The boxes on top of the board, drawn again only when what they say changes. */
 function paintPopups(run, state) {
   const { layerOf } = run;
-  const decisionKey = state.decision
-    ? `${state.decision.shownAt}:${state.decision.waiting}:${state.decision.options.map(o => o.id).join()}`
-    : "";
-  if (decisionKey !== run.keys.decision) {
-    run.keys.decision = decisionKey;
-    layerOf.decision.hidden = !state.decision || state.hidden;
-    layerOf.decision.innerHTML = state.decision ? decisionHtml(state.decision, run.heroes) : "";
-  }
-  layerOf.decision.hidden = !state.decision || state.hidden;
   const coverKey = state.question ? `q:${state.question.id}` : state.paused ? "pause" : "";
   if (coverKey !== run.keys.cover) {
     run.keys.cover = coverKey;
@@ -206,7 +191,8 @@ function paintPopups(run, state) {
     layerOf.cover.querySelector("button")?.focus();
   }
   layerOf.cover.hidden = !coverKey;
-  layerOf.map.classList.toggle("is-hidden", state.hidden);
+  layerOf.game.classList.toggle("is-hidden", state.hidden);
+  layerOf.game.classList.toggle("is-dead", state.dead);
   if (state.question) {
     const left = layerOf.cover.querySelector(".sim-question__left");
     if (left) {
@@ -224,17 +210,24 @@ function paintPopups(run, state) {
 
 /** One frame. `state` is the session's view sent by the bots server; `view` what the player's side sees now. */
 export function paintFrame(run, state, view, now) {
-  paintHeroes(run, view);
+  paintHeroes(run, view, now);
   paintWaves(run, view);
   paintCamps(run, view);
   paintCasts(run, now);
   if (run.eyes) {
-    run.layerOf.eyes.innerHTML = eyesMarkup(run.eyes);
+    const eyes = eyesMarkup(run.eyes);
+    run.layerOf.eyes.innerHTML = eyes;
+    run.layerOf.miniEyes.innerHTML = eyes;
     run.eyes = null;
   }
-  paintAllies(run, view);
-  paintMe(run, view);
+  run.lastView = view;
+  paintCards(run, view);
+  paintSpell(run, view);
+  paintTop(run, view);
   paintFarm(run, view);
+  paintMini(run, view);
+  paintScoreboard(run, view);
+  paintControls(run, state, view);
   run.layerOf.clock.textContent = clock(state.time);
   paintPopups(run, state);
 }

@@ -1,0 +1,98 @@
+/* ---------- Game Simulation, the spectator mode: the speed and view switches, the two teams, the end ---------- */
+.sim-watch-top {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.sim-switch button {
+  min-width: 44px;
+  min-height: 44px;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.sim-map.is-clear .sim-fog {
+  display: none;
+}
+.sim-watch-team {
+  display: grid;
+  gap: 6px;
+}
+.sim-watch-team h3 {
+  margin: 0;
+  font: 700 14px/1.2 var(--font-display);
+}
+.sim-watch-team--blue h3 {
+  color: var(--team-blue-text);
+}
+.sim-watch-team--red h3 {
+  color: var(--team-red-text);
+}
+.sim-watch-team ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.sim-watch-team--red .sim-ally__face {
+  border-color: var(--team-red);
+}
+.sim-watch-row .sim-ally__bars {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}
+.sim-watch-row__name {
+  overflow: hidden;
+  color: #b9c3d3;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sim-watch-row__kd {
+  font: 700 13px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+.sim-watch-row.is-unseen .sim-ally__bars {
+  opacity: 0.45;
+}
+.sim-watch-end__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+.sim-watch-end__facts div {
+  display: grid;
+  gap: 4px;
+}
+.sim-watch-end__facts dt {
+  color: #b9c3d3;
+  font-size: 13px;
+}
+.sim-watch-end__facts dd {
+  margin: 0;
+  font: 700 20px/1 var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+.sim-watch-team--red .sim-bar--hp > i {
+  background: #e0533d;
+}
+/* a phone held sideways: the rows keep the portrait, the health and the score, so both teams fit the height */
+@media (max-height: 520px) {
+  .sim-watch-panel {
+    gap: 6px;
+  }
+  .sim-watch-team ul {
+    gap: 3px;
+  }
+  .sim-watch-team h3,
+  .sim-watch-row__name,
+  .sim-watch-row .sim-bar--mana,
+  .sim-watch-row .sim-bar--ult {
+    display: none;
+  }
+  .sim-watch-row .sim-ally__face {
+    width: 24px;
+    height: 24px;
+  }
+}

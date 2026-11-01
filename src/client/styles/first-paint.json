@@ -103,7 +103,14 @@
     "items": ["pages/gamedata.css"],
     "arcana": ["pages/gamedata.css"],
     "spells": ["pages/gamedata.css"],
-    "simulation": ["pages/community.css", "pages/simulation.css", "pages/simulation-board.css"],
+    "simulation": [
+      "pages/community.css",
+      "pages/simulation.css",
+      "pages/simulation-board.css",
+      "pages/simulation-controls.css",
+      "pages/simulation-hud.css",
+      "pages/simulation-watch.css"
+    ],
     "popular": ["pages/popular.css", "pages/popular-empty-period.css"],
     "terms": ["pages/legal.css"],
     "privacy": ["pages/legal.css"],

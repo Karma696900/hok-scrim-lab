@@ -2,7 +2,7 @@
 import assert from "node:assert/strict";
 import { execFileSync } from "node:child_process";
 import { describe, test } from "node:test";
-import { privatePaths } from "./public-tree.js";
+import { privatePaths, publicMessage } from "./public-tree.js";
 
 describe("public tree guard", () => {
   test("refuses the engine, the bots training and the balance runner", () => {
@@ -36,5 +36,21 @@ describe("public tree guard", () => {
   test("the tree of the index holds no private path", () => {
     const files = execFileSync("git", ["ls-files"], { encoding: "utf8" }).trim().split(/\r?\n/);
     assert.deepEqual(privatePaths(files), []);
+  });
+
+  test("a public message names no co-author", () => {
+    const message = [
+      "feat(x): a change",
+      "",
+      "Why it matters.",
+      "",
+      "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>",
+      "co-authored-by: Someone <a@b.c>"
+    ].join("\n");
+    assert.equal(publicMessage(message), "feat(x): a change\n\nWhy it matters.\n");
+  });
+
+  test("a message without co-author is kept as it is", () => {
+    assert.equal(publicMessage("fix: one line"), "fix: one line\n");
   });
 });

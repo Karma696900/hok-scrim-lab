@@ -72,6 +72,9 @@
 @import "./pages/reflex-last-hit.css";
 @import "./pages/simulation.css";
 @import "./pages/simulation-board.css";
+@import "./pages/simulation-controls.css";
+@import "./pages/simulation-hud.css";
+@import "./pages/simulation-watch.css";
 @import "./pages/series.css";
 @import "./pages/series-games.css";
 @import "./pages/draft-editor.css";

@@ -7,7 +7,7 @@ line="*/2 * * * * sh $here/auto-update.sh >> $HOME/auto-update.log 2>&1"
 if crontab -l 2> /dev/null | grep -qF "$here/auto-update.sh"; then
   echo "already on"
 else
-  (crontab -l 2> /dev/null; echo "$line") | crontab -
+  (crontab -l 2> /dev/null || true; echo "$line") | crontab - # no crontab yet: "crontab -l" fails, set -e must not stop
   echo "on"
 fi
 crontab -l

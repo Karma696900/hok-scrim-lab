@@ -14,17 +14,17 @@ export function placeOnBoard([x, y], side) {
   return [((px - FRAME.from) / FRAME.side) * 100, ((py - FRAME.from) / FRAME.side) * 100];
 }
 
-const towerMark = tower =>
-  `<rect class="sim-tower sim-tower--${tower.side}" data-tower="${tower.id}" x="${tower.at[0] - 9}" y="${tower.at[1] - 9}" width="18" height="18" rx="3"></rect>`;
+const towerMark = (tower, mini) =>
+  `<rect class="sim-tower sim-tower--${tower.side}" ${mini ? "data-mini-tower" : "data-tower"}="${tower.id}" x="${tower.at[0] - 9}" y="${tower.at[1] - 9}" width="18" height="18" rx="3"></rect>`;
 
-const campMark = (camp, neutral) =>
-  `<circle class="sim-camp sim-camp--${camp.kind}${neutral ? " sim-camp--neutral" : ""}" data-camp="${camp.id}" cx="${camp.at[0]}" cy="${camp.at[1]}" r="${neutral ? 16 : 9}"></circle>`;
+const campMark = (camp, neutral, mini) =>
+  `<circle class="sim-camp sim-camp--${camp.kind}${neutral ? " sim-camp--neutral" : ""}" ${mini ? "data-mini-camp" : "data-camp"}="${camp.id}" cx="${camp.at[0]}" cy="${camp.at[1]}" r="${neutral ? 16 : 9}"></circle>`;
 
-function baseMarks(map) {
+function baseMarks(map, mini) {
   return ["blue", "red"]
     .map(side => {
       const { crystal, fountain } = map.bases[side];
-      return `<circle class="sim-fountain sim-fountain--${side}" cx="${fountain[0]}" cy="${fountain[1]}" r="34"></circle><rect class="sim-crystal sim-crystal--${side}" data-crystal="${side}" x="${crystal[0] - 15}" y="${crystal[1] - 15}" width="30" height="30" transform="rotate(45 ${crystal[0]} ${crystal[1]})"></rect>`;
+      return `<circle class="sim-fountain sim-fountain--${side}" cx="${fountain[0]}" cy="${fountain[1]}" r="34"></circle><rect class="sim-crystal sim-crystal--${side}" ${mini ? "data-mini-crystal" : "data-crystal"}="${side}" x="${crystal[0] - 15}" y="${crystal[1] - 15}" width="30" height="30" transform="rotate(45 ${crystal[0]} ${crystal[1]})"></rect>`;
     })
     .join("");
 }
@@ -44,24 +44,26 @@ function vectorMarks(map, debug) {
 /**
  * The map as an SVG, with an empty fog (simulation-paint.js cuts the eyes of the side into it). With
  * `image` (the picture of the map, on the same frame as its vector) the picture is the board and the
- * vector is left to the bots; `debug` (?debug=map) draws it over the picture, as outlines.
+ * vector is left to the bots; `debug` (?debug=map) draws it over the picture, as outlines. `mini` is the
+ * minimap's copy: its own fog and its own marks (data-mini-*), so that the field's are found alone.
  */
-export function mapSvg(map, side, { image = null, debug = false } = {}) {
+export function mapSvg(map, side, { image = null, debug = false, mini = false } = {}) {
+  const name = mini ? "sim-mini" : "sim-map";
   const turn = side === "red" ? ` transform="rotate(180 ${SIZE / 2} ${SIZE / 2})"` : "";
   const ground = image
-    ? `<image class="sim-picture" href="${image}" x="0" y="0" width="${SIZE}" height="${SIZE}" preserveAspectRatio="none"></image>
+    ? `<image class="${mini ? "sim-mini__picture" : "sim-picture"}" href="${image}" x="0" y="0" width="${SIZE}" height="${SIZE}" preserveAspectRatio="none"></image>
     ${debug ? vectorMarks(map, true) : ""}`
     : `<rect class="sim-void" x="0" y="0" width="${SIZE}" height="${SIZE}"></rect>
     ${vectorMarks(map, false)}`;
-  return `<svg class="sim-map__svg" viewBox="${FRAME.from} ${FRAME.from} ${FRAME.side} ${FRAME.side}" aria-hidden="true" focusable="false">
-  <defs><mask id="sim-fog-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="${SIZE}" height="${SIZE}"><rect x="0" y="0" width="${SIZE}" height="${SIZE}" fill="white"></rect><g class="sim-eyes"></g></mask></defs>
+  return `<svg class="${name}__svg" viewBox="${FRAME.from} ${FRAME.from} ${FRAME.side} ${FRAME.side}" aria-hidden="true" focusable="false">
+  <defs><mask id="${name}-fog" maskUnits="userSpaceOnUse" x="0" y="0" width="${SIZE}" height="${SIZE}"><rect x="0" y="0" width="${SIZE}" height="${SIZE}" fill="white"></rect><g class="${mini ? "sim-mini-eyes" : "sim-eyes"}"></g></mask></defs>
   <g class="sim-world"${turn}>
     ${ground}
-    ${baseMarks(map)}
-    ${map.towers.map(towerMark).join("")}
-    ${map.camps.map(camp => campMark(camp, false)).join("")}
-    ${map.neutral.map(camp => campMark(camp, true)).join("")}
-    <rect class="sim-fog" x="0" y="0" width="${SIZE}" height="${SIZE}" mask="url(#sim-fog-mask)"></rect>
+    ${baseMarks(map, mini)}
+    ${map.towers.map(tower => towerMark(tower, mini)).join("")}
+    ${map.camps.map(camp => campMark(camp, false, mini)).join("")}
+    ${map.neutral.map(camp => campMark(camp, true, mini)).join("")}
+    <rect class="sim-fog" x="0" y="0" width="${SIZE}" height="${SIZE}" mask="url(#${name}-fog)"></rect>
   </g>
 </svg>`;
 }

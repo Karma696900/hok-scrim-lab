@@ -2791,3 +2791,29 @@
 2955|La situación enviada al único POST no es válida: el error dice qué falla.
 2958|Las partidas contra los bots no están abiertas ahora mismo. Inténtalo más tarde.
 2957|Se perdió la conexión con la partida.
+2959|El motor de scrims elige un héroe para cada línea de ambos equipos.
+2960|Ver la partida
+2961|Modo
+2962|Jugar un héroe
+2963|Ver a diez bots
+2964|Diez bots juegan toda la partida. Mientras miras, cambia la velocidad y la vista: todo, o lo que ve un equipo.
+2965|Asesinatos y muertes
+2966|Equipo rojo
+2967|Equipo azul
+2968|Gira el teléfono en horizontal para mirar.
+2969|Velocidad
+2970|Gana el azul
+2971|Gana el rojo
+2972|Sin ganador
+2973|Duración de la partida
+2974|Asesinatos del azul
+2975|Asesinatos del rojo
+2982|Juega una partida completa de Honor of Kings con un héroe, visto desde arriba en el mapa. Muévete con el joystick o W A S D y ataca con los botones: tus habilidades se lanzan solas. Tu macro se evalúa en segundo plano (adónde vas, qué tomas y cuándo) y la nota llega al final.
+2976|Moverse: mantén y arrastra, o W A S D
+2977|Atacar
+2978|Enemigos a la vista
+2979|Súbditos y monstruos
+2980|Torres
+2981|Apuntar a {hero}
+2984|Marcador
+2983|Asesinatos, muertes y asistencias

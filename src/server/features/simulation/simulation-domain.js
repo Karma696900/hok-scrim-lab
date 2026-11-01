@@ -78,15 +78,21 @@ function parseFixed(value, knownHeroIds) {
   });
 }
 
-/** What the player chose before a live game: side, lane, difficulty, and the heroes chosen by hand. */
+/**
+ * What the player chose before a live game: side, lane, difficulty, and the heroes chosen by hand. With
+ * `mode: "watch"` (ten bots, nobody plays) only the heroes chosen by hand are kept.
+ */
 export function parseChoice(body, knownHeroIds) {
   const input = plainObject(body);
-  const choice = {
-    side: oneOf(input.side, SIDES, "side"),
-    lane: oneOf(input.lane, PICK_LANES, "lane"),
-    difficulty: oneOf(input.difficulty, DIFFICULTIES, "difficulty"),
-    fixed: parseFixed(input.fixed, knownHeroIds)
-  };
+  const watch = oneOf(input.mode ?? "play", ["play", "watch"], "mode") === "watch";
+  const choice = watch
+    ? { mode: "watch", fixed: parseFixed(input.fixed, knownHeroIds) }
+    : {
+        side: oneOf(input.side, SIDES, "side"),
+        lane: oneOf(input.lane, PICK_LANES, "lane"),
+        difficulty: oneOf(input.difficulty, DIFFICULTIES, "difficulty"),
+        fixed: parseFixed(input.fixed, knownHeroIds)
+      };
   const limit = input.limit === undefined ? null : Number(input.limit);
   if (limit !== null && (!Number.isInteger(limit) || limit < LIMITS.min || limit > LIMITS.max)) {
     throw badRequest("{label} is not valid.", "invalid_body", { label: "limit" });

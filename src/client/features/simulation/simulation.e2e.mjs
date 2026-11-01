@@ -1,7 +1,8 @@
 // Browser check of the Game Simulation (/simulation). The games run on the bots server (private repository
 // hok-bots): here a stand-in plays a short scripted game over the same WebSocket messages (src/testing/
 // fake-bots-server.js). Checked: the set-up screen a visitor sees and that a game needs an account, a game signed
-// in (the ticket, the board, a decision answered, the pause that hides the map, the grade alone at the end, kept by
+// in (the ticket, the board, the joystick held, an enemy locked and the attack, the pause that hides the map, the grade
+// alone at the end, kept by
 // the site from the bots server), a phone held upright asked to turn, and the picture of the map as the board.
 import { randomBytes } from "node:crypto";
 import { chromium } from "playwright";
@@ -43,7 +44,20 @@ await app.store.saveHeroes(
   })),
   "20261031"
 );
+// true as soon as `test` holds (the orders cross a WebSocket), false after `ms`
+const until = async (test, ms = 3000) => {
+  for (const end = Date.now() + ms; Date.now() < end;) {
+    if (test()) {
+      return true;
+    }
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
+  return test();
+};
 const ana = await app.signIn("SimPlayer");
+// SIM_SHOTS=<folder>: also saves pictures of the screen of the game, for a human to look at
+const shot = async (page, name) =>
+  process.env.SIM_SHOTS && page.screenshot({ path: `${process.env.SIM_SHOTS}/${name}.png` });
 
 const browser = await chromium.launch();
 const open = async (who, viewport = { width: 1280, height: 800 }, { quiet = [] } = {}) => {
@@ -98,27 +112,82 @@ check(
   "the ticket names the player and the set-up",
   ticket?.userId === ana.user.id && LANES.includes(ticket?.choice?.lane)
 );
-await player.waitForSelector(".sim-decision:not([hidden]) .sim-choice", { timeout: 20000 });
-check(
-  "a decision: four choices and stay",
-  (await player.locator(".sim-decision .sim-choice").count()) === 5
-);
-check(
-  "the choice names a place",
-  (await player.locator(".sim-decision .sim-choice").first().textContent()) === "Go to the Mid lane"
-);
+check("no decision box", (await player.locator(".sim-decision").count()) === 0);
 check("four calls", (await player.locator(".sim-call").count()) === 4);
-await player.locator(".sim-decision .sim-choice").first().click();
+const stick = await player.locator("[data-stick]").boundingBox();
+check("the joystick bottom left", stick !== null && stick.x < 400 && stick.y > 500);
+const attack = await player.locator('[data-sim="aim"][data-kind="auto"]').boundingBox();
+check(
+  "the attack bottom right, big enough",
+  attack !== null && attack.x > 880 && attack.width >= 64
+);
+await player.mouse.move(stick.x + stick.width / 2, stick.y + stick.height / 2);
+await player.mouse.down();
+await player.mouse.move(stick.x + stick.width, stick.y + stick.height / 2, { steps: 4 });
+check(
+  "the held stick moves the hero",
+  await settles(player.waitForFunction(() => document.querySelector(".sim-stick.is-held")))
+);
+check(
+  "the stick reached the bots server",
+  await until(() => bots.seen.moves.some(([x]) => Math.abs(x) > 0.5))
+);
+await player.mouse.up();
+check("let go, the hero stops", await until(() => bots.seen.moves.at(-1)?.join() === "0,0"));
+const mini = await player.locator(".sim-mini").boundingBox();
+check("the minimap top left", mini !== null && mini.x < 40 && mini.y < 40);
+check("the cards of the side's five heroes", (await player.locator(".sim-card").count()) === 5);
+check(
+  "the camera follows the hero",
+  await settles(
+    player.waitForFunction(() =>
+      document.querySelector(".sim-game--play .sim-map")?.style.transform.includes("translate3d")
+    )
+  )
+);
+await shot(player, "hud");
+if (process.env.SIM_SHOTS) {
+  await player.setViewportSize({ width: 844, height: 390 });
+  await player.waitForTimeout(300);
+  await shot(player, "hud-phone");
+  await player.setViewportSize({ width: 1280, height: 800 });
+}
+await player.click('.sim-scorebar [data-sim="scoreboard"]');
+check(
+  "the scoreboard lists the ten heroes with their assists",
+  (await settles(player.waitForSelector(".sim-scores__row:nth-child(5)", { timeout: 5000 }))) &&
+    (await player.locator(".sim-scores__row").count()) === 10 &&
+    (await player.locator(".sim-scores__kda").first().textContent()).endsWith("/ 2")
+);
+await shot(player, "scoreboard");
+await player.click('.sim-scores [data-sim="scoreboard"]');
+check("the scoreboard closes", await player.locator(".sim-scores").isHidden());
 await player.click('[data-sim="pause"]');
 check(
   "the pause hides the map",
-  await settles(player.waitForSelector(".sim-map.is-hidden", { timeout: 5000 }))
+  await settles(player.waitForSelector(".sim-game.is-hidden", { timeout: 5000 }))
 );
 await player.click('[data-sim="resume"]');
+await player.waitForSelector(".sim-avatar", { timeout: 10000 });
+check("the enemy in sight is a portrait", (await player.locator(".sim-avatar").count()) === 1);
+await player.locator(".sim-avatar").click();
+check(
+  "the locked enemy is marked",
+  await settles(player.waitForSelector('.sim-avatar[aria-pressed="true"]', { timeout: 5000 }))
+);
+check("and ringed on the map", (await player.locator(".sim-dot.is-target").count()) === 1);
+await player.keyboard.press("KeyE");
+await player.click('[data-sim="aim"][data-kind="auto"]');
 await player.waitForSelector(".sim-end:not([hidden])", { timeout: 30000 });
 check(
   "the orders reached the bots server",
-  ["choose", "pause", "resume"].every(order => bots.seen.orders.includes(order))
+  ["move", "target", "pause", "resume"].every(order => bots.seen.orders.includes(order))
+);
+check(
+  "the portrait, the key E and the attack each aimed",
+  bots.seen.targets.some(kind => /^(blue|red)-\d$/.test(kind)) &&
+    bots.seen.targets.includes("minion") &&
+    bots.seen.targets.includes("auto")
 );
 const grade = await player.locator(".sim-grade-card h2").textContent();
 check(`the grade alone at the end (${grade})`, grade === "Macro grade: A");
@@ -132,6 +201,51 @@ check(
   await settles(player.waitForSelector(".sim-past", { timeout: 10000 }))
 );
 check("it answered 201", bots.seen.results.at(-1) === 201);
+
+// ---- a watched game: ten bots, the speed and the view switched live, the winner at the end -------------------------
+const viewer = await open(ana);
+await viewer.goto(`${app.baseUrl}/simulation`);
+await viewer.click('[data-act="mode"][data-value="watch"]');
+check(
+  "watching asks no side, role or difficulty",
+  (await viewer
+    .locator('[data-act="side"], [data-act="lane"], [data-act="difficulty"]')
+    .count()) === 0
+);
+await viewer.click('[data-act="start"]');
+await viewer.waitForSelector(".sim-game--watch .sim-map__svg", { timeout: 20000 });
+check("the ticket asks to watch", bots.seen.tickets.at(-1)?.choice?.mode === "watch");
+check("ten heroes in the two teams", (await viewer.locator("[data-hero]").count()) === 10);
+check("no fog over everything", (await viewer.locator(".sim-map.is-clear").count()) === 1);
+await viewer.click('[data-sim="speed"][data-value="4"]');
+await viewer.click('[data-sim="view"][data-value="red"]');
+check(
+  "the switch shows the speed the bots server plays",
+  await settles(
+    viewer.waitForSelector('[data-sim="speed"][data-value="4"][aria-pressed="true"]', {
+      timeout: 5000
+    })
+  )
+);
+check(
+  "the view of the red team brings its fog back",
+  await settles(viewer.waitForSelector(".sim-map:not(.is-clear)", { timeout: 5000 }))
+);
+check(
+  "the orders reached the bots server",
+  ["speed", "view"].every(order => bots.seen.orders.includes(order))
+);
+await viewer.waitForSelector(".sim-watch-end", { timeout: 30000 });
+check(
+  "the end names the winner",
+  (await viewer.locator(".sim-watch-end h2").textContent()) === "Blue wins"
+);
+check(
+  "no grade for a watched game",
+  (await viewer.locator(".sim-watch-end .sim-grade").count()) === 0
+);
+await viewer.click('.sim-end [data-sim="leave"]');
+await viewer.close();
 
 // ---- a phone held upright ----------------------------------------------------------------------------------------------
 const phone = await open(ana, { width: 390, height: 844 });

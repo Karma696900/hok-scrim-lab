@@ -2791,3 +2791,29 @@
 2955|Tình huống gửi tới POST duy nhất không hợp lệ: lỗi cho biết điều gì sai.
 2958|Các trận đấu với bot hiện chưa mở. Hãy thử lại sau.
 2957|Đã mất kết nối với trận đấu.
+2959|Bộ máy scrim bốc ngẫu nhiên một tướng cho mỗi đường của cả hai đội.
+2960|Xem trận đấu
+2961|Chế độ
+2962|Chơi một tướng
+2963|Xem mười bot
+2964|Mười bot chơi toàn bộ trận đấu. Trong lúc xem, hãy đổi tốc độ và góc nhìn: toàn bộ, hoặc những gì một đội nhìn thấy.
+2965|Hạ gục và tử vong
+2966|Đội đỏ
+2967|Đội xanh
+2968|Xoay ngang điện thoại để xem.
+2969|Tốc độ
+2970|Đội xanh thắng
+2971|Đội đỏ thắng
+2972|Không có đội thắng
+2973|Thời lượng trận
+2974|Hạ gục đội xanh
+2975|Hạ gục đội đỏ
+2982|Chơi trọn một trận Honor of Kings với một tướng, nhìn từ trên xuống bản đồ. Di chuyển bằng joystick hoặc W A S D và tấn công bằng các nút: kỹ năng được tung ra thay bạn. Lối chơi vĩ mô của bạn được chấm điểm ngầm (bạn đi đâu, lấy gì và khi nào), điểm có ở cuối trận.
+2976|Di chuyển: giữ và kéo, hoặc W A S D
+2977|Tấn công
+2978|Kẻ địch trong tầm nhìn
+2979|Lính và quái
+2980|Trụ
+2981|Nhắm {hero}
+2984|Bảng điểm
+2983|Hạ gục, tử vong và hỗ trợ

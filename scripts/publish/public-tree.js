@@ -17,3 +17,9 @@ export function privatePaths(paths) {
     return PRIVATE_PREFIXES.some(prefix => path.startsWith(prefix)) || PRIVATE_DOCS.test(path);
   });
 }
+
+/** The message of a public commit: the same text without its Co-Authored-By lines, ending with one line break. */
+export function publicMessage(message) {
+  const lines = message.split(/\r?\n/).filter(line => !/^co-authored-by:/i.test(line.trim()));
+  return `${lines.join("\n").trimEnd()}\n`;
+}

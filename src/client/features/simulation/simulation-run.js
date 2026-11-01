@@ -1,12 +1,19 @@
 // A game in progress: the board laid over the page and the connection to the bots server, where the game
 // runs. The server sends the board once, then a frame per tick of only what the player's side sees; the page
-// paints the latest at the pace of the screen and sends the player's inputs (a choice, an answer, a call, the
-// spell, the pause, leaving). The skill pictures are fetched in the background. At the end the grade shows;
-// the bots server hands the end of the game to the site, which keeps it for a signed-in player.
+// paints the latest at the pace of the screen (the dots glide between two frames, the player's own hero moves at
+// once with its stick: simulation-motion.js) and sends the player's inputs (the stick and the targets of
+// simulation-controls.js, an answer, a call, the spell, the pause, leaving). The skill pictures are fetched in the background. At the end the grade shows;
+// the bots server hands the end of the game to the site, which keeps it for a signed-in player. A watched game
+// (mode "watch": ten bots, nobody plays) has its own board, frames and end (simulation-watch.js).
 import { api } from "../../app/api-client.js";
 import { boardHtml } from "./simulation-board.js";
+import { bindCamera, unbindCamera } from "./simulation-camera.js";
+import { bindControls, unbindControls } from "./simulation-controls.js";
+import { toggleScoreboard } from "./simulation-hud.js";
+import { moveDots } from "./simulation-motion.js";
 import { paintFrame } from "./simulation-paint.js";
 import { gradeHtml } from "./simulation-popups.js";
+import { bindWatch, paintWatch, watchBoardHtml, watchEndHtml } from "./simulation-watch.js";
 
 /** The pictures of the skills of each hero (by the engine's key), from its Camp sheet. */
 async function loadIcons(run) {
@@ -30,13 +37,28 @@ async function loadIcons(run) {
   );
 }
 
+/** The items of the catalogue (name and picture by id), for the scoreboard. */
+async function loadItems(run) {
+  try {
+    const catalog = await api("/api/catalog");
+    run.items = new Map(
+      (catalog?.items ?? []).map(item => [
+        String(item.id),
+        { name: item.name, imageId: item.imageId }
+      ])
+    );
+    run.keys.scores = "";
+  } catch {
+    // no catalogue: the scoreboard shows empty item slots with the item's number as their title
+  }
+}
+
 function bindLayer(run) {
   const { layer } = run;
   const one = selector => layer.querySelector(selector);
   run.layerOf = {
     map: one(".sim-map"),
     dots: one(".sim-dots"),
-    decision: one(".sim-decision"),
     death: one(".sim-death"),
     cover: one(".sim-cover"),
     eyes: one(".sim-eyes"),
@@ -44,16 +66,23 @@ function bindLayer(run) {
     farmBlue: one('[data-farm="blue"]'),
     farmRed: one('[data-farm="red"]'),
     farmBar: one(".sim-bar--farm"),
-    meHp: one(".sim-me .sim-bar--hp"),
     spell: one(".sim-spell"),
-    spellState: one(".sim-spell__state"),
     calls: [...layer.querySelectorAll(".sim-call")],
     end: one(".sim-end"),
-    game: one(".sim-game")
+    game: one(".sim-game"),
+    miniEyes: one(".sim-mini-eyes"),
+    miniDots: one(".sim-mini__dots"),
+    miniFrame: one(".sim-mini__frame"),
+    scoreBlue: one('[data-score="blue"]'),
+    scoreRed: one('[data-score="red"]'),
+    kda: one("[data-kda]"),
+    scores: one(".sim-scores"),
+    scoresButton: one('.sim-hud [data-sim="scoreboard"]')
   };
-  run.allyRows = new Map([...layer.querySelectorAll("[data-ally]")].map(r => [r.dataset.ally, r]));
-  run.skillCells = new Map(
-    [...layer.querySelectorAll("[data-skill]")].map(cell => [cell.dataset.skill, cell])
+  run.cards = new Map([...layer.querySelectorAll("[data-card]")].map(c => [c.dataset.card, c]));
+  run.miniDots = new Map();
+  run.miniTowers = new Map(
+    [...layer.querySelectorAll("[data-mini-tower]")].map(m => [m.dataset.miniTower, m])
   );
   run.campMarks = new Map([...layer.querySelectorAll("[data-camp]")].map(m => [m.dataset.camp, m]));
   run.towerMarks = new Map(
@@ -65,7 +94,9 @@ function endGame(run, result) {
   run.ended = true;
   run.layerOf.game.hidden = true;
   run.layerOf.end.hidden = false;
-  run.layerOf.end.innerHTML = gradeHtml(result, { signedIn: run.signedIn });
+  run.layerOf.end.innerHTML = run.watch
+    ? watchEndHtml(result)
+    : gradeHtml(result, { signedIn: run.signedIn });
   run.layerOf.end.querySelector("button")?.focus();
   run.onEnd();
 }
@@ -80,25 +111,36 @@ function frame(run, now) {
     return;
   }
   if (run.latest) {
-    paintFrame(run, run.latest, run.latest.view, now);
+    (run.watch ? paintWatch : paintFrame)(run, run.latest, run.latest.view, now);
     run.latest = null;
   }
+  moveDots(run, now);
   run.handle = requestAnimationFrame(next => frame(run, next));
 }
 
 /** The first message: the board is drawn once, then the frames fill it. */
 function begin(run, start) {
   run.start = start;
-  run.me = start.me;
-  run.side = start.me.side;
+  run.watch = start.mode === "watch";
+  // a watched game has no hero of the player; its map keeps the blue base at the bottom
+  run.me = run.watch ? { id: null } : start.me;
+  run.side = run.watch ? "blue" : start.me.side;
   run.heroIdOf = new Map(start.heroes.map(hero => [hero.id, hero.heroId]));
   run.approximate = new Set(start.heroes.filter(hero => hero.approximate).map(hero => hero.id));
-  run.layer.innerHTML = boardHtml({
+  const board = run.watch ? watchBoardHtml : boardHtml;
+  run.layer.innerHTML = board({
     start,
     heroes: run.heroes,
     picture: { image: run.image, debug: run.choice.debug }
   });
   bindLayer(run);
+  if (run.watch) {
+    bindWatch(run);
+  } else {
+    bindControls(run);
+    bindCamera(run);
+    loadItems(run);
+  }
   loadIcons(run);
   run.handle = requestAnimationFrame(now => frame(run, now));
 }
@@ -126,11 +168,14 @@ const send = (run, order) => {
 };
 
 const ACTIONS = {
-  choose: (run, button) => send(run, { type: "choose", id: button.dataset.id }),
+  aim: (run, button) => send(run, { type: "target", kind: button.dataset.kind }),
   answer: (run, button) => send(run, { type: "answer", id: button.dataset.id }),
   call: (run, button) => send(run, { type: "call", kind: button.dataset.call }),
   spell: run => send(run, { type: "spell" }),
   pause: run => send(run, { type: "pause" }),
+  scoreboard: run => toggleScoreboard(run),
+  speed: (run, button) => send(run, { type: "speed", value: Number(button.dataset.value) }),
+  view: (run, button) => send(run, { type: "view", value: button.dataset.value }),
   resume: run => send(run, { type: "resume" }),
   leave: run => {
     run.stop();
@@ -158,7 +203,8 @@ export function startRun({ host, game, choice, heroes, signedIn, onEnd, onLeave,
     campBars: new Map(),
     castUntil: new Map(),
     icons: new Map(),
-    keys: { decision: null, cover: null },
+    keys: { cover: null },
+    glide: new Map(),
     camps: {},
     newCasts: [],
     eyes: null,
@@ -178,7 +224,10 @@ export function startRun({ host, game, choice, heroes, signedIn, onEnd, onLeave,
   run.stop = () => {
     run.stopped = true;
     cancelAnimationFrame(run.handle);
+    unbindControls(run);
+    unbindCamera(run);
   };
+  run.send = order => !run.stopped && send(run, order);
   run.socket = new WebSocket(game.url);
   run.socket.addEventListener("message", event => {
     let message;

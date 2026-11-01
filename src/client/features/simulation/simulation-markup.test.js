@@ -1,5 +1,5 @@
 // The Game Simulation page: the set-up screen a visitor sees first, the route that indexes it, the map
-// turned for the red side, the decision box that never says which choice is good, and the grade alone.
+// turned for the red side, the joystick and the attack buttons of a game played by hand, and the grade alone.
 import assert from "node:assert/strict";
 import { describe, test } from "node:test";
 import { installFakeDom } from "../../../testing/fake-dom.js";
@@ -9,8 +9,11 @@ import { ROUTES } from "../../../shared/routes-table.js";
 installFakeDom({ pathname: "/simulation" });
 const { pageHtml } = await import("./simulation-setup.js");
 const { mapSvg, placeOnBoard } = await import("./simulation-map.js");
-const { decisionHtml, gradeHtml } = await import("./simulation-popups.js");
+const { gradeHtml } = await import("./simulation-popups.js");
+const { avatarsHtml, controlsHtml } = await import("./simulation-controls.js");
 const { addressHooks, clock } = await import("./simulation-shared.js");
+const { boardHtml } = await import("./simulation-board.js");
+const { pauseHtml } = await import("./simulation-popups.js");
 
 const heroes = [
   { id: "105", name: "Lian Po", lanes: ["Clash Lane"], image: "" },
@@ -173,25 +176,28 @@ describe("the board", () => {
     assert.doesNotMatch(mapSvg(map, "blue"), /<image/);
   });
 
-  test("the decision box lists four choices and stay, and never which are good", () => {
-    const option = (id, label, params = {}) => ({ id, label, params });
-    const html = decisionHtml(
-      {
-        options: [
-          option("a", "Go to the {lane}", { lane: "Mid lane" }),
-          option("b", "Join {hero}", { hero: "105" }),
-          option("c", "Fall back to your tower"),
-          option("d", "Go back to base")
-        ],
-        stay: option("stay", "Stay where I am"),
-        waiting: false
-      },
-      heroes
-    );
-    assert.equal(html.match(/data-sim="choose"/g).length, 5);
-    assert.match(html, /Go to the Mid lane/);
-    assert.match(html, /Join Lian Po/);
-    assert.doesNotMatch(html, /good|wrong|correct/i);
+  test("the hands of a game: a joystick, the attack, the minions and the towers, no decision box", () => {
+    const html = controlsHtml();
+    assert.match(html, /class="sim-stick" data-stick/);
+    assert.match(html, /class="sim-stick__knob"/);
+    for (const kind of ["auto", "minion", "tower"]) {
+      assert.match(html, new RegExp(`data-sim="aim" data-kind="${kind}"`), kind);
+    }
+    assert.match(html, /aria-label="Attack \(Space\)"/);
+    assert.doesNotMatch(html, /sim-decision|data-sim="choose"/);
+    assert.doesNotMatch(html, /style="/, "no style attribute (content policy)");
+  });
+
+  test("each enemy in sight is a lock button, numbered, the locked one pressed", () => {
+    const enemies = [
+      { id: "red-1", heroId: "105" },
+      { id: "red-2", heroId: "131" }
+    ];
+    const html = avatarsHtml(heroes, enemies, "red-2");
+    assert.equal(html.match(/class="sim-avatar"/g).length, 2);
+    assert.match(html, /data-kind="red-1" aria-pressed="false" aria-label="Target Lian Po \(1\)"/);
+    assert.match(html, /data-kind="red-2" aria-pressed="true" aria-label="Target Li Bai \(2\)"/);
+    assert.equal(avatarsHtml(heroes, [], null), "");
   });
 
   test("the end shows the macro grade alone, and the pause when there was one", () => {
@@ -200,6 +206,47 @@ describe("the board", () => {
     assert.doesNotMatch(html, /84/, "no score, no detail");
     assert.doesNotMatch(html, /paused/);
     assert.match(gradeHtml({ letter: "S", paused: true }, { signedIn: true }), /was paused/);
+  });
+
+  test("the screen of the game: the minimap and the side's cards top left, the score top right, no skills, no shop", () => {
+    const at = [500, 500];
+    const start = {
+      map,
+      me: { id: "blue-1", heroId: "105", side: "blue", lane: "Clash Lane", spell: "flash", at },
+      heroes: [
+        { id: "blue-1", heroId: "105", side: "blue" },
+        { id: "blue-2", heroId: "131", side: "blue" },
+        { id: "red-1", heroId: "131", side: "red" }
+      ],
+      calls: [{ id: "regroup", label: "Regroup", icon: "users" }]
+    };
+    const html = boardHtml({ start, heroes });
+    assert.match(html, /class="sim-game sim-game--play"/);
+    assert.match(html, /<div class="sim-view">\s*<div class="sim-map sim-map--blue">/);
+    assert.match(html, /class="sim-hud__left">\s*<div class="sim-mini"/);
+    assert.equal(html.match(/class="sim-mini__svg"/g).length, 1, "one minimap");
+    assert.match(
+      html,
+      /mask="url\(#sim-mini-fog\)"|id="sim-mini-fog"/,
+      "the minimap has its own fog"
+    );
+    const cards = [...html.matchAll(/data-card="([^"]+)"/g)].map(match => match[1]);
+    assert.deepEqual(cards, ["blue-1", "blue-2"], "the player first, then the allies, no enemy");
+    assert.match(html, /data-score="blue">0<\/b>.*data-score="red">0<\/b>/s);
+    assert.match(html, /data-kda>0 \/ 0 \/ 0</);
+    assert.match(html, /data-sim="scoreboard" aria-haspopup="dialog"/);
+    assert.match(html, /class="sim-scores" role="dialog"[^>]*hidden/);
+    assert.match(html, /data-farm="blue"/);
+    assert.match(html, /data-sim="spell"[^>]*aria-label="Flash"/);
+    assert.equal(html.match(/class="sim-call"/g).length, 1);
+    assert.doesNotMatch(html, /sim-skill|sim-shop|data-sim="buy"/, "no skill button and no shop");
+    assert.doesNotMatch(html, /style="/, "no style attribute (content policy)");
+  });
+
+  test("the pause box can resume or leave the game", () => {
+    const html = pauseHtml();
+    assert.match(html, /data-sim="resume"/);
+    assert.match(html, /data-sim="leave"/);
   });
 
   test("the test hooks of the address are bounded, and the clock reads mm:ss", () => {

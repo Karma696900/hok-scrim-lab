@@ -2791,3 +2791,29 @@
 2955|Situasi yang dikirim ke satu-satunya POST tidak valid: galatnya menyebutkan apa yang salah.
 2958|Permainan melawan bot sedang tidak dibuka. Coba lagi nanti.
 2957|Koneksi ke permainan terputus.
+2959|Mesin scrim mengundi satu hero untuk setiap lane kedua tim.
+2960|Tonton pertandingan
+2961|Mode
+2962|Mainkan hero
+2963|Tonton sepuluh bot
+2964|Sepuluh bot memainkan seluruh pertandingan. Saat menonton, ubah kecepatan dan tampilan: semuanya, atau yang dilihat satu tim.
+2965|Kill dan kematian
+2966|Tim merah
+2967|Tim biru
+2968|Putar ponselmu ke samping untuk menonton.
+2969|Kecepatan
+2970|Biru menang
+2971|Merah menang
+2972|Tidak ada pemenang
+2973|Durasi pertandingan
+2974|Kill biru
+2975|Kill merah
+2982|Mainkan satu pertandingan Honor of Kings penuh dengan satu hero, dilihat dari atas di peta. Bergerak dengan joystick atau W A S D dan serang dengan tombol: skill-mu dikeluarkan otomatis. Makromu dinilai di balik layar (ke mana kamu pergi, apa yang kamu ambil, dan kapan), dan nilainya muncul di akhir.
+2976|Bergerak: tahan dan geser, atau W A S D
+2977|Serang
+2978|Musuh dalam pandangan
+2979|Minion dan monster
+2980|Menara
+2981|Bidik {hero}
+2984|Papan skor
+2983|Kill, kematian, dan assist

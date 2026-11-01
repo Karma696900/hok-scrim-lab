@@ -1,9 +1,9 @@
 // Prepares the public commit of the site (branch `github`, pushed by the owner to github.com main) from the tree of
-// `refonte`, signed Karma, or refuses when that tree holds private bots code (scripts/publish/public-tree.js).
+// `refonte`, signed Karma with no co-author line, or refuses when that tree holds private bots code (scripts/publish/public-tree.js).
 // It never pushes: it prints the push command.
 //   node scripts/publish/prepare-github.mjs
 import { execFileSync } from "node:child_process";
-import { privatePaths } from "./public-tree.js";
+import { privatePaths, publicMessage } from "./public-tree.js";
 
 const git = (args, options = {}) =>
   execFileSync("git", args, { encoding: "utf8", ...options }).trim();
@@ -24,7 +24,7 @@ const env = {
   GIT_COMMITTER_NAME: karma.NAME,
   GIT_COMMITTER_EMAIL: karma.EMAIL
 };
-const message = git(["log", "-1", "--format=%B", "refonte"]);
+const message = publicMessage(git(["log", "-1", "--format=%B", "refonte"]));
 const sha = git(["commit-tree", "refonte^{tree}", "-p", "refs/heads/github"], {
   env,
   input: message

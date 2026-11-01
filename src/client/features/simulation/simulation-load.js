@@ -15,7 +15,7 @@ export async function loadHistory(api) {
 
 /**
  * A game ready to open: `{ url, image }` (`url`: the bots server's socket with its ticket; `image`: the picture of
- * the board, or null). `choice` is `{ side, lane, difficulty, fixed, limit }`, `fixed` the slots chosen by hand
+ * the board, or null). `choice` is `{ side, lane, difficulty, fixed, limit }` (or `{ mode: "watch", fixed, limit }`), `fixed` the slots chosen by hand
  * (`{ "blue:Jungle": heroId }`, "" or missing: drawn by the bots server).
  */
 export async function loadGame(api, choice) {
@@ -23,9 +23,9 @@ export async function loadGame(api, choice) {
     api("/api/simulation/ticket", {
       method: "POST",
       body: {
-        side: choice.side,
-        lane: choice.lane,
-        difficulty: choice.difficulty,
+        ...(choice.mode === "watch"
+          ? { mode: "watch" }
+          : { side: choice.side, lane: choice.lane, difficulty: choice.difficulty }),
         fixed: choice.fixed,
         ...(choice.limit < 3600 ? { limit: choice.limit } : {})
       }

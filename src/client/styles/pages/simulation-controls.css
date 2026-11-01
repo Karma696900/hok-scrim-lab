@@ -1,0 +1,166 @@
+/* ---------- Game Simulation: the player's hands (joystick bottom left, attack bottom right) ---------- */
+/* The map stays a centred square; the controls sit in the margins beside it, over its corners when the column is
+   too narrow to leave margins. */
+.sim-arena {
+  position: relative;
+  display: grid;
+  height: 100%;
+  min-height: 0;
+}
+.sim-arena > .sim-map {
+  align-self: center;
+}
+
+/* the joystick */
+.sim-stick {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  width: 120px;
+  aspect-ratio: 1;
+  border: 2px solid rgba(232, 238, 247, 0.22);
+  border-radius: 50%;
+  background: rgba(10, 16, 28, 0.62);
+  touch-action: none;
+  cursor: grab;
+  user-select: none;
+}
+.sim-stick.is-held {
+  border-color: var(--brand);
+  cursor: grabbing;
+}
+.sim-stick__knob {
+  width: 48px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(232, 238, 247, 0.85);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  translate: var(--x, 0) var(--y, 0);
+  pointer-events: none;
+}
+.sim-stick.is-held .sim-stick__knob {
+  background: #fff;
+}
+
+/* the attack cluster: the enemies in sight, the towers, the minions and monsters, the attack */
+.sim-strike {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  z-index: 5;
+  display: grid;
+  grid-template-areas:
+    "avatars avatars"
+    ". tower"
+    "minion attack";
+  grid-template-columns: 48px 72px;
+  align-items: end;
+  justify-items: center;
+  gap: 6px;
+}
+.sim-avatars {
+  grid-area: avatars;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-end;
+  gap: 4px;
+  max-width: 126px;
+}
+.sim-aim,
+.sim-avatar {
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 2px solid rgba(232, 238, 247, 0.28);
+  border-radius: 50%;
+  background: rgba(10, 16, 28, 0.78);
+  color: #e8eef7;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.sim-aim:hover,
+.sim-aim:focus-visible,
+.sim-avatar:hover,
+.sim-avatar:focus-visible {
+  border-color: var(--brand);
+}
+.sim-aim:active,
+.sim-avatar:active {
+  scale: 0.94;
+}
+.sim-aim {
+  width: 48px;
+  height: 48px;
+}
+.sim-aim svg {
+  width: 22px;
+  height: 22px;
+}
+.sim-aim--minion {
+  grid-area: minion;
+}
+.sim-aim--tower {
+  grid-area: tower;
+}
+.sim-aim--attack {
+  grid-area: attack;
+  width: 72px;
+  height: 72px;
+  border-color: rgba(224, 83, 61, 0.7);
+  background: rgba(120, 32, 22, 0.82);
+}
+.sim-aim--attack svg {
+  width: 32px;
+  height: 32px;
+}
+.sim-avatar {
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  border-color: var(--team-red);
+}
+.sim-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sim-avatar[aria-pressed="true"] {
+  border-color: var(--gild);
+  box-shadow: 0 0 0 2px var(--gild);
+}
+
+/* what the hero aims at, marked on the map */
+.sim-dot.is-target .sim-dot__face {
+  box-shadow: 0 0 0 3px var(--gild);
+}
+.sim-wave.is-target {
+  outline: 2px solid var(--gild);
+  outline-offset: 2px;
+}
+.sim-tower.is-target,
+.sim-crystal.is-target,
+.sim-camp.is-target {
+  stroke: var(--gild);
+}
+
+@media (max-height: 520px) {
+  .sim-stick {
+    bottom: 4px;
+    left: 4px;
+    width: 100px;
+  }
+  .sim-strike {
+    right: 4px;
+    bottom: 4px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sim-aim:active,
+  .sim-avatar:active {
+    scale: none;
+  }
+}
