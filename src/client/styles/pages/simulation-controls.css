@@ -137,10 +137,6 @@
 .sim-dot.is-target .sim-dot__face {
   box-shadow: 0 0 0 3px var(--gild);
 }
-.sim-wave.is-target {
-  outline: 2px solid var(--gild);
-  outline-offset: 2px;
-}
 .sim-tower.is-target,
 .sim-crystal.is-target,
 .sim-camp.is-target {

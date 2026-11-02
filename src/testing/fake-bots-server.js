@@ -158,7 +158,22 @@ function viewOf(game) {
       .concat(game.me ? [enemyNear(game)] : []),
     camps: [...MAP.camps, ...MAP.neutral].map(camp => ({ ...camp, known: true, alive: true })),
     towers: MAP.towers.map(tower => ({ id: tower.id, side: tower.side, alive: true })),
-    waves: [{ id: "w1", side, at: [360, 680] }],
+    // a middle-lane wave of 4 minions, its second one hurt, still spawning for a second
+    waves: [
+      {
+        id: "w1",
+        side,
+        lane: "mid",
+        at: [360, 680],
+        minions: [
+          { kind: "melee", hp: 1 },
+          { kind: "melee", hp: 0.5 },
+          { kind: "ranged", hp: 1 },
+          { kind: "ranged", hp: 1 }
+        ],
+        spawning: 1
+      }
+    ],
     scoreboard: heroes.map((hero, index) => ({
       id: hero.id,
       heroId: hero.heroId,
@@ -320,6 +335,7 @@ function play(socket, ticket, context) {
       sight: 300
     },
     difficulty: ticket.choice.difficulty,
+    art: MINION_ART,
     calls: [
       { id: "regroup", label: "Regroup", icon: "users" },
       { id: "retreat", label: "Retreat", icon: "shield" },
@@ -330,6 +346,12 @@ function play(socket, ticket, context) {
   game.timer = setInterval(() => tick(game), TICK_MS);
   listen(game);
 }
+
+// the pictures of the minions as the bots server sends them (a 1-pixel WebP each)
+const PIXEL = "data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA";
+const MINION_ART = Object.fromEntries(
+  ["blue", "red"].flatMap(side => ["melee", "ranged"].map(kind => [`${side}-${kind}`, PIXEL]))
+);
 
 /**
  * Starts the stand-in: `{ url, seen: { tickets, orders, results, moves, targets }, setSite(url), close() }`. `roster` is the ids of

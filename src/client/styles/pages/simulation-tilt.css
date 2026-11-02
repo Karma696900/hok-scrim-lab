@@ -72,6 +72,3 @@
 .sim-spot.is-target {
   box-shadow: 0 0 0 3px var(--gild);
 }
-.sim-game--play .sim-wave {
-  opacity: 0.8;
-}

@@ -112,6 +112,7 @@
       "pages/simulation-gauge.css",
       "pages/simulation-skills.css",
       "pages/simulation-tilt.css",
+      "pages/simulation-minions.css",
       "pages/simulation-pov.css",
       "pages/simulation-watch.css"
     ],

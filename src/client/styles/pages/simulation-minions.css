@@ -1,0 +1,87 @@
+/* ---------- Game Simulation: the minions of the waves (simulation-minions.js) ---------- */
+/* One dot a minion, smaller than a hero's, with the picture of its kind inside and a thin health bar under it: green
+   for the side's own, red for the enemy's, as in the game. The siege and super minions are a little larger. A new
+   wave grows in where it spawns, in 2 seconds (none when the reader asks for less motion). */
+.sim-minion {
+  position: absolute;
+  z-index: 1;
+  width: 2.3%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+}
+.sim-minion--siege {
+  width: 2.9%;
+}
+.sim-minion__face {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 50%;
+}
+.sim-minion--ally .sim-minion__face {
+  border-color: var(--team-blue-text);
+  background: #6fa0ef;
+}
+.sim-minion--enemy .sim-minion__face {
+  border-color: var(--team-red);
+  background: #ef7a65;
+}
+.sim-minion__face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sim-minion .sim-bar--minion {
+  position: absolute;
+  left: 10%;
+  bottom: -5px;
+  width: 80%;
+  height: 3px;
+}
+.sim-minion--enemy .sim-bar--minion > i {
+  background: #e2554a;
+}
+.sim-minion.is-target .sim-minion__face {
+  outline: 2px solid var(--gild);
+  outline-offset: 2px;
+}
+.sim-minion__face.is-spawning {
+  animation: sim-minion-spawn 2s ease-out both;
+}
+@keyframes sim-minion-spawn {
+  from {
+    opacity: 0;
+    scale: 0.2;
+  }
+  60% {
+    opacity: 0.85;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+/* in a game the field is drawn larger than the screen: the dots keep a size in pixels, as the heroes' (44 px) */
+.sim-game--play .sim-minion {
+  width: 24px;
+  opacity: 0.92;
+}
+.sim-game--play .sim-minion--siege {
+  width: 30px;
+}
+@media (max-height: 480px) {
+  .sim-game--play .sim-minion {
+    width: 20px;
+  }
+  .sim-game--play .sim-minion--siege {
+    width: 25px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sim-minion__face.is-spawning {
+    animation: none;
+  }
+}

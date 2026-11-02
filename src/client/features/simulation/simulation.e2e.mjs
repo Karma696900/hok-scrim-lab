@@ -229,6 +229,25 @@ check(
     centred.reach.wider
 );
 check("the dots stand on a flat layer above the tilted map", centred.flat);
+const minions = await player.evaluate(() => {
+  const marks = [...document.querySelectorAll(".sim-dots .sim-minion")];
+  const heroDot = document.querySelector(".sim-dot--me").getBoundingClientRect();
+  return {
+    count: marks.length,
+    pictures: marks.filter(mark => mark.querySelector(".sim-minion__face img")).length,
+    hurt: marks.some(mark => mark.querySelector(".sim-bar--minion > i")?.dataset.p === "50"),
+    smaller: marks.every(mark => mark.getBoundingClientRect().width < heroDot.width),
+    widths: [heroDot.width, ...marks.map(mark => mark.getBoundingClientRect().width)].map(
+      Math.round
+    ),
+    apart: new Set(marks.map(mark => `${mark.style.left},${mark.style.top}`)).size === marks.length
+  };
+});
+check(
+  `a wave is one dot a minion, its picture inside, smaller than a hero, each in its own place (${JSON.stringify(minions)})`,
+  minions.count === 4 && minions.pictures === 4 && minions.smaller && minions.apart
+);
+check("a hurt minion shows its health", minions.hurt);
 check("a dot farther up the map is drawn smaller", centred.farther);
 check(
   "the towers are dots too, a little more transparent than the heroes, none drawn on the map",

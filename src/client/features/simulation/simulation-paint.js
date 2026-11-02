@@ -1,6 +1,6 @@
 // Each frame of a game: the dots where they are (only what the player's side sees), the level, health and mana
-// over each hero as in the game (health cut every 1000 points; mana for the side's own heroes), the bars of the
-// monsters and objectives (none for the minions of a wave), the fog of the field and of the minimap, the towers and
+// over each hero as in the game (health cut every 1000 points; mana for the side's own heroes), the minions of the
+// waves (simulation-minions.js), the bars of the monsters and objectives, the fog of the field and of the minimap, the towers and
 // camps that fell, the picture of each skill seen cast (a third of a second), the heads-up display
 // (simulation-hud.js), the clock, and the boxes that open on top. The heroes glide between two frames
 // (simulation-motion.js) and the camera follows the player's (simulation-camera.js). Positions and bar lengths go
@@ -20,6 +20,7 @@ import {
 } from "./simulation-hud.js";
 import { paintGauge } from "./simulation-gauge.js";
 import { glideTo } from "./simulation-motion.js";
+import { paintWaves } from "./simulation-minions.js";
 import { paintSkills, paintSpellCooldown } from "./simulation-skills.js";
 import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
 import { clock, esc, portrait } from "./simulation-shared.js";
@@ -27,7 +28,7 @@ import { paintTarget } from "./simulation-target.js";
 
 const CAST_SHOWN_MS = 333;
 
-export { share };
+export { paintWaves, share };
 
 export const setBar = (element, percent) => fillBar(element, percent);
 
@@ -84,26 +85,6 @@ export function paintHeroes(run, view, now) {
   for (const [id, dot] of run.dots) {
     if (!shown.has(id)) {
       dot.hidden = true;
-    }
-  }
-}
-
-export function paintWaves(run, view) {
-  const seen = new Set(view.waves.map(wave => wave.id));
-  for (const wave of view.waves) {
-    let mark = run.waves.get(wave.id);
-    if (!mark) {
-      mark = document.createElement("span");
-      mark.className = `sim-wave sim-wave--${wave.side === run.side ? "ally" : "enemy"}`;
-      run.layerOf.dots.prepend(mark);
-      run.waves.set(wave.id, mark);
-    }
-    place(mark, wave.at, run.side);
-  }
-  for (const [id, mark] of run.waves) {
-    if (!seen.has(id)) {
-      mark.remove();
-      run.waves.delete(id);
     }
   }
 }

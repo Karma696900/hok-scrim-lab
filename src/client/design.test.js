@@ -137,10 +137,12 @@ describe("palette", () => {
       .filter(rule => /var\(--team-blue(?:-text)?\)/.test(rule))
       .map(rule => rule.split("{")[0].trim())
       // the marks of a series take the colour of their side (.b), and the board of the simulation draws an ally,
-      // a hero on the map and the farm of a side in theirs
+      // a hero or a minion on the map and the farm of a side in theirs
       .filter(
         selector =>
-          !/blue|team|side|donut|ring|legend|sim-ally|sim-dot|sim-bar--farm|\.b$/i.test(selector)
+          !/blue|team|side|donut|ring|legend|sim-ally|sim-dot|sim-minion|sim-bar--farm|\.b$/i.test(
+            selector
+          )
       );
     assert.deepEqual(offenders, []);
   });

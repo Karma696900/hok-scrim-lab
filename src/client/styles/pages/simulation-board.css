@@ -225,7 +225,6 @@ html:has(.sim-layer) {
   pointer-events: none;
 }
 .sim-dot,
-.sim-wave,
 .sim-bar--camp {
   position: absolute;
   translate: -50% -50%;
@@ -292,16 +291,6 @@ html:has(.sim-layer) {
 }
 .sim-dot__cast[hidden] {
   display: none;
-}
-.sim-wave {
-  z-index: 1;
-  width: 1.2%;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: #6fa0ef;
-}
-.sim-wave--enemy {
-  background: #ef7a65;
 }
 .sim-bar--camp {
   z-index: 1;
