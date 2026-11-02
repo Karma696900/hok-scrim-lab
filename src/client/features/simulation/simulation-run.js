@@ -75,6 +75,7 @@ function bindLayer(run) {
     game: one(".sim-game"),
     miniEyes: one(".sim-mini-eyes"),
     reach: one("[data-reach]"),
+    target: one("[data-target]"),
     miniDots: one(".sim-mini__dots"),
     miniFrame: one(".sim-mini__frame"),
     scoreBlue: one('[data-score="blue"]'),

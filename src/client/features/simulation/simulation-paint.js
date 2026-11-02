@@ -23,6 +23,7 @@ import { glideTo } from "./simulation-motion.js";
 import { paintSkills } from "./simulation-skills.js";
 import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
 import { clock, esc, portrait } from "./simulation-shared.js";
+import { paintTarget } from "./simulation-target.js";
 
 const CAST_SHOWN_MS = 333;
 
@@ -230,6 +231,7 @@ export function paintFrame(run, state, view, now) {
   paintMini(run, view);
   paintScoreboard(run, view);
   paintControls(run, state, view);
+  paintTarget(run, state, view);
   run.layerOf.clock.textContent = clock(state.time);
   paintPopups(run, state);
 }

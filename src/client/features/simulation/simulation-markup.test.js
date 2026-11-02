@@ -266,6 +266,8 @@ describe("the board", () => {
     );
     assert.match(field, /<\/div>\s*<div class="sim-dots">\s*<span class="sim-spot sim-spot--tower/);
     assert.match(field, /class="sim-spot sim-spot--crystal sim-spot--red" data-crystal="red"/);
+    // the box of the locked enemy, top middle, empty and hidden until a hero is locked
+    assert.match(html, /<div class="sim-target" data-target aria-live="polite" hidden><\/div>/);
     // the gold ring of the hero's attack reach lies on the ground: inside the tilted map, after the picture
     assert.match(
       field,

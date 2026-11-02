@@ -78,6 +78,7 @@ export function boardHtml({ start, heroes, picture = {} }) {
         <ul class="sim-cards" aria-label="${t("Your allies")}">${[me, ...allies].map(hero => heroCardHtml(heroes, hero, hero.id === me.id)).join("")}</ul>
       </div>
       ${topRightHtml()}
+      <div class="sim-target" data-target aria-live="polite" hidden></div>
       ${callsHtml(calls)}
       ${controlsHtml()}
       ${skillsArcHtml(me)}

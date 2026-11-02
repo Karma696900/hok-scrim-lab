@@ -111,3 +111,55 @@
 .sim-reach[hidden] {
   display: none;
 }
+
+/* the locked enemy, top middle, as the game's "Show Target Info" (simulation-target.js) */
+.sim-target {
+  position: absolute;
+  top: 64px;
+  left: calc(50% - 170px);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 160px;
+  padding: 4px 8px 4px 4px;
+  border: 1px solid rgba(224, 83, 61, 0.55);
+  border-radius: 24px;
+  background: rgba(10, 16, 28, 0.78);
+  color: #e8eef7;
+  pointer-events: none;
+}
+.sim-target[hidden] {
+  display: none;
+}
+.sim-target__face {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border: 2px solid var(--team-red, #e0533d);
+  border-radius: 50%;
+}
+.sim-target__face img,
+.sim-target__face .image-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sim-target__body {
+  display: grid;
+  flex: 1;
+  gap: 2px;
+  min-width: 0;
+}
+.sim-target__name {
+  overflow: hidden;
+  font: 700 12px/1.1 var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sim-target__hp {
+  font: 600 12px/1 var(--font-body);
+  font-variant-numeric: tabular-nums;
+  color: rgba(232, 238, 247, 0.8);
+}

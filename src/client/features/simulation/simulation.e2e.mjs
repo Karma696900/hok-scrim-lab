@@ -314,6 +314,12 @@ check(
   await settles(player.waitForSelector('.sim-avatar[aria-pressed="true"]', { timeout: 5000 }))
 );
 check("and ringed on the map", (await player.locator(".sim-dot.is-target").count()) === 1);
+check(
+  "and its name and health shown at the top, as the game's target info",
+  await settles(
+    player.waitForSelector(".sim-target:not([hidden]) .sim-target__hp", { timeout: 5000 })
+  )
+);
 await player.keyboard.press("KeyE");
 await player.click('[data-sim="aim"][data-kind="auto"]');
 await player.waitForSelector(".sim-end:not([hidden])", { timeout: 30000 });
