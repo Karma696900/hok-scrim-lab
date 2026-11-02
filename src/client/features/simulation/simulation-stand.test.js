@@ -57,3 +57,54 @@ test("towers, crystals, camps and objectives are dots of the field, with their p
   assert.equal((html.match(/<svg/g) ?? []).length, 5, "each dot shows its icon");
   assert.doesNotMatch(html, /style=/);
 });
+
+// a 1-pixel WebP picture, as the bots server sends the monsters' pictures
+const PIXEL = "data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==";
+const art = Object.fromEntries(
+  ["boar", "boarling", "tyrant", "shadow-tyrant"].map(kind => [`monster-${kind}`, PIXEL])
+);
+const withMonsters = {
+  ...map,
+  camps: [
+    {
+      id: "blue-camp-2",
+      kind: "camp",
+      at: [490, 636],
+      monsters: ["boar", "boarling", "boarling", "boarling"]
+    }
+  ],
+  neutral: [{ id: "tyrant", kind: "tyrant", at: [480, 560], monsters: ["tyrant"] }]
+};
+
+test("a camp whose monsters have their pictures shows one dot a monster, with its picture, and no icon", () => {
+  const html = spotsHtml(withMonsters, art);
+  const camp =
+    html.match(
+      /<span class="sim-spot sim-spot--camp[^"]*" data-camp="blue-camp-2"[^>]*>.*?<\/span><\/span>/
+    )?.[0] ?? "";
+  assert.match(camp, /sim-spot--monsters/);
+  assert.match(camp, /data-count="4"/);
+  assert.equal((camp.match(/class="sim-monster sim-monster--boar"/g) ?? []).length, 1);
+  assert.equal((camp.match(/class="sim-monster sim-monster--boarling"/g) ?? []).length, 3);
+  assert.equal((camp.match(/<img alt="" src="data:image\/webp;base64,/g) ?? []).length, 4);
+  assert.doesNotMatch(camp, /<svg/);
+  assert.doesNotMatch(html, /style=/);
+});
+
+test("the Tyrant carries its shadow picture too, shown once it turns into the Shadow Tyrant", () => {
+  const html = spotsHtml(withMonsters, art);
+  assert.match(
+    html,
+    /data-camp="tyrant"[^>]*><span class="sim-monster sim-monster--tyrant"><img alt="" src="[^"]+"><img class="sim-monster__shadow" alt="" src="[^"]+">/
+  );
+});
+
+test("without a picture for each of its monsters (an older server, a doubtful address), a camp keeps its icon", () => {
+  const html = spotsHtml(withMonsters, {
+    "monster-boar": PIXEL,
+    "monster-boarling": "javascript:alert(1)"
+  });
+  assert.doesNotMatch(html, /sim-monster/);
+  assert.doesNotMatch(html, /javascript/);
+  assert.equal((spotsHtml(withMonsters).match(/<svg/g) ?? []).length, 5);
+});

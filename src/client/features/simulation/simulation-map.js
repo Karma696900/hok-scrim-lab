@@ -42,14 +42,23 @@ function baseMarks(map, mini, marks) {
     .join("");
 }
 
-/** The ground, the river, the lanes, the walls and the bushes, drawn from the vector of the map. */
+/**
+ * The ground, the river, the lanes, the walls and the bushes, drawn from the vector of the map: as in the game, a
+ * green gorge, the river with its lighter bank, the lanes as stone paths with a darker edge (drawn first, under all
+ * the paths). Over a picture (`debug`), outlines only.
+ */
 function vectorMarks(map, debug) {
   const tag = debug ? " sim-debug" : "";
+  const lanes = Object.values(map.lanes);
+  const under = (name, list, shape) =>
+    debug
+      ? ""
+      : list.map(line => `<${shape} class="${name}" points="${points(line)}"></${shape}>`).join("");
   return `${debug ? "" : `<polygon class="sim-ground" points="${points(map.bounds)}"></polygon>`}
+    ${under("sim-river-bank", map.river, "polygon")}
     ${map.river.map(part => `<polygon class="sim-river${tag}" points="${points(part)}"></polygon>`).join("")}
-    ${Object.values(map.lanes)
-      .map(line => `<polyline class="sim-lane${tag}" points="${points(line)}"></polyline>`)
-      .join("")}
+    ${under("sim-lane-edge", lanes, "polyline")}
+    ${lanes.map(line => `<polyline class="sim-lane${tag}" points="${points(line)}"></polyline>`).join("")}
     ${map.walls.map(wall => `<polygon class="sim-wall${tag}" points="${points(wall)}"></polygon>`).join("")}
     ${map.bushes.map(bush => `<polygon class="sim-bush${tag}" points="${points(bush)}"></polygon>`).join("")}`;
 }

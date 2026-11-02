@@ -6,6 +6,7 @@
 // WebSocket is written by hand (RFC 6455, unfragmented text frames only): no package for a test.
 import { createHash } from "node:crypto";
 import { createServer } from "node:http";
+import { FAKE_ART } from "./fake-bots-art.js";
 import { watchGame } from "./fake-bots-watch.js";
 
 const GUID = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
@@ -13,6 +14,7 @@ const TICK_MS = 100;
 const PLAYED_AFTER_TARGET = 3;
 const LANES = ["Clash Lane", "Jungle", "Mid Lane", "Farm Lane", "Roamer"];
 
+const BOARS = ["boar", "boarling", "boarling", "boarling"];
 /** A map of the same shape as the bots server's (its real map stays private). */
 const MAP = {
   bounds: [
@@ -50,8 +52,11 @@ const MAP = {
     { id: "blue-mid-1", side: "blue", at: [420, 600] },
     { id: "red-mid-1", side: "red", at: [600, 420] }
   ],
-  camps: [{ id: "blue-red", kind: "red-buff", at: [380, 640] }],
-  neutral: [{ id: "tyrant", kind: "tyrant", at: [480, 560] }]
+  camps: [
+    { id: "blue-red", kind: "red-buff", at: [380, 640] },
+    { id: "blue-camp-2", kind: "camp", at: [440, 700], monsters: BOARS }
+  ],
+  neutral: [{ id: "tyrant", kind: "tyrant", at: [480, 560], monsters: ["tyrant"] }]
 };
 
 function textFrame(text) {
@@ -335,7 +340,7 @@ function play(socket, ticket, context) {
       sight: 300
     },
     difficulty: ticket.choice.difficulty,
-    art: MINION_ART,
+    art: FAKE_ART,
     calls: [
       { id: "regroup", label: "Regroup", icon: "users" },
       { id: "retreat", label: "Retreat", icon: "shield" },
@@ -346,12 +351,6 @@ function play(socket, ticket, context) {
   game.timer = setInterval(() => tick(game), TICK_MS);
   listen(game);
 }
-
-// the pictures of the minions as the bots server sends them (a 1-pixel WebP each)
-const PIXEL = "data:image/webp;base64,UklGRiIAAABXRUJQVlA4IBYAAAAwAQCdASoBAAEADsD+JaQAA3AAAAAA";
-const MINION_ART = Object.fromEntries(
-  ["blue", "red"].flatMap(side => ["melee", "ranged"].map(kind => [`${side}-${kind}`, PIXEL]))
-);
 
 /**
  * Starts the stand-in: `{ url, seen: { tickets, orders, results, moves, targets }, setSite(url), close() }`. `roster` is the ids of

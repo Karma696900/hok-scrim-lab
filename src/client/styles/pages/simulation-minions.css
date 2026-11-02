@@ -1,7 +1,8 @@
 /* ---------- Game Simulation: the minions of the waves (simulation-minions.js) ---------- */
 /* One dot a minion, smaller than a hero's, with the picture of its kind inside and a thin health bar under it: green
-   for the side's own, red for the enemy's, as in the game. The siege and super minions are a little larger. A new
-   wave grows in where it spawns, in 2 seconds (none when the reader asks for less motion). */
+   for the side's own, red for the enemy's, as in the game. The siege and super minions are a little larger, the
+   Overlord Vanguard larger still and the Shadow Vanguard the largest, in the Overlord's pictures. A new wave grows
+   in where it spawns, in 2 seconds (none when the reader asks for less motion). */
 .sim-minion {
   position: absolute;
   z-index: 1;
@@ -11,6 +12,12 @@
 }
 .sim-minion--siege {
   width: 2.9%;
+}
+.sim-minion--dragon {
+  width: 3.8%;
+}
+.sim-minion--shadow {
+  width: 4.8%;
 }
 .sim-minion__face {
   display: block;
@@ -72,12 +79,24 @@
 .sim-game--play .sim-minion--siege {
   width: 30px;
 }
+.sim-game--play .sim-minion--dragon {
+  width: 40px;
+}
+.sim-game--play .sim-minion--shadow {
+  width: 50px;
+}
 @media (max-height: 480px) {
   .sim-game--play .sim-minion {
     width: 20px;
   }
   .sim-game--play .sim-minion--siege {
     width: 25px;
+  }
+  .sim-game--play .sim-minion--dragon {
+    width: 34px;
+  }
+  .sim-game--play .sim-minion--shadow {
+    width: 42px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

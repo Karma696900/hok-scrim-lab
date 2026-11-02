@@ -1,5 +1,6 @@
 // The minions of the waves the side sees, one dot each with the picture of its kind (melee, mage, ballista, cannon,
-// super: sent by the bots server in its start message, `art`), in a column on their lane: the front one at the
+// super, and the dragons of the Overlord: sent by the bots server in its start message, `art`), in a column on their
+// lane: the front one at the
 // wave's point, the others behind it towards their own base, a little to each side in turn. Each dot has its health
 // bar. A new wave appears in 2 seconds where it spawns (the frame says how long it still spawns), then walks. The
 // front dot is the wave's mark for the player's target (simulation-controls.js). With no picture (an older server),
@@ -97,10 +98,26 @@ function minionMark(run, wave) {
   return mark;
 }
 
+/**
+ * The size of a minion's dot: the siege and super minions a little larger, the Overlord Vanguard larger still, the
+ * Shadow Vanguard the largest.
+ */
+export const minionSize = kind =>
+  kind === "shadow-vanguard"
+    ? "shadow"
+    : kind === "vanguard"
+      ? "dragon"
+      : kind === "melee" || kind === "ranged"
+        ? ""
+        : "siege";
+
 function paintMinion(run, mark, wave, minion) {
   if (mark.dataset.kind !== minion.kind) {
     mark.dataset.kind = minion.kind;
-    mark.classList.toggle("sim-minion--siege", minion.kind !== "melee" && minion.kind !== "ranged");
+    const size = minionSize(minion.kind);
+    for (const kind of ["siege", "dragon", "shadow"]) {
+      mark.classList.toggle(`sim-minion--${kind}`, size === kind);
+    }
     const picture = run.start?.art?.[`${wave.side}-${minion.kind}`];
     const face = mark.firstElementChild;
     face.replaceChildren();

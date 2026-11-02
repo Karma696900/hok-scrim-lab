@@ -95,6 +95,8 @@ export function paintCamps(run, view) {
     const mark = run.campMarks.get(camp.id);
     mark?.classList.toggle("is-unknown", !camp.known);
     mark?.classList.toggle("is-down", camp.known && !camp.alive);
+    // from 10:00 the Tyrant and the Overlord are their shadow selves (the camp shows its shadow picture)
+    mark?.classList.toggle("is-shadow", Boolean(camp.known && camp.shadow));
     let barEl = run.campBars.get(camp.id);
     // sent by the bots server for the camps the side sees standing only
     const progress = run.camps[camp.id] ?? 0;

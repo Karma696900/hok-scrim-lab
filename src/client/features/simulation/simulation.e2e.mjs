@@ -248,6 +248,23 @@ check(
   minions.count === 4 && minions.pictures === 4 && minions.smaller && minions.apart
 );
 check("a hurt minion shows its health", minions.hurt);
+const monsters = await player.evaluate(() => {
+  const camp = document.querySelector('.sim-dots [data-camp="blue-camp-2"]');
+  const faces = [...(camp?.querySelectorAll(".sim-monster") ?? [])];
+  const widths = faces.map(face => Math.round(face.getBoundingClientRect().width));
+  return {
+    count: faces.length,
+    pictures: faces.filter(face => face.querySelector("img")?.naturalWidth > 0).length,
+    widths,
+    // the big boar larger than its three small ones, every dot on screen with some size
+    bigger: widths[0] > Math.max(...widths.slice(1)) && widths.every(width => width > 8),
+    icon: Boolean(camp?.querySelector("svg"))
+  };
+});
+check(
+  `a camp shows its monsters, one dot each with its picture, the big boar over its three small ones (${JSON.stringify(monsters)})`,
+  monsters.count === 4 && monsters.pictures === 4 && monsters.bigger && !monsters.icon
+);
 check("a dot farther up the map is drawn smaller", centred.farther);
 check(
   "the towers are dots too, a little more transparent than the heroes, none drawn on the map",

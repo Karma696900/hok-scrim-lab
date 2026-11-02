@@ -28,29 +28,62 @@ const CAMP_ICON = {
 const spot = (kind, tag, at, icon) =>
   `<span class="sim-spot sim-spot--${kind}" ${tag} data-at="${at[0]},${at[1]}">${ICONS[icon]}</span>`;
 
-/** The dots of the towers, the crystals, the camps and the objectives, each with its point of the map (`data-at`). */
-export function spotsHtml(map) {
+// only a WebP picture sent whole as a data address is drawn
+const PICTURE = /^data:image\/webp;base64,[A-Za-z0-9+/=]+$/;
+const pictureOf = (art, kind) => {
+  const picture = art?.[`monster-${kind}`];
+  return typeof picture === "string" && PICTURE.test(picture) ? picture : null;
+};
+
+/**
+ * The dots of a camp's monsters (`camp.monsters`, sent by the bots server with `art`, the pictures), each with its
+ * picture: the Tyrant and the Overlord carry their shadow picture too (shown from 10:00). Null when one is missing.
+ */
+function monstersHtml(camp, art, kind, tag) {
+  const monsters = camp.monsters ?? [];
+  const pictures = monsters.map(monster => pictureOf(art, monster));
+  if (!monsters.length || pictures.some(picture => !picture)) {
+    return null;
+  }
+  const faces = monsters.map((monster, i) => {
+    const shadow = pictureOf(art, `shadow-${monster}`);
+    const second = shadow ? `<img class="sim-monster__shadow" alt="" src="${shadow}">` : "";
+    return `<span class="sim-monster sim-monster--${monster}"><img alt="" src="${pictures[i]}">${second}</span>`;
+  });
+  const at = `data-at="${camp.at[0]},${camp.at[1]}"`;
+  return `<span class="sim-spot sim-spot--${kind} sim-spot--monsters" ${tag} data-count="${monsters.length}" ${at}>${faces.join("")}</span>`;
+}
+
+/**
+ * The dots of the towers, the crystals, the camps and the objectives, each with its point of the map (`data-at`): a
+ * camp whose monsters have their pictures in `art` shows them, the others an icon.
+ */
+export function spotsHtml(map, art) {
   const towers = map.towers.map(tower =>
     spot(`tower sim-spot--${tower.side}`, `data-tower="${tower.id}"`, tower.at, "tower")
   );
   const crystals = ["blue", "red"].map(side =>
     spot(`crystal sim-spot--${side}`, `data-crystal="${side}"`, map.bases[side].crystal, "crystal")
   );
-  const camps = map.camps.map(camp =>
-    spot(
-      `camp sim-spot--${camp.kind}`,
-      `data-camp="${camp.id}"`,
-      camp.at,
-      CAMP_ICON[camp.kind] ?? "camp"
-    )
+  const camps = map.camps.map(
+    camp =>
+      monstersHtml(camp, art, `camp sim-spot--${camp.kind}`, `data-camp="${camp.id}"`) ??
+      spot(
+        `camp sim-spot--${camp.kind}`,
+        `data-camp="${camp.id}"`,
+        camp.at,
+        CAMP_ICON[camp.kind] ?? "camp"
+      )
   );
-  const objectives = map.neutral.map(camp =>
-    spot(
-      `objective sim-spot--${camp.kind}`,
-      `data-camp="${camp.id}"`,
-      camp.at,
-      CAMP_ICON[camp.kind] ?? "boss"
-    )
+  const objectives = map.neutral.map(
+    camp =>
+      monstersHtml(camp, art, `objective sim-spot--${camp.kind}`, `data-camp="${camp.id}"`) ??
+      spot(
+        `objective sim-spot--${camp.kind}`,
+        `data-camp="${camp.id}"`,
+        camp.at,
+        CAMP_ICON[camp.kind] ?? "boss"
+      )
   );
   return [...towers, ...crystals, ...camps, ...objectives].join("");
 }

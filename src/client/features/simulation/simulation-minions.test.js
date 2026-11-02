@@ -1,7 +1,7 @@
 // The minions of a wave, one dot each, in a column on their lane behind the front one.
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { MINION_GAP, minionSpots } from "./simulation-minions.js";
+import { MINION_GAP, minionSize, minionSpots } from "./simulation-minions.js";
 
 // a lane bent once, from the blue end (0, 0) to the red end (200, 100)
 const LANE = [
@@ -50,4 +50,13 @@ test("a wave at the very end of its lane keeps its minions on the lane", () => {
   for (const spot of spots) {
     assert.ok(offLane(spot) < MINION_GAP / 2 && spot.every(Number.isFinite), `${spot}`);
   }
+});
+
+test("the siege and super minions are a little larger, the dragons of the Overlord larger still", () => {
+  assert.deepEqual(
+    ["melee", "ranged", "ballista", "cannon", "super", "vanguard", "shadow-vanguard"].map(
+      minionSize
+    ),
+    ["", "", "siege", "siege", "siege", "dragon", "shadow"]
+  );
 });

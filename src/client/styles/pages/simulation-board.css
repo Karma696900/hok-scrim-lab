@@ -152,28 +152,51 @@ html:has(.sim-layer) {
 .sim-map.is-hidden .sim-death {
   visibility: hidden;
 }
+/* the gorge as the game draws it: green ground, dense dark forest round the field and in the walls (their tree line
+   lighter), the river teal with its lighter bank, the lanes stone paths with a darker edge, the bushes bright grass */
 .sim-void {
-  fill: #0b1220;
+  fill: #16251b;
 }
 .sim-ground {
-  fill: #1b2a24;
+  fill: #4a7034;
+}
+.sim-river-bank {
+  fill: none;
+  stroke: #8fb69a;
+  stroke-width: 10;
+  stroke-linejoin: round;
+  opacity: 0.55;
 }
 .sim-river {
-  fill: #1c4660;
+  fill: #2d7d96;
 }
+.sim-lane-edge,
 .sim-lane {
   fill: none;
-  stroke: rgba(214, 196, 150, 0.22);
-  stroke-width: 16;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+.sim-lane-edge {
+  stroke: #4d4a36;
+  stroke-width: 26;
+  opacity: 0.75;
+}
+.sim-lane {
+  stroke: #b9ad86;
+  stroke-width: 20;
+  opacity: 0.9;
+}
 .sim-wall {
-  fill: #303846;
+  fill: #24391f;
+  stroke: #5f8443;
+  stroke-width: 3;
+  stroke-linejoin: round;
 }
 .sim-bush {
-  fill: #2c6a3a;
-  opacity: 0.85;
+  fill: #67a83f;
+  stroke: #3f7a2a;
+  stroke-width: 2;
+  opacity: 0.9;
 }
 .sim-fountain--blue,
 .sim-tower--blue,
@@ -217,7 +240,7 @@ html:has(.sim-layer) {
   stroke-dasharray: 4 4;
 }
 .sim-fog {
-  fill: rgba(3, 6, 12, 0.66);
+  fill: rgba(5, 10, 16, 0.42);
 }
 .sim-dots {
   position: absolute;
