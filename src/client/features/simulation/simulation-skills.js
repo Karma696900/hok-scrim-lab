@@ -122,3 +122,19 @@ export function paintSkills(run, view, casts, now) {
     }
   }
 }
+
+/**
+ * Each frame: the summoner spell (or Punish) of the player's hero goes down once used, as the skills do: a dark
+ * sweep and the seconds left (the frame's `spellLeft`), gone at once when it is ready again, after its delay or
+ * given back early. `button` is the spell's button, `time` its seconds; the last state is kept on `run.spellCool`.
+ */
+export function paintSpellCooldown(run, button, time, me) {
+  const state = coolState(run.spellCool ?? null, me?.alive ? (me.spellLeft ?? 0) : 0);
+  run.spellCool = state;
+  button.classList.toggle("is-cooling", state.left > 0);
+  button.style.setProperty("--sweep", String(state.share));
+  time.hidden = !state.label;
+  if (time.textContent !== state.label) {
+    time.textContent = state.label;
+  }
+}

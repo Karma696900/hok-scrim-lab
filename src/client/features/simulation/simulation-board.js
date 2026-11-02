@@ -42,7 +42,7 @@ const callsHtml = calls =>
 
 function spellHtml(me) {
   const name = SPELL_NAMES[me.spell]?.() ?? esc(me.spell ?? "");
-  return `<button type="button" class="sim-spell" data-sim="spell" aria-label="${esc(name)}" title="${esc(name)}">${icon(me.spell === "punish" ? "flame" : "bolt")}<span class="sim-spell__name">${name}</span></button>`;
+  return `<button type="button" class="sim-spell" data-sim="spell" aria-label="${esc(name)}" title="${esc(name)}">${icon(me.spell === "punish" ? "flame" : "bolt")}<span class="sim-spell__name">${name}</span><b class="sim-spell__time" hidden></b></button>`;
 }
 
 const topRightHtml = () => `<div class="sim-hud__right">

@@ -20,7 +20,7 @@ import {
 } from "./simulation-hud.js";
 import { paintGauge } from "./simulation-gauge.js";
 import { glideTo } from "./simulation-motion.js";
-import { paintSkills } from "./simulation-skills.js";
+import { paintSkills, paintSpellCooldown } from "./simulation-skills.js";
 import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
 import { clock, esc, portrait } from "./simulation-shared.js";
 import { paintTarget } from "./simulation-target.js";
@@ -170,6 +170,9 @@ function paintSpell(run, view) {
   }
   spell.classList.toggle("is-ready", me.alive && Boolean(me.spellReady || me.punishReady));
   spell.disabled = !me.alive;
+  if (run.layerOf.spellTime) {
+    paintSpellCooldown(run, spell, run.layerOf.spellTime, me);
+  }
 }
 
 export function paintFarm(run, view) {

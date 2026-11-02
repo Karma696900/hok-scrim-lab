@@ -70,6 +70,7 @@ function bindLayer(run) {
     farmRed: one('[data-farm="red"]'),
     farmBar: one(".sim-bar--farm"),
     spell: one(".sim-spell"),
+    spellTime: one(".sim-spell__time"),
     calls: [...layer.querySelectorAll(".sim-call")],
     end: one(".sim-end"),
     game: one(".sim-game"),

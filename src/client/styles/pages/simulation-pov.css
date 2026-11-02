@@ -163,3 +163,35 @@
   font-variant-numeric: tabular-nums;
   color: rgba(232, 238, 247, 0.8);
 }
+
+/* the spell goes down once used, as the skills: a dark sweep shrinking clockwise and the seconds left
+   (simulation-skills.js, paintSpellCooldown) */
+.sim-spell {
+  position: relative;
+  overflow: hidden;
+}
+.sim-spell.is-cooling::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgba(3, 6, 12, 0.74) calc(var(--sweep, 0) * 360deg),
+    rgba(3, 6, 12, 0.3) 0
+  );
+  pointer-events: none;
+}
+.sim-spell__time {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font: 800 18px/1 var(--font-body);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+.sim-spell__time[hidden] {
+  display: none;
+}
