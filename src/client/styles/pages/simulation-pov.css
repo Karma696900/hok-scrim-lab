@@ -1,14 +1,28 @@
 /* ---------- Game Simulation: the controls where the game puts them ---------- */
-/* Measured on the owner's captures of the game (W the screen's width, H its height; the hud covers the screen, so a
-   percentage of it is a share of the screen): the stick's ring 0.165 W centred at 0.14 W, 0.79 H; the attack 0.095 W
-   at 0.85 W, 0.83 H; the minions button left of it and lower (0.735 W, 0.86 H), the towers button above it
-   (0.8575 W, 0.58 H), both 0.0525 W; the skills 0.06 W on their arc (simulation-skills.js); the calls down the right
-   edge from 0.14 H. Every size keeps a floor for a finger (44 px) and a ceiling for tablets. */
+/* Measured on the owner's captures of the game, a 20:9 phone held sideways (W its width, H its height): the stick's
+   ring 0.165 W centred at 0.14 W, 0.79 H; the attack 0.095 W at 0.85 W, 0.83 H; the minions button left of it and
+   lower (0.735 W, 0.86 H), the towers button above it (0.8575 W, 0.58 H), both 0.0525 W; the skills 0.06 W on their
+   arc (simulation-skills.js); the calls down the right edge from 0.14 H.
+   Every screen is not 20:9: --pov-u is a hundredth of the width of the 20:9 screen that fits in this one (the width,
+   or the height times 20/9 when the screen is shorter), and every size and every distance from the screen's corners is
+   counted in it, so the controls keep the game's shape and shrink together on a 16:9 phone, a phone whose address bar
+   takes some height, or a small one. Each size keeps a floor for a finger (the skills take none: the AI casts them)
+   and a ceiling for tablets. */
 .sim-game--play {
-  --pov-stick: clamp(120px, 16.5vw, 240px);
-  --pov-attack: clamp(72px, 9.5vw, 136px);
-  --pov-small: clamp(44px, 5.25vw, 76px);
-  --pov-skill: clamp(48px, 6vw, 86px);
+  --pov-u: min(1vw, 2.222dvh);
+  --pov-stick: clamp(96px, calc(16.5 * var(--pov-u)), 240px);
+  --pov-attack: clamp(64px, calc(9.5 * var(--pov-u)), 136px);
+  --pov-small: clamp(44px, calc(5.25 * var(--pov-u)), 76px);
+  --pov-skill: clamp(32px, calc(6 * var(--pov-u)), 86px);
+  --pov-call: 44px;
+  /* the centre of the attack, from the bottom right corner */
+  --pov-attack-x: calc(15 * var(--pov-u));
+  --pov-attack-y: calc(7.65 * var(--pov-u));
+}
+/* rounded corners and a camera hole: the controls stay inside the safe part of the screen */
+.sim-game--play .sim-hud {
+  inset: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+    env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
 }
 
 /* the stick floats: a finger anywhere in the bottom-left zone brings the ring under it (simulation-controls.js) */
@@ -23,10 +37,10 @@
   touch-action: none;
   user-select: none;
 }
-/* the stick: a thin ring, the knob a third of it; at rest where the game has it */
+/* the stick: a thin ring, the knob a third of it; at rest where the game has it, never past the screen's edge */
 .sim-game--play .sim-stick {
-  bottom: calc(21dvh - var(--pov-stick) / 2);
-  left: calc(14vw - var(--pov-stick) / 2);
+  bottom: max(6px, calc(9.45 * var(--pov-u) - var(--pov-stick) / 2));
+  left: max(6px, calc(14 * var(--pov-u) - var(--pov-stick) / 2));
   translate: var(--sx, 0) var(--sy, 0);
   width: var(--pov-stick);
   border-width: 1px;
@@ -43,7 +57,7 @@
   background: rgba(46, 68, 98, 0.95);
 }
 
-/* the attack cluster: each button on its own place of the screen */
+/* the attack cluster: each button on its own place, counted from the bottom right corner */
 .sim-game--play .sim-strike {
   inset: 0;
   display: block;
@@ -55,8 +69,8 @@
   height: var(--pov-small);
 }
 .sim-game--play .sim-aim--attack {
-  bottom: calc(17% - var(--pov-attack) / 2);
-  left: calc(85% - var(--pov-attack) / 2);
+  right: calc(var(--pov-attack-x) - var(--pov-attack) / 2);
+  bottom: max(6px, calc(var(--pov-attack-y) - var(--pov-attack) / 2));
   width: var(--pov-attack);
   height: var(--pov-attack);
   border: 3px solid rgba(124, 196, 120, 0.6);
@@ -67,32 +81,39 @@
   height: 42%;
 }
 .sim-game--play .sim-aim--minion {
-  bottom: calc(14% - var(--pov-small) / 2);
-  left: calc(73.5% - var(--pov-small) / 2);
+  right: calc(26.5 * var(--pov-u) - var(--pov-small) / 2);
+  bottom: max(6px, calc(6.3 * var(--pov-u) - var(--pov-small) / 2));
 }
 .sim-game--play .sim-aim--tower {
-  bottom: calc(42% - var(--pov-small) / 2);
-  left: calc(85.75% - var(--pov-small) / 2);
+  right: calc(14.25 * var(--pov-u) - var(--pov-small) / 2);
+  bottom: calc(18.9 * var(--pov-u) - var(--pov-small) / 2);
 }
 /* the skills' arc box sits on the attack button */
 .sim-game--play .sim-arc {
-  right: auto;
-  bottom: calc(17% - var(--pov-attack) / 2);
-  left: calc(85% - var(--pov-attack) / 2);
+  right: calc(var(--pov-attack-x) - var(--pov-attack) / 2);
+  bottom: max(6px, calc(var(--pov-attack-y) - var(--pov-attack) / 2));
   width: var(--pov-attack);
   height: var(--pov-attack);
 }
 /* the enemies in sight: above the towers button, left of the calls */
 .sim-game--play .sim-strike .sim-avatars {
-  right: calc(15% - var(--pov-small) / 2);
-  bottom: calc(42% + var(--pov-small) / 2 + 6px);
+  right: calc(15 * var(--pov-u) - var(--pov-small) / 2);
+  bottom: calc(18.9 * var(--pov-u) + var(--pov-small) / 2 + 6px);
 }
 
-/* the calls, down the right edge, under the gold bar of the top right */
+/* the calls, down the right edge under the gold bar of the top right, where the game has them (8 hundredths from the
+   edge) unless that would put them over the attack or the towers button: then nearer the edge */
 .sim-game--play .sim-calls {
   top: max(14%, 96px);
-  right: calc(8% - 22px);
-  grid-template-columns: 44px;
+  right: max(
+    6px,
+    min(
+      calc(8 * var(--pov-u) - var(--pov-call) / 2),
+      calc(var(--pov-attack-x) - var(--pov-attack) / 2 - var(--pov-call) - 6px),
+      calc(14.25 * var(--pov-u) - var(--pov-small) / 2 - var(--pov-call) - 6px)
+    )
+  );
+  grid-template-columns: var(--pov-call);
   grid-auto-flow: row;
   gap: 6px;
   translate: none;

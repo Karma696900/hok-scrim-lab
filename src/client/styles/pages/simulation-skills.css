@@ -1,7 +1,7 @@
 /* ---------- Game Simulation: the skills in an arc around the attack, as in the game ---------- */
 /* The AI casts the skills (simulation-skills.js): the arc shows them, it takes no finger. Each skill is placed by its
-   --x and --y (screen widths from the centre of the attack button, up is positive), set by the script; the arc box
-   sits on the attack button (simulation-pov.css). */
+   --x and --y (in widths of the 20:9 screen that fits, --pov-u in simulation-pov.css, from the centre of the attack
+   button, up is positive), set by the script; the arc box sits on the attack button (simulation-pov.css). */
 .sim-arc {
   position: absolute;
   right: 8px;
@@ -14,8 +14,8 @@
 .sim-arc__skill {
   --size: var(--pov-skill, 56px);
   position: absolute;
-  top: calc(50% - var(--y, 0) * 100vw - var(--size) / 2);
-  left: calc(50% + var(--x, 0) * 100vw - var(--size) / 2);
+  top: calc(50% - var(--y, 0) * 100 * var(--pov-u, 1vw) - var(--size) / 2);
+  left: calc(50% + var(--x, 0) * 100 * var(--pov-u, 1vw) - var(--size) / 2);
   display: grid;
   width: var(--size);
   height: var(--size);
@@ -92,7 +92,7 @@
   left: 50%;
   z-index: 5;
   display: flex;
-  gap: 10px;
+  gap: clamp(6px, calc(1.1 * var(--pov-u, 1vw)), 10px);
   translate: calc(-100% + 28px) 0;
 }
 

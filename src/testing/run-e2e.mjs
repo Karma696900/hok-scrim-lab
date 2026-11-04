@@ -60,6 +60,7 @@ const TESTS = [
   "language",
   "i18n-addresses",
   "simulation",
+  "simulation-screens",
   "ssr",
   "first-paint",
   "contrast",
