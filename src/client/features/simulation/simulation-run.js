@@ -17,6 +17,7 @@ import { paintFrame } from "./simulation-paint.js";
 import { bindHome, spellArtHtml } from "./simulation-home.js";
 import { bindSkills } from "./simulation-skills.js";
 import { gradeHtml } from "./simulation-popups.js";
+import { bindPresses } from "./simulation-press.js";
 import { bindWatch, paintWatch, watchBoardHtml, watchEndHtml } from "./simulation-watch.js";
 
 /** The pictures of the skills of each hero (by the engine's key), from its Camp sheet. */
@@ -251,12 +252,7 @@ export function startRun({ host, game, choice, heroes, signedIn, onEnd, onLeave,
     "--sim-zoom",
     String(CAMERA_HEIGHTS[choice.camera] ?? CAMERA_HEIGHTS.normal)
   );
-  run.layer.addEventListener("click", event => {
-    const button = event.target.closest("[data-sim]");
-    if (button && !button.disabled && ACTIONS[button.dataset.sim]) {
-      ACTIONS[button.dataset.sim](run, button);
-    }
-  });
+  bindPresses(run.layer, button => ACTIONS[button.dataset.sim]?.(run, button));
   run.stop = () => {
     run.stopped = true;
     cancelAnimationFrame(run.handle);

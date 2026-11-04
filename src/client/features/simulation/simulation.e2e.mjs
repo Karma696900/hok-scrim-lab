@@ -338,6 +338,51 @@ check(
 await shot(player, "scoreboard");
 await player.click('.sim-scores [data-sim="scoreboard"]');
 check("the scoreboard closes", await player.locator(".sim-scores").isHidden());
+// two fingers, as in a game: the thumb holds the stick while the other one presses a button. A phone makes no click
+// of a touch while another finger is down, so the buttons must answer the finger itself.
+{
+  const touch = await player.context().newCDPSession(player);
+  const finger = (type, points) =>
+    touch.send("Input.dispatchTouchEvent", { type, touchPoints: points });
+  const centre = box => ({ x: box.x + box.width / 2, y: box.y + box.height / 2 });
+  const held = await player.locator("[data-stick]").boundingBox();
+  const thumb = { ...centre(held), id: 1 };
+  const pressWithStickHeld = async selector => {
+    const button = { ...centre(await player.locator(selector).first().boundingBox()), id: 2 };
+    await finger("touchStart", [thumb]);
+    await finger("touchMove", [{ ...thumb, x: thumb.x + 30 }]);
+    await finger("touchStart", [{ ...thumb, x: thumb.x + 30 }, button]);
+    await finger("touchEnd", [{ ...thumb, x: thumb.x + 30 }]);
+    await finger("touchEnd", []);
+  };
+  const targets = bots.seen.targets.length;
+  await pressWithStickHeld('[data-sim="aim"][data-kind="auto"]');
+  check(
+    "with the stick held, a press on the attack reaches the bots server",
+    await until(
+      () => bots.seen.targets.length === targets + 1 && bots.seen.targets.at(-1) === "auto"
+    )
+  );
+  await pressWithStickHeld('.sim-scorebar [data-sim="scoreboard"]');
+  check(
+    "with the stick held, a press on the scoreboard opens it, once",
+    await settles(player.waitForSelector(".sim-scores:not([hidden])", { timeout: 3000 }))
+  );
+  await player.waitForTimeout(400);
+  check(
+    "the scoreboard stays open (no second toggle from a click)",
+    await player.locator(".sim-scores").isVisible()
+  );
+  await player.tap('.sim-scores [data-sim="scoreboard"]');
+  await player.waitForTimeout(400);
+  check("a lone tap closes it, once", await player.locator(".sim-scores").isHidden());
+  await player.tap('.sim-scorebar [data-sim="scoreboard"]');
+  await player.waitForTimeout(400);
+  check("a lone tap opens it, once", await player.locator(".sim-scores").isVisible());
+  await player.tap('.sim-scores [data-sim="scoreboard"]');
+  await player.waitForTimeout(400);
+  await touch.detach();
+}
 await player.click('[data-sim="pause"]');
 check(
   "the pause hides the map",
