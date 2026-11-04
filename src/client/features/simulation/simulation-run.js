@@ -7,14 +7,14 @@
 // (mode "watch": ten bots, nobody plays) has its own board, frames and end (simulation-watch.js).
 import { api } from "../../app/api-client.js";
 import { boardHtml } from "./simulation-board.js";
-import { bindCamera, unbindCamera } from "./simulation-camera.js";
+import { bindCamera, CAMERA_HEIGHTS, unbindCamera } from "./simulation-camera.js";
 import { bindControls, unbindControls } from "./simulation-controls.js";
 import { bindFullscreen, enterFullscreen, exitFullscreen } from "./simulation-fullscreen.js";
 import { placeAt, toggleScoreboard } from "./simulation-hud.js";
 import { boardShare } from "./simulation-map.js";
 import { moveDots } from "./simulation-motion.js";
 import { paintFrame } from "./simulation-paint.js";
-import { bindHome } from "./simulation-home.js";
+import { bindHome, spellArtHtml } from "./simulation-home.js";
 import { bindSkills } from "./simulation-skills.js";
 import { gradeHtml } from "./simulation-popups.js";
 import { bindWatch, paintWatch, watchBoardHtml, watchEndHtml } from "./simulation-watch.js";
@@ -52,6 +52,14 @@ async function loadItems(run) {
       ])
     );
     run.keys.scores = "";
+    // the spell's picture from the same catalogue, in place of its glyph
+    const art = spellArtHtml(catalog, run.start?.me?.spell);
+    const spell = run.layer?.querySelector('[data-sim="spell"]');
+    if (art && spell) {
+      spell.querySelector("svg")?.remove();
+      spell.insertAdjacentHTML("afterbegin", art);
+      spell.classList.add("has-art");
+    }
   } catch {
     // no catalogue: the scoreboard shows empty item slots with the item's number as their title
   }
@@ -238,6 +246,11 @@ export function startRun({ host, game, choice, heroes, signedIn, onEnd, onLeave,
   };
   run.layer = document.createElement("div");
   run.layer.className = "sim-layer";
+  // how high the camera is: how many screens wide the field is drawn (simulation-hud.css, simulation-camera.js)
+  run.layer.style.setProperty(
+    "--sim-zoom",
+    String(CAMERA_HEIGHTS[choice.camera] ?? CAMERA_HEIGHTS.normal)
+  );
   run.layer.addEventListener("click", event => {
     const button = event.target.closest("[data-sim]");
     if (button && !button.disabled && ACTIONS[button.dataset.sim]) {

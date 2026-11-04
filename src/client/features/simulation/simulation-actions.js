@@ -6,6 +6,7 @@ import { pageHtml } from "./simulation-setup.js";
 import { loadGame, loadHistory, loadPool } from "./simulation-load.js";
 import { enterFullscreen } from "./simulation-fullscreen.js";
 import { startRun } from "./simulation-run.js";
+import { CAMERA_HEIGHTS, keepCamera } from "./simulation-camera.js";
 import { addressHooks, DIFFICULTIES, LANES, SIDES } from "./simulation-shared.js";
 
 export function paint(view) {
@@ -65,6 +66,7 @@ export async function start(view) {
     side: view.side,
     lane: view.lane,
     difficulty: view.difficulty,
+    camera: view.camera,
     fixed: view.handPicked ? view.fixed : {},
     limit: hooks.limit,
     debug: hooks.debug
@@ -101,6 +103,12 @@ const CHOICES = {
   side: (view, value) => SIDES.includes(value) && (view.side = value),
   lane: (view, value) => LANES.includes(value) && (view.lane = value),
   difficulty: (view, value) => DIFFICULTIES.includes(value) && (view.difficulty = value),
+  camera: (view, value) => {
+    if (Object.hasOwn(CAMERA_HEIGHTS, value)) {
+      view.camera = value;
+      keepCamera(value);
+    }
+  },
   heroes: (view, value) => {
     view.handPicked = value === "hand";
     if (view.handPicked) {

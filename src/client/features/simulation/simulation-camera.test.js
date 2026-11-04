@@ -3,7 +3,7 @@
 // centred on the hero.
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { ANCHOR, fieldPose } from "./simulation-camera.js";
+import { ANCHOR, CAMERA_HEIGHTS, fieldPose, lens, readCamera } from "./simulation-camera.js";
 
 const screen = { width: 844, height: 390, side: 2200 };
 const same = (actual, expected) =>
@@ -31,4 +31,41 @@ test("near a corner of the map the hero stays in the middle too", () => {
   const pose = fieldPose({ ...screen, px: 10, py: 2190 });
   same(pose.x + 10, screen.width / 2);
   same(pose.y + 2190, screen.height / 2);
+});
+
+test("three camera heights; at the normal one a screen shows about a fifth of the field across, as in the game", () => {
+  assert.deepEqual(Object.keys(CAMERA_HEIGHTS), ["close", "normal", "high"]);
+  assert.ok(
+    CAMERA_HEIGHTS.close > CAMERA_HEIGHTS.normal && CAMERA_HEIGHTS.normal > CAMERA_HEIGHTS.high
+  );
+  // the field is CAMERA_HEIGHTS[height] screens wide and shows the board's 724 map pixels
+  const across = 724 / CAMERA_HEIGHTS.normal;
+  assert.ok(across > 150 && across < 190, `${across} map pixels across`);
+});
+
+test("the perspective follows the screen's height, and the pieces grow with the field", () => {
+  const phone = lens({ height: 390, side: 844 * CAMERA_HEIGHTS.normal });
+  const tablet = lens({ height: 800, side: 1280 * CAMERA_HEIGHTS.normal });
+  same(phone.depth / 390, tablet.depth / 800);
+  assert.ok(phone.depth > 390, "the eye is farther than a screen's height");
+  assert.ok(phone.piece > 1.2 && phone.piece < 1.6, `phone ${phone.piece}`);
+  assert.ok(tablet.piece > phone.piece);
+  assert.ok(lens({ height: 390, side: 844 * CAMERA_HEIGHTS.high }).piece < phone.piece);
+  assert.equal(lens({ height: 100, side: 10 }).piece, 0.8, "never smaller than this");
+  assert.equal(lens({ height: 2000, side: 99999 }).piece, 3, "nor larger than this");
+});
+
+test("the camera height is read from the device, normal when none (or an unknown one) was kept", () => {
+  const kept = value => ({ getItem: () => value });
+  assert.equal(readCamera(kept("close")), "close");
+  assert.equal(readCamera(kept(null)), "normal");
+  assert.equal(readCamera(kept("sky")), "normal");
+  assert.equal(
+    readCamera({
+      getItem: () => {
+        throw new Error("blocked");
+      }
+    }),
+    "normal"
+  );
 });

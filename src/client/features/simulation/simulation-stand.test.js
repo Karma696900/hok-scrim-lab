@@ -48,7 +48,7 @@ test("towers, crystals, camps and objectives are dots of the field, with their p
   const html = spotsHtml(map);
   assert.match(
     html,
-    /class="sim-spot sim-spot--tower sim-spot--blue" data-tower="blue-mid-1" data-at="420,600"/
+    /class="sim-spot sim-spot--tower sim-spot--blue sim-spot--piece" data-tower="blue-mid-1" data-at="420,600"/
   );
   assert.match(html, /data-crystal="blue" data-at="200,820"/);
   assert.match(html, /data-crystal="red"/);
@@ -56,6 +56,23 @@ test("towers, crystals, camps and objectives are dots of the field, with their p
   assert.match(html, /class="sim-spot sim-spot--objective sim-spot--tyrant" data-camp="tyrant"/);
   assert.equal((html.match(/<svg/g) ?? []).length, 5, "each dot shows its icon");
   assert.doesNotMatch(html, /style=/);
+});
+
+test("towers and crystals stand up, drawn in their side's colour, their foot on their point", () => {
+  const html = spotsHtml(map);
+  const tower = html.match(/<span class="sim-spot sim-spot--tower[\s\S]*?<\/span>/)[0];
+  assert.match(tower, /<svg class="sim-figure sim-figure--tower"/);
+  assert.match(tower, /#4d8df0/i, "blue");
+  const red = html.match(
+    /<span class="sim-spot sim-spot--crystal sim-spot--red[\s\S]*?<\/span>/
+  )[0];
+  assert.match(red, /<svg class="sim-figure sim-figure--crystal"/);
+  assert.match(red, /#e5573f/i, "red");
+  assert.match(html, /sim-spot--crystal sim-spot--blue sim-spot--piece/);
+  // whole while it stands, its rubble once fallen (the stylesheet shows one or the other)
+  assert.match(tower, /class="sim-figure__whole"/);
+  assert.match(tower, /class="sim-figure__rubble"/);
+  assert.match(tower, /class="sim-figure__glow"/);
 });
 
 // a 1-pixel WebP picture, as the bots server sends the monsters' pictures

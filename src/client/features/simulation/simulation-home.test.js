@@ -5,7 +5,7 @@ import { test } from "node:test";
 import { installFakeDom } from "../../../testing/fake-dom.js";
 
 installFakeDom({ pathname: "/simulation" });
-const { homeToolsHtml, paintHome } = await import("./simulation-home.js");
+const { homeToolsHtml, paintHome, spellArtHtml } = await import("./simulation-home.js");
 
 // a button as paintHome sees it: its classes, its custom properties, its seconds
 function fakeButton() {
@@ -32,6 +32,41 @@ test("the two buttons sit in the tools row, Recall first, both pressable", () =>
   assert.equal(html.match(/<button type="button"/g).length, 2);
   assert.match(html, /aria-label="Recall"/);
   assert.match(html, /aria-label="Recovery"/);
+});
+
+test("the buttons wear the game's icons the bots server sends, and keep their glyph without them", () => {
+  const art = {
+    "ui-recall": "data:image/webp;base64,UkVD",
+    "ui-recover": "data:image/webp;base64,SEVB"
+  };
+  const html = homeToolsHtml(art);
+  assert.match(html, /<img class="sim-home__art" src="data:image\/webp;base64,UkVD" alt="">/);
+  assert.match(html, /<img class="sim-home__art" src="data:image\/webp;base64,SEVB" alt="">/);
+  assert.doesNotMatch(html, /<svg/, "no glyph under a picture");
+  assert.match(homeToolsHtml({}), /<svg/);
+  assert.doesNotMatch(
+    homeToolsHtml({ "ui-recall": "javascript:alert(1)" }),
+    /javascript:/,
+    "only data pictures"
+  );
+});
+
+test("the spell's button finds its picture in the catalogue, Punish under the name Smite", () => {
+  const catalog = {
+    spells: [
+      { id: 2, name: "Flash", imageId: 41 },
+      { id: 7, name: "Smite", imageId: 47 },
+      { id: 4, name: "Heal", imageId: null }
+    ]
+  };
+  assert.match(
+    spellArtHtml(catalog, "flash"),
+    /<img class="sim-spell__art" src="\/catalog-images\/41\?[^>]*alt=""/
+  );
+  assert.match(spellArtHtml(catalog, "punish"), /47/);
+  assert.equal(spellArtHtml(catalog, "heal"), "", "no picture in the catalogue: the glyph stays");
+  assert.equal(spellArtHtml(catalog, "stun"), "");
+  assert.equal(spellArtHtml(null, "flash"), "");
 });
 
 test("while recalling the ring fills and the seconds count down; it empties when the recall stops", () => {

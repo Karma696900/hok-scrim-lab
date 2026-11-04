@@ -2837,3 +2837,6 @@
 3002|Touchez pour jouer en plein écran
 3003|Rappel
 3004|Soin
+3007|Hauteur de caméra
+3005|Proche
+3006|Haute

@@ -16,11 +16,16 @@
   container-type: size;
   background: #0b1220;
 }
+/* past the map's edge, in a game by hand, the forest goes on */
+.sim-game--play .sim-view {
+  background: #152618;
+}
 .sim-game--play .sim-map {
   position: absolute;
   top: 0;
   left: 0;
-  width: calc(max(100cqw, 100cqh) * 2.6);
+  /* --sim-zoom: how high the camera is, chosen on the set-up screen (simulation-camera.js CAMERA_HEIGHTS) */
+  width: calc(max(100cqw, 100cqh) * var(--sim-zoom, 4.25));
   height: auto;
   max-width: none;
   border-radius: 0;
@@ -36,7 +41,7 @@
 
 /* a hero on the field: its level, health cut every 1000 points and mana over its portrait, as in the game */
 .sim-game--play .sim-dot {
-  width: 44px;
+  width: calc(44px * var(--piece, 1));
 }
 .sim-dot__head {
   position: absolute;

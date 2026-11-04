@@ -2,13 +2,11 @@
 // the towers, the crystals, the camps and the objectives. They are not drawn on the map (its tilt would flatten them
 // and hide their lower half) but on a flat layer above it, moved with it (simulation-camera.js). Each screen frame,
 // each one goes where the perspective draws its point of the map, and is scaled as that point is: smaller far away,
-// always round and upright. The structures' dots are drawn with our own icons (no picture of the game: the site is
-// open source), a little more transparent than the heroes'.
+// always round and upright. The towers and the crystals stand up as drawn pieces in their side's colour, their foot
+// on their point; the camps and objectives are dots. All drawn by us (no picture of the game: the site is open source).
 
 const svg = inner => `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">${inner}</svg>`;
 const ICONS = {
-  tower: svg('<path d="M6 21h12v-2l-2-1V10l2-2V3h-3v2h-2V3h-2v2H9V3H6v5l2 2v8l-2 1z"/>'),
-  crystal: svg('<path d="M12 2l7 9-7 11-7-11z"/>'),
   camp: svg(
     '<circle cx="7" cy="9" r="2"/><circle cx="12" cy="6.5" r="2"/><circle cx="17" cy="9" r="2"/><path d="M12 11c3 0 5 3 5 5.5S15 20 12 20s-5-1-5-3.5S9 11 12 11z"/>'
   ),
@@ -27,6 +25,24 @@ const CAMP_ICON = {
 
 const spot = (kind, tag, at, icon) =>
   `<span class="sim-spot sim-spot--${kind}" ${tag} data-at="${at[0]},${at[1]}">${ICONS[icon]}</span>`;
+
+const TONES = {
+  blue: { main: "#4d8df0", light: "#b4d2ff", deep: "#2a5bb0" },
+  red: { main: "#e5573f", light: "#ffc0b0", deep: "#a3301f" }
+};
+
+// a tower: its shadow, a carved stone foot, a pillar with its banner in the side's colour, a cap and the glowing stone
+// on top (it pulses); fallen, only its rubble stays (simulation-tilt.css shows one or the other)
+const towerFigure = ({ main, light, deep }) =>
+  `<svg class="sim-figure sim-figure--tower" viewBox="0 0 40 64" aria-hidden="true" focusable="false"><ellipse cx="20" cy="59" rx="16" ry="4.5" fill="#000" opacity="0.32"/><g class="sim-figure__whole"><path d="M5 59h30l-3-10H8z" fill="#7d7a6e"/><path d="M27 49h5l3 10h-8z" fill="#5f5c52"/><path d="M8 53.5h25" stroke="#5f5c52" stroke-width="0.8"/><path d="M13 59v-5M20 59v-5M27 59v-5" stroke="#68655a" stroke-width="0.7"/><path d="M11 49h18V24H11z" fill="#a6a294"/><path d="M23 49h6V24h-6z" fill="#86826f"/><path d="M11 32h18M11 40h18" stroke="#8d8979" stroke-width="0.7"/><path d="M13 27h7v15l-3.5-3-3.5 3z" fill="${main}"/><path d="M13 27h3.5v12.5l-3.5 2.5z" fill="${light}" opacity="0.45"/><path d="M15 31l1.5 2 1.5-2" fill="none" stroke="${light}" stroke-width="0.8"/><path d="M11 45h18v3H11z" fill="${deep}"/><path d="M8 24h24l-3-6H11z" fill="#6c685c"/><path d="M8 24h24v1.5H8z" fill="#55524a"/><circle class="sim-figure__glow" cx="20" cy="10" r="9" fill="${main}" opacity="0.35"/><path d="M20 1l6 9-6 8-6-8z" fill="${main}"/><path d="M20 1l-6 9 6 8z" fill="${light}"/><path d="M20 18l6-8h-12z" fill="${deep}" opacity="0.5"/></g><g class="sim-figure__rubble"><path d="M5 59h30l-3-7H8z" fill="#6f6c61"/><path d="M11 52l3-9 5 3 3-6 4 5 3 7z" fill="#8d8979"/><path d="M8 55l4-3 2 4zM27 56l5-3 1 4z" fill="#5f5c52"/><path d="M18 50l3-2 1 3z" fill="${deep}" opacity="0.7"/></g></svg>`;
+
+// a crystal: its shadow, a stepped stone base carved with the side's colour, a ring and the big faceted stone (it
+// pulses)
+const crystalFigure = ({ main, light, deep }) =>
+  `<svg class="sim-figure sim-figure--crystal" viewBox="0 0 60 72" aria-hidden="true" focusable="false"><ellipse cx="30" cy="66" rx="27" ry="6" fill="#000" opacity="0.32"/><g class="sim-figure__whole"><path d="M4 66h52l-5-9H9z" fill="#7d7a6e"/><path d="M47 57h4l5 9h-6z" fill="#5f5c52"/><path d="M9 61.5h42" stroke="${main}" stroke-width="1.2" opacity="0.7"/><path d="M11 57h38l-4-7H15z" fill="#a6a294"/><path d="M41 50h4l4 7h-5z" fill="#86826f"/><ellipse cx="30" cy="48" rx="17" ry="4" fill="none" stroke="${main}" stroke-width="2.5"/><circle class="sim-figure__glow" cx="30" cy="28" r="19" fill="${main}" opacity="0.28"/><path d="M30 4l13 21-13 23-13-23z" fill="${main}"/><path d="M30 4l-13 21 13 23z" fill="${light}"/><path d="M30 4l6 21-6 23z" fill="${deep}" opacity="0.45"/><path d="M17 25h26" stroke="${light}" stroke-width="1" opacity="0.7"/><path d="M24 14l3 5" stroke="#fff" stroke-width="1.2" opacity="0.6"/></g><g class="sim-figure__rubble"><path d="M4 66h52l-5-9H9z" fill="#6f6c61"/><path d="M14 57l6-8 5 4 6-9 5 7 5-2 4 8z" fill="#8d8979"/><path d="M24 56l4-6 3 5z" fill="${main}" opacity="0.6"/></g></svg>`;
+
+const piece = (kind, side, tag, at, figure) =>
+  `<span class="sim-spot sim-spot--${kind} sim-spot--${side} sim-spot--piece" ${tag} data-at="${at[0]},${at[1]}">${figure(TONES[side])}</span>`;
 
 // only a WebP picture sent whole as a data address is drawn
 const PICTURE = /^data:image\/webp;base64,[A-Za-z0-9+/=]+$/;
@@ -60,10 +76,10 @@ function monstersHtml(camp, art, kind, tag) {
  */
 export function spotsHtml(map, art) {
   const towers = map.towers.map(tower =>
-    spot(`tower sim-spot--${tower.side}`, `data-tower="${tower.id}"`, tower.at, "tower")
+    piece("tower", tower.side, `data-tower="${tower.id}"`, tower.at, towerFigure)
   );
   const crystals = ["blue", "red"].map(side =>
-    spot(`crystal sim-spot--${side}`, `data-crystal="${side}"`, map.bases[side].crystal, "crystal")
+    piece("crystal", side, `data-crystal="${side}"`, map.bases[side].crystal, crystalFigure)
   );
   const camps = map.camps.map(
     camp =>

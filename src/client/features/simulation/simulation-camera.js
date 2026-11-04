@@ -6,14 +6,50 @@
 // finger while it slides (the hero keeps obeying its stick); the finger lifted, the camera glides back to the hero in
 // a quarter of a second, as in the game. The map is tilted like the game's camera (perspective in
 // simulation-tilt.css, the angle --sim-tilt): it turns about the point the camera looks at, and the dots of the heroes
-// stand upright on it, smaller far away.
+// stand upright on it, smaller far away. How high the camera is the player's choice, as in the game's settings (close,
+// normal, high: how many screens wide the field is drawn, kept on the device); the perspective follows the screen's
+// height (a lens of about 35 degrees from top to bottom) and the pieces on the field grow with it (--piece).
 import { mapPointOf, placeOnBoard } from "./simulation-map.js";
 
 const BACK_MS = 250;
 /** Where on the screen the point the camera looks at is drawn (shares of its width and height): the middle. */
 export const ANCHOR = [0.5, 0.5];
-const DEFAULT_TILT = 40;
-const DEFAULT_DEPTH = 900;
+const DEFAULT_TILT = 46;
+/** How many screens wide the field is drawn at each height of the camera (at normal, ~170 map pixels across). */
+export const CAMERA_HEIGHTS = { close: 5, normal: 4.25, high: 3.4 };
+const CAMERA_KEY = "hok-sim-camera";
+// the distance of the eye from the screen, in screen heights; the board's side in map pixels; the field's pixels per
+// map pixel at which the pieces have their size in the stylesheet
+const DEPTH_SHARE = 1.6;
+const BOARD = 724;
+const PIECE_AT = 3.5;
+
+/** The camera height kept on this device: "close", "normal" or "high" (normal when none, or storage is blocked). */
+export function readCamera(storage = globalThis.localStorage) {
+  try {
+    const kept = storage?.getItem(CAMERA_KEY);
+    return Object.hasOwn(CAMERA_HEIGHTS, kept ?? "") ? kept : "normal";
+  } catch {
+    return "normal";
+  }
+}
+
+export function keepCamera(height, storage = globalThis.localStorage) {
+  try {
+    storage?.setItem(CAMERA_KEY, height);
+  } catch {
+    // storage blocked: the height holds for this visit only
+  }
+}
+
+/**
+ * The lens for a screen `height` pixels high and a field `side` pixels wide: the perspective's `depth` (pixels) and
+ * `piece`, how much the pieces on the field are grown (0.8 to 3).
+ */
+export function lens({ height, side }) {
+  const piece = Math.min(3, Math.max(0.8, side / BOARD / PIECE_AT));
+  return { depth: height * DEPTH_SHARE, piece: Math.round(piece * 1000) / 1000 };
+}
 
 const lerp = (a, b, t) => [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
 
@@ -83,7 +119,7 @@ export function bindCamera(run) {
     back: null,
     size: null,
     tilt: DEFAULT_TILT,
-    depth: DEFAULT_DEPTH,
+    depth: 0,
     key: ""
   };
   const measure = () => {
@@ -92,11 +128,12 @@ export function bindCamera(run) {
       height: view.clientHeight,
       side: run.camera.map.offsetWidth
     };
-    const style = getComputedStyle(view);
-    const tilt = parseFloat(style.getPropertyValue("--sim-tilt"));
-    const depth = parseFloat(style.getPropertyValue("--sim-depth"));
+    const tilt = parseFloat(getComputedStyle(view).getPropertyValue("--sim-tilt"));
+    const { depth, piece } = lens({ height: view.clientHeight, side: run.camera.size.side });
     run.camera.tilt = Number.isFinite(tilt) ? tilt : DEFAULT_TILT;
-    run.camera.depth = Number.isFinite(depth) ? depth : DEFAULT_DEPTH;
+    run.camera.depth = depth;
+    view.style.perspective = `${depth.toFixed(0)}px`;
+    view.style.setProperty("--piece", String(piece));
     run.camera.key = "";
   };
   measure();

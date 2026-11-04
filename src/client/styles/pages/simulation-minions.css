@@ -71,32 +71,32 @@
     scale: 1;
   }
 }
-/* in a game the field is drawn larger than the screen: the dots keep a size in pixels, as the heroes' (44 px) */
+/* in a game the dots have a size in pixels at a reference zoom, grown with the field by --piece (simulation-camera.js) */
 .sim-game--play .sim-minion {
-  width: 24px;
+  width: calc(24px * var(--piece, 1));
   opacity: 0.92;
 }
 .sim-game--play .sim-minion--siege {
-  width: 30px;
+  width: calc(30px * var(--piece, 1));
 }
 .sim-game--play .sim-minion--dragon {
-  width: 40px;
+  width: calc(40px * var(--piece, 1));
 }
 .sim-game--play .sim-minion--shadow {
-  width: 50px;
+  width: calc(50px * var(--piece, 1));
 }
 @media (max-height: 480px) {
   .sim-game--play .sim-minion {
-    width: 20px;
+    width: calc(20px * var(--piece, 1));
   }
   .sim-game--play .sim-minion--siege {
-    width: 25px;
+    width: calc(25px * var(--piece, 1));
   }
   .sim-game--play .sim-minion--dragon {
-    width: 34px;
+    width: calc(34px * var(--piece, 1));
   }
   .sim-game--play .sim-minion--shadow {
-    width: 42px;
+    width: calc(42px * var(--piece, 1));
   }
 }
 @media (prefers-reduced-motion: reduce) {

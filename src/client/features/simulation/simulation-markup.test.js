@@ -49,6 +49,18 @@ describe("the set-up screen", () => {
     assert.doesNotMatch(html, /style=/, "no style attribute (content policy)");
   });
 
+  test("the camera height, as in the game: close, normal or high, the player's choice pressed", () => {
+    const html = pageHtml(setup({ camera: "close" }));
+    assert.equal(html.match(/data-act="camera"/g).length, 3);
+    assert.match(html, /Camera height/);
+    assert.match(html, /data-act="camera" data-value="close" aria-pressed="true"/);
+    assert.doesNotMatch(
+      pageHtml(setup({ mode: "watch" })),
+      /data-act="camera"/,
+      "a watched game has its own view"
+    );
+  });
+
   test("heroes chosen by hand: ten slots, the player's marked, a slot left on Random is drawn", () => {
     const html = pageHtml(setup({ handPicked: true, pool: ["105", "131"] }));
     assert.equal(html.match(/data-slot="/g).length, 10);
@@ -265,7 +277,7 @@ describe("the board", () => {
       "no structure drawn on the tilted map"
     );
     assert.match(field, /<\/div>\s*<div class="sim-dots">\s*<span class="sim-spot sim-spot--tower/);
-    assert.match(field, /class="sim-spot sim-spot--crystal sim-spot--red" data-crystal="red"/);
+    assert.match(field, /class="sim-spot sim-spot--crystal sim-spot--red sim-spot--piece" data-crystal="red"/);
     // the box of the locked enemy, top middle, empty and hidden until a hero is locked
     assert.match(html, /<div class="sim-target" data-target aria-live="polite" hidden><\/div>/);
     // the gold ring of the hero's attack reach lies on the ground: inside the tilted map, after the picture

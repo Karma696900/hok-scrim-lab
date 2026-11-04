@@ -208,9 +208,11 @@ const centred = await player.evaluate(() => {
     }),
     towers: document.querySelectorAll(".sim-dots .sim-spot--tower").length,
     onMap: document.querySelectorAll(".sim-map [data-tower], .sim-map [data-camp]").length,
-    lighter:
-      Number(getComputedStyle(document.querySelector(".sim-spot--tower")).opacity) <
-      Number(getComputedStyle(me).opacity)
+    standing: (() => {
+      const tower = document.querySelector(".sim-spot--tower");
+      const box = tower.getBoundingClientRect();
+      return Boolean(tower.querySelector(".sim-figure--tower")) && box.height > box.width;
+    })()
   };
 });
 check(
@@ -267,8 +269,8 @@ check(
 );
 check("a dot farther up the map is drawn smaller", centred.farther);
 check(
-  "the towers are dots too, a little more transparent than the heroes, none drawn on the map",
-  centred.towers === 2 && centred.onMap === 0 && centred.lighter
+  "the towers stand up on the field, drawn taller than wide, none drawn on the map",
+  centred.towers === 2 && centred.onMap === 0 && centred.standing
 );
 check(
   "the skills in an arc, not pressable: the AI casts them",

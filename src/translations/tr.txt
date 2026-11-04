@@ -2837,3 +2837,6 @@
 3002|Tam ekran oynamak için dokunun
 3003|Geri dön
 3004|İyileş
+3007|Kamera yüksekliği
+3005|Yakın
+3006|Yüksek

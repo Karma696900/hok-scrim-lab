@@ -6,6 +6,7 @@ import { icon } from "../../../shared/icons.js";
 import { dateTime, t } from "../../app/browser-i18n.js";
 import { laneName } from "../../domain/lanes.js";
 import { stageHero, stageHtml } from "../community/stage.js";
+import { CAMERA_HEIGHTS } from "./simulation-camera.js";
 import {
   DIFFICULTIES,
   LANES,
@@ -76,7 +77,10 @@ function heroesHtml(view) {
   )}</div><p class="muted sim-hint">${t("A slot left on Random is drawn by the scrim engine.")}</p>`;
 }
 
-/** The side, the role and the difficulty: only for a game the player plays. */
+const cameraLabel = height =>
+  height === "close" ? t("Near") : height === "high" ? t("High") : t("Normal");
+
+/** The side, the role, the difficulty and the camera height: only for a game the player plays. */
 function playFieldsHtml(view) {
   return `<div class="sim-field"><span class="label">${t("Your side")}</span>${segment(
     "side",
@@ -95,7 +99,13 @@ function playFieldsHtml(view) {
       DIFFICULTIES.map(level => [level, difficultyLabel(level)]),
       view.difficulty,
       t("Difficulty")
-    )}<p class="muted sim-hint">${t("The enemy team plays harder after wrong decisions, and eases off again after good ones.")}</p></div>`;
+    )}<p class="muted sim-hint">${t("The enemy team plays harder after wrong decisions, and eases off again after good ones.")}</p></div>
+    <div class="sim-field"><span class="label">${t("Camera height")}</span>${segment(
+      "camera",
+      Object.keys(CAMERA_HEIGHTS).map(height => [height, cameraLabel(height)]),
+      view.camera ?? "normal",
+      t("Camera height")
+    )}</div>`;
 }
 
 /** The choices of the game and the button that starts it. */

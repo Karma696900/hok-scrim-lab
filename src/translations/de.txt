@@ -2837,3 +2837,6 @@
 3002|Tippen, um im Vollbild zu spielen
 3003|Rückruf
 3004|Erholung
+3007|Kamerahöhe
+3005|Nah
+3006|Hoch

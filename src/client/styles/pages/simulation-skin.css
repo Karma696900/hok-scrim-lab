@@ -1,0 +1,410 @@
+/* ---------- Game Simulation: the skin of a game played by hand ----------
+   The buttons dressed as a game's: a dark enamel face lit from above, framed by a brass ring (two tones, a dark
+   groove between face and ring), pressed in when touched. The skills glow softly when ready and the ultimate wears a
+   gold ring; Recall, Recovery and the spell each have their colour (or the game's icon); the calls wear smaller
+   rings, each its colour; the joystick a ring with its four marks; the score panel a framed plate. Sizes and places
+   stay those of simulation-pov.css. */
+.sim-game--play {
+  --brass: #b79a5c;
+  --brass-light: #e4cf93;
+  --brass-dark: #6d5a33;
+  --groove: #081016;
+  --enamel: radial-gradient(circle at 50% 30%, #2a4256, #0c1822 68%);
+  --lift: inset 0 2px 3px rgba(255, 255, 255, 0.16), inset 0 -4px 8px rgba(0, 0, 0, 0.55);
+}
+
+/* the skills */
+.sim-game--play .sim-arc__skill {
+  border: 0;
+  background: var(--enamel);
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 4px var(--brass),
+    0 0 0 5px var(--brass-dark),
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    var(--lift);
+}
+.sim-game--play .sim-arc__skill:not(.is-cooling, .is-off) {
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 4px var(--brass-light),
+    0 0 0 5px var(--brass-dark),
+    0 0 14px rgba(240, 214, 140, 0.35),
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    var(--lift);
+}
+.sim-game--play .sim-arc__skill--ult {
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 5px #e8bf4e,
+    0 0 0 6px #7a5a14,
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    var(--lift);
+}
+.sim-game--play .sim-arc__skill--ult:not(.is-cooling, .is-off) {
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 5px #f4d36b,
+    0 0 0 6px #7a5a14,
+    0 0 18px rgba(244, 211, 107, 0.55),
+    0 4px 10px rgba(0, 0, 0, 0.5),
+    var(--lift);
+}
+.sim-game--play .sim-arc__face b {
+  color: var(--brass-light);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* the attack and its two small buttons */
+.sim-game--play .sim-aim {
+  border: 0;
+  background: var(--enamel);
+  color: var(--brass-light);
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 4px var(--brass),
+    0 0 0 5px var(--brass-dark),
+    0 3px 8px rgba(0, 0, 0, 0.5),
+    var(--lift);
+}
+.sim-game--play .sim-aim--attack {
+  border: 0;
+  background: radial-gradient(circle at 50% 28%, #4a3a26, #1c140c 66%);
+  color: #f6e6b8;
+  box-shadow:
+    0 0 0 3px var(--groove),
+    0 0 0 7px var(--brass),
+    0 0 0 8px var(--brass-dark),
+    0 0 0 10px rgba(8, 16, 22, 0.45),
+    0 6px 14px rgba(0, 0, 0, 0.55),
+    inset 0 3px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -8px 14px rgba(0, 0, 0, 0.6);
+}
+.sim-game--play .sim-aim--attack svg {
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.7));
+}
+.sim-game--play .sim-aim:active {
+  scale: 1;
+  translate: 0 2px;
+  background: radial-gradient(circle at 50% 40%, #22364a, #08121a 70%);
+}
+.sim-game--play .sim-aim--attack:active {
+  background: radial-gradient(circle at 50% 40%, #3a2c1c, #140e08 70%);
+}
+
+/* Recall, Recovery and the spell: each its colour */
+.sim-game--play .sim-home,
+.sim-game--play .sim-spell {
+  border: 0;
+  color: #f2f6fa;
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 3px var(--brass),
+    0 3px 8px rgba(0, 0, 0, 0.5),
+    var(--lift);
+}
+.sim-game--play .sim-home--recall {
+  background: radial-gradient(circle at 50% 30%, #3f86d6, #10284a 70%);
+}
+.sim-game--play .sim-home--recover {
+  background: radial-gradient(circle at 50% 30%, #3fae6a, #0e2c1c 70%);
+}
+.sim-game--play .sim-spell {
+  background: radial-gradient(circle at 50% 30%, #c79a3c, #2e1f08 70%);
+}
+.sim-game--play .sim-home svg,
+.sim-game--play .sim-spell svg {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.7));
+}
+.sim-game--play .sim-home__name,
+.sim-game--play .sim-spell__name {
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+}
+.sim-game--play .sim-home.is-recovering {
+  border: 0;
+  color: #d9ffe9;
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 3px #34d399,
+    0 0 14px rgba(52, 211, 153, 0.6),
+    var(--lift);
+}
+
+/* the game's own icons on Recall, Recovery (sent by the bots server) and the spell (from the Catalogue): the
+   picture fills the face inside the brass ring; the name stays for the screen readers only */
+.sim-home__art,
+.sim-spell__art {
+  position: absolute;
+  inset: 3px;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  border-radius: 50%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.sim-home.has-art .sim-home__name,
+.sim-spell.has-art .sim-spell__name {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.sim-home.is-recalling .sim-home__art,
+.sim-home.is-cooling .sim-home__art {
+  filter: grayscale(0.6) brightness(0.6);
+}
+.sim-game--play .sim-home.has-art,
+.sim-game--play .sim-spell.has-art {
+  background: #0c1822;
+}
+
+/* the calls: the same brass rings as the skills, smaller, each its colour (regroup gold, retreat blue, objective
+   red, the jungler green); pressed in under the finger and lit a moment once sent (the light fades on release) */
+.sim-game--play .sim-call {
+  --call: #8fc3ff;
+  border: 0;
+  background: radial-gradient(
+    circle at 50% 30%,
+    color-mix(in srgb, var(--call) 34%, #16263a),
+    #08111c 72%
+  );
+  color: var(--call);
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 3px var(--brass),
+    0 3px 8px rgba(0, 0, 0, 0.5),
+    var(--lift);
+  transition:
+    box-shadow 0.5s ease-out,
+    translate 0.12s ease-out;
+}
+.sim-game--play .sim-call[data-call="regroup"] {
+  --call: #f2c94c;
+}
+.sim-game--play .sim-call[data-call="retreat"] {
+  --call: #6fb4ff;
+}
+.sim-game--play .sim-call[data-call="objective"] {
+  --call: #ff7a5c;
+}
+.sim-game--play .sim-call[data-call="jungler"] {
+  --call: #5fdc8f;
+}
+.sim-game--play .sim-call svg {
+  filter: drop-shadow(0 0 3px color-mix(in srgb, var(--call) 55%, transparent))
+    drop-shadow(0 1px 1px rgba(0, 0, 0, 0.8));
+}
+.sim-game--play .sim-call:hover,
+.sim-game--play .sim-call:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 3px var(--brass-light),
+    0 3px 8px rgba(0, 0, 0, 0.5),
+    var(--lift);
+}
+.sim-game--play .sim-call:active {
+  translate: 0 1px;
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 3px var(--call),
+    0 0 16px color-mix(in srgb, var(--call) 70%, transparent),
+    inset 0 3px 8px rgba(0, 0, 0, 0.6);
+  transition: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sim-game--play .sim-call {
+    transition: none;
+  }
+}
+
+/* the joystick: a ring with its four marks, a brass knob */
+.sim-game--play .sim-stick {
+  border: 1px solid rgba(228, 207, 147, 0.3);
+  background:
+    radial-gradient(circle, transparent 55%, rgba(228, 207, 147, 0.1) 56% 58%, transparent 59%),
+    conic-gradient(
+      from -4deg,
+      rgba(228, 207, 147, 0.5) 0 8deg,
+      transparent 8deg 90deg,
+      rgba(228, 207, 147, 0.5) 90deg 98deg,
+      transparent 98deg 180deg,
+      rgba(228, 207, 147, 0.5) 180deg 188deg,
+      transparent 188deg 270deg,
+      rgba(228, 207, 147, 0.5) 270deg 278deg,
+      transparent 278deg
+    ),
+    rgba(8, 16, 24, 0.34);
+  mask: radial-gradient(circle, #000 0 92%, rgba(0, 0, 0, 0.55) 93%);
+}
+.sim-game--play .sim-stick__knob {
+  border: 0;
+  background: radial-gradient(circle at 45% 35%, #3a5068, #142230 70%);
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 4px var(--brass),
+    0 4px 10px rgba(0, 0, 0, 0.55),
+    var(--lift);
+}
+.sim-game--play .sim-stick.is-held .sim-stick__knob {
+  border: 0;
+  background: radial-gradient(circle at 45% 35%, #4a6684, #182a3c 70%);
+  box-shadow:
+    0 0 0 2px var(--groove),
+    0 0 0 4px var(--brass-light),
+    0 0 12px rgba(240, 214, 140, 0.4),
+    var(--lift);
+}
+
+/* the score panel: a framed plate */
+.sim-game--play .sim-scorebar {
+  border: 1px solid rgba(228, 207, 147, 0.32);
+  background: linear-gradient(180deg, rgba(22, 36, 50, 0.9), rgba(8, 15, 22, 0.88));
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.sim-game--play .sim-clock {
+  color: var(--brass-light);
+  font-variant-numeric: tabular-nums;
+}
+.sim-game--play .sim-hud__button {
+  border: 1px solid rgba(228, 207, 147, 0.3);
+  background: radial-gradient(circle at 50% 30%, #22384c, #0b1620 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sim-game--play .sim-aim:active {
+    translate: none;
+  }
+}
+
+/* the minions: a token on its shadow, ringed in its side's colour, a framed health bar (green for the side's own, red
+   for the enemy's); the dragons glow, the Overlord's purple, the Shadow's dark violet, the Tempest's gold */
+.sim-game--play .sim-minion::before,
+.sim-game--play .sim-spot--monsters::before {
+  content: "";
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: -12%;
+  z-index: -1;
+  height: 34%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(0, 0, 0, 0.5), transparent);
+}
+.sim-game--play .sim-minion__face {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.7),
+    0 2px 4px rgba(0, 0, 0, 0.5);
+}
+.sim-game--play .sim-minion::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 25%, rgba(255, 255, 255, 0.28), transparent 45%);
+  pointer-events: none;
+}
+.sim-game--play .sim-bar--minion {
+  bottom: -7px;
+  height: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.85);
+  border-radius: 2px;
+  background: rgba(10, 14, 18, 0.8);
+}
+.sim-game--play .sim-minion--ally .sim-bar--minion > i {
+  background: #74d14c;
+}
+.sim-game--play .sim-minion[data-kind="vanguard"] .sim-minion__face {
+  border-color: #b67df5;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.7),
+    0 0 12px rgba(182, 125, 245, 0.75);
+}
+.sim-game--play .sim-minion[data-kind="shadow-vanguard"] .sim-minion__face {
+  border-color: #7d3fd0;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.7),
+    0 0 16px rgba(110, 40, 200, 0.9);
+}
+.sim-game--play .sim-minion[data-kind="tempest-vanguard"] .sim-minion__face {
+  border-color: #f4d06b;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.7),
+    0 0 14px rgba(244, 208, 107, 0.85);
+  animation: sim-storm 1.6s ease-in-out infinite;
+}
+@keyframes sim-storm {
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.7),
+      0 0 22px rgba(255, 236, 160, 1);
+  }
+}
+
+/* the jungle's monsters stand in a ring of their camp's colour; the buffs, the Tyrant, the Overlord and the Tempest
+   glow in theirs, larger */
+.sim-game--play .sim-spot--monsters::after {
+  content: "";
+  position: absolute;
+  left: -14%;
+  right: -14%;
+  bottom: -22%;
+  z-index: -1;
+  height: 46%;
+  border: 2px solid var(--spot-tone);
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in srgb, var(--spot-tone) 26%, transparent),
+    transparent
+  );
+  opacity: 0.7;
+}
+.sim-game--play .sim-monster {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.7),
+    0 3px 6px rgba(0, 0, 0, 0.5);
+}
+.sim-game--play .sim-spot--tyrant {
+  --spot-tone: #f08a3c;
+}
+.sim-game--play .sim-spot--overlord {
+  --spot-tone: #b67df5;
+}
+.sim-game--play .sim-spot--tempest {
+  --spot-tone: #f4d06b;
+}
+.sim-game--play .sim-monster--red-buff,
+.sim-game--play .sim-monster--blue-buff,
+.sim-game--play .sim-monster--tyrant,
+.sim-game--play .sim-monster--overlord,
+.sim-game--play .sim-monster--tempest {
+  border-width: 3px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.7),
+    0 0 14px color-mix(in srgb, var(--spot-tone) 70%, transparent),
+    0 3px 6px rgba(0, 0, 0, 0.5);
+}
+.sim-game--play .sim-monster--tempest {
+  width: calc(66px * var(--piece, 1));
+  animation: sim-storm-ring 1.8s ease-in-out infinite;
+}
+@keyframes sim-storm-ring {
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.7),
+      0 0 24px rgba(255, 236, 160, 0.95);
+  }
+}
+.sim-game--play .sim-spot--monsters.is-shadow {
+  --spot-tone: #7d3fd0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sim-game--play .sim-minion[data-kind="tempest-vanguard"] .sim-minion__face,
+  .sim-game--play .sim-monster--tempest {
+    animation: none;
+  }
+}

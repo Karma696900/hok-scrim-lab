@@ -5,14 +5,35 @@
 // `recovering` on the player's hero.
 import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
+import { catalogImageAttrs } from "../../domain/catalog-display.js";
+import { artOf } from "./simulation-shared.js";
 import { coolState } from "./simulation-skills.js";
 
-const button = (kind, glyph, name) =>
-  `<button type="button" class="sim-home sim-home--${kind}" data-sim="${kind}" aria-label="${name}" title="${name}">${icon(glyph)}<span class="sim-home__name">${name}</span><b class="sim-home__time" hidden></b></button>`;
+// the game's icon the bots server sends (`ui-recall`, `ui-recover`), else our glyph
+const button = (kind, glyph, name, art) => {
+  const picture = artOf(art, `ui-${kind}`);
+  const face = picture ? `<img class="sim-home__art" src="${picture}" alt="">` : icon(glyph);
+  return `<button type="button" class="sim-home sim-home--${kind}${picture ? " has-art" : ""}" data-sim="${kind}" aria-label="${name}" title="${name}">${face}<span class="sim-home__name">${name}</span><b class="sim-home__time" hidden></b></button>`;
+};
 
-/** The two buttons, Recall then Recovery, for the tools row. */
-export const homeToolsHtml = () =>
-  button("recall", "home", t("Recall")) + button("recover", "heart", t("Recovery"));
+/** The two buttons, Recall then Recovery, for the tools row; `art` the pictures of the bots server's start. */
+export const homeToolsHtml = (art = {}) =>
+  button("recall", "home", t("Recall"), art) + button("recover", "heart", t("Recovery"), art);
+
+// the catalogue names the engine's Punish "Smite"; the other spells keep their name
+const CATALOGUE_NAME = { punish: "smite" };
+
+/**
+ * The picture of the summoner spell `key` (the engine's name) from the Catalogue (`/api/catalog`), for its button:
+ * "" when the catalogue has none, and the button keeps its glyph.
+ */
+export function spellArtHtml(catalog, key) {
+  const name = CATALOGUE_NAME[key] ?? key;
+  const spell = (catalog?.spells ?? []).find(entry => String(entry.name).toLowerCase() === name);
+  return spell?.imageId
+    ? `<img class="sim-spell__art" ${catalogImageAttrs(spell.imageId, 56)} alt="" width="56" height="56" decoding="async">`
+    : "";
+}
 
 /** Keeps the two buttons and their seconds on `run.home`, once the board is drawn. */
 export function bindHome(run, layer) {

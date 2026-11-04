@@ -83,7 +83,7 @@ export function boardHtml({ start, heroes, picture = {} }) {
       ${callsHtml(calls)}
       ${controlsHtml()}
       ${skillsArcHtml(me)}
-      <div class="sim-tools">${homeToolsHtml()}${spellHtml(me)}</div>
+      <div class="sim-tools">${homeToolsHtml(start.art)}${spellHtml(me)}</div>
     </div>
     <div class="sim-death" hidden></div>
     <div class="sim-cover" hidden></div>

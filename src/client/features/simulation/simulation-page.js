@@ -5,6 +5,7 @@
 import { bindTo } from "../../../shared/bind-to.js";
 import { pageRoot } from "../../app/view-wrapper.js";
 import { onView as simulationActions } from "./simulation-actions.js";
+import { readCamera } from "./simulation-camera.js";
 
 export function createSimulationPage({ hydration, api, tell, state }) {
   const view = {
@@ -17,6 +18,7 @@ export function createSimulationPage({ hydration, api, tell, state }) {
     side: "blue",
     lane: "Mid Lane",
     difficulty: "normal",
+    camera: readCamera(),
     handPicked: false,
     fixed: {},
     pool: null,

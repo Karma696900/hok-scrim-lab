@@ -2837,3 +2837,6 @@
 3002|Tocca per giocare a schermo intero
 3003|Richiamo
 3004|Recupero
+3007|Altezza della telecamera
+3005|Vicina
+3006|Alta

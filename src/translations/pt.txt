@@ -2837,3 +2837,6 @@
 3002|Toque para jogar em tela cheia
 3003|Recuar
 3004|Recuperar
+3007|Altura da câmera
+3005|Perto
+3006|Alta

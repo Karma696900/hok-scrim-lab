@@ -147,28 +147,40 @@ html:has(.sim-layer) {
   width: 100%;
   height: 100%;
 }
+/* the fog over the field, a sheet of its own (its eyes move ten times a second; the ground under it is not painted
+   again) */
+.sim-map__fog {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  will-change: transform;
+}
+.sim-map.is-hidden .sim-map__fog,
 .sim-map.is-hidden .sim-map__svg,
 .sim-map.is-hidden .sim-dots,
 .sim-map.is-hidden .sim-death {
   visibility: hidden;
 }
-/* the gorge as the game draws it: green ground, dense dark forest round the field and in the walls (their tree line
-   lighter), the river teal with its lighter bank, the lanes stone paths with a darker edge, the bushes bright grass */
-.sim-void {
-  fill: #16251b;
+/* the minimap's gorge, in flat colours: the woods round the field, pale rock in the walls, the river teal with its lighter
+   bank, the lanes stone paths with a darker edge, the bushes bright grass. The field draws its own ground with its
+   matter and relief (simulation-terrain.js: its colours are attributes of its shapes). */
+.sim-mini__svg .sim-void {
+  fill: #22392b;
 }
-.sim-ground {
-  fill: #4a7034;
+.sim-mini__svg .sim-ground {
+  fill: #5f9440;
 }
-.sim-river-bank {
+.sim-mini__svg .sim-river-bank {
   fill: none;
-  stroke: #8fb69a;
+  stroke: #9ec7b3;
   stroke-width: 10;
   stroke-linejoin: round;
   opacity: 0.55;
 }
-.sim-river {
-  fill: #2d7d96;
+.sim-mini__svg .sim-river {
+  fill: #36a9b6;
 }
 .sim-lane-edge,
 .sim-lane {
@@ -176,23 +188,24 @@ html:has(.sim-layer) {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.sim-lane-edge {
-  stroke: #4d4a36;
+/* the field's lanes carry their colours and widths as attributes (simulation-terrain.js); the minimap's are below */
+.sim-mini__svg .sim-lane-edge {
+  stroke: #8f8768;
   stroke-width: 26;
   opacity: 0.75;
 }
-.sim-lane {
-  stroke: #b9ad86;
+.sim-mini__svg .sim-lane {
+  stroke: #d9d0b0;
   stroke-width: 20;
   opacity: 0.9;
 }
-.sim-wall {
-  fill: #24391f;
-  stroke: #5f8443;
+.sim-mini__svg .sim-wall {
+  fill: #a3b0a7;
+  stroke: #6c7a73;
   stroke-width: 3;
   stroke-linejoin: round;
 }
-.sim-bush {
+.sim-mini__svg .sim-bush {
   fill: #67a83f;
   stroke: #3f7a2a;
   stroke-width: 2;

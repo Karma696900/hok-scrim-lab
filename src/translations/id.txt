@@ -2837,3 +2837,6 @@
 3002|Ketuk untuk bermain layar penuh
 3003|Kembali
 3004|Pulihkan
+3007|Tinggi kamera
+3005|Dekat
+3006|Tinggi

@@ -63,3 +63,12 @@ export function clock(seconds) {
   const whole = Math.max(0, Math.floor(seconds));
   return `${String(Math.floor(whole / 60)).padStart(2, "0")}:${String(whole % 60).padStart(2, "0")}`;
 }
+
+// only a WebP picture sent whole as a data address is drawn
+const ART = /^data:image\/webp;base64,[A-Za-z0-9+/=]+$/;
+
+/** The picture the bots server sent under `key` (`start.art`), or null when there is none or it is not a WebP. */
+export const artOf = (art, key) => {
+  const picture = art?.[key];
+  return typeof picture === "string" && ART.test(picture) ? picture : null;
+};

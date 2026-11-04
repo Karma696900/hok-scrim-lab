@@ -2837,3 +2837,6 @@
 3002|Chạm để chơi toàn màn hình
 3003|Về thành
 3004|Hồi máu
+3007|Độ cao camera
+3005|Gần
+3006|Cao

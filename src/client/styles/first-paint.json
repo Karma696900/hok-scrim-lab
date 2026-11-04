@@ -115,6 +115,7 @@
       "pages/simulation-minions.css",
       "pages/simulation-monsters.css",
       "pages/simulation-pov.css",
+      "pages/simulation-skin.css",
       "pages/simulation-watch.css"
     ],
     "popular": ["pages/popular.css", "pages/popular-empty-period.css"],

@@ -4,16 +4,16 @@
    (simulation-stand.js scales and places each one where the tilted map draws its point): never hidden by the map,
    always round. Towers, crystals, camps and objectives are dots too, a little more transparent than the heroes. */
 .sim-game--play .sim-view {
-  --sim-tilt: 40deg;
-  --sim-depth: 900px;
-  perspective: var(--sim-depth);
+  --sim-tilt: 46deg;
+  /* the perspective's distance follows the screen's height: simulation-camera.js sets it, and --piece */
+  perspective: 1000px;
   perspective-origin: 50% 50%;
 }
 .sim-game--play .sim-dots {
   inset: auto;
   top: 0;
   left: 0;
-  width: calc(max(100cqw, 100cqh) * 2.6);
+  width: calc(max(100cqw, 100cqh) * var(--sim-zoom, 4.25));
   aspect-ratio: 1;
   will-change: transform;
 }
@@ -24,7 +24,7 @@
   z-index: 1;
   display: grid;
   place-items: center;
-  width: 26px;
+  width: calc(26px * var(--piece, 1));
   aspect-ratio: 1;
   translate: -50% -50%;
   border: 2px solid var(--spot-tone);
@@ -39,15 +39,15 @@
   fill: currentColor;
 }
 .sim-spot--tower {
-  width: 34px;
+  width: calc(34px * var(--piece, 1));
 }
 .sim-spot--crystal,
 .sim-spot--objective {
-  width: 40px;
+  width: calc(40px * var(--piece, 1));
 }
 .sim-spot--red-buff,
 .sim-spot--blue-buff {
-  width: 30px;
+  width: calc(30px * var(--piece, 1));
 }
 .sim-spot--blue {
   --spot-tone: #6fa0ef;
@@ -74,4 +74,74 @@
 }
 .sim-spot.is-target {
   box-shadow: 0 0 0 3px var(--gild);
+}
+
+/* the towers and the crystals stand up, drawn (simulation-stand.js): their foot on their point, grown about it */
+.sim-spot--piece {
+  width: calc(46px * var(--piece, 1));
+  aspect-ratio: 40 / 64;
+  translate: -50% -91%;
+  transform-origin: 50% 91%;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  opacity: 1;
+}
+.sim-spot--crystal.sim-spot--piece {
+  width: calc(72px * var(--piece, 1));
+  aspect-ratio: 60 / 72;
+  translate: -50% -92%;
+  transform-origin: 50% 92%;
+}
+.sim-spot--piece svg {
+  width: 100%;
+  height: 100%;
+}
+.sim-figure__rubble,
+.sim-spot--piece.is-down .sim-figure__whole {
+  display: none;
+}
+.sim-spot--piece.is-down .sim-figure__rubble {
+  display: inline;
+}
+.sim-figure__glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sim-glow 2.4s ease-in-out infinite;
+}
+@keyframes sim-glow {
+  50% {
+    opacity: 0.6;
+    scale: 1.18;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sim-figure__glow {
+    animation: none;
+  }
+}
+.sim-spot--piece.is-target {
+  box-shadow: none;
+  filter: drop-shadow(0 0 3px var(--gild));
+}
+
+/* the fog of war, a cold dusk, and the screen's edges a little darker, as a game frames its field */
+.sim-game--play .sim-fog {
+  fill: rgba(6, 14, 28, 0.55);
+}
+.sim-game--play .sim-view::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* the sun, warm from the top left, the shade cooler toward the bottom right, then the darker edges */
+  background:
+    radial-gradient(ellipse 75% 70% at 50% 50%, transparent 60%, rgba(4, 10, 6, 0.38) 100%),
+    linear-gradient(
+      135deg,
+      rgba(255, 236, 180, 0.13) 0%,
+      transparent 42%,
+      transparent 62%,
+      rgba(10, 24, 46, 0.16) 100%
+    );
 }
