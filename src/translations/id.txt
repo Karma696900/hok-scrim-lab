@@ -2835,3 +2835,5 @@
 3000|Simulasi pertandingan dibuat untuk layar sentuh. Buka halaman ini di ponsel atau tabletmu untuk bermain atau menonton pertandingan.
 3001|Skill, digunakan oleh AI
 3002|Ketuk untuk bermain layar penuh
+3003|Kembali
+3004|Pulihkan

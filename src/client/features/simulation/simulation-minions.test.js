@@ -52,11 +52,18 @@ test("a wave at the very end of its lane keeps its minions on the lane", () => {
   }
 });
 
-test("the siege and super minions are a little larger, the dragons of the Overlord larger still", () => {
+test("the siege and super minions are a little larger, the dragons of the Overlord and the Tempest larger still", () => {
   assert.deepEqual(
-    ["melee", "ranged", "ballista", "cannon", "super", "vanguard", "shadow-vanguard"].map(
-      minionSize
-    ),
-    ["", "", "siege", "siege", "siege", "dragon", "shadow"]
+    [
+      "melee",
+      "ranged",
+      "ballista",
+      "cannon",
+      "super",
+      "vanguard",
+      "tempest-vanguard",
+      "shadow-vanguard"
+    ].map(minionSize),
+    ["", "", "siege", "siege", "siege", "dragon", "dragon", "shadow"]
   );
 });

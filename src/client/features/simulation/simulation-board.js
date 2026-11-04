@@ -13,6 +13,7 @@ import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
 import { controlsHtml } from "./simulation-controls.js";
 import { heroCardHtml, miniMapHtml, scoreboardShellHtml } from "./simulation-hud.js";
+import { homeToolsHtml } from "./simulation-home.js";
 import { mapSvg } from "./simulation-map.js";
 import { spotsHtml } from "./simulation-stand.js";
 import { esc } from "./simulation-shared.js";
@@ -82,7 +83,7 @@ export function boardHtml({ start, heroes, picture = {} }) {
       ${callsHtml(calls)}
       ${controlsHtml()}
       ${skillsArcHtml(me)}
-      <div class="sim-tools">${spellHtml(me)}</div>
+      <div class="sim-tools">${homeToolsHtml()}${spellHtml(me)}</div>
     </div>
     <div class="sim-death" hidden></div>
     <div class="sim-cover" hidden></div>

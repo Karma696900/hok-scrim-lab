@@ -21,6 +21,7 @@ import {
 import { paintGauge } from "./simulation-gauge.js";
 import { glideTo } from "./simulation-motion.js";
 import { paintWaves } from "./simulation-minions.js";
+import { paintHome } from "./simulation-home.js";
 import { paintSkills, paintSpellCooldown } from "./simulation-skills.js";
 import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
 import { clock, esc, portrait } from "./simulation-shared.js";
@@ -97,6 +98,9 @@ export function paintCamps(run, view) {
     mark?.classList.toggle("is-down", camp.known && !camp.alive);
     // from 10:00 the Tyrant and the Overlord are their shadow selves (the camp shows its shadow picture)
     mark?.classList.toggle("is-shadow", Boolean(camp.known && camp.shadow));
+    // off the map for good, or not yet: the Tyrant and the Overlord from 20:00, the Tempest before it and in the pit
+    // it did not come out of, the Space Sprite after 10:00, the Firehawk after its last spawn
+    mark?.classList.toggle("is-gone", Boolean(camp.gone));
     let barEl = run.campBars.get(camp.id);
     // sent by the bots server for the camps the side sees standing only
     const progress = run.camps[camp.id] ?? 0;
@@ -148,6 +152,7 @@ export function paintCasts(run, now) {
 function paintSpell(run, view) {
   const me = view.heroes.find(hero => hero.id === run.me.id);
   const spell = run.layerOf.spell;
+  paintHome(run, me);
   if (!me || !spell) {
     return;
   }

@@ -65,6 +65,9 @@
 .sim-spot.is-down {
   opacity: 0.18;
 }
+.sim-spot.is-gone {
+  display: none;
+}
 .sim-spot.is-unknown {
   border-style: dashed;
   opacity: 0.45;

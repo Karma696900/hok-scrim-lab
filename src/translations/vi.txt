@@ -2835,3 +2835,5 @@
 3000|Mô phỏng trận đấu được làm cho màn hình cảm ứng. Hãy mở trang này trên điện thoại hoặc máy tính bảng để chơi hoặc xem một trận.
 3001|Kỹ năng, do AI tung ra
 3002|Chạm để chơi toàn màn hình
+3003|Về thành
+3004|Hồi máu

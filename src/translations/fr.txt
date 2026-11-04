@@ -2835,3 +2835,5 @@
 3000|La simulation de partie est faite pour les écrans tactiles. Ouvrez cette page sur votre téléphone ou votre tablette pour jouer ou regarder une partie.
 3001|Compétences, lancées par l'IA
 3002|Touchez pour jouer en plein écran
+3003|Rappel
+3004|Soin

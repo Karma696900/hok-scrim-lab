@@ -2835,3 +2835,5 @@
 3000|Maç simülasyonu dokunmatik ekranlar için yapıldı. Bir maç oynamak ya da izlemek için bu sayfayı telefonunda veya tabletinde aç.
 3001|Yetenekler, yapay zekâ kullanır
 3002|Tam ekran oynamak için dokunun
+3003|Geri dön
+3004|İyileş

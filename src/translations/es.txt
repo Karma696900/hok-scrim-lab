@@ -2835,3 +2835,5 @@
 3000|La simulación de partida está hecha para pantallas táctiles. Abre esta página en tu teléfono o tu tableta para jugar o ver una partida.
 3001|Habilidades, lanzadas por la IA
 3002|Toca para jugar en pantalla completa
+3003|Regresar
+3004|Recuperar

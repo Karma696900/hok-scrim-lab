@@ -14,6 +14,7 @@ import { placeAt, toggleScoreboard } from "./simulation-hud.js";
 import { boardShare } from "./simulation-map.js";
 import { moveDots } from "./simulation-motion.js";
 import { paintFrame } from "./simulation-paint.js";
+import { bindHome } from "./simulation-home.js";
 import { bindSkills } from "./simulation-skills.js";
 import { gradeHtml } from "./simulation-popups.js";
 import { bindWatch, paintWatch, watchBoardHtml, watchEndHtml } from "./simulation-watch.js";
@@ -69,7 +70,7 @@ function bindLayer(run) {
     farmBlue: one('[data-farm="blue"]'),
     farmRed: one('[data-farm="red"]'),
     farmBar: one(".sim-bar--farm"),
-    spell: one(".sim-spell"),
+    spell: one('[data-sim="spell"]'),
     spellTime: one(".sim-spell__time"),
     calls: [...layer.querySelectorAll(".sim-call")],
     end: one(".sim-end"),
@@ -151,6 +152,7 @@ function begin(run, start) {
   } else {
     bindControls(run);
     bindSkills(run);
+    bindHome(run, run.layer);
     bindCamera(run);
     run.layerOf.reach?.style.setProperty(
       "--reach",
@@ -189,6 +191,8 @@ const ACTIONS = {
   answer: (run, button) => send(run, { type: "answer", id: button.dataset.id }),
   call: (run, button) => send(run, { type: "call", kind: button.dataset.call }),
   spell: run => send(run, { type: "spell" }),
+  recall: run => send(run, { type: "recall" }),
+  recover: run => send(run, { type: "recover" }),
   pause: run => send(run, { type: "pause" }),
   scoreboard: run => toggleScoreboard(run),
   speed: (run, button) => send(run, { type: "speed", value: Number(button.dataset.value) }),

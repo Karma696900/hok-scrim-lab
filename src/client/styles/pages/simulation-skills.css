@@ -84,7 +84,8 @@
   max-width: none;
 }
 
-/* bottom middle: the summoner spell (or Punish) */
+/* bottom middle: the summoner spell (or Punish), its centre on the middle of the screen; Recall and Recovery
+   (simulation-home.js) on its left, so the spell stays clear of the skills' arc */
 .sim-tools {
   position: absolute;
   bottom: 8px;
@@ -92,7 +93,7 @@
   z-index: 5;
   display: flex;
   gap: 10px;
-  translate: -50% 0;
+  translate: calc(-100% + 28px) 0;
 }
 
 @media (prefers-reduced-motion: reduce) {

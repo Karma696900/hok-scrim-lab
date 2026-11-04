@@ -2835,3 +2835,5 @@
 3000|Die Spielsimulation ist für Touchscreens gemacht. Öffne diese Seite auf deinem Handy oder Tablet, um ein Spiel zu spielen oder anzusehen.
 3001|Fähigkeiten, von der KI eingesetzt
 3002|Tippen, um im Vollbild zu spielen
+3003|Rückruf
+3004|Erholung

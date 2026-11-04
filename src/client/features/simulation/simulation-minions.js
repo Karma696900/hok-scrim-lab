@@ -99,13 +99,13 @@ function minionMark(run, wave) {
 }
 
 /**
- * The size of a minion's dot: the siege and super minions a little larger, the Overlord Vanguard larger still, the
- * Shadow Vanguard the largest.
+ * The size of a minion's dot: the siege and super minions a little larger, the Overlord and the Tempest Vanguards
+ * (the yellow dragons, from 20:00) larger still, the Shadow Vanguard the largest.
  */
 export const minionSize = kind =>
   kind === "shadow-vanguard"
     ? "shadow"
-    : kind === "vanguard"
+    : kind === "vanguard" || kind === "tempest-vanguard"
       ? "dragon"
       : kind === "melee" || kind === "ranged"
         ? ""

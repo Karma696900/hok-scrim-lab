@@ -195,3 +195,85 @@
 .sim-spell__time[hidden] {
   display: none;
 }
+
+/* the Recall and Recovery buttons, left of the spell (simulation-home.js): a ring fills around Recall while the
+   hero heads home; Recovery glows green while it heals, then cools down as the spell does */
+.sim-home {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 2px solid rgba(232, 238, 247, 0.28);
+  border-radius: 50%;
+  background: rgba(10, 16, 28, 0.78);
+  color: #e8eef7;
+  cursor: pointer;
+}
+.sim-home svg {
+  width: 18px;
+  height: 18px;
+}
+.sim-home__name {
+  max-width: 54px;
+  overflow: hidden;
+  font: 600 12px/1 var(--font-body);
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sim-home:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.sim-home.is-recalling::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: conic-gradient(#f2c94c calc(var(--fill, 0) * 360deg), rgba(232, 238, 247, 0.16) 0);
+  mask: radial-gradient(closest-side, transparent calc(100% - 4px), #000 calc(100% - 3px));
+  pointer-events: none;
+}
+.sim-home.is-recovering {
+  border-color: #34d399;
+  color: #34d399;
+  opacity: 1;
+}
+.sim-home.is-cooling {
+  overflow: hidden;
+}
+.sim-home.is-cooling::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    rgba(3, 6, 12, 0.74) calc(var(--sweep, 0) * 360deg),
+    rgba(3, 6, 12, 0.3) 0
+  );
+  pointer-events: none;
+}
+.sim-home__time {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font: 800 16px/1 var(--font-body);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+}
+.sim-home__time[hidden] {
+  display: none;
+}
+.sim-home.is-recalling svg,
+.sim-home.is-recalling .sim-home__name,
+.sim-home.is-cooling svg,
+.sim-home.is-cooling .sim-home__name {
+  opacity: 0.35;
+}

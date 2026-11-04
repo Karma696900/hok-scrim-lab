@@ -2835,3 +2835,5 @@
 3000|La simulazione di partita è pensata per gli schermi touch. Apri questa pagina sul telefono o sul tablet per giocare o guardare una partita.
 3001|Abilità, lanciate dall'IA
 3002|Tocca per giocare a schermo intero
+3003|Richiamo
+3004|Recupero
