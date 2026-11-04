@@ -103,36 +103,83 @@ export async function render(ctx, path, language, variant = "") {
   });
 }
 
-export function start(ctx, path, language, variant = "") {
+// one render, its result kept (or the failure noted, so the page is not tried again at once)
+async function renderOnce(ctx, path, language, variant, key) {
+  if (ctx.closed) {
+    return null;
+  }
+  try {
+    const value = await ctx.render(path, language, variant);
+    if (value) {
+      ctx.cache.delete(key);
+      ctx.cache.set(key, { value, expires: ctx.now() + ctx.ttlMs });
+      ctx.failures.delete(key);
+      while (ctx.cache.size > ctx.maxEntries) {
+        ctx.cache.delete(ctx.cache.keys().next().value);
+      }
+    } else {
+      ctx.failures.set(key, ctx.now() + (variant ? FRAME_RETRY_MS : 60_000));
+    }
+    return value;
+  } catch (error) {
+    ctx.failures.set(key, ctx.now() + (variant ? FRAME_RETRY_MS : 60_000));
+    ctx.logger?.warn("prerender failed", { path, language, variant, reason: error.message });
+    return null;
+  }
+}
+
+// The renders run one at a time; the next is the oldest a visitor waits for, else the oldest of the warm-up. Once
+// closed, what is left in the queue resolves to nothing.
+function pump(ctx) {
+  const jobs = (ctx.jobs ??= []);
+  if (ctx.running) {
+    return;
+  }
+  if (ctx.closed) {
+    for (const job of jobs.splice(0)) {
+      job.resolve(null);
+    }
+    return;
+  }
+  const urgent = jobs.findIndex(job => job.urgent);
+  const [job] = jobs.splice(urgent >= 0 ? urgent : 0, 1);
+  if (!job) {
+    return;
+  }
+  ctx.running = true;
+  ctx.chain = job
+    .run()
+    .then(job.resolve)
+    .finally(() => {
+      ctx.running = false;
+      pump(ctx);
+    });
+}
+
+/**
+ * Renders a path in a language (once, however many ask for it at the same time). `urgent`: a visitor waits for it,
+ * so it goes before the warm-up's renders (and a render the warm-up already queued is moved up when a visitor asks).
+ */
+export function start(ctx, path, language, variant = "", { urgent = false } = {}) {
   const key = keyOf(path, language, variant);
+  const queued = ctx.jobs?.find(job => job.key === key);
+  if (queued && urgent) {
+    queued.urgent = true;
+  }
   let promise = ctx.pending.get(key);
   if (promise) {
     return promise;
   }
-  promise = (ctx.chain = ctx.chain.then(async () => {
-    if (ctx.closed) {
-      return null;
-    }
-    try {
-      const value = await ctx.render(path, language, variant);
-      if (value) {
-        ctx.cache.delete(key);
-        ctx.cache.set(key, { value, expires: ctx.now() + ctx.ttlMs });
-        ctx.failures.delete(key);
-        while (ctx.cache.size > ctx.maxEntries) {
-          ctx.cache.delete(ctx.cache.keys().next().value);
-        }
-      } else {
-        ctx.failures.set(key, ctx.now() + (variant ? FRAME_RETRY_MS : 60_000));
-      }
-      return value;
-    } catch (error) {
-      ctx.failures.set(key, ctx.now() + (variant ? FRAME_RETRY_MS : 60_000));
-      ctx.logger?.warn("prerender failed", { path, language, variant, reason: error.message });
-      return null;
-    }
-  })).finally(() => ctx.pending.delete(key));
+  promise = new Promise(resolve => {
+    (ctx.jobs ??= []).push({
+      key,
+      urgent,
+      resolve,
+      run: () => renderOnce(ctx, path, language, variant, key)
+    });
+  }).finally(() => ctx.pending.delete(key));
   ctx.pending.set(key, promise);
+  pump(ctx);
   return promise;
 }
 
@@ -156,7 +203,7 @@ export async function get(ctx, path, language, { waitMs = 3500, variant = "" } =
   if ((ctx.failures.get(key) ?? 0) > ctx.now()) {
     return null;
   }
-  const work = ctx.start(path, language, variant);
+  const work = ctx.start(path, language, variant, { urgent: true });
   return Promise.race([
     work,
     new Promise(resolve => {
@@ -185,6 +232,7 @@ export const size = ctx => ctx.cache.size;
 export async function close(ctx) {
   ctx.closed = true;
   clearTimeout(ctx.idleTimer);
+  pump(ctx);
   await ctx.chain.catch(() => {});
   await ctx.browser?.close().catch(() => {});
   ctx.browser = null;

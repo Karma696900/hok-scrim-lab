@@ -402,6 +402,32 @@ describe("prerenderer", () => {
     }
   });
 
+  test("a page a visitor asks for is drawn before the start-up warm-up, even one the warm-up already holds", async () => {
+    const counters = { renders: 0, closed: 0 };
+    const prerenderer = createPrerenderer({
+      launch: fakeLaunch(
+        () =>
+          new Promise(resolve =>
+            setTimeout(() => resolve({ view: "<h1>x</h1>", account: "" }), 60)
+          ),
+        counters
+      ),
+      baseUrl: "http://127.0.0.1:1"
+    });
+    // the warm-up of a new start: 12 pages one after the other, 60 ms each, 720 ms in all
+    const paths = Array.from({ length: 12 }, (_, i) => `/page-${i}`);
+    prerenderer.warm(paths, ["en", "fr"]);
+    // a page outside the warm-up waits for the render under way, then its own: not for the whole queue
+    assert.ok(await prerenderer.get("/items", "en", { waitMs: 400 }), "drawn ahead of the warm-up");
+    // a page far down the warm-up's queue is moved to the front when a visitor asks for it
+    assert.ok(
+      await prerenderer.get("/page-11", "fr", { waitMs: 400 }),
+      "taken out of its place in the queue"
+    );
+    assert.ok(counters.renders < 8, `${counters.renders} renders before them`);
+    await prerenderer.close();
+  });
+
   test("a slow render is not waited for beyond the limit: the visitor gets the plain page", async () => {
     const counters = { renders: 0, closed: 0 };
     const prerenderer = createPrerenderer({
