@@ -1,7 +1,6 @@
 /* ---------- Game Simulation: the skin of a game played by hand ----------
    The buttons dressed as a game's: a dark enamel face lit from above, framed by a brass ring (two tones, a dark
-   groove between face and ring), pressed in when touched. The skills glow softly when ready and the ultimate wears a
-   gold ring; Recall, Recovery and the spell each have their colour (or the game's icon); the calls wear smaller
+   groove between face and ring), pressed in when touched. Recall, Recovery and the spell each have their colour (or the game's icon); the calls wear smaller
    rings, each its colour; the joystick a ring with its four marks; the score panel a framed plate. Sizes and places
    stay those of simulation-pov.css. */
 .sim-game--play {
@@ -11,48 +10,6 @@
   --groove: #081016;
   --enamel: radial-gradient(circle at 50% 30%, #2a4256, #0c1822 68%);
   --lift: inset 0 2px 3px rgba(255, 255, 255, 0.16), inset 0 -4px 8px rgba(0, 0, 0, 0.55);
-}
-
-/* the skills */
-.sim-game--play .sim-arc__skill {
-  border: 0;
-  background: var(--enamel);
-  box-shadow:
-    0 0 0 2px var(--groove),
-    0 0 0 4px var(--brass),
-    0 0 0 5px var(--brass-dark),
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    var(--lift);
-}
-.sim-game--play .sim-arc__skill:not(.is-cooling, .is-off) {
-  box-shadow:
-    0 0 0 2px var(--groove),
-    0 0 0 4px var(--brass-light),
-    0 0 0 5px var(--brass-dark),
-    0 0 14px rgba(240, 214, 140, 0.35),
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    var(--lift);
-}
-.sim-game--play .sim-arc__skill--ult {
-  box-shadow:
-    0 0 0 2px var(--groove),
-    0 0 0 5px #e8bf4e,
-    0 0 0 6px #7a5a14,
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    var(--lift);
-}
-.sim-game--play .sim-arc__skill--ult:not(.is-cooling, .is-off) {
-  box-shadow:
-    0 0 0 2px var(--groove),
-    0 0 0 5px #f4d36b,
-    0 0 0 6px #7a5a14,
-    0 0 18px rgba(244, 211, 107, 0.55),
-    0 4px 10px rgba(0, 0, 0, 0.5),
-    var(--lift);
-}
-.sim-game--play .sim-arc__face b {
-  color: var(--brass-light);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 /* the attack and its two small buttons */

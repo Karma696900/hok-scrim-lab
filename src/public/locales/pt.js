@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "Habilidade {number}",
   "Skills": "Habilidades",
   "Skills to press, in order": "Habilidades a premir, por ordem",
-  "Skills, cast by the AI": "Habilidades, lançadas pela IA",
   "Skip this exercise": "Saltar este exercício",
   "Skip to content": "Pular para o conteúdo",
   "Skip, keep everything": "Pular, manter tudo",

@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "Yetenek {number}",
   "Skills": "Yetenekler",
   "Skills to press, in order": "Sırayla basılacak yetenekler",
-  "Skills, cast by the AI": "Yetenekler, yapay zekâ kullanır",
   "Skip this exercise": "Bu egzersizi atla",
   "Skip to content": "İçeriğe geç",
   "Skip, keep everything": "Atla, hepsini tut",

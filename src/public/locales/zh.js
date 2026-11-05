@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "技能 {number}",
   "Skills": "技能",
   "Skills to press, in order": "按顺序按下的技能",
-  "Skills, cast by the AI": "技能，由 AI 释放",
   "Skip this exercise": "跳过这项练习",
   "Skip to content": "跳到内容",
   "Skip, keep everything": "跳过，全部保留",

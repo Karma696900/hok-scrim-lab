@@ -7,7 +7,7 @@ import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
 import { catalogImageAttrs } from "../../domain/catalog-display.js";
 import { artOf } from "./simulation-shared.js";
-import { coolState } from "./simulation-skills.js";
+import { coolState } from "./simulation-cooldown.js";
 
 // the game's icon the bots server sends (`ui-recall`, `ui-recover`), else our glyph
 const button = (kind, glyph, name, art) => {

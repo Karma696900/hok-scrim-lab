@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "スキル{number}",
   "Skills": "スキル",
   "Skills to press, in order": "順に押すスキル",
-  "Skills, cast by the AI": "スキル（AIが発動）",
   "Skip this exercise": "このトレーニングをスキップ",
   "Skip to content": "コンテンツへスキップ",
   "Skip, keep everything": "スキップしてすべて残す",

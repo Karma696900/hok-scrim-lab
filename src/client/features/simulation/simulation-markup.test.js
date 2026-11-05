@@ -259,13 +259,8 @@ describe("the board", () => {
     assert.match(html, /data-farm="blue"/);
     assert.match(html, /data-sim="spell"[^>]*aria-label="Flash"/);
     assert.equal(html.match(/class="sim-call"/g).length, 1);
-    const skills = [...html.matchAll(/class="sim-arc__skill[^"]*" data-skill="([^"]+)"/g)].map(
-      m => m[1]
-    );
-    assert.deepEqual(skills, ["s1", "s2", "ult"], "the hero's skills, in the arc");
-    const arc = html.match(/<div class="sim-arc"[\s\S]*?<\/div>/)?.[0] ?? "";
-    assert.match(arc, /aria-label="Skills, cast by the AI"/);
-    assert.doesNotMatch(arc, /<button|data-sim=/, "the AI casts the skills: nothing to press");
+    // the AI casts the skills (owner, 2026-11-05): no skill buttons, no arc of skills on the screen
+    assert.doesNotMatch(html, /sim-arc|data-skill=/, "no skills on the screen");
     assert.doesNotMatch(html, /sim-shop|data-sim="buy"/, "no shop");
     assert.doesNotMatch(html, /style="/, "no style attribute (content policy)");
     // the field's dots stand on a flat layer beside the tilted map; towers, crystals and camps are dots there too

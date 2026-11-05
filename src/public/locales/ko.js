@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "스킬 {number}",
   "Skills": "스킬",
   "Skills to press, in order": "순서대로 누를 스킬",
-  "Skills, cast by the AI": "스킬, AI가 사용",
   "Skip this exercise": "이 운동 건너뛰기",
   "Skip to content": "본문으로 건너뛰기",
   "Skip, keep everything": "건너뛰고 모두 유지",

@@ -273,25 +273,8 @@ check(
   centred.towers === 2 && centred.onMap === 0 && centred.standing
 );
 check(
-  "the skills in an arc, not pressable: the AI casts them",
-  (await player.locator(".sim-arc .sim-arc__skill").count()) === 3 &&
-    (await player.locator(".sim-arc button, .sim-arc [data-sim]").count()) === 0
-);
-check(
-  "a skill recharging shows its seconds",
-  await settles(
-    player.waitForFunction(
-      () =>
-        document.querySelector('.sim-arc__skill[data-skill="s1"] .sim-arc__time')?.textContent ===
-        "2"
-    )
-  )
-);
-check(
-  "the skill the AI casts flashes",
-  await settles(
-    player.waitForSelector('.sim-arc__skill[data-skill="s2"].is-cast', { timeout: 5000 })
-  )
+  "no skills on the screen: the AI casts them",
+  (await player.locator(".sim-arc, [data-skill]").count()) === 0
 );
 const frameAt = () =>
   player.evaluate(() => {

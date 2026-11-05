@@ -5,8 +5,8 @@
 // - top right: the clock, the kills of both teams, the player's kills, deaths and assists, the scoreboard (☰) and
 //   the pause (⚙), with the gold of both teams under them;
 // - on the right edge: the four free calls;
-// - at the bottom: the joystick on the left; the attack buttons on the right, with the skills in an arc around them
-//   (shown, not pressed: the AI casts them, simulation-skills.js); the summoner spell (or Punish) in the middle.
+// - at the bottom: the joystick on the left; the attack buttons on the right (no skills: the AI casts them); the
+//   summoner spell (or Punish) in the middle.
 // No shop. simulation-paint.js and simulation-hud.js fill it at
 // every frame; simulation-popups.js draws what opens on top.
 import { icon } from "../../../shared/icons.js";
@@ -17,7 +17,6 @@ import { homeToolsHtml } from "./simulation-home.js";
 import { mapSvg } from "./simulation-map.js";
 import { spotsHtml } from "./simulation-stand.js";
 import { esc } from "./simulation-shared.js";
-import { skillsArcHtml } from "./simulation-skills.js";
 
 /** The engine's summoner spells, as the button names them. */
 export const SPELL_NAMES = {
@@ -82,7 +81,6 @@ export function boardHtml({ start, heroes, picture = {} }) {
       <div class="sim-target" data-target aria-live="polite" hidden></div>
       ${callsHtml(calls)}
       ${controlsHtml()}
-      ${skillsArcHtml(me)}
       <div class="sim-tools">${homeToolsHtml(start.art)}${spellHtml(me)}</div>
     </div>
     <div class="sim-death" hidden></div>

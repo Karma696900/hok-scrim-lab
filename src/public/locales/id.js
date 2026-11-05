@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "Skill {number}",
   "Skills": "Skill",
   "Skills to press, in order": "Skill yang harus ditekan, berurutan",
-  "Skills, cast by the AI": "Skill, digunakan oleh AI",
   "Skip this exercise": "Lewati latihan ini",
   "Skip to content": "Lewati ke konten",
   "Skip, keep everything": "Lewati, pertahankan semua",

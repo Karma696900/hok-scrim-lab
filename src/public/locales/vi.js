@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "Kỹ năng {number}",
   "Skills": "Kỹ năng",
   "Skills to press, in order": "Các kỹ năng cần nhấn, theo thứ tự",
-  "Skills, cast by the AI": "Kỹ năng, do AI tung ra",
   "Skip this exercise": "Bỏ qua bài tập này",
   "Skip to content": "Chuyển đến nội dung",
   "Skip, keep everything": "Bỏ qua, giữ tất cả",

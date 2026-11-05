@@ -13,7 +13,6 @@
   --pov-stick: clamp(96px, calc(16.5 * var(--pov-u)), 240px);
   --pov-attack: clamp(64px, calc(9.5 * var(--pov-u)), 136px);
   --pov-small: clamp(44px, calc(5.25 * var(--pov-u)), 76px);
-  --pov-skill: clamp(32px, calc(6 * var(--pov-u)), 86px);
   --pov-call: 44px;
   /* the centre of the attack, from the bottom right corner */
   --pov-attack-x: calc(15 * var(--pov-u));
@@ -87,13 +86,6 @@
 .sim-game--play .sim-aim--tower {
   right: calc(14.25 * var(--pov-u) - var(--pov-small) / 2);
   bottom: calc(18.9 * var(--pov-u) - var(--pov-small) / 2);
-}
-/* the skills' arc box sits on the attack button */
-.sim-game--play .sim-arc {
-  right: calc(var(--pov-attack-x) - var(--pov-attack) / 2);
-  bottom: max(6px, calc(var(--pov-attack-y) - var(--pov-attack) / 2));
-  width: var(--pov-attack);
-  height: var(--pov-attack);
 }
 /* the enemies in sight: above the towers button, left of the calls */
 .sim-game--play .sim-strike .sim-avatars {

@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "Умение {number}",
   "Skills": "Умения",
   "Skills to press, in order": "Умения, которые нужно нажать по порядку",
-  "Skills, cast by the AI": "Навыки, применяет ИИ",
   "Skip this exercise": "Пропустить это упражнение",
   "Skip to content": "Перейти к содержимому",
   "Skip, keep everything": "Пропустить, оставить всё",

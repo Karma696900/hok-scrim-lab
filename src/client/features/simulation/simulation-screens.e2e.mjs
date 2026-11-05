@@ -66,9 +66,7 @@ function crowding() {
     );
   };
   const controls = [
-    ...game.querySelectorAll(
-      ".sim-hud button, .sim-stick, .sim-mini, .sim-cards, .sim-hud__right, .sim-arc__skill"
-    )
+    ...game.querySelectorAll(".sim-hud button, .sim-stick, .sim-mini, .sim-cards, .sim-hud__right")
   ].filter(shown);
   const name = element =>
     `${String(element.className).split(" ")[0]}${element.dataset.call ? `[${element.dataset.call}]` : ""}`;

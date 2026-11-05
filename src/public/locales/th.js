@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "สกิล {number}",
   "Skills": "สกิล",
   "Skills to press, in order": "สกิลที่ต้องกดตามลำดับ",
-  "Skills, cast by the AI": "สกิล ใช้โดย AI",
   "Skip this exercise": "ข้ามแบบฝึกหัดนี้",
   "Skip to content": "ข้ามไปยังเนื้อหา",
   "Skip, keep everything": "ข้าม เก็บทุกอย่างไว้",

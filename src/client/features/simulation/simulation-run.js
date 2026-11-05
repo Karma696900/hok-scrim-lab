@@ -15,12 +15,11 @@ import { boardShare } from "./simulation-map.js";
 import { moveDots } from "./simulation-motion.js";
 import { paintFrame } from "./simulation-paint.js";
 import { bindHome, spellArtHtml } from "./simulation-home.js";
-import { bindSkills } from "./simulation-skills.js";
 import { gradeHtml } from "./simulation-popups.js";
 import { bindPresses } from "./simulation-press.js";
 import { bindWatch, paintWatch, watchBoardHtml, watchEndHtml } from "./simulation-watch.js";
 
-/** The pictures of the skills of each hero (by the engine's key), from its Camp sheet. */
+/** The pictures of the skills of each hero (by the engine's key), from its Camp sheet: shown on a hero who casts. */
 async function loadIcons(run) {
   const ids = [...new Set(run.start.heroes.map(hero => hero.heroId))];
   await Promise.all(
@@ -160,7 +159,6 @@ function begin(run, start) {
     bindWatch(run);
   } else {
     bindControls(run);
-    bindSkills(run);
     bindHome(run, run.layer);
     bindCamera(run);
     run.layerOf.reach?.style.setProperty(

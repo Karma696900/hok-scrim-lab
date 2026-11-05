@@ -22,7 +22,7 @@ import { paintGauge } from "./simulation-gauge.js";
 import { glideTo } from "./simulation-motion.js";
 import { paintWaves } from "./simulation-minions.js";
 import { paintHome } from "./simulation-home.js";
-import { paintSkills, paintSpellCooldown } from "./simulation-skills.js";
+import { paintSpellCooldown } from "./simulation-cooldown.js";
 import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
 import { clock, esc, portrait } from "./simulation-shared.js";
 import { paintTarget } from "./simulation-target.js";
@@ -206,7 +206,6 @@ export function paintFrame(run, state, view, now) {
   paintHeroes(run, view, now);
   paintWaves(run, view);
   paintCamps(run, view);
-  paintSkills(run, view, run.newCasts, now);
   paintCasts(run, now);
   if (run.eyes) {
     const eyes = eyesMarkup(run.eyes);

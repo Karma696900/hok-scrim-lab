@@ -1846,7 +1846,6 @@ export default {
   "Skill {number}": "المهارة {number}",
   "Skills": "المهارات",
   "Skills to press, in order": "المهارات المطلوب ضغطها بالترتيب",
-  "Skills, cast by the AI": "المهارات، يستخدمها الذكاء الاصطناعي",
   "Skip this exercise": "تخطَّ هذا التمرين",
   "Skip to content": "انتقل إلى المحتوى",
   "Skip, keep everything": "تخطَّ واحتفظ بكل شيء",
