@@ -290,3 +290,83 @@
 .sim-home.is-cooling .sim-home__name {
   opacity: 0.35;
 }
+
+/* the Space Sprite's portal (simulation-portal.js): its circle on the ground in the clash-lane corner, dim when closed,
+   a lit swirl while the player's side holds it open; the purple button left of Recall shows only in the open circle,
+   its three lanes above it */
+.sim-portal-ring {
+  fill: rgba(124, 92, 255, 0.08);
+  stroke: rgba(160, 140, 255, 0.35);
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+}
+.sim-portal-ring.is-open {
+  fill: rgba(124, 92, 255, 0.28);
+  stroke: #b9a8ff;
+  stroke-width: 3;
+  stroke-dasharray: none;
+}
+.sim-portal {
+  position: relative;
+  display: grid;
+}
+.sim-portal[hidden] {
+  display: none;
+}
+.sim-portal__go {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 2px;
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border: 2px solid #b9a8ff;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #8b6cff, #4b2fb8);
+  color: #fff;
+  cursor: pointer;
+}
+.sim-portal__go svg {
+  width: 18px;
+  height: 18px;
+}
+.sim-portal__name {
+  max-width: 54px;
+  overflow: hidden;
+  font: 600 12px/1 var(--font-body);
+  letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.sim-portal__go:focus-visible,
+.sim-portal__lane:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+.sim-portal__lanes {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  display: grid;
+  gap: 6px;
+  translate: -50% 0;
+}
+.sim-portal__lanes[hidden] {
+  display: none;
+}
+.sim-portal__lane {
+  min-width: 104px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid #b9a8ff;
+  border-radius: 22px;
+  background: rgba(20, 14, 48, 0.92);
+  color: #fff;
+  font: 600 14px/1 var(--font-body);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.sim-portal__lane:hover {
+  background: #4b2fb8;
+}

@@ -16,6 +16,7 @@ import {
   scoreboardShellHtml
 } from "./simulation-hud.js";
 import { eyesMarkup, mapSvg } from "./simulation-map.js";
+import { paintDews } from "./simulation-dew.js";
 import { paintCamps, paintCasts, paintFarm, paintHeroes, paintWaves } from "./simulation-paint.js";
 import { clock, esc, heroName, setText } from "./simulation-shared.js";
 import { spotsHtml } from "./simulation-stand.js";
@@ -67,6 +68,7 @@ export function paintFollow(run, state, view, now) {
   paintHeroes(run, view, now);
   paintWaves(run, view);
   paintCamps(run, view);
+  paintDews(run, view);
   paintCasts(run, now);
   if (run.eyes) {
     run.layerOf.eyes.innerHTML = eyesMarkup(run.eyes);

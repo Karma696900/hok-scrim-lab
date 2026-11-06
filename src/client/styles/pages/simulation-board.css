@@ -335,6 +335,31 @@ html:has(.sim-layer) {
   margin-top: 14px;
 }
 
+/* the Healing Dew behind each outer tower of the side: a green drop, pale while it grows back */
+.sim-dew {
+  position: absolute;
+  z-index: 1;
+  width: 1.6%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  rotate: 45deg;
+  border-radius: 50% 0 50% 50%;
+  background: radial-gradient(circle at 35% 35%, #c8f7c5, #3fbf5a 55%, #1f7a3a);
+  box-shadow: 0 0 0 1px rgba(5, 10, 16, 0.6);
+  transition: opacity 0.3s;
+}
+.sim-dew.is-growing {
+  opacity: 0.35;
+}
+.sim-dew[hidden] {
+  display: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sim-dew {
+    transition: none;
+  }
+}
+
 /* the boxes over the map */
 .sim-cover[hidden],
 .sim-death[hidden],

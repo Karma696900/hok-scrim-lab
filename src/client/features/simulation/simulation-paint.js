@@ -22,7 +22,9 @@ import { paintGauge } from "./simulation-gauge.js";
 import { glideTo } from "./simulation-motion.js";
 import { paintWaves } from "./simulation-minions.js";
 import { paintHome } from "./simulation-home.js";
+import { paintPortal } from "./simulation-portal.js";
 import { paintSpellCooldown } from "./simulation-cooldown.js";
+import { paintDews } from "./simulation-dew.js";
 import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
 import { clock, esc, portrait, setHidden, setText } from "./simulation-shared.js";
 import { paintTarget } from "./simulation-target.js";
@@ -211,6 +213,7 @@ export function paintFrame(run, state, view, now) {
   paintHeroes(run, view, now);
   paintWaves(run, view);
   paintCamps(run, view);
+  paintDews(run, view);
   paintCasts(run, now);
   if (run.eyes) {
     const eyes = eyesMarkup(run.eyes);
@@ -221,6 +224,11 @@ export function paintFrame(run, state, view, now) {
   run.lastView = view;
   paintCards(run, view);
   paintSpell(run, view);
+  paintPortal(
+    run,
+    state,
+    view.heroes.find(hero => hero.id === run.me.id)
+  );
   paintTop(run, view);
   paintFarm(run, view);
   paintMini(run, view);

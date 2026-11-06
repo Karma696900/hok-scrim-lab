@@ -3,6 +3,7 @@
 // of war over them. A player on the red side sees it turned half a turn, so his base is always at the
 // bottom. Everything is in the map's own pixels (1024 a side). The field draws its ground with its matter and
 // relief (simulation-terrain.js) and its fog on a sheet of its own; the minimap keeps flat colours (the stylesheet).
+import { portalRingSvg } from "./simulation-portal.js";
 import { terrainDefs, terrainMarks } from "./simulation-terrain.js";
 
 const SIZE = 1024;
@@ -95,7 +96,8 @@ export function mapSvg(
       ? terrainMarks(map, side)
       : `<rect class="sim-void" x="0" y="0" width="${SIZE}" height="${SIZE}"></rect>
     ${vectorMarks(map, false)}`;
-  const pieces = `${baseMarks(map, mini, marks)}
+  // the Sprite portal's circle lies on the ground of the field (lit while open: simulation-portal.js)
+  const pieces = `${mini ? "" : portalRingSvg(map.portal)}${baseMarks(map, mini, marks)}
     ${marks ? map.towers.map(tower => towerMark(tower, mini)).join("") : ""}
     ${marks ? map.camps.map(camp => campMark(camp, false, mini)).join("") : ""}
     ${marks ? map.neutral.map(camp => campMark(camp, true, mini)).join("") : ""}`;

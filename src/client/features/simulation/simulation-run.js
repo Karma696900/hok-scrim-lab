@@ -15,6 +15,7 @@ import { boardShare } from "./simulation-map.js";
 import { moveDots } from "./simulation-motion.js";
 import { paintFrame } from "./simulation-paint.js";
 import { bindHome, spellArtHtml } from "./simulation-home.js";
+import { bindPortal, togglePortalLanes } from "./simulation-portal.js";
 import { gradeHtml } from "./simulation-popups.js";
 import { bindPresses } from "./simulation-press.js";
 import { bindWatch, paintWatch, watchBoardHtml, watchEndHtml } from "./simulation-watch.js";
@@ -210,6 +211,7 @@ function begin(run, start) {
   } else {
     bindControls(run);
     bindHome(run, run.layer);
+    bindPortal(run, run.layer);
     bindCamera(run);
     run.layerOf.reach?.style.setProperty(
       "--reach",
@@ -254,6 +256,12 @@ const ACTIONS = {
   spell: run => send(run, { type: "spell" }),
   recall: run => send(run, { type: "recall" }),
   recover: run => send(run, { type: "recover" }),
+  // the Sprite portal: the button opens its lanes, a lane sends the hero down (the stick cancels it)
+  "portal-menu": run => togglePortalLanes(run),
+  portal: (run, button) => {
+    send(run, { type: "portal", lane: button.dataset.lane });
+    togglePortalLanes(run, false);
+  },
   pause: run => send(run, { type: "pause" }),
   scoreboard: run => toggleScoreboard(run),
   speed: (run, button) => send(run, { type: "speed", value: Number(button.dataset.value) }),
