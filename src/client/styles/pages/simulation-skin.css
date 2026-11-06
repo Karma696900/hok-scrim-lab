@@ -67,6 +67,9 @@
   background: radial-gradient(circle at 50% 30%, #3fae6a, #0e2c1c 70%);
 }
 .sim-game--play .sim-spell {
+  /* centred: the board's spell row packs its button's content at the start, which pushed the name ("Flash") past
+     the round button's edge */
+  justify-content: center;
   background: radial-gradient(circle at 50% 30%, #c79a3c, #2e1f08 70%);
 }
 .sim-game--play .sim-home svg,
@@ -291,14 +294,6 @@
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.7),
     0 0 14px rgba(244, 208, 107, 0.85);
-  animation: sim-storm 1.6s ease-in-out infinite;
-}
-@keyframes sim-storm {
-  50% {
-    box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.7),
-      0 0 22px rgba(255, 236, 160, 1);
-  }
 }
 
 /* the jungle's monsters stand in a ring of their camp's colour; the buffs, the Tyrant, the Overlord and the Tempest
@@ -347,14 +342,6 @@
 }
 .sim-game--play .sim-monster--tempest {
   width: calc(66px * var(--piece, 1));
-  animation: sim-storm-ring 1.8s ease-in-out infinite;
-}
-@keyframes sim-storm-ring {
-  50% {
-    box-shadow:
-      0 0 0 1px rgba(0, 0, 0, 0.7),
-      0 0 24px rgba(255, 236, 160, 0.95);
-  }
 }
 .sim-game--play .sim-spot--monsters.is-shadow {
   --spot-tone: #7d3fd0;

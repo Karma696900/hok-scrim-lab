@@ -2840,3 +2840,7 @@
 3007|Tinggi kamera
 3005|Dekat
 3006|Tinggi
+3011|Tonton dari sudut pandang {name}
+3008|Tim {name}
+3009|Menonton {name}
+3010|Seluruh peta

@@ -45,12 +45,13 @@ function spellHtml(me) {
   return `<button type="button" class="sim-spell" data-sim="spell" aria-label="${esc(name)}" title="${esc(name)}">${icon(me.spell === "punish" ? "flame" : "bolt")}<span class="sim-spell__name">${name}</span><b class="sim-spell__time" hidden></b></button>`;
 }
 
-const topRightHtml = () => `<div class="sim-hud__right">
+/** The top right of the screen; `pause: false` leaves the pause out (a watched game pauses with its speed). */
+export const topRightHtml = ({ pause = true } = {}) => `<div class="sim-hud__right">
     <div class="sim-scorebar">
       <span class="sim-scorebar__time"><b class="sim-clock" aria-label="${t("Game time")}">00:00</b><span class="sim-score" aria-label="${t("Score")}"><b data-score="blue">0</b><small>vs</small><b data-score="red">0</b></span></span>
       <span class="sim-kda" aria-label="${t("Kills, deaths and assists")}"><b data-kda>0 / 0 / 0</b></span>
       <button type="button" class="sim-hud__button" data-sim="scoreboard" aria-haspopup="dialog" aria-label="${t("Scoreboard")}" title="${t("Scoreboard")}">${icon("list")}</button>
-      <button type="button" class="sim-hud__button" data-sim="pause" aria-label="${t("Pause")}" title="${t("Pause")}">${icon("settings")}</button>
+      ${pause ? `<button type="button" class="sim-hud__button" data-sim="pause" aria-label="${t("Pause")}" title="${t("Pause")}">${icon("settings")}</button>` : ""}
     </div>
     <div class="sim-farm" aria-label="${t("Gold of both teams")}"><b class="sim-farm__gold sim-farm__gold--blue" data-farm="blue">0</b><span class="sim-bar sim-bar--farm"><i data-p="50"></i></span><b class="sim-farm__gold sim-farm__gold--red" data-farm="red">0</b></div>
   </div>`;
@@ -70,7 +71,7 @@ export function boardHtml({ start, heroes, picture = {} }) {
         ${mapSvg(start.map, me.side, { ...picture, marks: false })}
         <span class="sim-reach" data-reach aria-hidden="true"></span>
       </div>
-      <div class="sim-dots">${spotsHtml(start.map, start.art)}</div>
+      <div class="sim-dots" data-stand>${spotsHtml(start.map, start.art)}</div>
     </div>
     <div class="sim-hud">
       <div class="sim-hud__left">

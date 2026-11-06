@@ -134,6 +134,7 @@ export function bindCamera(run) {
     run.camera.depth = depth;
     view.style.perspective = `${depth.toFixed(0)}px`;
     view.style.setProperty("--piece", String(piece));
+    run.camera.piece = piece;
     run.camera.key = "";
   };
   measure();
@@ -173,11 +174,25 @@ export function cameraTarget(run, now = performance.now()) {
   return camera.at;
 }
 
-function placeFrame(frame, { x, y, width, height, side }) {
-  frame.style.left = `${((-x / side) * 100).toFixed(2)}%`;
-  frame.style.top = `${((-y / side) * 100).toFixed(2)}%`;
-  frame.style.width = `${((width / side) * 100).toFixed(2)}%`;
-  frame.style.height = `${((height / side) * 100).toFixed(2)}%`;
+/**
+ * The minimap's frame, the part of the field the screen shows: its size (shares of the minimap) and where it is, by
+ * its transform alone (a translate is a share of the frame's own size), so moving it never lays the page out again.
+ */
+export function frameBox({ x, y, width, height, side }) {
+  return {
+    width: `${((width / side) * 100).toFixed(2)}%`,
+    height: `${((height / side) * 100).toFixed(2)}%`,
+    transform: `translate(${((-x / width) * 100).toFixed(2)}%, ${((-y / height) * 100).toFixed(2)}%)`
+  };
+}
+
+function placeFrame(frame, place) {
+  const box = frameBox(place);
+  if (frame.style.width !== box.width || frame.style.height !== box.height) {
+    frame.style.width = box.width;
+    frame.style.height = box.height;
+  }
+  frame.style.transform = box.transform;
 }
 
 /**
@@ -210,7 +225,8 @@ export function followCamera(run, now) {
   camera.map.style.transformOrigin = `${ox.toFixed(1)}px ${oy.toFixed(1)}px`;
   camera.map.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotateX(${camera.tilt}deg)`;
   // the standing dots' layer moves with the map, flat (simulation-stand.js places each dot on the tilted map)
-  camera.pose = { ox, oy };
+  // the whole pose: simulation-stand.js needs the layer's offset to skip the dots off the screen
+  camera.pose = { x, y, ox, oy };
   if (camera.dots) {
     camera.dots.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0)`;
   }

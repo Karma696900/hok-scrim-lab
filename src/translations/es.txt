@@ -2840,3 +2840,7 @@
 3007|Altura de la cámara
 3005|Cerca
 3006|Alta
+3011|Ver con los ojos de {name}
+3008|El equipo de {name}
+3009|Estás viendo a {name}
+3010|Mapa completo

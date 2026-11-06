@@ -38,7 +38,9 @@ export function paintTarget(run, state, view) {
     return;
   }
   const info = targetInfo(state, view, run.heroes);
-  box.hidden = info === null;
+  if (box.hidden !== (info === null)) {
+    box.hidden = info === null;
+  }
   if (!info) {
     run.targetBox = null;
     return;

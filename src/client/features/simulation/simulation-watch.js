@@ -17,10 +17,10 @@ import {
 } from "./simulation-paint.js";
 import { clock, esc, heroName, portrait } from "./simulation-shared.js";
 
-const speedLabel = speed => (speed === 0 ? t("Pause") : `x${speed}`);
+export const speedLabel = speed => (speed === 0 ? t("Pause") : `x${speed}`);
 const VIEW_LABELS = { all: () => t("Everything"), blue: () => t("Blue"), red: () => t("Red") };
 
-const switchHtml = (kind, values, current, label, text) =>
+export const switchHtml = (kind, values, current, label, text) =>
   `<div class="seg sim-switch" role="group" aria-label="${esc(label)}">${values
     .map(
       value =>
@@ -31,8 +31,10 @@ const switchHtml = (kind, values, current, label, text) =>
 const bar = (cls, label) =>
   `<span class="sim-bar ${cls}" role="img" aria-label="${esc(label)}"><i data-p="100"></i></span>`;
 
+// a row is a button: tapped, the screen follows that hero (simulation-follow.js)
 function rowHtml(heroes, hero) {
-  return `<li class="sim-ally sim-watch-row" data-hero="${esc(hero.id)}"><span class="sim-ally__face">${portrait(heroes, hero.heroId, 32)}<b class="sim-ally__timer" hidden></b></span><span class="sim-ally__bars"><small class="sim-watch-row__name">${esc(heroName(heroes, hero.heroId))}</small>${bar("sim-bar--hp", t("Health"))}${bar("sim-bar--mana", t("Mana"))}${bar("sim-bar--ult", t("Ultimate"))}</span><b class="sim-watch-row__kd" aria-label="${t("Kills and deaths")}">0/0</b></li>`;
+  const name = heroName(heroes, hero.heroId);
+  return `<li class="sim-ally sim-watch-row" data-row="${esc(hero.id)}"><button type="button" class="sim-watch-row__pick" data-sim="follow" data-hero="${esc(hero.id)}" aria-label="${esc(t("Watch through {name}'s eyes", { name }))}" title="${esc(t("Watch through {name}'s eyes", { name }))}"><span class="sim-ally__face">${portrait(heroes, hero.heroId, 32)}<b class="sim-ally__timer" hidden></b></span><span class="sim-ally__bars"><small class="sim-watch-row__name">${esc(name)}</small>${bar("sim-bar--hp", t("Health"))}${bar("sim-bar--mana", t("Mana"))}${bar("sim-bar--ult", t("Ultimate"))}</span><b class="sim-watch-row__kd" aria-label="${t("Kills and deaths")}">0/0</b></button></li>`;
 }
 
 const teamHtml = (heroes, start, side) =>
@@ -147,7 +149,7 @@ export function paintWatch(run, state, view, now) {
 /** What the watched board adds to the parts simulation-run.js binds. */
 export function bindWatch(run) {
   run.teamRows = new Map(
-    [...run.layer.querySelectorAll("[data-hero]")].map(row => [row.dataset.hero, row])
+    [...run.layer.querySelectorAll("[data-row]")].map(row => [row.dataset.row, row])
   );
   run.switches = [...run.layer.querySelectorAll('[data-sim="speed"], [data-sim="view"]')];
 }

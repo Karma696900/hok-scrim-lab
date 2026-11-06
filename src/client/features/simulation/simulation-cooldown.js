@@ -29,7 +29,9 @@ export function paintSpellCooldown(run, button, time, me) {
   run.spellCool = state;
   button.classList.toggle("is-cooling", state.left > 0);
   button.style.setProperty("--sweep", String(state.share));
-  time.hidden = !state.label;
+  if (time.hidden !== !state.label) {
+    time.hidden = !state.label;
+  }
   if (time.textContent !== state.label) {
     time.textContent = state.label;
   }

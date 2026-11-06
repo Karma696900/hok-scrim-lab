@@ -2840,3 +2840,7 @@
 3007|Độ cao camera
 3005|Gần
 3006|Cao
+3011|Xem qua góc nhìn của {name}
+3008|Đội của {name}
+3009|Đang xem {name}
+3010|Toàn bản đồ

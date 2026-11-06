@@ -5,7 +5,7 @@
 /** A watched game: every hero in the view "all", only one side's in "blue" or "red". */
 export function watchGame(socket, context, { MAP, TICK_MS, lineup, listen, textFrame, viewOf }) {
   const { heroes } = lineup({ choice: { side: "blue", lane: "Mid Lane" } }, context.roster);
-  const game = { time: 0, speed: 1, view: "all", heroes };
+  const game = { time: 0, speed: 1, view: "all", follow: null, heroes };
   const send = message => socket.writable && socket.write(textFrame(JSON.stringify(message)));
   const viewOfWatch = () => ({
     ...viewOf({ heroes, side: "blue", time: game.time }),
@@ -36,7 +36,8 @@ export function watchGame(socket, context, { MAP, TICK_MS, lineup, listen, textF
     type: "start",
     mode: "watch",
     map: MAP,
-    heroes,
+    // with what a hero's point of view needs, as the real bots server sends them
+    heroes: heroes.map(hero => ({ ...hero, spell: "flash", reach: 120, speed: 380, sight: 300 })),
     speeds: [0, 1, 2, 4, 8, 16],
     views: ["all", "blue", "red"],
     speed: 1,
@@ -46,7 +47,7 @@ export function watchGame(socket, context, { MAP, TICK_MS, lineup, listen, textF
     game.time += (TICK_MS / 1000) * game.speed;
     const frame = {
       type: "frame",
-      state: { time: game.time, view: viewOfWatch(), speed: game.speed },
+      state: { time: game.time, view: viewOfWatch(), speed: game.speed, follow: game.follow },
       camps: {},
       casts: []
     };
@@ -69,7 +70,18 @@ export function watchGame(socket, context, { MAP, TICK_MS, lineup, listen, textF
     timer,
     orders: {
       speed: order => [0, 1, 2, 4, 8, 16].includes(order.value) && (game.speed = order.value),
-      view: order => ["all", "blue", "red"].includes(order.value) && (game.view = order.value)
+      view: order => {
+        if (["all", "blue", "red"].includes(order.value)) {
+          game.view = order.value;
+          game.follow = null;
+        }
+      },
+      // through a hero's eyes: its team's view; null goes back to the whole map
+      follow: order => {
+        const hero = heroes.find(h => h.id === order.value);
+        game.follow = hero ? hero.id : null;
+        game.view = hero ? hero.side : "all";
+      }
     }
   });
 }

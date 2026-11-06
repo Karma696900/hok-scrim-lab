@@ -182,16 +182,23 @@ const centred = await player.evaluate(() => {
   const view = document.querySelector(".sim-view").getBoundingClientRect();
   const me = document.querySelector(".sim-dot--me");
   const dot = me.getBoundingClientRect();
-  const frame = document.querySelector(".sim-mini__frame").style;
+  // the frame and the player's own dot on the minimap, where they are drawn (the frame is moved by its transform)
+  const frame = document.querySelector(".sim-mini__frame").getBoundingClientRect();
+  const mine = document.querySelector(".sim-mini__hero.is-me").getBoundingClientRect();
+  const miniBox = document.querySelector(".sim-mini").getBoundingClientRect();
   return {
     screen: Math.hypot(
       dot.left + dot.width / 2 - (view.left + view.width / 2),
       dot.top + dot.height / 2 - (view.top + view.height / 2)
     ),
-    frame: Math.hypot(
-      parseFloat(frame.left) + parseFloat(frame.width) / 2 - parseFloat(me.style.left),
-      parseFloat(frame.top) + parseFloat(frame.height) / 2 - parseFloat(me.style.top)
-    ),
+    // as a share of the minimap's side
+    frame:
+      (Math.hypot(
+        frame.left + frame.width / 2 - (mine.left + mine.width / 2),
+        frame.top + frame.height / 2 - (mine.top + mine.height / 2)
+      ) /
+        miniBox.width) *
+      100,
     reach: (() => {
       // on the tilted ground the near half of the ring looks bigger: its box is centred across, a little low
       const ring = document.querySelector("[data-reach]").getBoundingClientRect();
@@ -242,7 +249,14 @@ const minions = await player.evaluate(() => {
     widths: [heroDot.width, ...marks.map(mark => mark.getBoundingClientRect().width)].map(
       Math.round
     ),
-    apart: new Set(marks.map(mark => `${mark.style.left},${mark.style.top}`)).size === marks.length
+    // where each is drawn on the screen (the dots are placed by their transform)
+    apart:
+      new Set(
+        marks.map(mark => {
+          const box = mark.getBoundingClientRect();
+          return `${Math.round(box.left)},${Math.round(box.top)}`;
+        })
+      ).size === marks.length
   };
 });
 check(
@@ -258,14 +272,14 @@ const monsters = await player.evaluate(() => {
     count: faces.length,
     pictures: faces.filter(face => face.querySelector("img")?.naturalWidth > 0).length,
     widths,
-    // the big boar larger than its three small ones, every dot on screen with some size
-    bigger: widths[0] > Math.max(...widths.slice(1)) && widths.every(width => width > 8),
+    // one dot a camp, as the game's minimap marks it (lesson 10, 0:36): the big boar, with some size
+    bigger: widths.length === 1 && widths[0] > 8,
     icon: Boolean(camp?.querySelector("svg"))
   };
 });
 check(
-  `a camp shows its monsters, one dot each with its picture, the big boar over its three small ones (${JSON.stringify(monsters)})`,
-  monsters.count === 4 && monsters.pictures === 4 && monsters.bigger && !monsters.icon
+  `a camp shows ONE dot, its main monster's picture (the boar of the boar camp) (${JSON.stringify(monsters)})`,
+  monsters.count === 1 && monsters.pictures === 1 && monsters.bigger && !monsters.icon
 );
 check("a dot farther up the map is drawn smaller", centred.farther);
 check(
@@ -278,8 +292,13 @@ check(
 );
 const frameAt = () =>
   player.evaluate(() => {
-    const frame = document.querySelector(".sim-mini__frame");
-    return [parseFloat(frame.style.left), parseFloat(frame.style.top)];
+    // where the frame is drawn, as shares of the minimap (it is moved by its transform)
+    const frame = document.querySelector(".sim-mini__frame").getBoundingClientRect();
+    const box = document.querySelector(".sim-mini").getBoundingClientRect();
+    return [
+      ((frame.left - box.left) / box.width) * 100,
+      ((frame.top - box.top) / box.height) * 100
+    ];
   });
 const before = await frameAt();
 await player.mouse.move(mini.x + mini.width - 6, mini.y + 6);
@@ -426,7 +445,7 @@ check(
 await viewer.click('[data-act="start"]');
 await viewer.waitForSelector(".sim-game--watch .sim-map__svg", { timeout: 20000 });
 check("the ticket asks to watch", bots.seen.tickets.at(-1)?.choice?.mode === "watch");
-check("ten heroes in the two teams", (await viewer.locator("[data-hero]").count()) === 10);
+check("ten heroes in the two teams", (await viewer.locator("[data-row]").count()) === 10);
 check("no fog over everything", (await viewer.locator(".sim-map.is-clear").count()) === 1);
 await viewer.click('[data-sim="speed"][data-value="4"]');
 await viewer.click('[data-sim="view"][data-value="red"]');
@@ -446,6 +465,49 @@ check(
   "the orders reached the bots server",
   ["speed", "view"].every(order => bots.seen.orders.includes(order))
 );
+// through a hero's eyes: the screen of a game by hand, nothing to press but the speed and the way back (the
+// stand-in's game is short: paused meanwhile)
+await viewer.click('[data-sim="speed"][data-value="0"]');
+await settles(
+  viewer.waitForSelector('[data-sim="speed"][data-value="0"][aria-pressed="true"]', {
+    timeout: 5000
+  })
+);
+const followed = await viewer.locator('[data-sim="follow"]').first().getAttribute("data-hero");
+await viewer.click(`[data-sim="follow"][data-hero="${followed}"]`);
+check(
+  "a hero tapped in the teams gives its point of view: the tilted field, its team's cards, its fog",
+  await settles(
+    viewer.waitForSelector(`.sim-game--follow .sim-card.is-me[data-card="${followed}"]`, {
+      timeout: 5000
+    })
+  )
+);
+check(
+  "the camera follows that hero, tilted",
+  await settles(
+    viewer.waitForFunction(() =>
+      (document.querySelector(".sim-game--follow .sim-map")?.style.transform ?? "").includes(
+        "rotateX"
+      )
+    )
+  )
+);
+check(
+  "through a hero's eyes nothing is pressed for the bots: no stick, no attack, no spell",
+  (await viewer
+    .locator(
+      ".sim-game--follow [data-stick], .sim-game--follow .sim-strike, .sim-game--follow .sim-spell"
+    )
+    .count()) === 0
+);
+await viewer.click('[data-sim="overview"]');
+check(
+  "the way back shows the whole map and the two teams again",
+  await settles(viewer.waitForSelector('.sim-game--watch [data-sim="follow"]', { timeout: 5000 }))
+);
+check("the follow orders reached the bots server", bots.seen.orders.includes("follow"));
+await viewer.click('.sim-game--watch [data-sim="speed"][data-value="16"]');
 await viewer.waitForSelector(".sim-watch-end", { timeout: 30000 });
 check(
   "the end names the winner",

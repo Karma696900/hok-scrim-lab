@@ -72,3 +72,20 @@ export const artOf = (art, key) => {
   const picture = art?.[key];
   return typeof picture === "string" && ART.test(picture) ? picture : null;
 };
+
+/**
+ * Writes `text` into `element` only when it changes: the same text written again still changes the page, and with the
+ * site's :has() rules the browser then looks over the whole page, ten times a second in a game.
+ */
+export function setText(element, text) {
+  if (element && element.textContent !== String(text)) {
+    element.textContent = String(text);
+  }
+}
+
+/** Shows or hides `element`, writing its flag only when it changes (for the same reason as setText). */
+export function setHidden(element, hidden) {
+  if (element && element.hidden !== Boolean(hidden)) {
+    element.hidden = Boolean(hidden);
+  }
+}

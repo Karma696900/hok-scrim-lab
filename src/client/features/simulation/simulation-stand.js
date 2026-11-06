@@ -52,11 +52,13 @@ const pictureOf = (art, kind) => {
 };
 
 /**
- * The dots of a camp's monsters (`camp.monsters`, sent by the bots server with `art`, the pictures), each with its
- * picture: the Tyrant and the Overlord carry their shadow picture too (shown from 10:00). Null when one is missing.
+ * The dot of a camp: ONE a camp, its main monster (the first of `camp.monsters`, sent by the bots server with `art`,
+ * the pictures), as the game marks each camp with one icon (lesson 10, 0:36, the enlarged minimap; owner,
+ * 2026-11-06); the simulation still fights every monster of the camp. The Tyrant and the Overlord carry their shadow
+ * picture too (shown from 10:00). Null when the picture is missing.
  */
 function monstersHtml(camp, art, kind, tag) {
-  const monsters = camp.monsters ?? [];
+  const monsters = (camp.monsters ?? []).slice(0, 1);
   const pictures = monsters.map(monster => pictureOf(art, monster));
   if (!monsters.length || pictures.some(picture => !picture)) {
     return null;
@@ -119,7 +121,37 @@ export function project({ dx, dy, tilt, depth }) {
   return { x: dx * scale, y: dy * Math.cos(rad) * scale, scale };
 }
 
+/**
+ * Where a dot of the flat layer is drawn, by its transform alone (the layer's children all sit at its top left corner,
+ * so moving one never lays the page out again): `share` its point as shares of the board (0..100), `side` the field's
+ * width in pixels, `pose` the camera's (the layer moved by (x, y), the map turned about (ox, oy)), `screen` the view's
+ * size. Not `shown` behind the camera, or farther than `margin` pixels past the screen's edge: nothing is written for
+ * it then, frame after frame.
+ */
+export function standOf({ share, side, pose, tilt, depth, screen, margin }) {
+  const dx = (share[0] / 100) * side - pose.ox;
+  const dy = (share[1] / 100) * side - pose.oy;
+  const at = project({ dx, dy, tilt, depth });
+  if (!at) {
+    return { shown: false };
+  }
+  // on the screen, the dot is at the layer's offset plus its place on the layer
+  const sx = pose.x + pose.ox + at.x;
+  const sy = pose.y + pose.oy + at.y;
+  if (sx < -margin || sy < -margin || sx > screen.width + margin || sy > screen.height + margin) {
+    return { shown: false };
+  }
+  return {
+    shown: true,
+    transform: `translate(${(pose.ox + at.x).toFixed(1)}px, ${(pose.oy + at.y).toFixed(1)}px) scale(${at.scale.toFixed(3)})`
+  };
+}
+
+/** The point of each dot of the flat layer (shares of the board), kept by placeAt (simulation-hud.js). */
+export const standAt = new WeakMap();
 const written = new WeakMap();
+// the pieces are up to ~80 px tall at --piece 1, drawn above their point: they still show their head past the edge
+const MARGIN = 160;
 
 /** Every screen frame, after the camera: each shown dot of the flat layer where the tilted map draws its point. */
 export function standDots(run) {
@@ -129,21 +161,30 @@ export function standDots(run) {
   if (!pose || !side) {
     return;
   }
+  const lens = {
+    side,
+    pose,
+    tilt: camera.tilt,
+    depth: camera.depth,
+    screen: camera.size,
+    margin: MARGIN * (camera.piece ?? 1)
+  };
   for (const el of run.layerOf.dots.children) {
-    const left = parseFloat(el.style.left);
-    const top = parseFloat(el.style.top);
-    if (el.hidden || Number.isNaN(left) || Number.isNaN(top)) {
+    const share = standAt.get(el);
+    if (el.hidden || !share) {
       continue;
     }
-    const dx = (left / 100) * side - pose.ox;
-    const dy = (top / 100) * side - pose.oy;
-    const at = project({ dx, dy, tilt: camera.tilt, depth: camera.depth });
-    const transform = at
-      ? `translate(${(at.x - dx).toFixed(1)}px, ${(at.y - dy).toFixed(1)}px) scale(${at.scale.toFixed(3)})`
-      : "scale(0)";
-    if (written.get(el) !== transform) {
-      written.set(el, transform);
+    const at = standOf({ ...lens, share });
+    const transform = at.shown ? at.transform : "off";
+    if (written.get(el) === transform) {
+      continue;
+    }
+    written.set(el, transform);
+    if (at.shown) {
       el.style.transform = transform;
+      el.style.visibility = "";
+    } else {
+      el.style.visibility = "hidden";
     }
   }
 }

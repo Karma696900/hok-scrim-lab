@@ -96,3 +96,71 @@
     height: 24px;
   }
 }
+
+/* a hero's row is a button: tapped, the screen follows that hero (simulation-follow.js) */
+.sim-watch-row__pick {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 44px;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  border-radius: var(--r-md);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+.sim-watch-row__pick:hover {
+  border-color: rgba(232, 238, 247, 0.22);
+  background: rgba(232, 238, 247, 0.06);
+}
+.sim-watch-row__pick:focus-visible {
+  outline: 2px solid var(--gild);
+  outline-offset: 2px;
+}
+
+/* through a hero's eyes: the play screen, and at the bottom middle whom you watch, the speed and the way back */
+.sim-follow-bar {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: calc(100% - 16px);
+  padding: 4px 6px 4px 12px;
+  border: 1px solid rgba(232, 238, 247, 0.22);
+  border-radius: 999px;
+  background: rgba(10, 16, 28, 0.82);
+  color: #e8eef7;
+  translate: -50% 0;
+  pointer-events: auto;
+}
+.sim-follow-bar__name {
+  margin: 0;
+  overflow: hidden;
+  font: 700 13px/1.2 var(--font-body);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.sim-follow-bar .sim-switch button {
+  min-width: 38px;
+  min-height: 38px;
+  font-size: 12px;
+}
+.sim-follow-bar__back,
+.sim-follow-bar__leave {
+  min-height: 38px;
+  white-space: nowrap;
+}
+@media (max-width: 700px) {
+  .sim-follow-bar__name,
+  .sim-follow-bar__back span {
+    display: none;
+  }
+}

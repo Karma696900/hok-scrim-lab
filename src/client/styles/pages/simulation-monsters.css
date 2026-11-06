@@ -1,7 +1,7 @@
 /* ---------- Game Simulation: the jungle monsters (simulation-stand.js) ---------- */
-/* A camp whose monsters the bots server sends pictures of shows them, one round dot a monster, as many as the game
-   puts there: two Lizards, two Cheetahs, a big Tusked Boar over its three small ones, one golem a buff as large as a
-   hero, the Tyrant or the Overlord larger still. The ring of each dot takes the camp's tone. From 10:00 the Tyrant and the Overlord show their
+/* A camp whose main monster the bots server sends a picture of shows it: ONE round dot a camp, as the game marks each
+   camp with one icon (lesson 10, 0:36), sized by the monster: a buff's golem as large as a hero, the Tyrant or the
+   Overlord larger still. The ring of the dot takes the camp's tone. From 10:00 the Tyrant and the Overlord show their
    shadow picture. */
 .sim-spot--monsters {
   display: flex;

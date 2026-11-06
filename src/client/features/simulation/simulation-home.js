@@ -45,7 +45,9 @@ export function bindHome(run, layer) {
 }
 
 function paintTime(time, label) {
-  time.hidden = !label;
+  if (time.hidden !== !label) {
+    time.hidden = !label;
+  }
   if (time.textContent !== label) {
     time.textContent = label;
   }

@@ -56,7 +56,8 @@
   outline-offset: 2px;
 }
 .sim-minion__face.is-spawning {
-  animation: sim-minion-spawn 2s ease-out both;
+  /* backwards, not both: once grown the minion lets its animation go (a filled one keeps a layer for ever) */
+  animation: sim-minion-spawn 2s ease-out backwards;
 }
 @keyframes sim-minion-spawn {
   from {

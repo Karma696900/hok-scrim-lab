@@ -3,7 +3,15 @@
 // centred on the hero.
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { ANCHOR, CAMERA_HEIGHTS, fieldPose, lens, readCamera } from "./simulation-camera.js";
+import {
+  ANCHOR,
+  CAMERA_HEIGHTS,
+  fieldPose,
+  followCamera,
+  frameBox,
+  lens,
+  readCamera
+} from "./simulation-camera.js";
 
 const screen = { width: 844, height: 390, side: 2200 };
 const same = (actual, expected) =>
@@ -68,4 +76,34 @@ test("the camera height is read from the device, normal when none (or an unknown
     }),
     "normal"
   );
+});
+
+test("the minimap's frame is sized once and moved by its transform alone (no layout each frame)", () => {
+  const box = frameBox({ x: -678, y: -705, width: 844, height: 390, side: 2200 });
+  assert.equal(box.width, "38.36%");
+  assert.equal(box.height, "17.73%");
+  // moved by -x / side of the minimap = -x / width of the frame's own width
+  assert.equal(box.transform, "translate(80.33%, 180.77%)");
+});
+
+test("the camera keeps its whole pose, the layer's offset too, so the dots off the screen can be skipped", () => {
+  const run = {
+    side: "blue",
+    me: { id: "me" },
+    glide: new Map([["me", { drawn: [512, 512] }]]),
+    dots: new Map([["me", { hidden: false }]]),
+    camera: {
+      size: { width: 844, height: 390, side: 2200 },
+      tilt: 46,
+      depth: 1000,
+      key: "",
+      map: { style: {} },
+      dots: { style: {} },
+      frame: null
+    }
+  };
+  followCamera(run, 0);
+  const { pose } = run.camera;
+  same(pose.x + pose.ox, 844 / 2);
+  same(pose.y + pose.oy, 390 / 2);
 });

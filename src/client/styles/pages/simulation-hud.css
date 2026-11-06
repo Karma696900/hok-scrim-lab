@@ -30,6 +30,13 @@
   max-width: none;
   border-radius: 0;
   will-change: transform;
+  /* the woods round the field are drawn past its frame (the map's whole 1024 pixels): at a base, where the camera
+     looks past the field's edge, the screen shows them tilted with the field instead of a flat dark void */
+  overflow: visible;
+}
+.sim-game--play .sim-map__svg,
+.sim-game--play .sim-map__fog {
+  overflow: visible;
 }
 .sim-game.is-hidden .sim-view,
 .sim-game.is-hidden .sim-mini {
@@ -203,7 +210,10 @@
   object-fit: cover;
 }
 .sim-mini__frame {
+  /* sized once, moved by its transform alone (simulation-camera.js) */
   position: absolute;
+  top: 0;
+  left: 0;
   border: 1.5px solid rgba(232, 238, 247, 0.85);
   border-radius: 2px;
 }

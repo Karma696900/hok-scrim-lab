@@ -17,6 +17,12 @@
   aspect-ratio: 1;
   will-change: transform;
 }
+/* each dot sits at the layer's corner and is drawn on its point by its transform alone (simulation-stand.js): moving
+   one never lays the page out again */
+.sim-game--play .sim-dots[data-stand] > * {
+  top: 0;
+  left: 0;
+}
 
 .sim-spot {
   --spot-tone: #b9a77a;
@@ -104,22 +110,8 @@
 .sim-spot--piece.is-down .sim-figure__rubble {
   display: inline;
 }
-.sim-figure__glow {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: sim-glow 2.4s ease-in-out infinite;
-}
-@keyframes sim-glow {
-  50% {
-    opacity: 0.6;
-    scale: 1.18;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .sim-figure__glow {
-    animation: none;
-  }
-}
+/* the glowing stone on top keeps a still glow: twenty towers pulsing for ever cost a phone a layer each, and the
+   layers over them, at every frame */
 .sim-spot--piece.is-target {
   box-shadow: none;
   filter: drop-shadow(0 0 3px var(--gild));

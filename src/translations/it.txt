@@ -2840,3 +2840,7 @@
 3007|Altezza della telecamera
 3005|Vicina
 3006|Alta
+3011|Guarda con gli occhi di {name}
+3008|La squadra di {name}
+3009|Stai guardando {name}
+3010|Mappa intera

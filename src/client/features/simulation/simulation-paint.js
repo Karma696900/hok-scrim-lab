@@ -24,7 +24,7 @@ import { paintWaves } from "./simulation-minions.js";
 import { paintHome } from "./simulation-home.js";
 import { paintSpellCooldown } from "./simulation-cooldown.js";
 import { deathHtml, pauseHtml, questionHtml } from "./simulation-popups.js";
-import { clock, esc, portrait } from "./simulation-shared.js";
+import { clock, esc, portrait, setHidden, setText } from "./simulation-shared.js";
 import { paintTarget } from "./simulation-target.js";
 
 const CAST_SHOWN_MS = 333;
@@ -62,7 +62,7 @@ function paintDot(dot, hero) {
   }
   const level = dot.querySelector(".sim-dot__level");
   if (level && level.textContent !== String(hero.level ?? 1)) {
-    level.textContent = String(hero.level ?? 1);
+    setText(level, hero.level ?? 1);
   }
 }
 
@@ -75,7 +75,7 @@ export function paintHeroes(run, view, now) {
     }
     const dot = dotOf(run, hero);
     shown.add(hero.id);
-    dot.hidden = false;
+    setHidden(dot, false);
     if (now === undefined || !run.glide) {
       place(dot, hero.pos, run.side);
     } else {
@@ -85,7 +85,7 @@ export function paintHeroes(run, view, now) {
   }
   for (const [id, dot] of run.dots) {
     if (!shown.has(id)) {
-      dot.hidden = true;
+      setHidden(dot, true);
     }
   }
 }
@@ -114,7 +114,7 @@ export function paintCamps(run, view) {
       place(barEl, camp.at, run.side);
     }
     if (barEl) {
-      barEl.hidden = !visible;
+      setHidden(barEl, !visible);
       setBar(barEl, Math.round((1 - Math.min(1, progress)) * 100));
     }
   }
@@ -141,7 +141,7 @@ export function paintCasts(run, now) {
         ? `<img src="${esc(url)}" alt="" width="24" height="24" decoding="async">`
         : `<b>${cast.key === "ult" ? "U" : esc(cast.key.replace("s", ""))}</b>`;
     }
-    slot.hidden = !on;
+    setHidden(slot, !on);
     if (!on) {
       slot.dataset.key = "";
       run.castUntil.delete(id);
@@ -165,8 +165,8 @@ function paintSpell(run, view) {
 
 export function paintFarm(run, view) {
   const { blue, red } = view.farm;
-  run.layerOf.farmBlue.textContent = String(Math.round(blue));
-  run.layerOf.farmRed.textContent = String(Math.round(red));
+  setText(run.layerOf.farmBlue, Math.round(blue));
+  setText(run.layerOf.farmRed, Math.round(red));
   setBar(run.layerOf.farmBar, share(blue, blue + red || 1));
 }
 
@@ -183,18 +183,23 @@ function paintPopups(run, state) {
         : "";
     layerOf.cover.querySelector("button")?.focus();
   }
-  layerOf.cover.hidden = !coverKey;
+  setHidden(layerOf.cover, !coverKey);
   layerOf.game.classList.toggle("is-hidden", state.hidden);
   layerOf.game.classList.toggle("is-dead", state.dead);
   if (state.question) {
     const left = layerOf.cover.querySelector(".sim-question__left");
     if (left) {
-      left.textContent = String(Math.ceil(state.question.left));
+      setText(left, Math.ceil(state.question.left));
     }
   }
-  layerOf.death.hidden = !state.dead;
+  setHidden(layerOf.death, !state.dead);
   if (state.dead) {
-    layerOf.death.innerHTML = deathHtml(state.respawnAt - state.time);
+    // the countdown changes once a second: the box is drawn again only then
+    const death = deathHtml(state.respawnAt - state.time);
+    if (run.deathHtml !== death) {
+      run.deathHtml = death;
+      layerOf.death.innerHTML = death;
+    }
   }
   for (const button of layerOf.calls) {
     button.disabled = state.callIn > 0 || state.hidden;
@@ -222,6 +227,6 @@ export function paintFrame(run, state, view, now) {
   paintScoreboard(run, view);
   paintControls(run, state, view);
   paintTarget(run, state, view);
-  run.layerOf.clock.textContent = clock(state.time);
+  setText(run.layerOf.clock, clock(state.time));
   paintPopups(run, state);
 }

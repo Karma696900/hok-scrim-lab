@@ -2840,3 +2840,7 @@
 3007|Kamera yüksekliği
 3005|Yakın
 3006|Yüksek
+3011|{name} gözünden izle
+3008|{name} takımı
+3009|{name} izleniyor
+3010|Tüm harita

@@ -271,7 +271,10 @@ describe("the board", () => {
       /data-tower=|data-camp=|data-crystal=/,
       "no structure drawn on the tilted map"
     );
-    assert.match(field, /<\/div>\s*<div class="sim-dots">\s*<span class="sim-spot sim-spot--tower/);
+    assert.match(
+      field,
+      /<\/div>\s*<div class="sim-dots" data-stand>\s*<span class="sim-spot sim-spot--tower/
+    );
     assert.match(
       field,
       /class="sim-spot sim-spot--crystal sim-spot--red sim-spot--piece" data-crystal="red"/

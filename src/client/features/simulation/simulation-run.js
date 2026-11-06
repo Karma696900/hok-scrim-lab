@@ -18,6 +18,7 @@ import { bindHome, spellArtHtml } from "./simulation-home.js";
 import { gradeHtml } from "./simulation-popups.js";
 import { bindPresses } from "./simulation-press.js";
 import { bindWatch, paintWatch, watchBoardHtml, watchEndHtml } from "./simulation-watch.js";
+import { followBoardHtml, followedOf, paintFollow } from "./simulation-follow.js";
 
 /** The pictures of the skills of each hero (by the engine's key), from its Camp sheet: shown on a hero who casts. */
 async function loadIcons(run) {
@@ -131,11 +132,60 @@ function frame(run, now) {
     return;
   }
   if (run.latest) {
-    (run.watch ? paintWatch : paintFrame)(run, run.latest, run.latest.view, now);
+    const paint = run.watch ? (run.follow ? paintFollow : paintWatch) : paintFrame;
+    paint(run, run.latest, run.latest.view, now);
     run.latest = null;
   }
   moveDots(run, now);
   run.handle = requestAnimationFrame(next => frame(run, next));
+}
+
+// the marks drawn on a board, forgotten when a watched game swaps its board (they were in the old one)
+function forgetMarks(run) {
+  run.dots = new Map();
+  run.waves = new Map();
+  run.minionMarks = new Map();
+  run.campBars = new Map();
+  run.castUntil = new Map();
+  run.glide = new Map();
+  run.deathHtml = null;
+  run.targetBox = null;
+}
+
+/**
+ * A watched game swaps its board when a frame says it follows another hero (or none): the hero's screen
+ * (simulation-follow.js), its team's side at the bottom and the camera on it, or the whole map again.
+ */
+function drawWatched(run, follow, speed) {
+  const picture = { image: run.image, debug: run.choice.debug };
+  const pov = follow
+    ? followBoardHtml({ start: run.start, heroes: run.heroes, follow, speed, picture })
+    : null;
+  unbindCamera(run);
+  run.camera = null;
+  run.unbindFullscreen?.();
+  forgetMarks(run);
+  run.follow = pov ? follow : null;
+  if (pov) {
+    const me = followedOf(run.start, follow);
+    run.me = me;
+    run.side = me.side;
+    run.layer.innerHTML = pov;
+    bindLayer(run);
+    bindCamera(run);
+    run.layerOf.reach?.style.setProperty(
+      "--reach",
+      `${boardShare(2 * (me.reach ?? 0)).toFixed(2)}%`
+    );
+    run.switches = [...run.layer.querySelectorAll('[data-sim="speed"]')];
+  } else {
+    run.me = { id: null };
+    run.side = "blue";
+    run.layer.innerHTML = watchBoardHtml({ start: run.start, heroes: run.heroes, picture });
+    bindLayer(run);
+    bindWatch(run);
+  }
+  bindFullscreen(run);
 }
 
 /** The first message: the board is drawn once, then the frames fill it. */
@@ -174,6 +224,10 @@ function begin(run, start) {
 const MESSAGES = {
   start: begin,
   frame: (run, message) => {
+    const follow = message.state.follow ?? null;
+    if (run.watch && follow !== (run.follow ?? null)) {
+      drawWatched(run, follow, message.state.speed);
+    }
     run.latest = message.state;
     run.camps = message.camps;
     run.newCasts.push(...message.casts);
@@ -204,6 +258,9 @@ const ACTIONS = {
   scoreboard: run => toggleScoreboard(run),
   speed: (run, button) => send(run, { type: "speed", value: Number(button.dataset.value) }),
   view: (run, button) => send(run, { type: "view", value: button.dataset.value }),
+  // a watched game: through a hero's eyes, or the whole map again (the next frame swaps the board)
+  follow: (run, button) => send(run, { type: "follow", value: button.dataset.hero }),
+  overview: run => send(run, { type: "follow", value: null }),
   resume: run => send(run, { type: "resume" }),
   fullscreen: () => enterFullscreen(),
   leave: run => {

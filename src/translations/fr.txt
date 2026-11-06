@@ -2840,3 +2840,7 @@
 3007|Hauteur de caméra
 3005|Proche
 3006|Haute
+3011|Voir par les yeux de {name}
+3008|L'équipe de {name}
+3009|Vous regardez {name}
+3010|Carte entière

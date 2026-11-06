@@ -12,7 +12,8 @@ import { t } from "../../app/browser-i18n.js";
 import { catalogImageAttrs } from "../../domain/catalog-display.js";
 import { paintGauge } from "./simulation-gauge.js";
 import { mapSvg, placeOnBoard } from "./simulation-map.js";
-import { esc, heroName, portrait } from "./simulation-shared.js";
+import { esc, heroName, portrait, setHidden, setText } from "./simulation-shared.js";
+import { standAt } from "./simulation-stand.js";
 
 const SEGMENT_HP = 1000;
 const ITEM_SLOTS = 6;
@@ -141,13 +142,13 @@ export function paintCards(run, view) {
     const [hp, mana] = card.querySelectorAll(".sim-bar");
     fillBar(hp, hero.alive ? share(hero.hp ?? 1, hero.maxHp ?? 1) : 0, hero.maxHp ?? SEGMENT_HP);
     paintGauge(mana, hero);
-    card.querySelector(".sim-card__level").textContent = String(hero.level ?? 1);
+    setText(card.querySelector(".sim-card__level"), hero.level ?? 1);
     card.classList.toggle("is-ult", hero.alive && Boolean(hero.ult));
     card.classList.toggle("is-dead", !hero.alive);
     const timer = card.querySelector(".sim-card__timer");
-    timer.hidden = hero.alive;
+    setHidden(timer, hero.alive);
     if (!hero.alive) {
-      timer.textContent = String(Math.max(0, Math.ceil((hero.respawnAt ?? 0) - view.time)));
+      setText(timer, Math.max(0, Math.ceil((hero.respawnAt ?? 0) - view.time)));
     }
   }
 }
@@ -159,11 +160,11 @@ export function paintTop(run, view) {
   for (const entry of view.scoreboard) {
     kills[entry.side] += entry.kills;
   }
-  layerOf.scoreBlue.textContent = String(kills.blue);
-  layerOf.scoreRed.textContent = String(kills.red);
+  setText(layerOf.scoreBlue, kills.blue);
+  setText(layerOf.scoreRed, kills.red);
   const mine = view.scoreboard.find(entry => entry.id === run.me.id);
   if (mine) {
-    layerOf.kda.textContent = `${mine.kills} / ${mine.deaths} / ${mine.assists ?? 0}`;
+    setText(layerOf.kda, `${mine.kills} / ${mine.deaths} / ${mine.assists ?? 0}`);
   }
 }
 
@@ -180,9 +181,21 @@ function miniDot(run, hero) {
   return dot;
 }
 
-/** Puts `element` at map point `at` on a board of `side` (shares of its width and height). */
+/**
+ * Puts `element` at map point `at` on a board of `side` (shares of its width and height). On the layer the camera
+ * stands (`data-stand`, a game by hand) only the point is kept: simulation-stand.js draws the dot there by its
+ * transform at the next screen frame, so moving a dot never lays the page out again.
+ */
 export function placeAt(element, at, side) {
   const [x, y] = placeOnBoard(at, side);
+  if (element.parentElement?.dataset.stand !== undefined) {
+    // a new dot waits hidden for its first transform (at the layer's corner until then)
+    if (!standAt.has(element)) {
+      element.style.visibility = "hidden";
+    }
+    standAt.set(element, [x, y]);
+    return;
+  }
   element.style.left = `${x.toFixed(2)}%`;
   element.style.top = `${y.toFixed(2)}%`;
 }
@@ -193,12 +206,12 @@ export function paintMini(run, view) {
   for (const hero of view.heroes.filter(h => h.alive)) {
     const dot = miniDot(run, hero);
     shown.add(hero.id);
-    dot.hidden = false;
+    setHidden(dot, false);
     placeAt(dot, run.glide.get(hero.id)?.drawn ?? hero.pos, run.side);
   }
   for (const [id, dot] of run.miniDots) {
     if (!shown.has(id)) {
-      dot.hidden = true;
+      setHidden(dot, true);
     }
   }
   for (const tower of view.towers) {

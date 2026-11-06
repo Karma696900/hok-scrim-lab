@@ -6,6 +6,7 @@
 import { followCamera } from "./simulation-camera.js";
 import { standDots } from "./simulation-stand.js";
 import { place } from "./simulation-paint.js";
+import { setHidden } from "./simulation-shared.js";
 
 // the gold ring of the player's attack reach, on the ground under its dot (shown while the hero is alive)
 function placeReach(run) {
@@ -15,7 +16,8 @@ function placeReach(run) {
   if (!ring) {
     return;
   }
-  ring.hidden = !mine || !dot || dot.hidden;
+  // written only when it changes (every frame otherwise: see setHidden)
+  setHidden(ring, !mine || !dot || dot.hidden);
   if (!ring.hidden) {
     place(ring, mine.drawn, run.side);
   }

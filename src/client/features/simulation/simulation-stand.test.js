@@ -2,7 +2,8 @@
 // of the towers, the crystals, the camps and the objectives.
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { project, spotsHtml } from "./simulation-stand.js";
+import { placeAt } from "./simulation-hud.js";
+import { project, spotsHtml, standAt, standOf } from "./simulation-stand.js";
 
 const near = (actual, expected, label) =>
   assert.ok(Math.abs(actual - expected) < 1e-6, `${label}: ${actual} ≠ ${expected}`);
@@ -32,6 +33,45 @@ test("a point nearer the bottom is drawn larger", () => {
 
 test("a point behind the camera is not drawn", () => {
   assert.equal(project({ dx: 0, dy: 2000, tilt: 40, depth: 900 }), null);
+});
+
+// a phone held sideways, a field of 2200 px, the camera on the field's pixel (1100, 900): the layer of the dots is
+// moved so that pixel is in the middle of the screen
+const lens = {
+  side: 2200,
+  pose: { x: 422 - 1100, y: 195 - 900, ox: 1100, oy: 900 },
+  tilt: 46,
+  depth: 1000,
+  screen: { width: 844, height: 390 },
+  margin: 160
+};
+const share = ([px, py]) => [(px / 2200) * 100, (py / 2200) * 100];
+
+test("a dot is placed by its transform alone: on the point the camera looks at, it stays there, at its size", () => {
+  const at = standOf({ ...lens, share: share([1100, 900]) });
+  assert.equal(at.shown, true);
+  assert.equal(at.transform, "translate(1100.0px, 900.0px) scale(1.000)");
+});
+
+test("a dot elsewhere on the screen goes where the perspective draws its point", () => {
+  const at = standOf({ ...lens, share: share([1250, 800]) });
+  const drawn = project({ dx: 150, dy: -100, tilt: 46, depth: 1000 });
+  assert.equal(at.shown, true);
+  assert.equal(
+    at.transform,
+    `translate(${(1100 + drawn.x).toFixed(1)}px, ${(900 + drawn.y).toFixed(1)}px) scale(${drawn.scale.toFixed(3)})`
+  );
+});
+
+test("a dot past the screen's edge (and its margin) is not shown, so nothing is written for it each frame", () => {
+  assert.equal(standOf({ ...lens, share: share([1100 + 422 + 400, 900]) }).shown, false);
+  assert.equal(standOf({ ...lens, share: share([1100, 900 - 1500]) }).shown, false);
+  // just past the edge but inside the margin: shown, a piece standing there still shows its head
+  assert.equal(standOf({ ...lens, share: share([1100 + 422 + 100, 900]) }).shown, true);
+});
+
+test("a dot behind the camera is not shown", () => {
+  assert.equal(standOf({ ...lens, share: share([1100, 900 + 2000]) }).shown, false);
 });
 
 const map = {
@@ -93,17 +133,17 @@ const withMonsters = {
   neutral: [{ id: "tyrant", kind: "tyrant", at: [480, 560], monsters: ["tyrant"] }]
 };
 
-test("a camp whose monsters have their pictures shows one dot a monster, with its picture, and no icon", () => {
+test("a camp whose main monster has its picture shows ONE dot, the game's one icon a camp (lesson 10, 0:36)", () => {
   const html = spotsHtml(withMonsters, art);
   const camp =
     html.match(
       /<span class="sim-spot sim-spot--camp[^"]*" data-camp="blue-camp-2"[^>]*>.*?<\/span><\/span>/
     )?.[0] ?? "";
   assert.match(camp, /sim-spot--monsters/);
-  assert.match(camp, /data-count="4"/);
+  assert.match(camp, /data-count="1"/);
   assert.equal((camp.match(/class="sim-monster sim-monster--boar"/g) ?? []).length, 1);
-  assert.equal((camp.match(/class="sim-monster sim-monster--boarling"/g) ?? []).length, 3);
-  assert.equal((camp.match(/<img alt="" src="data:image\/webp;base64,/g) ?? []).length, 4);
+  assert.doesNotMatch(camp, /sim-monster--boarling/);
+  assert.equal((camp.match(/<img alt="" src="data:image\/webp;base64,/g) ?? []).length, 1);
   assert.doesNotMatch(camp, /<svg/);
   assert.doesNotMatch(html, /style=/);
 });
@@ -116,12 +156,30 @@ test("the Tyrant carries its shadow picture too, shown once it turns into the Sh
   );
 });
 
-test("without a picture for each of its monsters (an older server, a doubtful address), a camp keeps its icon", () => {
+test("without a picture for its main monster (an older server, a doubtful address), a camp keeps its icon", () => {
   const html = spotsHtml(withMonsters, {
-    "monster-boar": PIXEL,
-    "monster-boarling": "javascript:alert(1)"
+    "monster-boar": "javascript:alert(1)",
+    "monster-boarling": PIXEL
   });
   assert.doesNotMatch(html, /sim-monster/);
   assert.doesNotMatch(html, /javascript/);
   assert.equal((spotsHtml(withMonsters).match(/<svg/g) ?? []).length, 5);
+});
+
+// what placeAt is given: an element of the page, its style, its layer
+const element = layer => ({ style: {}, parentElement: { dataset: layer } });
+
+test("on the layer the camera stands (data-stand), placeAt keeps the point and writes no left/top", () => {
+  const dot = element({ stand: "" });
+  placeAt(dot, [150 + 362, 150 + 181], "blue");
+  assert.deepEqual(standAt.get(dot), [50, 25]);
+  assert.equal(dot.style.left, undefined);
+  assert.equal(dot.style.top, undefined);
+});
+
+test("elsewhere (the minimap, a watched game) placeAt still places by left/top", () => {
+  const dot = element({});
+  placeAt(dot, [150 + 362, 150 + 181], "blue");
+  assert.equal(dot.style.left, "50.00%");
+  assert.equal(dot.style.top, "25.00%");
 });
