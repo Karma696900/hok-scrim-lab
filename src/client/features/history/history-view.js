@@ -158,11 +158,12 @@ function dashboardHtml({ stats, board }) {
     </div>`;
 }
 
-/** The roster, for a history that has no game yet: real heroes to draft with, in place of an empty dashboard. */
+/** The roster, for a history that has no game yet: real heroes to draft with, in place of an empty dashboard. One row of
+ * 10 heroes, up to 16 on a wide screen (history.css shows as many as the width holds, at the same size). */
 function rosterHtml() {
   const heroes = state.heroes
     .filter(hero => hero.availableGlobal !== false && hero.image && !hero.isFlowborn)
-    .slice(0, 10);
+    .slice(0, 16);
   if (!heroes.length) {
     return "";
   }

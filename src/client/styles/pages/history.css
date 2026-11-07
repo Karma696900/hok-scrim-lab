@@ -131,8 +131,36 @@
 .hi-roster {
   margin-bottom: 20px;
 }
+/* one row of heroes at about the same size on every screen: 10, and more as the page gets wider (it has no fixed width) */
 .hi-roster ul {
-  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--roster, 10), minmax(0, 1fr));
+}
+.hi-roster li:nth-child(n + 11) {
+  display: none;
+}
+@media (min-width: 1800px) {
+  .hi-roster ul {
+    --roster: 12;
+  }
+  .hi-roster li:nth-child(-n + 12) {
+    display: revert;
+  }
+}
+@media (min-width: 2200px) {
+  .hi-roster ul {
+    --roster: 14;
+  }
+  .hi-roster li:nth-child(-n + 14) {
+    display: revert;
+  }
+}
+@media (min-width: 2500px) {
+  .hi-roster ul {
+    --roster: 16;
+  }
+  .hi-roster li:nth-child(-n + 16) {
+    display: revert;
+  }
 }
 
 /* the filter column, then the results */

@@ -319,10 +319,10 @@ body:has(.authpage, .onboarding) .sitefoot {
   display: none;
 }
 /* ---------- the page host and the heading of a page ---------- */
+/* the page takes the whole width of the browser, whatever the screen (owner, 2026-11-07: "il faut pas un width fixe") */
 .host {
   width: 100%;
   min-width: 0;
-  max-width: 1500px;
   margin: 0 auto;
   padding: 24px 28px 48px;
 }

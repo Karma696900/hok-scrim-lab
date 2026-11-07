@@ -62,9 +62,10 @@ await step("sync button hidden for non-admin", async () => {
     throw new Error("visible");
   }
 });
-for (const view of ["Heroes", "Tier Lists", "Scrims", "Overview"]) {
+// the entries by the page they open (their labels change: "Tier Lists" became "Tier list maker" on 2026-10-31)
+for (const view of ["heroes", "tier-lists", "scrims", "home"]) {
   await step(`nav ${view}`, async () => {
-    await goNav(page, `.nav-link:has-text("${view}")`);
+    await goNav(page, `.nav-link[data-view="${view}"]`);
     await page.waitForSelector("#view h1");
   });
 }
@@ -91,7 +92,7 @@ await step("series survives a reload (owner = guest cookie)", async () => {
   await page.waitForSelector(".scoreboard");
 });
 await step("create a tier list and move a hero", async () => {
-  await goNav(page, '.nav-link:has-text("Tier Lists")');
+  await goNav(page, '.nav-link[data-view="tier-lists"]');
   await page.click('[data-action="create-tier-list"]');
   await page.waitForSelector(".tier-row");
 });

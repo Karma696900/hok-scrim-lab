@@ -5,8 +5,8 @@
   --host-px: 28px;
   --host-pt: 24px;
   --host-pb: 96px;
-  /* the side space of the blocks that are not full width: the padding of the page, and the margin of its 1500 px column on a wide screen */
-  --gutter: max(var(--host-px), calc((100% - 1444px) / 2));
+  /* the side space of the blocks that are not full width: the padding of the page (the page has no fixed width) */
+  --gutter: var(--host-px);
   display: grid;
   gap: 16px;
   align-content: start;

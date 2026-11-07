@@ -1,10 +1,9 @@
 /* The legal pages and the contact form (client/features/legal/legal-page.js): a title, the five pages as tabs, and a text
-   in one readable column. Classes legal-*. */
+   in one readable column. Classes legal-*. The page takes the whole width; only the lines of the text keep a length
+   that can be read (in characters, so they follow the size of the letters). */
 .legal {
   display: grid;
   gap: 20px;
-  max-width: 780px;
-  margin-inline: auto;
 }
 .legal .page-head {
   margin-bottom: 0;
@@ -58,6 +57,8 @@
 }
 .legal-doc p,
 .legal-doc li {
+  /* the card takes the width of the page; a line of text stays short enough to be read (in characters) */
+  max-width: 90ch;
   color: var(--muted);
 }
 .legal-doc p + p {
@@ -112,6 +113,15 @@
 .legal-form {
   display: grid;
   gap: 18px;
+}
+/* a wide screen: name, email and subject side by side, the message and the rest under them on the whole width */
+@media (min-width: 1100px) {
+  .legal-form {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .legal-form > :nth-child(n + 4) {
+    grid-column: 1 / -1;
+  }
 }
 .legal-form__note {
   max-width: none;
