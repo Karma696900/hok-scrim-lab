@@ -4,7 +4,10 @@
 import { pageRoot } from "../../app/view-wrapper.js";
 import { escapeHtml } from "../../lib/escape.js";
 import { landingMarkup, missingMarkup, rollMarkup } from "./casino-markup.js";
-import { onAction, onChange } from "./casino-actions.js";
+import { onAction, onChange, searchPools } from "./casino-actions.js";
+import { readBasket } from "./casino-basket.js";
+import { closeBasket } from "./casino-basket-panel.js";
+import { fillSceneArt, sceneHero } from "../../domain/scene-art.js";
 import { poolsMarkup } from "./casino-pools.js";
 import { readKey, takeKeyFromHash } from "./casino-key.js";
 import { startLive } from "./casino-live.js";
@@ -40,13 +43,29 @@ export function createCasinoPage({ hydration, api, tell, go, state }) {
       return;
     }
     const heroes = view.heroes();
+    const basket = readBasket().length;
     if (!view.roll) {
-      view.root.innerHTML = view.id ? missingMarkup(view) : landingMarkup(view);
+      const art = sceneHero(3);
+      view.root.innerHTML = view.id
+        ? missingMarkup(view, { art })
+        : landingMarkup(view, { art, basket });
+      fillSceneArt(view.root.querySelector(".cs-stage__art"), art);
       return;
     }
     const control = Boolean(view.key);
-    const extra = control ? poolsMarkup(view, state.heroes ?? [], view.roll.pools) : "";
-    view.root.innerHTML = rollMarkup(view, view.roll, heroes, { control, extra });
+    // a change of the pools not saved yet stays on screen when another change of the roulette arrives
+    const pools = view.pendingPools ?? view.roll.pools;
+    const extra = control ? poolsMarkup(view, state.heroes ?? [], pools) : "";
+    const art = heroes.get(view.roll.result?.mid ?? "") ?? sceneHero(3);
+    view.root.innerHTML = rollMarkup(view, view.roll, heroes, { control, extra, basket, art });
+    fillSceneArt(view.root.querySelector(".cs-stage__art"), art);
+    if (view.search) {
+      const box = view.root.querySelector('input[name="casino-search"]');
+      if (box) {
+        box.value = view.search;
+        searchPools(view, view.search);
+      }
+    }
   };
 
   /** Takes a state from the server: paints it, and spins the reels of the lanes it drew when it is new. */
@@ -63,6 +82,9 @@ export function createCasinoPage({ hydration, api, tell, go, state }) {
     /** Draws the landing (`casinoId` null) or one roulette. */
     async show(app, casinoId = null) {
       view.stop();
+      closeBasket();
+      view.pendingPools = null;
+      view.search = "";
       view.root = pageRoot(app, hydration, "casino-root");
       view.root.addEventListener("click", event => onAction(view, event));
       view.root.addEventListener("input", event => onChange(view, event));

@@ -2877,3 +2877,18 @@
 3042|No hay ningún héroe en esta línea.
 3043|Esta ruleta no existe.
 3044|La ruleta cambió al mismo tiempo. Inténtalo de nuevo.
+3045|La cesta está llena ({max} composiciones).
+3046|Gira primero: aún no hay ningún héroe que guardar.
+3047|Añadida a la cesta ({count}).
+3048|Elige al menos una línea para volver a girar.
+3049|Cesta
+3050|Composición {n}
+3051|Descargar el PDF
+3052|Añade una composición desde una ruleta: se guarda aquí, en este navegador, hasta que la descargues.
+3053|Gira, vuelve a girar una línea cuando un héroe esté baneado y guarda en la cesta los equipos que te gusten.
+3054|En directo: cada giro del creador aparece aquí en cuanto cae.
+3055|Volver a girar las líneas elegidas
+3056|Añadir a la cesta
+3057|Los retratos de los héroes pertenecen a sus respectivos propietarios (Tencent / TiMi Studio Group) y se muestran desde una caché local.
+3058|La cesta debe contener de 1 a {max} composiciones, cada una con un nombre de {name} caracteres como máximo.
+3059|Ningún héroe coincide con esta búsqueda.

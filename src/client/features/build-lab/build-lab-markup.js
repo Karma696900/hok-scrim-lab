@@ -16,18 +16,13 @@ import { slotImage } from "../../lib/dom.js";
 import { t } from "../../app/browser-i18n.js";
 import { tx } from "../../domain/staff-content.js";
 import { heroName, stage } from "./build-lab-parts.js";
+import { heroPicker } from "../../shell/hero-picker.js";
 
-/** The hero of the build: its picture, a list to change it, what it is. */
+/** The hero of the build: its picture, the hero picker to change it, what it is. */
 export const heroBlock = (view, current) => `<div class="lab-hero lb-hero">
       ${current ? `<span class="pt s-84 pt--ring">${slotImage(current)}</span>` : `<span class="lb-hero__empty">${icon("cube")}</span>`}
       <div class="lb-hero__main">
-        <label class="label" for="lab-hero">${t("Hero")}<span class="field"><select id="lab-hero"><option value="">${t("No hero (items only)")}</option>${view
-          .heroes()
-          .map(
-            entry =>
-              `<option value="${escapeHtml(entry.id)}"${entry.id === view.heroId ? " selected" : ""}>${escapeHtml(heroName(entry))}</option>`
-          )
-          .join("")}</select></span></label>
+        <div class="label">${t("Hero")}${heroPicker({ id: "lab-hero", value: view.heroId ?? "", heroes: view.heroes(), empty: t("No hero (items only)"), label: t("Hero") })}</div>
         ${current ? `<div class="lb-hero__meta">${escapeHtml((current.roles ?? []).map(classLabel).join(" · "))}${current.lanes?.length ? laneLogos(current.lanes, 24) : ""}</div>` : ""}
       </div>
     </div>`;

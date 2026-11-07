@@ -1,0 +1,114 @@
+/* The basket of the composition roulette (/casino, client/features/casino/casino-basket*.js; owner, 2026-11-07): a
+   side panel over the page, with each kept composition, its name to edit, its five avatars and the download. */
+
+.casino-basket {
+  inset: 0 0 0 auto;
+  width: min(440px, 100vw);
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-inline-start: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+}
+.casino-basket[open] {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+.casino-basket::backdrop {
+  background: rgba(5, 9, 15, 0.6);
+}
+.casino-basket__head,
+.casino-basket__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 18px;
+}
+.casino-basket__head {
+  border-bottom: 1px solid var(--line);
+}
+.casino-basket__head h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 22px;
+}
+.casino-basket__foot {
+  border-top: 1px solid var(--line);
+}
+.casino-basket__foot .btn {
+  width: 100%;
+}
+.casino-basket__list {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 18px;
+  overflow-y: auto;
+  list-style: none;
+}
+.casino-basket__item {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+}
+.casino-basket__row {
+  display: flex;
+  gap: 8px;
+}
+.casino-basket__row label {
+  flex: 1;
+}
+.casino-basket__row input {
+  width: 100%;
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+}
+.casino-basket__heroes {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.casino-basket__hero {
+  position: relative;
+}
+.casino-basket__art,
+.casino-basket__art img,
+.casino-basket__art .image-fallback {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--r-sm);
+}
+.casino-basket__hero .lanes {
+  position: absolute;
+  top: 3px;
+  inset-inline-start: 3px;
+  padding: 2px;
+  border-radius: 4px;
+  background: rgba(10, 17, 26, 0.78);
+}
+.casino-basket__empty {
+  margin: 0;
+  padding: 18px;
+  color: var(--muted);
+}

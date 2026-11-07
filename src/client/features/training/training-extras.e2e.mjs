@@ -6,6 +6,21 @@
 import { chromium } from "playwright";
 import { startTestServer } from "../../../testing/test-app.js";
 import { textOf } from "../../../testing/text.js";
+import { heroesOffered, pickHero } from "../../../testing/hero-pick.js";
+// the heroes of the hero goal form, with how many combos each ("Hero h01 · 3 combos")
+const goalHeroesOffered = async page => {
+  await page.click('[data-hero-picker="hero-goal-hero"] .hero-picker__button');
+  const offered = await page
+    .locator(".pop.hero-pick [data-pick]")
+    .evaluateAll(items =>
+      items.map(
+        item =>
+          `${item.querySelector(".hero-pick__name").textContent} · ${item.querySelector("small")?.textContent}`
+      )
+    );
+  await page.keyboard.press("Escape");
+  return offered;
+};
 
 const app = await startTestServer();
 const player = await app.signIn("Dan");
@@ -420,10 +435,9 @@ await writeCombos("h02", ["Poke", "Reset"]);
 await openTraining(staff);
 check(
   "once combos exist the form lists the heroes that have some, with how many each",
-  (await staff.locator("#hero-goal-hero option").allInnerTexts()).join("|") ===
-    "Hero h01 · 3 combos|Hero h02 · 2 combos"
+  (await goalHeroesOffered(staff)).join("|") === "Hero h01 · 3 combos|Hero h02 · 2 combos"
 );
-await staff.selectOption("#hero-goal-hero", "h01");
+await pickHero(staff, "hero-goal-hero", "h01");
 await staff.click('#hero-goal-form button[type="submit"]');
 await staff.waitForSelector("#team-hero-goals .goal-row");
 const askedRow = await text(staff, "#team-hero-goals .goal-row");
@@ -599,7 +613,7 @@ check(
 );
 
 // a second hero in one form only, then the goals are removed
-await staff.selectOption("#hero-goal-hero", "h02");
+await pickHero(staff, "hero-goal-hero", "h02");
 await staff.selectOption("#hero-goal-form-kind", "normal");
 await staff.click('#hero-goal-form button[type="submit"]');
 await staff.waitForFunction(
@@ -657,13 +671,13 @@ await book.waitForSelector("#note-url");
 check(
   "choosing a video review adds the link and the moments; it needs a hero; its statuses are for a video",
   (await book.locator("#note-marks").count()) === 1 &&
-    (await book.locator('#note-hero option[value=""]').count()) === 0 &&
+    !(await heroesOffered(book, "note-hero")).includes("") &&
     (await book.locator("#note-status option").allInnerTexts()).join("|") ===
       "To watch|Being reviewed|Reviewed" &&
     (await book.locator("#note-marks").getAttribute("aria-describedby")) === "note-marks-help"
 );
 await book.fill("#note-title", "Scrim vs Wolves");
-await book.selectOption("#note-hero", "h01");
+await pickHero(book, "note-hero", "h01");
 await book.fill("#note-url", "http://youtu.be/abc123");
 await book.click('#note-form button[type="submit"]');
 await book.waitForFunction(() =>

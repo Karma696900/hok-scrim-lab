@@ -42,8 +42,10 @@ describe("the casino routes", () => {
 });
 
 describe("the casino markup", () => {
-  test("the landing offers to create a roulette", () => {
-    assert.match(landingMarkup(view), /data-action="casino-create"/);
+  test("the landing offers to create a roulette, in the site's stage", () => {
+    const html = landingMarkup(view);
+    assert.match(html, /class="btn btn--primary" data-action="casino-create"/);
+    assert.match(html, /<header class="page-head cs-stage keep-dark/);
   });
 
   test("a spectator sees five heroes and no control", () => {
@@ -55,15 +57,38 @@ describe("the casino markup", () => {
     for (const action of ["casino-spin", "casino-respin", "casino-ban", "casino-unban"]) {
       assert.doesNotMatch(html, new RegExp(`data-action="${action}"`));
     }
-    assert.doesNotMatch(html, /name="casino-lane"/);
+    assert.doesNotMatch(html, /data-action="casino-lane-toggle"/);
     assert.match(html, /data-action="casino-copy-link"/);
+    assert.match(html, /data-action="casino-basket-add"/, "a spectator fills its own basket too");
   });
 
-  test("the creator sees spin, the lane ticks and Banned buttons", () => {
+  test("each lane is one square: the lane's icon, the hero over the whole square, then Respin and Banned (owner, 2026-11-07)", () => {
+    const html = rollMarkup(view, state(), heroes, { control: true });
+    const squares = [...html.matchAll(/<div class="casino-square">([\s\S]*?)<\/div>\s*<\/div>/g)];
+    assert.equal(count(html, /class="casino-square"/g), 5);
+    assert.equal(count(html, /class="casino-square__lane"/g), 5);
+    assert.ok(squares.every(([, inside]) => /casino-reel/.test(inside)));
+    assert.doesNotMatch(html, /casino-slot__lane/, "no lane row above the square any more");
+  });
+
+  test("the page opens with the site's stage, the share links and the basket", () => {
+    const html = rollMarkup(view, state(), heroes, { control: true, basket: 3 });
+    assert.match(html, /<header class="page-head cs-stage keep-dark/);
+    assert.match(
+      html,
+      /data-action="casino-basket-open"[^>]*>[\s\S]*?<b class="casino-count">3<\/b>/
+    );
+    assert.match(html, /class="btn btn--primary" data-action="casino-spin"/);
+  });
+
+  test("the creator sees spin, a Respin toggle per lane and Banned buttons", () => {
     const html = rollMarkup(view, state(), heroes, { control: true });
     assert.match(html, /data-action="casino-spin"/);
     assert.match(html, /data-action="casino-respin"/);
-    assert.equal(count(html, /name="casino-lane"/g), 5);
+    assert.equal(
+      count(html, /data-action="casino-lane-toggle" data-lane="\w+" aria-pressed="false"/g),
+      5
+    );
     assert.equal(count(html, /data-action="casino-ban"/g), 5);
     assert.match(html, /data-action="casino-unban" data-hero="f"/);
     assert.match(html, /data-action="casino-copy-control"/);
@@ -104,7 +129,7 @@ describe("the casino markup", () => {
   test("the roulette carries its version, so a browser check knows a new result is painted", () => {
     assert.match(
       rollMarkup(view, state(), heroes, { control: false }),
-      /<section class="casino" data-version="3">/
+      /<section class="casino casino--roll" data-version="3">/
     );
   });
 });

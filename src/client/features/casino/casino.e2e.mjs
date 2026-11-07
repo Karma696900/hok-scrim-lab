@@ -1,6 +1,6 @@
 // Browser check of the composition roulette (/casino, spec 2026-11-07 casino): no account anywhere. A creates a
 // roulette and spins; B opens the share link and sees the same five heroes, without controls, and follows A's respin
-// and ban live; C opens A's control link and gets the controls; D comes with a wrong key and is a spectator. On a
+// and ban live, then keeps compositions in the basket and downloads one PDF; C opens A's control link and gets the controls; D comes with a wrong key and is a spectator. On a
 // phone nothing scrolls sideways, with motion allowed and reduced.
 import { chromium } from "playwright";
 import { startTestServer } from "../../../testing/test-app.js";
@@ -22,12 +22,15 @@ const browser = await chromium.launch();
 const open = async (options = {}) => {
   const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, ...options });
   const page = await context.newPage();
-  page.on("pageerror", error => problems.push(`page error: ${error.message}`));
+  page.on("pageerror", error => {
+    console.log(`page error: ${error.stack}`);
+    problems.push(`page error: ${error.message}`);
+  });
   return page;
 };
-const names = page => page.locator(".casino-reel .casino-hero b").allInnerTexts();
+const names = page => page.locator(".casino-reel .casino-hero b").allTextContents();
 const nameIn = (page, lane) =>
-  page.locator(`.casino-reel[data-lane="${lane}"] .casino-hero b`).innerText();
+  page.locator(`.casino-reel[data-lane="${lane}"] .casino-hero b`).textContent();
 const version = page =>
   page.evaluate(() =>
     Number(document.querySelector(".casino[data-version]")?.dataset.version ?? -1)
@@ -81,7 +84,12 @@ check(
 
 // ---- A respins Mid only; B follows ----
 // (a respin draws again from the pool: it may land on the same hero, so the check is the version and the history)
-await a.check('input[name="casino-lane"][value="mid"]');
+await a.click('[data-action="casino-lane-toggle"][data-lane="mid"]');
+check(
+  "the Respin button of Mid stays pressed until the respin",
+  (await a.getAttribute('[data-action="casino-lane-toggle"][data-lane="mid"]', "aria-pressed")) ===
+    "true"
+);
 await act(a, '[data-action="casino-respin"]');
 const midAfter = await nameIn(a, "mid");
 const respun = await version(a);
@@ -118,7 +126,7 @@ const farm = await nameIn(a, "farm");
 await act(a, '[data-action="casino-ban"][data-lane="farm"]');
 check(
   "the banned hero is listed under Banned",
-  (await a.locator(".casino-banned").innerText()).includes(farm)
+  (await a.locator(".casino-banned").textContent()).includes(farm)
 );
 check("Farm changed after the ban", (await nameIn(a, "farm")) !== farm);
 await b.waitForFunction(
@@ -129,6 +137,61 @@ await b.waitForFunction(
   }
 );
 check("the spectator sees the ban", true);
+
+// ---- A takes a hero out of the Jungle pool: saved by itself ----
+const dropped = await a
+  .locator('.casino-pick[data-lane="jungle"][aria-pressed="true"]')
+  .first()
+  .getAttribute("data-hero");
+const jungle = a.locator(`.casino-pick[data-lane="jungle"][data-hero="${dropped}"]`);
+await jungle.click();
+check(
+  "a pool avatar is released at the click",
+  (await jungle.getAttribute("aria-pressed")) === "false"
+);
+await a.waitForFunction(() =>
+  /saved/i.test(document.querySelector("[data-pools-status]")?.textContent ?? "")
+);
+const pooled = await a.evaluate(
+  id => fetch(`/api/casino/${id}`).then(response => response.json()),
+  shareUrl.split("/").pop()
+);
+check("the pool is saved without a Save button", !pooled.pools.jungle.includes(dropped));
+
+// ---- the basket: B (a spectator) keeps the composition and downloads one PDF ----
+await b.click('[data-action="casino-basket-add"]');
+await b.click('[data-action="casino-basket-add"]');
+check(
+  "the spectator can keep compositions (the count says 2)",
+  (await b.locator(".cs-stage .casino-count").innerText()) === "2"
+);
+await b.click('[data-action="casino-basket-open"]');
+await b.waitForSelector("dialog.casino-basket[open] .casino-basket__item");
+check(
+  "the basket lists the two compositions",
+  (await b.locator(".casino-basket__item").count()) === 2
+);
+await b.fill('dialog.casino-basket input[name="casino-basket-name"] >> nth=0', "Dive comp");
+await b.locator('dialog.casino-basket input[name="casino-basket-name"] >> nth=0').blur();
+await b.click('[data-action="casino-basket-remove"] >> nth=1');
+check("a composition is removed", (await b.locator(".casino-basket__item").count()) === 1);
+const [file] = await Promise.all([
+  b.waitForEvent("download", { timeout: 60_000 }),
+  b.click('[data-action="casino-basket-pdf"]')
+]);
+const pdfPath = await file.path();
+const { readFileSync } = await import("node:fs");
+const bytes = pdfPath ? readFileSync(pdfPath) : Buffer.alloc(0);
+check(
+  `the basket downloads one PDF (${file.suggestedFilename()}, ${bytes.length} bytes)`,
+  /^hok-compositions-\d{4}-\d{2}-\d{2}\.pdf$/.test(file.suggestedFilename()) &&
+    bytes.subarray(0, 5).toString() === "%PDF-"
+);
+check(
+  "the name typed is kept in the basket",
+  await b.evaluate(() => JSON.parse(localStorage.getItem("casino-basket"))[0].name === "Dive comp")
+);
+await b.click('[data-action="casino-basket-close"]');
 
 // ---- C opens the control link ----
 const key = await a.evaluate(

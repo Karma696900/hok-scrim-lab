@@ -2877,3 +2877,18 @@
 3042|In dieser Lane wird kein Held angezeigt.
 3043|Dieses Roulette existiert nicht.
 3044|Das Roulette wurde gleichzeitig geändert. Versuche es erneut.
+3045|Der Warenkorb ist voll ({max} Aufstellungen).
+3046|Erst drehen: Es gibt noch keinen Helden zum Behalten.
+3047|Zum Warenkorb hinzugefügt ({count}).
+3048|Wähle mindestens eine Lane zum erneuten Drehen.
+3049|Warenkorb
+3050|Aufstellung {n}
+3051|PDF herunterladen
+3052|Füge eine Aufstellung aus einem Roulette hinzu: Sie bleibt hier in diesem Browser, bis du sie herunterlädst.
+3053|Drehe, drehe eine Lane neu, wenn ein Held gebannt ist, und behalte die Teams, die dir gefallen, im Warenkorb.
+3054|Live: Jede Drehung des Erstellers erscheint hier, sobald sie stoppt.
+3055|Gewählte Lanes neu drehen
+3056|Zum Warenkorb hinzufügen
+3057|Die Heldenporträts gehören ihren jeweiligen Eigentümern (Tencent / TiMi Studio Group) und werden aus einem lokalen Cache angezeigt.
+3058|Der Warenkorb muss 1 bis {max} Aufstellungen enthalten, jede mit einem Namen von höchstens {name} Zeichen.
+3059|Kein Held passt zu dieser Suche.

@@ -1,0 +1,180 @@
+/* The hero picker (shell/hero-picker.js; owner, 2026-11-07): the field shows the chosen hero's avatar and name; its
+   panel (a .pop of popover.js) has a search, the five lanes and the avatars, as the tiles of pickers.css. */
+
+.hero-picker {
+  display: block;
+  min-width: 0;
+}
+.hero-picker__button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--ink);
+  font: 500 14px/1.2 var(--font-body);
+  text-align: start;
+  cursor: pointer;
+  transition: border-color 160ms var(--ease);
+}
+.hero-picker__button:hover,
+.hero-picker__button[aria-expanded="true"] {
+  border-color: var(--brand);
+}
+.hero-picker__art,
+.hero-pick__art {
+  display: grid;
+  place-items: center;
+  flex: none;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--muted);
+}
+.hero-picker__art {
+  width: 34px;
+  height: 34px;
+}
+.hero-picker__art img,
+.hero-picker__art .image-fallback,
+.hero-pick__art img,
+.hero-pick__art .image-fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-picker__name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hero-picker__button > .i {
+  flex: none;
+  color: var(--muted);
+}
+
+/* the panel: above the sheets and the dark backdrops a form can sit in (80-90: the build sheet of the lab on a
+   phone), under the toasts (120) */
+.pop.hero-pick {
+  z-index: 110;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 10px;
+  width: min(440px, calc(100vw - 16px));
+  padding: 12px;
+  overflow: hidden;
+}
+.hero-pick__head {
+  display: grid;
+  gap: 8px;
+}
+.hero-pick__search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: var(--panel-soft);
+  color: var(--muted);
+}
+.hero-pick__search:focus-within {
+  border-color: var(--brand);
+}
+.hero-pick__search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  outline: none;
+}
+.hero-pick__lanes {
+  display: flex;
+  gap: 6px;
+}
+.hero-pick__lane {
+  display: inline-grid;
+  place-items: center;
+  min-width: 36px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--ink);
+  font: 700 12px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.hero-pick__lane[aria-pressed="true"] {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 22%, transparent);
+}
+.hero-pick__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+  align-content: start;
+  gap: 6px;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.hero-pick__item {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 4px;
+  min-width: 0;
+  padding: 6px 4px;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--ink);
+  font: 500 12px/1.2 var(--font-body);
+  cursor: pointer;
+}
+.hero-pick__item .hero-pick__art {
+  width: 52px;
+  height: 52px;
+}
+.hero-pick__item:hover,
+.hero-pick__item:focus-visible {
+  border-color: var(--line);
+  background: var(--panel-soft);
+}
+.hero-pick__item[aria-pressed="true"] {
+  border-color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+}
+.hero-pick__name {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hero-pick__item small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.hero-pick__none {
+  grid-column: 1 / -1;
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-picker__button {
+    transition: none;
+  }
+}

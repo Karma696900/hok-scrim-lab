@@ -2877,3 +2877,18 @@
 3042|Nenhum herói é mostrado nesta rota.
 3043|Esta roleta não existe.
 3044|A roleta mudou ao mesmo tempo. Tente novamente.
+3045|A cesta está cheia ({max} composições).
+3046|Gire primeiro: ainda não há herói para guardar.
+3047|Adicionada à cesta ({count}).
+3048|Escolha pelo menos uma lane para girar de novo.
+3049|Cesta
+3050|Composição {n}
+3051|Baixar o PDF
+3052|Adicione uma composição de uma roleta: ela fica guardada aqui, neste navegador, até você baixá-la.
+3053|Gire, gire de novo uma lane quando um herói for banido e guarde na cesta os times de que gostar.
+3054|Ao vivo: cada giro do criador aparece aqui assim que para.
+3055|Girar de novo as lanes escolhidas
+3056|Adicionar à cesta
+3057|Os retratos dos heróis pertencem aos seus respectivos proprietários (Tencent / TiMi Studio Group) e são exibidos a partir de um cache local.
+3058|A cesta deve ter de 1 a {max} composições, cada uma com nome de no máximo {name} caracteres.
+3059|Nenhum herói corresponde a esta busca.

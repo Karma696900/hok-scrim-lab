@@ -40,10 +40,11 @@ export function menuItems(items) {
 /**
  * Opens a menu under `anchor` (a second click on the anchor closes it). `html` is the content of
  * the menu; `onPick(id, element)` is called with the `data-pick` of the entry that was chosen;
- * `className` adds a class to the menu (its width, for instance).
+ * `className` adds a class to the menu (its width, for instance); `align: "start"` lines it up with the start of the
+ * anchor (a field of a form) instead of its end (a button of the top bar).
  * Returns the menu element, or null when this click closed it.
  */
-export function openMenu(anchor, html, { onPick, label = "", className = "" } = {}) {
+export function openMenu(anchor, html, { onPick, label = "", className = "", align = "end" } = {}) {
   const wasOpen = open?.anchor === anchor;
   closeMenu();
   if (wasOpen) {
@@ -64,7 +65,8 @@ export function openMenu(anchor, html, { onPick, label = "", className = "" } = 
     const rtl = document.documentElement.dir === "rtl";
     pop.style.top = `${rect.bottom + 8}px`;
     pop.style.maxHeight = `${Math.max(160, innerHeight - rect.bottom - 16)}px`;
-    const left = rtl ? rect.left : rect.right - width;
+    const start = align === "start";
+    const left = rtl === start ? rect.right - width : rect.left;
     pop.style.left = `${Math.max(8, Math.min(innerWidth - width - 8, left))}px`;
   };
   place();

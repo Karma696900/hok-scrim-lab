@@ -23,6 +23,8 @@ export function createExportService({
   return {
     exportSeries: ctx.exportSeries,
 
-    exportFiltered: ctx.exportFiltered
+    exportFiltered: ctx.exportFiltered,
+
+    renderDocument: ctx.renderDocument
   };
 }

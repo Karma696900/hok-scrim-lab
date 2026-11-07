@@ -5,6 +5,7 @@ import { escapeHtml as esc } from "../../lib/escape.js";
 import { icon } from "../../../shared/icons.js";
 import { laneLabel } from "../../domain/lanes.js";
 import { t } from "../../app/browser-i18n.js";
+import { heroPicker } from "../../shell/hero-picker.js";
 
 export const hero = (view, id) => view.state.heroes.find(item => item.id === id);
 
@@ -18,7 +19,14 @@ export function profileForm(view, player) {
   const p = player.profile;
   const heroes = view.state.heroes.filter(item => item.availableGlobal !== false);
   const select = index =>
-    `<label class="field"><select name="hero${index}" aria-label="${t("Main hero {number}", { number: index + 1 })}"><option value="">—</option>${heroes.map(item => `<option value="${esc(item.id)}"${p.mainHeroes[index] === item.id ? " selected" : ""}>${esc(heroName(item))}</option>`).join("")}</select></label>`;
+    heroPicker({
+      id: `pr-hero${index}`,
+      name: `hero${index}`,
+      value: p.mainHeroes[index] ?? "",
+      heroes,
+      empty: t("No hero"),
+      label: t("Main hero {number}", { number: index + 1 })
+    });
   return `<form id="profile-form" class="card card--feature pl-form rise" novalidate>
       <div class="card__head"><h2>${t("Edit my profile")}</h2></div>
       <div class="pl-form__cols">

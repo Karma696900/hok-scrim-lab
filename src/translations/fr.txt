@@ -2877,3 +2877,18 @@
 3042|Aucun héros n'est affiché dans cette voie.
 3043|Cette roulette n'existe pas.
 3044|La roulette a changé au même moment. Réessayez.
+3045|Le panier est plein ({max} compositions).
+3046|Lancez d'abord : il n'y a encore aucun héros à garder.
+3047|Ajoutée au panier ({count}).
+3048|Choisissez au moins une lane à relancer.
+3049|Panier
+3050|Composition {n}
+3051|Télécharger le PDF
+3052|Ajoutez une composition depuis une roulette : elle est gardée ici, dans ce navigateur, jusqu'à ce que vous la téléchargiez.
+3053|Lancez, relancez une lane quand un héros est banni, et gardez les équipes qui vous plaisent dans le panier.
+3054|En direct : chaque lancer du créateur s'affiche ici dès qu'il tombe.
+3055|Relancer les lanes choisies
+3056|Ajouter au panier
+3057|Les portraits des héros appartiennent à leurs propriétaires respectifs (Tencent / TiMi Studio Group) et sont affichés depuis un cache local.
+3058|Le panier doit contenir de 1 à {max} compositions, chacune nommée en {name} caractères au plus.
+3059|Aucun héros ne correspond à cette recherche.

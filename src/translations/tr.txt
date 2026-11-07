@@ -2877,3 +2877,18 @@
 3042|Bu koridorda gösterilen bir kahraman yok.
 3043|Bu rulet mevcut değil.
 3044|Rulet aynı anda değişti. Tekrar dene.
+3045|Sepet dolu ({max} kompozisyon).
+3046|Önce çevirin: henüz saklanacak bir kahraman yok.
+3047|Sepete eklendi ({count}).
+3048|Yeniden çevirmek için en az bir koridor seçin.
+3049|Sepet
+3050|Kompozisyon {n}
+3051|PDF'yi indir
+3052|Bir ruletten kompozisyon ekleyin: indirene kadar burada, bu tarayıcıda saklanır.
+3053|Çevirin, bir kahraman yasaklandığında koridoru yeniden çevirin ve beğendiğiniz takımları sepette saklayın.
+3054|Canlı izleniyor: oluşturucunun her çevirmesi durduğu anda burada görünür.
+3055|Seçilen koridorları yeniden çevir
+3056|Sepete ekle
+3057|Kahraman portreleri ilgili sahiplerine (Tencent / TiMi Studio Group) aittir ve yerel bir önbellekten gösterilir.
+3058|Sepette 1 ile {max} arasında kompozisyon olmalı; her birinin adı en fazla {name} karakter olabilir.
+3059|Bu aramaya uyan kahraman yok.

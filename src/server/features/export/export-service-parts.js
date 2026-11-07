@@ -154,4 +154,35 @@ const PNG_LIMIT_MESSAGE = message(
 );
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
-export const onView = { report, finish, exportSeries, exportFiltered };
+/**
+ * A PDF of another page than the series report (the casino's basket): in the export queue under `key`, with the
+ * cached portraits of `heroIds`. `render({ heroById, portraitPath })` returns `{ html, assets }`, its own assets added
+ * to the portraits.
+ */
+export async function renderDocument(ctx, key, heroIds, render, { language = "en" } = {}) {
+  return ctx.queue.run(key, async () => {
+    const heroes = (await ctx.store.readHeroes()).map(presentHero);
+    const wanted = new Set(heroIds);
+    const cached = await ctx.portraits.many(heroes.filter(hero => wanted.has(hero.id)));
+    const portraits = new Map();
+    for (const [heroId, portrait] of cached) {
+      if (portrait) {
+        portraits.set(`/portraits/${encodeURIComponent(heroId)}`, portrait);
+      }
+    }
+    const portraitPath = heroId =>
+      portraits.has(`/portraits/${encodeURIComponent(heroId)}`)
+        ? `/portraits/${encodeURIComponent(heroId)}`
+        : null;
+    const page = await render({
+      heroById: new Map(heroes.map(hero => [hero.id, hero])),
+      portraitPath
+    });
+    const assets = new Map([...portraits, ...page.assets]);
+    const { pdf, blocked } = await ctx.exporter.render({ html: page.html, assets, language });
+    ctx.logger?.info("pdf rendered", { bytes: pdf.length, blocked: blocked.length });
+    return pdf;
+  });
+}
+
+export const onView = { report, finish, exportSeries, exportFiltered, renderDocument };

@@ -3,6 +3,7 @@ import { dateTime, t } from "../../app/browser-i18n.js";
 import { laneLabel, laneLogos } from "../../domain/lanes.js";
 import { slotImage } from "../../lib/dom.js";
 import { icon } from "../../../shared/icons.js";
+import { sceneArtSlot } from "../../domain/scene-art.js";
 
 /** The five lanes, in the order they are shown, with the site's lane names (icons and labels). */
 export const LANES = [
@@ -26,23 +27,37 @@ export const heroCard = (view, heroes, id) => {
 };
 
 const createButton = () =>
-  `<button type="button" class="btn" data-action="casino-create">${icon("dice", "i--sm")}${t("Create a roulette")}</button>`;
+  `<button type="button" class="btn btn--primary" data-action="casino-create">${icon("dice", "i--sm")}${t("Create a roulette")}</button>`;
+
+/** The basket's button, with how many compositions it holds. */
+export const basketButton = (count = 0) =>
+  `<button type="button" class="btn" data-action="casino-basket-open">${icon("basket", "i--sm")}${t("Basket")} <b class="casino-count">${Number(count) || 0}</b></button>`;
+
+// the stage that opens the page, as on the other pages: the cover of a hero behind a veil, the title, what to do
+const stage = ({ art = null, lead, actions = "" }) =>
+  `<header class="page-head cs-stage keep-dark rise">${sceneArtSlot("cs-stage__art", art)}<div class="cs-stage__title"><h1>${t("Composition roulette")}</h1><p>${lead}</p></div>${actions ? `<div class="cs-stage__actions">${actions}</div>` : ""}</header>`;
 
 /** /casino: what the roulette does, and the button that makes one. */
-export const landingMarkup = () => `<section class="casino casino--landing">
-  <header class="casino-head">
-    <h1>${t("Composition roulette")}</h1>
-    <p class="casino-lede">${t("Choose a pool of heroes for each lane, spin, and get one hero per lane. Share the link: your friends watch the result live, no account needed.")}</p>
-  </header>
-  <div class="casino-board casino-board--demo" aria-hidden="true">${LANES.map(([, lane]) => `<div class="casino-slot"><span class="casino-slot__lane">${laneLogos([lane], 22, { decorative: true })}</span><div class="casino-reel"><span class="casino-hero casino-hero--blank">?</span></div></div>`).join("")}</div>
-  <p class="casino-actions">${createButton()}</p>
+export const landingMarkup = (
+  view,
+  { art = null, basket = 0 } = {}
+) => `<section class="casino casino--landing">
+  ${stage({
+    art,
+    lead: t(
+      "Choose a pool of heroes for each lane, spin, and get one hero per lane. Share the link: your friends watch the result live, no account needed."
+    ),
+    actions: `${createButton()}${basket ? basketButton(basket) : ""}`
+  })}
+  <div class="casino-board casino-board--demo" aria-hidden="true">${LANES.map(([, lane]) => `<div class="casino-slot"><div class="casino-square"><div class="casino-reel"><span class="casino-hero casino-hero--blank">?</span></div><span class="casino-square__lane">${laneLogos([lane], 22, { decorative: true })}</span></div></div>`).join("")}</div>
 </section>`;
 
 /** /casino/<id> when no roulette has that id (never made, or deleted after 7 days without use). */
-export const missingMarkup = () => `<section class="casino casino--missing">
-  <h1>${t("Composition roulette")}</h1>
-  <p>${t("This roulette does not exist or has expired.")}</p>
-  <p class="casino-actions">${createButton()}</p>
+export const missingMarkup = (
+  view,
+  { art = null } = {}
+) => `<section class="casino casino--missing">
+  ${stage({ art, lead: t("This roulette does not exist or has expired."), actions: createButton() })}
 </section>`;
 
 const slotMarkup = (view, state, heroes, control, key) => {
@@ -52,17 +67,19 @@ const slotMarkup = (view, state, heroes, control, key) => {
   const content = id
     ? heroCard(view, heroes, id)
     : `<span class="casino-hero casino-hero--blank">${spun ? t("No hero left in this pool") : t("Not spun yet")}</span>`;
-  const tick = control
-    ? `<label class="casino-tick"><input type="checkbox" name="casino-lane" value="${key}"><span>${t("Respin")}</span></label>`
+  const tools = control
+    ? `<div class="casino-slot__tools"><button type="button" class="casino-toggle" data-action="casino-lane-toggle" data-lane="${key}" aria-pressed="false">${icon("refresh", "i--sm")}<span>${t("Respin")}</span></button>${
+        id
+          ? `<button type="button" class="btn btn--sm casino-ban" data-action="casino-ban" data-lane="${key}">${icon("ban", "i--sm")}${t("Banned")}</button>`
+          : ""
+      }</div>`
     : "";
-  const ban =
-    control && id
-      ? `<button type="button" class="btn btn--ghost btn--sm" data-action="casino-ban" data-lane="${key}">${icon("ban", "i--sm")}${t("Banned")}</button>`
-      : "";
   return `<div class="casino-slot" data-lane="${key}">
-    <span class="casino-slot__lane">${laneLogos([lane], 22, { decorative: true })}<span>${view.esc(laneLabel(lane))}</span></span>
-    <div class="casino-reel" data-lane="${key}">${content}</div>
-    ${tick || ban ? `<div class="casino-slot__tools">${tick}${ban}</div>` : ""}
+    <div class="casino-square">
+      <div class="casino-reel" data-lane="${key}">${content}</div>
+      <span class="casino-square__lane" title="${view.esc(laneLabel(lane))}">${laneLogos([lane], 22, { decorative: true })}<span class="visually-hidden">${view.esc(laneLabel(lane))}</span></span>
+    </div>
+    ${tools}
   </div>`;
 };
 
@@ -109,21 +126,25 @@ export const rollMarkup = (
   view,
   state,
   heroes,
-  { control, extra = "" }
-) => `<section class="casino" data-version="${Number(state.version)}">
-  <header class="casino-head">
-    <h1>${t("Composition roulette")}</h1>
-    <p class="casino-share">
-      <button type="button" class="btn btn--ghost btn--sm" data-action="casino-copy-link">${icon("link", "i--sm")}${t("Copy the share link")}</button>
-      ${control ? `<button type="button" class="btn btn--ghost btn--sm" data-action="casino-copy-control">${icon("key", "i--sm")}${t("Copy my control link")}</button>` : `<span class="casino-watching">${icon("eye", "i--sm")}${t("Watching live")}</span>`}
-    </p>
-  </header>
+  { control, extra = "", basket = 0, art = null }
+) => `<section class="casino casino--roll" data-version="${Number(state.version)}">
+  ${stage({
+    art,
+    lead: control
+      ? t("Spin, respin a lane when a hero is banned, and keep the teams you like in the basket.")
+      : t("Watching live: each spin of the creator shows here as it lands."),
+    actions: `<button type="button" class="btn btn--sm" data-action="casino-copy-link">${icon("link", "i--sm")}${t("Copy the share link")}</button>${
+      control
+        ? `<button type="button" class="btn btn--sm" data-action="casino-copy-control">${icon("key", "i--sm")}${t("Copy my control link")}</button>`
+        : `<span class="casino-watching">${icon("eye", "i--sm")}${t("Watching live")}</span>`
+    }${basketButton(basket)}`
+  })}
   <div class="casino-board">${LANES.map(([key]) => slotMarkup(view, state, heroes, control, key)).join("")}</div>
-  ${
+  <p class="casino-actions">${
     control
-      ? `<p class="casino-actions"><button type="button" class="btn" data-action="casino-spin">${icon("dice", "i--sm")}${t("Spin all lanes")}</button><button type="button" class="btn btn--ghost" data-action="casino-respin">${icon("refresh", "i--sm")}${t("Respin ticked lanes")}</button></p>`
+      ? `<button type="button" class="btn btn--primary" data-action="casino-spin">${icon("dice", "i--sm")}${t("Spin all lanes")}</button><button type="button" class="btn" data-action="casino-respin">${icon("refresh", "i--sm")}${t("Respin the chosen lanes")}</button>`
       : ""
-  }
+  }<button type="button" class="btn" data-action="casino-basket-add">${icon("plus", "i--sm")}${t("Add to the basket")}</button></p>
   ${bannedMarkup(view, state, heroes, control)}
   ${historyMarkup(view, state, heroes)}
   ${extra}

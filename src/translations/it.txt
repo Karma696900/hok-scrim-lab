@@ -2877,3 +2877,18 @@
 3042|Nessun eroe è mostrato in questa corsia.
 3043|Questa roulette non esiste.
 3044|La roulette è cambiata nello stesso momento. Riprova.
+3045|Il carrello è pieno ({max} composizioni).
+3046|Prima gira: non c'è ancora nessun eroe da tenere.
+3047|Aggiunta al carrello ({count}).
+3048|Scegli almeno una lane da rigirare.
+3049|Carrello
+3050|Composizione {n}
+3051|Scarica il PDF
+3052|Aggiungi una composizione da una roulette: resta qui, in questo browser, finché non la scarichi.
+3053|Gira, rigira una lane quando un eroe è bannato e tieni nel carrello le squadre che ti piacciono.
+3054|In diretta: ogni giro del creatore appare qui appena si ferma.
+3055|Rigira le lane scelte
+3056|Aggiungi al carrello
+3057|I ritratti degli eroi appartengono ai rispettivi proprietari (Tencent / TiMi Studio Group) e sono mostrati da una cache locale.
+3058|Il carrello deve contenere da 1 a {max} composizioni, ognuna con un nome di al massimo {name} caratteri.
+3059|Nessun eroe corrisponde a questa ricerca.

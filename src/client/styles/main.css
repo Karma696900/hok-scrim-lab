@@ -17,6 +17,7 @@
 @import "./components/art.css";
 @import "./components/overlays.css";
 @import "./components/pickers.css";
+@import "./components/hero-picker.css";
 @import "./components/motion.css";
 @import "./components/skeleton.css";
 @import "./components/shared.css";
@@ -93,6 +94,7 @@
 @import "./pages/popular.css";
 @import "./pages/popular-empty-period.css";
 @import "./pages/casino.css";
+@import "./pages/casino-basket.css";
 @import "./pages/ratings.css";
 @import "./pages/tier-list-public.css";
 @import "./pages/space.css";

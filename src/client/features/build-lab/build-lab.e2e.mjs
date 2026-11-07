@@ -99,13 +99,25 @@ const page = await context.newPage();
 watch(page);
 
 await page.goto(`${app.baseUrl}/build-lab`);
-await page.waitForSelector("#lab-hero");
+await page.waitForSelector('[data-hero-picker="lab-hero"] .hero-picker__button');
 check(
   "the lab opens without any account, with its own entry of the menu lit",
-  (await page.locator("#lab-hero").isVisible()) &&
+  (await page.locator('[data-hero-picker="lab-hero"] .hero-picker__button').isVisible()) &&
     (await page.locator('.nav-link.active[data-view="build-lab"]').count()) === 1
 );
-await page.selectOption("#lab-hero", "h05");
+// as in a list of names: the name typed on the field opens the avatars with that search, Enter takes the first
+await page.focus('[data-hero-picker="lab-hero"] .hero-picker__button');
+await page.keyboard.type("Hero h05");
+check(
+  "typing a name on the hero field shows only the heroes of that name",
+  JSON.stringify(
+    await page
+      .locator(".pop.hero-pick [data-pick]")
+      .evaluateAll(items => items.map(item => item.dataset.pick))
+  ) === '["h05"]'
+);
+await page.keyboard.press("Enter");
+check("Enter picks it", (await page.inputValue("#lab-hero")) === "h05");
 await page.waitForFunction(() =>
   document.querySelector(".lab-hero + .tag-line")?.innerText.includes("Physical")
 );
@@ -293,7 +305,7 @@ await adminContext.addCookies([
 const adminPage = await adminContext.newPage();
 watch(adminPage);
 await adminPage.goto(shared);
-await adminPage.waitForSelector("#lab-hero");
+await adminPage.waitForSelector('[data-hero-picker="lab-hero"] .hero-picker__button');
 check(
   "the lab has no form for the recommended builds any more, even for an administrator",
   (await adminPage.locator("#lab-save, .admin-save").count()) === 0
@@ -371,6 +383,29 @@ check(
 check(
   "a visitor has no link to the editor on the hero sheet",
   (await page.locator('.build-card a[href^="/guides"]').count()) === 0
+);
+
+// on a phone the build is a sheet over the page: the panel of the hero picker opens above it, and a hero is picked
+const phone = await (await browser.newContext({ viewport: { width: 390, height: 844 } })).newPage();
+watch(phone);
+await phone.goto(`${app.baseUrl}/build-lab`);
+await phone.click(".lb-dock__open");
+await phone.click('[data-hero-picker="lab-hero"] .hero-picker__button');
+await phone.waitForSelector(".pop.hero-pick");
+await phone.waitForTimeout(300);
+check(
+  "on a phone the hero panel is above the build sheet and fits the screen",
+  await phone.evaluate(() => {
+    const pop = document.querySelector(".pop.hero-pick");
+    const box = pop.getBoundingClientRect();
+    const hit = document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2);
+    return pop.contains(hit) && box.left >= 0 && box.right <= innerWidth;
+  })
+);
+await phone.click('.pop.hero-pick [data-pick="h03"]');
+check(
+  "on a phone a hero is picked from the panel",
+  (await phone.inputValue("#lab-hero")) === "h03"
 );
 
 await browser.close();

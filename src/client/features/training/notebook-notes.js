@@ -8,6 +8,7 @@ import { lineHtml } from "../community/stage.js";
 import { t } from "../../app/browser-i18n.js";
 import { vodMarkup } from "../../domain/vod-links.js";
 import { options } from "./notebook-parts.js";
+import { heroPicker } from "../../shell/hero-picker.js";
 
 // ---- a note ----------------------------------------------------------------------------------
 export const comboStrip = async (page, note) =>
@@ -51,7 +52,7 @@ export async function listHtml(page) {
       )}${howHtml()}`;
   return `<div class="trn-bar">
           <div class="seg segmented" role="group" aria-label="${t("Type")}">${kinds.map(kind => `<button type="button" class="${kind === page.filter.kind ? "on" : ""}" data-kind="${kind}" aria-pressed="${kind === page.filter.kind}">${esc(kind === "all" ? t("All") : kindLabel(kind))}</button>`).join("")}</div>
-          <label class="field"><select id="note-filter-hero" aria-label="${t("Hero")}"><option value="">${t("All heroes")}</option>${page.heroChoices(page.filter.heroId)}</select></label>
+          ${heroPicker({ id: "note-filter-hero", value: page.filter.heroId ?? "", heroes: page.heroList(), empty: t("All heroes"), label: t("Hero") })}
         </div>
         <div class="list note-list">${cards.join("") || none}</div>`;
 }

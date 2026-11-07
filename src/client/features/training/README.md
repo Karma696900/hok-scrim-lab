@@ -16,7 +16,7 @@ Ce dossier est une page (ou un groupe de pages) du site, côté navigateur. Le f
 | `notebook-actions.js` | notebook, what happens on a click, a key or a submit: onClick, onChange, onSubmit. |
 | `notebook-notes.js` | notebook, note: comboStrip, noteCard, listHtml. |
 | `notebook-paint.js` | notebook, page: place, paintList, paintSide, paintAll, and 3 more. |
-| `notebook-parts.js` | notebook, small helpers: blank, requestBody, marksProblem, heroChoices, and 3 more. |
+| `notebook-parts.js` | notebook, small helpers: blank, requestBody, marksProblem, heroList, and 3 more. |
 | `notebook-show.js` | notebook, small helpers: show. |
 | `notebook.js` | Training, the notebook: what a player wants to practise (goals, mechanics, combos drawn with the pictures of the skills) and the videos they review (a link and the moments to look at again). |
 | `reflex/art.js` | A small picture for each reflex exercise (160 x 90, drawn by hand, no external file): the tile of the list, the page of the exercise and the preview a visitor sees all use them. |

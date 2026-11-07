@@ -1,6 +1,6 @@
 // scenario editor, small helpers: draftOf, mapOf, heroOptions, isTool.
-import { escapeHtml as esc } from "../../lib/escape.js";
 import { t } from "../../app/browser-i18n.js";
+import { heroPicker } from "../../shell/hero-picker.js";
 
 export const draftOf = page =>
   page.existing
@@ -9,14 +9,15 @@ export const draftOf = page =>
 
 export const mapOf = page => page.maps.find(item => item.id === page.draft.mapId);
 
+// the hero of a hero pin: a picker of avatars (owner, 2026-11-07)
 export const heroOptions = page =>
-  `<option value="">${t("Choose a hero")}</option>${page.view.state.heroes
-    .filter(hero => hero.availableGlobal !== false)
-    .map(
-      hero =>
-        `<option value="${esc(hero.id)}"${hero.id === page.tool.heroId ? " selected" : ""}>${esc(hero.displayName || hero.name)}</option>`
-    )
-    .join("")}`;
+  heroPicker({
+    id: "tool-hero",
+    value: page.tool.heroId ?? "",
+    heroes: page.view.state.heroes.filter(hero => hero.availableGlobal !== false),
+    empty: t("Choose a hero"),
+    label: t("Hero")
+  });
 
 export const isTool = (page, type, side) =>
   page.tool.type === type && (side === undefined || page.tool.side === side);

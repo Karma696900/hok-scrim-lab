@@ -2877,3 +2877,18 @@
 3042|Không có tướng nào ở đường này.
 3043|Vòng quay này không tồn tại.
 3044|Vòng quay đã thay đổi cùng lúc. Hãy thử lại.
+3045|Giỏ đã đầy ({max} đội hình).
+3046|Hãy quay trước: chưa có tướng nào để giữ.
+3047|Đã thêm vào giỏ ({count}).
+3048|Chọn ít nhất một đường để quay lại.
+3049|Giỏ
+3050|Đội hình {n}
+3051|Tải PDF
+3052|Thêm một đội hình từ vòng quay: đội hình được giữ ở đây, trong trình duyệt này, cho đến khi bạn tải xuống.
+3053|Quay, quay lại một đường khi tướng bị cấm, và giữ những đội bạn thích trong giỏ.
+3054|Đang xem trực tiếp: mỗi lượt quay của người tạo hiện ở đây ngay khi dừng.
+3055|Quay lại các đường đã chọn
+3056|Thêm vào giỏ
+3057|Ảnh chân dung tướng thuộc về chủ sở hữu tương ứng (Tencent / TiMi Studio Group) và được hiển thị từ bộ nhớ đệm cục bộ.
+3058|Giỏ phải chứa từ 1 đến {max} đội hình, mỗi đội hình có tên tối đa {name} ký tự.
+3059|Không có tướng nào khớp với tìm kiếm này.

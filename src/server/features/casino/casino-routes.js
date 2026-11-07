@@ -4,7 +4,7 @@
 // in between is redone once from the new one (two control devices at once), else 409.
 import { createHash, randomBytes, randomInt, timingSafeEqual } from "node:crypto";
 import { Router } from "express";
-import { conflict, forbidden, notFound } from "../../platform/errors.js";
+import { HttpError, conflict, forbidden, notFound } from "../../platform/errors.js";
 import { wrap } from "../../platform/http/async.js";
 import {
   banLane,
@@ -15,6 +15,7 @@ import {
   parsePools,
   unban
 } from "./casino-domain.js";
+import { laneIconAssets, parseBasket, renderBasketHtml } from "./casino-report.js";
 
 const ID_PATTERN = /^[A-Za-z0-9]{10}$/;
 const ID_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -38,7 +39,37 @@ function keyMatches(roll, key) {
   return given.length === kept.length && timingSafeEqual(given, kept);
 }
 
-export function createCasinoRouter({ store, limiters }) {
+// POST /casino/pdf: the basket, checked against the heroes the site knows, drawn by the series export engine
+function basketPdf(exportService, known) {
+  return async (request, response) => {
+    if (!exportService?.renderDocument) {
+      throw new HttpError(503, "export_unavailable", "Export is not available on this server.");
+    }
+    const { ids } = await known();
+    const compositions = parseBasket(request.body, ids);
+    const heroIds = compositions.flatMap(item => Object.values(item.result)).filter(Boolean);
+    const language = request.language;
+    const generatedAt = new Date().toISOString().replace("T", " ").slice(0, 16) + " UTC";
+    const pdf = await exportService.renderDocument(
+      `casino:${request.ip}`,
+      heroIds,
+      async ({ heroById, portraitPath }) => ({
+        html: renderBasketHtml({ compositions, heroById, portraitPath, generatedAt, language }),
+        assets: await laneIconAssets()
+      }),
+      { language }
+    );
+    response.set({
+      "Content-Type": "application/pdf",
+      "Content-Disposition": `attachment; filename="hok-compositions-${generatedAt.slice(0, 10)}.pdf"`,
+      "Content-Length": String(pdf.length),
+      "Cache-Control": "no-store"
+    });
+    response.end(pdf);
+  };
+}
+
+export function createCasinoRouter({ store, limiters, exportService = null }) {
   const router = Router();
 
   const known = async () => {
@@ -86,6 +117,9 @@ export function createCasinoRouter({ store, limiters }) {
       response.status(201).json({ id, key, state: present({ id, version: 0, state }) });
     })
   );
+
+  // the basket (owner, 2026-11-07): the compositions a visitor kept, in one PDF; no account, the export limit
+  router.post("/casino/pdf", limiters.export, wrap(basketPdf(exportService, known)));
 
   router.get(
     "/casino/:id",

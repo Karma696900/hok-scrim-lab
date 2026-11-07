@@ -2877,3 +2877,18 @@
 3042|Tidak ada hero yang ditampilkan di lane ini.
 3043|Roulette ini tidak ada.
 3044|Roulette berubah pada saat yang sama. Coba lagi.
+3045|Keranjang sudah penuh ({max} komposisi).
+3046|Putar dulu: belum ada hero untuk disimpan.
+3047|Ditambahkan ke keranjang ({count}).
+3048|Pilih setidaknya satu lane untuk diputar ulang.
+3049|Keranjang
+3050|Komposisi {n}
+3051|Unduh PDF
+3052|Tambahkan komposisi dari roulette: komposisi disimpan di sini, di browser ini, sampai kamu mengunduhnya.
+3053|Putar, putar ulang lane saat hero di-ban, dan simpan tim yang kamu suka di keranjang.
+3054|Menonton langsung: setiap putaran pembuat muncul di sini begitu berhenti.
+3055|Putar ulang lane yang dipilih
+3056|Tambahkan ke keranjang
+3057|Potret hero adalah milik pemiliknya masing-masing (Tencent / TiMi Studio Group) dan ditampilkan dari cache lokal.
+3058|Keranjang harus berisi 1 sampai {max} komposisi, masing-masing bernama paling banyak {name} karakter.
+3059|Tidak ada hero yang cocok dengan pencarian ini.

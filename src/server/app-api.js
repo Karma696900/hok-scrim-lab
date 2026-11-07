@@ -71,7 +71,7 @@ export function createApiRouter({
   api.use(createTrainingRouter({ store: store, limiters }));
   api.use(createReflexRouter({ store: store, limiters }));
   api.use(createSimulationRouter({ store: store, limiters }));
-  api.use(createCasinoRouter({ store: store, limiters }));
+  api.use(createCasinoRouter({ store: store, limiters, exportService }));
   api.use(createSpaceRouter({ store: store, limiters }));
   api.use(createPreferencesRouter({ store: store, limiters }));
   api.use(createContactRouter({ store: store, limiters }));

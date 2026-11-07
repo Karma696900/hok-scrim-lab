@@ -1,4 +1,4 @@
-// notebook, small helpers: blank, requestBody, marksProblem, heroChoices, and 3 more.
+// notebook, small helpers: blank, requestBody, marksProblem, heroList, and 3 more.
 import { COMBO_STEPS_MAX } from "../../../shared/combo-model.js";
 import { KIND_ICONS, NOTE_KINDS, STATUSES, kindLabel, statusLabel } from "./training-shared.js";
 import { VOD_MARKS_MAX, VOD_MARK_TEXT_MAX, VOD_URL_MAX } from "../../../shared/vod-model.js";
@@ -7,6 +7,7 @@ import { dataUnavailable } from "../../lib/dom.js";
 import { escapeHtml as esc } from "../../lib/escape.js";
 import { icon } from "../../../shared/icons.js";
 import { number, t } from "../../app/browser-i18n.js";
+import { heroPicker } from "../../shell/hero-picker.js";
 
 export const blank = (
   page,
@@ -47,19 +48,30 @@ export const marksProblem = ({ reason, line }) =>
     many: t("A video review has at most {max} moments.", { max: VOD_MARKS_MAX })
   })[reason];
 
-export const heroChoices = (page, selected) => {
+// the heroes a note can be about: those of the notebook first, then every hero of the game
+export const heroList = page => {
+  const known = new Map(page.view.state.heroes.map(hero => [hero.id, hero]));
   const ids = [
     ...new Set([
       ...page.heroIds,
       ...page.view.state.heroes.filter(hero => hero.availableGlobal !== false).map(hero => hero.id)
     ])
   ];
-  return ids
-    .map(
-      id =>
-        `<option value="${esc(id)}"${id === selected ? " selected" : ""}>${esc(page.view.heroName(id))}</option>`
-    )
-    .join("");
+  return ids.map(id => known.get(id) ?? { id, name: page.view.heroName(id) });
+};
+
+// the hero of a note: a combo or a VOD is always about one hero (the first of the list until another is picked)
+const notePicker = (page, note) => {
+  const heroes = page.heroList();
+  const required = note.kind === "combo" || note.kind === "vod";
+  return heroPicker({
+    id: "note-hero",
+    name: "heroId",
+    value: note.heroId || (required ? (heroes[0]?.id ?? "") : ""),
+    heroes,
+    empty: required ? "" : t("No hero"),
+    label: t("Hero")
+  });
 };
 
 export const options = (values, selected, label) =>
@@ -126,7 +138,7 @@ export async function formMarkup(page) {
         <div class="card__head"><h2>${note.id ? t("Edit") : t("New note")}</h2><span class="trn-editor__kind">${icon(KIND_ICONS[note.kind])}${esc(kindLabel(note.kind))}</span></div>
         <div class="form-grid">
           <label class="label">${t("Type")}<span class="field"><select id="note-kind" name="kind">${options(NOTE_KINDS, note.kind, kindLabel)}</select></span></label>
-          <label class="label">${t("Hero")}<span class="field"><select id="note-hero" name="heroId">${note.kind === "combo" || note.kind === "vod" ? "" : `<option value="">${t("No hero")}</option>`}${page.heroChoices(note.heroId)}</select></span></label>
+          <div class="label">${t("Hero")}${notePicker(page, note)}</div>
           <label class="label full">${t("Title")}<span class="field"><input id="note-title" name="title" maxlength="100" required value="${esc(note.title)}"></span></label>
           ${picker}
           <label class="label full">${t("Details")}<span class="field field--area"><textarea id="note-body" name="body" rows="4" maxlength="2000">${esc(note.body)}</textarea></span></label>
@@ -140,4 +152,4 @@ export async function formMarkup(page) {
 }
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
-export const onView = { blank, heroChoices, glanceHtml, formMarkup };
+export const onView = { blank, heroList, glanceHtml, formMarkup };

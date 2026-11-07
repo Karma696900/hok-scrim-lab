@@ -18,7 +18,7 @@ export const toolCard = page => `<section class="card">
         </div>
         ${
           page.tool.type === "hero"
-            ? `<label class="label">${t("Hero")}<span class="field"><select id="tool-hero">${page.heroOptions()}</select></span></label>`
+            ? `<div class="label">${t("Hero")}${page.heroOptions()}</div>`
             : `<div class="form-grid">
                 <label class="label">${t("Name on the map")}<span class="field"><input id="tool-label" maxlength="40" value="${esc(page.tool.label)}"></span></label>
                 <label class="label">${t("Belongs to")}<span class="field"><select id="tool-side"><option value="">${t("Neutral")}</option><option value="blue"${page.tool.side === "blue" ? " selected" : ""}>${t("Blue side")}</option><option value="red"${page.tool.side === "red" ? " selected" : ""}>${t("Red side")}</option></select></span></label>

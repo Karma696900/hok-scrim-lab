@@ -3,7 +3,12 @@
 import assert from "node:assert/strict";
 import { after, describe, test } from "node:test";
 import { createLimiters } from "../../platform/http/rate-limits.js";
-import { startTestServer } from "../../../testing/test-app.js";
+import {
+  BLANK_PDF,
+  PIXEL_PNG,
+  buildExportService,
+  startTestServer
+} from "../../../testing/test-app.js";
 
 const app = await startTestServer();
 after(async () => {
@@ -149,6 +154,48 @@ describe("the casino limits", { skip }, () => {
       assert.equal((await browser.post("/api/casino", {})).status, 429);
     } finally {
       await limited.close();
+    }
+  });
+});
+
+describe("the basket's PDF", { skip }, () => {
+  test("anyone downloads the kept compositions in one PDF, without an account", async () => {
+    const pages = [];
+    const exporter = {
+      renderPng: async () => ({ png: PIXEL_PNG, blocked: [] }),
+      render: async ({ html, assets }) => {
+        pages.push({ html, assets });
+        return { pdf: BLANK_PDF, blocked: [] };
+      }
+    };
+    const server = await startTestServer({
+      exportService: store => buildExportService(store, { exporter })
+    });
+    try {
+      const full = { clash: "h01", jungle: "h02", mid: "h03", farm: "h04", roam: "h05" };
+      const response = await server.browser().post("/api/casino/pdf", {
+        compositions: [{ name: "Dive", result: full }, { result: { ...full, mid: "nope" } }]
+      });
+      assert.equal(response.status, 200, response.text);
+      assert.match(response.headers.get("content-type"), /application\/pdf/);
+      assert.match(
+        response.headers.get("content-disposition"),
+        /hok-compositions-\d{4}-\d{2}-\d{2}\.pdf/
+      );
+      assert.equal(response.headers.getSetCookie().length, 0, "no cookie");
+      assert.equal(pages.length, 1);
+      assert.match(pages[0].html, /Dive/);
+      assert.match(pages[0].html, /Composition 2/);
+      assert.ok(
+        pages[0].assets.has("/icons/lane-roamer.png"),
+        "the lane icons are served from memory"
+      );
+      assert.ok(pages[0].assets.has("/portraits/h01"), "the portraits too");
+      const empty = await server.browser().post("/api/casino/pdf", { compositions: [] });
+      assert.equal(empty.status, 400);
+      assert.equal(empty.body.code, "invalid_basket");
+    } finally {
+      await server.close();
     }
   });
 });

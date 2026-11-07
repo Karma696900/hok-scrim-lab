@@ -8,6 +8,7 @@ import {
 import { HERO_GOAL_FORMS, MAX_HERO_GOALS_PER_TEAM } from "../../../shared/combo-model.js";
 import { avatarMarkup } from "../auth/auth-avatar.js";
 import { escapeHtml } from "../../lib/escape.js";
+import { heroPicker } from "../../shell/hero-picker.js";
 import { exerciseName, goalParts, scoreText } from "../../domain/reflex-labels.js";
 import { heroGoalFormLabel, heroGoalRow } from "../../domain/hero-combos.js";
 import { icon } from "../../../shared/icons.js";
@@ -108,7 +109,14 @@ export function heroGoalsCard(view, { heroGoals, canAssign, heroesWithCombos }) 
     form = `<p class="muted">${t("No hero has a combo yet: the editors write them in the hero guides.")}</p>`;
   } else if (canAssign) {
     form = `<form id="hero-goal-form" class="form-grid goal-form" novalidate>
-          <label class="label">${t("Hero")}<span class="field"><select id="hero-goal-hero" name="heroId">${heroes.map(hero => `<option value="${escapeHtml(hero.id)}">${escapeHtml(hero.name)} · ${escapeHtml(combosText(hero.count))}</option>`).join("")}</select></span></label>
+          <div class="label">${t("Hero")}${heroPicker({
+            id: "hero-goal-hero",
+            name: "heroId",
+            value: heroes[0].id,
+            heroes: heroes.map(hero => ({ ...view.heroOf(hero.id), id: hero.id, name: hero.name })),
+            captions: Object.fromEntries(heroes.map(hero => [hero.id, combosText(hero.count)])),
+            label: t("Hero")
+          })}</div>
           <label class="label">${t("Acquired in")}<span class="field"><select id="hero-goal-form-kind" name="form">${options(HERO_GOAL_FORMS, "both", heroGoalFormLabel)}</select></span></label>
           <p class="form-error full" id="hero-goal-error" role="alert"></p>
           <div class="full"><button class="btn btn--primary" type="submit">${icon("plus", "i--sm")}${t("Ask for this hero")}</button></div>

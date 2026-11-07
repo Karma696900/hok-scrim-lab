@@ -81,6 +81,7 @@ const EXPECTED = {
   "POST /contact": "open",
   // the composition roulette: no account, the secret key in X-Casino-Key guards every change
   "POST /casino": "open",
+  "POST /casino/pdf": "open",
   "GET /casino/:id": "open",
   "PUT /casino/:id/pools": "open",
   "POST /casino/:id/spin": "open",

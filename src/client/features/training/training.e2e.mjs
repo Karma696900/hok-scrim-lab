@@ -5,6 +5,7 @@
 import { chromium } from "playwright";
 import sharp from "../../../server/platform/images/sharp-safe.js";
 import { startTestServer } from "../../../testing/test-app.js";
+import { pickHero } from "../../../testing/hero-pick.js";
 
 const app = await startTestServer();
 const player = await app.signIn("Trainee");
@@ -207,10 +208,10 @@ const place = async (x, y) =>
       y: y * 600 * (await board.evaluate(node => node.clientHeight / 600))
     }
   });
-await boss.selectOption("#tool-hero", "h01");
+await pickHero(boss, "tool-hero", "h01");
 await place(0.25, 0.7);
 await boss.click('[data-tool="hero:red"]');
-await boss.selectOption("#tool-hero", "h02");
+await pickHero(boss, "tool-hero", "h02");
 await place(0.7, 0.3);
 await boss.click('[data-tool="camp"]');
 await boss.fill("#tool-label", "Red buff");
