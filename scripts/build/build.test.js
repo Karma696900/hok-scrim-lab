@@ -41,12 +41,12 @@ describe("production build", () => {
     assert.ok(bundle.length < clientSource().length * 0.8, "smaller than the sources together");
   });
 
-  test("the first download (entry and what it preloads) stays under 70 KB, so that splitting files never makes it heavier", () => {
+  test("the first download (entry and what it preloads) stays under 71 KB (owner, 2026-11-07: the casino), so that splitting files never makes it heavier", () => {
     const bytes = [manifest.entry, ...manifest.preload].reduce(
       (sum, file) => sum + readFileSync(built(file)).length,
       0
     );
-    assert.ok(bytes < 70_000, `${bytes} bytes`);
+    assert.ok(bytes < 71_000, `${bytes} bytes`);
   });
 
   test("the catalogs stay separate files, fetched by language", () => {
