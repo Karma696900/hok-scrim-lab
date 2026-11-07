@@ -2844,3 +2844,36 @@
 3008|La squadra di {name}
 3009|Stai guardando {name}
 3010|Mappa intera
+3012|Questo link di controllo non è valido.
+3013|Link copiato.
+3014|Seleziona almeno una corsia da rigirare.
+3015|Crea una roulette
+3016|Roulette delle composizioni
+3017|Scegli un gruppo di eroi per ogni corsia, gira e ottieni un eroe per corsia. Condividi il link: i tuoi amici vedono il risultato in diretta, senza account.
+3018|Questa roulette non esiste o è scaduta.
+3019|Nessun eroe rimasto in questo gruppo
+3020|Non ancora girata
+3021|Rigira
+3022|Bannato
+3023|Rimetti
+3024|Ban: {hero}, {lane} rigirata
+3025|Rigirata: {lanes}
+3026|Giro completo
+3027|Ultimi giri
+3028|Copia il link di condivisione
+3029|Copia il mio link di controllo
+3030|In diretta
+3031|Gira tutte le corsie
+3032|Rigira le corsie selezionate
+3033|Nessuno
+3034|Gruppi di eroi
+3035|Salva i gruppi
+3036|Roulette delle composizioni HOK — squadra casuale di Honor of Kings per corsia | {site}
+3037|Gira una composizione casuale di Honor of Kings, un eroe per corsia dai gruppi che scegli, rigira una corsia quando un eroe viene bannato e condividi il link in diretta.
+3038|Roulette delle composizioni | {site}
+3039|Una roulette delle composizioni di Honor of Kings in diretta.
+3040|Il gruppo di ogni corsia deve essere un elenco di al massimo {max} eroi.
+3041|Scegli da una a cinque corsie da girare.
+3042|Nessun eroe è mostrato in questa corsia.
+3043|Questa roulette non esiste.
+3044|La roulette è cambiata nello stesso momento. Riprova.

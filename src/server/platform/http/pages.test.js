@@ -45,6 +45,10 @@ describe("route table", () => {
     );
     assert.equal(matchRoute("/guides/h05").guideHeroId, "h05");
     assert.equal(pathFor({ view: "guides", guideHeroId: "533" }), "/guides/533");
+    // a roulette keeps its own address (the router would otherwise rewrite it, and drop its #key=…)
+    assert.equal(matchRoute("/casino/Ab3dE5gH9k").casinoId, "Ab3dE5gH9k");
+    assert.equal(pathFor({ view: "casino-roll", casinoId: "Ab3dE5gH9k" }), "/casino/Ab3dE5gH9k");
+    assert.equal(pathFor({ view: "casino" }), "/casino");
     const team = "16e11da1-7c03-422a-b39e-69742cd5f4c7";
     assert.deepEqual(
       [matchRoute(`/teams/${team}`).view, matchRoute(`/teams/${team}`).teamId],

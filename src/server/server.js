@@ -151,8 +151,16 @@ const stopDetailsSchedule = startDetailsSchedule({
   logger,
   startupDelayMs: config.detailsSyncStartupDelayMs
 });
+// the roulettes of /casino untouched for 7 days, at start-up and then with the hourly purge
+const purgeCasinos = () =>
+  store
+    .purgeCasinos()
+    .then(count => count && logger.info("purged roulettes", { count }))
+    .catch(error => logger.warn("roulette purge failed", { message: error.message }));
+purgeCasinos();
 const purgeTimer = setInterval(
   () => {
+    purgeCasinos();
     store
       .purgeExpired()
       .then(result => {

@@ -2844,3 +2844,36 @@
 3008|Das Team von {name}
 3009|Du siehst {name} zu
 3010|Ganze Karte
+3012|Dieser Steuerungslink ist ungültig.
+3013|Link kopiert.
+3014|Hake mindestens eine Lane zum erneuten Drehen an.
+3015|Roulette erstellen
+3016|Aufstellungs-Roulette
+3017|Wähle für jede Lane einen Heldenpool, dreh und erhalte einen Helden pro Lane. Teile den Link: deine Freunde sehen das Ergebnis live, ohne Konto.
+3018|Dieses Roulette existiert nicht oder ist abgelaufen.
+3019|Kein Held mehr in diesem Pool
+3020|Noch nicht gedreht
+3021|Neu drehen
+3022|Gebannt
+3023|Zurücklegen
+3024|Bann: {hero}, {lane} neu gedreht
+3025|Neu gedreht: {lanes}
+3026|Komplette Drehung
+3027|Letzte Drehungen
+3028|Freigabelink kopieren
+3029|Meinen Steuerungslink kopieren
+3030|Live dabei
+3031|Alle Lanes drehen
+3032|Angehakte Lanes neu drehen
+3033|Keine
+3034|Heldenpools
+3035|Pools speichern
+3036|HOK-Aufstellungs-Roulette — zufälliges Honor of Kings Team pro Lane | {site}
+3037|Dreh eine zufällige Honor of Kings Aufstellung, einen Helden pro Lane aus deinen Pools, dreh eine Lane neu, wenn ein Held gebannt wird, und teile den Live-Link.
+3038|Aufstellungs-Roulette | {site}
+3039|Ein Live-Aufstellungs-Roulette für Honor of Kings.
+3040|Der Pool jeder Lane muss eine Liste mit höchstens {max} Helden sein.
+3041|Wähle eine bis fünf Lanes zum Drehen.
+3042|In dieser Lane wird kein Held angezeigt.
+3043|Dieses Roulette existiert nicht.
+3044|Das Roulette wurde gleichzeitig geändert. Versuche es erneut.

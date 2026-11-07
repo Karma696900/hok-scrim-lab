@@ -2844,3 +2844,36 @@
 3008|L'équipe de {name}
 3009|Vous regardez {name}
 3010|Carte entière
+3012|Ce lien de contrôle n'est pas valide.
+3013|Lien copié.
+3014|Cochez au moins une voie à relancer.
+3015|Créer une roulette
+3016|Roulette de compositions
+3017|Choisissez un pool de héros pour chaque voie, lancez, et obtenez un héros par voie. Partagez le lien : vos amis suivent le résultat en direct, sans compte.
+3018|Cette roulette n'existe pas ou a expiré.
+3019|Plus aucun héros dans ce pool
+3020|Pas encore lancée
+3021|Relancer
+3022|Banni
+3023|Remettre
+3024|Ban : {hero}, {lane} relancée
+3025|Relance : {lanes}
+3026|Tirage complet
+3027|Derniers tirages
+3028|Copier le lien de partage
+3029|Copier mon lien de contrôle
+3030|En direct
+3031|Lancer toutes les voies
+3032|Relancer les voies cochées
+3033|Aucun
+3034|Pools de héros
+3035|Enregistrer les pools
+3036|Roulette de compositions HOK — une équipe Honor of Kings au hasard, voie par voie | {site}
+3037|Tirez une composition Honor of Kings au hasard, un héros par voie parmi les pools que vous choisissez, relancez une voie quand un héros est banni, et partagez le lien en direct.
+3038|Roulette de compositions | {site}
+3039|Une roulette de compositions Honor of Kings en direct.
+3040|Le pool de chaque voie doit être une liste d'au plus {max} héros.
+3041|Choisissez de une à cinq voies à lancer.
+3042|Aucun héros n'est affiché dans cette voie.
+3043|Cette roulette n'existe pas.
+3044|La roulette a changé au même moment. Réessayez.

@@ -40,6 +40,7 @@ function syncUrl() {
       seriesId: state.activeSeriesId,
       teamId: state.activeTeamId,
       tag: state.activePlayerTag,
+      casinoId: state.casinoId,
       section:
         {
           popular: state.popularSection,
@@ -133,6 +134,7 @@ export async function applyRoute(route) {
   }
   state.activeTeamId = route.view === "team" ? route.teamId : null;
   state.activePlayerTag = route.view === "player" ? route.tag : null;
+  state.casinoId = route.view === "casino-roll" ? route.casinoId : null;
   state.trainingSection = route.view === "training" ? (route.section ?? "") : "";
   state.popularSection = route.view === "popular" ? (route.section ?? "") : "";
   state.tierListSection = route.view === "tier-list" ? (route.section ?? "") : "";

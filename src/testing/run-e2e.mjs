@@ -42,6 +42,7 @@ const TESTS = [
   "tier-list-public",
   "popular",
   "reflex",
+  "casino",
   "training-extras",
   "space",
   "draft",

@@ -23,6 +23,7 @@ import { createTranslationRouter } from "./features/translations/translation-rou
 import { createContactRouter } from "./features/contact/contact-routes.js";
 import { createPreferencesRouter } from "./features/preferences/preference-routes.js";
 import { createSimulationRouter } from "./features/simulation/simulation-routes.js";
+import { createCasinoRouter } from "./features/casino/casino-routes.js";
 
 export function createApiRouter({
   store,
@@ -70,6 +71,7 @@ export function createApiRouter({
   api.use(createTrainingRouter({ store: store, limiters }));
   api.use(createReflexRouter({ store: store, limiters }));
   api.use(createSimulationRouter({ store: store, limiters }));
+  api.use(createCasinoRouter({ store: store, limiters }));
   api.use(createSpaceRouter({ store: store, limiters }));
   api.use(createPreferencesRouter({ store: store, limiters }));
   api.use(createContactRouter({ store: store, limiters }));

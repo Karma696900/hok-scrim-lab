@@ -18,7 +18,8 @@ describe("view modules", () => {
         ...(
           read("shared/routes.js") +
           read("shared/routes-table.js") +
-          read("shared/routes-table-api.js")
+          read("shared/routes-table-api.js") +
+          read("shared/routes-table-casino.js")
         ).matchAll(/view:\s*"([a-z-]+)"/g)
       ].map(m => m[1])
     );

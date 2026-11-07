@@ -19,6 +19,9 @@ const RATE_LIMITS = {
   rosterSync: { windowMs: 60 * MINUTE, limit: 6 },
   share: { windowMs: 60 * MINUTE, limit: 60 },
   media: { windowMs: MINUTE, limit: 1200 },
+  // the composition roulette (no account): new roulettes an hour, and spins, bans and pools a minute, per address
+  casinoCreate: { windowMs: 60 * MINUTE, limit: 20 },
+  casinoAction: { windowMs: MINUTE, limit: 120 },
   write: { windowMs: MINUTE, limit: 240 },
   // what one API key may read in a minute (the key is counted, not the address: many keys can share one)
   apiKey: { windowMs: MINUTE, limit: 120 },

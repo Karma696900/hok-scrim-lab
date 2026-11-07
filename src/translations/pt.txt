@@ -2844,3 +2844,36 @@
 3008|A equipe de {name}
 3009|Você está assistindo {name}
 3010|Mapa inteiro
+3012|Este link de controle não é válido.
+3013|Link copiado.
+3014|Marque pelo menos uma rota para girar de novo.
+3015|Criar uma roleta
+3016|Roleta de composições
+3017|Escolha um grupo de heróis para cada rota, gire e receba um herói por rota. Compartilhe o link: seus amigos acompanham o resultado ao vivo, sem conta.
+3018|Esta roleta não existe ou expirou.
+3019|Nenhum herói restante neste grupo
+3020|Ainda não girada
+3021|Girar de novo
+3022|Banido
+3023|Devolver
+3024|Banimento: {hero}, {lane} girada de novo
+3025|Novo giro: {lanes}
+3026|Giro completo
+3027|Últimos giros
+3028|Copiar o link de compartilhamento
+3029|Copiar meu link de controle
+3030|Assistindo ao vivo
+3031|Girar todas as rotas
+3032|Girar de novo as rotas marcadas
+3033|Nenhum
+3034|Grupos de heróis
+3035|Salvar os grupos
+3036|Roleta de composições HOK — time aleatório de Honor of Kings por rota | {site}
+3037|Gire uma composição aleatória de Honor of Kings, um herói por rota dos grupos que você escolher, gire de novo uma rota quando um herói for banido e compartilhe o link ao vivo.
+3038|Roleta de composições | {site}
+3039|Uma roleta de composições de Honor of Kings ao vivo.
+3040|O grupo de cada rota deve ser uma lista de no máximo {max} heróis.
+3041|Escolha de uma a cinco rotas para girar.
+3042|Nenhum herói é mostrado nesta rota.
+3043|Esta roleta não existe.
+3044|A roleta mudou ao mesmo tempo. Tente novamente.

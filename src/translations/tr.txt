@@ -2844,3 +2844,36 @@
 3008|{name} takımı
 3009|{name} izleniyor
 3010|Tüm harita
+3012|Bu kontrol bağlantısı geçerli değil.
+3013|Bağlantı kopyalandı.
+3014|Yeniden çevirmek için en az bir koridor seçin.
+3015|Rulet oluştur
+3016|Kadro ruleti
+3017|Her koridor için bir kahraman havuzu seçin, çevirin ve koridor başına bir kahraman alın. Bağlantıyı paylaşın: arkadaşlarınız sonucu hesapsız, canlı izler.
+3018|Bu rulet yok veya süresi dolmuş.
+3019|Bu havuzda kahraman kalmadı
+3020|Henüz çevrilmedi
+3021|Yeniden çevir
+3022|Yasaklandı
+3023|Geri koy
+3024|Yasak: {hero}, {lane} yeniden çevrildi
+3025|Yeniden çevrildi: {lanes}
+3026|Tam çevirme
+3027|Son çevirmeler
+3028|Paylaşım bağlantısını kopyala
+3029|Kontrol bağlantımı kopyala
+3030|Canlı izleniyor
+3031|Tüm koridorları çevir
+3032|Seçili koridorları yeniden çevir
+3033|Hiçbiri
+3034|Kahraman havuzları
+3035|Havuzları kaydet
+3036|HOK kadro ruleti — koridor başına rastgele Honor of Kings takımı | {site}
+3037|Seçtiğiniz havuzlardan koridor başına bir kahramanla rastgele bir Honor of Kings kadrosu çevirin, bir kahraman yasaklanınca koridoru yeniden çevirin ve canlı bağlantıyı paylaşın.
+3038|Kadro ruleti | {site}
+3039|Canlı bir Honor of Kings kadro ruleti.
+3040|Her koridorun havuzu en fazla {max} kahramanlık bir liste olmalıdır.
+3041|Çevirmek için bir ile beş arası koridor seçin.
+3042|Bu koridorda gösterilen bir kahraman yok.
+3043|Bu rulet mevcut değil.
+3044|Rulet aynı anda değişti. Tekrar dene.

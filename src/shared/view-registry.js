@@ -25,6 +25,8 @@ export const VIEW_MODULES = {
   welcome: "client/features/settings/onboarding.js",
   training: "client/features/training/training-pages.js",
   simulation: "client/features/simulation/simulation-page.js",
+  casino: "client/features/casino/casino-page.js",
+  "casino-roll": "client/features/casino/casino-page.js",
   find: "client/features/community/community-pages.js",
   inbox: "client/features/community/community-pages.js",
   agenda: "client/features/community/community-pages.js",

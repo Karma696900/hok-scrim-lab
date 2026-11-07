@@ -21,6 +21,7 @@ export const SSR_VIEWS = new Set([
   "arcana",
   "spells",
   "simulation",
+  "casino",
   "popular",
   "terms",
   "privacy",

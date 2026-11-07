@@ -119,6 +119,7 @@
       "pages/simulation-watch.css"
     ],
     "popular": ["pages/popular.css", "pages/popular-empty-period.css"],
+    "casino": ["pages/casino.css"],
     "terms": ["pages/legal.css"],
     "privacy": ["pages/legal.css"],
     "cookies": ["pages/legal.css"],

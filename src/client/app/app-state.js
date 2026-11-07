@@ -6,6 +6,8 @@ export const state = {
   tierLists: [],
   activeSeriesId: null,
   trainingSection: "",
+  // the roulette of /casino/<id> (casino page), null elsewhere
+  casinoId: null,
   modules: null, // the optional parts the person chose (null: all)
   onboarded: true,
   prefsFor: null,

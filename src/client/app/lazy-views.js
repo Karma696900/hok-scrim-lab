@@ -22,7 +22,8 @@ import {
   loadTierLists,
   loadTournaments,
   loadTraining,
-  loadSimulation
+  loadSimulation,
+  loadCasino
 } from "./lazy-pages.js";
 import { state } from "./app-state.js";
 
@@ -77,6 +78,8 @@ export const LAZY_VIEWS = {
     show: page => page.show(app, state.trainingSection)
   },
   simulation: { loader: () => loadSimulation, show: page => page.show(app) },
+  casino: { loader: () => loadCasino, show: page => page.show(app, null) },
+  "casino-roll": { loader: () => loadCasino, show: page => page.show(app, state.casinoId) },
   teams: { loader: () => loadTeams, show: page => page.show(app, null) },
   team: { loader: () => loadTeams, show: page => page.show(app, state.activeTeamId) },
   tournaments: { loader: () => loadTournaments, show: page => page.show(app) },

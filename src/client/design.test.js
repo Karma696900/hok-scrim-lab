@@ -311,6 +311,7 @@ describe("a rule for a bare class stays on its page", () => {
     "legal.css": ["legal"],
     "api.css": ["developers"],
     "popular.css": ["popular"],
+    "casino.css": ["casino"],
     "ratings.css": ["ratings"],
     "tier-list-public.css": ["tier-list"],
     "reflex.css": ["training"],

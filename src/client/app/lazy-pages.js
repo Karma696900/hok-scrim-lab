@@ -118,6 +118,10 @@ export const loadSimulation = lazy(
   () => import("../features/simulation/simulation-page.js"),
   (module, parts) => module.createSimulationPage(parts)
 );
+export const loadCasino = lazy(
+  () => import("../features/casino/casino-page.js"),
+  (module, parts) => module.createCasinoPage(parts)
+);
 export const loadLegal = lazy(
   () => import("../features/legal/legal-page.js"),
   (module, parts) => module.createLegalPages(parts)

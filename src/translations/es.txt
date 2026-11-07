@@ -2844,3 +2844,36 @@
 3008|El equipo de {name}
 3009|Estás viendo a {name}
 3010|Mapa completo
+3012|Este enlace de control no es válido.
+3013|Enlace copiado.
+3014|Marca al menos una línea para volver a girar.
+3015|Crear una ruleta
+3016|Ruleta de composiciones
+3017|Elige un grupo de héroes para cada línea, gira y obtén un héroe por línea. Comparte el enlace: tus amigos ven el resultado en directo, sin cuenta.
+3018|Esta ruleta no existe o ha caducado.
+3019|No quedan héroes en este grupo
+3020|Aún sin girar
+3021|Volver a girar
+3022|Vetado
+3023|Devolver
+3024|Veto: {hero}, {lane} girada de nuevo
+3025|Nuevo giro: {lanes}
+3026|Giro completo
+3027|Últimos giros
+3028|Copiar el enlace para compartir
+3029|Copiar mi enlace de control
+3030|Viendo en directo
+3031|Girar todas las líneas
+3032|Volver a girar las líneas marcadas
+3033|Ninguno
+3034|Grupos de héroes
+3035|Guardar los grupos
+3036|Ruleta de composiciones HOK — equipo aleatorio de Honor of Kings por línea | {site}
+3037|Gira una composición aleatoria de Honor of Kings, un héroe por línea de los grupos que elijas, vuelve a girar una línea cuando vetan a un héroe y comparte el enlace en directo.
+3038|Ruleta de composiciones | {site}
+3039|Una ruleta de composiciones de Honor of Kings en directo.
+3040|El grupo de cada línea debe ser una lista de {max} héroes como máximo.
+3041|Elige de una a cinco líneas para girar.
+3042|No hay ningún héroe en esta línea.
+3043|Esta ruleta no existe.
+3044|La ruleta cambió al mismo tiempo. Inténtalo de nuevo.

@@ -2844,3 +2844,36 @@
 3008|Tim {name}
 3009|Menonton {name}
 3010|Seluruh peta
+3012|Tautan kontrol ini tidak valid.
+3013|Tautan disalin.
+3014|Centang minimal satu lane untuk diputar ulang.
+3015|Buat roulette
+3016|Roulette komposisi
+3017|Pilih kumpulan hero untuk setiap lane, putar, dan dapatkan satu hero per lane. Bagikan tautannya: teman Anda melihat hasilnya secara langsung, tanpa akun.
+3018|Roulette ini tidak ada atau sudah kedaluwarsa.
+3019|Tidak ada hero tersisa di kumpulan ini
+3020|Belum diputar
+3021|Putar ulang
+3022|Diblokir
+3023|Kembalikan
+3024|Ban: {hero}, {lane} diputar ulang
+3025|Putar ulang: {lanes}
+3026|Putaran penuh
+3027|Putaran terakhir
+3028|Salin tautan berbagi
+3029|Salin tautan kontrol saya
+3030|Menonton langsung
+3031|Putar semua lane
+3032|Putar ulang lane yang dicentang
+3033|Tidak ada
+3034|Kumpulan hero
+3035|Simpan kumpulan
+3036|Roulette komposisi HOK — tim Honor of Kings acak per lane | {site}
+3037|Putar komposisi Honor of Kings acak, satu hero per lane dari kumpulan pilihan Anda, putar ulang lane saat hero diblokir, dan bagikan tautan langsungnya.
+3038|Roulette komposisi | {site}
+3039|Roulette komposisi Honor of Kings secara langsung.
+3040|Kumpulan setiap lane harus berupa daftar berisi paling banyak {max} hero.
+3041|Pilih satu sampai lima lane untuk diputar.
+3042|Tidak ada hero yang ditampilkan di lane ini.
+3043|Roulette ini tidak ada.
+3044|Roulette berubah pada saat yang sama. Coba lagi.

@@ -1,6 +1,7 @@
 // The table of the pages of the site: address, view, title, who may read it, whether search engines may index it.
 import { message } from "./routes-shared.js";
 import { API_ROUTES } from "./routes-table-api.js";
+import { CASINO_ROUTES } from "./routes-table-casino.js";
 
 export const ROUTES = [
   {
@@ -226,6 +227,7 @@ export const ROUTES = [
       "Play a whole Honor of Kings match as one hero on the map and take its macro decisions: where to go, when to fight, when to fall back. A grade at the end."
     )
   },
+  ...CASINO_ROUTES,
   {
     pattern: /^\/popular(\/heroes)?$/,
     view: "popular",

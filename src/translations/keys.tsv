@@ -2844,3 +2844,36 @@
 3009	Watching {name}
 3010	Whole map
 3011	Watch through {name}'s eyes
+3012	This control link is not valid.
+3013	Link copied.
+3014	Tick at least one lane to respin.
+3015	Create a roulette
+3016	Composition roulette
+3017	Choose a pool of heroes for each lane, spin, and get one hero per lane. Share the link: your friends watch the result live, no account needed.
+3018	This roulette does not exist or has expired.
+3019	No hero left in this pool
+3020	Not spun yet
+3021	Respin
+3022	Banned
+3023	Put back
+3024	Ban: {hero}, {lane} respun
+3025	Respin: {lanes}
+3026	Full spin
+3027	Last spins
+3028	Copy the share link
+3029	Copy my control link
+3030	Watching live
+3031	Spin all lanes
+3032	Respin ticked lanes
+3033	None
+3034	Hero pools
+3035	Save the pools
+3036	HOK composition roulette — random Honor of Kings team per lane | {site}
+3037	Spin a random Honor of Kings composition, one hero per lane from the pools you choose, respin a lane when a hero is banned, and share the live link.
+3038	Composition roulette | {site}
+3039	A live Honor of Kings composition roulette.
+3040	Each lane's pool must be a list of at most {max} heroes.
+3041	Choose one to five lanes to spin.
+3042	No hero is shown in this lane.
+3043	This roulette does not exist.
+3044	The roulette changed at the same time. Try again.

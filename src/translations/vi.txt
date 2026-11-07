@@ -2844,3 +2844,36 @@
 3008|Đội của {name}
 3009|Đang xem {name}
 3010|Toàn bản đồ
+3012|Liên kết điều khiển này không hợp lệ.
+3013|Đã sao chép liên kết.
+3014|Hãy chọn ít nhất một đường để quay lại.
+3015|Tạo vòng quay
+3016|Vòng quay đội hình
+3017|Chọn nhóm tướng cho từng đường, quay và nhận một tướng mỗi đường. Chia sẻ liên kết: bạn bè xem kết quả trực tiếp, không cần tài khoản.
+3018|Vòng quay này không tồn tại hoặc đã hết hạn.
+3019|Không còn tướng nào trong nhóm này
+3020|Chưa quay
+3021|Quay lại
+3022|Bị cấm
+3023|Đưa lại
+3024|Cấm: {hero}, quay lại {lane}
+3025|Quay lại: {lanes}
+3026|Quay toàn bộ
+3027|Các lượt quay gần đây
+3028|Sao chép liên kết chia sẻ
+3029|Sao chép liên kết điều khiển của tôi
+3030|Đang xem trực tiếp
+3031|Quay tất cả các đường
+3032|Quay lại các đường đã chọn
+3033|Bỏ hết
+3034|Nhóm tướng
+3035|Lưu các nhóm
+3036|Vòng quay đội hình HOK — đội Honor of Kings ngẫu nhiên theo từng đường | {site}
+3037|Quay một đội hình Honor of Kings ngẫu nhiên, mỗi đường một tướng từ các nhóm bạn chọn, quay lại một đường khi tướng bị cấm và chia sẻ liên kết trực tiếp.
+3038|Vòng quay đội hình | {site}
+3039|Vòng quay đội hình Honor of Kings trực tiếp.
+3040|Nhóm của mỗi đường phải là danh sách tối đa {max} tướng.
+3041|Chọn từ một đến năm đường để quay.
+3042|Không có tướng nào ở đường này.
+3043|Vòng quay này không tồn tại.
+3044|Vòng quay đã thay đổi cùng lúc. Hãy thử lại.

@@ -63,7 +63,8 @@ const WITH_VALUE = {
   guides: ["/guides", "guideHeroId"],
   scrims: ["/scrims", "seriesId"],
   team: ["/teams", "teamId"],
-  player: ["/players", "tag"]
+  player: ["/players", "tag"],
+  "casino-roll": ["/casino", "casinoId"]
 };
 /** The views whose address may end with a section (already starting with a slash). */
 const WITH_SECTION = {

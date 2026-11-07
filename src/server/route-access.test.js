@@ -79,6 +79,13 @@ const EXPECTED = {
   "POST /auth/export": "login-flow",
   "POST /auth/logout-all": "account",
   "POST /contact": "open",
+  // the composition roulette: no account, the secret key in X-Casino-Key guards every change
+  "POST /casino": "open",
+  "GET /casino/:id": "open",
+  "PUT /casino/:id/pools": "open",
+  "POST /casino/:id/spin": "open",
+  "POST /casino/:id/ban": "open",
+  "DELETE /casino/:id/ban/:heroId": "open",
   "POST /auth/mfa/enrol/confirm": "login-flow",
   "POST /auth/mfa/enrol/start": "login-flow",
   "POST /auth/mfa/verify": "login-flow",

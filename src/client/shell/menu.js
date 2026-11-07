@@ -7,7 +7,8 @@ const MENU_ENTRY = {
   hero: "heroes",
   team: "teams",
   account: "settings",
-  profile: "settings"
+  profile: "settings",
+  "casino-roll": "casino"
 };
 
 export function highlightNavigation(view) {
