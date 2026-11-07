@@ -2892,3 +2892,7 @@
 3057|Les portraits des héros appartiennent à leurs propriétaires respectifs (Tencent / TiMi Studio Group) et sont affichés depuis un cache local.
 3058|Le panier doit contenir de 1 à {max} compositions, chacune nommée en {name} caractères au plus.
 3059|Aucun héros ne correspond à cette recherche.
+3060|Aucun héros dans ce pool
+3061|Votre tirage — seulement sur votre écran
+3062|Le créateur a relancé.
+3063|Revenir à la roulette en direct

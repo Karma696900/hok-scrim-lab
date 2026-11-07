@@ -2892,3 +2892,7 @@
 3057|Ảnh chân dung tướng thuộc về chủ sở hữu tương ứng (Tencent / TiMi Studio Group) và được hiển thị từ bộ nhớ đệm cục bộ.
 3058|Giỏ phải chứa từ 1 đến {max} đội hình, mỗi đội hình có tên tối đa {name} ký tự.
 3059|Không có tướng nào khớp với tìm kiếm này.
+3060|Không có tướng nào trong nhóm này
+3061|Lượt quay của bạn — chỉ trên màn hình của bạn
+3062|Người tạo đã quay.
+3063|Quay lại vòng quay trực tiếp

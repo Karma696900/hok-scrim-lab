@@ -2892,3 +2892,7 @@
 3057|I ritratti degli eroi appartengono ai rispettivi proprietari (Tencent / TiMi Studio Group) e sono mostrati da una cache locale.
 3058|Il carrello deve contenere da 1 a {max} composizioni, ognuna con un nome di al massimo {name} caratteri.
 3059|Nessun eroe corrisponde a questa ricerca.
+3060|Nessun eroe in questo pool
+3061|Il tuo giro — solo sul tuo schermo
+3062|Il creatore ha girato.
+3063|Torna alla roulette dal vivo

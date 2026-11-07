@@ -2892,3 +2892,7 @@
 3057|Potret hero adalah milik pemiliknya masing-masing (Tencent / TiMi Studio Group) dan ditampilkan dari cache lokal.
 3058|Keranjang harus berisi 1 sampai {max} komposisi, masing-masing bernama paling banyak {name} karakter.
 3059|Tidak ada hero yang cocok dengan pencarian ini.
+3060|Tidak ada hero di pool ini
+3061|Putaranmu — hanya di layarmu
+3062|Pembuat sudah memutar.
+3063|Kembali ke roulette langsung

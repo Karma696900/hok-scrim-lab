@@ -60,6 +60,31 @@ export const missingMarkup = (
   ${stage({ art, lead: t("This roulette does not exist or has expired."), actions: createButton() })}
 </section>`;
 
+// what a lane can draw, for everyone (owner, 2026-11-07): its pool as small avatars, the drawn hero marked, a banned
+// one greyed (it stays in the pool and comes back when it is unbanned)
+const poolMarkup = (view, state, heroes, key) => {
+  const pool = state.pools?.[key] ?? [];
+  const banned = new Set(state.banned ?? []);
+  const drawn = state.result?.[key] ?? null;
+  if (!pool.length) {
+    return `<div class="casino-slot__pool"><p class="casino-slot__count">${t("No hero in this pool")}</p></div>`;
+  }
+  const options = pool
+    .map(id => {
+      const hero = heroes.get(id);
+      const kind = banned.has(id)
+        ? " casino-option--banned"
+        : id === drawn
+          ? " casino-option--drawn"
+          : "";
+      const name = nameOf(heroes, id);
+      const title = banned.has(id) ? `${name} (${t("Banned")})` : name;
+      return `<li class="casino-option${kind}" data-hero="${view.esc(id)}" title="${view.esc(title)}"><span class="casino-option__art">${hero ? slotImage(hero) : '<span class="image-fallback"></span>'}</span>${banned.has(id) ? icon("ban", "casino-option__ban") : ""}<span class="visually-hidden">${view.esc(title)}</span></li>`;
+    })
+    .join("");
+  return `<div class="casino-slot__pool"><p class="casino-slot__count">${t("{count, plural, one {# hero} other {# heroes}}", { count: pool.length })}</p><ul>${options}</ul></div>`;
+};
+
 const slotMarkup = (view, state, heroes, control, key) => {
   const lane = SITE_LANE[key];
   const id = state.result?.[key] ?? null;
@@ -67,19 +92,19 @@ const slotMarkup = (view, state, heroes, control, key) => {
   const content = id
     ? heroCard(view, heroes, id)
     : `<span class="casino-hero casino-hero--blank">${spun ? t("No hero left in this pool") : t("Not spun yet")}</span>`;
-  const tools = control
-    ? `<div class="casino-slot__tools"><button type="button" class="casino-toggle" data-action="casino-lane-toggle" data-lane="${key}" aria-pressed="false">${icon("refresh", "i--sm")}<span>${t("Respin")}</span></button>${
-        id
-          ? `<button type="button" class="btn btn--sm casino-ban" data-action="casino-ban" data-lane="${key}">${icon("ban", "i--sm")}${t("Banned")}</button>`
-          : ""
-      }</div>`
-    : "";
+  // a spectator respins on their own screen too (casino-local.js); only the creator bans, for everyone
+  const tools = `<div class="casino-slot__tools"><button type="button" class="casino-toggle" data-action="casino-lane-toggle" data-lane="${key}" aria-pressed="false">${icon("refresh", "i--sm")}<span>${t("Respin")}</span></button>${
+    control && id
+      ? `<button type="button" class="btn btn--sm casino-ban" data-action="casino-ban" data-lane="${key}">${icon("ban", "i--sm")}${t("Banned")}</button>`
+      : ""
+  }</div>`;
   return `<div class="casino-slot" data-lane="${key}">
     <div class="casino-square">
       <div class="casino-reel" data-lane="${key}">${content}</div>
       <span class="casino-square__lane" title="${view.esc(laneLabel(lane))}">${laneLogos([lane], 22, { decorative: true })}<span class="visually-hidden">${view.esc(laneLabel(lane))}</span></span>
     </div>
     ${tools}
+    ${poolMarkup(view, state, heroes, key)}
   </div>`;
 };
 
@@ -118,15 +143,22 @@ const historyMarkup = (view, state, heroes) =>
         .join("")}</ol></section>`
     : "";
 
+// a spectator spun on their own screen (`local`): it says so, and the way back to the roulette everyone sees
+const localBanner = local =>
+  local
+    ? `<p class="casino-local" role="status">${icon("eye", "i--sm")}<span><b>${t("Your spin — only on your screen")}</b>${local.creatorSpun ? ` ${t("The creator spun.")}` : ""}</span><button type="button" class="btn btn--sm" data-action="casino-live">${t("Back to the live roulette")}</button></p>`
+    : "";
+
 /**
- * A roulette: its five lanes for everyone; for its creator (`control`) the spin buttons, a tick per lane to respin
- * it, a Banned button per hero shown and the private control link. `extra` is the pool editor (creator only).
+ * A roulette: its five lanes, the spin buttons and a Respin toggle per lane for everyone (a spectator spins on their
+ * own screen only, `local`); for its creator (`control`) a Banned button per hero shown and the private control link.
+ * `extra` is the pool editor (creator only).
  */
 export const rollMarkup = (
   view,
   state,
   heroes,
-  { control, extra = "", basket = 0, art = null }
+  { control, extra = "", basket = 0, art = null, local = null }
 ) => `<section class="casino casino--roll" data-version="${Number(state.version)}">
   ${stage({
     art,
@@ -140,11 +172,8 @@ export const rollMarkup = (
     }${basketButton(basket)}`
   })}
   <div class="casino-board">${LANES.map(([key]) => slotMarkup(view, state, heroes, control, key)).join("")}</div>
-  <p class="casino-actions">${
-    control
-      ? `<button type="button" class="btn btn--primary" data-action="casino-spin">${icon("dice", "i--sm")}${t("Spin all lanes")}</button><button type="button" class="btn" data-action="casino-respin">${icon("refresh", "i--sm")}${t("Respin the chosen lanes")}</button>`
-      : ""
-  }<button type="button" class="btn" data-action="casino-basket-add">${icon("plus", "i--sm")}${t("Add to the basket")}</button></p>
+  ${localBanner(local)}
+  <p class="casino-actions"><button type="button" class="btn btn--primary" data-action="casino-spin">${icon("dice", "i--sm")}${t("Spin all lanes")}</button><button type="button" class="btn" data-action="casino-respin">${icon("refresh", "i--sm")}${t("Respin the chosen lanes")}</button><button type="button" class="btn" data-action="casino-basket-add">${icon("plus", "i--sm")}${t("Add to the basket")}</button></p>
   ${bannedMarkup(view, state, heroes, control)}
   ${historyMarkup(view, state, heroes)}
   ${extra}

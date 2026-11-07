@@ -2892,3 +2892,7 @@
 3057|Die Heldenporträts gehören ihren jeweiligen Eigentümern (Tencent / TiMi Studio Group) und werden aus einem lokalen Cache angezeigt.
 3058|Der Warenkorb muss 1 bis {max} Aufstellungen enthalten, jede mit einem Namen von höchstens {name} Zeichen.
 3059|Kein Held passt zu dieser Suche.
+3060|Kein Held in diesem Pool
+3061|Dein Dreh — nur auf deinem Bildschirm
+3062|Der Ersteller hat gedreht.
+3063|Zurück zum Live-Roulette

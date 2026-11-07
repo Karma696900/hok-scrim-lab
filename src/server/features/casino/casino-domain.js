@@ -1,9 +1,10 @@
 // The composition roulette's rules (spec 2026-11-07 casino): the pools of each lane, what a request may ask, and the
 // draw itself. Pure: no database, no clock and no randomness of its own (the routes pass `now` and `pick`).
 import { badRequest } from "../../platform/errors.js";
+import { HISTORY_SIZE, LANE_KEYS, draw } from "../../../shared/casino-draw.js";
 
-/** The five lanes, in the order they are shown and drawn. */
-export const LANE_KEYS = ["clash", "jungle", "mid", "farm", "roam"];
+// the draw is shared with the browser, where a spectator spins on their own screen (owner, 2026-11-07)
+export { HISTORY_SIZE, LANE_KEYS, draw };
 
 const SITE_LANES = {
   "Clash Lane": "clash",
@@ -13,9 +14,8 @@ const SITE_LANES = {
   Roamer: "roam"
 };
 
-/** How many heroes a pool may hold, and how many spins the history keeps. */
+/** How many heroes a pool may hold. */
 export const POOL_MAX = 200;
-export const HISTORY_SIZE = 10;
 
 /** The lane key of one of the site's lane names ("Roamer" -> "roam"), or null. */
 export const laneKeyOf = siteLane => SITE_LANES[siteLane] ?? null;
@@ -83,37 +83,6 @@ export const emptyState = pools => ({
   drawn: [],
   history: []
 });
-
-/**
- * Draws `lanes`, one after the other in the lanes' order: each takes a hero of its pool that is not banned, still
- * listed by the site (`known`), and not shown in another lane; a lane drawn again also skips the hero it shows when
- * another is left; a lane with none left shows nobody (null). `pick(n)`
- * gives an index in [0, n). Returns a new state with the spin first in its history.
- */
-export function draw(state, lanes, { known, pick, now, kind, hero }) {
-  const result = { ...state.result };
-  const banned = new Set(state.banned);
-  for (const lane of LANE_KEYS.filter(l => lanes.includes(l))) {
-    const shown = new Set(LANE_KEYS.filter(l => l !== lane).map(l => result[l]));
-    const free = (state.pools[lane] ?? []).filter(
-      id => known.has(id) && !banned.has(id) && !shown.has(id)
-    );
-    // a lane drawn again changes its hero whenever its pool has another (owner, 2026-11-07: respin), a spin of all
-    // five lanes too (the Respin button with five lanes ticked is one)
-    const other = free.filter(id => id !== state.result[lane]);
-    const left = other.length ? other : free;
-    result[lane] = left.length ? left[pick(left.length)] : null;
-  }
-  const drawn = LANE_KEYS.filter(l => lanes.includes(l));
-  const entry = { at: now, kind, lanes: drawn, result, ...(hero ? { hero } : {}) };
-  return {
-    ...state,
-    banned: [...state.banned],
-    result,
-    drawn,
-    history: [entry, ...state.history].slice(0, HISTORY_SIZE)
-  };
-}
 
 /** Bans the hero shown in `lane` (out of every pool of this roulette) and draws that lane again. */
 export function banLane(state, lane, { known, pick, now }) {

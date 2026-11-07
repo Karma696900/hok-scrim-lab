@@ -2892,3 +2892,7 @@
 3057|Los retratos de los héroes pertenecen a sus respectivos propietarios (Tencent / TiMi Studio Group) y se muestran desde una caché local.
 3058|La cesta debe contener de 1 a {max} composiciones, cada una con un nombre de {name} caracteres como máximo.
 3059|Ningún héroe coincide con esta búsqueda.
+3060|Ningún héroe en este pool
+3061|Tu tirada — solo en tu pantalla
+3062|El creador ha girado.
+3063|Volver a la ruleta en directo

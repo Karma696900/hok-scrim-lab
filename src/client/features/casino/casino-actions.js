@@ -6,6 +6,8 @@ import { controlLink, forgetKey, saveKey } from "./casino-key.js";
 import { readPools } from "./casino-pools.js";
 import { addToBasket } from "./casino-basket.js";
 import { basketChanged, openBasket } from "./casino-basket-panel.js";
+import { LANE_KEYS } from "../../../shared/casino-draw.js";
+import { localSpin } from "./casino-local.js";
 
 const SAVE_AFTER_MS = 700;
 
@@ -126,7 +128,8 @@ function pressLane(view, lane, on) {
 }
 
 function keep(view) {
-  const added = addToBasket(view.roll?.result);
+  // what this screen shows: a spectator keeps their own spin
+  const added = addToBasket(view.local?.result ?? view.roll?.result);
   if (!added.ok) {
     view.tell(
       added.reason === "full"
@@ -139,17 +142,40 @@ function keep(view) {
   view.tell(t("Added to the basket ({count}).", { count: added.count }));
 }
 
+function spin(view, lanes) {
+  if (!view.roll) {
+    return null;
+  }
+  if (view.key) {
+    return change(view, "/spin", "POST", { lanes });
+  }
+  // a spectator: drawn here with the roulette's pools and bans, shown on this screen only
+  view.local = localSpin(view.roll, view.local, lanes, {
+    known: new Set(view.heroes().keys()),
+    pick: n => Math.floor(Math.random() * n),
+    now: Date.now()
+  });
+  view.paint();
+  view.reel(view.local.drawn);
+  return null;
+}
+
 const ACTIONS = {
   "casino-create": view => create(view),
-  "casino-spin": view =>
-    change(view, "/spin", "POST", { lanes: ["clash", "jungle", "mid", "farm", "roam"] }),
+  // the creator spins the roulette everyone sees; a spectator spins on their own screen only (owner, 2026-11-07)
+  "casino-spin": view => spin(view, LANE_KEYS),
   "casino-respin": view => {
     const lanes = ticked(view);
     if (!lanes.length) {
       view.tell(t("Choose at least one lane to respin."));
       return null;
     }
-    return change(view, "/spin", "POST", { lanes });
+    return spin(view, lanes);
+  },
+  // back to the roulette everyone sees
+  "casino-live": view => {
+    view.local = null;
+    view.paint();
   },
   "casino-ban": (view, button) => change(view, "/ban", "POST", { lane: button.dataset.lane }),
   "casino-unban": (view, button) =>

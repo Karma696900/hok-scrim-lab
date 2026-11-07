@@ -2892,3 +2892,7 @@
 3057|Kahraman portreleri ilgili sahiplerine (Tencent / TiMi Studio Group) aittir ve yerel bir önbellekten gösterilir.
 3058|Sepette 1 ile {max} arasında kompozisyon olmalı; her birinin adı en fazla {name} karakter olabilir.
 3059|Bu aramaya uyan kahraman yok.
+3060|Bu havuzda kahraman yok
+3061|Senin çevirmen — yalnızca senin ekranında
+3062|Oluşturan kişi çevirdi.
+3063|Canlı ruletine dön

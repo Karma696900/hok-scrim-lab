@@ -12,6 +12,7 @@ import { poolsMarkup } from "./casino-pools.js";
 import { readKey, takeKeyFromHash } from "./casino-key.js";
 import { startLive } from "./casino-live.js";
 import { spinReels } from "./casino-reels.js";
+import { creatorSpun, shownState } from "./casino-local.js";
 
 const reducedMotion = () =>
   typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -32,10 +33,15 @@ export function createCasinoPage({ hydration, api, tell, go, state }) {
     root: null,
     roll: null,
     id: null,
-    key: null
+    key: null,
+    // a spectator's own spin, shown on this screen only (casino-local.js)
+    local: null
   };
   view.stop = () => {};
   view.heroes = () => new Map((state.heroes ?? []).map(hero => [hero.id, hero]));
+  /** Spins the reels of the `lanes` just drawn (the creator's spin, or a spectator's own). */
+  view.reel = lanes =>
+    spinReels(view.root, lanes, view.heroes(), { reduced: reducedMotion() }).catch(() => {});
 
   /** Draws the whole roulette again (a new state from the server, or a change of who controls it). */
   view.paint = () => {
@@ -53,11 +59,14 @@ export function createCasinoPage({ hydration, api, tell, go, state }) {
       return;
     }
     const control = Boolean(view.key);
+    const shown = shownState(view.roll, control ? null : view.local);
+    const local =
+      !control && view.local ? { creatorSpun: creatorSpun(view.roll, view.local) } : null;
     // a change of the pools not saved yet stays on screen when another change of the roulette arrives
     const pools = view.pendingPools ?? view.roll.pools;
     const extra = control ? poolsMarkup(view, state.heroes ?? [], pools) : "";
-    const art = heroes.get(view.roll.result?.mid ?? "") ?? sceneHero(3);
-    view.root.innerHTML = rollMarkup(view, view.roll, heroes, { control, extra, basket, art });
+    const art = heroes.get(shown.result?.mid ?? "") ?? sceneHero(3);
+    view.root.innerHTML = rollMarkup(view, shown, heroes, { control, extra, basket, art, local });
     fillSceneArt(view.root.querySelector(".cs-stage__art"), art);
     if (view.search) {
       const box = view.root.querySelector('input[name="casino-search"]');
@@ -70,11 +79,12 @@ export function createCasinoPage({ hydration, api, tell, go, state }) {
 
   /** Takes a state from the server: paints it, and spins the reels of the lanes it drew when it is new. */
   view.take = (roll, { animate = true } = {}) => {
-    const fresh = animate && view.roll && roll && roll.version !== view.roll.version;
+    // a spectator on their own spin keeps their heroes: the creator's new spin is only announced
+    const fresh = animate && !view.local && view.roll && roll && roll.version !== view.roll.version;
     view.roll = roll;
     view.paint();
     if (fresh && view.root) {
-      spinReels(view.root, roll.drawn, view.heroes(), { reduced: reducedMotion() }).catch(() => {});
+      view.reel(roll.drawn);
     }
   };
 
@@ -85,6 +95,7 @@ export function createCasinoPage({ hydration, api, tell, go, state }) {
       closeBasket();
       view.pendingPools = null;
       view.search = "";
+      view.local = null;
       view.root = pageRoot(app, hydration, "casino-root");
       view.root.addEventListener("click", event => onAction(view, event));
       view.root.addEventListener("input", event => onChange(view, event));

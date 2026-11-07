@@ -74,10 +74,6 @@ check(
   JSON.stringify(await names(b)) === JSON.stringify(first)
 );
 check(
-  "the spectator has no spin button",
-  (await b.locator('[data-action="casino-spin"]').count()) === 0
-);
-check(
   "the spectator has no Banned button",
   (await b.locator('[data-action="casino-ban"]').count()) === 0
 );
@@ -158,6 +154,91 @@ const pooled = await a.evaluate(
 );
 check("the pool is saved without a Save button", !pooled.pools.jungle.includes(dropped));
 
+// ---- under each lane, the spectator sees what it can draw, and follows the creator's pools live ----
+const optionsOf = (page, lane) =>
+  page
+    .locator(`.casino-slot[data-lane="${lane}"] .casino-option`)
+    .evaluateAll(items => items.map(item => item.dataset.hero));
+check(
+  "the spectator sees the pool of each lane under its card",
+  JSON.stringify(await optionsOf(b, "clash")) === JSON.stringify(pooled.pools.clash) &&
+    (await b.locator(".casino-slot__pool").count()) === 5
+);
+await b.waitForFunction(
+  hero =>
+    ![...document.querySelectorAll('.casino-slot[data-lane="jungle"] .casino-option')].some(
+      item => item.dataset.hero === hero
+    ),
+  dropped,
+  { timeout: 3500 }
+);
+check("the spectator's Jungle pool loses the hero the creator took out", true);
+check(
+  "the hero banned from Farm stays in its pool, greyed",
+  (await b.locator(`.casino-slot[data-lane="farm"] .casino-option--banned[data-hero]`).count()) >= 1
+);
+
+// ---- B spins on their own screen only (owner, 2026-11-07); A's roulette does not change ----
+const stopped = page =>
+  page.waitForFunction(
+    () =>
+      !document.querySelector(".casino-reel.is-spinning") &&
+      [...document.querySelectorAll(".casino-reel")].every(
+        reel => reel.querySelectorAll(".casino-hero").length <= 1
+      )
+  );
+const serverState = () =>
+  a.evaluate(
+    id => fetch(`/api/casino/${id}`).then(response => response.json()),
+    shareUrl.split("/").pop()
+  );
+const liveBefore = await serverState();
+const aBefore = await names(a);
+await b.click('[data-action="casino-spin"]');
+await b.waitForSelector(".casino-local");
+await stopped(b);
+const mine = await names(b);
+check(
+  "the spectator's spin says it is only on their screen",
+  (await b.locator(".casino-local").innerText()).includes("only on your screen")
+);
+check("the spectator's spin shows five different heroes", new Set(mine).size === 5);
+const liveAfter = await serverState();
+check(
+  "the spectator's spin changes nothing on the server",
+  liveAfter.version === liveBefore.version &&
+    JSON.stringify(liveAfter.result) === JSON.stringify(liveBefore.result)
+);
+check(
+  "the creator's screen did not change",
+  JSON.stringify(await names(a)) === JSON.stringify(aBefore)
+);
+await b.click('[data-action="casino-lane-toggle"][data-lane="clash"]');
+await b.click('[data-action="casino-respin"]');
+await stopped(b);
+const mine2 = await names(b);
+check(
+  "the spectator's respin of Clash keeps their other four lanes",
+  JSON.stringify(mine2.slice(1)) === JSON.stringify(mine.slice(1))
+);
+await act(a, '[data-action="casino-spin"]');
+const aSpun = await names(a);
+await b.waitForFunction(
+  () => /creator spun/i.test(document.querySelector(".casino-local")?.textContent ?? ""),
+  null,
+  { timeout: 3500 }
+);
+check(
+  "when the creator spins, the spectator keeps their heroes and is told",
+  JSON.stringify(await names(b)) === JSON.stringify(mine2)
+);
+await b.click('[data-action="casino-live"]');
+check(
+  "Back to the live roulette shows the creator's heroes again",
+  (await b.locator(".casino-local").count()) === 0 &&
+    JSON.stringify(await names(b)) === JSON.stringify(aSpun)
+);
+
 // ---- the basket: B (a spectator) keeps the composition and downloads one PDF ----
 await b.click('[data-action="casino-basket-add"]');
 await b.click('[data-action="casino-basket-add"]');
@@ -213,7 +294,7 @@ await d.waitForSelector(".toast");
 check(
   "a wrong key says so and leaves a spectator",
   (await d.locator(".toast").last().innerText()).includes("not valid") &&
-    (await d.locator('[data-action="casino-spin"]').count()) === 0
+    (await d.locator('[data-action="casino-copy-control"]').count()) === 0
 );
 
 // ---- a roulette that does not exist ----

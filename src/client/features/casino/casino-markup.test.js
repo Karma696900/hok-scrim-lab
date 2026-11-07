@@ -48,18 +48,37 @@ describe("the casino markup", () => {
     assert.match(html, /<header class="page-head cs-stage keep-dark/);
   });
 
-  test("a spectator sees five heroes and no control", () => {
+  test("a spectator sees five heroes and spins on their own screen, but never bans (owner, 2026-11-07)", () => {
     const html = rollMarkup(view, state(), heroes, { control: false });
     assert.equal(count(html, /class="casino-reel/g), 5);
     for (const id of ["a", "b", "c", "d", "e"]) {
       assert.match(html, new RegExp(`Hero ${id}`));
     }
-    for (const action of ["casino-spin", "casino-respin", "casino-ban", "casino-unban"]) {
+    assert.match(html, /data-action="casino-spin"/);
+    assert.match(html, /data-action="casino-respin"/);
+    assert.equal(count(html, /data-action="casino-lane-toggle"/g), 5);
+    for (const action of ["casino-ban", "casino-unban", "casino-copy-control"]) {
       assert.doesNotMatch(html, new RegExp(`data-action="${action}"`));
     }
-    assert.doesNotMatch(html, /data-action="casino-lane-toggle"/);
+    assert.doesNotMatch(html, /casino-local/, "no banner before the spectator spins");
     assert.match(html, /data-action="casino-copy-link"/);
     assert.match(html, /data-action="casino-basket-add"/, "a spectator fills its own basket too");
+  });
+
+  test("a spectator who spun is told it is only on their screen, with the way back to the live roulette", () => {
+    const html = rollMarkup(view, state(), heroes, {
+      control: false,
+      local: { creatorSpun: false }
+    });
+    assert.match(html, /class="casino-local"/);
+    assert.match(html, /Your spin — only on your screen/);
+    assert.match(html, /data-action="casino-live"/);
+    assert.doesNotMatch(html, /The creator spun/);
+    const spun = rollMarkup(view, state(), heroes, {
+      control: false,
+      local: { creatorSpun: true }
+    });
+    assert.match(spun, /The creator spun/);
   });
 
   test("each lane is one square: the lane's icon, the hero over the whole square, then Respin and Banned (owner, 2026-11-07)", () => {
@@ -124,6 +143,39 @@ describe("the casino markup", () => {
     const html = missingMarkup(view);
     assert.match(html, /This roulette does not exist or has expired/);
     assert.match(html, /data-action="casino-create"/);
+  });
+
+  test("under each lane, everyone sees the heroes it can draw: the drawn one marked, a banned one greyed (owner, 2026-11-07)", () => {
+    const pooled = {
+      ...state(),
+      pools: { clash: ["a", "f", "b"], jungle: ["b"], mid: ["c"], farm: ["d"], roam: ["e"] }
+    };
+    for (const control of [false, true]) {
+      const html = rollMarkup(view, pooled, heroes, { control });
+      const clash = html
+        .split('<div class="casino-slot" data-lane="clash">')[1]
+        .split('<div class="casino-slot"')[0];
+      assert.deepEqual(
+        [...clash.matchAll(/<li class="casino-option([^"]*)" data-hero="(\w+)"/g)].map(
+          ([, kind, id]) => `${id}${kind}`
+        ),
+        ["a casino-option--drawn", "f casino-option--banned", "b"]
+      );
+      assert.match(clash, /title="Hero f \(Banned\)"/);
+      assert.match(clash, /3 heroes/);
+      assert.equal(count(html, /class="casino-slot__pool"/g), 5);
+    }
+  });
+
+  test("an empty pool says so under its lane", () => {
+    const html = rollMarkup(view, { ...state(), pools: { ...state().pools, farm: [] } }, heroes, {
+      control: false
+    });
+    const farm = html
+      .split('<div class="casino-slot" data-lane="farm">')[1]
+      .split('<div class="casino-slot"')[0];
+    assert.match(farm, /No hero in this pool/);
+    assert.doesNotMatch(farm, /casino-option/);
   });
 
   test("the roulette carries its version, so a browser check knows a new result is painted", () => {
