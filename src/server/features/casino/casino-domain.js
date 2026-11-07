@@ -86,7 +86,8 @@ export const emptyState = pools => ({
 
 /**
  * Draws `lanes`, one after the other in the lanes' order: each takes a hero of its pool that is not banned, still
- * listed by the site (`known`), and not shown in another lane; a lane with none left shows nobody (null). `pick(n)`
+ * listed by the site (`known`), and not shown in another lane; a lane drawn again also skips the hero it shows when
+ * another is left; a lane with none left shows nobody (null). `pick(n)`
  * gives an index in [0, n). Returns a new state with the spin first in its history.
  */
 export function draw(state, lanes, { known, pick, now, kind, hero }) {
@@ -94,9 +95,13 @@ export function draw(state, lanes, { known, pick, now, kind, hero }) {
   const banned = new Set(state.banned);
   for (const lane of LANE_KEYS.filter(l => lanes.includes(l))) {
     const shown = new Set(LANE_KEYS.filter(l => l !== lane).map(l => result[l]));
-    const left = (state.pools[lane] ?? []).filter(
+    const free = (state.pools[lane] ?? []).filter(
       id => known.has(id) && !banned.has(id) && !shown.has(id)
     );
+    // a lane drawn again changes its hero whenever its pool has another (owner, 2026-11-07: respin), a spin of all
+    // five lanes too (the Respin button with five lanes ticked is one)
+    const other = free.filter(id => id !== state.result[lane]);
+    const left = other.length ? other : free;
     result[lane] = left.length ? left[pick(left.length)] : null;
   }
   const drawn = LANE_KEYS.filter(l => lanes.includes(l));

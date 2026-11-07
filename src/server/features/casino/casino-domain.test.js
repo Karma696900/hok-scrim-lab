@@ -58,6 +58,31 @@ describe("casino draw", () => {
     }
   });
 
+  test("a respin always changes the lane's hero when its pool has another (owner, 2026-11-07)", () => {
+    const pools = { ...every([]), mid: ["c", "d"] };
+    let state = draw(emptyState(pools), ["mid"], { known, pick: first, now: 1, kind: "spin" });
+    for (let i = 0; i < 20; i += 1) {
+      const before = state.result.mid;
+      state = draw(state, ["mid"], { known, pick: seeded, now: 2, kind: "respin" });
+      assert.notEqual(state.result.mid, before);
+    }
+  });
+
+  test("a full spin changes every lane's hero when the pools allow it", () => {
+    const state = spin(emptyState(every(["a", "b", "c", "d", "e", "f", "g"])));
+    const again = spin(state);
+    for (const lane of LANE_KEYS) {
+      assert.notEqual(again.result[lane], state.result[lane], lane);
+    }
+  });
+
+  test("a respin keeps the hero when it is the only one its pool has left", () => {
+    const pools = { ...every([]), mid: ["c"] };
+    const once = draw(emptyState(pools), ["mid"], { known, pick: first, now: 1, kind: "spin" });
+    const again = draw(once, ["mid"], { known, pick: seeded, now: 2, kind: "respin" });
+    assert.equal(again.result.mid, "c");
+  });
+
   test("an empty pool leaves its lane empty", () => {
     const state = spin(emptyState({ ...every(["a", "b", "c", "d", "e"]), roam: [] }));
     assert.equal(state.result.roam, null);

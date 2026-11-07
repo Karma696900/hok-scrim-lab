@@ -80,22 +80,31 @@ check(
 );
 
 // ---- A respins Mid only; B follows ----
-const midBefore = await nameIn(a, "mid");
+// (a respin draws again from the pool: it may land on the same hero, so the check is the version and the history)
 await a.check('input[name="casino-lane"][value="mid"]');
 await act(a, '[data-action="casino-respin"]');
 const midAfter = await nameIn(a, "mid");
+const respun = await version(a);
 const started = Date.now();
 await b.waitForFunction(
-  name =>
+  ([name, at]) =>
+    Number(document.querySelector(".casino[data-version]")?.dataset.version) === at &&
     document.querySelector('.casino-reel[data-lane="mid"] .casino-hero b')?.textContent === name,
-  midAfter,
+  [midAfter, respun],
   { timeout: 3500 }
 );
 check(
-  `the spectator sees the new Mid within 3 s (${Date.now() - started} ms)`,
+  `the spectator sees the respun Mid within 3 s (${Date.now() - started} ms)`,
   Date.now() - started <= 3500
 );
-check("the respin changed Mid", midAfter !== midBefore || first.length === 0);
+const last = await a.evaluate(
+  id => fetch(`/api/casino/${id}`).then(response => response.json()),
+  shareUrl.split("/").pop()
+);
+check(
+  "the respin drew Mid only",
+  last.history[0].kind === "respin" && JSON.stringify(last.history[0].lanes) === '["mid"]'
+);
 await settled(b, 1);
 const others = async page =>
   Promise.all(["clash", "jungle", "farm", "roam"].map(lane => nameIn(page, lane)));
