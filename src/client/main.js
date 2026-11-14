@@ -109,7 +109,9 @@ async function initialize() {
       return;
     }
     if (sharedView?.kind === "tierList") {
-      state.activeTierId = sharedView.id;
+      // only when a link is opened: the first download stays as light as before
+      const { openTierList } = await import("./features/tier-lists/tier-list-shared.js");
+      openTierList(sharedView.id);
       await go("/tier-lists", { replace: true });
       return;
     }

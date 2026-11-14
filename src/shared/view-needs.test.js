@@ -10,7 +10,12 @@ const CLIENT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "..
 function sources(folder) {
   return readdirSync(folder).flatMap(name => {
     const file = path.join(folder, name);
-    return statSync(file).isDirectory() ? sources(file) : file.endsWith(".js") ? [file] : [];
+    // the tests are left out: they set the state themselves, no page loads it for them
+    return statSync(file).isDirectory()
+      ? sources(file)
+      : file.endsWith(".js") && !file.endsWith(".test.js")
+        ? [file]
+        : [];
   });
 }
 

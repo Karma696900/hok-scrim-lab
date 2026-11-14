@@ -18,6 +18,17 @@ export function visibleTierLists() {
   return state.tierLists.filter(item => (item.lane ?? null) === lane);
 }
 
+/**
+ * Opens one list (a shared link that was just accepted): the page goes to the lane of that list, otherwise a
+ * list of another lane would stay hidden behind the first list of the lane on screen.
+ */
+export function openTierList(listId) {
+  const list = state.tierLists.find(item => item.id === listId);
+  state.activeTierId = listId;
+  state.tierLaneFilter = list?.lane ?? "all";
+  Object.assign(tierUi, { picked: null, query: "", lane: "all", chosen: true });
+}
+
 export function currentTierList() {
   const visible = visibleTierLists();
   return visible.find(item => item.id === state.activeTierId) || visible[0] || null;
