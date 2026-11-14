@@ -2897,3 +2897,15 @@
 3062|Pembuat sudah memutar.
 3063|Kembali ke roulette langsung
 3064|Tautan disalin · hanya lihat · untuk semua orang, selama tier list masih ada
+3065|{name}, item Honor of Kings seharga {price} gold.
+3066|{name}, item Honor of Kings.
+3067|Dibuat dari {parts}.
+3068|{name}, arcana merah Honor of Kings.
+3069|{name}, arcana biru Honor of Kings.
+3070|{name}, arcana hijau Honor of Kings.
+3071|{name}, arcana Honor of Kings.
+3072|{first} dan {last}
+3073|Tier list {lane} Honor of Kings, {month}: {heroes} di puncak. Setiap hero {lane} dari SS sampai D, menurut pertandingan turnamen tiga bulan terakhir.
+3074|Tier list Honor of Kings, {month}: {heroes} di puncak. Setiap hero di setiap lane dari SS sampai D, menurut pertandingan turnamen tiga bulan terakhir.
+3075|Hero HOK: build, skill, dan counter Honor of Kings
+3076|HOK Global Scrim Lab: tier list, build, dan draft scrim Honor of Kings

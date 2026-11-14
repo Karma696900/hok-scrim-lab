@@ -1,5 +1,6 @@
 import { AUTH_VIEWS, SITE_NAME, matchRoute, pathFor, routeTexts } from "../../shared/routes.js";
 import { heroTitleKey } from "../../shared/hero-title.js";
+import { fitTitle } from "../../shared/page-title.js";
 import { t } from "./browser-i18n.js";
 import { api } from "./api-client.js";
 import { contentReady } from "../domain/staff-content.js";
@@ -24,10 +25,10 @@ function setTitle() {
     // the same title as the server's (platform/http/page-handler-hero.js): only what the page holds
     title = t(
       heroTitleKey({ build: Boolean(sheet.builds?.length), games: sheet.tournament?.picks > 0 }),
-      { name: sheet.hero.displayName || sheet.hero.name, site: SITE_NAME }
+      { name: sheet.hero.name, site: SITE_NAME } // the form of a Flowborn stays in the title
     );
   }
-  document.title = title;
+  document.title = fitTitle(title);
 }
 
 /** Keeps the address bar in step with the view (real, shareable URLs). */

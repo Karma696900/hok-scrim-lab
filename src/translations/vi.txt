@@ -2897,3 +2897,15 @@
 3062|Người tạo đã quay.
 3063|Quay lại vòng quay trực tiếp
 3064|Đã sao chép liên kết · chỉ xem · cho mọi người, miễn là tier list còn tồn tại
+3065|{name}, trang bị Honor of Kings giá {price} vàng.
+3066|{name}, trang bị Honor of Kings.
+3067|Ghép từ {parts}.
+3068|{name}, ngọc đỏ của Honor of Kings.
+3069|{name}, ngọc xanh dương của Honor of Kings.
+3070|{name}, ngọc xanh lá của Honor of Kings.
+3071|{name}, ngọc của Honor of Kings.
+3072|{first} và {last}
+3073|Bảng xếp hạng {lane} Honor of Kings, {month}: {heroes} dẫn đầu. Mọi tướng {lane} từ SS đến D, theo các trận đấu giải trong ba tháng qua.
+3074|Bảng xếp hạng Honor of Kings, {month}: {heroes} dẫn đầu. Mọi tướng ở mọi đường từ SS đến D, theo các trận đấu giải trong ba tháng qua.
+3075|Tướng HOK: lối lên đồ, kỹ năng và khắc chế Honor of Kings
+3076|HOK Global Scrim Lab: bảng xếp hạng, lối lên đồ và cấm chọn scrim Honor of Kings

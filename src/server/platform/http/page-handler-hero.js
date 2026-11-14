@@ -56,8 +56,9 @@ export async function describeHero(ctx, hero, language, say) {
     status: 200,
     index: true,
     banner: await ctx.bannerSrcset(hero.id, language),
+    // the title keeps the form of a Flowborn ("Flowborn (Tank)"): five pages, five titles
     title: tr(language, heroTitleKey({ build: builds.length > 0, games: record.picks > 0 }), {
-      name,
+      name: hero.name,
       site: SITE_NAME
     }),
     description: sentences.join(" ").slice(0, 300),

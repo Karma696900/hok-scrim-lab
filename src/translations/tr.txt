@@ -2897,3 +2897,15 @@
 3062|Oluşturan kişi çevirdi.
 3063|Canlı ruletine dön
 3064|Bağlantı kopyalandı · yalnızca görüntüleme · tier listesi var olduğu sürece herkes için
+3065|{name}, {price} altınlık Honor of Kings eşyası.
+3066|{name}, Honor of Kings eşyası.
+3067|{parts} ile yapılır.
+3068|{name}, Honor of Kings kırmızı arkanası.
+3069|{name}, Honor of Kings mavi arkanası.
+3070|{name}, Honor of Kings yeşil arkanası.
+3071|{name}, Honor of Kings arkanası.
+3072|{first} ve {last}
+3073|Honor of Kings {lane} tier listesi, {month}: zirvede {heroes}. Her {lane} kahramanı SS'den D'ye, son üç ayın turnuva maçlarına göre.
+3074|Honor of Kings tier listesi, {month}: zirvede {heroes}. Her koridordaki her kahraman SS'den D'ye, son üç ayın turnuva maçlarına göre.
+3075|HOK kahramanları: Honor of Kings buildleri, yetenekleri ve counterları
+3076|HOK Global Scrim Lab: Honor of Kings tier listesi, buildler ve scrim draftları

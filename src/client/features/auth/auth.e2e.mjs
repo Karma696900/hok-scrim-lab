@@ -43,7 +43,7 @@ await page.goto(`${app.baseUrl}/heroes`);
 await page.waitForSelector("#view h1");
 check(
   "a deep link opens its page (/heroes)",
-  /Hero index/i.test(await page.locator("h1").innerText())
+  /HOK heroes/i.test(await page.locator("h1").innerText())
 );
 await goNav(page, '.nav-link[data-view="scrims"]');
 await page.waitForSelector("#view h1");
@@ -52,7 +52,7 @@ await page.goBack();
 await page.waitForFunction(
   () =>
     location.pathname === "/heroes" &&
-    /Hero index/i.test(document.querySelector("h1")?.innerText ?? "")
+    /HOK heroes/i.test(document.querySelector("h1")?.innerText ?? "")
 );
 check("the back button restores the previous page", true);
 check("the document title follows the page", /heroes/i.test(await page.title()));

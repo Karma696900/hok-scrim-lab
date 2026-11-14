@@ -2,6 +2,9 @@
 import { arcanaInOrder, itemsInOrder, piecesByName } from "../../domain/catalog-display.js";
 import { formatEntry, indexCatalog } from "../../../shared/build-model.js";
 import { tx } from "../../domain/staff-content.js";
+import { t } from "../../app/browser-i18n.js";
+import { SITE_NAME, matchRoute, routeTexts } from "../../../shared/routes.js";
+import { fitTitle } from "../../../shared/page-title.js";
 
 export const kindOf = view => ({ items: "item", arcana: "arcana", spells: "spell" })[view.section];
 
@@ -74,11 +77,34 @@ export async function load(view) {
   }
   if (view.root?.isConnected) {
     view.paint();
+    showTitle(view); // the name of the piece is known now
     if (view.wantedTile) {
       view.wantedTile = false;
       view.root.querySelector(".gd-tile.is-open")?.scrollIntoView({ block: "nearest" });
     }
   }
+}
+
+/**
+ * The title of the tab follows the open piece too, the same as the server's (platform/http/page-handler-pieces.js):
+ * without it, every piece page read after its script ran had the title of the whole list.
+ */
+export function showTitle(view) {
+  const piece = view.picked === null ? null : all(view).find(entry => entry.id === view.picked);
+  if (!piece) {
+    const { title } = routeTexts(matchRoute(`/${view.section}`));
+    document.title = fitTitle(t(title, { site: SITE_NAME }));
+    return;
+  }
+  const values = { name: piece.name, site: SITE_NAME };
+  // t with a literal key each time (the key tool reads them)
+  document.title = fitTitle(
+    view.section === "items"
+      ? t("HOK {name} — Honor of Kings item: stats, price and passive | {site}", values)
+      : view.section === "arcana"
+        ? t("HOK {name} — Honor of Kings arcana: stats and color | {site}", values)
+        : t("HOK {name} — Honor of Kings spell: effect and cooldown | {site}", values)
+  );
 }
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
@@ -92,10 +118,11 @@ export function followAddress(view) {
   if (location.pathname !== path) {
     history.replaceState(null, "", path);
   }
+  showTitle(view);
   const heading = view.root?.querySelector(".gd-stage__title h1");
   if (heading) {
     heading.textContent = view.heading();
   }
 }
 
-export const onView = { kindOf, all, matches, list, filtered, mainStats, load, followAddress };
+export const onView = { kindOf, all, matches, list, filtered, mainStats, load, followAddress, showTitle };

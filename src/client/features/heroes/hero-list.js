@@ -189,7 +189,7 @@ export function renderHeroes() {
         `<option value="${value}"${value === sortKey ? " selected" : ""}>${label}</option>`
     )
     .join("");
-  app.innerHTML = `<h1 class="visually-hidden">${t("Hero index")}</h1>
+  app.innerHTML = `<h1 class="visually-hidden">${t("HOK heroes: Honor of Kings builds, skills and counters")}</h1>
     ${day ? sceneMarkup(day) : ""}
     <div class="hl-layout${day ? "" : " hl-layout--bare"}">
       <aside class="hl-filters" id="hero-filters" aria-label="${t("Filters")}">

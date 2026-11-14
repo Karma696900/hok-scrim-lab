@@ -2897,3 +2897,15 @@
 3062|Il creatore ha girato.
 3063|Torna alla roulette dal vivo
 3064|Link copiato · sola lettura · per tutti, finché la tier list esiste
+3065|{name}, oggetto di Honor of Kings da {price} oro.
+3066|{name}, oggetto di Honor of Kings.
+3067|Si costruisce con {parts}.
+3068|{name}, arcano rosso di Honor of Kings.
+3069|{name}, arcano blu di Honor of Kings.
+3070|{name}, arcano verde di Honor of Kings.
+3071|{name}, arcano di Honor of Kings.
+3072|{first} e {last}
+3073|Tier list {lane} di Honor of Kings, {month}: {heroes} in cima. Ogni eroe {lane} da SS a D, secondo le partite dei tornei degli ultimi tre mesi.
+3074|Tier list di Honor of Kings, {month}: {heroes} in cima. Ogni eroe di ogni corsia da SS a D, secondo le partite dei tornei degli ultimi tre mesi.
+3075|Eroi di HOK: build, abilità e counter di Honor of Kings
+3076|HOK Global Scrim Lab: tier list, build e draft di scrim di Honor of Kings

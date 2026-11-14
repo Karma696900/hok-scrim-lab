@@ -355,7 +355,7 @@ export function renderHome() {
     ["next", t("Upcoming")],
     ["past", t("Past")]
   ];
-  app.innerHTML = `<h1 class="visually-hidden">${t("Scrim operations")}</h1>
+  app.innerHTML = `<h1 class="visually-hidden">${t("HOK Global Scrim Lab: Honor of Kings tier list, builds and scrim drafts")}</h1>
     ${banner()}
     ${statsStrip(counts)}
     <div class="home-cards">${eventsCard()}${state.auth.user ? teamsCard() : startCard()}${trainingCard()}</div>

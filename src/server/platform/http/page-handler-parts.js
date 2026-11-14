@@ -8,6 +8,7 @@ import { wide } from "../../../shared/media.js";
 import { describeTierList } from "./page-handler-tier-list.js";
 import { describeHero } from "./page-handler-hero.js";
 import { PIECE_VIEWS, describePiece } from "./page-handler-pieces.js";
+import { fitTitle } from "../../../shared/page-title.js";
 
 export const shell = async ctx =>
   (ctx.template ??= await readFile(path.join(ctx.web.client, "index.html"), "utf8"));
@@ -44,7 +45,13 @@ export async function bannerSrcset(ctx, heroId, language) {
 
 const missing = language => ({ status: 404, ...localized(language, NOT_FOUND) });
 
+/** What the page is (status, title, description...), its title fitted to what a search result shows. */
 export async function describe(ctx, request, language) {
+  const info = await describePage(ctx, request, language);
+  return { ...info, title: fitTitle(info.title) };
+}
+
+async function describePage(ctx, request, language) {
   const matched = matchRoute(request.path);
   if (matched.view === "not-found") {
     return missing(language);

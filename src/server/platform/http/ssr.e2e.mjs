@@ -58,8 +58,8 @@ const browser = await chromium.launch();
   });
   const page = await context.newPage();
   for (const [path, expected] of [
-    ["/", /Scrim operations/i],
-    ["/heroes", /Hero index/i],
+    ["/", /Honor of Kings tier list, builds and scrim drafts/i],
+    ["/heroes", /HOK heroes: Honor of Kings builds/i],
     ["/tier-lists", /Tier lists/i],
     ["/scrims", /scrims/i],
     ["/history", /History/i],

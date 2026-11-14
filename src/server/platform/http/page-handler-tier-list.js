@@ -14,6 +14,34 @@ const LANE_NAMES = {
 /** The heroes named in the ItemList: the first ones of the list, best tier first. */
 const LISTED = 50;
 
+/** The heroes a description names: the first ones of the list. */
+const BEST = 3;
+
+/** "Agudo, Angela and Kongming": the names of a sentence. */
+const names = (language, list) =>
+  list.length < 2
+    ? list.join("")
+    : tr(language, "{first} and {last}", { first: list.slice(0, -1).join(", "), last: list.at(-1) });
+
+/**
+ * The description of one lane (or of the whole list): its best heroes this month. Each page has its own, instead of
+ * the one sentence the six pages shared.
+ */
+function describeBest(language, say, lane, month, best) {
+  const heroes = names(language, best);
+  return lane
+    ? tr(
+        language,
+        "Honor of Kings {lane} tier list for {month}: {heroes} on top. Every {lane} hero from SS to D, ranked by the tournament games of the last three months.",
+        { lane: say(language, lane), month, heroes }
+      )
+    : tr(
+        language,
+        "Honor of Kings tier list for {month}: {heroes} on top. Every hero of every lane from SS to D, ranked by the tournament games of the last three months.",
+        { month, heroes }
+      );
+}
+
 /** The title, the description and the heroes of /tier-list or /tier-list/{lane}. */
 export async function describeTierList(ctx, matched, language, say, localized) {
   const slug = (matched.section ?? "").slice(1);
@@ -47,11 +75,13 @@ export async function describeTierList(ctx, matched, language, say, localized) {
   } catch {
     // the page still answers; the structured data waits for the next visit
   }
+  const best = items.slice(0, BEST).map(hero => hero.name);
   return {
     status: 200,
     ...localized(language, matched.route),
     index: true,
     title,
+    ...(best.length ? { description: describeBest(language, say, lane, month, best) } : {}),
     tierList: { path: `/tier-list${lane ? `/${slug}` : ""}`, items, updatedAt }
   };
 }

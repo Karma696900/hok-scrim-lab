@@ -2897,3 +2897,15 @@
 3062|创建者已抽取。
 3063|返回实时轮盘
 3064|链接已复制 · 仅查看 · 只要梯队榜存在，所有人都能打开
+3065|{name}：Honor of Kings 装备，售价 {price} 金币。
+3066|{name}：Honor of Kings 装备。
+3067|合成材料：{parts}。
+3068|{name}：Honor of Kings 红色铭文。
+3069|{name}：Honor of Kings 蓝色铭文。
+3070|{name}：Honor of Kings 绿色铭文。
+3071|{name}：Honor of Kings 铭文。
+3072|{first}和{last}
+3073|Honor of Kings {lane} 强度榜（{month}）：{heroes} 位居前列。依据近三个月赛事对局，{lane} 全部英雄从 SS 到 D 排名。
+3074|Honor of Kings 强度榜（{month}）：{heroes} 位居前列。依据近三个月赛事对局，各分路全部英雄从 SS 到 D 排名。
+3075|HOK 英雄：Honor of Kings 出装、技能与克制
+3076|HOK Global Scrim Lab：Honor of Kings 强度榜、出装与训练赛 BP

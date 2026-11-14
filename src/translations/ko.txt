@@ -2897,3 +2897,15 @@
 3062|만든 사람이 스핀했습니다.
 3063|실시간 룰렛으로 돌아가기
 3064|링크 복사됨 · 보기 전용 · 티어 리스트가 있는 동안 누구나 볼 수 있음
+3065|{name}: {price} 골드의 Honor of Kings 아이템.
+3066|{name}: Honor of Kings 아이템.
+3067|재료: {parts}.
+3068|{name}: Honor of Kings 빨간색 아르카나.
+3069|{name}: Honor of Kings 파란색 아르카나.
+3070|{name}: Honor of Kings 초록색 아르카나.
+3071|{name}: Honor of Kings 아르카나.
+3072|{first}, {last}
+3073|Honor of Kings {lane} 티어 리스트 ({month}): {heroes} 최상위. 최근 3개월 대회 경기로 매긴 {lane} 영웅 SS부터 D까지.
+3074|Honor of Kings 티어 리스트 ({month}): {heroes} 최상위. 최근 3개월 대회 경기로 매긴 모든 라인의 영웅 SS부터 D까지.
+3075|HOK 영웅: Honor of Kings 빌드, 스킬, 카운터
+3076|HOK Global Scrim Lab: Honor of Kings 티어 리스트, 빌드, 스크림 드래프트
