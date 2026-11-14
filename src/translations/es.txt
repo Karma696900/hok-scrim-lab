@@ -2896,3 +2896,4 @@
 3061|Tu tirada — solo en tu pantalla
 3062|El creador ha girado.
 3063|Volver a la ruleta en directo
+3064|Enlace copiado · solo lectura · para todos, mientras exista la tier list

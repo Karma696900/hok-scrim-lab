@@ -2896,3 +2896,4 @@
 3061|O seu giro — só no seu ecrã
 3062|O criador girou.
 3063|Voltar à roleta ao vivo
+3064|Link copiado · somente leitura · para todos, enquanto a tier list existir

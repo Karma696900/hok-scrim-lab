@@ -2896,3 +2896,4 @@
 3061|Il tuo giro — solo sul tuo schermo
 3062|Il creatore ha girato.
 3063|Torna alla roulette dal vivo
+3064|Link copiato · sola lettura · per tutti, finché la tier list esiste

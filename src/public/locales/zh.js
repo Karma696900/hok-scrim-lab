@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "链接已复制",
   "Link copied · single use · can edit · expires in 7 days": "链接已复制 · 一次性 · 可编辑 · 7 天后过期",
   "Link copied · single use · view only · expires in 7 days": "链接已复制 · 一次性 · 仅查看 · 7 天后过期",
+  "Link copied · view only · for everyone, as long as the tier list exists": "链接已复制 · 仅查看 · 只要梯队榜存在，所有人都能打开",
   "Link copied.": "链接已复制。",
   "Link my Discord": "绑定我的Discord",
   "Link not found.": "找不到该链接。",

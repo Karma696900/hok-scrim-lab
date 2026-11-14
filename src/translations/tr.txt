@@ -2896,3 +2896,4 @@
 3061|Senin çevirmen — yalnızca senin ekranında
 3062|Oluşturan kişi çevirdi.
 3063|Canlı ruletine dön
+3064|Bağlantı kopyalandı · yalnızca görüntüleme · tier listesi var olduğu sürece herkes için

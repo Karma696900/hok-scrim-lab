@@ -12,10 +12,13 @@ export function installSharingActions() {
       body: { role: button.dataset.role }
     });
     await navigator.clipboard.writeText(`${location.origin}${invite.link}`);
+    // a view link of a tier list opens for everyone, for as long as the list exists (server: isOpenLink)
     tell(
       button.dataset.role === "editor"
         ? t("Link copied · single use · can edit · expires in 7 days")
-        : t("Link copied · single use · view only · expires in 7 days")
+        : invite.expiresAt === null
+          ? t("Link copied · view only · for everyone, as long as the tier list exists")
+          : t("Link copied · single use · view only · expires in 7 days")
     );
   });
 }

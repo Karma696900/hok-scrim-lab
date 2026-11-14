@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "リンクをコピーしました",
   "Link copied · single use · can edit · expires in 7 days": "リンクをコピーしました · 1 回限り · 編集可 · 7 日後に期限切れ",
   "Link copied · single use · view only · expires in 7 days": "リンクをコピーしました · 1 回限り · 閲覧のみ · 7 日後に期限切れ",
+  "Link copied · view only · for everyone, as long as the tier list exists": "リンクをコピーしました · 閲覧のみ · ティアリストがある限り誰でも開けます",
   "Link copied.": "リンクをコピーしました。",
   "Link my Discord": "Discordを連携する",
   "Link not found.": "リンクが見つかりません。",

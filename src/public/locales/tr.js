@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "Bağlantı kopyalandı",
   "Link copied · single use · can edit · expires in 7 days": "Bağlantı kopyalandı · tek kullanımlık · düzenleyebilir · 7 gün içinde sona erer",
   "Link copied · single use · view only · expires in 7 days": "Bağlantı kopyalandı · tek kullanımlık · salt okunur · 7 gün içinde sona erer",
+  "Link copied · view only · for everyone, as long as the tier list exists": "Bağlantı kopyalandı · yalnızca görüntüleme · tier listesi var olduğu sürece herkes için",
   "Link copied.": "Bağlantı kopyalandı.",
   "Link my Discord": "Discord’umu bağla",
   "Link not found.": "Bağlantı bulunamadı.",

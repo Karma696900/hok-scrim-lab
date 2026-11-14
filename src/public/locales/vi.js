@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "Đã sao chép liên kết",
   "Link copied · single use · can edit · expires in 7 days": "Đã sao chép liên kết · dùng một lần · có thể chỉnh sửa · hết hạn sau 7 ngày",
   "Link copied · single use · view only · expires in 7 days": "Đã sao chép liên kết · dùng một lần · chỉ xem · hết hạn sau 7 ngày",
+  "Link copied · view only · for everyone, as long as the tier list exists": "Đã sao chép liên kết · chỉ xem · cho mọi người, miễn là tier list còn tồn tại",
   "Link copied.": "Đã sao chép liên kết.",
   "Link my Discord": "Liên kết Discord của tôi",
   "Link not found.": "Không tìm thấy liên kết.",

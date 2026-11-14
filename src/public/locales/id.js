@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "Tautan disalin",
   "Link copied · single use · can edit · expires in 7 days": "Tautan disalin · sekali pakai · bisa mengedit · kedaluwarsa dalam 7 hari",
   "Link copied · single use · view only · expires in 7 days": "Tautan disalin · sekali pakai · hanya lihat · kedaluwarsa dalam 7 hari",
+  "Link copied · view only · for everyone, as long as the tier list exists": "Tautan disalin · hanya lihat · untuk semua orang, selama tier list masih ada",
   "Link copied.": "Tautan disalin.",
   "Link my Discord": "Hubungkan Discord-ku",
   "Link not found.": "Tautan tidak ditemukan.",

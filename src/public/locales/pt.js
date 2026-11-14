@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "Link copiado",
   "Link copied · single use · can edit · expires in 7 days": "Link copiado · uso único · pode editar · expira em 7 dias",
   "Link copied · single use · view only · expires in 7 days": "Link copiado · uso único · somente leitura · expira em 7 dias",
+  "Link copied · view only · for everyone, as long as the tier list exists": "Link copiado · somente leitura · para todos, enquanto a tier list existir",
   "Link copied.": "Link copiado.",
   "Link my Discord": "Ligar o meu Discord",
   "Link not found.": "Link não encontrado.",

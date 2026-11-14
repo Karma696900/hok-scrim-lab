@@ -2896,3 +2896,4 @@
 3061|Lượt quay của bạn — chỉ trên màn hình của bạn
 3062|Người tạo đã quay.
 3063|Quay lại vòng quay trực tiếp
+3064|Đã sao chép liên kết · chỉ xem · cho mọi người, miễn là tier list còn tồn tại

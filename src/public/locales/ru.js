@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "Ссылка скопирована",
   "Link copied · single use · can edit · expires in 7 days": "Ссылка скопирована · одноразовая · с правом редактирования · действует 7 дней",
   "Link copied · single use · view only · expires in 7 days": "Ссылка скопирована · одноразовая · только просмотр · действует 7 дней",
+  "Link copied · view only · for everyone, as long as the tier list exists": "Ссылка скопирована · только просмотр · для всех, пока тир-лист существует",
   "Link copied.": "Ссылка скопирована.",
   "Link my Discord": "Привязать мой Discord",
   "Link not found.": "Ссылка не найдена.",

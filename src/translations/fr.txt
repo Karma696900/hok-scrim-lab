@@ -2896,3 +2896,4 @@
 3061|Votre tirage — seulement sur votre écran
 3062|Le créateur a relancé.
 3063|Revenir à la roulette en direct
+3064|Lien copié · lecture seule · pour tout le monde, tant que la tier list existe

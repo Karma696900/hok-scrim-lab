@@ -23,6 +23,15 @@ export const SHARE_KINDS = {
   }
 };
 
+/**
+ * A view link of a tier list opens for everyone who receives it, for as long as the list exists (the
+ * owner, 2026-11-14: people pass these links around). It is stored with this end date and never counts
+ * its people; it can still be revoked. Edit links, and every link of a series, keep their end date and
+ * their number of uses.
+ */
+export const isOpenLink = (kind, role) => kind === "tierList" && role === "viewer";
+export const NEVER = Number.MAX_SAFE_INTEGER;
+
 export const hashToken = token => createHash("sha256").update(token).digest("hex");
 
 export function parseInviteRequest(body) {

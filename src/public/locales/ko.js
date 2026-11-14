@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "링크를 복사했습니다",
   "Link copied · single use · can edit · expires in 7 days": "링크를 복사했습니다 · 일회용 · 편집 가능 · 7일 후 만료",
   "Link copied · single use · view only · expires in 7 days": "링크를 복사했습니다 · 일회용 · 보기 전용 · 7일 후 만료",
+  "Link copied · view only · for everyone, as long as the tier list exists": "링크 복사됨 · 보기 전용 · 티어 리스트가 있는 동안 누구나 볼 수 있음",
   "Link copied.": "링크를 복사했습니다.",
   "Link my Discord": "내 Discord 연동",
   "Link not found.": "링크를 찾을 수 없습니다.",

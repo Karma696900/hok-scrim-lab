@@ -207,7 +207,57 @@ describe("tier list ownership and sharing", { skip }, () => {
     assert.equal((await alice.get(`/api/tier-lists/${list.id}`)).body.name, "Mine");
   });
 
-  test("an invitation link grants viewer or editor access, once, and can be revoked", async () => {
+  test("a view link of a tier list opens for everyone, with or without an account, and never expires", async () => {
+    // the owner, 2026-11-14: a view link people pass around must open for each of them, as long as the list exists
+    const creator = app.browser(); // a visitor without an account
+    const { body: list } = await creator.post("/api/tier-lists", { ...body, name: "Open" });
+    const invite = (await creator.post(`/api/tier-lists/${list.id}/invites`, { role: "viewer" }))
+      .body;
+    assert.equal(invite.expiresAt, null, "no end date");
+    assert.equal(invite.maxUses, null, "no limit of people");
+    for (const reader of [app.browser(), app.browser(), app.browser()]) {
+      const accepted = await reader.post("/api/invites/accept", { token: invite.token });
+      assert.equal(accepted.status, 200, accepted.text);
+      assert.equal(accepted.body.role, "viewer");
+      assert.equal((await reader.get(`/api/tier-lists/${list.id}`)).body.name, "Open");
+    }
+    const listed = (await creator.get(`/api/tier-lists/${list.id}/sharing`)).body.invites;
+    assert.equal(listed.length, 1);
+    assert.deepEqual(
+      { expiresAt: listed[0].expiresAt, maxUses: listed[0].maxUses },
+      {
+        expiresAt: null,
+        maxUses: null
+      }
+    );
+    assert.equal(
+      (await creator.delete(`/api/tier-lists/${list.id}/invites/${listed[0].id}`)).status,
+      200
+    );
+    assert.equal(
+      (await app.browser().post("/api/invites/accept", { token: invite.token })).status,
+      404,
+      "revoked"
+    );
+  });
+
+  test("an edit link of a tier list still works for one person only", async () => {
+    const alice = app.browser();
+    const { body: list } = await alice.post("/api/tier-lists", body);
+    const invite = (await alice.post(`/api/tier-lists/${list.id}/invites`, { role: "editor" }))
+      .body;
+    assert.equal(
+      (await app.browser().post("/api/invites/accept", { token: invite.token })).status,
+      200
+    );
+    assert.equal(
+      (await app.browser().post("/api/invites/accept", { token: invite.token })).status,
+      409,
+      "single use"
+    );
+  });
+
+  test("an invitation link grants viewer or editor access, and can be revoked", async () => {
     const alice = app.browser();
     const { body: list } = await alice.post("/api/tier-lists", body);
     const viewerInvite = (
@@ -231,11 +281,6 @@ describe("tier list ownership and sharing", { skip }, () => {
     assert.equal((await viewer.post(`/api/tier-lists/${list.id}/invites`, {})).status, 404);
     assert.equal((await viewer.get("/api/tier-lists")).body.items.length, 1);
 
-    assert.equal(
-      (await app.browser().post("/api/invites/accept", { token: viewerInvite.token })).status,
-      409,
-      "single use"
-    );
     assert.equal(
       (await app.browser().post("/api/invites/accept", { token: "t_garbage" })).status,
       404
@@ -289,7 +334,7 @@ describe("tier list ownership and sharing", { skip }, () => {
   test("expired invitations are refused", async () => {
     const alice = app.browser();
     const { body: list } = await alice.post("/api/tier-lists", body);
-    const invite = (await alice.post(`/api/tier-lists/${list.id}/invites`, { role: "viewer" }))
+    const invite = (await alice.post(`/api/tier-lists/${list.id}/invites`, { role: "editor" }))
       .body;
     await app.store.pool.query(
       "UPDATE tier_list_invites SET expires_at = ? WHERE tier_list_id = ?",
@@ -299,6 +344,21 @@ describe("tier list ownership and sharing", { skip }, () => {
       (await app.browser().post("/api/invites/accept", { token: invite.token })).status,
       404
     );
+  });
+
+  test("a view link of a tier list made before the open-link rule (an end date, one use, used) still opens", async () => {
+    const alice = app.browser();
+    const { body: list } = await alice.post("/api/tier-lists", { ...body, name: "Old link" });
+    const invite = (await alice.post(`/api/tier-lists/${list.id}/invites`, { role: "viewer" }))
+      .body;
+    await app.store.pool.query(
+      "UPDATE tier_list_invites SET expires_at = ?, max_uses = 1, uses = 1 WHERE tier_list_id = ?",
+      [Date.now() - 1000, list.id]
+    );
+    const reader = app.browser();
+    assert.equal((await reader.post("/api/invites/accept", { token: invite.token })).status, 200);
+    assert.equal((await reader.get(`/api/tier-lists/${list.id}`)).body.name, "Old link");
+    assert.equal((await alice.get(`/api/tier-lists/${list.id}/sharing`)).body.invites.length, 1);
   });
 
   test("series can be shared read-only or for editing, and only by their owner", async () => {

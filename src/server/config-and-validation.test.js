@@ -4,7 +4,7 @@ import { describe, test } from "node:test";
 import { assertRuntimeConfig, loadConfig } from "./config.js";
 import { safeReturnPath } from "./features/auth/google.js";
 import { normalizeTeamNames } from "./features/series/series.js";
-import { parseInviteRequest } from "./features/sharing/sharing-domain.js";
+import { isOpenLink, parseInviteRequest } from "./features/sharing/sharing-domain.js";
 import { parsePagination } from "./platform/validation.js";
 import { parseSeriesCreate } from "./features/series/series-validation.js";
 import { parseTierListInput } from "./features/tier-lists/tier-list-domain.js";
@@ -340,5 +340,12 @@ describe("validation", () => {
     assert.throws(() => parseInviteRequest({ role: "owner" }), /viewer or editor/);
     assert.throws(() => parseInviteRequest({ expiresInDays: 31 }));
     assert.throws(() => parseInviteRequest({ maxUses: 0 }));
+  });
+
+  test("only the view links of tier lists are open to everyone for ever", () => {
+    assert.equal(isOpenLink("tierList", "viewer"), true);
+    assert.equal(isOpenLink("tierList", "editor"), false);
+    assert.equal(isOpenLink("series", "viewer"), false);
+    assert.equal(isOpenLink("series", "editor"), false);
   });
 });

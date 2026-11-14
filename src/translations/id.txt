@@ -2896,3 +2896,4 @@
 3061|Putaranmu — hanya di layarmu
 3062|Pembuat sudah memutar.
 3063|Kembali ke roulette langsung
+3064|Tautan disalin · hanya lihat · untuk semua orang, selama tier list masih ada

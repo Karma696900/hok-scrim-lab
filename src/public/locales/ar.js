@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "تم نسخ الرابط",
   "Link copied · single use · can edit · expires in 7 days": "تم نسخ الرابط · استخدام واحد · يمكنه التحرير · ينتهي خلال 7 أيام",
   "Link copied · single use · view only · expires in 7 days": "تم نسخ الرابط · استخدام واحد · للعرض فقط · ينتهي خلال 7 أيام",
+  "Link copied · view only · for everyone, as long as the tier list exists": "تم نسخ الرابط · للعرض فقط · للجميع، ما دامت قائمة المستويات موجودة",
   "Link copied.": "تم نسخ الرابط.",
   "Link my Discord": "ربط ديسكورد",
   "Link not found.": "لم يُعثر على الرابط.",

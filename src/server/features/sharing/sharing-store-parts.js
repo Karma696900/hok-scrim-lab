@@ -1,6 +1,6 @@
 // sharing store, small helpers: countOwned, assertQuota, createInvite, acceptInvite, and 5 more.
 import { HttpError, badRequest, conflict, notFound } from "../../platform/errors.js";
-import { SHARE_KINDS, hashToken } from "./sharing-domain.js";
+import { NEVER, SHARE_KINDS, hashToken, isOpenLink } from "./sharing-domain.js";
 import { randomBytes } from "node:crypto";
 
 export async function countOwned(ctx, kind, ownerId) {
@@ -51,12 +51,15 @@ export async function createInvite(ctx, kind, resourceId, ownerId, { role, ttlMs
     }
   }
   const token = `${spec.prefix}_${randomBytes(24).toString("base64url")}`;
-  const expiresAt = Date.now() + ttlMs;
+  const open = isOpenLink(kind, role);
+  const expiresAt = open ? NEVER : Date.now() + ttlMs;
   await ctx.pool.execute(
     `INSERT INTO ${spec.invites} (token_hash, ${spec.fk}, role, created_by, created_at, expires_at, max_uses) VALUES (?, ?, ?, ?, ?, ?, ?)`,
     [hashToken(token), resourceId, role, ownerId, new Date().toISOString(), expiresAt, maxUses]
   );
-  return { token, role, expiresAt, maxUses };
+  return open
+    ? { token, role, expiresAt: null, maxUses: null }
+    : { token, role, expiresAt, maxUses };
 }
 
 export async function acceptInvite(ctx, token, userId) {
@@ -71,7 +74,10 @@ export async function acceptInvite(ctx, token, userId) {
       [hashToken(token)]
     );
     const invite = invites[0];
-    if (!invite || invite.revoked || Number(invite.expires_at) <= Date.now()) {
+    // an open link (a view link of a tier list) has no end date and no number of uses, even one made
+    // before that rule
+    const open = Boolean(invite) && isOpenLink(kind, invite.role);
+    if (!invite || invite.revoked || (!open && Number(invite.expires_at) <= Date.now())) {
       throw notFound("This invitation is not valid or has expired.");
     }
     const resourceId = invite[spec.fk];
@@ -92,7 +98,7 @@ export async function acceptInvite(ctx, token, userId) {
     if (existing.length) {
       return { kind, id: resourceId, role: existing[0].role };
     }
-    if (invite.uses >= invite.max_uses) {
+    if (!open && invite.uses >= invite.max_uses) {
       throw conflict("This invitation has already been used.", "invite_used");
     }
     await connection.execute(
@@ -120,9 +126,11 @@ export async function listSharing(ctx, kind, resourceId, ownerId) {
     [resourceId]
   );
   const [invites] = await ctx.pool.execute(
-    `SELECT token_hash, role, expires_at, uses, max_uses FROM ${spec.invites} WHERE ${spec.fk} = ? AND revoked = FALSE AND expires_at > ? ORDER BY created_at DESC`,
-    [resourceId, Date.now()]
+    `SELECT token_hash, role, expires_at, uses, max_uses FROM ${spec.invites} WHERE ${spec.fk} = ? AND revoked = FALSE ORDER BY created_at DESC`,
+    [resourceId]
   );
+  const now = Date.now();
+  const live = invites.filter(row => isOpenLink(kind, row.role) || Number(row.expires_at) > now);
   return {
     members: members.map(row => ({
       userId: row.user_id,
@@ -130,13 +138,16 @@ export async function listSharing(ctx, kind, resourceId, ownerId) {
       name: row.name,
       picture: row.picture
     })),
-    invites: invites.map(row => ({
-      id: row.token_hash.slice(0, 12),
-      role: row.role,
-      expiresAt: Number(row.expires_at),
-      uses: row.uses,
-      maxUses: row.max_uses
-    }))
+    invites: live.map(row => {
+      const open = isOpenLink(kind, row.role);
+      return {
+        id: row.token_hash.slice(0, 12),
+        role: row.role,
+        expiresAt: open ? null : Number(row.expires_at),
+        uses: row.uses,
+        maxUses: open ? null : row.max_uses
+      };
+    })
   };
 }
 

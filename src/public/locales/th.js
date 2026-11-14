@@ -1037,6 +1037,7 @@ export default {
   "Link copied": "คัดลอกลิงก์แล้ว",
   "Link copied · single use · can edit · expires in 7 days": "คัดลอกลิงก์แล้ว · ใช้ได้ครั้งเดียว · แก้ไขได้ · หมดอายุใน 7 วัน",
   "Link copied · single use · view only · expires in 7 days": "คัดลอกลิงก์แล้ว · ใช้ได้ครั้งเดียว · ดูอย่างเดียว · หมดอายุใน 7 วัน",
+  "Link copied · view only · for everyone, as long as the tier list exists": "คัดลอกลิงก์แล้ว · ดูอย่างเดียว · สำหรับทุกคน ตราบใดที่เทียร์ลิสต์ยังอยู่",
   "Link copied.": "คัดลอกลิงก์แล้ว",
   "Link my Discord": "เชื่อม Discord ของฉัน",
   "Link not found.": "ไม่พบลิงก์",
