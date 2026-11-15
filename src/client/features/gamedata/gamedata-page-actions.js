@@ -11,6 +11,10 @@ export function onClick(view, event) {
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.button) {
       return;
     }
+    if (view.pieceMode) {
+      openPage(view, target, event);
+      return;
+    }
     event.preventDefault();
     const id = Number(target.dataset.pick);
     view.picked = id === view.picked ? null : id;
@@ -47,6 +51,22 @@ export function onClick(view, event) {
     view.root.querySelector("#gd-filters").classList.toggle("is-open", view.filtersOpen);
     target.setAttribute("aria-expanded", String(view.filtersOpen));
   }
+}
+
+/**
+ * On the page of a piece, another piece opens its own page: a tile is a link the router follows (a page in the history,
+ * the title, the scroll at the top), and a part of the recipe (a button) does the same here.
+ */
+function openPage(view, target, event) {
+  if (target.tagName === "A") {
+    return;
+  }
+  event.preventDefault();
+  view.picked = Number(target.dataset.pick);
+  history.pushState(null, "", `/${view.section}/${view.picked}`);
+  view.paint();
+  view.followAddress();
+  window.scrollTo({ top: 0 });
 }
 
 export function onInput(view, event) {

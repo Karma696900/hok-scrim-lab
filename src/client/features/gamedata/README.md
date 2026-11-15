@@ -9,6 +9,7 @@ Ce dossier est une page (ou un groupe de pages) du site, côté navigateur. Le f
 | `gamedata-page-actions.js` | gamedata page, what happens on a click, a key or a submit: onClick, onInput. |
 | `gamedata-page-markup.js` | gamedata page, markup: tile, group, filters, resultHead, and 12 more. |
 | `gamedata-page-parts.js` | gamedata page, small helpers: kindOf, all, nameOf, matches, and 4 more. |
+| `gamedata-piece-page.js` | gamedata page, the page of one piece (/items/12): its sheet, then pieces of the same category: neighbours, piecePage. |
 | `gamedata-page-shared.js` | The three pages of the data of the game: /items, /arcana and /spells. |
 | `gamedata-page.js` | The three pages of the data of the game: /items, /arcana and /spells. |
 

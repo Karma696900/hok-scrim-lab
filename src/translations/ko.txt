@@ -2909,3 +2909,7 @@
 3074|Honor of Kings 티어 리스트 ({month}): {heroes} 최상위. 최근 3개월 대회 경기로 매긴 모든 라인의 영웅 SS부터 D까지.
 3075|HOK 영웅: Honor of Kings 빌드, 스킬, 카운터
 3076|HOK Global Scrim Lab: Honor of Kings 티어 리스트, 빌드, 스크림 드래프트
+3077|다른 주문
+3078|모든 아이템 보기
+3079|모든 아르카나 보기
+3080|모든 주문 보기

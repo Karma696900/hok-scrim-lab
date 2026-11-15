@@ -9,11 +9,19 @@ import { onView as gamedataPageParts } from "./gamedata-page-parts.js";
 import { onView as gamedataPageMarkup } from "./gamedata-page-markup.js";
 import { onView as gamedataPageActions } from "./gamedata-page-actions.js";
 import { onView as gamedataRecipe } from "./gamedata-recipe.js";
+import { onView as gamedataPiecePage } from "./gamedata-piece-page.js";
 import { SECTIONS } from "./gamedata-page-shared.js";
 
 export function createGameDataPages({ api, state }) {
   const view = { api, state };
-  bindTo(view, gamedataPageParts, gamedataPageMarkup, gamedataPageActions, gamedataRecipe);
+  bindTo(
+    view,
+    gamedataPageParts,
+    gamedataPageMarkup,
+    gamedataPageActions,
+    gamedataRecipe,
+    gamedataPiecePage
+  );
   view.esc = escapeHtml;
   view.root = null;
   view.section = "items";
@@ -26,6 +34,7 @@ export function createGameDataPages({ api, state }) {
   view.color = ""; // arcana: a colour, or "" for all
   view.order = "name"; // "name", "price" (items) or "cooldown" (spells)
   view.picked = null; // the id of the piece whose sheet is open
+  view.pieceMode = false; // the address named a piece: its own page (gamedata-piece-page.js), not the list
   view.wantedTile = false; // the address names a piece: bring its tile into view once the grid is drawn
   view.filtersOpen = false; // on a phone: the filters are folded under a button
 
@@ -43,7 +52,10 @@ export function createGameDataPages({ api, state }) {
       const wanted = Number(
         (piece ?? "").replace(/^\//, "") || new URLSearchParams(location.search).get("piece")
       );
-      if (Number.isInteger(wanted) && wanted > 0) {
+      view.pieceMode = Number.isInteger(wanted) && wanted > 0;
+      if (!view.pieceMode) {
+        view.picked = null; // the list opens with no sheet, even when the page of a piece was open before
+      } else {
         view.picked = wanted;
         view.wantedTile = true;
         view.search = "";

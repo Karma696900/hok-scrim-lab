@@ -2909,3 +2909,7 @@
 3074|Honor of Kings Tier List für {month}: {heroes} ganz oben. Jeder Held jeder Lane von SS bis D, nach den Turnierspielen der letzten drei Monate.
 3075|HOK Helden: Honor of Kings Builds, Fähigkeiten und Counter
 3076|HOK Global Scrim Lab: Honor of Kings Tier List, Builds und Scrim-Drafts
+3077|Andere Zauber
+3078|Alle Items ansehen
+3079|Alle Arcana ansehen
+3080|Alle Zauber ansehen

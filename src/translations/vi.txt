@@ -2909,3 +2909,7 @@
 3074|Bảng xếp hạng Honor of Kings, {month}: {heroes} dẫn đầu. Mọi tướng ở mọi đường từ SS đến D, theo các trận đấu giải trong ba tháng qua.
 3075|Tướng HOK: lối lên đồ, kỹ năng và khắc chế Honor of Kings
 3076|HOK Global Scrim Lab: bảng xếp hạng, lối lên đồ và cấm chọn scrim Honor of Kings
+3077|Phép bổ trợ khác
+3078|Xem mọi trang bị
+3079|Xem mọi ngọc
+3080|Xem mọi phép bổ trợ

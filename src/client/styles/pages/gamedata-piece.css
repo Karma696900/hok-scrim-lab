@@ -1,0 +1,39 @@
+/* The page of one piece (/items/12, /arcana/3, /spells/5), opened from its address: its sheet, large, then pieces of
+   the same category and the way to the whole list (features/gamedata/gamedata-piece-page.js). */
+.gd-page {
+  display: grid;
+  grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+/* the sheet is part of the page here: never fixed over it, never cut to the height of the screen */
+.gd-detail.gd-detail--page {
+  position: relative; /* not static: the corner brackets of the card are placed on it */
+  inset: auto;
+  z-index: auto;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  overflow: visible;
+  box-shadow: var(--edge);
+}
+.gd-more {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  min-width: 0;
+}
+.gd-more h2 {
+  margin: 0;
+  font: 700 18px/1 var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.gd-all {
+  justify-self: start;
+}
+@media (max-width: 900px) {
+  .gd-page {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

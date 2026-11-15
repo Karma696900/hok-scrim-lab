@@ -2909,3 +2909,7 @@
 3074|Tier list de Honor of Kings, {month}: {heroes} en la cima. Cada héroe de cada línea de SS a D, según las partidas de torneo de los últimos tres meses.
 3075|Héroes de HOK: builds, habilidades y counters de Honor of Kings
 3076|HOK Global Scrim Lab: tier list, builds y drafts de scrim de Honor of Kings
+3077|Otros hechizos
+3078|Ver todos los objetos
+3079|Ver todos los arcanos
+3080|Ver todos los hechizos

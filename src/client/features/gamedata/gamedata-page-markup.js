@@ -228,8 +228,12 @@ export function related(view, piece) {
     .join("")}</div></div>`;
 }
 
+/** The piece whose sheet is open, or null. */
+export const openPiece = view =>
+  view.picked === null ? null : (view.all().find(entry => entry.id === view.picked) ?? null);
+
 export const detail = view => {
-  const piece = view.picked === null ? null : view.all().find(entry => entry.id === view.picked);
+  const piece = view.openPiece();
   if (!piece) {
     return view.overview();
   }
@@ -241,7 +245,11 @@ export const detail = view => {
   const bare =
     view.section !== "spells" &&
     !(piece.stats?.length || piece.effects?.length || piece.description || piece.price);
-  return `<button type="button" class="btn btn--ghost btn--icon btn--sm gd-detail__close" data-pick="${piece.id}" aria-label="${t("Close")}">${icon("x", "i--sm")}</button>${body}${bare ? `<p class="gd-missing muted">${icon("info", "i--sm")}${t("Not entered yet.")}</p>` : ""}${view.section === "items" ? view.recipe(piece) : ""}${view.related(piece)}<a class="btn gd-lab" href="${view.esc(view.labLink(piece))}">${icon("layers", "i--sm")}${t("Try it in the build lab")}</a>`;
+  // on the page of the piece there is nothing to close, and the pieces of the same category are under the sheet
+  const close = view.pieceMode
+    ? ""
+    : `<button type="button" class="btn btn--ghost btn--icon btn--sm gd-detail__close" data-pick="${piece.id}" aria-label="${t("Close")}">${icon("x", "i--sm")}</button>`;
+  return `${close}${body}${bare ? `<p class="gd-missing muted">${icon("info", "i--sm")}${t("Not entered yet.")}</p>` : ""}${view.section === "items" ? view.recipe(piece) : ""}${view.pieceMode ? "" : view.related(piece)}<a class="btn gd-lab" href="${view.esc(view.labLink(piece))}">${icon("layers", "i--sm")}${t("Try it in the build lab")}</a>`;
 };
 
 /** Three tabs as big as buttons, each with the number of pieces of its section. */
@@ -281,7 +289,9 @@ export function paint(view) {
   view.root.innerHTML = `<header class="page-head gd-stage keep-dark rise">${sceneArtSlot("gd-stage__art", view.stageHero())}<div class="gd-stage__title"><h1>${view.esc(view.heading())}</h1><p>${view.esc(sectionLead(view.section))}</p></div>${view.catalog ? view.stageIcons() : ""}<nav class="gd-tabs" aria-label="${view.esc(t("Game data"))}">${view.tabs()}</nav></header>${
     view.problem
       ? `<div class="gd-error" role="alert">${icon("warn", "i--sm")}<span>${view.esc(view.problem)}</span><button type="button" class="btn btn--sm" data-retry>${icon("refresh", "i--sm")}${t("Try again")}</button></div>`
-      : view.catalog
+      : view.catalog && view.pieceMode && view.openPiece()
+        ? view.piecePage(view.openPiece())
+        : view.catalog
         ? `<div class="gd-body"><aside class="gd-filters rise d-1${view.filtersOpen ? " is-open" : ""}" id="gd-filters"><button type="button" class="btn gd-filters__toggle" data-gd-filters aria-expanded="${view.filtersOpen}">${icon("sliders", "i--sm")}${t("Filters")}</button>${view.filters()}</aside><section class="gd-main rise d-1"><div class="gd-resulthead" id="gd-resulthead">${view.resultHead(pieces)}</div><div class="gd-grid" id="gd-grid">${view.grid(pieces)}</div></section><aside class="gd-detail card card--feature${view.picked === null ? " is-idle" : " is-open"}" id="gd-detail" aria-live="polite">${view.detail()}</aside></div>`
         : `<div class="gd-body">${skeleton("grid", 8)}</div>`
   }`;
@@ -332,6 +342,7 @@ const sectionLead = section =>
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
 export const onView = {
+  openPiece,
   tile,
   group,
   filters,

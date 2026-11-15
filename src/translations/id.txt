@@ -2909,3 +2909,7 @@
 3074|Tier list Honor of Kings, {month}: {heroes} di puncak. Setiap hero di setiap lane dari SS sampai D, menurut pertandingan turnamen tiga bulan terakhir.
 3075|Hero HOK: build, skill, dan counter Honor of Kings
 3076|HOK Global Scrim Lab: tier list, build, dan draft scrim Honor of Kings
+3077|Spell lainnya
+3078|Lihat semua item
+3079|Lihat semua arcana
+3080|Lihat semua spell

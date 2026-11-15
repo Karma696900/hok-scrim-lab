@@ -2909,3 +2909,7 @@
 3074|Honor of Kings 强度榜（{month}）：{heroes} 位居前列。依据近三个月赛事对局，各分路全部英雄从 SS 到 D 排名。
 3075|HOK 英雄：Honor of Kings 出装、技能与克制
 3076|HOK Global Scrim Lab：Honor of Kings 强度榜、出装与训练赛 BP
+3077|其他召唤师技能
+3078|查看全部装备
+3079|查看全部铭文
+3080|查看全部召唤师技能

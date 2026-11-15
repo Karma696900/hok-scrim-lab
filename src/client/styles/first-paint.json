@@ -100,9 +100,9 @@
       "pages/build-lab-small-screens.css",
       "pages/guides.css"
     ],
-    "items": ["pages/gamedata.css", "pages/gamedata-recipe.css"],
-    "arcana": ["pages/gamedata.css"],
-    "spells": ["pages/gamedata.css"],
+    "items": ["pages/gamedata.css", "pages/gamedata-recipe.css", "pages/gamedata-piece.css"],
+    "arcana": ["pages/gamedata.css", "pages/gamedata-piece.css"],
+    "spells": ["pages/gamedata.css", "pages/gamedata-piece.css"],
     "simulation": [
       "pages/community.css",
       "pages/simulation.css",

@@ -2909,3 +2909,7 @@
 3074|Honor of Kings tier listesi, {month}: zirvede {heroes}. Her koridordaki her kahraman SS'den D'ye, son üç ayın turnuva maçlarına göre.
 3075|HOK kahramanları: Honor of Kings buildleri, yetenekleri ve counterları
 3076|HOK Global Scrim Lab: Honor of Kings tier listesi, buildler ve scrim draftları
+3077|Diğer büyüler
+3078|Tüm eşyaları gör
+3079|Tüm arkanaları gör
+3080|Tüm büyüleri gör
