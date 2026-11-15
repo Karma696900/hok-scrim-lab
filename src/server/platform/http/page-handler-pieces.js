@@ -62,7 +62,10 @@ function pieceDescription(language, view, piece, catalog) {
     const parts = (piece.components ?? []).map(id => names.get(id)).filter(Boolean);
     return fit([
       Number.isFinite(piece.price)
-        ? tr(language, "{name}, Honor of Kings item for {price} gold.", { name: piece.name, price: piece.price })
+        ? tr(language, "{name}, Honor of Kings item for {price} gold.", {
+            name: piece.name,
+            price: piece.price
+          })
         : tr(language, "{name}, Honor of Kings item.", { name: piece.name }),
       sentence,
       stats && `${stats}.`,

@@ -125,4 +125,14 @@ export function followAddress(view) {
   }
 }
 
-export const onView = { kindOf, all, matches, list, filtered, mainStats, load, followAddress, showTitle };
+export const onView = {
+  kindOf,
+  all,
+  matches,
+  list,
+  filtered,
+  mainStats,
+  load,
+  followAddress,
+  showTitle
+};

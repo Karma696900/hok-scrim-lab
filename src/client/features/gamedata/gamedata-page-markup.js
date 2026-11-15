@@ -292,8 +292,8 @@ export function paint(view) {
       : view.catalog && view.pieceMode && view.openPiece()
         ? view.piecePage(view.openPiece())
         : view.catalog
-        ? `<div class="gd-body"><aside class="gd-filters rise d-1${view.filtersOpen ? " is-open" : ""}" id="gd-filters"><button type="button" class="btn gd-filters__toggle" data-gd-filters aria-expanded="${view.filtersOpen}">${icon("sliders", "i--sm")}${t("Filters")}</button>${view.filters()}</aside><section class="gd-main rise d-1"><div class="gd-resulthead" id="gd-resulthead">${view.resultHead(pieces)}</div><div class="gd-grid" id="gd-grid">${view.grid(pieces)}</div></section><aside class="gd-detail card card--feature${view.picked === null ? " is-idle" : " is-open"}" id="gd-detail" aria-live="polite">${view.detail()}</aside></div>`
-        : `<div class="gd-body">${skeleton("grid", 8)}</div>`
+          ? `<div class="gd-body"><aside class="gd-filters rise d-1${view.filtersOpen ? " is-open" : ""}" id="gd-filters"><button type="button" class="btn gd-filters__toggle" data-gd-filters aria-expanded="${view.filtersOpen}">${icon("sliders", "i--sm")}${t("Filters")}</button>${view.filters()}</aside><section class="gd-main rise d-1"><div class="gd-resulthead" id="gd-resulthead">${view.resultHead(pieces)}</div><div class="gd-grid" id="gd-grid">${view.grid(pieces)}</div></section><aside class="gd-detail card card--feature${view.picked === null ? " is-idle" : " is-open"}" id="gd-detail" aria-live="polite">${view.detail()}</aside></div>`
+          : `<div class="gd-body">${skeleton("grid", 8)}</div>`
   }`;
   fillSceneArt(view.root.querySelector(".gd-stage__art"), view.stageHero());
 }

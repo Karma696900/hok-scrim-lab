@@ -21,7 +21,10 @@ const BEST = 3;
 const names = (language, list) =>
   list.length < 2
     ? list.join("")
-    : tr(language, "{first} and {last}", { first: list.slice(0, -1).join(", "), last: list.at(-1) });
+    : tr(language, "{first} and {last}", {
+        first: list.slice(0, -1).join(", "),
+        last: list.at(-1)
+      });
 
 /**
  * The description of one lane (or of the whole list): its best heroes this month. Each page has its own, instead of

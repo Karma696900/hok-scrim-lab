@@ -29,7 +29,14 @@ const CATALOG = {
         { statId: 16, value: 1 }
       ]
     },
-    { id: 93, name: "Iron Sword", price: 250, description: "", components: [], stats: [{ statId: 3, value: 20 }] },
+    {
+      id: 93,
+      name: "Iron Sword",
+      price: 250,
+      description: "",
+      components: [],
+      stats: [{ statId: 3, value: 20 }]
+    },
     { id: 7, name: "Silent Boots", price: 700, description: "", components: [], stats: [] },
     {
       id: 8,
@@ -42,7 +49,16 @@ const CATALOG = {
     }
   ],
   arcana: [
-    { id: 18, name: "Nightmare", color: "red", description: "", stats: [{ statId: 3, value: 4.2 }, { statId: 15, value: 2.4 }] },
+    {
+      id: 18,
+      name: "Nightmare",
+      color: "red",
+      description: "",
+      stats: [
+        { statId: 3, value: 4.2 },
+        { statId: 15, value: 2.4 }
+      ]
+    },
     { id: 19, name: "Hunt", color: "green", description: "", stats: [{ statId: 1, value: 75 }] }
   ],
   spells: []
@@ -71,7 +87,10 @@ describe("the description of an item page", () => {
 
   test("a long passive is kept, cut at a word, rather than left out", async () => {
     const { description } = await piece("/items/8");
-    assert.match(description, /^Amble - Winter, Honor of Kings item for 3190 gold\. Creates a frost field/);
+    assert.match(
+      description,
+      /^Amble - Winter, Honor of Kings item for 3190 gold\. Creates a frost field/
+    );
     assert.match(description, /\w…$/);
     assert.ok(description.length <= 160);
   });
@@ -107,7 +126,13 @@ const HEROES = [
 const LIST = {
   updatedAt: "2026-11-10",
   lanes: [
-    { lane: "Mid Lane", tiers: [{ label: "SS", heroes: [{ heroId: 1 }, { heroId: 2 }] }, { label: "S", heroes: [{ heroId: 3 }] }] },
+    {
+      lane: "Mid Lane",
+      tiers: [
+        { label: "SS", heroes: [{ heroId: 1 }, { heroId: 2 }] },
+        { label: "S", heroes: [{ heroId: 3 }] }
+      ]
+    },
     { lane: "Jungle", tiers: [{ label: "SS", heroes: [{ heroId: 4 }] }] }
   ]
 };
