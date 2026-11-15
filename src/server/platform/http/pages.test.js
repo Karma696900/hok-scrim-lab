@@ -169,14 +169,15 @@ describe("pages over HTTP", { skip }, () => {
     }
   });
 
-  test("a hero page is described from its data, escaped, and Flowborn is simply Flowborn", async () => {
+  test("a hero page is described from its data, escaped, and each Flowborn form has its own title", async () => {
     const hero = head(await (await fetch(`${app.baseUrl}/heroes/501`)).text());
     assert.match(hero.title, /^Hero &lt;b&gt;1&lt;\/b&gt; — HOK Honor of Kings hero guide/);
     assert.doesNotMatch(hero.description, /<b>/);
     assert.equal(hero.canonical, `${app.baseUrl}/heroes/501`);
     const flowborn = head(await (await fetch(`${app.baseUrl}/heroes/500`)).text());
-    assert.match(flowborn.title, /^Flowborn — /);
-    assert.doesNotMatch(flowborn.title, /Tank/);
+    // five forms, five titles (SEO, owner 2026-11-15); the name shown on the page stays "Flowborn"
+    assert.match(flowborn.title, /^Flowborn \(Tank\) — /);
+    assert.match(flowborn.description, /^Flowborn in Honor of Kings/);
   });
 
   test("account and app pages carry no private data, are crawlable, and have unique titles", async () => {
