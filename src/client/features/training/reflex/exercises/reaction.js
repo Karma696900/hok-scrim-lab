@@ -40,6 +40,13 @@ export function startReaction({ stage, finish, random, hud = noHud }) {
       await run.frame();
       shownAt = performance.now();
       show("go", t("Click now!"));
+      // what is drawn in this frame reaches the screen when the next one starts: the clock starts there, not one frame
+      // (16 ms at 60 Hz) too early (owner, 2026-11-16). Nobody presses within that frame.
+      run.frame().then(time => {
+        if (state === "go") {
+          shownAt = time;
+        }
+      });
     });
   }
 
