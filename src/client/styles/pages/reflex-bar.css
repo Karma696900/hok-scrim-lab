@@ -241,8 +241,11 @@
   font-size: clamp(16px, 2.2vw, 20px);
   opacity: 0.94;
 }
+/* the green is whole on the first frame it is drawn: the clock starts on that frame, and a fade made the eye wait for it
+   (owner, 2026-11-16: the times were a little too high) */
 .rx-pad[data-state="go"] {
   background: #15874f;
+  transition: none;
 }
 .rx-pad[data-state="soon"] {
   background: #9a5f0d;
