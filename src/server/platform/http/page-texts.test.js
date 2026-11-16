@@ -167,7 +167,7 @@ describe("the title of the public tier list", () => {
   const page = (store, address) =>
     describeTierList({ store }, matchRoute(address), "en", say, localized);
 
-  test("names the season of the game first, then the month: players search \"tier list season 15\"", async () => {
+  test('names the season of the game first, then the month: players search "tier list season 15"', async () => {
     const all = await page(withSeason, "/tier-list");
     const jungle = await page(withSeason, "/tier-list/jungle");
     assert.match(all.title, /^HOK Tier List Season 15 \(/);
