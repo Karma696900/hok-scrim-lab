@@ -51,6 +51,7 @@
     "period": { "from": "2026-08-01", "to": "2026-10-31" },
     "minGames": 10,
     "totalGames": 120,
+    "season": 15,
     "lanes": [
       {
         "lane": "Farm Lane",
