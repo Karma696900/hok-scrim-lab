@@ -2971,3 +2971,6 @@
 3128|Trouver un scrim HOK
 3135|Simulation de partie HOK
 3138|Entraînement des réflexes HOK
+3141|Trop d'essais sur ce compte. Réessayez plus tard.
+3139|Trop d'essais sur ce compte. Vous pourrez réessayer à {time}.
+3140|Trop d'essais sur ce compte. Vous pourrez réessayer le {date}.

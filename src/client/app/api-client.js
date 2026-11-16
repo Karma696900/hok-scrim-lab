@@ -9,12 +9,14 @@ export async function api(url, options = {}) {
   });
   const data = await response.json().catch(() => null);
   if (!response.ok) {
-    const error = new Error(
-      data?.error || t("Request failed ({status}).", { status: response.status })
+    // the error carries what the server added (retryAt: the end of a lock, that the sign-in pages write
+    // in the person's own clock)
+    throw Object.assign(
+      new Error(data?.error || t("Request failed ({status}).", { status: response.status })),
+      { code: "request_failed" },
+      data,
+      { status: response.status }
     );
-    error.status = response.status;
-    error.code = data?.code || "request_failed";
-    throw error;
   }
   noteServerTime(data);
   return data;

@@ -49,7 +49,9 @@ async function world({ mfa = true, password = true, locked = 0 } = {}) {
     countRecoveryCodes: async () => codes.size,
     recordLoginFailure: async () => {
       seen.failures += 1;
-      return { failed: seen.failures, lockedUntil: 0 };
+      // as the store: the 5th failure locks for 15 minutes
+      user.locked_until = seen.failures >= 5 ? Date.now() + 15 * 60_000 : 0;
+      return { failed: seen.failures, lockedUntil: user.locked_until };
     },
     clearLoginFailures: async () => {
       seen.cleared += 1;
@@ -165,7 +167,7 @@ describe("a forgotten password, changed with the authenticator", () => {
     );
   });
 
-  test("an unknown email, an account without authenticator and a locked account get the same answer", async () => {
+  test("an unknown email and an account without authenticator get the same answer", async () => {
     const answers = [];
     const { ctx: known, secret } = await world();
     await reset(known, { email: "nobody@example.test", code: hotp(secret, stepAt()) }).catch(
@@ -175,23 +177,40 @@ describe("a forgotten password, changed with the authenticator", () => {
     const before = plainUser.password_hash;
     await reset(plain, { code: "123456" }).catch(error => answers.push(error));
     assert.equal(plainUser.password_hash, before, "nothing proves who asks: nothing changes");
-    const {
-      ctx: lockedCtx,
-      user: lockedUser,
-      secret: lockedSecret
-    } = await world({
-      locked: Date.now() + 60_000
-    });
-    const lockedBefore = lockedUser.password_hash;
-    await reset(lockedCtx, { code: hotp(lockedSecret, stepAt()) }).catch(error =>
-      answers.push(error)
-    );
-    assert.equal(lockedUser.password_hash, lockedBefore, "a lock is not lifted by a reset");
-    assert.equal(answers.length, 3);
+    assert.equal(answers.length, 2);
     for (const error of answers) {
       assert.ok(refused(error), `${error.status} ${error.code}`);
       assert.equal(error.message, answers[0].message);
     }
+  });
+
+  test("a locked account says until when, even with the right code, and the lock is not lifted", async () => {
+    const until = Date.now() + 60_000;
+    const { ctx, user, secret } = await world({ locked: until });
+    const before = user.password_hash;
+    await assert.rejects(
+      reset(ctx, { code: hotp(secret, stepAt()) }),
+      error =>
+        error.status === 429 && error.code === "account_locked" && error.extra.retryAt === until
+    );
+    assert.equal(user.password_hash, before);
+    const { ctx: plain } = await world({ mfa: false, locked: until });
+    await assert.rejects(
+      reset(plain, { code: "123456" }),
+      error => error.code === "account_locked",
+      "the same answer with or without an authenticator"
+    );
+  });
+
+  test("the wrong code that locks the account says so at once", async () => {
+    const { ctx, user } = await world();
+    for (let attempt = 0; attempt < 4; attempt += 1) {
+      await assert.rejects(reset(ctx, { code: "000000" }), refused);
+    }
+    await assert.rejects(
+      reset(ctx, { code: "000000" }),
+      error => error.code === "account_locked" && error.extra.retryAt === user.locked_until
+    );
   });
 
   test("an account without a password (Google, profile not chosen yet) is refused", async () => {
@@ -280,20 +299,22 @@ describe("a Google sign-in that finds an account of the site with the same addre
     assert.equal(seen.failures, 1);
   });
 
-  test("after 5 wrong tries the sign-in must start again", async () => {
-    const { ctx, challenges } = await waitingLink();
-    for (let attempt = 0; attempt < 5; attempt += 1) {
+  test("the 5th wrong try locks the account and says until when", async () => {
+    const { ctx, user } = await waitingLink();
+    for (let attempt = 0; attempt < 4; attempt += 1) {
       await assert.rejects(link(ctx, { code: "000000" }), error => error.code === "invalid_code");
     }
-    await assert.rejects(link(ctx, { code: "000000" }), error => error.status === 429);
-    assert.equal(challenges.size, 0);
+    await assert.rejects(
+      link(ctx, { code: "000000" }),
+      error => error.status === 429 && error.extra.retryAt === user.locked_until
+    );
   });
 
   test("a locked account is not linked, even with the right code", async () => {
     const { ctx, seen, secret } = await waitingLink({ locked: Date.now() + 60_000 });
     await assert.rejects(
       link(ctx, { code: hotp(secret, stepAt()) }),
-      error => error.status === 401
+      error => error.code === "account_locked"
     );
     assert.equal(seen.linked, null);
   });

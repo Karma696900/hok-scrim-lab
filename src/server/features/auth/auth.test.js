@@ -520,12 +520,13 @@ describe("signing in", { skip }, () => {
     }
     assert.deepEqual(
       statuses,
-      [401, 401, 401, 401, 401, 401, 401],
-      "after 5 failures the account is locked, so every further attempt is refused"
+      [401, 401, 401, 401, 429, 429, 429],
+      "the 5th failure locks the account and says so, and every further attempt is refused"
     );
-    assert.equal(
-      (await browser.post("/api/auth/mfa/verify", { code: codeAfter(account.secret) })).status,
-      401,
+    const right = await browser.post("/api/auth/mfa/verify", { code: codeAfter(account.secret) });
+    assert.deepEqual(
+      [right.status, right.body.code],
+      [429, "account_locked"],
       "even the right code no longer works"
     );
     const [[row]] = await app.store.pool.query(
@@ -535,13 +536,22 @@ describe("signing in", { skip }, () => {
     assert.ok(Number(row.locked_until) > Date.now());
   });
 
-  test("repeated failures lock the account progressively; the lock is not revealed and does not accept the right password", async () => {
+  test("repeated failures lock the account progressively; the lock says until when and does not accept the right password", async () => {
     const account = await createAccount();
+    const codes = [];
     for (let index = 0; index < 5; index += 1) {
-      await app
+      const answer = await app
         .browser()
         .post("/api/auth/login", { email: account.email, password: `wrong-${index}-password` });
+      codes.push(answer.body.code);
     }
+    assert.deepEqual(codes, [
+      "invalid_credentials",
+      "invalid_credentials",
+      "invalid_credentials",
+      "invalid_credentials",
+      "account_locked"
+    ]);
     const [[locked]] = await app.store.pool.query(
       "SELECT failed_logins, locked_until FROM users WHERE login_email = ?",
       [account.email]
@@ -551,7 +561,18 @@ describe("signing in", { skip }, () => {
     const blocked = await app
       .browser()
       .post("/api/auth/login", { email: account.email, password: account.password });
-    assert.deepEqual([blocked.status, blocked.body.code], [401, "invalid_credentials"]);
+    const wrong = await app
+      .browser()
+      .post("/api/auth/login", { email: account.email, password: "still-a-wrong-password" });
+    assert.deepEqual(
+      [blocked.status, blocked.body.code, blocked.body.retryAt],
+      [429, "account_locked", Number(locked.locked_until)]
+    );
+    assert.deepEqual(
+      [wrong.status, wrong.body.code, wrong.body.error],
+      [blocked.status, blocked.body.code, blocked.body.error],
+      "a wrong password gets the same answer: the lock is no way to test passwords"
+    );
     await app.store.pool.query("UPDATE users SET locked_until = ? WHERE login_email = ?", [
       Date.now() - 1,
       account.email

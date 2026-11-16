@@ -2971,3 +2971,6 @@
 3128|Encontrar un scrim de HOK
 3135|Simulación de partida de HOK
 3138|Entrenamiento de reflejos de HOK
+3141|Demasiados intentos en esta cuenta. Vuelve a intentarlo más tarde.
+3139|Demasiados intentos en esta cuenta. Podrás volver a intentarlo a las {time}.
+3140|Demasiados intentos en esta cuenta. Podrás volver a intentarlo el {date}.

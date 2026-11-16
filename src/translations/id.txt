@@ -2971,3 +2971,6 @@
 3128|Cari scrim HOK
 3135|Simulasi pertandingan HOK
 3138|Latihan refleks HOK
+3141|Terlalu banyak percobaan pada akun ini. Coba lagi nanti.
+3139|Terlalu banyak percobaan pada akun ini. Kamu bisa mencoba lagi pukul {time}.
+3140|Terlalu banyak percobaan pada akun ini. Kamu bisa mencoba lagi pada {date}.

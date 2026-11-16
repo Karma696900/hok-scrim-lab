@@ -9,7 +9,7 @@ import {
 } from "../../platform/security/password.js";
 import { hashToken } from "../../platform/http/identity.js";
 import { randomBytes } from "node:crypto";
-import { cleanName } from "./auth-service-shared.js";
+import { cleanName, isLocked, lockedOut } from "./auth-service-shared.js";
 
 export const seed = (ctx, userId, secret) => ctx.secretBox.encrypt(secret, `totp:${userId}`);
 
@@ -136,9 +136,9 @@ export async function login(ctx, request, response, { email, password }) {
   const valid = await verifyPassword(password, user.password_hash, {
     pepper: ctx.config.passwordPepper
   });
-  if (Number(user.locked_until) > Date.now()) {
+  if (isLocked(user)) {
     await ctx.event(user.id, "login_blocked", "locked", request);
-    throw invalidCredentials(); // identical answer: a lock is not revealed to someone guessing
+    throw lockedOut(user.locked_until); // the same answer for the right and a wrong password
   }
   if (!valid) {
     const { failed, lockedUntil } = await ctx.store.recordLoginFailure(user.id);
@@ -148,7 +148,7 @@ export async function login(ctx, request, response, { email, password }) {
       lockedUntil ? `locked after ${failed}` : `attempt ${failed}`,
       request
     );
-    throw invalidCredentials();
+    throw lockedUntil ? lockedOut(lockedUntil) : invalidCredentials();
   }
   if (needsRehash(user.password_hash, ctx.hashOptions)) {
     await ctx.store.setPassword(user.id, await hashPassword(password, ctx.hashOptions));

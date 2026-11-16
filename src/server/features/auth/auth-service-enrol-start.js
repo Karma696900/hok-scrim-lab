@@ -8,7 +8,7 @@ import {
   qrDataUri,
   verifyTotp
 } from "../../platform/security/totp.js";
-import { hashRecovery } from "./auth-service-shared.js";
+import { hashRecovery, isLocked, lockedOut } from "./auth-service-shared.js";
 
 export async function enrolStart(ctx, request, response) {
   const { challenge, tokenHash } = await ctx.currentChallenge(request, response, "enroll");
@@ -61,8 +61,11 @@ export async function enrolConfirm(ctx, request, response, { code }) {
 export async function verifySecondFactor(ctx, request, response, { code, recoveryCode }) {
   const { challenge, tokenHash } = await ctx.currentChallenge(request, response, "mfa");
   const user = await ctx.store.getAuthUser(challenge.user_id);
-  if (!user || Number(user.locked_until) > Date.now()) {
+  if (!user) {
     throw invalidCode();
+  }
+  if (isLocked(user)) {
+    throw lockedOut(user.locked_until);
   }
   if ((await countAttempt(ctx, response, tokenHash)) > MAX_CHALLENGE_ATTEMPTS) {
     await ctx.store.deleteChallenge(tokenHash);
@@ -77,9 +80,9 @@ export async function verifySecondFactor(ctx, request, response, { code, recover
       normalizeRecoveryCode(recoveryCode).length === 10 &&
       (await ctx.store.consumeRecoveryCode(user.id, hashRecovery(recoveryCode)));
     if (!accepted) {
-      await ctx.store.recordLoginFailure(user.id);
+      const { lockedUntil } = await ctx.store.recordLoginFailure(user.id);
       await ctx.event(user.id, "recovery_failed", "", request);
-      throw invalidCode();
+      throw lockedUntil ? lockedOut(lockedUntil) : invalidCode();
     }
     recoveryLeft = await ctx.store.countRecoveryCodes(user.id);
     await ctx.event(user.id, "recovery_used", `${recoveryLeft} left`, request);
@@ -88,9 +91,9 @@ export async function verifySecondFactor(ctx, request, response, { code, recover
       afterStep: user.mfa_last_step === null ? null : Number(user.mfa_last_step)
     });
     if (step === null || !(await ctx.store.acceptMfaStep(user.id, step))) {
-      await ctx.store.recordLoginFailure(user.id);
+      const { lockedUntil } = await ctx.store.recordLoginFailure(user.id);
       await ctx.event(user.id, "mfa_failed", "", request);
-      throw invalidCode();
+      throw lockedUntil ? lockedOut(lockedUntil) : invalidCode();
     }
   }
   await ctx.store.deleteChallenge(tokenHash);

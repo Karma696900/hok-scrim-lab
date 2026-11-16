@@ -2,7 +2,7 @@
 // field of a 6-digit code, the line that shows what went wrong, the strength of a new password, the steps of
 // a flow. Pure markup: the page that uses them gives the texts.
 import { icon } from "../../../shared/icons.js";
-import { t } from "../../app/browser-i18n.js";
+import { currentLanguage, t } from "../../app/browser-i18n.js";
 
 export const passwordHint = () =>
   t("At least 12 characters. Longer is better: a short sentence works well.");
@@ -35,6 +35,26 @@ export const codeFieldHtml = ({ id, label, name = id, extra = "" }) =>
 
 /** Where a refusal is written (the page moves it under the field that caused it). */
 export const errorBox = (id = "auth-error") => `<p class="form-error" id="${id}" role="alert"></p>`;
+
+/**
+ * What a locked account says (the server gives the end of the lock, the clock is the person's own): the
+ * time when it ends today, the day and the time when it ends tomorrow. "" without a time to come.
+ */
+export function lockMessage(retryAt, now = Date.now()) {
+  if (!Number.isFinite(retryAt) || retryAt <= now) {
+    return "";
+  }
+  const end = new Date(retryAt);
+  const today = end.toDateString() === new Date(now).toDateString();
+  const when = new Intl.DateTimeFormat(currentLanguage(), {
+    ...(today ? {} : { weekday: "long", month: "long", day: "numeric" }),
+    hour: "numeric",
+    minute: "2-digit"
+  }).format(end);
+  return today
+    ? t("Too many tries on this account. You can try again at {time}.", { time: when })
+    : t("Too many tries on this account. You can try again on {date}.", { date: when });
+}
 
 /** The bars and the word under a new password; actions.js fills them while it is typed. */
 export const strengthHtml = () =>

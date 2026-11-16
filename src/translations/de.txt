@@ -2971,3 +2971,6 @@
 3128|Einen HOK Scrim finden
 3135|HOK Spielsimulation
 3138|HOK Reflextraining
+3141|Zu viele Versuche für dieses Konto. Versuche es später erneut.
+3139|Zu viele Versuche für dieses Konto. Du kannst es um {time} erneut versuchen.
+3140|Zu viele Versuche für dieses Konto. Du kannst es am {date} erneut versuchen.

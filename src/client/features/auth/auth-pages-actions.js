@@ -2,6 +2,7 @@
 import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
 import { fieldOf, nextPath, nextQuery, stepPath } from "./auth-pages-parts.js";
+import { lockMessage } from "./forms.js";
 
 const SIGN_IN_FORMS = new Set([
   "login",
@@ -184,7 +185,7 @@ export async function onSubmit(page, event) {
       return;
     }
   } catch (error) {
-    fail(error.message, error);
+    fail((error.code === "account_locked" && lockMessage(error.retryAt)) || error.message, error);
     if (error.code === "challenge_expired") {
       page.go("/login", { replace: true });
     }
