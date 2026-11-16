@@ -2913,3 +2913,24 @@
 3078|Alle Items ansehen
 3079|Alle Arcana ansehen
 3080|Alle Zauber ansehen
+3081|Passwort geändert. Melde dich mit dem neuen an.
+3082|Passwort vergessen?
+3083|Wähle ein neues Passwort
+3084|Gib die E-Mail ein, mit der du dich anmeldest, einen deiner Wiederherstellungscodes und dein neues Passwort.
+3085|Gib die E-Mail ein, mit der du dich anmeldest, den Code deiner Authenticator-App und dein neues Passwort.
+3086|Passwort ändern
+3087|Kein Authenticator für dieses Konto?
+3088|Schreib uns
+3089|Verknüpfe dein Google-Konto
+3090|Ein Konto nutzt {email} bereits. Beweise, dass es deins ist, um es mit Google zu verknüpfen: Es wird kein zweites Konto erstellt.
+3091|Passwort dieses Kontos
+3092|Der Authenticator wird direkt danach eingerichtet.
+3093|Verknüpfen und weiter
+3094|Das ist nicht mein Konto
+3095|Passwort vergessen | {site}
+3096|Wähle mit deiner Authenticator-App ein neues Passwort.
+3097|Google-Konto verknüpfen | {site}
+3098|Verknüpfe Google mit dem Konto, das du schon hast.
+3099|Diese E-Mail und dieser Code passen nicht zusammen.
+3100|Dieses Passwort gehört nicht zu diesem Konto.
+3101|Dieses Google-Konto ist bereits mit einem anderen Konto verknüpft.

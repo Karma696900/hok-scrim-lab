@@ -13,6 +13,8 @@ export function createSessionStore({ pool, inTransaction, accounts }) {
 
   return {
     upsertGoogleUser: ctx.upsertGoogleUser,
+    findAccountToLink: ctx.findAccountToLink,
+    linkGoogle: ctx.linkGoogle,
     createGuestUser: ctx.createGuestUser,
     getUserByEmail: ctx.getUserByEmail,
     getSession: ctx.getSession,

@@ -2913,3 +2913,24 @@
 3078|Ver todos os itens
 3079|Ver todos os arcanos
 3080|Ver todos os feitiços
+3081|Senha alterada. Entre com a nova.
+3082|Esqueceu a senha?
+3083|Escolha uma nova senha
+3084|Digite o e-mail com que você entra, um dos seus códigos de recuperação e sua nova senha.
+3085|Digite o e-mail com que você entra, o código do seu app autenticador e sua nova senha.
+3086|Alterar a senha
+3087|Esta conta não tem app autenticador?
+3088|Escreva para nós
+3089|Vincule sua conta Google
+3090|Uma conta já usa {email}. Prove que ela é sua para vinculá-la ao Google: nenhuma segunda conta é criada.
+3091|Senha desta conta
+3092|O app autenticador é configurado logo depois.
+3093|Vincular e continuar
+3094|Esta não é minha conta
+3095|Senha esquecida | {site}
+3096|Escolha uma nova senha com seu app autenticador.
+3097|Vincule sua conta Google | {site}
+3098|Vincule o Google à conta que você já tem.
+3099|Este e-mail e este código não correspondem.
+3100|Esta senha não é a desta conta.
+3101|Esta conta Google já está vinculada a outra conta.

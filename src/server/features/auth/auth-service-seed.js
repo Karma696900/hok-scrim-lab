@@ -28,6 +28,7 @@ export async function openChallenge(ctx, response, user, kind, method) {
     ttlMs: CHALLENGE_TTL_MS
   });
   ctx.identity.setCookie(response, ctx.identity.names.challenge, token, CHALLENGE_TTL_MS / 1000);
+  return hashToken(token);
 }
 
 export async function currentChallenge(ctx, request, response, kind) {
@@ -160,7 +161,11 @@ export async function challengeStatus(ctx, request, response) {
   try {
     const { challenge } = await ctx.currentChallenge(request, response);
     const user = await ctx.store.getAuthUser(challenge.user_id);
-    return { step: challenge.kind, email: user?.email ?? "", method: challenge.method };
+    const status = { step: challenge.kind, email: user?.email ?? "", method: challenge.method };
+    // the link of a Google account asks for the code of the account, or its password when it has none
+    return challenge.kind === "link"
+      ? { ...status, proof: user?.mfa_enabled ? "code" : "password" }
+      : status;
   } catch (error) {
     if (error.code === "challenge_expired") {
       return { step: "none" };

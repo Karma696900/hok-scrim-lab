@@ -19,6 +19,7 @@ export function createAuthPages({ api, tell, state, go }) {
     recovery: null, // recovery codes just generated (shown once)
     overview: null, // /api/auth/security
     useRecovery: false,
+    link: null, // { email, proof: "code" | "password" } of a Google account waiting to be linked
     config: { registration: true, google: false }
   };
 

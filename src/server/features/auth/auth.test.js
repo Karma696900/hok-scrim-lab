@@ -783,6 +783,65 @@ describe("administrators", { skip }, () => {
   });
 });
 
+// owner, 2026-11-16: a person who forgot their password changes it on the site with their authenticator
+// (the site sends no mail).
+describe("a forgotten password", { skip }, () => {
+  test("the email and a fresh code change it: every session closes, the old password is dead", async () => {
+    const account = await createAccount();
+    const next = "a forgotten passphrase replaced 2026";
+    const forgot = body => app.browser().post("/api/auth/password/forgot", body);
+    assert.ok((await account.browser.get("/api/auth/me")).body.user);
+    const wrong = await forgot({ email: account.email, code: "000000", newPassword: next });
+    assert.equal(wrong.status, 401);
+    const unknown = await forgot({
+      email: "nobody-here@example.test",
+      code: codeAfter(account.secret, 1),
+      newPassword: next
+    });
+    assert.equal(unknown.status, 401);
+    assert.equal(unknown.body.error, wrong.body.error, "an unknown address answers the same");
+    const done = await forgot({
+      email: account.email.toUpperCase(),
+      code: codeAfter(account.secret, 1),
+      newPassword: next
+    });
+    assert.equal(done.status, 200, done.text);
+    assert.equal((await account.browser.get("/api/auth/me")).body.user, null, "signed out");
+    assert.equal(
+      (
+        await app
+          .browser()
+          .post("/api/auth/login", { email: account.email, password: account.password })
+      ).status,
+      401
+    );
+    assert.equal(
+      (await app.browser().post("/api/auth/login", { email: account.email, password: next }))
+        .status,
+      200
+    );
+  });
+
+  test("a recovery code works once", async () => {
+    const account = await createAccount();
+    const body = newPassword => ({
+      email: account.email,
+      recoveryCode: account.recoveryCodes[0],
+      newPassword
+    });
+    const first = await app
+      .browser()
+      .post("/api/auth/password/forgot", body("first new passphrase 11"));
+    assert.equal(first.status, 200, first.text);
+    assert.equal(first.body.recoveryLeft, account.recoveryCodes.length - 1);
+    assert.equal(
+      (await app.browser().post("/api/auth/password/forgot", body("second new passphrase 22")))
+        .status,
+      401
+    );
+  });
+});
+
 describe("existing sessions and configuration", { skip }, () => {
   test("configuration refuses a production start without the MFA key or with a weak scrypt cost", async () => {
     const { assertRuntimeConfig, loadConfig } = await import("../../config.js");

@@ -2913,3 +2913,24 @@
 3078	See every item
 3079	See every arcana
 3080	See every spell
+3081	Password changed. Sign in with the new one.
+3082	Forgot your password?
+3083	Choose a new password
+3084	Type the email you sign in with, one of your recovery codes, and your new password.
+3085	Type the email you sign in with, the code of your authenticator app, and your new password.
+3086	Change the password
+3087	No authenticator on this account?
+3088	Write to us
+3089	Link your Google account
+3090	An account already uses {email}. Prove that it is yours to link it to Google: no second account is made.
+3091	Password of this account
+3092	The authenticator is set up right after.
+3093	Link and continue
+3094	This is not my account
+3095	Forgotten password | {site}
+3096	Choose a new password with your authenticator app.
+3097	Link your Google account | {site}
+3098	Link Google to the account you already have.
+3099	This email and this code do not go together.
+3100	This password is not the one of this account.
+3101	This Google account is already linked to another account.

@@ -1,6 +1,7 @@
 import { createHash, randomBytes, timingSafeEqual } from "node:crypto";
 import { Router } from "express";
 import { sessionView } from "./session-view.js";
+import { normalizeEmail } from "./auth-service-seed.js";
 
 /** Accepts only same-site absolute paths; anything else becomes "/". Parsed, not prefix-matched. */
 export function safeReturnPath(value) {
@@ -39,6 +40,35 @@ function authorizationUrl(config, state, verifier) {
     code_challenge_method: "S256"
   }).toString();
   return authorization.toString();
+}
+
+/**
+ * The sign-in page a verified Google profile goes to next. An account of the site that already uses the address
+ * waits for the proof that it is the person's, and Google is linked to it: never a second account (owner,
+ * 2026-11-16). Otherwise the Google account (created the first time) goes on to its pseudo or its code: Google is
+ * only the FIRST factor, the session is created after the authenticator code (MFA) is verified.
+ */
+async function openGoogleSignIn({ store, auth, request, response, profile }) {
+  // only the photo: the pseudo is the player's own choice
+  const picture =
+    typeof profile.picture === "string" && profile.picture.startsWith("https://")
+      ? profile.picture
+      : "";
+  const owner = await store.findAccountToLink({
+    googleSubject: profile.sub,
+    loginEmail: normalizeEmail(profile.email)
+  });
+  if (owner) {
+    await auth.beginLink(request, response, owner, { googleSubject: profile.sub, picture });
+    return "link";
+  }
+  const user = await store.upsertGoogleUser({
+    googleSubject: profile.sub,
+    email: profile.email,
+    picture
+  });
+  const { step } = await auth.beginSecondFactor(request, response, user, "google");
+  return step === "mfa" ? "mfa" : step === "profile" ? "profile" : "setup";
 }
 
 export function createGoogleAuthRouter({ store, config, identity, limiter, logger, auth }) {
@@ -118,22 +148,10 @@ export function createGoogleAuthRouter({ store, config, identity, limiter, logge
         throw new Error("Google did not return a verified email address.");
       }
 
-      const user = await store.upsertGoogleUser({
-        googleSubject: profile.sub,
-        email: profile.email,
-        picture:
-          typeof profile.picture === "string" && profile.picture.startsWith("https://")
-            ? profile.picture
-            : "" // only the photo: the pseudo is the player's own choice
-      });
-      // Google is only the FIRST factor: the session is created after the authenticator code (MFA)
-      // is verified.
-      const { step } = await auth.beginSecondFactor(request, response, user, "google");
       const returnTo = safeReturnPath(cookies[names.returnTo]);
+      const page = await openGoogleSignIn({ store, auth, request, response, profile });
       identity.clearCookie(response, names.returnTo);
-      response.redirect(
-        `/login/${step === "mfa" ? "mfa" : step === "profile" ? "profile" : "setup"}?next=${encodeURIComponent(returnTo)}`
-      );
+      response.redirect(`/login/${page}?next=${encodeURIComponent(returnTo)}`);
     } catch (error) {
       logger.warn("google sign-in failed", { id: request.id, reason: error.message });
       response.status(502).send("Google sign-in failed. Return to the app and try again.");

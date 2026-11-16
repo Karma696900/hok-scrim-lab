@@ -3,6 +3,7 @@
 //
 //   node --env-file=.env scripts/accounts/account.js create --email admin@example.com --name "Admin"   (password read from stdin or $HOK_PASSWORD)
 //   node --env-file=.env scripts/accounts/account.js reset-mfa --email someone@example.com               (lost phone AND recovery codes)
+//   node --env-file=.env scripts/accounts/account.js reset-password --email someone@example.com          (new password from stdin or $HOK_PASSWORD)
 //   node --env-file=.env scripts/accounts/account.js unlock --email someone@example.com
 //   node --env-file=.env scripts/accounts/account.js sign-out --email someone@example.com
 //
@@ -12,6 +13,8 @@
 // `reset-mfa` removes the authenticator and recovery codes and closes every session: the next
 // sign-in (password) goes
 // through enrolment again. It does NOT reveal or change the password.
+// `reset-password` is for a person who forgot their password and has no authenticator (with one, they do it
+// themselves at /login/forgot): check by hand that it is them first. Every session is closed.
 import { assertRuntimeConfig, loadConfig } from "../../src/server/config.js";
 import { createStore } from "../../src/server/platform/database/store.js";
 import { normalizeEmail } from "../../src/server/features/auth/auth-service.js";
@@ -23,9 +26,9 @@ const option = name => {
   return index >= 0 ? rest[index + 1] : undefined;
 };
 const email = normalizeEmail(option("email"));
-if (!["create", "reset-mfa", "unlock", "sign-out"].includes(command) || !email) {
+if (!["create", "reset-mfa", "reset-password", "unlock", "sign-out"].includes(command) || !email) {
   console.error(
-    'Usage: node --env-file=.env scripts/accounts/account.js <create|reset-mfa|unlock|sign-out> --email you@example.com [--name "Display name"]'
+    'Usage: node --env-file=.env scripts/accounts/account.js <create|reset-mfa|reset-password|unlock|sign-out> --email you@example.com [--name "Display name"]'
   );
   process.exit(2);
 }
@@ -95,6 +98,27 @@ try {
     console.log(
       `Authenticator removed for ${email} (${closed} sessions closed). They will enrol a new one at next sign-in.`
     );
+  } else if (command === "reset-password") {
+    const password = await readPassword();
+    const problems = passwordProblems(password, { email, name: existing.name });
+    if (problems.length) {
+      console.error(problems.join(" "));
+      process.exitCode = 1;
+    } else {
+      await store.setPassword(
+        existing.id,
+        await hashPassword(password, { log2N: config.scryptLog2N, pepper: config.passwordPepper })
+      );
+      await store.clearLoginFailures(existing.id);
+      const closed = await store.deleteSessionsForUser(existing.id);
+      await store.logAuthEvent(
+        existing.id,
+        "password_reset_by_admin",
+        `${closed} sessions closed`,
+        "cli"
+      );
+      console.log(`New password set for ${email} (${closed} sessions closed).`);
+    }
   } else if (command === "unlock") {
     await store.clearLoginFailures(existing.id);
     await store.logAuthEvent(existing.id, "unlocked_by_admin", "", "cli");

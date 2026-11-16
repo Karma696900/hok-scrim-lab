@@ -3,6 +3,7 @@ import { bindTo } from "../../../shared/bind-to.js";
 import { onView as authServiceSeed } from "./auth-service-seed.js";
 import { onView as authServiceEnrolStart } from "./auth-service-enrol-start.js";
 import { onView as authServiceAccount } from "./auth-service-account.js";
+import { onView as authServiceRecover } from "./auth-service-recover.js";
 import { nextStep } from "./auth-service-seed.js";
 export { normalizeEmail } from "./auth-service-seed.js";
 export { cleanEmail } from "./auth-service-seed.js";
@@ -16,7 +17,7 @@ export { cleanEmail } from "./auth-service-seed.js";
  */
 export function createAuthService({ store, config, identity, secretBox }) {
   const ctx = { secretBox, store, identity, config };
-  bindTo(ctx, authServiceSeed, authServiceEnrolStart, authServiceAccount);
+  bindTo(ctx, authServiceSeed, authServiceEnrolStart, authServiceAccount, authServiceRecover);
   ctx.hashOptions = { log2N: ctx.config.scryptLog2N, pepper: ctx.config.passwordPepper };
   ctx.issuer = ctx.config.authIssuer;
 
@@ -51,6 +52,12 @@ export function createAuthService({ store, config, identity, secretBox }) {
     chooseAvatar: ctx.chooseAvatar,
 
     changePassword: ctx.changePassword,
+
+    forgotPassword: ctx.forgotPassword,
+
+    beginLink: ctx.beginLink,
+
+    confirmLink: ctx.confirmLink,
 
     regenerateRecoveryCodes: ctx.regenerateRecoveryCodes,
 

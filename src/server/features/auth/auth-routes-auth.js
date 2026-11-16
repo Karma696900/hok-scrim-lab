@@ -26,6 +26,34 @@ export function registerAuthRoutes(ctx) {
     })
   );
 
+  // A forgotten password: changed with the authenticator, without a session (the site sends no mail).
+  ctx.router.post(
+    "/auth/password/forgot",
+    ctx.limiters.mfa,
+    wrap(async request => {
+      const body = plainObject(request.body);
+      return ctx.auth.forgotPassword(request, request.res, {
+        email: text(body, "email", 320),
+        code: text(body, "code", 20),
+        recoveryCode: text(body, "recoveryCode", 40),
+        newPassword: text(body, "newPassword", 400)
+      });
+    })
+  );
+  // A Google sign-in that found an account of the site with the same address: the proof that it is the person's.
+  ctx.router.post(
+    "/auth/link",
+    ctx.limiters.mfa,
+    wrap(async request => {
+      const body = plainObject(request.body);
+      return ctx.auth.confirmLink(request, request.res, {
+        code: text(body, "code", 20),
+        recoveryCode: text(body, "recoveryCode", 40),
+        password: text(body, "password", 1100)
+      });
+    })
+  );
+
   ctx.router.get(
     "/auth/security",
     wrap(async request => ctx.auth.overview(needUser(request).id))

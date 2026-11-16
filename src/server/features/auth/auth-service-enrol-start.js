@@ -159,14 +159,14 @@ export async function logout(ctx, request, response) {
   ctx.identity.clearCookie(response, ctx.identity.names.challenge);
 }
 
-const MAX_CHALLENGE_ATTEMPTS = 5;
+export const MAX_CHALLENGE_ATTEMPTS = 5;
 
 /**
  * Counts one more code tried on the sign-in in progress. A sign-in that another sign-in of the same
  * account replaced meanwhile (one open challenge per account) has expired: it says so, as when the
  * challenge is not found at all, instead of "too many wrong codes".
  */
-async function countAttempt(ctx, response, tokenHash) {
+export async function countAttempt(ctx, response, tokenHash) {
   const attempts = await ctx.store.bumpChallengeAttempts(tokenHash);
   if (attempts === null) {
     ctx.identity.clearCookie(response, ctx.identity.names.challenge);
@@ -175,7 +175,7 @@ async function countAttempt(ctx, response, tokenHash) {
   return attempts;
 }
 
-const invalidCode = () => new HttpError(401, "invalid_code", "This code is not valid.");
+export const invalidCode = () => new HttpError(401, "invalid_code", "This code is not valid.");
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
 export const onView = {

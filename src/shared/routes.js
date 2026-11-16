@@ -7,7 +7,16 @@ import { ROUTES } from "./routes-table.js";
 import { message } from "./routes-shared.js";
 import { splitLanguage } from "./locale-path.js";
 
-export const AUTH_VIEWS = ["login", "mfa", "setup", "profile", "register", "account"];
+export const AUTH_VIEWS = [
+  "login",
+  "mfa",
+  "forgot",
+  "link",
+  "setup",
+  "profile",
+  "register",
+  "account"
+];
 
 /** The pages of the legal text and the contact form: public, written once for everybody (client/features/legal). */
 export const LEGAL_VIEWS = ["terms", "privacy", "cookies", "legal", "contact"];
@@ -46,17 +55,16 @@ export function routeTexts(match) {
   return { title: own?.title ?? route.title, description: own?.description ?? route.description };
 }
 
-/** Views whose address is not simply "/" followed by their name. */
-const OWN_PATH = {
-  home: "/",
-  mfa: "/login/mfa",
-  setup: "/login/setup",
-  profile: "/login/profile",
-  "space-shared": "/space/shared",
-  "me-api": "/me/api"
-};
-/** The views with an address of their own and no value in it: every route of the table that takes none. */
-const PLAIN_VIEWS = new Set(ROUTES.filter(route => !route.param).map(route => route.view));
+/**
+ * The address of each view that has no value in it, read from its pattern (/^\/login\/mfa$/ gives /login/mfa):
+ * none of these patterns has a variable part.
+ */
+const PLAIN_PATHS = new Map(
+  ROUTES.filter(route => !route.param).map(route => [
+    route.view,
+    route.pattern.source.replace(/[\\^$]/g, "")
+  ])
+);
 /** The views whose address ends with a value: the folder, and the name the value is given under. */
 const WITH_VALUE = {
   hero: ["/heroes", "heroId"],
@@ -85,10 +93,7 @@ export function pathFor({ view, section = "", ...values }) {
   if (name && values[name]) {
     return `${folder}/${encodeURIComponent(values[name])}`;
   }
-  if (!PLAIN_VIEWS.has(view)) {
-    return "/";
-  }
-  return OWN_PATH[view] ?? `/${view}`;
+  return PLAIN_PATHS.get(view) ?? "/";
 }
 
 /**

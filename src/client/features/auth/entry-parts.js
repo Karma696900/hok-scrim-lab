@@ -89,6 +89,7 @@ export const login = view =>
             ${errorBox()}
             ${submitHtml(t("Continue"))}
           </form>
+          <div class="au-links"><a class="au-link" href="/login/forgot${view.nextQuery()}">${t("Forgot your password?")}</a></div>
           ${view.session.config.registration ? view.switchLine(t("No account yet?"), "/register", t("Create one")) : ""}`
   });
 
@@ -131,6 +132,23 @@ export const profile = () =>
           </form>`
   });
 
+/** The authenticator code, or a recovery code once the person said they lost their device. */
+const secondFactorField = view =>
+  view.session.useRecovery
+    ? fieldHtml({
+        id: "recoveryCode",
+        label: t("Recovery code"),
+        autocomplete: "off",
+        iconName: "key",
+        extra:
+          'required autofocus maxlength="20" autocapitalize="characters" spellcheck="false" placeholder="XXXXX-XXXXX"'
+      })
+    : codeFieldHtml({ id: "code", label: t("6-digit code"), extra: "required autofocus" });
+
+/** The button that switches between the two; `path` is the page to draw again. */
+const recoveryToggle = (view, path) =>
+  `<button class="au-link" type="button" data-auth-action="toggle-recovery" data-path="${path}">${view.session.useRecovery ? t("Use my authenticator instead") : t("I lost my device: use a recovery code")}</button>`;
+
 export const mfa = view =>
   frame({
     title: t("Enter your code"),
@@ -140,27 +158,70 @@ export const mfa = view =>
     steps: signInSteps(1),
     badge: `<span class="au-badge">${icon("phone", "i--xl")}</span>`,
     body: `<form class="auth-form" data-auth-form="mfa" novalidate>
-            ${
-              view.session.useRecovery
-                ? fieldHtml({
-                    id: "recoveryCode",
-                    label: t("Recovery code"),
-                    autocomplete: "off",
-                    iconName: "key",
-                    extra:
-                      'required autofocus maxlength="20" autocapitalize="characters" spellcheck="false" placeholder="XXXXX-XXXXX"'
-                  })
-                : codeFieldHtml({
-                    id: "code",
-                    label: t("6-digit code"),
-                    extra: "required autofocus"
-                  })
-            }
+            ${secondFactorField(view)}
             ${errorBox()}
             ${submitHtml(t("Verify"))}
           </form>
-          <div class="au-links"><button class="au-link" type="button" data-auth-action="toggle-recovery">${view.session.useRecovery ? t("Use my authenticator instead") : t("I lost my device: use a recovery code")}</button><a class="au-link" href="/login">${t("Start again")}</a></div>`
+          <div class="au-links">${recoveryToggle(view, "/login/mfa")}<a class="au-link" href="/login">${t("Start again")}</a></div>`
   });
+
+/**
+ * A forgotten password, changed with the authenticator: the site sends no mail, so only an account with an
+ * authenticator can do it (owner, 2026-11-16). The others write to the owner.
+ */
+export const forgot = view =>
+  frame({
+    title: t("Choose a new password"),
+    lead: view.session.useRecovery
+      ? t("Type the email you sign in with, one of your recovery codes, and your new password.")
+      : t(
+          "Type the email you sign in with, the code of your authenticator app, and your new password."
+        ),
+    body: `<form class="auth-form" data-auth-form="forgot" novalidate>
+            ${fieldHtml({ id: "email", label: t("Email"), type: "email", autocomplete: "username", iconName: "mail", extra: 'required autofocus inputmode="email" maxlength="254"' })}
+            ${secondFactorField(view).replace(" autofocus", "")}
+            ${passwordFields().replace(" autofocus", "")}
+            ${errorBox()}
+            ${submitHtml(t("Change the password"))}
+          </form>
+          <div class="au-links">${recoveryToggle(view, "/login/forgot")}<a class="au-link" href="/login${view.nextQuery()}">${t("Back to sign in")}</a></div>
+          <p class="au-note">${t("No authenticator on this account?")} <a href="/contact">${t("Write to us")}</a></p>`
+  });
+
+/**
+ * Google answered for an address an account of the site already uses: the proof that it is the person's
+ * (its code, or its password when it has no authenticator) links Google to it, and no second account is made.
+ */
+export const link = view => {
+  const withCode = view.session.link?.proof === "code";
+  return frame({
+    title: t("Link your Google account"),
+    lead: t(
+      "An account already uses {email}. Prove that it is yours to link it to Google: no second account is made.",
+      { email: view.session.link?.email ?? "" }
+    ),
+    badge: `<span class="au-badge">${icon(withCode ? "phone" : "lock", "i--xl")}</span>`,
+    body: `<form class="auth-form" data-auth-form="link" novalidate>
+            ${
+              withCode
+                ? secondFactorField(view)
+                : fieldHtml({
+                    id: "password",
+                    label: t("Password of this account"),
+                    type: "password",
+                    autocomplete: "current-password",
+                    iconName: "lock",
+                    toggle: true,
+                    extra: 'required autofocus maxlength="1000"',
+                    hint: t("The authenticator is set up right after.")
+                  })
+            }
+            ${errorBox()}
+            ${submitHtml(t("Link and continue"))}
+          </form>
+          <div class="au-links">${withCode ? recoveryToggle(view, "/login/link") : ""}<a class="au-link" href="/contact">${t("This is not my account")}</a><a class="au-link" href="/login">${t("Start again")}</a></div>`
+  });
+};
 
 export const setup = view => {
   if (view.session.recovery) {
@@ -216,4 +277,4 @@ const accountSteps = current =>
 const signInSteps = current => stepsHtml([t("Sign in"), t("Authenticator")], current);
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
-export const onView = { googleButton, tabs, switchLine, login, register, mfa, setup };
+export const onView = { googleButton, tabs, switchLine, login, register, mfa, forgot, link, setup };

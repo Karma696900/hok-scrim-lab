@@ -2913,3 +2913,24 @@
 3078|Vedi tutti gli oggetti
 3079|Vedi tutti gli arcani
 3080|Vedi tutti gli incantesimi
+3081|Password cambiata. Accedi con quella nuova.
+3082|Password dimenticata?
+3083|Scegli una nuova password
+3084|Scrivi l'e-mail con cui accedi, uno dei tuoi codici di recupero e la nuova password.
+3085|Scrivi l'e-mail con cui accedi, il codice della tua app di autenticazione e la nuova password.
+3086|Cambia la password
+3087|Nessuna app di autenticazione su questo account?
+3088|Scrivici
+3089|Collega il tuo account Google
+3090|Un account usa già {email}. Dimostra che è tuo per collegarlo a Google: non viene creato un secondo account.
+3091|Password di questo account
+3092|L'app di autenticazione si configura subito dopo.
+3093|Collega e continua
+3094|Questo non è il mio account
+3095|Password dimenticata | {site}
+3096|Scegli una nuova password con la tua app di autenticazione.
+3097|Collega il tuo account Google | {site}
+3098|Collega Google all'account che hai già.
+3099|Questa e-mail e questo codice non corrispondono.
+3100|Questa password non è quella di questo account.
+3101|Questo account Google è già collegato a un altro account.

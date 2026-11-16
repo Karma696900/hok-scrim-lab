@@ -23,6 +23,10 @@ export function createEntryViews({ session, nextQuery, nextPath }) {
 
     mfa: view.mfa,
 
+    forgot: view.forgot,
+
+    link: view.link,
+
     setup: view.setup
   };
 }

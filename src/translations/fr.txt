@@ -2913,3 +2913,24 @@
 3078|Voir tous les objets
 3079|Voir tous les arcanes
 3080|Voir tous les sorts
+3081|Mot de passe changé. Connectez-vous avec le nouveau.
+3082|Mot de passe oublié ?
+3083|Choisissez un nouveau mot de passe
+3084|Saisissez l'e-mail avec lequel vous vous connectez, un de vos codes de secours et votre nouveau mot de passe.
+3085|Saisissez l'e-mail avec lequel vous vous connectez, le code de votre application d'authentification et votre nouveau mot de passe.
+3086|Changer le mot de passe
+3087|Pas d'application d'authentification sur ce compte ?
+3088|Écrivez-nous
+3089|Reliez votre compte Google
+3090|Un compte utilise déjà {email}. Prouvez qu'il est à vous pour le relier à Google : aucun deuxième compte n'est créé.
+3091|Mot de passe de ce compte
+3092|L'application d'authentification se configure juste après.
+3093|Relier et continuer
+3094|Ce n'est pas mon compte
+3095|Mot de passe oublié | {site}
+3096|Choisissez un nouveau mot de passe avec votre application d'authentification.
+3097|Relier votre compte Google | {site}
+3098|Reliez Google au compte que vous avez déjà.
+3099|Cet e-mail et ce code ne correspondent pas.
+3100|Ce mot de passe n'est pas celui de ce compte.
+3101|Ce compte Google est déjà relié à un autre compte.

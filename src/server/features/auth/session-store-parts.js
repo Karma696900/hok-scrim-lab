@@ -53,6 +53,41 @@ export async function upsertGoogleUser(ctx, { googleSubject, email, picture }) {
   return rows[0] ?? null;
 }
 
+/**
+ * The account of the site a new Google account belongs to: same sign-in address, no Google account of its
+ * own yet (owner, 2026-11-16: a Google sign-in made a second, empty account). Null when Google already
+ * knows this person, or no account uses the address.
+ */
+export async function findAccountToLink(ctx, { googleSubject, loginEmail }) {
+  const [known] = await ctx.pool.execute("SELECT id FROM users WHERE google_subject = ?", [
+    googleSubject
+  ]);
+  if (known[0] || !loginEmail) {
+    return null;
+  }
+  const [rows] = await ctx.pool.execute(
+    "SELECT id, email, name, tag, profile_complete, mfa_enabled FROM users WHERE login_email = ? AND google_subject IS NULL AND is_guest = FALSE",
+    [loginEmail]
+  );
+  return rows[0] ?? null;
+}
+
+/** Links a Google account to an account of the site. False when it is linked already (to it or to another). */
+export async function linkGoogle(ctx, userId, { googleSubject, picture }) {
+  try {
+    const [result] = await ctx.pool.execute(
+      "UPDATE users SET google_subject = ?, google_picture = ?, email_verified = TRUE, updated_at = ? WHERE id = ? AND google_subject IS NULL",
+      [googleSubject, picture || "", new Date().toISOString(), userId]
+    );
+    return result.affectedRows === 1;
+  } catch (error) {
+    if (error.code === "ER_DUP_ENTRY") {
+      return false; // this Google account already has an account of its own
+    }
+    throw error;
+  }
+}
+
 export async function createGuestUser(ctx) {
   const now = new Date().toISOString();
   const id = randomUUID();
@@ -174,6 +209,8 @@ export const userFromRow = row => ({
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
 export const onView = {
   upsertGoogleUser,
+  findAccountToLink,
+  linkGoogle,
   createGuestUser,
   getUserByEmail,
   getSession,

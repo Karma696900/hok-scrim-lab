@@ -27,6 +27,15 @@ export async function loadFor(page, view) {
     page.go(nextPath(), { replace: true });
     return false;
   }
+  if (view === "link") {
+    // the address and the proof the link asks for; without a Google sign-in in progress, back to sign in
+    const status = await page.api("/api/auth/challenge");
+    if (status.step !== "link") {
+      page.go(`/login${nextQuery()}`, { replace: true });
+      return false;
+    }
+    page.session.link = status;
+  }
   if (view === "profile") {
     const status = await page.api("/api/auth/challenge");
     if (status.step !== "profile") {
@@ -82,6 +91,7 @@ export function fieldOf(form, kind, error) {
     invalid_name: "name",
     invalid_email: "email",
     invalid_credentials: "password",
+    reset_refused: form.querySelector("#recoveryCode") ? "recoveryCode" : "code",
     weak_password: kind === "password" ? "newPassword" : "password",
     same_password: "newPassword",
     password_mismatch: "confirm",
@@ -129,6 +139,7 @@ export function reset(page) {
   page.session.recovery = null;
   page.session.overview = null;
   page.session.useRecovery = false;
+  page.session.link = null;
 }
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */

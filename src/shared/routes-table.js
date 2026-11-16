@@ -2,6 +2,7 @@
 import { message } from "./routes-shared.js";
 import { API_ROUTES } from "./routes-table-api.js";
 import { CASINO_ROUTES } from "./routes-table-casino.js";
+import { ACCOUNT_ROUTES } from "./routes-table-account.js";
 
 export const ROUTES = [
   {
@@ -344,46 +345,5 @@ export const ROUTES = [
     title: message("Contact | {site}"),
     description: message("Write to the people behind HOK Global Scrim Lab.")
   },
-  {
-    pattern: /^\/login$/,
-    view: "login",
-    index: true,
-    title: message("Sign in | {site}"),
-    description: message("Sign in to your account.")
-  },
-  {
-    pattern: /^\/login\/mfa$/,
-    view: "mfa",
-    index: true,
-    title: message("Verification code | {site}"),
-    description: message("Enter the code from your authenticator app.")
-  },
-  {
-    pattern: /^\/login\/profile$/,
-    view: "profile",
-    index: true,
-    title: message("Choose your pseudo | {site}"),
-    description: message("Choose the pseudo and the password of your account.")
-  },
-  {
-    pattern: /^\/login\/setup$/,
-    view: "setup",
-    index: true,
-    title: message("Set up two-factor authentication | {site}"),
-    description: message("Protect your account with an authenticator app.")
-  },
-  {
-    pattern: /^\/register$/,
-    view: "register",
-    index: true,
-    title: message("Create an account | {site}"),
-    description: message("Create an account protected by two-factor authentication.")
-  },
-  {
-    pattern: /^\/account$/,
-    view: "account",
-    index: true,
-    title: message("Account security | {site}"),
-    description: message("Password, authenticator and recovery codes.")
-  }
+  ...ACCOUNT_ROUTES
 ];

@@ -3,7 +3,16 @@ import { icon } from "../../../shared/icons.js";
 import { t } from "../../app/browser-i18n.js";
 import { fieldOf, nextPath, nextQuery, stepPath } from "./auth-pages-parts.js";
 
-const SIGN_IN_FORMS = new Set(["login", "register", "profile", "mfa", "enrol", "finish"]);
+const SIGN_IN_FORMS = new Set([
+  "login",
+  "register",
+  "profile",
+  "mfa",
+  "forgot",
+  "link",
+  "enrol",
+  "finish"
+]);
 
 /** The forms of the sign-in flow: login, register, profile, code, enrolment, recovery codes. False when the message was written under a field. */
 async function submitSignIn(page, { kind, form, data, fail }) {
@@ -34,6 +43,34 @@ async function submitSignIn(page, { kind, form, data, fail }) {
       body: page.session.useRecovery ? { recoveryCode: data.recoveryCode } : { code: data.code }
     });
     location.assign(nextPath());
+  } else if (kind === "forgot") {
+    await page.api("/api/auth/password/forgot", {
+      method: "POST",
+      body: {
+        email: data.email,
+        newPassword: data.password,
+        ...(page.session.useRecovery ? { recoveryCode: data.recoveryCode } : { code: data.code })
+      }
+    });
+    page.session.useRecovery = false;
+    page.tell(t("Password changed. Sign in with the new one."));
+    page.go(`/login${nextQuery()}`);
+  } else if (kind === "link") {
+    const body =
+      page.session.link?.proof === "code"
+        ? page.session.useRecovery
+          ? { recoveryCode: data.recoveryCode }
+          : { code: data.code }
+        : { password: data.password };
+    const result = await page.api("/api/auth/link", { method: "POST", body });
+    page.session.link = null;
+    page.session.useRecovery = false;
+    if (result.step === "done") {
+      location.assign(nextPath());
+    } else {
+      page.session.setup = null;
+      page.go(stepPath(result.step));
+    }
   } else if (kind === "enrol") {
     const result = await page.api("/api/auth/mfa/enrol/confirm", {
       method: "POST",
@@ -133,7 +170,7 @@ export async function onSubmit(page, event) {
   errorElement.textContent = "";
   button.disabled = true;
   try {
-    if ((kind === "register" || kind === "profile") && data.password !== data.confirm) {
+    if (["register", "profile", "forgot"].includes(kind) && data.password !== data.confirm) {
       return fail(t("The two passwords are different."), { code: "password_mismatch" });
     }
     const ok = await (SIGN_IN_FORMS.has(kind) ? submitSignIn : submitAccount)(page, {
@@ -163,7 +200,7 @@ export async function onClick(page, event) {
   const action = button.dataset.authAction;
   if (action === "toggle-recovery") {
     page.session.useRecovery = !page.session.useRecovery;
-    page.go("/login/mfa" + nextQuery(), { replace: true, force: true });
+    page.go((button.dataset.path ?? "/login/mfa") + nextQuery(), { replace: true, force: true });
   } else if (action === "toggle-password") {
     // the eye shows or hides every password of the form at once (a new password and its repeat)
     const shown = button.getAttribute("aria-pressed") !== "true";

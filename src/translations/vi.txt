@@ -2913,3 +2913,24 @@
 3078|Xem mọi trang bị
 3079|Xem mọi ngọc
 3080|Xem mọi phép bổ trợ
+3081|Đã đổi mật khẩu. Hãy đăng nhập bằng mật khẩu mới.
+3082|Quên mật khẩu?
+3083|Chọn mật khẩu mới
+3084|Nhập email bạn dùng để đăng nhập, một mã khôi phục của bạn và mật khẩu mới.
+3085|Nhập email bạn dùng để đăng nhập, mã trong ứng dụng xác thực và mật khẩu mới.
+3086|Đổi mật khẩu
+3087|Tài khoản này chưa có ứng dụng xác thực?
+3088|Viết cho chúng tôi
+3089|Liên kết tài khoản Google
+3090|Đã có tài khoản dùng {email}. Hãy chứng minh đó là của bạn để liên kết với Google: không tạo tài khoản thứ hai.
+3091|Mật khẩu của tài khoản này
+3092|Ứng dụng xác thực được cài ngay sau đó.
+3093|Liên kết và tiếp tục
+3094|Đây không phải tài khoản của tôi
+3095|Quên mật khẩu | {site}
+3096|Chọn mật khẩu mới bằng ứng dụng xác thực.
+3097|Liên kết tài khoản Google | {site}
+3098|Liên kết Google với tài khoản bạn đã có.
+3099|Email và mã này không khớp nhau.
+3100|Mật khẩu này không phải của tài khoản này.
+3101|Tài khoản Google này đã liên kết với tài khoản khác.

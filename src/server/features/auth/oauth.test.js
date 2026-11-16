@@ -430,6 +430,96 @@ describe("Google sign-in", { skip }, () => {
     );
   });
 
+  // owner, 2026-11-16: a Google sign-in with the address of an account of the site made a second, empty account
+  // (stuck on its pseudo: the address was taken). It now links Google to the account after a proof.
+  const googleLogin = async (browser, profile) => {
+    const { authorization } = await beginLogin(browser);
+    const stub = stubGoogle(url =>
+      url.includes("/token") ? json({ access_token: "t" }) : json(profile)
+    );
+    try {
+      return await browser.get(
+        `/auth/google/callback?code=c&state=${authorization.searchParams.get("state")}`
+      );
+    } finally {
+      stub.restore();
+    }
+  };
+  const accountsWith = async email =>
+    Number(
+      (
+        await app.store.pool.query("SELECT COUNT(*) AS n FROM users WHERE LOWER(email) = ?", [
+          email
+        ])
+      )[0][0].n
+    );
+
+  test("Google with the address of an account that has an authenticator: its code links them, no second account", async () => {
+    const email = `linked${Date.now()}@example.test`;
+    const owner = app.browser();
+    assert.equal(
+      (await owner.post("/api/auth/register", { email, name: "Owner", password: PASSWORD })).status,
+      200
+    );
+    const enrol = await owner.post("/api/auth/mfa/enrol/start");
+    const secret = enrol.body.secret.replace(/\s/g, "");
+    await owner.post("/api/auth/mfa/enrol/confirm", { code: hotp(secret, stepAt()) });
+    const ownerId = (await owner.get("/api/auth/me")).body.user.id;
+
+    const browser = app.browser();
+    const profile = { sub: `link-${Date.now()}`, email: email.toUpperCase(), email_verified: true };
+    const callback = await googleLogin(browser, profile);
+    assert.equal(callback.headers.get("location"), "/login/link?next=%2Fscrims%3Fx%3D1");
+    assert.equal(await accountsWith(email), 1, "no second account");
+    const status = (await browser.get("/api/auth/challenge")).body;
+    assert.equal(status.step, "link");
+    assert.equal(status.proof, "code");
+    assert.equal(
+      (await browser.get("/api/auth/me")).body.user,
+      null,
+      "no session before the proof"
+    );
+    assert.equal((await browser.post("/api/auth/link", { password: PASSWORD })).status, 401);
+    const linked = await browser.post("/api/auth/link", { code: hotp(secret, stepAt() + 1) });
+    assert.equal(linked.status, 200, linked.text);
+    assert.equal(linked.body.step, "done");
+    assert.equal((await browser.get("/api/auth/me")).body.user.id, ownerId);
+
+    const again = app.browser();
+    assert.match(
+      (await googleLogin(again, profile)).headers.get("location"),
+      /^\/login\/mfa/,
+      "next time Google opens the same account, with its code"
+    );
+    assert.equal(await accountsWith(email), 1);
+  });
+
+  test("Google with the address of an account without authenticator: its password links them, then the authenticator", async () => {
+    const email = `linkpw${Date.now()}@example.test`;
+    assert.equal(
+      (
+        await app
+          .browser()
+          .post("/api/auth/register", { email, name: "No Code", password: PASSWORD })
+      ).status,
+      200
+    );
+    const browser = app.browser();
+    const profile = { sub: `linkpw-${Date.now()}`, email, email_verified: true };
+    assert.match((await googleLogin(browser, profile)).headers.get("location"), /^\/login\/link/);
+    assert.equal((await browser.get("/api/auth/challenge")).body.proof, "password");
+    assert.equal(
+      (await browser.post("/api/auth/link", { password: "not the right passphrase 5" })).status,
+      401
+    );
+    const linked = await browser.post("/api/auth/link", { password: PASSWORD });
+    assert.equal(linked.status, 200, linked.text);
+    assert.equal(linked.body.step, "enroll");
+    await finishEnrolment(browser);
+    assert.ok((await browser.get("/api/auth/me")).body.user);
+    assert.equal(await accountsWith(email), 1);
+  });
+
   test("logout deletes the session on the server and clears the cookie", async () => {
     const signedIn = await app.signIn("Leaver");
     assert.ok((await signedIn.browser.get("/api/auth/me")).body.user);

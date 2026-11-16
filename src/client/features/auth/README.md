@@ -14,7 +14,7 @@ Ce dossier est une page (ou un groupe de pages) du site, côté navigateur. Le f
 | `auth-security-parts.js` | auth security, small helpers: stageHero, pill, head, block, and 9 more. |
 | `auth-security.js` | The security of the account (/account), in the site like any page: a stage with the three things to know (is the authenticator on, how many recovery codes are left, when did the last sign-in happen… |
 | `entry-parts.js` | entry, small helpers: frame, googleButton, tabs, switchLine, and 7 more. |
-| `entry.js` | The way in: sign in, create an account, the code of the authenticator, the authenticator to set up (QR, then the recovery codes), the pseudo of a person who came with Google. |
+| `entry.js` | The way in: sign in, create an account, the code of the authenticator, a forgotten password, the link of Google to an account that already has its address, the authenticator to set up (QR, then the recovery codes), the pseudo of a person who came with Google. |
 | `forms.js` | The pieces the account pages are made of: a labelled field (label above, icon inside, hint under), the field of a 6-digit code, the line that shows what went wrong, the strength of a new password, … |
 | `profile-parts.js` | profile, small helpers: sendJson, apply, paint, build. |
 | `profile.js` | The profile dialog (click on the avatar in the header): pseudo, photo, and the player's tag. |

@@ -15,6 +15,7 @@ Ce dossier est une tranche du serveur : ses routes, ses règles et ses requêtes
 | `auth-routes-shared.js` | Constantes et petites fonctions que plusieurs fichiers du dossier utilisent. |
 | `auth-routes.js` | Les adresses de l'API et leurs réponses. |
 | `auth-service-account.js` | What a signed-in person does with their own account: pseudo, photo, password, recovery codes, a copy of their data, erasure. |
+| `auth-service-recover.js` | A forgotten password changed with the authenticator (no mail is sent), and the link of a Google account to the account of the site with the same address (after a proof, never a second account). |
 | `auth-service-enrol-start.js` | auth service, enrol start: enrolStart, enrolConfirm, verifySecondFactor, requireFreshCode, and 4 more. |
 | `auth-service-seed.js` | auth service, seed: seed, unseed, event, openChallenge, and 11 more. |
 | `auth-service-shared.js` | Constantes et petites fonctions que plusieurs fichiers du dossier utilisent. |

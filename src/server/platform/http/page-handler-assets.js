@@ -87,7 +87,9 @@ export function dataCalls(matched, bootstrapped) {
   if (matched.view === "login" || matched.view === "register") {
     calls.push("/api/auth/config");
   }
-  if (!["login", "register", "mfa", "setup", "not-found"].includes(matched.view)) {
+  if (
+    !["login", "register", "mfa", "forgot", "link", "setup", "not-found"].includes(matched.view)
+  ) {
     calls.push(...needsOf(matched.view).map(name => DATA_CALLS[name]));
     if (matched.view === "home") {
       calls.push("/api/overview");

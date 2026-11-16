@@ -2913,3 +2913,24 @@
 3078|Tüm eşyaları gör
 3079|Tüm arkanaları gör
 3080|Tüm büyüleri gör
+3081|Şifre değiştirildi. Yeni şifrenizle giriş yapın.
+3082|Şifrenizi mi unuttunuz?
+3083|Yeni bir şifre seçin
+3084|Giriş yaptığınız e-postayı, kurtarma kodlarınızdan birini ve yeni şifrenizi yazın.
+3085|Giriş yaptığınız e-postayı, kimlik doğrulama uygulamanızdaki kodu ve yeni şifrenizi yazın.
+3086|Şifreyi değiştir
+3087|Bu hesapta kimlik doğrulayıcı yok mu?
+3088|Bize yazın
+3089|Google hesabınızı bağlayın
+3090|{email} adresini zaten bir hesap kullanıyor. Google'a bağlamak için sizin olduğunu kanıtlayın: ikinci bir hesap açılmaz.
+3091|Bu hesabın şifresi
+3092|Kimlik doğrulayıcı hemen ardından kurulur.
+3093|Bağla ve devam et
+3094|Bu benim hesabım değil
+3095|Unutulan şifre | {site}
+3096|Kimlik doğrulama uygulamanızla yeni bir şifre seçin.
+3097|Google hesabınızı bağlayın | {site}
+3098|Google'ı zaten sahip olduğunuz hesaba bağlayın.
+3099|Bu e-posta ile bu kod eşleşmiyor.
+3100|Bu şifre bu hesabın şifresi değil.
+3101|Bu Google hesabı zaten başka bir hesaba bağlı.

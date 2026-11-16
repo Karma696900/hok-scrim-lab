@@ -2913,3 +2913,24 @@
 3078|Lihat semua item
 3079|Lihat semua arcana
 3080|Lihat semua spell
+3081|Kata sandi diubah. Masuk dengan kata sandi yang baru.
+3082|Lupa kata sandi?
+3083|Pilih kata sandi baru
+3084|Ketik email yang Anda pakai untuk masuk, salah satu kode pemulihan Anda, dan kata sandi baru Anda.
+3085|Ketik email yang Anda pakai untuk masuk, kode dari aplikasi autentikator Anda, dan kata sandi baru Anda.
+3086|Ubah kata sandi
+3087|Akun ini tidak punya autentikator?
+3088|Tulis ke kami
+3089|Tautkan akun Google Anda
+3090|Sebuah akun sudah memakai {email}. Buktikan bahwa itu milik Anda untuk menautkannya ke Google: tidak ada akun kedua yang dibuat.
+3091|Kata sandi akun ini
+3092|Autentikator disiapkan tepat sesudahnya.
+3093|Tautkan dan lanjutkan
+3094|Ini bukan akun saya
+3095|Lupa kata sandi | {site}
+3096|Pilih kata sandi baru dengan aplikasi autentikator Anda.
+3097|Tautkan akun Google Anda | {site}
+3098|Tautkan Google ke akun yang sudah kamu punya.
+3099|Email dan kode ini tidak cocok.
+3100|Kata sandi ini bukan milik akun ini.
+3101|Akun Google ini sudah tertaut ke akun lain.

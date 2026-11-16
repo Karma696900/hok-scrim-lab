@@ -427,15 +427,17 @@
 .au-link:hover {
   text-decoration: underline;
 }
+/* each link is 24 px tall to be tapped (4 px above and below the text): the gap and the margin give those 8 px
+   back, so the text sits where it did */
 .au-links {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 8px 16px;
-  margin-top: 20px;
+  gap: 0 16px;
+  margin-top: 16px;
 }
 .au-link {
-  padding: 0;
+  padding: 4px 0;
   border: 0;
   background: none;
   text-align: start;
