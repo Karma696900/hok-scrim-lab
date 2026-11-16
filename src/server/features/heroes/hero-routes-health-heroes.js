@@ -6,6 +6,7 @@ import { currentTierList, heroTiers } from "../tier-lists/public-tier-list-servi
 import { revalidate } from "../../platform/http/cache-control.js";
 import { summariseCompetitive } from "../tournaments/competitive-import.js";
 import { wrap } from "../../platform/http/async.js";
+import { heroIdOf } from "../../../shared/hero-slug.js";
 
 export function registerHealthHeroesRoutes(ctx) {
   // Liveness: the process answers. Readiness (below) also needs MySQL.
@@ -90,7 +91,11 @@ export function registerHeroSheetRoutes(ctx) {
   ctx.router.get(
     "/heroes/:id",
     wrap(async request => {
-      const hero = (await ctx.store.readHeroes()).find(item => item.id === request.params.id);
+      // by its number, or by the name of its address (shared/hero-slug.js): a page opened at /heroes/agudo asks
+      // for /api/heroes/agudo before the roster is there
+      const heroes = await ctx.store.readHeroes();
+      const id = heroIdOf(heroes, request.params.id);
+      const hero = heroes.find(item => item.id === id);
       if (!hero) {
         throw notFound("Hero not found.");
       }

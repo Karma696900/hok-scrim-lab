@@ -42,6 +42,8 @@ export async function currentTierList(store, today = dayOf(Date.now())) {
       period: { from, to },
       minGames: SCORE.minGames,
       totalGames: games.length,
+      // the season of the game (15), named by the title and the heading of the page; null when unknown
+      season: (await store.currentSeason?.()) ?? null,
       ...publicTierList({ lanes, official, heroes, minGames: SCORE.minGames, updatedAt })
     };
   });

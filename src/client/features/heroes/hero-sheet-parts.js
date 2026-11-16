@@ -4,6 +4,7 @@ import { icon } from "../../../shared/icons.js";
 import { responsive } from "../../../shared/media.js";
 import { t } from "../../app/browser-i18n.js";
 import { escapeHtml } from "../../lib/dom.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 /** The words of a description, with the colours Camp gives them (applied after the draw: applyTones). */
 export function toneText(segments) {
@@ -18,7 +19,7 @@ export function toneText(segments) {
 
 /** A small portrait with its name: opens the sheet of that hero. */
 export const miniPortrait = hero =>
-  `<li><button type="button" class="hl-mini" data-action="open-hero" data-hero-id="${escapeHtml(hero.id)}" aria-label="${escapeHtml(hero.displayName || hero.name)}"><span class="hl-mini__img">${hero.image ? `<img ${responsive(hero.image, 64)} alt="" width="64" height="64" loading="lazy" decoding="async">` : ""}</span><b>${escapeHtml(hero.displayName || hero.name)}</b></button></li>`;
+  `<li><a class="hl-mini" href="${escapeHtml(heroHref(hero.id))}" data-action="open-hero" data-hero-id="${escapeHtml(hero.id)}" aria-label="${escapeHtml(hero.displayName || hero.name)}"><span class="hl-mini__img">${hero.image ? `<img ${responsive(hero.image, 64)} alt="" width="64" height="64" loading="lazy" decoding="async">` : ""}</span><b>${escapeHtml(hero.displayName || hero.name)}</b></a></li>`;
 
 /** "Passive" / "Skill 1" / "Ultimate" are ours, not Camp's: they follow the language of the page. */
 export function skillLabel(skill) {

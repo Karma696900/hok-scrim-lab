@@ -86,7 +86,7 @@ check(
   "the page is open to a visitor, in the menu under the heroes",
   (await page.locator('.nav-link[data-view="popular"]').count()) === 1 &&
     (await page.locator('.nav-link.active[data-view="popular"]').count()) === 1 &&
-    /Popular drafts/i.test(await page.locator("main h1").innerText())
+    /popular tournament drafts/i.test(await page.locator("main h1").innerText())
 );
 check(
   "each side has its own list of drafts: five heroes, the games, the win rate",
@@ -218,7 +218,7 @@ await page.waitForSelector(".pop-lanes");
 check(
   "the heroes tab: the five lanes as the bar of the tier lists, with the number of heroes of each",
   /\/popular\/heroes$/.test(page.url()) &&
-    /Popular heroes/i.test(await page.locator("main h1").innerText()) &&
+    /HOK meta heroes/i.test(await page.locator("main h1").innerText()) &&
     (await page.locator(".pop-lanes .lane-tab").count()) === 5
 );
 check(

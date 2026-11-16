@@ -24,7 +24,7 @@ export const remember = view => history.replaceState(null, "", view.addressOf())
 
 /** The stage that opens the left panel: the cover of the hero of the build, the title. */
 export const stage = current =>
-  `<header class="page-head lb-stage keep-dark rise">${sceneArtSlot("lb-stage__art", current ?? sceneHero(1))}<div class="lb-stage__title"><h1>${t("Build lab")}</h1><p>${t("Try a build: pick a hero, a level, items and arcana. No account needed; the link shares your build.")}</p></div></header>`;
+  `<header class="page-head lb-stage keep-dark rise">${sceneArtSlot("lb-stage__art", current ?? sceneHero(1))}<div class="lb-stage__title"><h1>${t("HOK build calculator")}</h1><p>${t("Try a build: pick a hero, a level, items and arcana. No account needed; the link shares your build.")}</p></div></header>`;
 
 export const piecesOf = target => target.closest?.("[data-add], .build-slot[data-piece]");
 

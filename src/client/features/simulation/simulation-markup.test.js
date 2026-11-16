@@ -37,7 +37,7 @@ const setup = extra => ({
 describe("the set-up screen", () => {
   test("a title, an introduction and every choice of the game", () => {
     const html = pageHtml(setup());
-    assert.match(html, /<h1>Game Simulation<\/h1>/);
+    assert.match(html, /<h1>HOK game simulation<\/h1>/);
     assert.match(html, /Play a whole Honor of Kings match as one hero/);
     for (const act of ["side", "lane", "difficulty", "heroes"]) {
       assert.match(html, new RegExp(`data-act="${act}"`), act);

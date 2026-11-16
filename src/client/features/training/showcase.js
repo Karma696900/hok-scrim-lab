@@ -15,6 +15,7 @@ import {
   kindLabel,
   statusLabel
 } from "./training-shared.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 /** The hero of the day on its cover; `add` puts a button to start working on it. */
 export function featuredHtml(esc, { add = false } = {}) {
@@ -23,7 +24,7 @@ export function featuredHtml(esc, { add = false } = {}) {
     return "";
   }
   const roles = (hero.roles ?? []).map(classLabel).join(" / ");
-  return `<article class="trn-feature keep-dark card--feature">${sceneArtSlot("trn-feature__art", hero)}<div class="trn-feature__veil" aria-hidden="true"></div><div class="trn-feature__body"><span class="pill pill--blue">${t("Hero of the day")}</span><h2>${esc(hero.displayName || hero.name)}</h2><div class="hstack wrap">${roles ? `<span class="trn-feature__roles">${esc(roles)}</span>` : ""}${laneLogos(hero.lanes ?? [], 24)}</div><div class="hstack wrap">${add ? `<button type="button" class="btn btn--primary btn--sm" data-add-hero="${esc(hero.id)}">${icon("plus", "i--sm")}${t("Add to my heroes")}</button>` : ""}<a class="btn btn--sm" href="/heroes/${encodeURIComponent(hero.id)}">${icon("book", "i--sm")}${t("Full hero sheet")}</a></div></div></article>`;
+  return `<article class="trn-feature keep-dark card--feature">${sceneArtSlot("trn-feature__art", hero)}<div class="trn-feature__veil" aria-hidden="true"></div><div class="trn-feature__body"><span class="pill pill--blue">${t("Hero of the day")}</span><h2>${esc(hero.displayName || hero.name)}</h2><div class="hstack wrap">${roles ? `<span class="trn-feature__roles">${esc(roles)}</span>` : ""}${laneLogos(hero.lanes ?? [], 24)}</div><div class="hstack wrap">${add ? `<button type="button" class="btn btn--primary btn--sm" data-add-hero="${esc(hero.id)}">${icon("plus", "i--sm")}${t("Add to my heroes")}</button>` : ""}<a class="btn btn--sm" href="${heroHref(hero.id)}">${icon("book", "i--sm")}${t("Full hero sheet")}</a></div></div></article>`;
 }
 
 /** Draws the cover of the hero of the day into the card that `featuredHtml` made. */

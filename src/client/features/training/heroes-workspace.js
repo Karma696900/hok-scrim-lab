@@ -9,6 +9,7 @@ import { icon } from "../../../shared/icons.js";
 import { profileStatsSection } from "../heroes/hero-stats.js";
 import { t } from "../../app/browser-i18n.js";
 import { tx } from "../../domain/staff-content.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 // ---- the combos of the hero that is open: each one is validated in two forms ----------------------
 export const acquired = (view, comboId, form) => Boolean(view.progress[comboId]?.[form]);
@@ -135,7 +136,7 @@ export async function paintWorkspace(view) {
           <span class="trn-hero__face">${view.portrait(id, 96)}</span>
           <div class="trn-hero__id"><h2>${esc(view.heroName(id))}</h2><div class="hstack wrap"><span class="pill pill--blue">${esc(roles)}</span>${laneLogos(hero?.lanes ?? [], 24)}</div></div>
           <div class="hstack wrap trn-hero__links train-links">
-            <a class="btn btn--sm" href="/heroes/${link}">${icon("book", "i--sm")}${t("Full hero sheet")}</a>
+            <a class="btn btn--sm" href="${heroHref(id)}">${icon("book", "i--sm")}${t("Full hero sheet")}</a>
             <a class="btn btn--sm" href="/build-lab?hero=${link}">${icon("layers", "i--sm")}${t("Build lab")}</a>
             <a class="btn btn--sm" href="/training/notebook?hero=${link}">${icon("pencil", "i--sm")}${t("Notes on this hero")}</a>
             ${view.focus.includes(id) ? "" : `<button type="button" class="btn btn--primary btn--sm" data-add-hero="${esc(id)}">${icon("plus", "i--sm")}${t("Add to my heroes")}</button>`}

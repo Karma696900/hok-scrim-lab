@@ -41,7 +41,8 @@ check(
   "the footer links to the five legal pages",
   (
     await visitor
-      .locator(".sitefoot__links a")
+      // the legal row (the row above it links to the tools of the game)
+      .locator('.sitefoot__links[aria-label="Legal"] a')
       // the link to the source code leaves the site: the legal pages are the internal ones
       .evaluateAll(links => links.filter(a => a.origin === location.origin).map(a => a.pathname))
   ).join(",") === "/terms,/privacy,/cookies,/legal,/contact"

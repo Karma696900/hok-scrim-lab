@@ -54,9 +54,14 @@ const pixel = Buffer.from(
   );
   check("the address stays /fr/heroes", new URL(page.url()).pathname === "/fr/heroes");
   await page.waitForSelector(".hcard");
-  const heroId = await page.locator(".hcard").first().getAttribute("data-hero-id");
+  // the card links to the address with the hero's name (shared/hero-slug.js); a page drawn by the server already
+  // carries the language in its links
+  const heroPath = (await page.locator(".hcard").first().getAttribute("href")).replace(
+    /^\/fr\//,
+    "/"
+  );
   await page.locator(".hcard").first().click();
-  await page.waitForFunction(id => location.pathname === `/fr/heroes/${id}`, heroId, {
+  await page.waitForFunction(path => location.pathname === `/fr${path}`, heroPath, {
     timeout: 10000
   });
   check("opening a hero keeps the French address", true);

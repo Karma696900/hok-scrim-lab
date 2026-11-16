@@ -139,7 +139,7 @@ check(
   "quick links to the sheet, the build lab and the notes",
   (await page
     .locator(
-      '#focus-details a[href^="/heroes/h01"], #focus-details a[href^="/build-lab"], #focus-details a[href^="/training/notebook"]'
+      '#focus-details a[href="/heroes/hero-h01"], #focus-details a[href^="/build-lab"], #focus-details a[href^="/training/notebook"]'
     )
     .count()) === 3
 );

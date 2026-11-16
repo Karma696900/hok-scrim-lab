@@ -126,7 +126,7 @@ export async function show(view) {
   root.innerHTML = `${stageHtml({
     cls: "tm-stage",
     hero,
-    title: t("Teams"),
+    title: t("HOK teams"),
     text: t("Register your team and run its roster."),
     actions: `<button type="button" class="btn btn--primary btn--lg" data-team="open-form">${icon("plus")}${t("Create a team")}</button><a class="btn btn--lg" href="/find">${icon("search")}${t("Find a scrim")}</a>`,
     figures: [

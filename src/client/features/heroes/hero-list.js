@@ -11,6 +11,7 @@ import { classLabel, laneLogos, laneName as fullLaneName } from "../../domain/la
 import { render } from "../../app/router.js";
 import { LANES, state } from "../../app/app-state.js";
 import { miniPortrait } from "./hero-sheet-parts.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 // The first screenful of cards is drawn at once; the rest is added a moment later (or as soon as a
 // filter needs it), which keeps the first layout cheap.
@@ -44,7 +45,7 @@ const SORT_ORDER = { name: byName, lane: byLane, class: byClass };
  */
 function indexCard(hero, index) {
   const role = hero.roles?.[0] ? classLabel(hero.roles[0]) : t("Global");
-  return `<button type="button" class="hcard hl-card" data-action="open-hero" data-hero-id="${escapeHtml(hero.id)}" aria-label="${escapeHtml(hero.name)}">${imageMarkup(hero, "hl-card__img", false, index >= EAGER_PORTRAITS, true)}<span class="hl-card__lanes">${laneLogos(hero.lanes, 22)}</span><span class="hl-card__name"><b>${escapeHtml(hero.name)}</b><small>${escapeHtml(role)}</small></span><span class="hl-card__row-lanes">${laneLogos(hero.lanes, 22)}</span></button>`;
+  return `<a class="hcard hl-card" href="${escapeHtml(heroHref(hero.id))}" data-action="open-hero" data-hero-id="${escapeHtml(hero.id)}" aria-label="${escapeHtml(hero.name)}">${imageMarkup(hero, "hl-card__img", false, index >= EAGER_PORTRAITS, true)}<span class="hl-card__lanes">${laneLogos(hero.lanes, 22)}</span><span class="hl-card__name"><b>${escapeHtml(hero.name)}</b><small>${escapeHtml(role)}</small></span><span class="hl-card__row-lanes">${laneLogos(hero.lanes, 22)}</span></a>`;
 }
 
 function flushHeroTail() {
@@ -102,7 +103,7 @@ function sceneMarkup(hero) {
       <h2 id="hl-scene-name">${escapeHtml(hero.displayName || hero.name)}</h2>
       <ul class="hl-scene__chips"><li class="hl-chip hl-chip--brand">${icon("star", "i--sm")}${t("Hero of the day")}</li>${classes ? `<li class="hl-chip">${escapeHtml(classes)}</li>` : ""}${lanes}</ul>
       <ul class="hl-scene__skills" id="hl-scene-skills"></ul>
-      <div class="hl-scene__actions"><button type="button" class="btn btn--primary btn--lg" data-action="open-hero" data-hero-id="${escapeHtml(hero.id)}">${t("Open the sheet")}${icon("arrow")}</button></div>
+      <div class="hl-scene__actions"><a class="btn btn--primary btn--lg" href="${escapeHtml(heroHref(hero.id))}" data-action="open-hero" data-hero-id="${escapeHtml(hero.id)}">${t("Open the sheet")}${icon("arrow")}</a></div>
     </div>
     <nav class="hl-scene__more" aria-label="${t("More heroes")}"><ul>${otherHeroes(hero).map(miniPortrait).join("")}</ul></nav>
   </section>`;

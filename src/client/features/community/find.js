@@ -52,7 +52,7 @@ export function createFindPage(ctx) {
     root.innerHTML = `${stageHtml({
       cls: "fd-stage",
       hero,
-      title: t("Find a scrim"),
+      title: t("Find a HOK scrim"),
       text: t("Search open announcements and teams that match your level, time zone and format."),
       actions: `<button type="button" class="btn btn--primary btn--lg" data-community="open-post-form">${icon("plus")}${t("Post “Looking for scrim”")}</button><a class="btn btn--lg" href="/teams">${icon("users")}${t("Teams")}</a>`,
       figures: [

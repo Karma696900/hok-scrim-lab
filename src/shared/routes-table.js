@@ -23,7 +23,8 @@ export const ROUTES = [
       "Every Honor of Kings Global hero with lane, class, skills, videos, artwork and balance changes from the official Camp data."
     )
   },
-  { pattern: /^\/heroes\/(\d{1,6})$/, view: "hero", index: true, param: "heroId" },
+  // a hero: /heroes/agudo (its name, shared/hero-slug.js); the old address with its number is sent on to it for good
+  { pattern: /^\/heroes\/([a-z0-9-]{1,60})$/, view: "hero", index: true, param: "heroId" },
   {
     // the public tier list: every lane, or one (the address ends with its slug); the server adds the month
     // to the title (page-handler-parts.js)

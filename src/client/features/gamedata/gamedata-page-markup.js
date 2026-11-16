@@ -271,10 +271,17 @@ export function stageIcons(view) {
 
 export const stageHero = view => sceneHero(2 + SECTIONS.indexOf(view.section));
 
+// the heading of a list says it in the words players search with (SEO, owner 2026-11-16)
+const LIST_HEADING = {
+  items: () => t("HOK items: every Honor of Kings item"),
+  arcana: () => t("HOK arcana: red, blue and green"),
+  spells: () => t("HOK spells: Honor of Kings summoner spells")
+};
+
 /** The heading of the page: the open piece (its own address), or the section. */
 export function heading(view) {
   const piece = view.picked === null ? null : view.all().find(entry => entry.id === view.picked);
-  return piece ? nameOf(piece) : sectionLabel(view.section);
+  return piece ? nameOf(piece) : (LIST_HEADING[view.section]?.() ?? sectionLabel(view.section));
 }
 
 // The sheet of the open piece is `position: fixed` on a small screen, so it must not live inside an element that is

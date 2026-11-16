@@ -5,6 +5,7 @@ import { responsive } from "../../../shared/media.js";
 import { slotImage } from "../../lib/dom.js";
 import { day, ruleLabel } from "./popular-page-parts.js";
 import { rates } from "./popular-page-extras.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 // ---- markup -----------------------------------------------------------------------------------
 
@@ -84,7 +85,7 @@ export const heroRow = (view, most) => (entry, index) => {
   const hero = view.heroOf(entry.heroId);
   return `<li class="pop-row pop-row--hero">
       <span class="pop-rank">${index + 1}</span>
-      <a class="pop-hero" href="/heroes/${encodeURIComponent(entry.heroId)}">${hero?.image ? `<img class="pop-hero__art" ${responsive(hero.image, 112, "112px")} alt="" loading="lazy" decoding="async">` : `<span class="pop-hero__art image-fallback"></span>`}<b>${view.esc(view.nameOf(entry.heroId))}</b></a>
+      <a class="pop-hero" href="${heroHref(entry.heroId)}">${hero?.image ? `<img class="pop-hero__art" ${responsive(hero.image, 112, "112px")} alt="" loading="lazy" decoding="async">` : `<span class="pop-hero__art image-fallback"></span>`}<b>${view.esc(view.nameOf(entry.heroId))}</b></a>
       ${stats(entry, most)}
       ${view.versus(entry)}
       ${rates(entry)}

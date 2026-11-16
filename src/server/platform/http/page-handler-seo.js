@@ -4,6 +4,9 @@ import { safeJson } from "./first-paint.js";
 import { escapeHtml } from "./page-handler-shared.js";
 import { pieceUrls } from "./page-handler-pieces.js";
 import { alternates } from "../../../shared/locale-path.js";
+import { heroPath } from "../../../shared/hero-slug.js";
+import { sitemapDates } from "./sitemap-dates.js";
+import { currentTierList } from "../../features/tier-lists/public-tier-list-service.js";
 
 /**
  * The same page in every language (shared/locale-path.js), English as the default: in the head of a page
@@ -138,7 +141,7 @@ function tierListData({ info, base, language }) {
       "@type": "ListItem",
       position: index + 1,
       name: hero.name,
-      url: `${base}/heroes/${hero.id}`
+      url: `${base}${hero.path}`
     }))
   };
   return [page, list]
@@ -205,7 +208,9 @@ export function createSeoHandlers({ store, config }) {
     async sitemap(request, response, next) {
       try {
         const base = origin(request);
-        const heroes = (await store.readHeroes()).filter(hero => hero.availableGlobal !== false);
+        // the addresses come from the whole roster, like the pages and the browser (shared/hero-slug.js)
+        const roster = await store.readHeroes();
+        const heroes = roster.filter(hero => hero.availableGlobal !== false);
         const urls = [
           "/",
           "/heroes",
@@ -235,14 +240,26 @@ export function createSeoHandlers({ store, config }) {
           "/cookies",
           "/legal",
           "/contact",
-          ...heroes.map(hero => `/heroes/${hero.id}`),
+          ...heroes.map(hero => heroPath(roster, hero.id)),
           ...(await pieceUrls(store))
         ];
+        // a date the sitemap cannot read is left out, the list of pages is still sent
+        const [tierList, changes] = await Promise.all([
+          currentTierList(store).catch(() => null),
+          store.heroChangeDays?.().catch(() => ({})) ?? {}
+        ]);
+        const dates = sitemapDates({
+          tierListDay: tierList?.updatedAt ?? null,
+          changes,
+          heroes: roster,
+          today: new Date().toISOString().slice(0, 10)
+        });
+        const lastmod = url => (dates.has(url) ? `<lastmod>${dates.get(url)}</lastmod>` : "");
         response
           .type("application/xml")
           .set("Cache-Control", "public, max-age=3600")
           .send(
-            `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.map(url => `  <url><loc>${escapeHtml(base + url)}</loc>${alternateLinks(base, url, "xhtml:link")}</url>`).join("\n")}\n</urlset>\n`
+            `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls.map(url => `  <url><loc>${escapeHtml(base + url)}</loc>${lastmod(url)}${alternateLinks(base, url, "xhtml:link")}</url>`).join("\n")}\n</urlset>\n`
           );
       } catch (error) {
         next(error);

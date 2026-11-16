@@ -2934,3 +2934,40 @@
 3099|Diese E-Mail und dieser Code passen nicht zusammen.
 3100|Dieses Passwort gehört nicht zu diesem Konto.
 3101|Dieses Google-Konto ist bereits mit einem anderen Konto verknüpft.
+3102|Saison {number}
+3103|Honor of Kings Tierliste: {lane} — {season}
+3104|Honor of Kings Tierliste — {season}
+3105|Die besten {lane}-Helden gerade: {heroes}.
+3106|{hero} hat {rate} von {count, plural, one {# Turnierspiel} other {# Turnierspielen}} der letzten drei Monate gewonnen.
+3107|Wer ist gerade der beste {lane}-Held in Honor of Kings?
+3108|In dieser Reihenfolge: {heroes}. Die Liste stammt aus den Turnierspielen der letzten drei Monate.
+3109|Wer ist gerade der beste Held in Honor of Kings?
+3110|Der beste Held jeder Lane, nach den Turnierspielen der letzten drei Monate:
+3111|Letzte Änderung: {date}.
+3112|Häufige Fragen
+3113|Gilt diese Tierliste für Honor of Kings Global?
+3114|Ja. Sie umfasst nur die globale Version des Spiels: ihre Helden, deren Namen und die darauf gespielten Turniere.
+3115|Wie oft ändert sich die Tierliste?
+3116|Mit jeder Turnierserie, die auf der Seite eingetragen wird.
+3117|Honor of Kings {lane} Tier List, {season} ({month}): {heroes} ganz oben. Jeder {lane}-Held von SS bis D, nach den Turnierspielen der letzten drei Monate.
+3118|Honor of Kings Tier List, {season} ({month}): {heroes} ganz oben. Jeder Held jeder Lane von SS bis D, nach den Turnierspielen der letzten drei Monate.
+3119|HOK {lane} Tierliste {season} ({month}) — die besten {lane}-Helden in Honor of Kings | {site}
+3120|HOK Tierliste {season} ({month}) — die besten Honor of Kings Helden jeder Lane | {site}
+3121|Honor of Kings Tools
+3122|HOK Tierliste
+3123|Honor of Kings Helden
+3124|HOK Items
+3125|HOK Arkana
+3126|HOK Scrims
+3129|HOK Items: alle Items von Honor of Kings
+3130|HOK Arkana: rot, blau und grün
+3131|HOK Zauber: die Beschwörerzauber von Honor of Kings
+3137|HOK Tierlisten-Ersteller
+3127|HOK Build-Rechner
+3132|HOK Meta: beliebte Turnier-Drafts
+3133|HOK Meta-Helden: Pick-, Bann- und Siegraten
+3134|HOK Scrims und Draft-Simulator
+3136|HOK Teams
+3128|Einen HOK Scrim finden
+3135|HOK Spielsimulation
+3138|HOK Reflextraining

@@ -36,7 +36,8 @@ function syncUrl() {
   const target = addressOf(
     pathFor({
       view: state.view,
-      heroId: state.selectedHeroId,
+      // the name of its address (shared/hero-slug.js): the hero page sets it before it draws anything
+      heroId: state.selectedHeroSlug,
       guideHeroId: state.guideHeroId,
       seriesId: state.activeSeriesId,
       teamId: state.activeTeamId,

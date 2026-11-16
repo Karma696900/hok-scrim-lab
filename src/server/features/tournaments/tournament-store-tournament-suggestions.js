@@ -1,5 +1,6 @@
-// tournament store, tournament suggestions: tournamentSuggestions, competitiveGames, competitiveSummary, rememberCompetitive, heroChangeDays.
+// tournament store, tournament suggestions: tournamentSuggestions, competitiveGames, competitiveSummary, rememberCompetitive, heroChangeDays, currentSeason.
 import { day, presentGame } from "./tournament-store-parse.js";
+import { latestSeason } from "../tier-lists/season.js";
 
 /** Event names and team names already used (to complete the fields). */
 export async function tournamentSuggestions(ctx) {
@@ -83,11 +84,30 @@ export function heroChangeDays(ctx) {
   });
 }
 
+/**
+ * The season of the game today (15 for "S15"), from the seasons the Camp sheets give their balance changes; null when
+ * none is known. Kept 30 s like the games.
+ */
+export function currentSeason(ctx, today = new Date().toISOString().slice(0, 10)) {
+  return ctx.cache.remember("current-season", async () => {
+    const [rows] = await ctx.pool.query(
+      "SELECT JSON_EXTRACT(data_json, '$.adjustments[*].seasonName') AS names, JSON_EXTRACT(data_json, '$.adjustments[*].publishedAt') AS days FROM hero_details"
+    );
+    const read = value => (typeof value === "string" ? JSON.parse(value) : value) ?? [];
+    const changes = rows.flatMap(row => {
+      const days = read(row.days);
+      return read(row.names).map((seasonName, index) => ({ seasonName, publishedAt: days[index] }));
+    });
+    return latestSeason(changes, today);
+  });
+}
+
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
 export const onView = {
   tournamentSuggestions,
   competitiveGames,
   competitiveSummary,
   rememberCompetitive,
-  heroChangeDays
+  heroChangeDays,
+  currentSeason
 };

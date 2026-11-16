@@ -84,7 +84,7 @@ const browser = await chromium.launch();
   );
   check(
     "a hero links to its page",
-    (await page.locator('.tlp-lane a.tlp-hero[href="/heroes/h01"]').count()) === 1
+    (await page.locator('.tlp-lane a.tlp-hero[href="/heroes/hero-h01"]').count()) === 1
   );
   check("the page says when it was updated", /Updated on/.test(text));
   check(
@@ -92,7 +92,7 @@ const browser = await chromium.launch();
     (await page
       .locator('.tlp-lane[data-lane="clash"] .tier-row[data-tier="A"] .tlp-hero')
       .first()
-      .getAttribute("href")) === "/heroes/h06"
+      .getAttribute("href")) === "/heroes/hero-h06"
   );
   const blocks = await page
     .locator('script[type="application/ld+json"]')

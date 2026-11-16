@@ -2934,3 +2934,40 @@
 3099|Email và mã này không khớp nhau.
 3100|Mật khẩu này không phải của tài khoản này.
 3101|Tài khoản Google này đã liên kết với tài khoản khác.
+3102|Mùa {number}
+3103|Tier list Honor of Kings: {lane} — {season}
+3104|Tier list Honor of Kings — {season}
+3105|Tướng {lane} mạnh nhất hiện nay: {heroes}.
+3106|{hero} đã thắng {rate} trong {count, plural, other {# trận đấu giải}} ba tháng qua.
+3107|Tướng {lane} mạnh nhất Honor of Kings hiện nay là ai?
+3108|Theo thứ tự: {heroes}. Danh sách lấy từ các trận đấu giải trong ba tháng qua.
+3109|Tướng mạnh nhất Honor of Kings hiện nay là ai?
+3110|Tướng mạnh nhất mỗi đường, theo các trận đấu giải trong ba tháng qua:
+3111|Thay đổi gần nhất: {date}.
+3112|Câu hỏi thường gặp
+3113|Tier list này dành cho Honor of Kings Global phải không?
+3114|Đúng. Chỉ bao gồm phiên bản toàn cầu của trò chơi: các tướng, tên của họ và các giải đấu diễn ra trên đó.
+3115|Tier list thay đổi bao lâu một lần?
+3116|Mỗi khi một loạt trận giải được thêm vào trang.
+3117|Bảng xếp hạng {lane} Honor of Kings, {season} ({month}): {heroes} dẫn đầu. Mọi tướng {lane} từ SS đến D, theo các trận đấu giải trong ba tháng qua.
+3118|Bảng xếp hạng Honor of Kings, {season} ({month}): {heroes} dẫn đầu. Mọi tướng ở mọi đường từ SS đến D, theo các trận đấu giải trong ba tháng qua.
+3119|Tier list HOK {lane} {season} ({month}) — tướng {lane} mạnh nhất Honor of Kings | {site}
+3120|Tier list HOK {season} ({month}) — tướng Honor of Kings mạnh nhất mỗi đường | {site}
+3121|Công cụ Honor of Kings
+3122|Bảng xếp hạng tướng HOK
+3123|Tướng Honor of Kings
+3124|Trang bị HOK
+3125|Ngọc HOK
+3126|Scrim HOK
+3129|Trang bị HOK: mọi trang bị của Honor of Kings
+3130|Ngọc HOK: đỏ, xanh dương và xanh lá
+3131|Phép bổ trợ HOK: phép bổ trợ trong Honor of Kings
+3137|Công cụ tạo bảng xếp hạng HOK
+3127|Công cụ tính build HOK
+3132|Meta HOK: các draft phổ biến trong giải đấu
+3133|Tướng meta HOK: tỉ lệ chọn, cấm và thắng
+3134|Scrim HOK và mô phỏng draft
+3136|Đội HOK
+3128|Tìm scrim HOK
+3135|Mô phỏng trận đấu HOK
+3138|Luyện phản xạ HOK

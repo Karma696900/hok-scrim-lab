@@ -156,3 +156,5 @@ sh deploy/install-auto-update.sh
 ```
 
 Ce qui s'est passé : `tail -20 ~/auto-update.log` (une ligne par mise à jour : « installing », puis « done » ou « FAILED »).
+
+Après chaque mise à jour réussie, `deploy/indexnow.sh` prévient Bing, DuckDuckGo, Yandex… (IndexNow) des pages nouvelles ou changées depuis le dernier envoi (la liste déjà envoyée est dans `~/.hok-indexnow-sent` ; l'effacer renvoie tout). La clé est le nom du fichier `src/public/<clé>.txt` : elle est publique par principe. Google ne prend pas IndexNow : il lit le sitemap.

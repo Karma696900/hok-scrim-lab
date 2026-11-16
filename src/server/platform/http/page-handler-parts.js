@@ -9,6 +9,7 @@ import { describeTierList } from "./page-handler-tier-list.js";
 import { describeHero } from "./page-handler-hero.js";
 import { PIECE_VIEWS, describePiece } from "./page-handler-pieces.js";
 import { fitTitle } from "../../../shared/page-title.js";
+import { heroIdOf, heroPath } from "../../../shared/hero-slug.js";
 
 export const shell = async ctx =>
   (ctx.template ??= await readFile(path.join(ctx.web.client, "index.html"), "utf8"));
@@ -48,7 +49,7 @@ const missing = language => ({ status: 404, ...localized(language, NOT_FOUND) })
 /** What the page is (status, title, description...), its title fitted to what a search result shows. */
 export async function describe(ctx, request, language) {
   const info = await describePage(ctx, request, language);
-  return { ...info, title: fitTitle(info.title) };
+  return info.redirect ? info : { ...info, title: fitTitle(info.title) };
 }
 
 async function describePage(ctx, request, language) {
@@ -72,11 +73,16 @@ async function describePage(ctx, request, language) {
     // a section of a page (/popular/heroes, /training/reflex) has its own title
     return { status: 200, ...localized(language, { ...matched.route, ...routeTexts(matched) }) };
   }
-  const hero = (await ctx.store.readHeroes()).find(
-    item => item.id === matched.heroId && item.availableGlobal !== false
-  );
+  const heroes = await ctx.store.readHeroes();
+  const id = heroIdOf(heroes, matched.heroId);
+  const hero = heroes.find(item => item.id === id && item.availableGlobal !== false);
   if (!hero) {
     return missing(language);
+  }
+  // the old address (/heroes/533), or a name that changed: the page lives at the address of its name, for good
+  const own = heroPath(heroes, hero.id);
+  if (own !== `/heroes/${matched.heroId}`) {
+    return { status: 301, redirect: own };
   }
   return describeHero(ctx, hero, language, say);
 }

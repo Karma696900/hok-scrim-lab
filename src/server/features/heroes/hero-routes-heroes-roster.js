@@ -3,6 +3,7 @@ import { computeHeroScrimStats } from "../series/scrim-stats.js";
 import { describeError, notFound } from "../../platform/errors.js";
 import { presentHero } from "./hero-domain.js";
 import { requireAdmin, wrap } from "../../platform/http/async.js";
+import { heroIdOf } from "../../../shared/hero-slug.js";
 
 export function registerHeroesRosterRoutes(ctx) {
   // "Your scrims": computed from the viewer's own recorded games only, percentages withheld below
@@ -10,7 +11,9 @@ export function registerHeroesRosterRoutes(ctx) {
   ctx.router.get(
     "/heroes/:id/scrims",
     wrap(async request => {
-      const hero = (await ctx.store.readHeroes()).find(item => item.id === request.params.id);
+      const heroes = await ctx.store.readHeroes();
+      const id = heroIdOf(heroes, request.params.id); // its number, or the name of its address
+      const hero = heroes.find(item => item.id === id);
       if (!hero) {
         throw notFound("Hero not found.");
       }

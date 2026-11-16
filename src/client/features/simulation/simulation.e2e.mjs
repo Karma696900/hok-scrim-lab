@@ -99,7 +99,10 @@ await desk.close();
 // the refused ticket shows in the console as a failed request: expected here
 const visitor = await open(null, undefined, { quiet: ["401"] });
 await visitor.goto(`${app.baseUrl}/simulation`);
-check("the page has its title", (await visitor.locator("h1").textContent()) === "Game Simulation");
+check(
+  "the page has its title",
+  (await visitor.locator("h1").textContent()) === "HOK game simulation"
+);
 check("five roles to choose from", (await visitor.locator('[data-act="lane"]').count()) === 5);
 check(
   "the menu leads to it",

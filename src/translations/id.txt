@@ -2934,3 +2934,40 @@
 3099|Email dan kode ini tidak cocok.
 3100|Kata sandi ini bukan milik akun ini.
 3101|Akun Google ini sudah tertaut ke akun lain.
+3102|Season {number}
+3103|Tier list Honor of Kings: {lane} — {season}
+3104|Tier list Honor of Kings — {season}
+3105|Hero {lane} terbaik saat ini: {heroes}.
+3106|{hero} memenangkan {rate} dari {count, plural, other {# pertandingan turnamen}} dalam tiga bulan terakhir.
+3107|Siapa hero {lane} terbaik di Honor of Kings saat ini?
+3108|Urutannya: {heroes}. Daftar ini berasal dari pertandingan turnamen tiga bulan terakhir.
+3109|Siapa hero terbaik di Honor of Kings saat ini?
+3110|Hero terbaik di setiap lane, menurut pertandingan turnamen tiga bulan terakhir:
+3111|Perubahan terakhir: {date}.
+3112|Pertanyaan umum
+3113|Apakah tier list ini untuk Honor of Kings Global?
+3114|Ya. Hanya mencakup versi global game: hero-nya, nama mereka, dan turnamen yang dimainkan di sana.
+3115|Seberapa sering tier list ini berubah?
+3116|Setiap kali seri turnamen ditambahkan ke situs.
+3117|Tier list {lane} Honor of Kings, {season} ({month}): {heroes} di puncak. Setiap hero {lane} dari SS sampai D, menurut pertandingan turnamen tiga bulan terakhir.
+3118|Tier list Honor of Kings, {season} ({month}): {heroes} di puncak. Setiap hero di setiap lane dari SS sampai D, menurut pertandingan turnamen tiga bulan terakhir.
+3119|Tier list HOK {lane} {season} ({month}) — hero {lane} terbaik Honor of Kings | {site}
+3120|Tier list HOK {season} ({month}) — hero Honor of Kings terbaik di setiap lane | {site}
+3121|Alat Honor of Kings
+3122|Tier list HOK
+3123|Hero Honor of Kings
+3124|Item HOK
+3125|Arcana HOK
+3126|Scrim HOK
+3129|Item HOK: semua item Honor of Kings
+3130|Arcana HOK: merah, biru, dan hijau
+3131|Spell HOK: spell pemanggil Honor of Kings
+3137|Pembuat tier list HOK
+3127|Kalkulator build HOK
+3132|Meta HOK: draft turnamen populer
+3133|Hero meta HOK: tingkat pick, ban, dan menang
+3134|Scrim HOK dan simulator draft
+3136|Tim HOK
+3128|Cari scrim HOK
+3135|Simulasi pertandingan HOK
+3138|Latihan refleks HOK

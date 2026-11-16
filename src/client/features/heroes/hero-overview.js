@@ -10,6 +10,7 @@ import { icon } from "../../../shared/icons.js";
 import { state } from "../../app/app-state.js";
 import { t } from "../../app/browser-i18n.js";
 import { artTitle, head, missingSheet, patchEntry, skillPicture } from "./hero-panels-shared.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 // ---- layout: blocks of 12 columns, filled row after row, a lone block takes the whole row -----------
 
@@ -170,7 +171,7 @@ function overviewPeers(hero) {
     html: `<section class="hs-mod hs-mod--peers">${head(t("Other heroes in {lane}", { lane: escapeHtml(fullLaneName(lane)) }))}<ul class="hs-peers">${peers
       .map(
         peer =>
-          `<li><button type="button" class="hs-peer" data-action="open-hero" data-hero-id="${escapeHtml(peer.id)}" aria-label="${escapeHtml(peer.displayName || peer.name)}">${peer.image ? `<img ${responsive(peer.image, 160, PEER_SIZES)} alt="" width="128" height="128" loading="lazy" decoding="async">` : `<span class="image-fallback"></span>`}<b>${escapeHtml(peer.displayName || peer.name)}</b></button></li>`
+          `<li><a class="hs-peer" href="${escapeHtml(heroHref(peer.id))}" data-action="open-hero" data-hero-id="${escapeHtml(peer.id)}" aria-label="${escapeHtml(peer.displayName || peer.name)}">${peer.image ? `<img ${responsive(peer.image, 160, PEER_SIZES)} alt="" width="128" height="128" loading="lazy" decoding="async">` : `<span class="image-fallback"></span>`}<b>${escapeHtml(peer.displayName || peer.name)}</b></a></li>`
       )
       .join("")}</ul></section>`
   };

@@ -25,7 +25,7 @@ export const introHtml = () =>
     cls: "sim-stage",
     hero: stageHero(4),
     lead: `<p class="eyebrow">${t("Play")}</p>`,
-    title: t("Game Simulation"),
+    title: t("HOK game simulation"),
     text: t(
       "Play a whole Honor of Kings match as one hero, seen from above on the map. Move with the joystick or W A S D and attack with the buttons: your skills are cast for you. Your macro is graded behind the scenes (where you go, what you take, and when), and the grade comes at the end."
     )

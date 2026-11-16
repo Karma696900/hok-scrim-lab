@@ -2934,3 +2934,40 @@
 3099|Bu e-posta ile bu kod eşleşmiyor.
 3100|Bu şifre bu hesabın şifresi değil.
 3101|Bu Google hesabı zaten başka bir hesaba bağlı.
+3102|Sezon {number}
+3103|Honor of Kings {lane} tier listesi — {season}
+3104|Honor of Kings tier listesi — {season}
+3105|Şu anda en iyi {lane} kahramanları: {heroes}.
+3106|{hero}, son üç ayda {count, plural, one {# turnuva maçının} other {# turnuva maçının}} {rate} kadarını kazandı.
+3107|Honor of Kings'te şu anda en iyi {lane} kahramanı hangisi?
+3108|Sırasıyla: {heroes}. Liste son üç ayın turnuva maçlarından gelir.
+3109|Honor of Kings'te şu anda en iyi kahraman hangisi?
+3110|Son üç ayın turnuva maçlarına göre her koridorun en iyi kahramanı:
+3111|Son değişiklik: {date}.
+3112|Sık sorulan sorular
+3113|Bu tier listesi Honor of Kings Global için mi?
+3114|Evet. Yalnızca oyunun küresel sürümünü kapsar: kahramanlarını, adlarını ve onda oynanan turnuvaları.
+3115|Tier listesi ne sıklıkla değişir?
+3116|Siteye eklenen her turnuva serisiyle.
+3117|Honor of Kings {lane} tier listesi, {season} ({month}): zirvede {heroes}. Her {lane} kahramanı SS'den D'ye, son üç ayın turnuva maçlarına göre.
+3118|Honor of Kings tier listesi, {season} ({month}): zirvede {heroes}. Her koridordaki her kahraman SS'den D'ye, son üç ayın turnuva maçlarına göre.
+3119|HOK {lane} tier listesi {season} ({month}) — Honor of Kings'in en iyi {lane} kahramanları | {site}
+3120|HOK tier listesi {season} ({month}) — her koridorun en iyi Honor of Kings kahramanları | {site}
+3121|Honor of Kings araçları
+3122|HOK tier list
+3123|Honor of Kings kahramanları
+3124|HOK eşyaları
+3125|HOK arcana
+3126|HOK scrimleri
+3129|HOK eşyaları: Honor of Kings'in tüm eşyaları
+3130|HOK arcana: kırmızı, mavi ve yeşil
+3131|HOK büyüleri: Honor of Kings sihirdar büyüleri
+3137|HOK tier list oluşturucu
+3127|HOK build hesaplayıcı
+3132|HOK meta: popüler turnuva draftları
+3133|HOK meta kahramanları: seçilme, yasaklanma ve kazanma oranları
+3134|HOK scrimleri ve draft simülatörü
+3136|HOK takımları
+3128|HOK scrimi bul
+3135|HOK maç simülasyonu
+3138|HOK refleks antrenmanı

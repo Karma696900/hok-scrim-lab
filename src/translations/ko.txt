@@ -2934,3 +2934,40 @@
 3099|이 이메일과 코드가 일치하지 않습니다.
 3100|이 비밀번호는 이 계정의 비밀번호가 아닙니다.
 3101|이 Google 계정은 이미 다른 계정에 연결되어 있습니다.
+3102|시즌 {number}
+3103|Honor of Kings {lane} 티어 리스트 — {season}
+3104|Honor of Kings 티어 리스트 — {season}
+3105|현재 최고의 {lane} 영웅: {heroes}.
+3106|{hero}는 최근 3개월 동안 {count, plural, other {대회 경기 #번}} 중 {rate}를 이겼습니다.
+3107|현재 Honor of Kings 최고의 {lane} 영웅은 누구인가요?
+3108|순서대로 {heroes}. 최근 3개월 대회 경기로 만든 목록입니다.
+3109|현재 Honor of Kings 최고의 영웅은 누구인가요?
+3110|최근 3개월 대회 경기 기준 라인별 최고의 영웅:
+3111|마지막 변경: {date}.
+3112|자주 묻는 질문
+3113|이 티어 리스트는 Honor of Kings Global용인가요?
+3114|네. 게임의 글로벌 버전만 다룹니다: 그 영웅들, 이름, 그리고 글로벌 버전에서 열린 대회입니다.
+3115|티어 리스트는 얼마나 자주 바뀌나요?
+3116|사이트에 대회 시리즈가 추가될 때마다 바뀝니다.
+3117|Honor of Kings {lane} 티어 리스트 ({season}, {month}): {heroes} 최상위. 최근 3개월 대회 경기로 매긴 {lane} 영웅 SS부터 D까지.
+3118|Honor of Kings 티어 리스트 ({season}, {month}): {heroes} 최상위. 최근 3개월 대회 경기로 매긴 모든 라인의 영웅 SS부터 D까지.
+3119|HOK {lane} 티어 리스트 {season} ({month}) — Honor of Kings 최고의 {lane} 영웅 | {site}
+3120|HOK 티어 리스트 {season} ({month}) — 라인별 Honor of Kings 최고 영웅 | {site}
+3121|Honor of Kings 도구
+3122|HOK 티어 리스트
+3123|Honor of Kings 영웅
+3124|HOK 아이템
+3125|HOK 아르카나
+3126|HOK 스크림
+3129|HOK 아이템: Honor of Kings의 모든 아이템
+3130|HOK 아르카나: 빨강, 파랑, 초록
+3131|HOK 스펠: Honor of Kings 소환사 스펠
+3137|HOK 티어 리스트 메이커
+3127|HOK 빌드 계산기
+3132|HOK 메타: 대회 인기 드래프트
+3133|HOK 메타 영웅: 픽률, 밴률, 승률
+3134|HOK 스크림과 드래프트 시뮬레이터
+3136|HOK 팀
+3128|HOK 스크림 찾기
+3135|HOK 게임 시뮬레이션
+3138|HOK 반응 속도 훈련

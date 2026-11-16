@@ -213,7 +213,7 @@ export function zoneHead(zone, { admin = false } = {}) {
         : ""
     },
     reflex: {
-      title: t("Reflex training"),
+      title: t("HOK reflex training"),
       text: t(
         "Short exercises for your reflexes, memory and aim. They run in your browser and send nothing while you play."
       ),

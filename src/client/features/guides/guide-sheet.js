@@ -8,6 +8,7 @@ import { t } from "../../app/browser-i18n.js";
 import { VARIANTS } from "./guide-shared.js";
 import { heroName } from "./guide-parts.js";
 import { checksHtml } from "./checks-markup.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 // ---- markup: the hero that is open -------------------------------------------------------------------
 
@@ -28,7 +29,7 @@ export function headHtml(view, hero) {
         <div class="bed-hero-line">
           <span class="pt s-80 pt--ring">${slotImage(hero)}</span>
           <div class="grow"><h2>${escapeHtml(heroName(hero))}</h2><div class="bed-meta">${escapeHtml((hero.roles ?? []).map(classLabel).join(" · "))}${hero.lanes?.length ? laneLogos(hero.lanes, 24) : ""}</div></div>
-          <a class="btn btn--ghost btn--sm" href="/heroes/${encodeURIComponent(hero.id)}">${t("See the hero page")}</a>
+          <a class="btn btn--ghost btn--sm" href="${heroHref(hero.id)}">${t("See the hero page")}</a>
         </div>
         ${view.sectionTabs(hero)}
       </section>`;

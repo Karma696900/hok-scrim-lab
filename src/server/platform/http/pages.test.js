@@ -1,6 +1,7 @@
 // Real URLs: route table, per-page head (title, description, canonical, robots), 404 status,
 // robots.txt, sitemap.
 import assert from "node:assert/strict";
+import { readdirSync } from "node:fs";
 import { after, describe, test } from "node:test";
 import {
   AUTH_VIEWS,
@@ -38,6 +39,11 @@ describe("route table", () => {
       ["hero", "533"]
     );
     assert.equal(pathFor({ view: "hero", heroId: "533" }), "/heroes/533");
+    // the address of a hero carries its name (shared/hero-slug.js); the server finds which hero it is
+    assert.deepEqual(
+      [matchRoute("/heroes/luban-no-7").view, matchRoute("/heroes/luban-no-7").heroId],
+      ["hero", "luban-no-7"]
+    );
     assert.deepEqual(
       [matchRoute("/guides/533").view, matchRoute("/guides/533").guideHeroId],
       ["guides", "533"],
@@ -66,8 +72,6 @@ describe("route table", () => {
   test("unknown or malformed paths are not-found", () => {
     for (const path of [
       "/nope",
-      "/heroes/abc",
-      "/heroes/1234567",
       "/guides/a/b",
       "/guides/../x",
       "/scrims/not-a-uuid",
@@ -170,11 +174,11 @@ describe("pages over HTTP", { skip }, () => {
   });
 
   test("a hero page is described from its data, escaped, and each Flowborn form has its own title", async () => {
-    const hero = head(await (await fetch(`${app.baseUrl}/heroes/501`)).text());
+    const hero = head(await (await fetch(`${app.baseUrl}/heroes/hero-b-1-b`)).text());
     assert.match(hero.title, /^Hero &lt;b&gt;1&lt;\/b&gt; — HOK Honor of Kings hero guide/);
     assert.doesNotMatch(hero.description, /<b>/);
-    assert.equal(hero.canonical, `${app.baseUrl}/heroes/501`);
-    const flowborn = head(await (await fetch(`${app.baseUrl}/heroes/500`)).text());
+    assert.equal(hero.canonical, `${app.baseUrl}/heroes/hero-b-1-b`);
+    const flowborn = head(await (await fetch(`${app.baseUrl}/heroes/flowborn-tank`)).text());
     // five forms, five titles (SEO, owner 2026-11-15); the name shown on the page stays "Flowborn"
     assert.match(flowborn.title, /^Flowborn \(Tank\) — /);
     assert.match(flowborn.description, /^Flowborn in Honor of Kings/);
@@ -200,6 +204,23 @@ describe("pages over HTTP", { skip }, () => {
       titles.add(meta.title);
       assert.doesNotMatch(html, /session|token|password_hash/i, "the shell holds nothing private");
     }
+  });
+
+  test("the old address of a hero, with its number, sends to the one with its name for good (301), in every language", async () => {
+    const english = await fetch(`${app.baseUrl}/heroes/500?tab=builds`, { redirect: "manual" });
+    assert.equal(english.status, 301);
+    assert.equal(english.headers.get("location"), "/heroes/flowborn-tank?tab=builds");
+    const french = await fetch(`${app.baseUrl}/fr/heroes/501`, { redirect: "manual" });
+    assert.equal(french.status, 301);
+    assert.equal(french.headers.get("location"), "/fr/heroes/hero-b-1-b");
+  });
+
+  test("the hero API answers by the name of the address as well as by the number", async () => {
+    const byName = await (await fetch(`${app.baseUrl}/api/heroes/flowborn-tank`)).json();
+    const byNumber = await (await fetch(`${app.baseUrl}/api/heroes/500`)).json();
+    assert.equal(byName.hero.id, "500");
+    assert.equal(byNumber.hero.id, "500");
+    assert.equal((await fetch(`${app.baseUrl}/api/heroes/nobody`)).status, 404);
   });
 
   test("unknown pages and unknown heroes answer a real 404 (with the shell); the status is what keeps them out of the index, so the page itself does not say noindex", async () => {
@@ -291,10 +312,20 @@ describe("pages over HTTP", { skip }, () => {
       /^<\?xml version="1.0" encoding="UTF-8"\?>\n<urlset xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9" xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml">/
     );
     const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
-    for (const path of ["/", "/heroes", "/tier-lists", "/heroes/500", "/heroes/504"]) {
+    for (const path of [
+      "/",
+      "/heroes",
+      "/tier-lists",
+      "/heroes/flowborn-tank",
+      "/heroes/hero-b-4-b"
+    ]) {
       assert.ok(urls.includes(`${app.baseUrl}${path}`), path);
     }
     assert.ok(urls.every(url => url.startsWith(app.baseUrl)));
+    // a date is a day, and only on a page whose change is known (sitemap-dates.js)
+    for (const [, day] of xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
+      assert.match(day, /^\d{4}-\d{2}-\d{2}$/);
+    }
     // the scrims list is a public tool page now (the draft rooms of a series stay out)
     assert.ok(!urls.some(url => /login|account|scrims\/|history|api/.test(url)));
     assert.ok(urls.some(url => url.endsWith("/scrims")));
@@ -337,11 +368,20 @@ describe("pages over HTTP", { skip }, () => {
     const home = ld(await (await fetch(app.baseUrl)).text());
     assert.equal(home.length, 1);
     assert.equal(home[0]["@type"], "WebSite");
-    const hero = ld(await (await fetch(`${app.baseUrl}/heroes/500`)).text());
+    const hero = ld(await (await fetch(`${app.baseUrl}/heroes/flowborn-tank`)).text());
     assert.equal(hero.length, 1);
     assert.equal(hero[0].breadcrumb.itemListElement.length, 3);
     assert.deepEqual(ld(await (await fetch(`${app.baseUrl}/settings`)).text()), [], "noindex page");
     assert.deepEqual(ld(await (await fetch(`${app.baseUrl}/nope`)).text()), [], "404");
+  });
+
+  test("the IndexNow key is served at the root, as the search engines check it (deploy/indexnow.sh)", async () => {
+    const [file] = readdirSync(new URL("../../../public/", import.meta.url)).filter(name =>
+      /^[0-9a-f]{32}\.txt$/.test(name)
+    );
+    const response = await fetch(`${app.baseUrl}/${file}`);
+    assert.equal(response.status, 200);
+    assert.equal(await response.text(), file.slice(0, 32));
   });
 
   test("/index.html is not a second copy of the home page", async () => {
@@ -351,7 +391,7 @@ describe("pages over HTTP", { skip }, () => {
   });
 
   test("the shell links to its assets with absolute paths so deep URLs load", async () => {
-    const html = await (await fetch(`${app.baseUrl}/heroes/501`)).text();
+    const html = await (await fetch(`${app.baseUrl}/heroes/hero-b-1-b`)).text();
     for (const [, url] of html.matchAll(/(?:src|href)="(\/[^"#?]+\.(?:js|css|svg))"/g)) {
       assert.equal((await fetch(`${app.baseUrl}${url}`)).status, 200, url);
     }
@@ -362,7 +402,7 @@ describe("pages over HTTP", { skip }, () => {
   });
 
   test("a deep link to an app page still sets the security headers", async () => {
-    const response = await fetch(`${app.baseUrl}/heroes/501`);
+    const response = await fetch(`${app.baseUrl}/heroes/hero-b-1-b`);
     assert.match(response.headers.get("content-security-policy"), /default-src 'self'/);
   });
 });

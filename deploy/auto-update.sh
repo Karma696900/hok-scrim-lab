@@ -63,6 +63,8 @@ domain="$(sed -n 's/^APP_DOMAIN=//p' .env)"
 for _ in 1 2 3 4 5 6 7 8 9 10 11 12; do # one minute at most
   if curl -fsS "https://$domain/api/health" > /dev/null 2>&1; then
     log "done: $latest is online"
+    # the search engines of IndexNow learn the new and changed pages; a failure there never fails the deploy
+    sh deploy/indexnow.sh 2>&1 | while read -r line; do log "$line"; done || true
     exit 0
   fi
   sleep 5

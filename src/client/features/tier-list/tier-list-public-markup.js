@@ -4,6 +4,8 @@ import { LANE_ICON_URLS, laneLogos, laneName } from "../../domain/lanes.js";
 import { currentLanguage, percentage, t } from "../../app/browser-i18n.js";
 import { tierPortrait, tierRow } from "../../domain/tier-labels.js";
 import { icon } from "../../../shared/icons.js";
+import { onView as words } from "./tier-list-public-words.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 export const SLUGS = {
   clash: "Clash Lane",
@@ -26,7 +28,7 @@ export function heroEntry(view, entry) {
     entry.source === "tournaments"
       ? `${t("{count, plural, one {# game} other {# games}}", { count: entry.games })} · ${percentage(entry.winRate ?? 0, 0)}`
       : t("Editors");
-  return `<a class="tlp-hero" href="/heroes/${view.esc(entry.heroId)}" data-source="${view.esc(entry.source)}">${tierPortrait(hero)}<span class="tlp-hero__name">${name}</span><small>${meta}</small></a>`;
+  return `<a class="tlp-hero" href="${view.esc(heroHref(entry.heroId))}" data-source="${view.esc(entry.source)}">${tierPortrait(hero)}<span class="tlp-hero__name">${name}</span><small>${meta}</small></a>`;
 }
 
 /** The board of one lane: its six tiers, then the heroes not ranked yet. */
@@ -43,10 +45,11 @@ export function laneBoard(view, lane) {
     )
     .join("");
   const unranked = lane.unranked.length
-    ? `<p class="tlp-unranked"><b>${t("Not ranked yet")}</b> ${lane.unranked.map(id => `<a href="/heroes/${view.esc(id)}">${view.esc(view.nameOf(id))}</a>`).join(", ")}</p>`
+    ? `<p class="tlp-unranked"><b>${t("Not ranked yet")}</b> ${lane.unranked.map(id => `<a href="${view.esc(heroHref(id))}">${view.esc(view.nameOf(id))}</a>`).join(", ")}</p>`
     : "";
   return `<section class="tlp-lane card" data-lane="${view.esc(lane.slug)}" aria-labelledby="tlp-${view.esc(lane.slug)}">
       <h2 id="tlp-${view.esc(lane.slug)}">${laneLogos([lane.lane], 30, { decorative: true })}${view.esc(t("{lane} tier list", { lane: laneName(lane.lane) }))}</h2>
+      ${view.laneSummary(lane)}
       <div class="tlp-board">${rows}</div>
       ${unranked}
     </section>`;
@@ -83,10 +86,16 @@ export function paint(view) {
     return;
   }
   const lane = SLUGS[view.slug] ?? null;
-  const heading = lane
-    ? t("Honor of Kings {lane} tier list", { lane: laneName(lane) })
-    : t("Honor of Kings tier list");
   const data = view.data;
+  // the season of the game in the heading: players search "tier list season 15" (owner, 2026-11-16)
+  const season = data?.season ? t("Season {number}", { number: data.season }) : "";
+  const heading = season
+    ? lane
+      ? t("Honor of Kings {lane} tier list — {season}", { lane: laneName(lane), season })
+      : t("Honor of Kings tier list — {season}", { season })
+    : lane
+      ? t("Honor of Kings {lane} tier list", { lane: laneName(lane) })
+      : t("Honor of Kings tier list");
   const lanes = (data?.lanes ?? []).filter(item => !lane || item.lane === lane);
   const updated = data?.updatedAt
     ? `<p class="tlp-updated">${t("Updated on {date}", { date: day(data.updatedAt) })} · ${t("{count, plural, one {# tournament game} other {# tournament games}}", { count: data.totalGames ?? 0 })}</p>`
@@ -103,8 +112,9 @@ export function paint(view) {
         ${view.tabs()}
       </header>
       ${body}
+      ${data ? view.questions() : ""}
       ${view.method()}`;
 }
 
 /** What this file does on the page: bindTo registers them on the view, so that the other files call them as view.name(...). */
-export const onView = { heroEntry, laneBoard, tabs, method, paint };
+export const onView = { heroEntry, laneBoard, tabs, method, paint, ...words };

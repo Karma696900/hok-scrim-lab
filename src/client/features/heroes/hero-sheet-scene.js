@@ -21,6 +21,14 @@ const LANE_BLURB = {
  * The official rating of the hero in a lane, from SS to D (nothing when the lane was not rated: a
  * rating is never guessed).
  */
+const TIER_PAGE = {
+  "Clash Lane": "clash",
+  Jungle: "jungle",
+  "Mid Lane": "mid",
+  "Farm Lane": "farm",
+  Roamer: "roam"
+};
+
 function ratingBadge(lane, tier, source) {
   if (!tier) {
     return "";
@@ -32,7 +40,9 @@ function ratingBadge(lane, tier, source) {
       : source === "editors"
         ? t("Tier in {lane}: {tier}, from the editors (too few tournament games)", values)
         : t("Rating in {lane}: {tier}", values);
-  return `<a class="hero-rating" href="/tier-list" data-tier="${escapeHtml(tier)}"${source ? ` data-source="${escapeHtml(source)}"` : ""} aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${escapeHtml(tier)}</a>`;
+  // the tier list of that lane, where the hero is placed among the others
+  const page = TIER_PAGE[lane] ? `/tier-list/${TIER_PAGE[lane]}` : "/tier-list";
+  return `<a class="hero-rating" href="${page}" data-tier="${escapeHtml(tier)}"${source ? ` data-source="${escapeHtml(source)}"` : ""} aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${escapeHtml(tier)}</a>`;
 }
 
 /** What the lane is in the game, when that says more than its name ("Bottom lane" for Farm; nothing for Jungle). */

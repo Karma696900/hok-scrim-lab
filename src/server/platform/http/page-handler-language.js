@@ -56,6 +56,20 @@ export function sentToLanguageAddress(request, response, language, prerender) {
   return true;
 }
 
+/**
+ * A page that lives at another address (a hero opened by its old number: /heroes/533 -> /heroes/agudo) is sent there
+ * for good (301), in the language of the address, with what followed the ? kept: search engines move what they learnt.
+ */
+export function sendToOwnAddress(request, response, path) {
+  const query = request.originalUrl.indexOf("?");
+  response.set("Cache-Control", "public, max-age=3600");
+  response.redirect(
+    301,
+    localePath(path, request.addressLanguage) +
+      (query === -1 ? "" : request.originalUrl.slice(query))
+  );
+}
+
 /** Internal links of a page in another language than English carry its prefix (/fr/heroes). */
 const INTERNAL_LINK =
   /(<a\b[^>]*?\shref=")(\/(?!\/|api\/|auth\/|assets\/|locales\/)[^"?#.]*)(?=["?#])/g;

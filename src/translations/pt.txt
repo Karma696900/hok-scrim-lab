@@ -2934,3 +2934,40 @@
 3099|Este e-mail e este código não correspondem.
 3100|Esta senha não é a desta conta.
 3101|Esta conta Google já está vinculada a outra conta.
+3102|Temporada {number}
+3103|Tier list de Honor of Kings: {lane} — {season}
+3104|Tier list de Honor of Kings — {season}
+3105|Melhores heróis de {lane} agora: {heroes}.
+3106|{hero} venceu {rate} de {count, plural, one {# partida de torneio} other {# partidas de torneio}} nos últimos três meses.
+3107|Qual é o melhor herói de {lane} em Honor of Kings agora?
+3108|Nesta ordem: {heroes}. A lista vem das partidas de torneio dos últimos três meses.
+3109|Qual é o melhor herói de Honor of Kings agora?
+3110|O melhor herói de cada rota, pelas partidas de torneio dos últimos três meses:
+3111|Última alteração: {date}.
+3112|Perguntas frequentes
+3113|Esta tier list é de Honor of Kings Global?
+3114|Sim. Ela cobre só a versão global do jogo: seus heróis, os nomes deles e os torneios jogados nela.
+3115|Com que frequência a tier list muda?
+3116|A cada série de torneio adicionada ao site.
+3117|Tier list de {lane} de Honor of Kings, {season} ({month}): {heroes} no topo. Cada herói de {lane} de SS a D, pelas partidas de torneio dos últimos três meses.
+3118|Tier list de Honor of Kings, {season} ({month}): {heroes} no topo. Cada herói de cada rota de SS a D, pelas partidas de torneio dos últimos três meses.
+3119|Tier list de HOK {lane} {season} ({month}) — os melhores heróis de {lane} em Honor of Kings | {site}
+3120|Tier list de HOK {season} ({month}) — os melhores heróis de Honor of Kings por rota | {site}
+3121|Ferramentas de Honor of Kings
+3122|Tier list de HOK
+3123|Heróis de Honor of Kings
+3124|Itens de HOK
+3125|Arcanos de HOK
+3126|Scrims de HOK
+3129|Itens de HOK: todos os itens de Honor of Kings
+3130|Arcanos de HOK: vermelhos, azuis e verdes
+3131|Feitiços de HOK: os feitiços de invocador de Honor of Kings
+3137|Criador de tier list de HOK
+3127|Calculadora de builds de HOK
+3132|Meta de HOK: os drafts mais populares em torneios
+3133|Heróis meta de HOK: taxas de pick, ban e vitória
+3134|Scrims de HOK e simulador de draft
+3136|Equipes de HOK
+3128|Encontrar um scrim de HOK
+3135|Simulação de partida de HOK
+3138|Treino de reflexos de HOK

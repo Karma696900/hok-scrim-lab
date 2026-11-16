@@ -7,7 +7,9 @@ Ce dossier est une page du site, côté navigateur : la tier list publique (`/ti
 | Fichier | Rôle |
 |---|---|
 | `tier-list-public-page.js` | La page : lit `/api/tier-list` une fois, garde la voie de l'adresse. |
-| `tier-list-public-markup.js` | Le dessin : l'en-tête et les onglets des voies, un tableau par voie (un héros = un lien vers sa fiche, son nom en texte), la méthode. |
+| `tier-list-public-markup.js` | Le dessin : l'en-tête (avec la saison du jeu) et les onglets des voies, un tableau par voie (un héros = un lien vers sa fiche, son nom en texte), la méthode. |
+| `tier-list-public-words.js` | Les phrases pour les joueurs et les moteurs de recherche : les meilleurs héros de chaque voie, puis les questions fréquentes (meilleur héros, version Global, mise à jour), tirées de la même liste. |
+| `tier-list-public-markup.test.js` | Le test de ces mots, sans navigateur. |
 | `tier-list-public.e2e.mjs` | Le test dans un navigateur : le HTML servi sans JavaScript, les voies, l'ItemList. |
 
 ## Tests

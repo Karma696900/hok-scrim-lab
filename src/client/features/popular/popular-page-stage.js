@@ -7,6 +7,7 @@ import { number, t } from "../../app/browser-i18n.js";
 import { skeleton } from "../../lib/skeleton.js";
 import { slotImage } from "../../lib/dom.js";
 import { face } from "./popular-page-markup.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 // ---- the stage ----------------------------------------------------------------------------------
 
@@ -69,7 +70,7 @@ export function aside(view) {
       .slice(0, 16)
       .map(
         hero =>
-          `<a class="pt s-48" href="/heroes/${encodeURIComponent(hero.id)}" title="${view.esc(hero.displayName || hero.name)}">${slotImage(hero)}</a>`
+          `<a class="pt s-48" href="${heroHref(hero.id)}" title="${view.esc(hero.displayName || hero.name)}">${slotImage(hero)}</a>`
       )
       .join("")}</span></li>`;
   }).join("");
@@ -77,7 +78,10 @@ export function aside(view) {
 }
 
 export function paint(view) {
-  const heading = view.tab === "drafts" ? t("Popular drafts") : t("Popular heroes");
+  const heading =
+    view.tab === "drafts"
+      ? t("HOK meta: popular tournament drafts")
+      : t("HOK meta heroes: pick, ban and win rates");
   const lead =
     view.tab === "drafts"
       ? t(

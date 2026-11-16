@@ -91,6 +91,27 @@
   max-width: 75ch;
   margin: 0;
 }
+/* the best heroes of a lane in a sentence, under its heading */
+.tlp-summary {
+  max-width: 75ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+/* the questions players type, answered from the list */
+.tlp-faq {
+  display: grid;
+  gap: 6px;
+  margin-top: 18px;
+}
+.tlp-faq h3 {
+  margin: 10px 0 0;
+  font-size: 16px;
+}
+.tlp-faq p {
+  max-width: 75ch;
+  margin: 0;
+}
 .tlp-loading {
   min-height: 420px;
   margin-top: 18px;

@@ -2934,3 +2934,40 @@
 3099|该邮箱与验证码不匹配。
 3100|该密码不是此账号的密码。
 3101|该 Google 账号已关联到另一个账号。
+3102|第 {number} 赛季
+3103|Honor of Kings {lane} 梯度榜 — {season}
+3104|Honor of Kings 梯度榜 — {season}
+3105|当前最强 {lane} 英雄：{heroes}。
+3106|{hero} 近三个月在 {count, plural, other {# 场赛事对局}}中胜率 {rate}。
+3107|目前 Honor of Kings 最强的 {lane} 英雄是谁？
+3108|依次为 {heroes}。榜单来自近三个月的赛事对局。
+3109|目前 Honor of Kings 最强的英雄是谁？
+3110|根据近三个月赛事对局，各分路最强英雄：
+3111|最近更新：{date}。
+3112|常见问题
+3113|这个梯度榜是 Honor of Kings 国际服的吗？
+3114|是的。只涵盖游戏的国际服：它的英雄、英雄名称以及在国际服进行的赛事。
+3115|梯度榜多久更新一次？
+3116|每当网站录入一个赛事系列时更新。
+3117|Honor of Kings {lane} 强度榜（{season}，{month}）：{heroes} 位居前列。依据近三个月赛事对局，{lane} 全部英雄从 SS 到 D 排名。
+3118|Honor of Kings 强度榜（{season}，{month}）：{heroes} 位居前列。依据近三个月赛事对局，各分路全部英雄从 SS 到 D 排名。
+3119|HOK {lane} 梯度榜 {season}（{month}）— Honor of Kings 最强 {lane} 英雄 | {site}
+3120|HOK 梯度榜 {season}（{month}）— Honor of Kings 各分路最强英雄 | {site}
+3121|王者荣耀国际版工具
+3122|HOK 英雄强度榜
+3123|王者荣耀国际版英雄
+3124|HOK 装备
+3125|HOK 铭文
+3126|HOK 训练赛
+3129|HOK 装备：王者荣耀国际版全部装备
+3130|HOK 铭文：红色、蓝色和绿色
+3131|HOK 召唤师技能：王者荣耀国际版召唤师技能
+3137|HOK 强度榜制作器
+3127|HOK 出装计算器
+3132|HOK 版本：赛事热门阵容
+3133|HOK 版本英雄：选取率、禁用率和胜率
+3134|HOK 训练赛与 BP 模拟器
+3136|HOK 战队
+3128|寻找 HOK 训练赛
+3135|HOK 对局模拟
+3138|HOK 反应训练

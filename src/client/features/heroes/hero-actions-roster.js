@@ -39,7 +39,19 @@ export function installRosterActions() {
     await syncHeroDetails();
   });
 
-  onAction("open-hero", async button => {
+  onAction("open-hero", async (button, event) => {
+    // a card is a real link to the hero's page (search engines follow it): a click opens the sheet here, a click
+    // with Ctrl or the middle button is left to the browser (a new tab), and a click the router already took is done
+    if (
+      event.defaultPrevented ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey ||
+      event.button > 0
+    ) {
+      return;
+    }
+    event.preventDefault();
     if (state.view === "heroes") {
       listScroll = window.scrollY;
     }

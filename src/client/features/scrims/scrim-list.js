@@ -98,7 +98,7 @@ export function scrimsPage() {
     ["done", t("Finished"), total - live]
   ];
   const scene = sceneHtml({
-    title: t("Scrims & Drafts"),
+    title: t("HOK scrims and draft simulator"),
     text: t("Prepare a series, draft live and keep the history of every game."),
     figures: [
       [number(live), t("In progress")],

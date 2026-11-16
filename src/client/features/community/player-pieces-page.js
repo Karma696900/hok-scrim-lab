@@ -13,11 +13,12 @@ import { seriesRow } from "../scrims/rows.js";
 import { t } from "../../app/browser-i18n.js";
 import { teamEmblem, teamHue } from "../../domain/team-emblem.js";
 import { heroName, languageName } from "./player-parts.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 // ---- the pieces of the page -------------------------------------------------------------------
 /** A hero as a tall portrait: the lanes at the top, the name and the class on a dark fade at the bottom. */
 export const heroCard = found =>
-  `<a class="pl-hero keep-dark" href="/heroes/${encodeURIComponent(found.id)}">${
+  `<a class="pl-hero keep-dark" href="${heroHref(found.id)}">${
     found.image
       ? `<img class="pl-hero__img" ${responsive(found.image, 240, "(min-width: 900px) 240px, 45vw")} alt="" loading="lazy" decoding="async">`
       : `<span class="image-fallback pl-hero__fallback"></span>`

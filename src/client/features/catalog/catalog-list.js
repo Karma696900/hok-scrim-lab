@@ -8,6 +8,7 @@ import { shopCategoryLabel } from "../../domain/catalog-display.js";
 import { categoryLabel, colorLabel, unitLabel } from "./catalog-shared.js";
 import { heroName, numberCell } from "./catalog-parts.js";
 import { TAG_COLORS, groupName } from "./catalog-tag-groups.js";
+import { heroHref } from "../../domain/hero-links.js";
 
 /** The things to fix in each section: [key, what it says, which entries it is true of]. */
 export const flagDefs = view =>
@@ -187,7 +188,7 @@ const COLUMNS = {
       label: "",
       value: () => 0,
       cell: hero =>
-        `<a class="btn btn--ghost btn--sm" href="/heroes/${encodeURIComponent(hero.id)}">${t("See the hero page")}</a>`
+        `<a class="btn btn--ghost btn--sm" href="${heroHref(hero.id)}">${t("See the hero page")}</a>`
     }
   ]
 };

@@ -162,6 +162,26 @@ describe("the description of the public tier list", () => {
   });
 });
 
+describe("the title of the public tier list", () => {
+  const withSeason = { ...tierStore, rememberCompetitive: async () => ({ ...LIST, season: 15 }) };
+  const page = (store, address) =>
+    describeTierList({ store }, matchRoute(address), "en", say, localized);
+
+  test("names the season of the game first, then the month: players search \"tier list season 15\"", async () => {
+    const all = await page(withSeason, "/tier-list");
+    const jungle = await page(withSeason, "/tier-list/jungle");
+    assert.match(all.title, /^HOK Tier List Season 15 \(/);
+    assert.match(jungle.title, /^HOK Jungle Tier List Season 15 \(/);
+    assert.match(all.description, /^Honor of Kings tier list for Season 15 \(/);
+  });
+
+  test("without a known season, says the month alone", async () => {
+    const all = await page(tierStore, "/tier-list");
+    assert.match(all.title, /^HOK Tier List \(/);
+    assert.doesNotMatch(all.title, /Season/);
+  });
+});
+
 describe("the title of a Flowborn page", () => {
   test("keeps the form, so that the five forms have five titles", async () => {
     const store = {

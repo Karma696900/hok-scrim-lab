@@ -8,6 +8,8 @@ import { languageInfo, t } from "../../app/browser-i18n.js";
 import { api } from "../../app/api-client.js";
 import { contentReady } from "../../domain/staff-content.js";
 import { currentHero } from "../../app/roster-data.js";
+import { heroIdOf, heroPath } from "../../../shared/hero-slug.js";
+import { addressOf } from "../../app/language-address.js";
 import { app, escapeHtml, tell, watchVideos } from "../../lib/dom.js";
 import { formatDate } from "../../lib/format.js";
 import { render } from "../../app/router.js";
@@ -96,7 +98,18 @@ function fetchHeroSheet(heroId) {
 /** Why the sheet could not be read (a hero that does not exist, a server that does not answer): said in one line. */
 let failure = "";
 
-export async function openHero(heroId) {
+export async function openHero(asked) {
+  // the address names the hero (/heroes/agudo) or, an old link, its number: the sheet works with the number, the
+  // address bar shows the name (shared/hero-slug.js)
+  const heroId = heroIdOf(state.heroes, asked) ?? asked;
+  const own = heroPath(state.heroes, heroId);
+  state.selectedHeroSlug = own.slice("/heroes/".length);
+  if (
+    /^\/(?:[a-z]{2}\/)?heroes\/[^/]+$/.test(location.pathname) &&
+    !location.pathname.endsWith(own)
+  ) {
+    history.replaceState(null, "", addressOf(own) + location.search + location.hash);
+  }
   // coming from another page (or from the server's drawing): the address says which tab; from
   // another sheet: the tab stays
   const onSheet = Boolean(document.querySelector("#hero-top")) && app.dataset.ssr === undefined;
@@ -113,7 +126,8 @@ export async function openHero(heroId) {
   state.skillIndex = 0;
   render();
   try {
-    const pending = earlyHero?.heroId === heroId ? earlyHero.promise : fetchHeroSheet(heroId);
+    const early = earlyHero && heroIdOf(state.heroes, earlyHero.heroId) === heroId;
+    const pending = early ? earlyHero.promise : fetchHeroSheet(heroId);
     earlyHero = null;
     const [sheet, scrims, catalog] = await pending;
     state.catalog = catalog;

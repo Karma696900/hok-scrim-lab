@@ -116,7 +116,7 @@ export function needSignIn(view, zone) {
       ).join("")}</div>${howHtml()}`
   }[zone];
   // a visitor on /training reads what the training is (players search "hok training")
-  const title = zone === "reflex" ? t("Reflex training") : t("Honor of Kings training");
+  const title = zone === "reflex" ? t("HOK reflex training") : t("Honor of Kings training");
   view.overview = null;
   view.root.innerHTML = `${view.chrome({
     zone,

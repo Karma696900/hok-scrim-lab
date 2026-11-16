@@ -17,7 +17,12 @@ import {
 } from "./page-handler-assets.js";
 import { escapeHtml } from "./page-handler-shared.js";
 import { structuredData } from "./page-handler-seo.js";
-import { addressesOf, localizeLinks, sentToLanguageAddress } from "./page-handler-language.js";
+import {
+  addressesOf,
+  localizeLinks,
+  sendToOwnAddress,
+  sentToLanguageAddress
+} from "./page-handler-language.js";
 import { bindTo } from "../../../shared/bind-to.js";
 import { onView as pageHandlerParts } from "./page-handler-parts.js";
 import { decidePage } from "./page-handler-decide.js";
@@ -37,6 +42,14 @@ export { readStylesheet } from "./page-handler-assets.js";
 export { loadFirstPaintCss } from "./page-handler-assets.js";
 export { loadCriticalCss } from "./page-handler-assets.js";
 export { createSeoHandlers } from "./page-handler-seo.js";
+
+/** No top bar was drawn with the page, but the buttons of a visitor are known: the bar does not change size when the script starts. */
+const withVisitorButtons = (html, request, language, config) =>
+  html.replace(
+    '<div id="account-control" class="account-control"></div>',
+    () =>
+      `<div id="account-control" class="account-control">${visitorAccountButtons(request.originalUrl, escapeHtml(tr(language, "Sign in")), config?.registrationEnabled === false ? "" : escapeHtml(tr(language, "Create account")))}</div>`
+  );
 
 /**
  * Serves the app shell for every real route with ITS OWN title, description, canonical URL and
@@ -71,6 +84,10 @@ export function createPageHandler({
         language,
         { prerender, bootstrap }
       );
+      if (info.redirect) {
+        sendToOwnAddress(request, response, info.redirect);
+        return;
+      }
       // The inline stylesheet: the critical one, or (a page drawn) the one of its first screen, which
       // the policy of the response then allows by its hash instead of the critical one alone.
       const inline = drawn ? ctx.inlineCss(inRoom ? ROOM_FRAME_VIEW : matched.view) : critical;
@@ -126,12 +143,7 @@ export function createPageHandler({
           (_match, key) => values[key]
         );
       if (!drawn?.account && !request.user && !SESSION_COOKIE.test(request.headers.cookie ?? "")) {
-        // no top bar was drawn with the page, but the buttons of a visitor are known: the bar does not change size when the script starts
-        html = html.replace(
-          '<div id="account-control" class="account-control"></div>',
-          () =>
-            `<div id="account-control" class="account-control">${visitorAccountButtons(request.originalUrl, escapeHtml(tr(language, "Sign in")), config?.registrationEnabled === false ? "" : escapeHtml(tr(language, "Create account")))}</div>`
-        );
+        html = withVisitorButtons(html, request, language, config);
       }
       if (drawn) {
         html = html
