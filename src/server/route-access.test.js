@@ -73,7 +73,11 @@ const EXPECTED = {
   "GET /auth/discord/callback": "open",
   "GET /auth/google": "open",
   "GET /auth/google/callback": "open",
+  // nothing is done without the Google sign-in in progress that found the account (2026-11-16)
+  "POST /auth/link": "login-flow",
   "POST /auth/login": "login-flow",
+  // a forgotten password: no session, the proof is the authenticator code of the account (2026-11-16)
+  "POST /auth/password/forgot": "open",
   "POST /auth/logout": "open",
   "POST /auth/delete-account": "login-flow",
   "POST /auth/export": "login-flow",
