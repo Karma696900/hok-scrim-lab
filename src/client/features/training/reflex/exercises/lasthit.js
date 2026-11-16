@@ -11,6 +11,7 @@ export function startLastHit({ stage, finish, random, hud = noHud }) {
   const offsets = [];
   let trial = null;
   let startedAt = 0;
+  let lastFrame = 0;
 
   stage.innerHTML = `<p class="rx-status" role="status" aria-live="polite"></p>
     <div class="rx-life"><i class="rx-life-fill"></i><b class="rx-notch"></b></div>
@@ -39,8 +40,7 @@ export function startLastHit({ stage, finish, random, hud = noHud }) {
     hud.count(offsets.length + 1, LASTHIT_TRIALS);
     hud.progress(offsets.length / LASTHIT_TRIALS);
     run.after(600 + random() * 700, async () => {
-      await run.frame();
-      startedAt = performance.now();
+      startedAt = lastFrame = await run.frame();
       requestAnimationFrame(drain);
     });
   }
@@ -49,7 +49,10 @@ export function startLastHit({ stage, finish, random, hud = noHud }) {
     if (run.stopped || !startedAt) {
       return;
     }
-    const elapsed = now - startedAt;
+    // the bar drawn in this frame is on the screen when the next one starts: it shows the life left at that moment,
+    // so that the bar crosses the notch on the screen when the clock says it does (owner, 2026-11-16)
+    const elapsed = now + (now - lastFrame) - startedAt;
+    lastFrame = now;
     fill.style.transform = `scaleX(${Math.max(0, 1 - elapsed / trial.duration)})`;
     if (elapsed >= trial.duration) {
       record(LASTHIT_CAP, true);

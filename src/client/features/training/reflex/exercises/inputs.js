@@ -36,8 +36,7 @@ export function startInputs({ stage, finish, random, hud = noHud }) {
       done: times.length + 1,
       total: INPUT_PROMPTS
     });
-    await run.frame();
-    shownAt = performance.now();
+    shownAt = await run.shown();
     ready = true;
   }
 

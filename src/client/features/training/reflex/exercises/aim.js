@@ -35,8 +35,7 @@ export function startAim({ stage, finish, random, hud = noHud }) {
     });
     hud.count(times.length + 1, AIM_TARGETS);
     hud.progress(times.length / AIM_TARGETS);
-    await run.frame();
-    shownAt = performance.now();
+    shownAt = await run.shown();
     ready = true;
   }
 

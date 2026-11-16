@@ -49,6 +49,14 @@ export function createRun(stage) {
     },
     /** Resolves once the next frame is about to be painted: the moment a stimulus becomes visible. */
     frame: () => new Promise(resolve => requestAnimationFrame(resolve)),
+    /**
+     * Resolves with the moment what the page holds now is on the screen, on the clock of event times: it is drawn
+     * after the next frame callbacks and reaches the screen when the frame after that one starts. The clock of a
+     * stimulus starts there, not one frame (16 ms at 60 Hz) too early (owner, 2026-11-16). Call it outside a frame
+     * callback, once the stimulus is in the page.
+     */
+    shown: () =>
+      new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))),
     stop() {
       if (stopped) {
         return;

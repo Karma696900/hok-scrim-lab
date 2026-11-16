@@ -50,8 +50,8 @@ export function startDiscern({ stage, finish, random, hud = noHud }) {
       unit.setAttribute("aria-label", kind === "enemy" ? t("Enemy") : t("Ally"));
       unit.style.transform = `translate(${spot.x}px, ${spot.y}px)`;
       unit.hidden = false;
-      await run.frame();
-      current = { kind, hit: false, time: 0, shownAt: performance.now() };
+      const shownAt = await run.shown();
+      current = { kind, hit: false, time: 0, shownAt };
       results.push(current);
       timer = run.after(DISCERN_SHOWN, () => next(index + 1));
     });
